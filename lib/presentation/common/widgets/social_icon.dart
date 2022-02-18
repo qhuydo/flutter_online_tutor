@@ -1,14 +1,15 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class SocialIcon extends StatelessWidget {
   const SocialIcon({
     Key? key,
-    this.icon,
+    required this.icon,
     this.onPressed,
   }) : super(key: key);
 
-  final String? icon;
+  final Either<String, Icon> icon;
   final Function? onPressed;
 
   @override
@@ -24,7 +25,7 @@ class SocialIcon extends StatelessWidget {
           color: Color(0xFFF5F6F9),
           shape: BoxShape.circle,
         ),
-        child: SvgPicture.asset(icon!),
+        child: icon.fold((l) => SvgPicture.asset(l), (r) => r),
       ),
     );
   }
