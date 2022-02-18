@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../common/widgets/text_divider.dart';
+import '../../common/widgets/text_divider.dart';
 import 'forgot_password_button.dart';
 
 class AuthenScaffold extends StatelessWidget {

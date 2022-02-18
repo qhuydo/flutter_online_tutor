@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../common/widgets/phone_number_input.dart';
+import '../../common/widgets/phone_number_input.dart';
 import 'password_input.dart';
 
 class AuthenticateByPhoneNumberForm extends StatelessWidget {

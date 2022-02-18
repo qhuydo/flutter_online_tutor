@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 import '../../../common/widgets/social_icon.dart';
 
-class SignInOptionButtonGroup extends StatelessWidget {
+class LoginOptionButtonGroup extends StatelessWidget {
   final bool hasFacebookOption;
   final bool hasGoogleOption;
   final bool hasPhoneOption;
   final bool hasMailOption;
 
-  const SignInOptionButtonGroup(
+  const LoginOptionButtonGroup(
       {Key? key, this.hasFacebookOption = true,
       this.hasGoogleOption = true,
       this.hasPhoneOption = true,
