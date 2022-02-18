@@ -12,6 +12,7 @@ class LoginByPhonePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const AuthenScaffold(
+      title: 'Login',
       form: AuthenticateByPhoneNumberForm(),
       submitButton: LoginButton(),
       otherAuthenticateOptions: LoginOptionButtonGroup(

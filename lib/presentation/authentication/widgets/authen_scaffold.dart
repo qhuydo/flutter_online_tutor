@@ -8,9 +8,11 @@ class AuthenScaffold extends StatelessWidget {
   final Widget submitButton;
   final Widget? otherAuthenticateOptions;
   final Widget? otherOptions;
+  final String title;
 
   const AuthenScaffold(
       {Key? key,
+      required this.title,
       required this.form,
       required this.submitButton,
       this.otherAuthenticateOptions,
@@ -25,7 +27,7 @@ class AuthenScaffold extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: Text(title),
       ),
       body: SingleChildScrollView(
         child: Container(
