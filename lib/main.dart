@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_online_tutor/presentation/authentication/login/login_page.dart';
+
+import 'presentation/authentication/login/login_by_phone_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const LoginPage(),
+      home: const LoginByPhonePage(),
       debugShowCheckedModeBanner: false,
     );
   }

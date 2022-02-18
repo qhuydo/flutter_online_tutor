@@ -18,7 +18,7 @@ class _PasswordInputState extends State<PasswordInput> {
       decoration: InputDecoration(
         labelText: 'Password',
         hintText: 'Enter your password',
-        floatingLabelBehavior: FloatingLabelBehavior.always,
+        floatingLabelBehavior: FloatingLabelBehavior.auto,
         border: const OutlineInputBorder(),
         // filled: true,
         suffixIcon: GestureDetector(

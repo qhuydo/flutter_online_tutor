@@ -8,9 +8,9 @@ class EmailInput extends StatelessWidget {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
       decoration: const InputDecoration(
-          labelText: "Email",
-          hintText: "Enter your email",
-          floatingLabelBehavior: FloatingLabelBehavior.always,
+          labelText: 'Email',
+          hintText: 'Enter your email',
+          // floatingLabelBehavior: FloatingLabelBehavior.always,
           border: OutlineInputBorder()),
     );
   }
