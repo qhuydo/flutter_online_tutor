@@ -35,6 +35,9 @@ dependencies:
   flutter_svg: ^1.0.3
   # Functional Programming in Dart.
   dartz: ^0.10.1
+  # AutoRoute is a declarative routing solution,
+  # where everything needed for navigation is automatically generated for you.
+  auto_route: ^3.2.3+1
 
 dev_dependencies:
   flutter_test:
@@ -46,6 +49,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
+  auto_route_generator: 3.2.3
+  build_runner: ^2.1.7
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
