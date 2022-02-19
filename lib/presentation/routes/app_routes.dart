@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 
 import '../authentication/login/login_by_phone_page.dart';
 import '../authentication/login/login_page.dart';
+import '../authentication/reset_password/reset_password_page.dart';
 import '../authentication/sign_up/sign_up_by_phone_page.dart';
 import '../authentication/sign_up/sign_up_page.dart';
 
@@ -13,5 +14,6 @@ import '../authentication/sign_up/sign_up_page.dart';
       AutoRoute(page: LoginByPhonePage),
       AutoRoute(page: SignUpPage),
       AutoRoute(page: SignUpByPhonePage),
+      AutoRoute(page: ResetPasswordPage),
     ])
 class $AppRouter {}

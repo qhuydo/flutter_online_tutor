@@ -9,15 +9,17 @@ class AuthenScaffold extends StatelessWidget {
   final Widget? otherAuthenticateOptions;
   final Widget? otherOptions;
   final String title;
+  final bool shouldShowForgotPasswordButton;
 
-  const AuthenScaffold(
-      {Key? key,
-      required this.title,
-      required this.form,
-      required this.submitButton,
-      this.otherAuthenticateOptions,
-      this.otherOptions})
-      : super(key: key);
+  const AuthenScaffold({
+    Key? key,
+    required this.title,
+    required this.form,
+    required this.submitButton,
+    this.otherAuthenticateOptions,
+    this.otherOptions,
+    this.shouldShowForgotPasswordButton = true,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +51,7 @@ class AuthenScaffold extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
-              const ForgotPasswordButton(),
+              if (shouldShowForgotPasswordButton) const ForgotPasswordButton(),
               const SizedBox(
                 height: 8,
               ),
