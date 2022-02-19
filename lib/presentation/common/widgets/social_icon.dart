@@ -14,15 +14,16 @@ class SocialIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onPressed as void Function()?,
+      borderRadius: BorderRadius.circular(46),
       child: Container(
         padding: const EdgeInsets.all(12),
         margin: const EdgeInsets.symmetric(horizontal: 10),
         height: 56,
         width: 56,
         decoration: const BoxDecoration(
-          color: Color(0xFFF5F6F9),
+          // color: Color(0xFFF5F6F9),
           shape: BoxShape.circle,
         ),
         child: icon.fold((l) => SvgPicture.asset(l), (r) => r),

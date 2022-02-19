@@ -1,35 +1,27 @@
 import 'package:flutter/material.dart';
 
-import 'presentation/authentication/login/login_by_phone_page.dart';
-import 'presentation/authentication/sign_up/sign_up_by_phone_page.dart';
-import 'presentation/authentication/sign_up/sign_up_page.dart';
+import 'presentation/routes/app_routes.gr.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(OnlySenpaiApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class OnlySenpaiApp extends StatelessWidget {
+  final _appRouter = AppRouter();
+  OnlySenpaiApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
+        // TODO update global theme
         primarySwatch: Colors.blue,
       ),
-      home: const SignUpByPhonePage(),
+      // home: const SignUpByPhonePage(),
       debugShowCheckedModeBanner: false,
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
     );
   }
 }

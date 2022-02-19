@@ -26,6 +26,7 @@ class _PhoneNumberInputState extends State<PhoneNumberInput> {
             onChanged: (value) {},
             value: 'VN',
             decoration: const InputDecoration(
+              contentPadding: EdgeInsets.all(18),
               border: OutlineInputBorder()
             ),
           ),
