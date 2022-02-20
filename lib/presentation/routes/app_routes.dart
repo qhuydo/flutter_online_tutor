@@ -5,6 +5,7 @@ import '../authentication/login/login_page.dart';
 import '../authentication/reset_password/reset_password_page.dart';
 import '../authentication/sign_up/sign_up_by_phone_page.dart';
 import '../authentication/sign_up/sign_up_page.dart';
+import '../home/home_page.dart';
 
 @MaterialAutoRouter(
     preferRelativeImports: true,
@@ -15,5 +16,6 @@ import '../authentication/sign_up/sign_up_page.dart';
       AutoRoute(page: SignUpPage),
       AutoRoute(page: SignUpByPhonePage),
       AutoRoute(page: ResetPasswordPage),
+      AutoRoute(page: HomePage),
     ])
 class $AppRouter {}

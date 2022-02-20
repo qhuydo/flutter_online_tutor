@@ -7,7 +7,7 @@ class ResetPasswordButton extends SubmitButton {
       : super(key: key, text: 'Send request link');
 
   @override
-  void onPressed() {
+  void onPressed(BuildContext context) {
     // TODO: implement onPressed
   }
 }

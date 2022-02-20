@@ -6,7 +6,7 @@ class SignUpButton extends SubmitButton {
   const SignUpButton({Key? key}) : super(key: key, text: 'Sign up');
 
   @override
-  void onPressed() {
+  void onPressed(BuildContext context) {
     // TODO: implement onPressed
   }
 }

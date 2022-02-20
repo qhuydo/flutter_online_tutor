@@ -17,6 +17,7 @@ class OnlySenpaiApp extends StatelessWidget {
       theme: ThemeData(
         // TODO update global theme
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       // home: const SignUpByPhonePage(),
       debugShowCheckedModeBanner: false,
