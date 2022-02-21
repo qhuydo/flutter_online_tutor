@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../tutor/widgets/tutor_card.dart';
 import 'widgets/widgets.dart';
 
 class DashboardPage extends StatelessWidget {
@@ -16,7 +15,6 @@ class DashboardPage extends StatelessWidget {
             DashboardCard(),
             SizedBox(height: 16),
             RecommendedTutors(),
-            TutorCard(),
           ],
         ),
       ),
