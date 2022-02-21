@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
 
+import '../../../common.dart';
 import '../../../routes/app_routes.gr.dart';
 
 class LoginHint extends StatelessWidget {
@@ -11,10 +11,12 @@ class LoginHint extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text('Already had an account?'),
-        TextButton(onPressed: () {
-          context.router.replace(const LoginRoute());
-        }, child: const Text('Login'))
+        Text(AppLocalizations.of(context)!.loginHint),
+        TextButton(
+            onPressed: () {
+              context.router.replace(const LoginRoute());
+            },
+            child: Text(AppLocalizations.of(context)!.loginButtonText))
       ],
     );
   }

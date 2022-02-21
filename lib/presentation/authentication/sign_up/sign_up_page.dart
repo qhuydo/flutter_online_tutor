@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-
+import '../../common.dart';
 import '../widgets/authen_scaffold.dart';
 import '../widgets/authenticate_by_mail_form.dart';
 import 'widgets/login_hint.dart';
@@ -11,12 +10,12 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AuthenScaffold(
-      title: 'Sign up',
-      form: AuthenticateByMailForm(),
-      submitButton: SignUpButton(),
-      otherAuthenticateOptions: SignupOptionButtonGroup(),
-      otherOptions: LoginHint(),
+    return AuthenScaffold(
+      title: AppLocalizations.of(context)!.signUpButtonText,
+      form: const AuthenticateByMailForm(),
+      submitButton: const SignUpButton(),
+      otherAuthenticateOptions: const SignupOptionButtonGroup(),
+      otherOptions: const LoginHint(),
     );
   }
 }

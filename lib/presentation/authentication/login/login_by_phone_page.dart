@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 
+import '../../common.dart';
 import '../widgets/authen_scaffold.dart';
 import '../widgets/authenticate_by_phone_form.dart';
 import 'widgets/login_button.dart';
@@ -11,15 +11,15 @@ class LoginByPhonePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AuthenScaffold(
-      title: 'Login',
-      form: AuthenticateByPhoneNumberForm(),
-      submitButton: LoginButton(),
-      otherAuthenticateOptions: LoginOptionButtonGroup(
+    return AuthenScaffold(
+      title: AppLocalizations.of(context)!.loginButtonText,
+      form: const AuthenticateByPhoneNumberForm(),
+      submitButton: const LoginButton(),
+      otherAuthenticateOptions: const LoginOptionButtonGroup(
         hasMailOption: true,
         hasPhoneOption: false,
       ),
-      otherOptions: SignupHint(),
+      otherOptions: const SignupHint(),
     );
   }
 }

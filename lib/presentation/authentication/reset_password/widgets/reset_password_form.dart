@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-
+import '../../../common.dart';
 import '../../widgets/email_input.dart';
 
 class ResetPasswordForm extends StatelessWidget {
@@ -8,10 +7,12 @@ class ResetPasswordForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [
-        Text('Please provide your email address to search for your account'),
-        SizedBox(height: 16,),
-        EmailInput(),
+      children: [
+        Text(AppLocalizations.of(context)!.resetPasswordDescription),
+        const SizedBox(
+          height: 16,
+        ),
+        const EmailInput(),
       ],
     );
   }

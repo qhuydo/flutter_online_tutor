@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-
+import '../../common.dart';
 import '../../common/widgets/text_divider.dart';
 import 'forgot_password_button.dart';
 
@@ -60,8 +59,8 @@ class AuthenScaffold extends StatelessWidget {
                 height: 24,
               ),
               if (otherAuthenticateOptions != null) ...[
-                const TextDivider(
-                  text: 'OR',
+                TextDivider(
+                  text: AppLocalizations.of(context)!.or.toUpperCase(),
                 ),
                 const SizedBox(
                   height: 16,

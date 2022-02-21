@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import '../../common.dart';
 
 class PhoneNumberInput extends StatefulWidget {
   const PhoneNumberInput({Key? key}) : super(key: key);
@@ -16,8 +16,7 @@ class _PhoneNumberInputState extends State<PhoneNumberInput> {
         Expanded(
           flex: 1,
           child: DropdownButtonFormField(
-            items: <String>['VN']
-                .map<DropdownMenuItem<String>>((String value) {
+            items: <String>['VN'].map<DropdownMenuItem<String>>((String value) {
               return DropdownMenuItem<String>(
                 value: value,
                 child: Text(value),
@@ -26,9 +25,8 @@ class _PhoneNumberInputState extends State<PhoneNumberInput> {
             onChanged: (value) {},
             value: 'VN',
             decoration: const InputDecoration(
-              contentPadding: EdgeInsets.all(18),
-              border: OutlineInputBorder()
-            ),
+                contentPadding: EdgeInsets.all(18),
+                border: OutlineInputBorder()),
           ),
         ),
         const SizedBox(
@@ -38,11 +36,11 @@ class _PhoneNumberInputState extends State<PhoneNumberInput> {
           flex: 2,
           child: TextFormField(
             keyboardType: TextInputType.emailAddress,
-            decoration: const InputDecoration(
-                labelText: 'Phone number',
-                hintText: 'Enter your phone number',
+            decoration: InputDecoration(
+                labelText: AppLocalizations.of(context)!.phoneNumberLabel,
+                hintText: AppLocalizations.of(context)!.phoneNumberTextBoxHint,
                 // floatingLabelBehavior: FloatingLabelBehavior.auto,
-                border: OutlineInputBorder()),
+                border: const OutlineInputBorder()),
           ),
         ),
       ],

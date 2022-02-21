@@ -1,3 +1,32 @@
 {
-  "helloWorld": "Xin chào thế giới"
+    "@@locale": "vi",
+    "@@last_modified": "2022-02-21T14:12:58+00:00",
+    "helloWorld": "Xin chào thế giới",
+    "@helloWorld": {
+        "description": "The conventional newborn programmer greeting"
+    },
+    "appTitle": "Gia sư trực tuyến",
+    "@appTitle": {
+        "description": "Title of the app - Online tutor"
+    },
+    "loginButtonText": "Đăng nhập",
+    "loginHint": "Bạn đã có tài khoản?",
+    "signUpHint": "Bạn không phải là thành viên?",
+    "signUpButtonText": "Đăng ký",
+    "emailLabel": "Email",
+    "emailTextBoxHint": "Nhập email",
+    "passwordLabel": "Mật khẩu",
+    "passwordTextBoxHint": "Nhập mật khẩu",
+    "upComingLesson": "Buổi học sắp diễn ra",
+    "enterLessonRoom": "Vào phòng học",
+    "totalHourLearnt": "Bạn đã học {totalHours}",
+    "resetPasswordButtonText": "Gửi yêu cầu thay đổi mật khẩu",
+    "resetPasswordDescription": "Xin hãy nhập email để tìm kiếm tài khoản của bạn.",
+    "resetPassword": "Đặt lại mật khẩu",
+    "forgotPasswordButtonLabel": "Quên mật khẩu?",
+    "showPassword": "Hiện mật khẩu",
+    "hidePassword": "Hide password",
+    "phoneNumberLabel": "Số điện thoại",
+    "phoneNumberTextBoxHint": "+84 000 0000 000",
+    "or": "hoặc"
 }

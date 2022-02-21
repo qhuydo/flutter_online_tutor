@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-
+import '../../common.dart';
 import '../widgets/authen_scaffold.dart';
 import 'widgets/reset_password_button.dart';
 import 'widgets/reset_password_form.dart';
@@ -9,10 +8,10 @@ class ResetPasswordPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AuthenScaffold(
-      title: 'Reset your password',
-      form: ResetPasswordForm(),
-      submitButton: ResetPasswordButton(),
+    return AuthenScaffold(
+      title: AppLocalizations.of(context)!.resetPassword,
+      form: const ResetPasswordForm(),
+      submitButton: const ResetPasswordButton(),
       shouldShowForgotPasswordButton: false,
     );
   }

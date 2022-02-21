@@ -1,6 +1,40 @@
 {
-  "helloWorld": "Hello World!",
-  "@helloWorld": {
-    "description": "The conventional newborn programmer greeting"
-  }
+    "@@locale": "en",
+    "@@last_modified": "2022-02-21T14:13:07+00:00",
+    "helloWorld": "Hello World!",
+    "@helloWorld": {
+        "description": "The conventional newborn programmer greeting"
+    },
+    "appTitle": "Online tutor",
+    "@appTitle": {
+        "description": "Title of the app - Online tutor"
+    },
+    "loginButtonText": "Login",
+    "loginHint": "Already had an account?",
+    "signUpHint": "Not a member yet?",
+    "signUpButtonText": "Sign up",
+    "emailLabel": "Email",
+    "emailTextBoxHint": "Enter your email",
+    "passwordLabel": "Password",
+    "passwordTextBoxHint": "Enter your password",
+    "upComingLesson": "Upcoming lesson",
+    "enterLessonRoom": "Enter lesson room",
+    "totalHourLearnt": "You have learnt for {totalHours}",
+    "@totalHourLearnt": {
+        "placeholders": {
+            "totalHours": {
+                "type": "String",
+                "example": "12 hours 12 minutes"
+            }
+        }
+    },
+    "resetPasswordButtonText": "Send request link",
+    "resetPasswordDescription": "Please provide your email address to search for your account",
+    "resetPassword": "Reset your password",
+    "forgotPasswordButtonLabel": "Forgot password?",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "phoneNumberLabel": "Phone number",
+    "phoneNumberTextBoxHint": "+0 000 0000 000",
+    "or": "or"
 }

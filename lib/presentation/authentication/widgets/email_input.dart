@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import '../../common.dart';
 
 class EmailInput extends StatelessWidget {
   const EmailInput({Key? key}) : super(key: key);
@@ -7,11 +7,11 @@ class EmailInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
-      decoration: const InputDecoration(
-          labelText: 'Email',
-          hintText: 'Enter your email',
+      decoration: InputDecoration(
+          labelText: AppLocalizations.of(context)!.emailLabel,
+          hintText: AppLocalizations.of(context)!.emailTextBoxHint,
           // floatingLabelBehavior: FloatingLabelBehavior.always,
-          border: OutlineInputBorder()),
+          border: const OutlineInputBorder()),
     );
   }
 }

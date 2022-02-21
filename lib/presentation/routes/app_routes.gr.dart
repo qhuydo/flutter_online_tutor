@@ -18,7 +18,7 @@ import '../authentication/login/login_page.dart' as _i1;
 import '../authentication/reset_password/reset_password_page.dart' as _i5;
 import '../authentication/sign_up/sign_up_by_phone_page.dart' as _i4;
 import '../authentication/sign_up/sign_up_page.dart' as _i3;
-import '../home/home_page.dart' as _i6;
+import '../home_page.dart' as _i6;
 
 class AppRouter extends _i7.RootStackRouter {
   AppRouter([_i8.GlobalKey<_i8.NavigatorState>? navigatorKey])
@@ -60,7 +60,7 @@ class AppRouter extends _i7.RootStackRouter {
         _i7.RouteConfig(SignUpByPhoneRoute.name,
             path: '/sign-up-by-phone-page'),
         _i7.RouteConfig(ResetPasswordRoute.name, path: '/reset-password-page'),
-        _i7.RouteConfig(HomeRoute.name, path: '/home-page')
+        _i7.RouteConfig(HomeRoute.name, path: '/dashboard-page')
       ];
 }
 
@@ -110,7 +110,7 @@ class ResetPasswordRoute extends _i7.PageRouteInfo<void> {
 /// generated route for
 /// [_i6.HomePage]
 class HomeRoute extends _i7.PageRouteInfo<void> {
-  const HomeRoute() : super(HomeRoute.name, path: '/home-page');
+  const HomeRoute() : super(HomeRoute.name, path: '/dashboard-page');
 
   static const String name = 'HomeRoute';
 }

@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
 
 import '../../../routes/app_routes.gr.dart';
+import '../../../common.dart';
 
 class SignupHint extends StatelessWidget {
   const SignupHint({Key? key}) : super(key: key);
@@ -11,10 +11,14 @@ class SignupHint extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text('Not a member yet?'),
+        Text(
+          AppLocalizations.of(context)!.signUpHint
+        ),
         TextButton(onPressed: () {
           context.router.replace(const SignUpRoute());
-        }, child: const Text('Sign up'))
+        }, child: Text(
+          AppLocalizations.of(context)!.signUpButtonText
+        ))
       ],
     );
   }

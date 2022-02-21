@@ -1,5 +1,5 @@
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import '../../common.dart';
 
 class PasswordInput extends StatefulWidget {
   const PasswordInput({Key? key}) : super(key: key);
@@ -16,8 +16,8 @@ class _PasswordInputState extends State<PasswordInput> {
     return TextFormField(
       obscureText: _obscureText,
       decoration: InputDecoration(
-        labelText: 'Password',
-        hintText: 'Enter your password',
+        labelText: AppLocalizations.of(context)!.passwordLabel,
+        hintText: AppLocalizations.of(context)!.passwordTextBoxHint,
         floatingLabelBehavior: FloatingLabelBehavior.auto,
         border: const OutlineInputBorder(),
         // filled: true,
@@ -30,7 +30,9 @@ class _PasswordInputState extends State<PasswordInput> {
           },
           child: Icon(
             _obscureText ? Icons.visibility : Icons.visibility_off,
-            semanticLabel: _obscureText ? 'Show password' : 'Hide password',
+            semanticLabel: _obscureText
+                ? AppLocalizations.of(context)!.showPassword
+                : AppLocalizations.of(context)!.hidePassword,
           ),
         ),
       ),
