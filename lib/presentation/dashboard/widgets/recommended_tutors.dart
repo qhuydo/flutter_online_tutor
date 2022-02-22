@@ -18,13 +18,15 @@ class RecommendedTutors extends StatelessWidget {
               '🌟 ' + AppLocalizations.of(context)!.recommendedTutors,
               maxLines: 2,
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                  // decoration: TextDecoration.underline,
+                    // decoration: TextDecoration.underline,
+                    fontWeight: FontWeight.bold,
                   ),
               textAlign: TextAlign.start,
             ),
             TextButton(
               onPressed: () {},
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
                     AppLocalizations.of(context)!.seeMoreButtonText,
@@ -36,8 +38,20 @@ class RecommendedTutors extends StatelessWidget {
             )
           ],
         ),
-        const SizedBox(height: 16),
-        const TutorCard()
+        // const SizedBox(height: 16),
+        ListView.separated(
+          separatorBuilder: (BuildContext context, int index) {
+            return const SizedBox(height: 8);
+          },
+          itemBuilder: (BuildContext context, int index) {
+            return const TutorCard();
+          },
+          physics: const NeverScrollableScrollPhysics(),
+          primary: false,
+          itemCount: 5,
+          shrinkWrap: true,
+        ),
+        // const TutorCard(),
       ],
     );
   }

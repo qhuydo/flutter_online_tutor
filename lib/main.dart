@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'presentation/routes/app_routes.gr.dart';
 
@@ -22,6 +23,9 @@ class OnlySenpaiApp extends StatelessWidget {
         // TODO update global theme
         // primarySwatch: Colors.blue,
         visualDensity: VisualDensity.standard,
+        textTheme: GoogleFonts.manropeTextTheme(
+          ThemeData.light().textTheme
+        ),
       ),
       // home: const SignUpByPhonePage(),
       debugShowCheckedModeBanner: false,

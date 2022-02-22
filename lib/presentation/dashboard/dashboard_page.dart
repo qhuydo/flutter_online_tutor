@@ -10,6 +10,7 @@ class DashboardPage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: const [
             DashboardCard(),

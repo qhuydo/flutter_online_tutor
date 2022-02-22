@@ -35,6 +35,8 @@ dependencies:
   # Twitter Emojis for Flutter, this package supports svg and png 72x72 emojis
   twemoji: ^0.4.2
 
+  google_fonts: ^2.3.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
