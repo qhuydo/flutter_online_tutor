@@ -1,3 +1,4 @@
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:twemoji/twemoji.dart';
 
 import '../../common.dart';
@@ -21,18 +22,37 @@ class TutorCardHeader extends StatelessWidget {
               Text(
                 'Nguyen Van A',
                 style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+                      fontWeight: FontWeight.bold,
+                    ),
                 maxLines: 2,
                 softWrap: true,
                 overflow: TextOverflow.ellipsis,
               ),
-              Text(
-                'Vietnam',
-                style: Theme.of(context).textTheme.bodySmall,
-                softWrap: true,
-                overflow: TextOverflow.ellipsis,
-              )
+              Wrap(
+                spacing: 8,
+                runSpacing: 4,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: [
+                  RatingBarIndicator(
+                    rating: 5,
+                    itemBuilder: (context, index) => const Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                    itemCount: 5,
+                    itemSize: 12,
+                    direction: Axis.horizontal,
+                  ),
+                  Text(
+                    'Vietnam',
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                    softWrap: true,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
             ],
           ),
         ),

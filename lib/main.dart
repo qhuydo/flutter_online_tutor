@@ -19,12 +19,12 @@ class OnlySenpaiApp extends StatelessWidget {
       title: 'Flutter Demo',
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      theme: ThemeData.light().copyWith(
+      theme: ThemeData.dark().copyWith(
         // TODO update global theme
         // primarySwatch: Colors.blue,
         visualDensity: VisualDensity.standard,
         textTheme: GoogleFonts.manropeTextTheme(
-          ThemeData.light().textTheme
+          ThemeData.dark().textTheme
         ),
       ),
       // home: const SignUpByPhonePage(),

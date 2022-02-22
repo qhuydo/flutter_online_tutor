@@ -7,16 +7,13 @@ class TutorCardActionButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          decoration: const ShapeDecoration(
-              shape: StadiumBorder(
-            side: BorderSide(width: 1.25),
-          )),
-          child: IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.favorite_border),
-              tooltip: AppLocalizations.of(context)!.addToFavouriteTooltip),
-        ),
+        IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.favorite_border,
+              size: 28,
+            ),
+            tooltip: AppLocalizations.of(context)!.addToFavouriteTooltip),
         const Expanded(child: SizedBox()),
         Wrap(
           spacing: 8,
@@ -24,8 +21,11 @@ class TutorCardActionButtons extends StatelessWidget {
           children: [
             MaterialButton(
               onPressed: () {},
-              shape: const StadiumBorder(
-                side: BorderSide(width: 1.25),
+              shape: StadiumBorder(
+                side: BorderSide(
+                  width: 1.25,
+                  color: Theme.of(context).iconTheme.color ?? Colors.black,
+                ),
               ),
               child: Row(
                 children: [
@@ -39,8 +39,11 @@ class TutorCardActionButtons extends StatelessWidget {
             ),
             MaterialButton(
               onPressed: () {},
-              shape: const StadiumBorder(
-                side: BorderSide(width: 1.25),
+              shape: StadiumBorder(
+                side: BorderSide(
+                  width: 1.25,
+                  color: Theme.of(context).iconTheme.color ?? Colors.black,
+                ),
               ),
               child: Row(
                 children: [
