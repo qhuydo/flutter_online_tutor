@@ -10,28 +10,27 @@ class RecommendedTutors extends StatelessWidget {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.baseline,
+          crossAxisAlignment: CrossAxisAlignment.center,
           textBaseline: TextBaseline.ideographic,
           children: [
+            // Twemoji(emoji: '🌟'),
             Text(
-              // AppLocalizations.of(context)!.recommendedTutors,
-              'Recommended tutors',
+              '🌟 ' + AppLocalizations.of(context)!.recommendedTutors,
               maxLines: 2,
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    decoration: TextDecoration.underline,
+                  // decoration: TextDecoration.underline,
                   ),
               textAlign: TextAlign.start,
             ),
             TextButton(
               onPressed: () {},
               child: Row(
-                children: const [
+                children: [
                   Text(
-                    // AppLocalizations.of(context)!.seeMoreButtonText,
-                    'See more',
+                    AppLocalizations.of(context)!.seeMoreButtonText,
                   ),
-                  SizedBox(width: 4),
-                  Icon(Icons.arrow_forward_ios)
+                  const SizedBox(width: 4),
+                  const Icon(Icons.arrow_forward_ios)
                 ],
               ),
             )

@@ -18,7 +18,7 @@ class OnlySenpaiApp extends StatelessWidget {
       title: 'Flutter Demo',
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      theme: ThemeData.dark().copyWith(
+      theme: ThemeData.light().copyWith(
         // TODO update global theme
         // primarySwatch: Colors.blue,
         visualDensity: VisualDensity.standard,

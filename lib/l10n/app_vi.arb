@@ -1,6 +1,6 @@
 {
     "@@locale": "vi",
-    "@@last_modified": "2022-02-21T14:12:58+00:00",
+    "@@last_modified": "2022-02-22T04:36:32+00:00",
     "helloWorld": "Xin chào thế giới",
     "@helloWorld": {
         "description": "The conventional newborn programmer greeting"
@@ -28,5 +28,14 @@
     "hidePassword": "Hide password",
     "phoneNumberLabel": "Số điện thoại",
     "phoneNumberTextBoxHint": "+84 000 0000 000",
-    "or": "hoặc"
+    "or": "hoặc",
+    "welcome": "Chào bạn đến với ứng dụng!",
+    "browseCourseButtonText": "Chọn khóa học",
+    "recommendedTutors": "Gia sư được đề xuất",
+    "seeMoreButtonText": "Xem thêm",
+    "loremIpsum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "addToFavouriteTooltip": "Yêu thích",
+    "removeFromFavouritesTooltip": "Xóa yêu thích",
+    "chatButtonText": "Nhắn tin",
+    "bookButtonText": "Đặt lịch"
 }
