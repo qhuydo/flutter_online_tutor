@@ -21,57 +21,43 @@ class TopicList extends StatelessWidget {
     );
   }
 
-  Widget buildList2(BuildContext context) {
-    return Stack(children: [
-      SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: const [
-            TopicChip(),
-            TopicChip(),
-            TopicChip(),
-            TopicChip(),
-          ],
-        ),
-      ),
-      Positioned(
-        // bottom: 0,
-        // left: 0,
-        right: 0,
-        width: 20,
-        height: 60,
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.topRight,
-              stops: const [0.0, 1.0],
-              colors: [
-                Theme.of(context).cardColor.withOpacity(0.0),
-                Theme.of(context).cardColor,
-              ],
-            ),
-          ),
-        ),
-      ),
-    ]);
-  }
-
   Widget buildList(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 40,
-      child: ListView.separated(
-        // primary: false,
-        shrinkWrap: true,
-        physics: const ClampingScrollPhysics(),
-        scrollDirection: Axis.horizontal,
-        separatorBuilder: (BuildContext context, int index) {
-          return const SizedBox(width: 8);
+      padding: const EdgeInsets.symmetric(horizontal: 2),
+      child: ShaderMask(
+        shaderCallback: (Rect rect) {
+          return LinearGradient(
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
+            colors: [
+              Theme.of(context).cardColor,
+              Colors.transparent,
+              Colors.transparent,
+              Theme.of(context).cardColor,
+            ],
+            stops: const [
+              0.0,
+              0.0,
+              0.9,
+              1.0,
+            ],
+          ).createShader(rect);
         },
-        itemBuilder: (BuildContext context, int index) {
-          return const TopicChip();
-        },
-        itemCount: 4,
+        blendMode: BlendMode.dstOut,
+        child: ListView.separated(
+          // primary: false,
+          shrinkWrap: true,
+          physics: const ClampingScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          separatorBuilder: (BuildContext context, int index) {
+            return const SizedBox(width: 8);
+          },
+          itemBuilder: (BuildContext context, int index) {
+            return const TopicChip();
+          },
+          itemCount: 4,
+        ),
       ),
     );
   }

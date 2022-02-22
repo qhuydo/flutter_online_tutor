@@ -21,7 +21,7 @@ class TopicChip extends StatelessWidget {
       onPressed: () {},
       shape: const StadiumBorder(
         side: BorderSide(
-          width: 1.25,
+          width: 1,
           color: Colors.blue,
         ),
       ),
