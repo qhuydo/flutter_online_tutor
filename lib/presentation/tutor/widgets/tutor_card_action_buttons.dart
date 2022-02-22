@@ -1,9 +1,7 @@
-import 'package:flutter/widgets.dart';
-
 import '../../common.dart';
 
-class TopicCardActionButtons extends StatelessWidget {
-  const TopicCardActionButtons({Key? key}) : super(key: key);
+class TutorCardActionButtons extends StatelessWidget {
+  const TutorCardActionButtons({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +27,10 @@ class TopicCardActionButtons extends StatelessWidget {
               shape: const StadiumBorder(
                 side: BorderSide(width: 1.25),
               ),
-              child: Wrap(
-                spacing: 4,
+              child: Row(
                 children: [
                   const Icon(Icons.event),
+                  const SizedBox(width: 4),
                   Text(
                     AppLocalizations.of(context)!.bookButtonText,
                   ),
@@ -44,10 +42,10 @@ class TopicCardActionButtons extends StatelessWidget {
               shape: const StadiumBorder(
                 side: BorderSide(width: 1.25),
               ),
-              child: Wrap(
-                spacing: 4,
+              child: Row(
                 children: [
                   const Icon(Icons.chat_bubble_outline),
+                  const SizedBox(width: 4),
                   Text(
                     AppLocalizations.of(context)!.chatButtonText,
                   ),

@@ -5,17 +5,31 @@ class TopicChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InputChip(
-      backgroundColor: Colors.transparent,
+    // return InputChip(
+    //   backgroundColor: Colors.transparent,
+    //   shape: const StadiumBorder(
+    //     side: BorderSide(color: Colors.blue, width: 1.25),
+    //   ),
+    //   label: Text(
+    //     'English for adults',
+    //     style:
+    //         Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.blue),
+    //   ),
+    //   onSelected: (bool value) {},
+    // );
+    return MaterialButton(
+      onPressed: () {},
       shape: const StadiumBorder(
-          side: BorderSide(color: Colors.blue, width: 1.25)),
-      label: Text(
-        'English of adults',
-        style: Theme.of(context).textTheme.caption?.copyWith(
-          color: Colors.blue
+        side: BorderSide(
+          width: 1.25,
+          color: Colors.blue,
         ),
       ),
-      onSelected: (bool value) {},
+      child: Text(
+        'English for adults',
+        style:
+            Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.blue),
+      ),
     );
   }
 }

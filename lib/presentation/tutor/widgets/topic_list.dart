@@ -12,7 +12,7 @@ class TopicList extends StatelessWidget {
       children: [
         Wrap(
           spacing: 8,
-          runSpacing: 8,
+          runSpacing: 0,
           children: const [
             TopicChip(),
             TopicChip(),

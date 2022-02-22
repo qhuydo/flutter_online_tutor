@@ -10,7 +10,7 @@ class TutorAvatar extends StatelessWidget {
     return Stack(children: [
       CircleAvatar(
         backgroundColor: Colors.grey.withOpacity(0.2),
-        radius: 32,
+        radius: 28,
         // child: SvgPicture.asset(
         //   'assets/icons/phone.svg',
         //   width: 40,
@@ -18,13 +18,13 @@ class TutorAvatar extends StatelessWidget {
         // ),
         child: Icon(
           Icons.person,
-          size: 40,
+          size: 36,
           color: Theme.of(context).colorScheme.onSurface,
         ),
       ),
       if (shouldShowStatus) Positioned(
-        bottom: 4,
-        right: 4,
+        bottom: 2,
+        right: 2,
         child: Container(
           width: 12,
           height: 12,
