@@ -1,6 +1,7 @@
-import 'package:flutter_svg/svg.dart';
+import 'package:twemoji/twemoji.dart';
 
 import '../../common.dart';
+import '../../utils/string_utils.dart';
 
 class TutorCard extends StatelessWidget {
   const TutorCard({Key? key}) : super(key: key);
@@ -49,13 +50,12 @@ class TutorCard extends StatelessWidget {
                       )
                     ],
                   ),
-
                 ),
-                SvgPicture.asset(
-                  'assets/icons/twemoji/f1f1b-f1f13.svg',
-                  height: 36,
-                  width: 36,
-                ),
+                Twemoji(
+                  emoji: 'VN'.toCountryFlagFromCountryCode(),
+                  width: 40,
+                  height: 40,
+                )
               ],
             )
           ],

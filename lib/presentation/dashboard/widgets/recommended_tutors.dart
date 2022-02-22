@@ -28,7 +28,7 @@ class RecommendedTutors extends StatelessWidget {
                 children: const [
                   Text(
                     // AppLocalizations.of(context)!.seeMoreButtonText,
-                    "See more",
+                    'See more',
                   ),
                   SizedBox(width: 4),
                   Icon(Icons.arrow_forward_ios)
@@ -37,6 +37,7 @@ class RecommendedTutors extends StatelessWidget {
             )
           ],
         ),
+        const SizedBox(height: 16),
         const TutorCard()
       ],
     );

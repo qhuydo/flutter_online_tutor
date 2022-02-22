@@ -32,6 +32,8 @@ dependencies:
   # Contains code to deal with internationalized/localized messages, date and number formatting
   # and parsing, bi-directional text, and other internationalization issues.
   intl: ^0.17.0
+  # Twitter Emojis for Flutter, this package supports svg and png 72x72 emojis
+  twemoji: ^0.4.2
 
 dev_dependencies:
   flutter_test:
