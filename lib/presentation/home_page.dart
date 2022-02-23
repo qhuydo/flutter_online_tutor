@@ -1,54 +1,57 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-import 'dashboard/dashboard_page.dart';
+import 'common.dart';
+import 'routes/app_routes.gr.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  var _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(AppLocalizations.of(context)!.helloWorld),
-      // ),
-      bottomNavigationBar: SalomonBottomBar(
-        currentIndex: _currentIndex,
-        onTap: (i) => setState(() => _currentIndex = i),
-        items: [
-          SalomonBottomBarItem(
-            icon: const Icon(Icons.home),
-            title: const Text('Home'),
-            selectedColor: Colors.blue,
+    return AutoTabsScaffold(
+      routes: const [
+        DashboardRoute(),
+        MessageRoute(),
+        CourseRoute(),
+        ProfileRoute(),
+      ],
+      bottomNavigationBuilder: (BuildContext context, tabsRouter) {
+        return SalomonBottomBar(
+          currentIndex: tabsRouter.activeIndex,
+          onTap: tabsRouter.setActiveIndex,
+          itemPadding: const EdgeInsets.symmetric(
+            vertical: 8,
+            horizontal: 8,
           ),
-
-          SalomonBottomBarItem(
-            icon: const Icon(Icons.favorite_border),
-            title: const Text('Likes'),
-            selectedColor: Colors.pink,
-          ),
-
-          SalomonBottomBarItem(
-            icon: const Icon(Icons.search),
-            title: const Text('Search'),
-            selectedColor: Colors.orange,
-          ),
-
-          SalomonBottomBarItem(
-            icon: const Icon(Icons.person),
-            title: const Text('Profile'),
-            selectedColor: Colors.teal,
-          ),
-        ],
-      ),
-      body: const DashboardPage(),
+          // margin: const EdgeInsets.fromLTRB(16, 0, 0, 16),
+          items: [
+            SalomonBottomBarItem(
+              icon: const Icon(Icons.home),
+              title: const Text('Home'),
+              selectedColor: Colors.blue,
+            ),
+            SalomonBottomBarItem(
+              icon: const Icon(Icons.message),
+              title: const Text('Messages'),
+              selectedColor: Colors.pink,
+            ),
+            SalomonBottomBarItem(
+              icon: const Icon(Icons.search),
+              title: const Text('Search'),
+              selectedColor: Colors.orange,
+            ),
+            SalomonBottomBarItem(
+              icon: const Icon(Icons.person),
+              title: const Text('Profile'),
+              selectedColor: Colors.teal,
+            ),
+          ],
+        );
+      },
+      // body: const SafeArea(child: DashboardPage()),
     );
   }
 }

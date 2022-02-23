@@ -1,6 +1,6 @@
 {
     "@@locale": "en",
-    "@@last_modified": "2022-02-22T04:36:34+00:00",
+    "@@last_modified": "2022-02-22T18:02:52+00:00",
     "helloWorld": "Hello World!",
     "@helloWorld": {
         "description": "The conventional newborn programmer greeting"
@@ -39,11 +39,12 @@
     "or": "or",
     "welcome": "Welcome to online tutor!",
     "browseCourseButtonText": "Browse courses",
-    "recommendedTutors": "Recommend tutors",
+    "recommendedTutors": "Recommended tutors",
     "seeMoreButtonText": "See all",
     "loremIpsum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "addToFavouriteTooltip": "Add to favourites",
     "removeFromFavouritesTooltip": "Remove from favourites",
     "chatButtonText": "Chat",
-    "bookButtonText": "Book"
+    "bookButtonText": "Book",
+    "recommendedCourses": "Recommended courses"
 }

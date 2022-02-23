@@ -11,6 +11,14 @@ import '../pages.dart';
       AutoRoute(page: SignUpPage),
       AutoRoute(page: SignUpByPhonePage),
       AutoRoute(page: ResetPasswordPage),
-      AutoRoute(page: HomePage),
+      AutoRoute(
+        page: HomePage,
+        children: [
+          AutoRoute(page: DashboardPage),
+          AutoRoute(page: MessagePage),
+          AutoRoute(page: CoursePage),
+          AutoRoute(page: ProfilePage),
+        ],
+      ),
     ])
 class $AppRouter {}
