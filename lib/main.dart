@@ -30,7 +30,9 @@ class OnlySenpaiApp extends StatelessWidget {
         // TODO update global theme
         // primarySwatch: Colors.blue,
         visualDensity: VisualDensity.standard,
-        textTheme: GoogleFonts.manropeTextTheme(ThemeData.light().textTheme),
+        textTheme: GoogleFonts.manropeTextTheme(
+          ThemeData.light().textTheme,
+        ),
       ),
       // home: const SignUpByPhonePage(),
       debugShowCheckedModeBanner: false,
