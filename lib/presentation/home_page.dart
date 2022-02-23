@@ -78,7 +78,7 @@ class HomePage extends StatelessWidget {
                 icon: Icons.event_outlined,
                 activeIcon: Icons.event,
                 text: 'Schedule',
-                selectedColour: Colors.indigo),
+                selectedColour: Colors.pinkAccent),
             buildNavBarItem(
                 icon: Icons.message_outlined,
                 activeIcon: Icons.message,

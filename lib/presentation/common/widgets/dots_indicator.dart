@@ -45,7 +45,7 @@ class DotsIndicator extends AnimatedWidget {
     double selectedness = Curves.easeOut.transform(
       max(
         0.0,
-        1.0 - ((controller.page ?? controller.initialPage) - index).abs(),
+        1.0 - ((controller.page ?? controller.initialPage) % itemCount - index).abs(),
       ),
     );
     double zoom = 1.0 + (_kMaxZoom - 1.0) * selectedness;
