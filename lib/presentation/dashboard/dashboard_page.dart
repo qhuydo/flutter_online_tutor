@@ -7,16 +7,20 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      child: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Column(
-          children: const [
-            DashboardCard(),
-            SizedBox(height: 16),
-            RecommendedTutors(),
-          ],
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: const [
+              DashboardCard(),
+              SizedBox(height: 16),
+              RecommendedCourses(),
+              SizedBox(height: 16),
+              RecommendedTutors(),
+            ],
+          ),
         ),
       ),
     );
