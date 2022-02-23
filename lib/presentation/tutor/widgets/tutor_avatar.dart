@@ -3,14 +3,17 @@ import '../../common.dart';
 class TutorAvatar extends StatelessWidget {
   final bool shouldShowStatus;
 
-  const TutorAvatar({Key? key, this.shouldShowStatus = true}) : super(key: key);
+  const TutorAvatar({
+    Key? key,
+    this.shouldShowStatus = true,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
       CircleAvatar(
         backgroundColor: Colors.grey.withOpacity(0.2),
-        radius: 28,
+        radius: 32,
         // child: SvgPicture.asset(
         //   'assets/icons/phone.svg',
         //   width: 40,
@@ -18,13 +21,13 @@ class TutorAvatar extends StatelessWidget {
         // ),
         child: Icon(
           Icons.person,
-          size: 36,
+          size: 40,
           color: Theme.of(context).colorScheme.onSurface,
         ),
       ),
       if (shouldShowStatus) Positioned(
         bottom: 2,
-        right: 2,
+        right: 4,
         child: Container(
           width: 12,
           height: 12,

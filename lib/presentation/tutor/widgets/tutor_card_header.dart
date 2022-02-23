@@ -21,7 +21,7 @@ class TutorCardHeader extends StatelessWidget {
             children: [
               Text(
                 'Nguyen Van A',
-                style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
                 maxLines: 2,

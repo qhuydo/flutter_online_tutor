@@ -49,13 +49,17 @@ class AppRouter extends _i2.RootStackRouter {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.DashboardPage());
     },
-    MessageRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i1.MessagePage());
-    },
     CourseRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.CoursePage());
+    },
+    ScheduleRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.SchedulePage());
+    },
+    MessageRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.MessagePage());
     },
     ProfileRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
@@ -74,10 +78,12 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(HomeRoute.name, path: '/home-page', children: [
           _i2.RouteConfig(DashboardRoute.name,
               path: 'dashboard-page', parent: HomeRoute.name),
-          _i2.RouteConfig(MessageRoute.name,
-              path: 'message-page', parent: HomeRoute.name),
           _i2.RouteConfig(CourseRoute.name,
               path: 'course-page', parent: HomeRoute.name),
+          _i2.RouteConfig(ScheduleRoute.name,
+              path: 'schedule-page', parent: HomeRoute.name),
+          _i2.RouteConfig(MessageRoute.name,
+              path: 'message-page', parent: HomeRoute.name),
           _i2.RouteConfig(ProfileRoute.name,
               path: 'profile-page', parent: HomeRoute.name)
         ])
@@ -145,19 +151,27 @@ class DashboardRoute extends _i2.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i1.MessagePage]
-class MessageRoute extends _i2.PageRouteInfo<void> {
-  const MessageRoute() : super(MessageRoute.name, path: 'message-page');
-
-  static const String name = 'MessageRoute';
-}
-
-/// generated route for
 /// [_i1.CoursePage]
 class CourseRoute extends _i2.PageRouteInfo<void> {
   const CourseRoute() : super(CourseRoute.name, path: 'course-page');
 
   static const String name = 'CourseRoute';
+}
+
+/// generated route for
+/// [_i1.SchedulePage]
+class ScheduleRoute extends _i2.PageRouteInfo<void> {
+  const ScheduleRoute() : super(ScheduleRoute.name, path: 'schedule-page');
+
+  static const String name = 'ScheduleRoute';
+}
+
+/// generated route for
+/// [_i1.MessagePage]
+class MessageRoute extends _i2.PageRouteInfo<void> {
+  const MessageRoute() : super(MessageRoute.name, path: 'message-page');
+
+  static const String name = 'MessageRoute';
 }
 
 /// generated route for

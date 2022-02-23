@@ -15,8 +15,9 @@ import '../pages.dart';
         page: HomePage,
         children: [
           AutoRoute(page: DashboardPage),
-          AutoRoute(page: MessagePage),
           AutoRoute(page: CoursePage),
+          AutoRoute(page: SchedulePage),
+          AutoRoute(page: MessagePage),
           AutoRoute(page: ProfilePage),
         ],
       ),
