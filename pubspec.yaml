@@ -21,33 +21,50 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
+
   # Draw SVG (and some Android VectorDrawable (XML)) files on a Flutter Widget.
   # By Dan Field.
   flutter_svg: ^1.0.3
+
   # Functional Programming in Dart.
   # By Björn Sperber.
   dartz: ^0.10.1
+
   # AutoRoute is a declarative routing solution,
   # where everything needed for navigation is automatically generated for you.
   # By Milad Akarie.
   auto_route: ^3.2.4
+
   # Yet another bottom navigation bar, but with a few key promises.
   # By Luke Pighetti.
   salomon_bottom_bar: ^3.2.0
+
   # Contains code to deal with internationalized/localized messages, date and number formatting
   # and parsing, bi-directional text, and other internationalization issues.
   # By the Dart project authors.
   intl: ^0.17.0
+
   # Twitter Emojis for Flutter, this package supports svg and png 72x72 emojis
   # By Abdelhadi Shaar.
   twemoji: ^0.4.2
+
   # A package to include fonts from fonts.google.com in your Flutter app.
   # By material.io.
   google_fonts: ^2.3.1
+
   # A simple yet fully customizable ratingbar for flutter which also include a rating bar indicator,
   # supporting any fraction of rating.
   # By Sarbagya Dhaubanjar.
   flutter_rating_bar: ^4.0.0
+
+  # Allows resizing and repositioning the window containing the Flutter content, as well as querying
+  # screen information
+  # This is a prototype, and in the long term is expected to be replaced by functionality within
+  # the Flutter framework.
+  window_size:
+    git:
+      url: git://github.com/google/flutter-desktop-embedding.git
+      path: plugins/window_size
 
 dev_dependencies:
   flutter_test:
