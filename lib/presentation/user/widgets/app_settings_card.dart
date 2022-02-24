@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:twemoji/twemoji.dart';
 
+import '../../common.dart';
 import '../../utils/string_utils.dart';
 import '../helpers/list_item.dart';
 import 'settings_card.dart';
@@ -13,16 +13,16 @@ class AppSettingsCard extends StatelessWidget {
     final _settingList = [
       ListItem(
         iconData: Icons.dark_mode_outlined,
-        title: 'Dark mode',
+        title: AppLocalizations.of(context)!.darkModeLabel,
         onTap: () {},
         trailingWidget: Text(
-          'Default',
+          AppLocalizations.of(context)!.darkModeDefaultValue,
           style: Theme.of(context).textTheme.caption,
         ),
       ),
       ListItem(
         iconData: Icons.palette_outlined,
-        title: 'Color palette',
+        title: AppLocalizations.of(context)!.colorPaletteLabel,
         onTap: () {},
         trailingWidget: Container(
           height: 32,
@@ -32,10 +32,10 @@ class AppSettingsCard extends StatelessWidget {
       ),
       ListItem(
         iconData: Icons.language,
-        title: 'Language',
+        title: AppLocalizations.of(context)!.languageLabel,
         onTap: () {},
         trailingWidget: Twemoji(
-          emoji: 'VN'.toCountryFlagFromCountryCode(),
+          emoji: 'GB'.toCountryFlagFromCountryCode(),
           width: 32,
           height: 32,
         ),
@@ -45,7 +45,7 @@ class AppSettingsCard extends StatelessWidget {
     return SettingsCard(
       settingList: _settingList,
       headerIcon: Icons.settings,
-      title: 'Settings',
+      title: AppLocalizations.of(context)!.settingsCardHeader,
     );
   }
 }

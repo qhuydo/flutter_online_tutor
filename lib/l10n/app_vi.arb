@@ -1,6 +1,6 @@
 {
     "@@locale": "vi",
-    "@@last_modified": "2022-02-22T18:02:44+00:00",
+    "@@last_modified": "2022-02-24T15:33:14+00:00",
     "helloWorld": "Xin chào thế giới",
     "@helloWorld": {
         "description": "The conventional newborn programmer greeting"
@@ -38,5 +38,31 @@
     "removeFromFavouritesTooltip": "Xóa yêu thích",
     "chatButtonText": "Nhắn tin",
     "bookButtonText": "Đặt lịch",
-    "recommendedCourses": "Khóa học đề xuất"
+    "recommendedCourses": "Khóa học đề xuất",
+    "settingsCardHeader": "Cài đặt",
+    "editProfileLabel": "Sửa thông tin tài khoản",
+    "myWalletLabel": "Thông tin ví",
+    "darkModeLabel": "Giao diện tối",
+    "darkModeDefaultValue": "Theo hệ thống",
+    "darkModeEnabledValue": "Đã bật",
+    "darkModeDisabledValue": "Đã tắt",
+    "darkModeDefaultOption": "Theo hệ thống",
+    "darkModeEnableOption": "Bật",
+    "darkModeDisableOption": "Tắt",
+    "colorPaletteLabel": "Chế độ màu",
+    "languageLabel": "Ngôn ngữ",
+    "helpAndInfoLabel": "Thông tin & trợ giúp",
+    "aboutTheAppLabel": "Thông tin ứng dụng",
+    "licenseLabel": "Giấy phép mã nguồn mở",
+    "rateLabel": "Đánh giá ứng dụng",
+    "termsOfServiceLabel": "Điều khoản dịch vụ",
+    "privacyPolicyLabel": "Chính sách bảo mật",
+    "changePasswordLabel": "Đổi mật khẩu",
+    "logOutLabel": "Đăng xuất",
+    "languageDefaultValue": "Mặc định",
+    "homeBottomNavItem": "Trang chủ",
+    "courseBottomNavItem": "Khóa học",
+    "scheduleBottomNavItem": "Lịch học",
+    "messagesBottomNavItem": "Tin nhắn",
+    "settingsBottomNavItem": "Cài đặt"
 }

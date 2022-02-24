@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import 'common.dart';
@@ -66,28 +65,28 @@ class HomePage extends StatelessWidget {
             buildNavBarItem(
               icon: Icons.home_outlined,
               activeIcon: Icons.home,
-              text: 'Home',
+              text: AppLocalizations.of(context)!.homeBottomNavItem,
               selectedColour: Colors.blue,
             ),
             buildNavBarItem(
                 icon: Icons.book_outlined,
                 activeIcon: Icons.book,
-                text: 'Courses',
+                text: AppLocalizations.of(context)!.courseBottomNavItem,
                 selectedColour: Colors.green),
             buildNavBarItem(
                 icon: Icons.event_outlined,
                 activeIcon: Icons.event,
-                text: 'Schedule',
+                text: AppLocalizations.of(context)!.scheduleBottomNavItem,
                 selectedColour: Colors.pinkAccent),
             buildNavBarItem(
                 icon: Icons.message_outlined,
                 activeIcon: Icons.message,
-                text: 'Messages',
+                text: AppLocalizations.of(context)!.messagesBottomNavItem,
                 selectedColour: Colors.deepOrange),
             buildNavBarItem(
                 icon: Icons.settings_outlined,
                 activeIcon: Icons.settings,
-                text: 'Settings',
+                text: AppLocalizations.of(context)!.settingsBottomNavItem,
                 selectedColour: Colors.teal),
           ],
         );

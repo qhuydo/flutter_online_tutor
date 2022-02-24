@@ -1,6 +1,6 @@
 {
     "@@locale": "en",
-    "@@last_modified": "2022-02-22T18:02:52+00:00",
+    "@@last_modified": "2022-02-24T15:33:19+00:00",
     "helloWorld": "Hello World!",
     "@helloWorld": {
         "description": "The conventional newborn programmer greeting"
@@ -46,5 +46,31 @@
     "removeFromFavouritesTooltip": "Remove from favourites",
     "chatButtonText": "Chat",
     "bookButtonText": "Book",
-    "recommendedCourses": "Recommended courses"
+    "recommendedCourses": "Recommended courses",
+    "settingsCardHeader": "Settings",
+    "editProfileLabel": "Edit profile",
+    "myWalletLabel": "My wallet",
+    "darkModeLabel": "Dark mode",
+    "darkModeDefaultValue": "Default",
+    "darkModeEnabledValue": "Enabled",
+    "darkModeDisabledValue": "Disabled",
+    "darkModeDefaultOption": "Default",
+    "darkModeEnableOption": "Enable",
+    "darkModeDisableOption": "Disable",
+    "colorPaletteLabel": "Color palette",
+    "languageLabel": "Language",
+    "helpAndInfoLabel": "Help & info",
+    "aboutTheAppLabel": "About the app",
+    "licenseLabel": "Open source licenses",
+    "rateLabel": "Rate the app",
+    "termsOfServiceLabel": "Terms of service",
+    "privacyPolicyLabel": "Privacy policy",
+    "changePasswordLabel": "Change password",
+    "logOutLabel": "Log out",
+    "languageDefaultValue": "Follow system",
+    "homeBottomNavItem": "Home",
+    "courseBottomNavItem": "Courses",
+    "scheduleBottomNavItem": "Schedule",
+    "messagesBottomNavItem": "Messages",
+    "settingsBottomNavItem": "Settings"
 }

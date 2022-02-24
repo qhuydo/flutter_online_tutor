@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 import '../../common.dart';
 import '../helpers/list_item.dart';
 import 'settings_card.dart';
@@ -11,8 +9,8 @@ class UserSettingsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final _settingList = [
       ListItem(
-        iconData: Icons.edit,
-        title: 'Edit profile',
+        iconData: Icons.manage_accounts_outlined,
+        title: AppLocalizations.of(context)!.editProfileLabel,
         onTap: () {},
         trailingWidget: const Icon(
           Icons.navigate_next,
@@ -20,15 +18,15 @@ class UserSettingsCard extends StatelessWidget {
       ),
       ListItem(
         iconData: Icons.password,
-        title: 'Change password',
+        title: AppLocalizations.of(context)!.changePasswordLabel,
         onTap: () {},
         trailingWidget: const Icon(
           Icons.navigate_next,
         ),
       ),
       ListItem(
-        iconData: Icons.account_balance_wallet,
-        title: 'My wallet',
+        iconData: Icons.account_balance_wallet_outlined,
+        title: AppLocalizations.of(context)!.myWalletLabel,
         onTap: () {},
         trailingWidget: const Icon(
           Icons.navigate_next,
@@ -36,7 +34,7 @@ class UserSettingsCard extends StatelessWidget {
       ),
       ListItem(
         iconData: Icons.logout,
-        title: 'Sign out',
+        title: AppLocalizations.of(context)!.logOutLabel,
         onTap: () {},
         color: Colors.red,
       ),
