@@ -56,6 +56,9 @@ class _CourseHorizontalListState extends State<CourseHorizontalList> {
     cardWidth = deviceWidth * goldenRatioInverse;
     cardHeight = deviceWidth;
 
+    // cardWidth = 288;
+    // cardHeight = cardWidth * goldenRatio;
+
     return Column(
       children: [
         SizedBox(
