@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'widgets/app_settings_card.dart';
 import 'widgets/widgets.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -13,7 +14,9 @@ class ProfilePage extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              UserSettingsRow(),
+              UserSettingsCard(),
+              const SizedBox(height: 16),
+              AppSettingsCard(),
             ],
           ),
         ),

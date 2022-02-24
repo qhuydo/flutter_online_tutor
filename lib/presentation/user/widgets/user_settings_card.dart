@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../common.dart';
+import '../../common/widgets/outlined_card.dart';
 
 class ListItem {
   IconData iconData;
@@ -8,15 +9,16 @@ class ListItem {
   Function(BuildContext context) onTap;
   Color? color;
 
-  ListItem(
-      {required this.iconData,
-      required this.title,
-      required this.onTap,
-      this.color});
+  ListItem({
+    required this.iconData,
+    required this.title,
+    required this.onTap,
+    this.color,
+  });
 }
 
-class UserSettingsRow extends StatelessWidget {
-  UserSettingsRow({Key? key}) : super(key: key);
+class UserSettingsCard extends StatelessWidget {
+  UserSettingsCard({Key? key}) : super(key: key);
 
   final _settingList = [
     ListItem(
@@ -44,15 +46,7 @@ class UserSettingsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(
-          color: Colors.grey.withOpacity(0.2),
-          width: 1.25,
-        ),
-      ),
-      elevation: 0,
+    return OutlinedCard(
       child: Column(
         children: [
           ListTile(
