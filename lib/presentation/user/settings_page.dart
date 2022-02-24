@@ -16,6 +16,8 @@ class ProfilePage extends StatelessWidget {
               UserSettingsCard(),
               SizedBox(height: 16),
               AppSettingsCard(),
+              SizedBox(height: 16),
+              InfoCard(),
             ],
           ),
         ),

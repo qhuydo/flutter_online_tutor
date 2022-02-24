@@ -45,7 +45,10 @@ class DotsIndicator extends AnimatedWidget {
     double selectedness = Curves.easeOut.transform(
       max(
         0.0,
-        1.0 - ((controller.page ?? controller.initialPage) % itemCount - index).abs(),
+        1.0 -
+            ((controller.page ?? controller.initialPage) % itemCount -
+                    index % itemCount)
+                .abs(),
       ),
     );
     double zoom = 1.0 + (_kMaxZoom - 1.0) * selectedness;
@@ -61,7 +64,7 @@ class DotsIndicator extends AnimatedWidget {
             // width: _kDotSize * zoom * 1.25,
             height: _kDotSize * zoom,
             child: InkWell(
-              onTap: () => onPageSelected(index),
+              onTap: () => onPageSelected(index % itemCount),
             ),
           ),
         ),
