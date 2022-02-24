@@ -85,9 +85,9 @@ class HomePage extends StatelessWidget {
                 text: 'Messages',
                 selectedColour: Colors.deepOrange),
             buildNavBarItem(
-                icon: Icons.person_outlined,
-                activeIcon: Icons.person,
-                text: 'Profile',
+                icon: Icons.settings_outlined,
+                activeIcon: Icons.settings,
+                text: 'Settings',
                 selectedColour: Colors.teal),
           ],
         );
