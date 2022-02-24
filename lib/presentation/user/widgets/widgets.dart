@@ -1,1 +1,1 @@
-export 'user_preview_row.dart';
+export 'user_settings_row.dart';
