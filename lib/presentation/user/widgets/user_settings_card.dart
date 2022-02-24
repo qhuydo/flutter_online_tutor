@@ -1,133 +1,80 @@
 import 'package:flutter/material.dart';
 
 import '../../common.dart';
-import '../../common/widgets/outlined_card.dart';
-
-class ListItem {
-  IconData iconData;
-  String title;
-  Function(BuildContext context) onTap;
-  Color? color;
-
-  ListItem({
-    required this.iconData,
-    required this.title,
-    required this.onTap,
-    this.color,
-  });
-}
+import '../helpers/list_item.dart';
+import 'settings_card.dart';
 
 class UserSettingsCard extends StatelessWidget {
-  UserSettingsCard({Key? key}) : super(key: key);
-
-  final _settingList = [
-    ListItem(
-      iconData: Icons.edit,
-      title: 'Edit profile',
-      onTap: (context) {},
-    ),
-    ListItem(
-      iconData: Icons.password,
-      title: 'Change password',
-      onTap: (context) {},
-    ),
-    ListItem(
-      iconData: Icons.account_balance_wallet,
-      title: 'My wallet',
-      onTap: (context) {},
-    ),
-    ListItem(
-      iconData: Icons.logout,
-      title: 'Sign out',
-      onTap: (context) {},
-      color: Colors.red,
-    ),
-  ];
+  const UserSettingsCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return OutlinedCard(
-      child: Column(
-        children: [
-          ListTile(
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(16),
-                topRight: Radius.circular(16),
-              ),
-            ),
-            onTap: () {},
-            contentPadding: const EdgeInsets.symmetric(
-              vertical: 8,
-              horizontal: 16,
-            ),
-            leading: const CircleAvatar(
-              backgroundColor: Colors.blue,
-              radius: 36,
-            ),
-            title: Text(
-              'Nguyen Van A',
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-            ),
-            subtitle: Text(
-              'example@email.com',
-              style: Theme.of(context).textTheme.titleSmall?.copyWith(),
-            ),
-            trailing: Icon(
-              Icons.navigate_next,
-              size: 32,
-              color: Theme.of(context).buttonTheme.colorScheme?.onSurface,
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 0,
-            ),
-            child: Divider(),
-          ),
-          ..._settingList.asMap().entries.map((entry) {
-            final idx = entry.key;
-            final isLast = idx == _settingList.length - 1;
-            final listItem = entry.value;
+    final _settingList = [
+      ListItem(
+        iconData: Icons.edit,
+        title: 'Edit profile',
+        onTap: () {},
+        trailingWidget: const Icon(
+          Icons.navigate_next,
+        ),
+      ),
+      ListItem(
+        iconData: Icons.password,
+        title: 'Change password',
+        onTap: () {},
+        trailingWidget: const Icon(
+          Icons.navigate_next,
+        ),
+      ),
+      ListItem(
+        iconData: Icons.account_balance_wallet,
+        title: 'My wallet',
+        onTap: () {},
+        trailingWidget: const Icon(
+          Icons.navigate_next,
+        ),
+      ),
+      ListItem(
+        iconData: Icons.logout,
+        title: 'Sign out',
+        onTap: () {},
+        color: Colors.red,
+      ),
+    ];
 
-            return ListTile(
-              dense: true,
-              shape: isLast
-                  ? const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(16),
-                        bottomRight: Radius.circular(16),
-                      ),
-                    )
-                  : null,
-              contentPadding: EdgeInsets.fromLTRB(
-                24,
-                0,
-                16,
-                isLast ? 8 : 0,
+    return SettingsCard(
+      settingList: _settingList,
+      header: ListTile(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(16),
+            topRight: Radius.circular(16),
+          ),
+        ),
+        onTap: () {},
+        contentPadding: const EdgeInsets.symmetric(
+          vertical: 8,
+          horizontal: 16,
+        ),
+        leading: const CircleAvatar(
+          backgroundColor: Colors.blue,
+          radius: 36,
+        ),
+        title: Text(
+          'Nguyen Van A',
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                fontWeight: FontWeight.bold,
               ),
-              leading: Icon(
-                listItem.iconData,
-                color: listItem.color,
-              ),
-              title: Text(
-                listItem.title,
-                style: Theme.of(context).textTheme.button?.copyWith(
-                      color: listItem.color,
-                    ),
-              ),
-              onTap: () {
-                listItem.onTap(context);
-              },
-              trailing: const Icon(
-                Icons.navigate_next,
-              ),
-            );
-          }),
-        ],
+        ),
+        subtitle: Text(
+          'example@email.com',
+          style: Theme.of(context).textTheme.titleSmall,
+        ),
+        trailing: Icon(
+          Icons.navigate_next,
+          size: 32,
+          color: Theme.of(context).buttonTheme.colorScheme?.onSurface,
+        ),
       ),
     );
   }

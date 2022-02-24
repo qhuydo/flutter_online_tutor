@@ -1,22 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:twemoji/twemoji.dart';
 
-import '../../common/widgets/outlined_card.dart';
 import '../../utils/string_utils.dart';
-
-class ListItem {
-  IconData iconData;
-  String title;
-  Function()? onTap;
-  Widget? trailingWidget;
-
-  ListItem({
-    required this.iconData,
-    required this.title,
-    this.onTap,
-    this.trailingWidget,
-  });
-}
+import '../helpers/list_item.dart';
+import 'settings_card.dart';
 
 class AppSettingsCard extends StatelessWidget {
   const AppSettingsCard({Key? key}) : super(key: key);
@@ -55,72 +42,10 @@ class AppSettingsCard extends StatelessWidget {
       )
     ];
 
-    return OutlinedCard(
-      child: Column(
-        children: [
-          ListTile(
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(16),
-                topRight: Radius.circular(16),
-              ),
-            ),
-            contentPadding: const EdgeInsets.symmetric(
-              vertical: 8,
-              horizontal: 20,
-            ),
-            leading: const Icon(
-              Icons.settings,
-              size: 36,
-            ),
-            title: Text(
-              'Settings',
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 0,
-            ),
-            child: Divider(),
-          ),
-          ..._settingList.asMap().entries.map((entry) {
-            final idx = entry.key;
-            final isLast = idx == _settingList.length - 1;
-            final listItem = entry.value;
-
-            return ListTile(
-              // dense: true,
-              shape: isLast
-                  ? const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(16),
-                        bottomRight: Radius.circular(16),
-                      ),
-                    )
-                  : null,
-              contentPadding: EdgeInsets.fromLTRB(
-                24,
-                0,
-                16,
-                isLast ? 8 : 0,
-              ),
-              leading: Icon(
-                listItem.iconData,
-              ),
-              title: Text(
-                listItem.title,
-                style: Theme.of(context).textTheme.button,
-              ),
-              onTap: listItem.onTap,
-              trailing: listItem.trailingWidget,
-            );
-          }),
-        ],
-      ),
+    return SettingsCard(
+      settingList: _settingList,
+      headerIcon: Icons.settings,
+      title: 'Settings',
     );
   }
 }
