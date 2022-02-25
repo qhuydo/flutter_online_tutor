@@ -1,19 +1,18 @@
-import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
-import '../common.dart';
-import 'widgets/tutor_card.dart';
+import '../../common.dart';
+import '../../tutor/widgets/tutor_card.dart';
 
 const appBarHeight = 64;
 
-class TutorPage extends StatefulWidget {
-  const TutorPage({Key? key}) : super(key: key);
+class CourseTabPage extends StatefulWidget {
+  const CourseTabPage({Key? key}) : super(key: key);
 
   @override
-  State<TutorPage> createState() => _TutorPageState();
+  State<CourseTabPage> createState() => _CourseTabPageState();
 }
 
-class _TutorPageState extends State<TutorPage> {
+class _CourseTabPageState extends State<CourseTabPage> {
   final controller = FloatingSearchBarController();
 
   Widget buildSearchBar(BuildContext context) {
@@ -48,7 +47,7 @@ class _TutorPageState extends State<TutorPage> {
       automaticallyImplyBackButton: false,
       controller: controller,
       clearQueryOnClose: false,
-      hint: 'Find tutors...',
+      hint: 'Find courses...',
       iconColor: Colors.grey,
       transitionDuration: const Duration(milliseconds: 300),
       transitionCurve: Curves.easeInOutCubic,
@@ -68,6 +67,9 @@ class _TutorPageState extends State<TutorPage> {
   Widget buildBody() {
     return FloatingSearchBarScrollNotifier(
       child: ListView.separated(
+        primary: false,
+        shrinkWrap: true,
+        // physics: const NeverScrollableScrollPhysics(),
         padding: const EdgeInsets.only(top: 64),
         itemCount: 5,
         separatorBuilder: (context, index) => const Divider(),

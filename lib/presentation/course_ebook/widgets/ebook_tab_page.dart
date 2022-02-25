@@ -1,19 +1,17 @@
-import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
-import '../common.dart';
-import 'widgets/tutor_card.dart';
+import '../../common.dart';
 
-const appBarHeight = 64;
+const appBarHeight2 = 64;
 
-class TutorPage extends StatefulWidget {
-  const TutorPage({Key? key}) : super(key: key);
+class EbookTabPage extends StatefulWidget {
+  const EbookTabPage({Key? key}) : super(key: key);
 
   @override
-  State<TutorPage> createState() => _TutorPageState();
+  State<EbookTabPage> createState() => _EbookTabPageState();
 }
 
-class _TutorPageState extends State<TutorPage> {
+class _EbookTabPageState extends State<EbookTabPage> {
   final controller = FloatingSearchBarController();
 
   Widget buildSearchBar(BuildContext context) {
@@ -48,7 +46,7 @@ class _TutorPageState extends State<TutorPage> {
       automaticallyImplyBackButton: false,
       controller: controller,
       clearQueryOnClose: false,
-      hint: 'Find tutors...',
+      hint: 'Find ebooks...',
       iconColor: Colors.grey,
       transitionDuration: const Duration(milliseconds: 300),
       transitionCurve: Curves.easeInOutCubic,
@@ -66,16 +64,7 @@ class _TutorPageState extends State<TutorPage> {
   }
 
   Widget buildBody() {
-    return FloatingSearchBarScrollNotifier(
-      child: ListView.separated(
-        padding: const EdgeInsets.only(top: 64),
-        itemCount: 5,
-        separatorBuilder: (context, index) => const Divider(),
-        itemBuilder: (context, index) {
-          return const TutorCard();
-        },
-      ),
-    );
+    return Container();
   }
 
   Widget buildExpandableBody() {
