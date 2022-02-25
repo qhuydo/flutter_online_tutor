@@ -44,11 +44,30 @@ class HomePage extends StatelessWidget {
     return AutoTabsScaffold(
       routes: const [
         DashboardRoute(),
+        TutorRoute(),
         CourseRoute(),
         ScheduleRoute(),
         MessageRoute(),
-        ProfileRoute(),
       ],
+      appBarBuilder: (BuildContext context, TabsRouter tabsRouter) {
+        return AppBar(
+          backgroundColor: Theme.of(context).colorScheme.surface,
+          title: Text(
+            AppLocalizations.of(context)!.appTitle,
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
+          ),
+          actions: [
+            GestureDetector(
+              onTap: () {
+                context.router.push(const SettingsRoute());
+              },
+              child: const CircleAvatar(),
+            ),
+          ],
+        );
+      },
       bottomNavigationBuilder: (BuildContext context, tabsRouter) {
         return SalomonBottomBar(
           currentIndex: tabsRouter.activeIndex,
@@ -69,6 +88,11 @@ class HomePage extends StatelessWidget {
               selectedColour: Colors.blue,
             ),
             buildNavBarItem(
+                icon: Icons.people_outlined,
+                activeIcon: Icons.people,
+                text: AppLocalizations.of(context)!.tutorBottomNavBarItem,
+                selectedColour: Colors.teal),
+            buildNavBarItem(
                 icon: Icons.book_outlined,
                 activeIcon: Icons.book,
                 text: AppLocalizations.of(context)!.courseBottomNavItem,
@@ -81,13 +105,8 @@ class HomePage extends StatelessWidget {
             buildNavBarItem(
                 icon: Icons.message_outlined,
                 activeIcon: Icons.message,
-                text: AppLocalizations.of(context)!.messagesBottomNavItem,
+                text: AppLocalizations.of(context)!.tutorBottomNavBarItem,
                 selectedColour: Colors.deepOrange),
-            buildNavBarItem(
-                icon: Icons.settings_outlined,
-                activeIcon: Icons.settings,
-                text: AppLocalizations.of(context)!.settingsBottomNavItem,
-                selectedColour: Colors.teal),
           ],
         );
       },

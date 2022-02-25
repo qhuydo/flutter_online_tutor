@@ -45,9 +45,17 @@ class AppRouter extends _i2.RootStackRouter {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.HomePage());
     },
+    SettingsRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.SettingsPage());
+    },
     DashboardRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.DashboardPage());
+    },
+    TutorRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.TutorPage());
     },
     CourseRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
@@ -60,10 +68,6 @@ class AppRouter extends _i2.RootStackRouter {
     MessageRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.MessagePage());
-    },
-    ProfileRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
-          routeData: routeData, child: const _i1.ProfilePage());
     }
   };
 
@@ -78,15 +82,16 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(HomeRoute.name, path: '/home-page', children: [
           _i2.RouteConfig(DashboardRoute.name,
               path: 'dashboard-page', parent: HomeRoute.name),
+          _i2.RouteConfig(TutorRoute.name,
+              path: 'tutor-page', parent: HomeRoute.name),
           _i2.RouteConfig(CourseRoute.name,
               path: 'course-page', parent: HomeRoute.name),
           _i2.RouteConfig(ScheduleRoute.name,
               path: 'schedule-page', parent: HomeRoute.name),
           _i2.RouteConfig(MessageRoute.name,
-              path: 'message-page', parent: HomeRoute.name),
-          _i2.RouteConfig(ProfileRoute.name,
-              path: 'profile-page', parent: HomeRoute.name)
-        ])
+              path: 'message-page', parent: HomeRoute.name)
+        ]),
+        _i2.RouteConfig(SettingsRoute.name, path: '/settings-page')
       ];
 }
 
@@ -143,11 +148,27 @@ class HomeRoute extends _i2.PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [_i1.SettingsPage]
+class SettingsRoute extends _i2.PageRouteInfo<void> {
+  const SettingsRoute() : super(SettingsRoute.name, path: '/settings-page');
+
+  static const String name = 'SettingsRoute';
+}
+
+/// generated route for
 /// [_i1.DashboardPage]
 class DashboardRoute extends _i2.PageRouteInfo<void> {
   const DashboardRoute() : super(DashboardRoute.name, path: 'dashboard-page');
 
   static const String name = 'DashboardRoute';
+}
+
+/// generated route for
+/// [_i1.TutorPage]
+class TutorRoute extends _i2.PageRouteInfo<void> {
+  const TutorRoute() : super(TutorRoute.name, path: 'tutor-page');
+
+  static const String name = 'TutorRoute';
 }
 
 /// generated route for
@@ -172,12 +193,4 @@ class MessageRoute extends _i2.PageRouteInfo<void> {
   const MessageRoute() : super(MessageRoute.name, path: 'message-page');
 
   static const String name = 'MessageRoute';
-}
-
-/// generated route for
-/// [_i1.ProfilePage]
-class ProfileRoute extends _i2.PageRouteInfo<void> {
-  const ProfileRoute() : super(ProfileRoute.name, path: 'profile-page');
-
-  static const String name = 'ProfileRoute';
 }

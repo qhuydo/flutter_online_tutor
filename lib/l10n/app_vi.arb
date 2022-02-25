@@ -1,6 +1,6 @@
 {
     "@@locale": "vi",
-    "@@last_modified": "2022-02-24T15:33:14+00:00",
+    "@@last_modified": "2022-02-24T18:30:12+00:00",
     "helloWorld": "Xin chào thế giới",
     "@helloWorld": {
         "description": "The conventional newborn programmer greeting"
@@ -64,5 +64,6 @@
     "courseBottomNavItem": "Khóa học",
     "scheduleBottomNavItem": "Lịch học",
     "messagesBottomNavItem": "Tin nhắn",
-    "settingsBottomNavItem": "Cài đặt"
+    "settingsBottomNavItem": "Cài đặt",
+    "tutorBottomNavBarItem": "Gia sư"
 }

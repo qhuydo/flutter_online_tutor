@@ -1,6 +1,6 @@
 {
     "@@locale": "en",
-    "@@last_modified": "2022-02-24T15:33:19+00:00",
+    "@@last_modified": "2022-02-24T18:30:15+00:00",
     "helloWorld": "Hello World!",
     "@helloWorld": {
         "description": "The conventional newborn programmer greeting"
@@ -72,5 +72,6 @@
     "courseBottomNavItem": "Courses",
     "scheduleBottomNavItem": "Schedule",
     "messagesBottomNavItem": "Messages",
-    "settingsBottomNavItem": "Settings"
+    "settingsBottomNavItem": "Settings",
+    "tutorBottomNavBarItem": "Tutors"
 }
