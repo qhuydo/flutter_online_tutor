@@ -16,9 +16,9 @@ class SettingsPage extends StatelessWidget {
             child: Column(
               children: const [
                 UserSettingsCard(),
-                SizedBox(height: 16),
+                SizedBox(height: 8),
                 AppSettingsCard(),
-                SizedBox(height: 16),
+                SizedBox(height: 8),
                 InfoCard(),
               ],
             ),

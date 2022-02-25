@@ -1,4 +1,7 @@
+import 'package:auto_route/auto_route.dart';
+
 import '../../common.dart';
+import '../../routes/app_routes.gr.dart';
 import '../../tutor/widgets/tutor_card.dart';
 
 class RecommendedTutors extends StatelessWidget {
@@ -24,7 +27,9 @@ class RecommendedTutors extends StatelessWidget {
               textAlign: TextAlign.start,
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                context.navigateTo(const TutorRoute());
+              },
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [

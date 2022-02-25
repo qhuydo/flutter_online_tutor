@@ -70,6 +70,10 @@ dependencies:
   # By Filip Hracek.
   english_words: ^4.0.0
 
+  # A Flutter implementation of an expandable and animated floating search bar
+  # By bxqm.
+  material_floating_search_bar: ^0.3.6
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -105,7 +105,7 @@ class HomePage extends StatelessWidget {
             buildNavBarItem(
                 icon: Icons.message_outlined,
                 activeIcon: Icons.message,
-                text: AppLocalizations.of(context)!.tutorBottomNavBarItem,
+                text: AppLocalizations.of(context)!.messagesBottomNavItem,
                 selectedColour: Colors.deepOrange),
           ],
         );

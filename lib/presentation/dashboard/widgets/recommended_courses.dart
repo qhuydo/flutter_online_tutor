@@ -1,5 +1,8 @@
+import 'package:auto_route/auto_route.dart';
+
 import '../../common.dart';
 import '../../course_ebook/widgets/course_horizontal_list.dart';
+import '../../routes/app_routes.gr.dart';
 
 class RecommendedCourses extends StatelessWidget {
   const RecommendedCourses({Key? key}) : super(key: key);
@@ -24,7 +27,9 @@ class RecommendedCourses extends StatelessWidget {
               textAlign: TextAlign.start,
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                context.navigateTo(const CourseRoute());
+              },
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -32,7 +37,7 @@ class RecommendedCourses extends StatelessWidget {
                     AppLocalizations.of(context)!.seeMoreButtonText,
                   ),
                   const SizedBox(width: 4),
-                  const Icon(Icons.arrow_forward_ios)
+                  const Icon(Icons.arrow_forward_ios),
                 ],
               ),
             ),
