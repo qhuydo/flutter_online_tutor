@@ -33,16 +33,23 @@ class CourseTabPage extends StatelessWidget {
       actions: actions,
       leadingActions: leadingActions,
       body: FloatingSearchBarScrollNotifier(
-        child: ListView.separated(
+        child: GridView.builder(
           primary: false,
           shrinkWrap: true,
-          // physics: const NeverScrollableScrollPhysics(),
           padding: const EdgeInsets.only(top: 64),
           itemCount: 5,
-          separatorBuilder: (context, index) => const Divider(),
+          // separatorBuilder: (context, index) => const SizedBox(height: 8,),
           itemBuilder: (context, index) {
             return const CourseListCard();
           },
+          // gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          //   childAspectRatio: 1/1.25,
+          //   crossAxisCount: 2,
+          // ),
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 400,
+            childAspectRatio: 1/1.25
+          ),
         ),
       ),
     );
