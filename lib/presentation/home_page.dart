@@ -58,6 +58,7 @@ class HomePage extends StatelessWidget {
               color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
+          elevation: 0,
           actions: [
             GestureDetector(
               onTap: () {

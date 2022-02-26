@@ -37,7 +37,7 @@ class EbookTabPage extends StatelessWidget {
         child: MasonryGridView.extent(
           primary: false,
           shrinkWrap: true,
-          padding: EdgeInsets.only(top: searchBarHeight),
+          padding: const EdgeInsets.only(top: searchBarHeight),
           itemCount: 5,
           crossAxisSpacing: 4,
           mainAxisSpacing: 4,
