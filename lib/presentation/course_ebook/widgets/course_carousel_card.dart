@@ -1,11 +1,9 @@
 import '../../common.dart';
 import '../../tutor/widgets/topic_chip.dart';
-import 'course_card_content.dart';
+import 'course_carousel_card_content.dart';
 
-class CourseCard extends StatelessWidget {
-  const CourseCard({Key? key}) : super(key: key);
-
-  static const cardHeight = 400.0;
+class CourseCarouselCard extends StatelessWidget {
+  const CourseCarouselCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +24,7 @@ class CourseCard extends StatelessWidget {
                 color: Colors.blue,
               ),
             ),
-            const CourseCardContent(),
+            const CourseCarouselCardContent(),
             Container(
               padding: const EdgeInsets.fromLTRB(8, 0, 8, 16),
               child: Row(

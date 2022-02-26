@@ -1,17 +1,17 @@
 import '../../../utils/constants.dart';
 import '../../common.dart';
 import '../../common/widgets/dots_indicator.dart';
-import 'course_card.dart';
+import 'course_carousel_card.dart';
 
-class CourseHorizontalList extends StatefulWidget {
-  const CourseHorizontalList({Key? key}) : super(key: key);
+class CourseCarousel extends StatefulWidget {
+  const CourseCarousel({Key? key}) : super(key: key);
 
   @override
-  State<CourseHorizontalList> createState() => _CourseHorizontalListState();
+  State<CourseCarousel> createState() => _CourseCarouselState();
 }
 
 const int _itemCount = 5;
-class _CourseHorizontalListState extends State<CourseHorizontalList> {
+class _CourseCarouselState extends State<CourseCarousel> {
   final _controller = PageController(
     initialPage: _itemCount,
     viewportFraction: goldenRatioInverse,
@@ -42,7 +42,7 @@ class _CourseHorizontalListState extends State<CourseHorizontalList> {
           ),
         );
       },
-      child: const CourseCard(),
+      child: const CourseCarouselCard(),
       // child: Container(
       //   margin: const EdgeInsets.all(8.0),
       //   color: index % 2 == 0 ? Colors.blue : Colors.red,

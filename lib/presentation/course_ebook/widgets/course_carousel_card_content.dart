@@ -2,8 +2,8 @@ import 'dart:math';
 
 import '../../common.dart';
 
-class CourseCardContent extends StatelessWidget {
-  const CourseCardContent({
+class CourseCarouselCardContent extends StatelessWidget {
+  const CourseCarouselCardContent({
     Key? key,
   }) : super(key: key);
 

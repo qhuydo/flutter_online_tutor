@@ -3,7 +3,7 @@ import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import '../../common.dart';
 import '../../common/widgets/scaffold_with_search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';
-import '../../tutor/widgets/tutor_card.dart';
+import 'course_list_card.dart';
 
 class CourseTabPage extends StatelessWidget {
   const CourseTabPage({Key? key}) : super(key: key);
@@ -33,15 +33,15 @@ class CourseTabPage extends StatelessWidget {
       actions: actions,
       leadingActions: leadingActions,
       body: FloatingSearchBarScrollNotifier(
-        child: ListView.builder(
+        child: ListView.separated(
           primary: false,
           shrinkWrap: true,
           // physics: const NeverScrollableScrollPhysics(),
           padding: const EdgeInsets.only(top: 64),
           itemCount: 5,
-          // separatorBuilder: (context, index) => const Divider(),
+          separatorBuilder: (context, index) => const Divider(),
           itemBuilder: (context, index) {
-            return const TutorCard();
+            return const CourseListCard();
           },
         ),
       ),

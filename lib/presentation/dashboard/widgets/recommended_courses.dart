@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 
 import '../../common.dart';
-import '../../course_ebook/widgets/course_horizontal_list.dart';
+import '../../course_ebook/widgets/course_carousel.dart';
 import '../../routes/app_routes.gr.dart';
 
 class RecommendedCourses extends StatelessWidget {
@@ -43,7 +43,7 @@ class RecommendedCourses extends StatelessWidget {
             ),
           ],
         ),
-        const CourseHorizontalList(),
+        const CourseCarousel(),
       ],
     );
   }
