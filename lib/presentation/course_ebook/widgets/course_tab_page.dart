@@ -36,7 +36,7 @@ class CourseTabPage extends StatelessWidget {
         child: GridView.builder(
           primary: false,
           shrinkWrap: true,
-          padding: const EdgeInsets.only(top: 64),
+          padding: EdgeInsets.only(top: searchBarHeight),
           itemCount: 5,
           // separatorBuilder: (context, index) => const SizedBox(height: 8,),
           itemBuilder: (context, index) {

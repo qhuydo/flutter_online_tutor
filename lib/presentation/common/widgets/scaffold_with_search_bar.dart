@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
+const searchBarHeight = 64.0;
+
 class ScaffoldWithSearchBar extends StatefulWidget {
   final FloatingSearchBarBuilder builder;
   final List<Widget>? actions;
@@ -35,7 +37,7 @@ class _ScaffoldWithSearchBarState extends State<ScaffoldWithSearchBar> {
         MediaQuery.of(context).orientation == Orientation.portrait;
 
     return FloatingSearchBar(
-      height: 64,
+      height: searchBarHeight,
       border: BorderSide(
         color: Colors.grey.withOpacity(0.4),
         width: 1.25,

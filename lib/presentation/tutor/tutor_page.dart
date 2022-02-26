@@ -35,7 +35,7 @@ class TutorPage extends StatelessWidget {
       leadingActions: leadingActions,
       body: FloatingSearchBarScrollNotifier(
         child: ListView.separated(
-          padding: const EdgeInsets.only(top: 64),
+          padding: EdgeInsets.only(top: searchBarHeight),
           itemCount: 5,
           separatorBuilder: (context, index) => const Divider(),
           itemBuilder: (context, index) {
