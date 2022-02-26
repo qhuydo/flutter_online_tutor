@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../common.dart';
 import 'widgets/widgets.dart';
 
 class CoursePage extends StatelessWidget {
@@ -16,14 +17,28 @@ class CoursePage extends StatelessWidget {
               unselectedLabelColor:
                   Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
               labelColor: Theme.of(context).primaryColor,
-              tabs: const [
+              tabs: [
                 Tab(
-                  icon: Icon(Icons.videocam),
-                  text: 'Course',
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(Icons.videocam),
+                      SizedBox(width: 8),
+                      Text('Course'),
+                    ],
+                  ),
                 ),
                 Tab(
-                  icon: Icon(Icons.book),
-                  text: 'Ebook',
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(Icons.book),
+                        SizedBox(width: 8),
+                        Text('Ebook'),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
