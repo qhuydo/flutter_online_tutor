@@ -55,23 +55,28 @@ class ScheduleCard extends StatelessWidget {
             color: lightTheme
                 ? Colors.grey[100]?.withOpacity(0.95)
                 : Colors.grey[100]?.withOpacity(0.05),
-            margin: const EdgeInsets.all(16.0),
-            padding: const EdgeInsets.all(8),
+            margin: const EdgeInsets.symmetric(
+              horizontal: 16.0,
+              vertical: 8.0,
+            ),
+            // padding: const EdgeInsets.all(8),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 16,
                     vertical: 8,
                   ),
-                  child: Row(
+                  child: Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    crossAxisAlignment: WrapCrossAlignment.start,
+                    alignment: WrapAlignment.start,
                     children: [
                       Text(
                         'Lesson time: ',
                         style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      const SizedBox(
-                        width: 8,
                       ),
                       Text(
                         '10:00 - 12:00',
@@ -104,7 +109,7 @@ class ScheduleCard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
             child: Wrap(
               spacing: 8,
               runSpacing: 8,
@@ -113,57 +118,23 @@ class ScheduleCard extends StatelessWidget {
               children: [
                 OutlinedButton.icon(
                   onPressed: () {},
-                  icon: const Icon(Icons.cancel),
+                  icon: const Icon(Icons.cancel_outlined),
                   label: const Text('Cancel'),
+                  style: OutlinedButton.styleFrom(
+                    backgroundColor: Theme.of(context).cardColor,
+                    primary: Colors.red,
+                  ),
                 ),
-
                 OutlinedButton.icon(
                   onPressed: () {},
                   icon: const Icon(Icons.chat_bubble_outline),
                   label: Text(
                     AppLocalizations.of(context)!.chatButtonText,
                   ),
+                  style: OutlinedButton.styleFrom(
+                    backgroundColor: Theme.of(context).cardColor,
+                  ),
                 ),
-
-                // MaterialButton(
-                //   onPressed: () {},
-                //   shape: StadiumBorder(
-                //     side: BorderSide(
-                //       width: 1.25,
-                //       color: Theme.of(context).iconTheme.color ?? Colors.black,
-                //     ),
-                //   ),
-                //   child: Row(
-                //     mainAxisSize: MainAxisSize.min,
-                //     children: const [
-                //       Icon(Icons.cancel),
-                //       SizedBox(width: 4),
-                //       Text(
-                //         'Cancel'
-                //       ),
-                //     ],
-                //   ),
-                // ),
-
-                // MaterialButton(
-                //   onPressed: () {},
-                //   shape: StadiumBorder(
-                //     side: BorderSide(
-                //       width: 1.25,
-                //       color: Theme.of(context).iconTheme.color ?? Colors.black,
-                //     ),
-                //   ),
-                //   child: Row(
-                //     mainAxisSize: MainAxisSize.min,
-                //     children: [
-                //       const Icon(Icons.chat_bubble_outline),
-                //       const SizedBox(width: 4),
-                //       Text(
-                //         AppLocalizations.of(context)!.chatButtonText,
-                //       ),
-                //     ],
-                //   ),
-                // ),
               ],
             ),
           )
