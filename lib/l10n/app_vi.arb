@@ -1,6 +1,6 @@
 {
     "@@locale": "vi",
-    "@@last_modified": "2022-02-24T18:30:12+00:00",
+    "@@last_modified": "2022-02-28T15:46:07+00:00",
     "helloWorld": "Xin chào thế giới",
     "@helloWorld": {
         "description": "The conventional newborn programmer greeting"
@@ -65,5 +65,28 @@
     "scheduleBottomNavItem": "Lịch học",
     "messagesBottomNavItem": "Tin nhắn",
     "settingsBottomNavItem": "Cài đặt",
-    "tutorBottomNavBarItem": "Gia sư"
+    "tutorBottomNavBarItem": "Gia sư",
+    "findCourseHint": "Tìm kiếm khóa học...",
+    "findEbookHint": "Tìm kiếm sách....",
+    "courseTabLabel": "Khóa học",
+    "ebookTabLabel": "Sách điện tử",
+    "lessonTimeDescription": "Thời gian học:",
+    "requestForLessonLabel": "Yêu cầu cho khóa học",
+    "cancelButtonLabel": "Hủy",
+    "fullNameTextBox": "Họ và tên",
+    "fullNameTextBoxHint": "Nhập họ và tên",
+    "dateOfBirthTextBoxLabel": "Ngày sinh",
+    "dateOfBirthTextBoxHint": "Chọn ngày sinh",
+    "countryDropdownLabel": "Quốc tịch",
+    "levelDropdownLabel": "Cấp độ",
+    "subjectDropdownLabel": "Môn học",
+    "noneSelectedOption": "Chưa chọn",
+    "testPreparationDropdown": "Ôn thi",
+    "saveButtonLabel": "Lưu",
+    "currentPasswordTextBoxLabel": "Mật khẩu hiện tại",
+    "newPasswordTextBoxLabel": "Mật khẩu mới",
+    "confirmPasswordTextBoxLabel": "Xác nhận mật khẩu",
+    "confirmPasswordTextBoxHint": "Nhập lại mật khẩu mới",
+    "changeAvatarButtonTooltip": "Đổi ảnh đại diện",
+    "findTutorHint": "Tìm gia sư..."
 }

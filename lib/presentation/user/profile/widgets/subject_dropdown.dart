@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
+
+import '../../../common.dart';
 
 class Subject {
   final int id;
@@ -44,10 +45,12 @@ class _SubjectDropdownState extends State<SubjectDropdown> {
           listType: MultiSelectListType.CHIP,
           searchable: true,
           buttonText: Text(
-            'Subjects',
+            AppLocalizations.of(context)!.subjectDropdownLabel,
             style: Theme.of(context).textTheme.titleMedium,
           ),
-          title: const Text('Subjects'),
+          title: Text(
+            AppLocalizations.of(context)!.subjectDropdownLabel,
+          ),
           items: _items,
           onConfirm: (values) {
             setState(() {
@@ -68,9 +71,9 @@ class _SubjectDropdownState extends State<SubjectDropdown> {
             ? Container(
                 padding: const EdgeInsets.all(12),
                 alignment: Alignment.centerLeft,
-                child: const Text(
-                  'None selected',
-                  style: TextStyle(color: Colors.black54),
+                child: Text(
+                  AppLocalizations.of(context)!.noneSelectedOption,
+                  style: const TextStyle(color: Colors.black54),
                 ))
             : Container(),
       ],

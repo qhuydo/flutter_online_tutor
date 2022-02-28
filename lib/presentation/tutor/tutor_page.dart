@@ -30,12 +30,12 @@ class TutorPage extends StatelessWidget {
 
     return ScaffoldWithSearchBar(
       builder: (context, _) => SearchItemRowPlaceholder.buildExpandableBody(),
-      hint: 'Find tutors...',
+      hint: AppLocalizations.of(context)!.findTutorHint,
       actions: actions,
       leadingActions: leadingActions,
       body: FloatingSearchBarScrollNotifier(
         child: ListView.separated(
-          padding: EdgeInsets.only(top: searchBarHeight),
+          padding: const EdgeInsets.only(top: searchBarHeight),
           itemCount: 5,
           separatorBuilder: (context, index) => const Divider(),
           itemBuilder: (context, index) {

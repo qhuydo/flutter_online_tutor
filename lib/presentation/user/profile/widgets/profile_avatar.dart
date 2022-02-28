@@ -39,6 +39,8 @@ class ProfileAvatar extends StatelessWidget {
                       Icons.photo_camera,
                     ),
                     onPressed: () {},
+                    tooltip:
+                        AppLocalizations.of(context)!.changeAvatarButtonTooltip,
                   ),
                 ),
               ),

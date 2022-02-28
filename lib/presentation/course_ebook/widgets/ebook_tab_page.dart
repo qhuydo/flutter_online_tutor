@@ -30,7 +30,7 @@ class EbookTabPage extends StatelessWidget {
 
     return ScaffoldWithSearchBar(
       builder: (context, _) => SearchItemRowPlaceholder.buildExpandableBody(),
-      hint: 'Find ebooks...',
+      hint: AppLocalizations.of(context)!.findEbookHint,
       actions: actions,
       leadingActions: leadingActions,
       body: FloatingSearchBarScrollNotifier(

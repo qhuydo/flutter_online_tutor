@@ -75,7 +75,7 @@ class ScheduleCard extends StatelessWidget {
                     alignment: WrapAlignment.start,
                     children: [
                       Text(
-                        'Lesson time: ',
+                        AppLocalizations.of(context)!.lessonTimeDescription,
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       Text(
@@ -96,7 +96,9 @@ class ScheduleCard extends StatelessWidget {
                   children: [
                     ExpansionTile(
                       leading: const Icon(Icons.event),
-                      title: const Text('Request for lesson'),
+                      title: Text(
+                        AppLocalizations.of(context)!.requestForLessonLabel,
+                      ),
                       children: [
                         Text(
                           AppLocalizations.of(context)!.loremIpsum,
@@ -119,7 +121,9 @@ class ScheduleCard extends StatelessWidget {
                 OutlinedButton.icon(
                   onPressed: () {},
                   icon: const Icon(Icons.cancel_outlined),
-                  label: const Text('Cancel'),
+                  label: Text(
+                    AppLocalizations.of(context)!.cancelButtonLabel,
+                  ),
                   style: OutlinedButton.styleFrom(
                     backgroundColor: Theme.of(context).cardColor,
                     primary: Colors.red,

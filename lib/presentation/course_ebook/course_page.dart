@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 import '../common.dart';
 import 'widgets/widgets.dart';
 
@@ -21,10 +19,10 @@ class CoursePage extends StatelessWidget {
                 Tab(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(Icons.videocam),
-                      SizedBox(width: 8),
-                      Text('Course'),
+                    children: [
+                      const Icon(Icons.videocam),
+                      const SizedBox(width: 8),
+                      Text(AppLocalizations.of(context)!.courseTabLabel),
                     ],
                   ),
                 ),
@@ -32,10 +30,10 @@ class CoursePage extends StatelessWidget {
                   child: Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(Icons.book),
-                        SizedBox(width: 8),
-                        Text('Ebook'),
+                      children: [
+                        const Icon(Icons.book),
+                        const SizedBox(width: 8),
+                        Text(AppLocalizations.of(context)!.ebookTabLabel),
                       ],
                     ),
                   ),

@@ -29,14 +29,14 @@ class CourseTabPage extends StatelessWidget {
 
     return ScaffoldWithSearchBar(
       builder: (context, _) => SearchItemRowPlaceholder.buildExpandableBody(),
-      hint: 'Find courses...',
+      hint: AppLocalizations.of(context)!.findCourseHint,
       actions: actions,
       leadingActions: leadingActions,
       body: FloatingSearchBarScrollNotifier(
         child: GridView.builder(
           primary: false,
           shrinkWrap: true,
-          padding: EdgeInsets.only(top: searchBarHeight),
+          padding: const EdgeInsets.only(top: searchBarHeight),
           itemCount: 5,
           // separatorBuilder: (context, index) => const SizedBox(height: 8,),
           itemBuilder: (context, index) {

@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:twemoji/twemoji.dart';
 
+import '../../../common.dart';
 import '../../../utils/string_utils.dart';
 import 'subject_dropdown.dart';
 import 'test_preparation_dropdown.dart';
@@ -34,11 +34,11 @@ class _EditProfileFormState extends State<EditProfileForm> {
         child: Column(
           children: [
             TextFormField(
-              decoration: const InputDecoration(
-                icon: Icon(Icons.person_outlined),
-                border: OutlineInputBorder(),
-                labelText: 'Full Name',
-                hintText: 'Enter your full name',
+              decoration: InputDecoration(
+                icon: const Icon(Icons.person_outlined),
+                border: const OutlineInputBorder(),
+                labelText: AppLocalizations.of(context)!.fullNameTextBox,
+                hintText: AppLocalizations.of(context)!.fullNameTextBoxHint,
               ),
               initialValue: 'Nguyen Van A',
             ),
@@ -53,10 +53,12 @@ class _EditProfileFormState extends State<EditProfileForm> {
             const SizedBox(height: rowSpacing),
             TextField(
               controller: dateController,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                icon: Icon(Icons.calendar_today),
-                labelText: "Date of birth",
+              decoration: InputDecoration(
+                border: const OutlineInputBorder(),
+                icon: const Icon(Icons.calendar_today),
+                labelText:
+                    AppLocalizations.of(context)!.dateOfBirthTextBoxLabel,
+                hintText: AppLocalizations.of(context)!.dateOfBirthTextBoxHint,
               ),
               readOnly: true,
               onTap: () async {
@@ -68,7 +70,6 @@ class _EditProfileFormState extends State<EditProfileForm> {
                 );
 
                 if (pickedDate != null) {
-                  print(pickedDate);
                   String formattedDate =
                       DateFormat('yyyy-MM-dd').format(pickedDate);
 
@@ -81,10 +82,10 @@ class _EditProfileFormState extends State<EditProfileForm> {
             ),
             const SizedBox(height: rowSpacing),
             TextFormField(
-              decoration: const InputDecoration(
-                icon: Icon(Icons.phone_outlined),
-                border: OutlineInputBorder(),
-                labelText: 'Phone number',
+              decoration: InputDecoration(
+                icon: const Icon(Icons.phone_outlined),
+                border: const OutlineInputBorder(),
+                labelText: AppLocalizations.of(context)!.phoneNumberLabel,
               ),
               initialValue: '+84 0123 012 012',
               readOnly: true,
@@ -129,11 +130,11 @@ class _EditProfileFormState extends State<EditProfileForm> {
                       );
               }).toList(),
               value: null,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 // contentPadding: EdgeInsets.all(18),
-                border: OutlineInputBorder(),
-                icon: Icon(Icons.language),
-                labelText: 'Country',
+                border: const OutlineInputBorder(),
+                icon: const Icon(Icons.language),
+                labelText: AppLocalizations.of(context)!.countryDropdownLabel,
               ),
               onChanged: (String? value) {},
             ),
@@ -163,27 +164,27 @@ class _EditProfileFormState extends State<EditProfileForm> {
                       );
               }).toList(),
               value: 'Beginner',
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 // contentPadding: EdgeInsets.all(18),
-                border: OutlineInputBorder(),
-                icon: Icon(Icons.school_outlined),
-                labelText: 'Level',
+                border: const OutlineInputBorder(),
+                icon: const Icon(Icons.school_outlined),
+                labelText: AppLocalizations.of(context)!.levelDropdownLabel,
               ),
               onChanged: (String? value) {},
             ),
             const SizedBox(height: rowSpacing),
-            SubjectDropdown(),
+            const SubjectDropdown(),
             const SizedBox(height: rowSpacing),
-            TestPreparationDropdown(),
+            const TestPreparationDropdown(),
             const SizedBox(height: rowSpacing),
             ElevatedButton.icon(
-              icon: Icon(Icons.save_outlined),
+              icon: const Icon(Icons.save_outlined),
               onPressed: () {},
               // child: const Text(
               //   'Save',
               // ),
               label: Text(
-                'Save',
+                AppLocalizations.of(context)!.saveButtonLabel,
                 style: TextStyle(
                   fontSize: Theme.of(context).textTheme.titleMedium?.fontSize,
                 ),

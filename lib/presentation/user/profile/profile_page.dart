@@ -11,7 +11,7 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Theme.of(context).colorScheme.surface,
         foregroundColor: Theme.of(context).colorScheme.onSurface,
         title: Text(
-          'Edit profile',
+          AppLocalizations.of(context)!.editProfileLabel,
           style: TextStyle(
             color: Theme.of(context).colorScheme.onSurface,
           ),

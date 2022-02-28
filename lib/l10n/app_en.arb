@@ -1,6 +1,6 @@
 {
     "@@locale": "en",
-    "@@last_modified": "2022-02-24T18:30:15+00:00",
+    "@@last_modified": "2022-02-28T15:46:16+00:00",
     "helloWorld": "Hello World!",
     "@helloWorld": {
         "description": "The conventional newborn programmer greeting"
@@ -73,5 +73,28 @@
     "scheduleBottomNavItem": "Schedule",
     "messagesBottomNavItem": "Messages",
     "settingsBottomNavItem": "Settings",
-    "tutorBottomNavBarItem": "Tutors"
+    "tutorBottomNavBarItem": "Tutors",
+    "findCourseHint": "Find course...",
+    "findEbookHint": "Find ebook...",
+    "courseTabLabel": "Courses",
+    "ebookTabLabel": "Ebooks",
+    "lessonTimeDescription": "Lesson time:",
+    "requestForLessonLabel": "Request for lesson",
+    "cancelButtonLabel": "Cancel",
+    "fullNameTextBox": "Full name",
+    "fullNameTextBoxHint": "Enter your full name",
+    "dateOfBirthTextBoxLabel": "Date of Birth",
+    "dateOfBirthTextBoxHint": "Choose a date",
+    "countryDropdownLabel": "Country",
+    "levelDropdownLabel": "Level",
+    "subjectDropdownLabel": "Subjects",
+    "noneSelectedOption": "None selected",
+    "testPreparationDropdown": "Test preparation",
+    "saveButtonLabel": "Save",
+    "currentPasswordTextBoxLabel": "Current password",
+    "newPasswordTextBoxLabel": "New password",
+    "confirmPasswordTextBoxLabel": "Confirm password",
+    "confirmPasswordTextBoxHint": "Re-enter new password",
+    "changeAvatarButtonTooltip": "Change profile image",
+    "findTutorHint": "Find tutors..."
 }
