@@ -49,6 +49,10 @@ class AppRouter extends _i2.RootStackRouter {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.SettingsPage());
     },
+    ProfileRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.ProfilePage());
+    },
     DashboardRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.DashboardPage());
@@ -91,7 +95,8 @@ class AppRouter extends _i2.RootStackRouter {
           _i2.RouteConfig(MessageRoute.name,
               path: 'message-page', parent: HomeRoute.name)
         ]),
-        _i2.RouteConfig(SettingsRoute.name, path: '/settings-page')
+        _i2.RouteConfig(SettingsRoute.name, path: '/settings-page'),
+        _i2.RouteConfig(ProfileRoute.name, path: '/profile-page')
       ];
 }
 
@@ -153,6 +158,14 @@ class SettingsRoute extends _i2.PageRouteInfo<void> {
   const SettingsRoute() : super(SettingsRoute.name, path: '/settings-page');
 
   static const String name = 'SettingsRoute';
+}
+
+/// generated route for
+/// [_i1.ProfilePage]
+class ProfileRoute extends _i2.PageRouteInfo<void> {
+  const ProfileRoute() : super(ProfileRoute.name, path: '/profile-page');
+
+  static const String name = 'ProfileRoute';
 }
 
 /// generated route for

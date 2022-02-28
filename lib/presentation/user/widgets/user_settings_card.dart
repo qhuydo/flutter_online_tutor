@@ -1,4 +1,7 @@
+import 'package:auto_route/auto_route.dart';
+
 import '../../common.dart';
+import '../../routes/app_routes.gr.dart';
 import '../helpers/list_item.dart';
 import 'settings_card.dart';
 
@@ -11,7 +14,9 @@ class UserSettingsCard extends StatelessWidget {
       ListItem(
         iconData: Icons.manage_accounts_outlined,
         title: AppLocalizations.of(context)!.editProfileLabel,
-        onTap: () {},
+        onTap: () {
+          context.router.push(const ProfileRoute());
+        },
         trailingWidget: const Icon(
           Icons.navigate_next,
         ),
@@ -49,7 +54,9 @@ class UserSettingsCard extends StatelessWidget {
             topRight: Radius.circular(16),
           ),
         ),
-        onTap: () {},
+        onTap: () {
+          context.router.push(const ProfileRoute());
+        },
         contentPadding: const EdgeInsets.symmetric(
           vertical: 8,
           horizontal: 16,

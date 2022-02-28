@@ -5,4 +5,5 @@ export 'message/message_page.dart';
 export 'schedule/schedule_page.dart';
 export 'tutor/tutor_page.dart';
 export 'user/settings_page.dart';
+export 'user/profile_page.dart';
 export 'home_page.dart';
