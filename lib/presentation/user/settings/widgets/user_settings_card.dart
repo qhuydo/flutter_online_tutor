@@ -24,7 +24,9 @@ class UserSettingsCard extends StatelessWidget {
       SettingCardItem(
         iconData: Icons.password,
         title: AppLocalizations.of(context)!.changePasswordLabel,
-        onTap: () {},
+        onTap: () {
+          context.router.push(const ChangePasswordRoute());
+        },
         trailingWidget: const Icon(
           Icons.navigate_next,
         ),

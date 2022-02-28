@@ -53,6 +53,10 @@ class AppRouter extends _i2.RootStackRouter {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.ProfilePage());
     },
+    ChangePasswordRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.ChangePasswordPage());
+    },
     DashboardRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.DashboardPage());
@@ -96,7 +100,8 @@ class AppRouter extends _i2.RootStackRouter {
               path: 'message-page', parent: HomeRoute.name)
         ]),
         _i2.RouteConfig(SettingsRoute.name, path: '/settings-page'),
-        _i2.RouteConfig(ProfileRoute.name, path: '/profile-page')
+        _i2.RouteConfig(ProfileRoute.name, path: '/profile-page'),
+        _i2.RouteConfig(ChangePasswordRoute.name, path: '/change-password-page')
       ];
 }
 
@@ -166,6 +171,15 @@ class ProfileRoute extends _i2.PageRouteInfo<void> {
   const ProfileRoute() : super(ProfileRoute.name, path: '/profile-page');
 
   static const String name = 'ProfileRoute';
+}
+
+/// generated route for
+/// [_i1.ChangePasswordPage]
+class ChangePasswordRoute extends _i2.PageRouteInfo<void> {
+  const ChangePasswordRoute()
+      : super(ChangePasswordRoute.name, path: '/change-password-page');
+
+  static const String name = 'ChangePasswordRoute';
 }
 
 /// generated route for

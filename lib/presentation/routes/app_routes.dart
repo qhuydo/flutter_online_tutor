@@ -23,5 +23,6 @@ import '../pages.dart';
       ),
       AutoRoute(page: SettingsPage),
       AutoRoute(page: ProfilePage),
+      AutoRoute(page: ChangePasswordPage),
     ])
 class $AppRouter {}
