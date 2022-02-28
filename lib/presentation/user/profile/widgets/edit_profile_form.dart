@@ -3,6 +3,8 @@ import 'package:intl/intl.dart';
 import 'package:twemoji/twemoji.dart';
 
 import '../../../utils/string_utils.dart';
+import 'subject_dropdown.dart';
+import 'test_preparation_dropdown.dart';
 
 class EditProfileForm extends StatefulWidget {
   const EditProfileForm({Key? key}) : super(key: key);
@@ -169,6 +171,10 @@ class _EditProfileFormState extends State<EditProfileForm> {
               ),
               onChanged: (String? value) {},
             ),
+            const SizedBox(height: rowSpacing),
+            SubjectDropdown(),
+            const SizedBox(height: rowSpacing),
+            TestPreparationDropdown(),
             const SizedBox(height: rowSpacing),
             ElevatedButton.icon(
               icon: Icon(Icons.save_outlined),

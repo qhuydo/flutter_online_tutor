@@ -20,9 +20,9 @@ class ProfilePage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: [
+          children: const [
             ProfileAvatar(),
-            SizedBox(height: 16,),
+            SizedBox(height: 16),
             EditProfileForm(),
           ],
         ),
