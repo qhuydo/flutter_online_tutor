@@ -1,13 +1,13 @@
 import '../../common.dart';
 
-class ListItem {
+class SettingCardItem {
   IconData iconData;
   String title;
   Function()? onTap;
   Widget? trailingWidget;
   Color? color;
 
-  ListItem({
+  SettingCardItem({
     required this.iconData,
     required this.title,
     this.onTap,
@@ -17,7 +17,7 @@ class ListItem {
 
   static Iterable<ListTile> buildWidgetFromListItems(
     BuildContext context,
-    List<ListItem> items,
+    List<SettingCardItem> items,
   ) {
     return items.asMap().entries.map((entry) {
       final idx = entry.key;

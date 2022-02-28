@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../common/widgets/outlined_card.dart';
-import '../helpers/list_item.dart';
+import '../../../common/widgets/outlined_card.dart';
+import '../../helpers/setting_card_item.dart';
 
 class SettingsCard extends StatelessWidget {
-  final List<ListItem> settingList;
+  final List<SettingCardItem> settingList;
   final Widget? header;
   final IconData? headerIcon;
   final String? title;
@@ -58,7 +58,7 @@ class SettingsCard extends StatelessWidget {
             ),
             child: Divider(),
           ),
-          ...ListItem.buildWidgetFromListItems(context, settingList),
+          ...SettingCardItem.buildWidgetFromListItems(context, settingList),
         ],
       ),
     );

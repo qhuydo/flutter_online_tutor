@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 
-import '../../common.dart';
-import '../../routes/app_routes.gr.dart';
-import '../helpers/list_item.dart';
+import '../../../common.dart';
+import '../../../routes/app_routes.gr.dart';
+import '../../helpers/setting_card_item.dart';
 import 'settings_card.dart';
 
 class UserSettingsCard extends StatelessWidget {
@@ -11,7 +11,7 @@ class UserSettingsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _settingList = [
-      ListItem(
+      SettingCardItem(
         iconData: Icons.manage_accounts_outlined,
         title: AppLocalizations.of(context)!.editProfileLabel,
         onTap: () {
@@ -21,7 +21,7 @@ class UserSettingsCard extends StatelessWidget {
           Icons.navigate_next,
         ),
       ),
-      ListItem(
+      SettingCardItem(
         iconData: Icons.password,
         title: AppLocalizations.of(context)!.changePasswordLabel,
         onTap: () {},
@@ -29,7 +29,7 @@ class UserSettingsCard extends StatelessWidget {
           Icons.navigate_next,
         ),
       ),
-      ListItem(
+      SettingCardItem(
         iconData: Icons.account_balance_wallet_outlined,
         title: AppLocalizations.of(context)!.myWalletLabel,
         onTap: () {},
@@ -37,7 +37,7 @@ class UserSettingsCard extends StatelessWidget {
           Icons.navigate_next,
         ),
       ),
-      ListItem(
+      SettingCardItem(
         iconData: Icons.logout,
         title: AppLocalizations.of(context)!.logOutLabel,
         onTap: () {},

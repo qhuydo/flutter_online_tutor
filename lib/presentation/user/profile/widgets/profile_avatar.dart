@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../../common.dart';
+import '../../../common.dart';
 
 class ProfileAvatar extends StatelessWidget {
   const ProfileAvatar({Key? key}) : super(key: key);

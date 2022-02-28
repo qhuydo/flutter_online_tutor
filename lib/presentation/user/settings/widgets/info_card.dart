@@ -1,5 +1,5 @@
-import '../../common.dart';
-import '../helpers/list_item.dart';
+import '../../../common.dart';
+import '../../helpers/setting_card_item.dart';
 import 'settings_card.dart';
 
 class InfoCard extends StatelessWidget {
@@ -8,7 +8,7 @@ class InfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final settingList = [
-      ListItem(
+      SettingCardItem(
         iconData: Icons.info_outlined,
         title: AppLocalizations.of(context)!.aboutTheAppLabel,
         onTap: () {},
@@ -16,7 +16,7 @@ class InfoCard extends StatelessWidget {
           Icons.navigate_next,
         ),
       ),
-      ListItem(
+      SettingCardItem(
         iconData: Icons.copyright_outlined,
         title: AppLocalizations.of(context)!.licenseLabel,
         onTap: () {},
@@ -24,7 +24,7 @@ class InfoCard extends StatelessWidget {
           Icons.navigate_next,
         ),
       ),
-      ListItem(
+      SettingCardItem(
         iconData: Icons.star_outline,
         title: AppLocalizations.of(context)!.rateLabel,
         onTap: () {},
@@ -32,7 +32,7 @@ class InfoCard extends StatelessWidget {
           Icons.open_in_new,
         ),
       ),
-      ListItem(
+      SettingCardItem(
         iconData: Icons.policy_outlined,
         title: AppLocalizations.of(context)!.termsOfServiceLabel,
         onTap: () {},
@@ -40,7 +40,7 @@ class InfoCard extends StatelessWidget {
           Icons.open_in_new,
         ),
       ),
-      ListItem(
+      SettingCardItem(
         iconData: Icons.privacy_tip_outlined,
         title: AppLocalizations.of(context)!.privacyPolicyLabel,
         onTap: () {},

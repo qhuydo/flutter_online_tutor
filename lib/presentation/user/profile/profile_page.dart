@@ -1,4 +1,4 @@
-import '../common.dart';
+import '../../common.dart';
 import 'widgets/widgets.dart';
 
 class ProfilePage extends StatelessWidget {

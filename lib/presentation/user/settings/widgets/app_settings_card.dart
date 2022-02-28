@@ -1,8 +1,8 @@
 import 'package:twemoji/twemoji.dart';
 
-import '../../common.dart';
-import '../../utils/string_utils.dart';
-import '../helpers/list_item.dart';
+import '../../../common.dart';
+import '../../../utils/string_utils.dart';
+import '../../helpers/setting_card_item.dart';
 import 'settings_card.dart';
 
 class AppSettingsCard extends StatelessWidget {
@@ -11,7 +11,7 @@ class AppSettingsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _settingList = [
-      ListItem(
+      SettingCardItem(
         iconData: Icons.dark_mode_outlined,
         title: AppLocalizations.of(context)!.darkModeLabel,
         onTap: () {},
@@ -20,7 +20,7 @@ class AppSettingsCard extends StatelessWidget {
           style: Theme.of(context).textTheme.caption,
         ),
       ),
-      ListItem(
+      SettingCardItem(
         iconData: Icons.palette_outlined,
         title: AppLocalizations.of(context)!.colorPaletteLabel,
         onTap: () {},
@@ -30,7 +30,7 @@ class AppSettingsCard extends StatelessWidget {
           color: Colors.blue,
         ),
       ),
-      ListItem(
+      SettingCardItem(
         iconData: Icons.language,
         title: AppLocalizations.of(context)!.languageLabel,
         onTap: () {},
