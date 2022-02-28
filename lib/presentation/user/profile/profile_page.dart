@@ -22,6 +22,8 @@ class ProfilePage extends StatelessWidget {
         child: Column(
           children: [
             ProfileAvatar(),
+            SizedBox(height: 16,),
+            EditProfileForm(),
           ],
         ),
       ),
