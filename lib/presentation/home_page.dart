@@ -5,6 +5,7 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import 'common.dart';
 import 'routes/app_routes.gr.dart';
+import 'utils/default_app_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -50,24 +51,7 @@ class HomePage extends StatelessWidget {
         MessageRoute(),
       ],
       appBarBuilder: (BuildContext context, TabsRouter tabsRouter) {
-        return AppBar(
-          backgroundColor: Theme.of(context).colorScheme.surface,
-          title: Text(
-            AppLocalizations.of(context)!.appTitle,
-            style: TextStyle(
-              color: Theme.of(context).colorScheme.onSurface,
-            ),
-          ),
-          elevation: 0,
-          actions: [
-            GestureDetector(
-              onTap: () {
-                context.router.push(const SettingsRoute());
-              },
-              child: const CircleAvatar(),
-            ),
-          ],
-        );
+        return buildAppBar(context,);
       },
       bottomNavigationBuilder: (BuildContext context, tabsRouter) {
         return SalomonBottomBar(

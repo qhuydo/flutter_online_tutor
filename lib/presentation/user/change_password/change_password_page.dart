@@ -1,4 +1,5 @@
 import '../../common.dart';
+import '../../utils/default_app_bar.dart';
 import 'widgets/change_password_form.dart';
 
 class ChangePasswordPage extends StatelessWidget {
@@ -7,16 +8,10 @@ class ChangePasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.surface,
-        foregroundColor: Theme.of(context).colorScheme.onSurface,
-        title: Text(
-          AppLocalizations.of(context)!.changePasswordLabel,
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.onSurface,
-          ),
-        ),
-        elevation: 0,
+      appBar: buildAppBar(
+        context,
+        shouldShowDefaultActions: false,
+        title: AppLocalizations.of(context)!.changePasswordLabel,
       ),
       body: const SafeArea(child: ChangePasswordForm()),
     );

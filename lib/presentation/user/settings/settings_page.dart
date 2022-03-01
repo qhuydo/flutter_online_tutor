@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+import '../../common.dart';
 
+import '../../utils/default_app_bar.dart';
 import 'widgets/widgets.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -8,7 +9,11 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: buildAppBar(
+        context,
+        title: AppLocalizations.of(context)!.settingsBottomNavItem,
+        shouldShowDefaultActions: false,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

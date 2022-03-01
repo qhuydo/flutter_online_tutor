@@ -35,8 +35,6 @@ class _EditProfileFormState extends State<EditProfileForm> {
             SizedBox(height: rowSpacing),
             CountryFormDropdown(),
             SizedBox(height: rowSpacing),
-            CountryFormDropdown(),
-            SizedBox(height: rowSpacing),
             SubjectDropdown(),
             SizedBox(height: rowSpacing),
             TestPreparationDropdown(),
