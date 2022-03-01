@@ -1,10 +1,6 @@
 {
     "@@locale": "vi",
-    "@@last_modified": "2022-02-28T15:46:07+00:00",
-    "helloWorld": "Xin chào thế giới",
-    "@helloWorld": {
-        "description": "The conventional newborn programmer greeting"
-    },
+    "@@last_modified": "2022-03-01T15:45:59+00:00",
     "appTitle": "Gia sư trực tuyến",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -29,7 +25,6 @@
     "phoneNumberLabel": "Số điện thoại",
     "phoneNumberTextBoxHint": "+84 000 0000 000",
     "or": "hoặc",
-    "welcome": "Chào bạn đến với ứng dụng!",
     "browseCourseButtonText": "Chọn khóa học",
     "recommendedTutors": "Gia sư đề xuất",
     "seeMoreButtonText": "Xem thêm",
@@ -88,5 +83,8 @@
     "confirmPasswordTextBoxLabel": "Xác nhận mật khẩu",
     "confirmPasswordTextBoxHint": "Nhập lại mật khẩu mới",
     "changeAvatarButtonTooltip": "Đổi ảnh đại diện",
-    "findTutorHint": "Tìm gia sư..."
+    "findTutorHint": "Tìm gia sư...",
+    "languageVietnameseOption": "Tiếng Việt",
+    "languageEnglishOption": "Tiếng Anh (English)",
+    "languageJapaneseOption": "Tiếng Nhật (日本語)"
 }

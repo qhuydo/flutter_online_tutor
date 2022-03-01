@@ -1,10 +1,6 @@
 {
     "@@locale": "en",
-    "@@last_modified": "2022-02-28T15:46:16+00:00",
-    "helloWorld": "Hello World!",
-    "@helloWorld": {
-        "description": "The conventional newborn programmer greeting"
-    },
+    "@@last_modified": "2022-03-01T16:12:34+00:00",
     "appTitle": "Online tutor",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -37,7 +33,6 @@
     "phoneNumberLabel": "Phone number",
     "phoneNumberTextBoxHint": "+0 000 0000 000",
     "or": "or",
-    "welcome": "Welcome to online tutor!",
     "browseCourseButtonText": "Browse courses",
     "recommendedTutors": "Recommended tutors",
     "seeMoreButtonText": "See all",
@@ -94,7 +89,10 @@
     "currentPasswordTextBoxLabel": "Current password",
     "newPasswordTextBoxLabel": "New password",
     "confirmPasswordTextBoxLabel": "Confirm password",
-    "confirmPasswordTextBoxHint": "Re-enter new password",
-    "changeAvatarButtonTooltip": "Change profile image",
-    "findTutorHint": "Find tutors..."
+    "confirmPasswordTextBoxHint": "Re-enter your new password",
+    "changeAvatarButtonTooltip": "Change profile picture",
+    "findTutorHint": "Find tutors...",
+    "languageVietnameseOption": "Vietnamese (Tiếng Việt)",
+    "languageEnglishOption": "English",
+    "languageJapaneseOption": "Japanese (日本語)"
 }

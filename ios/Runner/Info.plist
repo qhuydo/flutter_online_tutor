@@ -17,6 +17,7 @@
 	<key>CFBundleLocalizations</key>
 	<array>
 		<string>en</string>
+		<string>ja</string>
 		<string>vi</string>
 	</array>
 	<key>CFBundlePackageType</key>
