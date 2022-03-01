@@ -73,7 +73,7 @@ class _SubjectDropdownState extends State<SubjectDropdown> {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   AppLocalizations.of(context)!.noneSelectedOption,
-                  style: const TextStyle(color: Colors.black54),
+                  style: Theme.of(context).textTheme.caption,
                 ))
             : Container(),
       ],

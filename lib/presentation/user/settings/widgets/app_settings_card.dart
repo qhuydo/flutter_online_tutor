@@ -3,6 +3,7 @@ import 'package:twemoji/twemoji.dart';
 import '../../../common.dart';
 import '../../../utils/string_utils.dart';
 import '../../helpers/setting_card_item.dart';
+import 'change_language_modal.dart';
 import 'settings_card.dart';
 
 class AppSettingsCard extends StatelessWidget {
@@ -33,7 +34,19 @@ class AppSettingsCard extends StatelessWidget {
       SettingCardItem(
         iconData: Icons.language,
         title: AppLocalizations.of(context)!.languageLabel,
-        onTap: () {},
+        onTap: () {
+          showModalBottomSheet(
+            context: context,
+            isScrollControlled: true,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(16),
+                topLeft: Radius.circular(16),
+              ),
+            ),
+            builder: (_) => const ChangeLanguageModal(),
+          );
+        },
         trailingWidget: Twemoji(
           emoji: 'GB'.toCountryFlagFromCountryCode(),
           width: 32,
