@@ -1,6 +1,6 @@
 {
     "@@locale": "ja",
-    "@@last_modified": "2022-03-02T14:23:14+00:00",
+    "@@last_modified": "2022-03-02T16:18:57+00:00",
     "appTitle": "オンライン　チューター",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -113,5 +113,9 @@
     "chooseVideoButtonText": "ビデオを選択",
     "approvalStepLabel": "承認",
     "approvalStepDescriptionTitle": "すべてのステップを完了しました、\nオペレータからの承認をお待ちください。",
-    "backButtonText": "戻る"
+    "backButtonText": "戻る",
+    "targetStudentBeginnerValue": "初心者",
+    "targetStudentIntermediateValue": "中級者",
+    "targetStudentAdvancedValue": "上級者",
+    "completeProfileStepTitle": "プロフィールを完了する"
 }

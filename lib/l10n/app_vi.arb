@@ -1,6 +1,6 @@
 {
     "@@locale": "vi",
-    "@@last_modified": "2022-03-02T14:23:18+00:00",
+    "@@last_modified": "2022-03-02T16:19:04+00:00",
     "appTitle": "Gia sư trực tuyến",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -113,5 +113,9 @@
     "chooseVideoButtonText": "Chọn video",
     "approvalStepLabel": "Xác nhận",
     "approvalStepDescriptionTitle": "Bạn đã hoàn thành tất cẳ các bước!\n Vui lòng chờ phê duyệt",
-    "backButtonText": "Quay lại"
+    "backButtonText": "Quay lại",
+    "targetStudentBeginnerValue": "Người mới bắt đầu",
+    "targetStudentIntermediateValue": "Trung cấp",
+    "targetStudentAdvancedValue": "Cao cấp",
+    "completeProfileStepTitle": "Hoàn thành hồ sơ"
 }

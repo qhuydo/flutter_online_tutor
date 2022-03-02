@@ -1,7 +1,7 @@
 import '../common.dart';
 
 import '../utils/default_app_bar.dart';
-import 'widgets/step_button_group.dart';
+import 'widgets/widgets.dart';
 
 class BecomeTutorPage extends StatefulWidget {
   const BecomeTutorPage({Key? key}) : super(key: key);
@@ -24,10 +24,10 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
           ? StepState.complete
           : StepState.indexed,
       isActive: _index == step1Index,
-      title: const Text('Complete profile'),
-      content: Container(
-          alignment: Alignment.centerLeft,
-          child: const Text('Content for Step 1')),
+      title: Text(
+        AppLocalizations.of(context)!.completeProfileStepTitle,
+      ),
+      content: BecomeTutorStep1(),
     );
   }
 

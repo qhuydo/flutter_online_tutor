@@ -1,6 +1,6 @@
 {
     "@@locale": "en",
-    "@@last_modified": "2022-03-02T14:23:20+00:00",
+    "@@last_modified": "2022-03-02T16:19:09+00:00",
     "appTitle": "Online tutor",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -121,5 +121,9 @@
     "chooseVideoButtonText": "Choose a video",
     "approvalStepLabel": "Approval",
     "approvalStepDescriptionTitle": "You have done all the steps!\nPlease wait for the the operator's approval",
-    "backButtonText": "Back"
+    "backButtonText": "Back",
+    "targetStudentBeginnerValue": "Beginners",
+    "targetStudentIntermediateValue": "Intermediate learners",
+    "targetStudentAdvancedValue": "Advanced learners",
+    "completeProfileStepTitle": "Complete profile"
 }
