@@ -57,6 +57,10 @@ class AppRouter extends _i2.RootStackRouter {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.ChangePasswordPage());
     },
+    BecomeTutorRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.BecomeTutorPage());
+    },
     DashboardRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.DashboardPage());
@@ -101,7 +105,9 @@ class AppRouter extends _i2.RootStackRouter {
         ]),
         _i2.RouteConfig(SettingsRoute.name, path: '/settings-page'),
         _i2.RouteConfig(ProfileRoute.name, path: '/profile-page'),
-        _i2.RouteConfig(ChangePasswordRoute.name, path: '/change-password-page')
+        _i2.RouteConfig(ChangePasswordRoute.name,
+            path: '/change-password-page'),
+        _i2.RouteConfig(BecomeTutorRoute.name, path: '/become-tutor-page')
       ];
 }
 
@@ -180,6 +186,15 @@ class ChangePasswordRoute extends _i2.PageRouteInfo<void> {
       : super(ChangePasswordRoute.name, path: '/change-password-page');
 
   static const String name = 'ChangePasswordRoute';
+}
+
+/// generated route for
+/// [_i1.BecomeTutorPage]
+class BecomeTutorRoute extends _i2.PageRouteInfo<void> {
+  const BecomeTutorRoute()
+      : super(BecomeTutorRoute.name, path: '/become-tutor-page');
+
+  static const String name = 'BecomeTutorRoute';
 }
 
 /// generated route for

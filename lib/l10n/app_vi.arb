@@ -1,6 +1,6 @@
 {
     "@@locale": "vi",
-    "@@last_modified": "2022-03-01T15:45:59+00:00",
+    "@@last_modified": "2022-03-02T04:59:59+00:00",
     "appTitle": "Gia sư trực tuyến",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -86,5 +86,6 @@
     "findTutorHint": "Tìm gia sư...",
     "languageVietnameseOption": "Tiếng Việt",
     "languageEnglishOption": "Tiếng Anh (English)",
-    "languageJapaneseOption": "Tiếng Nhật (日本語)"
+    "languageJapaneseOption": "Tiếng Nhật (日本語)",
+    "becomeTeacherLabel": "Trờ thành gia sư"
 }

@@ -40,6 +40,16 @@ class UserSettingsCard extends StatelessWidget {
         ),
       ),
       SettingCardItem(
+        iconData: Icons.assignment_ind_outlined,
+        title: AppLocalizations.of(context)!.becomeTeacherLabel,
+        onTap: () {
+          context.router.push(const BecomeTutorRoute());
+        },
+        trailingWidget: const Icon(
+          Icons.navigate_next,
+        ),
+      ),
+      SettingCardItem(
         iconData: Icons.logout,
         title: AppLocalizations.of(context)!.logOutLabel,
         onTap: () {},

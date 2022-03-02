@@ -6,7 +6,7 @@ import '../routes/app_routes.gr.dart';
 PreferredSizeWidget buildAppBar(
   BuildContext context, {
   String? title,
-  bool shouldShowDefaultActions = true,
+  bool shouldShowDefaultActions = false,
 }) {
   return AppBar(
     backgroundColor: Theme.of(context).colorScheme.surface,

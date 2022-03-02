@@ -2,8 +2,8 @@ import '../../../common.dart';
 
 enum AppThemeMode {
   followSystem,
-  day,
   night,
+  day,
 }
 
 extension AppThemeModeExtension on AppThemeMode {

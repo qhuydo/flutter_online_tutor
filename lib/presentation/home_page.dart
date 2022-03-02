@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
         MessageRoute(),
       ],
       appBarBuilder: (BuildContext context, TabsRouter tabsRouter) {
-        return buildAppBar(context,);
+        return buildAppBar(context, shouldShowDefaultActions: true);
       },
       bottomNavigationBuilder: (BuildContext context, tabsRouter) {
         return SalomonBottomBar(
