@@ -1,6 +1,6 @@
 {
     "@@locale": "en",
-    "@@last_modified": "2022-03-02T05:00:04+00:00",
+    "@@last_modified": "2022-03-02T14:23:20+00:00",
     "appTitle": "Online tutor",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -95,5 +95,31 @@
     "languageVietnameseOption": "Vietnamese (Tiếng Việt)",
     "languageEnglishOption": "English",
     "languageJapaneseOption": "Japanese (日本語)",
-    "becomeTeacherLabel": "Become a tutor"
+    "becomeTeacherLabel": "Become a tutor",
+    "basicInfoLabel": "Basic ",
+    "tutoringNameTextBoxLabel": "Tutoring name",
+    "uploadProfessionalPhotoLabel": "Please upload a professional photo.",
+    "cvLabel": "CV",
+    "cvInfoNotice": "Students will review this information to determine whether you are a good fit for them.",
+    "protectPrivacyNotice": "In order to protect your privacy, please refrain from sharing personal information such as emails and phone numbers.",
+    "interestTextBoxLabel": "Interests",
+    "interestTextBoxHint": "Interests, hobbies, memorable life experiences, or anything else you'd like to share.",
+    "academicLevelTextBoxLabel": "Academic level",
+    "academicLevelTextBoxHint": "Example: \"Bachelor of Arts in English from Cambly University; Certified yoga instructor, Second Language Acquisition and Teaching  (SLAT) certificate from Cambly University\"",
+    "experienceTextBoxLabel": "Experience",
+    "professionTextBoxLabel": "Current or Previous Profession",
+    "aboutLanguageTitle": "Languages I speak",
+    "aboutTeachingTitle": "About teaching",
+    "introductionTextBoxLabel": "Introduction",
+    "specialitiesDropdown": "Specialities",
+    "nextStepButtonLabel": "Next",
+    "targetStudentTextBoxLabel": "Who I teach",
+    "introductionVideoLabel": "Introduction video",
+    "introductionVideoStepTitle": "Introduce yourself!",
+    "introductionVideoStepTipsLabel": "Some helpful tips:\n1. Find a clean & quiet place\n2. Simle & look at the camera\n3. Dress smartly\n4. Speak for 1 - 3 minutes\n5. Brand yourself & have fun",
+    "previousStepButtonText": "Previous",
+    "chooseVideoButtonText": "Choose a video",
+    "approvalStepLabel": "Approval",
+    "approvalStepDescriptionTitle": "You have done all the steps!\nPlease wait for the the operator's approval",
+    "backButtonText": "Back"
 }

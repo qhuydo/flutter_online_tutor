@@ -1,6 +1,6 @@
 {
     "@@locale": "vi",
-    "@@last_modified": "2022-03-02T04:59:59+00:00",
+    "@@last_modified": "2022-03-02T14:23:18+00:00",
     "appTitle": "Gia sư trực tuyến",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -87,5 +87,31 @@
     "languageVietnameseOption": "Tiếng Việt",
     "languageEnglishOption": "Tiếng Anh (English)",
     "languageJapaneseOption": "Tiếng Nhật (日本語)",
-    "becomeTeacherLabel": "Trờ thành gia sư"
+    "becomeTeacherLabel": "Trờ thành gia sư",
+    "basicInfoLabel": "Thông tin cơ bản",
+    "tutoringNameTextBoxLabel": "Tên người dạy",
+    "uploadProfessionalPhotoLabel": "Vui lòng dùng ảnh đại diện chuyên nghiệp,",
+    "cvLabel": "CV",
+    "cvInfoNotice": "Học viên sẽ xem xét các thông tin này để xem thử liệu bạn có phù hợp với yêu cầu của họ hay không.",
+    "protectPrivacyNotice": "Để bảo vệ quyền riêng tư, xin vui lòng không cung cấp thông tin cá nhân (email, số điện thoại) trong hồ sơ của bạn.",
+    "interestTextBoxLabel": "Sở thích",
+    "interestTextBoxHint": "Những điều thú vị, sở thích, những trải nghiệm đáng nhớ hoặc bất cứ điều gì mà bạn muốn chia sẻ.",
+    "academicLevelTextBoxLabel": "Trình độ học vấn",
+    "academicLevelTextBoxHint": "Ví dụ: \"Bằng cử nghệ thuật của đại học Cambly; Chứng nhận huấn luyện viên Yoga, Chứng chỉ Tiếp thu và Giảng dạy Ngôn ngữ Thứ hai (SLAT) của Đại học Cambly\"",
+    "experienceTextBoxLabel": "Kinh nghiệm",
+    "professionTextBoxLabel": "Nghề nghiệp hiện tại hoặc trước đây",
+    "aboutLanguageTitle": "Về kiến thức ngôn ngữ",
+    "aboutTeachingTitle": "Về việc dạy học",
+    "introductionTextBoxLabel": "Giới thiệu bản thân",
+    "specialitiesDropdown": "Chuyên môn",
+    "nextStepButtonLabel": "Bước tiếp theo",
+    "targetStudentTextBoxLabel": "Bạn chuyên dạy các học viên có trình độ nào",
+    "introductionVideoLabel": "Video giới thiệu",
+    "introductionVideoStepTitle": "Hãy giới thiệu bản thân",
+    "introductionVideoStepTipsLabel": "Một số mẹo giúp ích:\n1. Tìm một nơi sạch sẽ, yên ắng\n2. Hướng ánh mắt vào máy ảnh và mỉm cười\n3. Mặc trang phục gọn gàng, sạch đẹp\n4. Giới thiệu khoảng từ 1 đến 3 phút",
+    "previousStepButtonText": "Quay về bước vừa nãy",
+    "chooseVideoButtonText": "Chọn video",
+    "approvalStepLabel": "Xác nhận",
+    "approvalStepDescriptionTitle": "Bạn đã hoàn thành tất cẳ các bước!\n Vui lòng chờ phê duyệt",
+    "backButtonText": "Quay lại"
 }

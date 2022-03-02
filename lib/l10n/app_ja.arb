@@ -1,6 +1,6 @@
 {
     "@@locale": "ja",
-    "@@last_modified": "2022-03-02T04:59:50+00:00",
+    "@@last_modified": "2022-03-02T14:23:14+00:00",
     "appTitle": "オンライン　チューター",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -87,5 +87,31 @@
     "languageVietnameseOption": "ベトナム語 (Tiếng Việt)",
     "languageEnglishOption": "英語 (English)",
     "languageJapaneseOption": "日本語",
-    "becomeTeacherLabel": "チューターとして登録"
+    "becomeTeacherLabel": "チューターとして登録",
+    "basicInfoLabel": "基本的情報",
+    "tutoringNameTextBoxLabel": "名前",
+    "uploadProfessionalPhotoLabel": "プロの写真ファイルをアップロードしてご利用ください。",
+    "cvLabel": "履歴書",
+    "cvInfoNotice": "学生はこのプロファイル情報を確認し、あなたが自分に適してかどうか判断します。",
+    "protectPrivacyNotice": "あたなのプライバシーを保護するため、メールや電話番号といった個人情報の共有はご遠慮ください。",
+    "interestTextBoxLabel": "興味",
+    "interestTextBoxHint": "興味、趣味、思い出に残る人生経験といったなにか共有したいを入力ください。",
+    "academicLevelTextBoxLabel": "アカデミックレベル",
+    "academicLevelTextBoxHint": "例：「シカゴにあるデポール大学から心理学の文学士号を取得」、「南カリフォルニア大学で英語教育学の修士号を取得した」",
+    "experienceTextBoxLabel": "経験",
+    "professionTextBoxLabel": "過去または現在の職業",
+    "aboutLanguageTitle": "言語知識",
+    "aboutTeachingTitle": "教えることについて",
+    "introductionTextBoxLabel": "自分紹介",
+    "specialitiesDropdown": " 専門",
+    "nextStepButtonLabel": "次へ",
+    "targetStudentTextBoxLabel": "受講対象者",
+    "introductionVideoLabel": "紹介ビデオ",
+    "introductionVideoStepTitle": "自己紹介をしましょう",
+    "introductionVideoStepTipsLabel": "役立つヒント:\n１． 静かな場所を見つける\n２．笑顔でカメラの方を見る\n３．こぎれいな服装をする\n４．１〜３分くらい話す",
+    "previousStepButtonText": "前へ",
+    "chooseVideoButtonText": "ビデオを選択",
+    "approvalStepLabel": "承認",
+    "approvalStepDescriptionTitle": "すべてのステップを完了しました、\nオペレータからの承認をお待ちください。",
+    "backButtonText": "戻る"
 }
