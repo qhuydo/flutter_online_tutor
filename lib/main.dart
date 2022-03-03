@@ -22,7 +22,6 @@ class OnlySenpaiApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp.router(
       title: 'Flutter Demo',
       localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -32,7 +31,7 @@ class OnlySenpaiApp extends StatelessWidget {
         // TODO update global theme
         // primarySwatch: Colors.blue,
         visualDensity: VisualDensity.standard,
-        textTheme: GoogleFonts.manropeTextTheme(
+        textTheme: GoogleFonts.sawarabiGothicTextTheme(
           ThemeData.light().textTheme,
         ),
       ),

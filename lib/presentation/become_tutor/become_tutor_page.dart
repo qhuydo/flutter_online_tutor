@@ -63,7 +63,7 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
             ? AppLocalizations.of(context)!.approvalStepLabel
             : '',
       ),
-      content: const Text('Content for Step 3'),
+      content: BecomeTutorStep3(),
     );
   }
 
