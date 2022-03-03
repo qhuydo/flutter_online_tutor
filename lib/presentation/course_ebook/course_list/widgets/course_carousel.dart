@@ -1,6 +1,6 @@
-import '../../../utils/constants.dart';
-import '../../common.dart';
-import '../../common/widgets/dots_indicator.dart';
+import '../../../../utils/constants.dart';
+import '../../../common.dart';
+import '../../../common/widgets/dots_indicator.dart';
 import 'course_carousel_card.dart';
 
 class CourseCarousel extends StatefulWidget {

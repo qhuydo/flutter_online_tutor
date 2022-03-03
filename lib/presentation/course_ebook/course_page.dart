@@ -1,5 +1,5 @@
 import '../common.dart';
-import 'widgets/widgets.dart';
+import 'widgets.dart';
 
 class CoursePage extends StatelessWidget {
   const CoursePage({Key? key}) : super(key: key);

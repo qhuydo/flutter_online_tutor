@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import '../../common.dart';
+import '../../../common.dart';
 
 class EbookCard extends StatelessWidget {
   const EbookCard({Key? key}) : super(key: key);

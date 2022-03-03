@@ -3,7 +3,7 @@ import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import '../../common.dart';
 import '../../common/widgets/scaffold_with_search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';
-import 'course_list_card.dart';
+import 'widgets/course_list_card.dart';
 
 class CourseTabPage extends StatelessWidget {
   const CourseTabPage({Key? key}) : super(key: key);

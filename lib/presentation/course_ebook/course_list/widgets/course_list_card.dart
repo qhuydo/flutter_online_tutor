@@ -1,4 +1,4 @@
-import '../../common.dart';
+import '../../../common.dart';
 import 'course_carousel_card_content.dart';
 
 class CourseListCard extends StatelessWidget {

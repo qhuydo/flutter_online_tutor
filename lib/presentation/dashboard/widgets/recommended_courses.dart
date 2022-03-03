@@ -1,8 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/rendering.dart';
 
 import '../../common.dart';
-import '../../course_ebook/widgets/course_carousel.dart';
+import '../../course_ebook/course_list/widgets/course_carousel.dart';
 import '../../routes/app_routes.gr.dart';
 
 class RecommendedCourses extends StatelessWidget {

@@ -1,5 +1,5 @@
 import '../../../common.dart';
-import '../../../course_ebook/widgets/course_list_card.dart';
+import '../../../course_ebook/course_list/widgets/course_list_card.dart';
 
 class TutorRecommendedCourseList extends StatelessWidget {
   static const itemSpacing = 16.0;

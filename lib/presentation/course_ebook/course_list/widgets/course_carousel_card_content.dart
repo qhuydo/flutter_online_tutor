@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import '../../common.dart';
+import '../../../common.dart';
 
 class CourseCarouselCardContent extends StatelessWidget {
   const CourseCarouselCardContent({

@@ -4,7 +4,7 @@ import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import '../../common.dart';
 import '../../common/widgets/scaffold_with_search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';
-import 'ebook_card.dart';
+import 'widgets/ebook_card.dart';
 
 class EbookTabPage extends StatelessWidget {
   const EbookTabPage({Key? key}) : super(key: key);
