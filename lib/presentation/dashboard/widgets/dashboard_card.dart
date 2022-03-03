@@ -19,7 +19,7 @@ class DashboardCard extends StatelessWidget {
             const SizedBox(
               height: 4,
             ),
-            Row(
+            Wrap(
               children: [
                 Text(
                   AppLocalizations.of(context)!.upComingLesson,

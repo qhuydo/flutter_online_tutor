@@ -25,9 +25,13 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
           : StepState.indexed,
       isActive: _index == step1Index,
       title: Text(
-        AppLocalizations.of(context)!.completeProfileStepTitle,
+        // A bug that causes horizontal stepper overflows title
+        // see https://github.com/flutter/flutter/issues/40601
+        _index == step1Index
+            ? AppLocalizations.of(context)!.completeProfileStepTitle
+            : '',
       ),
-      content: BecomeTutorStep1(),
+      content: const BecomeTutorStep1(),
     );
   }
 
@@ -38,7 +42,11 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
           ? StepState.complete
           : StepState.indexed,
       isActive: _index == step2Index,
-      title: Text(AppLocalizations.of(context)!.introductionVideoLabel),
+      title: Text(
+        _index == step2Index
+            ? AppLocalizations.of(context)!.introductionVideoLabel
+            : '',
+      ),
       content: const Text('Content for Step 2'),
     );
   }
@@ -50,7 +58,11 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
           ? StepState.complete
           : StepState.indexed,
       isActive: _index == step3Index,
-      title: Text(AppLocalizations.of(context)!.approvalStepLabel),
+      title: Text(
+        _index == step3Index
+            ? AppLocalizations.of(context)!.approvalStepLabel
+            : '',
+      ),
       content: const Text('Content for Step 3'),
     );
   }
@@ -65,6 +77,7 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
       ),
       body: SafeArea(
         child: Stepper(
+          physics: const ClampingScrollPhysics(),
           controlsBuilder: (BuildContext context, ControlsDetails details) {
             final isNotFirstStep = details.stepIndex != 0;
             final isNotLastStep = details.stepIndex != _totalSteps - 1;
@@ -99,7 +112,7 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
           //     _index = index;
           //   });
           // },
-          steps: <Step>[
+          steps: [
             buildStep1(context),
             buildStep2(context),
             buildStep3(context),

@@ -11,37 +11,42 @@ class RecommendedTutors extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          textBaseline: TextBaseline.ideographic,
-          children: [
-            // Twemoji(emoji: '🌟'),
-            Text(
-              '🌟 ' + AppLocalizations.of(context)!.recommendedTutors,
-              maxLines: 2,
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                    // decoration: TextDecoration.underline,
-                    fontWeight: FontWeight.bold,
-                  ),
-              textAlign: TextAlign.start,
-            ),
-            TextButton(
-              onPressed: () {
-                context.navigateTo(const TutorRoute());
-              },
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    AppLocalizations.of(context)!.seeMoreButtonText,
-                  ),
-                  const SizedBox(width: 4),
-                  const Icon(Icons.arrow_forward_ios)
-                ],
+        ConstrainedBox(
+          constraints: BoxConstraints(
+            minWidth: MediaQuery.of(context).size.width,
+          ),
+          child: Wrap(
+            direction: Axis.horizontal,
+            crossAxisAlignment: WrapCrossAlignment.start,
+            runAlignment: WrapAlignment.spaceBetween,
+            alignment: WrapAlignment.spaceBetween,
+            children: [
+              // Twemoji(emoji: '🌟'),
+              Text(
+                '🌟 ' + AppLocalizations.of(context)!.recommendedTutors,
+                maxLines: 2,
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                      // decoration: TextDecoration.underline,
+                      fontWeight: FontWeight.bold,
+                    ),
+                textAlign: TextAlign.start,
               ),
-            )
-          ],
+              TextButton(
+                onPressed: () {
+                  context.navigateTo(const TutorRoute());
+                },
+                child: Wrap(
+                  children: [
+                    Text(
+                      AppLocalizations.of(context)!.seeMoreButtonText,
+                    ),
+                    const SizedBox(width: 4),
+                    const Icon(Icons.arrow_forward_ios)
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
         // const SizedBox(height: 16),
         ListView.separated(
