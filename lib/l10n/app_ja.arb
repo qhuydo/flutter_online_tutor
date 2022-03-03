@@ -1,6 +1,6 @@
 {
     "@@locale": "ja",
-    "@@last_modified": "2022-03-02T16:18:57+00:00",
+    "@@last_modified": "2022-03-03T08:22:57+00:00",
     "appTitle": "オンライン　チューター",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -95,7 +95,7 @@
     "cvInfoNotice": "学生はこのプロファイル情報を確認し、あなたが自分に適してかどうか判断します。",
     "protectPrivacyNotice": "あたなのプライバシーを保護するため、メールや電話番号といった個人情報の共有はご遠慮ください。",
     "interestTextBoxLabel": "興味",
-    "interestTextBoxHint": "興味、趣味、思い出に残る人生経験といったなにか共有したいを入力ください。",
+    "interestTextBoxHint": "興味、趣味、思い出に残る人生経験といったなにか共有したいのとを入力してください。",
     "academicLevelTextBoxLabel": "アカデミックレベル",
     "academicLevelTextBoxHint": "例：「シカゴにあるデポール大学から心理学の文学士号を取得」、「南カリフォルニア大学で英語教育学の修士号を取得した」",
     "experienceTextBoxLabel": "経験",
@@ -105,7 +105,7 @@
     "introductionTextBoxLabel": "自分紹介",
     "specialitiesDropdown": " 専門",
     "nextStepButtonLabel": "次へ",
-    "targetStudentTextBoxLabel": "受講対象者",
+    "targetStudentTextBoxLabel": "望ましい受講対象者",
     "introductionVideoLabel": "紹介ビデオ",
     "introductionVideoStepTitle": "自己紹介をしましょう",
     "introductionVideoStepTipsLabel": "役立つヒント:\n１． 静かな場所を見つける\n２．笑顔でカメラの方を見る\n３．こぎれいな服装をする\n４．１〜３分くらい話す",
@@ -117,5 +117,9 @@
     "targetStudentBeginnerValue": "初心者",
     "targetStudentIntermediateValue": "中級者",
     "targetStudentAdvancedValue": "上級者",
-    "completeProfileStepTitle": "プロフィールを完了する"
+    "completeProfileStepTitle": "プロフィールを完了する",
+    "viewReviewButtonText": "レビュー",
+    "favouriteButtonIconText": "お気に入り",
+    "reportIconButtonText": "レポート",
+    "tutorDetailsPageTitle": "チューターについて"
 }

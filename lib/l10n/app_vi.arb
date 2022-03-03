@@ -1,6 +1,6 @@
 {
     "@@locale": "vi",
-    "@@last_modified": "2022-03-02T16:19:04+00:00",
+    "@@last_modified": "2022-03-03T08:23:01+00:00",
     "appTitle": "Gia sư trực tuyến",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -117,5 +117,9 @@
     "targetStudentBeginnerValue": "Người mới bắt đầu",
     "targetStudentIntermediateValue": "Trung cấp",
     "targetStudentAdvancedValue": "Cao cấp",
-    "completeProfileStepTitle": "Hoàn thành hồ sơ"
+    "completeProfileStepTitle": "Hoàn thành hồ sơ",
+    "viewReviewButtonText": "Đánh giá",
+    "favouriteButtonIconText": "Yêu thích",
+    "reportIconButtonText": "Báo cáo sai phạm",
+    "tutorDetailsPageTitle": "Gia sư"
 }

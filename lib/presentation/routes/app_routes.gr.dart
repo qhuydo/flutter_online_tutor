@@ -61,6 +61,15 @@ class AppRouter extends _i2.RootStackRouter {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.BecomeTutorPage());
     },
+    TutorDetailsRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<TutorDetailsRouteArgs>(
+          orElse: () =>
+              TutorDetailsRouteArgs(tutorId: pathParams.getString('tutorId')));
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: _i1.TutorDetailsPage(key: args.key, tutorId: args.tutorId));
+    },
     DashboardRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.DashboardPage());
@@ -107,7 +116,8 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(ProfileRoute.name, path: '/profile-page'),
         _i2.RouteConfig(ChangePasswordRoute.name,
             path: '/change-password-page'),
-        _i2.RouteConfig(BecomeTutorRoute.name, path: '/become-tutor-page')
+        _i2.RouteConfig(BecomeTutorRoute.name, path: '/become-tutor-page'),
+        _i2.RouteConfig(TutorDetailsRoute.name, path: '/tutors/:tutorId')
       ];
 }
 
@@ -195,6 +205,31 @@ class BecomeTutorRoute extends _i2.PageRouteInfo<void> {
       : super(BecomeTutorRoute.name, path: '/become-tutor-page');
 
   static const String name = 'BecomeTutorRoute';
+}
+
+/// generated route for
+/// [_i1.TutorDetailsPage]
+class TutorDetailsRoute extends _i2.PageRouteInfo<TutorDetailsRouteArgs> {
+  TutorDetailsRoute({_i3.Key? key, required String tutorId})
+      : super(TutorDetailsRoute.name,
+            path: '/tutors/:tutorId',
+            args: TutorDetailsRouteArgs(key: key, tutorId: tutorId),
+            rawPathParams: {'tutorId': tutorId});
+
+  static const String name = 'TutorDetailsRoute';
+}
+
+class TutorDetailsRouteArgs {
+  const TutorDetailsRouteArgs({this.key, required this.tutorId});
+
+  final _i3.Key? key;
+
+  final String tutorId;
+
+  @override
+  String toString() {
+    return 'TutorDetailsRouteArgs{key: $key, tutorId: $tutorId}';
+  }
 }
 
 /// generated route for

@@ -1,4 +1,7 @@
+import 'package:auto_route/auto_route.dart';
+
 import '../../common.dart';
+import '../../routes/app_routes.gr.dart';
 import 'tutor_card_action_buttons.dart';
 import 'tutor_card_header.dart';
 import 'widgets.dart';
@@ -10,7 +13,11 @@ class TutorCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          context.router.push(TutorDetailsRoute(
+            tutorId: '45f8709e-2e84-46f2-b238-817a85cc2b29',
+          ));
+        },
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(

@@ -45,14 +45,14 @@ class TopicList extends StatelessWidget {
           ).createShader(rect);
         },
         blendMode: BlendMode.dstOut,
-        child: ListView.separated(
+        child: ListView.builder(
           // primary: false,
           shrinkWrap: true,
           physics: const ClampingScrollPhysics(),
           scrollDirection: Axis.horizontal,
-          separatorBuilder: (BuildContext context, int index) {
-            return const SizedBox(width: 8);
-          },
+          // separatorBuilder: (BuildContext context, int index) {
+          //   return const SizedBox(width: 8);
+          // },
           itemBuilder: (BuildContext context, int index) {
             return const TopicChip();
           },

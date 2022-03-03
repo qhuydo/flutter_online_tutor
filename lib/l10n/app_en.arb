@@ -1,6 +1,6 @@
 {
     "@@locale": "en",
-    "@@last_modified": "2022-03-02T16:19:09+00:00",
+    "@@last_modified": "2022-03-03T08:23:11+00:00",
     "appTitle": "Online tutor",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -125,5 +125,9 @@
     "targetStudentBeginnerValue": "Beginners",
     "targetStudentIntermediateValue": "Intermediate learners",
     "targetStudentAdvancedValue": "Advanced learners",
-    "completeProfileStepTitle": "Complete profile"
+    "completeProfileStepTitle": "Complete profile",
+    "viewReviewButtonText": "Review",
+    "favouriteButtonIconText": "Favourite",
+    "reportIconButtonText": "Report",
+    "tutorDetailsPageTitle": "About the tutor"
 }
