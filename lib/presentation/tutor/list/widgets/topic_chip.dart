@@ -1,4 +1,4 @@
-import '../../common.dart';
+import '../../../common.dart';
 
 class TopicChip extends StatelessWidget {
   const TopicChip({Key? key}) : super(key: key);

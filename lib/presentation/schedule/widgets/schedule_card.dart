@@ -1,7 +1,7 @@
 import 'package:twemoji/twemoji.dart';
 
 import '../../common.dart';
-import '../../tutor/widgets/tutor_avatar.dart';
+import '../../tutor/list/widgets/tutor_avatar.dart';
 import '../../utils/string_utils.dart';
 
 class ScheduleCard extends StatelessWidget {

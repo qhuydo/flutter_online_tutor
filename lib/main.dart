@@ -10,7 +10,7 @@ import 'presentation/routes/app_routes.gr.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   if (Platform.isLinux || Platform.isMacOS || Platform.isWindows) {
-    setWindowMinSize(const Size(600, 750));
+    setWindowMinSize(const Size(500, 750));
   }
   runApp(OnlySenpaiApp());
 }

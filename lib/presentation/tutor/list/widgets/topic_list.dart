@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-import '../../common.dart';
+import '../../../common.dart';
 import 'topic_chip.dart';
 
 class TopicList extends StatelessWidget {

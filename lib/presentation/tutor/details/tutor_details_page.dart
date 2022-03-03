@@ -2,11 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:twemoji/twemoji.dart';
 
-import '../common.dart';
-import '../course_ebook/widgets/course_list_card.dart';
-import '../utils/default_app_bar.dart';
-import '../utils/string_utils.dart';
-import 'widgets/topic_chip.dart';
+import '../../common.dart';
+import '../../course_ebook/widgets/course_list_card.dart';
+import '../../utils/default_app_bar.dart';
+import '../../utils/string_utils.dart';
+import '../list/widgets/topic_chip.dart';
 
 class TutorDetailsPage extends StatelessWidget {
   final String tutorId;

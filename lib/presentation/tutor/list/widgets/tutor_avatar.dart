@@ -1,4 +1,4 @@
-import '../../common.dart';
+import '../../../common.dart';
 
 class TutorAvatar extends StatelessWidget {
   final bool shouldShowStatus;

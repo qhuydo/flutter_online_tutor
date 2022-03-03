@@ -1,5 +1,5 @@
 import '../../common.dart';
-import '../../tutor/widgets/topic_chip.dart';
+import '../../tutor/list/widgets/topic_chip.dart';
 import 'course_carousel_card_content.dart';
 
 class CourseCarouselCard extends StatelessWidget {

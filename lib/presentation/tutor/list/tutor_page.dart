@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
-import '../common.dart';
-import '../common/widgets/scaffold_with_search_bar.dart';
-import '../common/widgets/search_item_row_placeholder.dart';
-import 'widgets/tutor_card.dart';
+import '../../common.dart';
+import '../../common/widgets/scaffold_with_search_bar.dart';
+import '../../common/widgets/search_item_row_placeholder.dart';
+import '../list/widgets/tutor_card.dart';
 
 class TutorPage extends StatelessWidget {
   const TutorPage({Key? key}) : super(key: key);

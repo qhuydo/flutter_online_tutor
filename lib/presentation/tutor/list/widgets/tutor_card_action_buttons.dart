@@ -1,4 +1,4 @@
-import '../../common.dart';
+import '../../../common.dart';
 
 class TutorCardActionButtons extends StatelessWidget {
   const TutorCardActionButtons({Key? key}) : super(key: key);
