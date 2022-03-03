@@ -1,6 +1,6 @@
 export 'authentication/pages.dart';
 export 'become_tutor/become_tutor_page.dart';
-export 'course_ebook/course_page.dart';
+export 'course_ebook/pages.dart';
 export 'dashboard/dashboard_page.dart';
 export 'message/message_page.dart';
 export 'schedule/schedule_page.dart';

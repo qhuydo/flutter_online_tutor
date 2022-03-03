@@ -1,6 +1,6 @@
 {
     "@@locale": "vi",
-    "@@last_modified": "2022-03-03T08:23:01+00:00",
+    "@@last_modified": "2022-03-03T16:22:51+00:00",
     "appTitle": "Gia sư trực tuyến",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -121,5 +121,22 @@
     "viewReviewButtonText": "Đánh giá",
     "favouriteButtonIconText": "Yêu thích",
     "reportIconButtonText": "Báo cáo sai phạm",
-    "tutorDetailsPageTitle": "Gia sư"
+    "tutorDetailsPageTitle": "Gia sư",
+    "overviewTitleText": "Tổng quát",
+    "reasonToTakeCourseSubtitle": "Lý do tại sao bạn nên học khóa học này",
+    "canDoSubtitle": "Những điều có thể làm",
+    "experienceLevelTitle": "Trình độ cần thiết",
+    "courseLengthTitle": "Độ dài khóa học",
+    "courseTitle": "Khóa học",
+    "syllabusTitle": "Giáo án",
+    "registerButtonTitle": "Đăng ký",
+    "courseLevelAny": "Không quan trọng trình độ",
+    "courseLevelBeginner": "Sơ cấp",
+    "courseLevelUpperBeginner": "Sơ trung cấp",
+    "courseLevelPreIntermediate": "Tiền trung cấp",
+    "courseLevelIntermediate": "Trung cấp",
+    "courseLevelUpperIntermediate": "Thượng trung cấp",
+    "courseLevelPreAdvanced": "Tiền thượng cấp",
+    "courseLevelAdvanced": "Thượng cấp",
+    "courseLevelVeryAdvanced": "Thượng thừa"
 }

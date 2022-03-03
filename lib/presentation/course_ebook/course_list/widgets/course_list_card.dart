@@ -1,4 +1,7 @@
+import 'package:auto_route/auto_route.dart';
+
 import '../../../common.dart';
+import '../../../routes/app_routes.gr.dart';
 import 'course_carousel_card_content.dart';
 
 class CourseListCard extends StatelessWidget {
@@ -8,7 +11,11 @@ class CourseListCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: InkWell(
-        onTap: () {},
+        onTap: () {
+          context.router.push(
+            CourseDetailsRoute(courseId: ''),
+          );
+        },
         child: Column(
           children: [
             AspectRatio(

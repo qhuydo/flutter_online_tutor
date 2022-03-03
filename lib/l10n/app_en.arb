@@ -1,6 +1,6 @@
 {
     "@@locale": "en",
-    "@@last_modified": "2022-03-03T08:23:11+00:00",
+    "@@last_modified": "2022-03-03T16:22:29+00:00",
     "appTitle": "Online tutor",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -129,5 +129,22 @@
     "viewReviewButtonText": "Review",
     "favouriteButtonIconText": "Favourite",
     "reportIconButtonText": "Report",
-    "tutorDetailsPageTitle": "About the tutor"
+    "tutorDetailsPageTitle": "About the tutor",
+    "overviewTitleText": "Overview",
+    "reasonToTakeCourseSubtitle": "Reasons to take this course",
+    "canDoSubtitle": "What will you be able to do",
+    "experienceLevelTitle": "Experience level",
+    "courseLengthTitle": "Course length",
+    "courseTitle": "Course",
+    "syllabusTitle": "Syllabus",
+    "registerButtonTitle": "Register",
+    "courseLevelAny": "Any level",
+    "courseLevelBeginner": "Beginner",
+    "courseLevelUpperBeginner": "Upper-beginner",
+    "courseLevelPreIntermediate": "Pre-intermediate",
+    "courseLevelIntermediate": "Intermediate",
+    "courseLevelUpperIntermediate": "Upper-intermediate",
+    "courseLevelPreAdvanced": "Pre-Advanced",
+    "courseLevelAdvanced": "Advanced",
+    "courseLevelVeryAdvanced": "Very advanced"
 }

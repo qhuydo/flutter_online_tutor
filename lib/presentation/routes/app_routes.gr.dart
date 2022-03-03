@@ -13,6 +13,7 @@
 import 'package:auto_route/auto_route.dart' as _i2;
 import 'package:flutter/material.dart' as _i3;
 
+import '../common.dart' as _i4;
 import '../pages.dart' as _i1;
 
 class AppRouter extends _i2.RootStackRouter {
@@ -70,6 +71,12 @@ class AppRouter extends _i2.RootStackRouter {
           routeData: routeData,
           child: _i1.TutorDetailsPage(key: args.key, tutorId: args.tutorId));
     },
+    CourseDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<CourseDetailsRouteArgs>();
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: _i1.CourseDetailsPage(key: args.key, courseId: args.courseId));
+    },
     DashboardRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.DashboardPage());
@@ -117,7 +124,8 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(ChangePasswordRoute.name,
             path: '/change-password-page'),
         _i2.RouteConfig(BecomeTutorRoute.name, path: '/become-tutor-page'),
-        _i2.RouteConfig(TutorDetailsRoute.name, path: '/tutors/:tutorId')
+        _i2.RouteConfig(TutorDetailsRoute.name, path: '/tutors/:tutorId'),
+        _i2.RouteConfig(CourseDetailsRoute.name, path: '/courses/:courseId')
       ];
 }
 
@@ -210,7 +218,7 @@ class BecomeTutorRoute extends _i2.PageRouteInfo<void> {
 /// generated route for
 /// [_i1.TutorDetailsPage]
 class TutorDetailsRoute extends _i2.PageRouteInfo<TutorDetailsRouteArgs> {
-  TutorDetailsRoute({_i3.Key? key, required String tutorId})
+  TutorDetailsRoute({_i4.Key? key, required String tutorId})
       : super(TutorDetailsRoute.name,
             path: '/tutors/:tutorId',
             args: TutorDetailsRouteArgs(key: key, tutorId: tutorId),
@@ -222,13 +230,37 @@ class TutorDetailsRoute extends _i2.PageRouteInfo<TutorDetailsRouteArgs> {
 class TutorDetailsRouteArgs {
   const TutorDetailsRouteArgs({this.key, required this.tutorId});
 
-  final _i3.Key? key;
+  final _i4.Key? key;
 
   final String tutorId;
 
   @override
   String toString() {
     return 'TutorDetailsRouteArgs{key: $key, tutorId: $tutorId}';
+  }
+}
+
+/// generated route for
+/// [_i1.CourseDetailsPage]
+class CourseDetailsRoute extends _i2.PageRouteInfo<CourseDetailsRouteArgs> {
+  CourseDetailsRoute({_i4.Key? key, required String courseId})
+      : super(CourseDetailsRoute.name,
+            path: '/courses/:courseId',
+            args: CourseDetailsRouteArgs(key: key, courseId: courseId));
+
+  static const String name = 'CourseDetailsRoute';
+}
+
+class CourseDetailsRouteArgs {
+  const CourseDetailsRouteArgs({this.key, required this.courseId});
+
+  final _i4.Key? key;
+
+  final String courseId;
+
+  @override
+  String toString() {
+    return 'CourseDetailsRouteArgs{key: $key, courseId: $courseId}';
   }
 }
 
