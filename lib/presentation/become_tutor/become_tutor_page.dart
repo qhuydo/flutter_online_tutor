@@ -47,7 +47,7 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
             ? AppLocalizations.of(context)!.introductionVideoLabel
             : '',
       ),
-      content: const Text('Content for Step 2'),
+      content: BecomeTutorStep2(),
     );
   }
 

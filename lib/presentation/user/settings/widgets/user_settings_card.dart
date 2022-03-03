@@ -69,10 +69,7 @@ class UserSettingsCard extends StatelessWidget {
         onTap: () {
           context.router.push(const ProfileRoute());
         },
-        contentPadding: const EdgeInsets.symmetric(
-          vertical: 8,
-          horizontal: 16,
-        ),
+        contentPadding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
         leading: const CircleAvatar(
           backgroundColor: Colors.blue,
           radius: 36,

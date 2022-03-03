@@ -8,7 +8,7 @@ class SearchItemRowPlaceholder extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 16),
       child: Material(
-        color: Colors.white,
+        // color: Colors.white,
         borderRadius: BorderRadius.circular(8),
         clipBehavior: Clip.antiAlias,
         child: ListView.builder(

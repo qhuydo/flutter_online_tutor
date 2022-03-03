@@ -68,28 +68,12 @@ class _ChangeLanguageModalState extends State<ChangeLanguageModal> {
       shrinkWrap: true,
       children: Language.values
           .map(
-            // (language) => ListTile(
-            //   title: Row(
-            //     mainAxisSize: MainAxisSize.min,
-            //     children: [
-            //       Twemoji(emoji: language.toEmoji()),
-            //       const SizedBox(
-            //         width: 8,
-            //       ),
-            //       Text(language.toTitle(context)),
-            //     ],
-            //   ),
-            //   leading: Radio<Language>(
-            //     value: language,
-            //     groupValue: _language,
-            //     onChanged: _onLanguageChanged,
-            //   ),
-            // ),
             (language) => RadioListTile(
               value: language,
               groupValue: _language,
               onChanged: _onLanguageChanged,
               title: Wrap(
+                crossAxisAlignment: WrapCrossAlignment.center,
                 children: [
                   Twemoji(emoji: language.toEmoji()),
                   const SizedBox(
