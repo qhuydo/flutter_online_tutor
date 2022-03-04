@@ -16,7 +16,6 @@ class CourseDetailsPage extends StatelessWidget {
         StretchMode.zoomBackground,
         StretchMode.fadeTitle,
       ],
-
       background: Image.asset(
         'assets/images/course.png',
         fit: BoxFit.fitHeight,
@@ -30,6 +29,7 @@ class CourseDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
         slivers: [
           SliverAppBar(
             title: Text(
