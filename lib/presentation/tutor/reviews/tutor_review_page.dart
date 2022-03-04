@@ -1,6 +1,7 @@
 import '../../common.dart';
 
 import '../../utils/default_app_bar.dart';
+import 'widgets/widgets.dart';
 
 class TutorReviewPage extends StatelessWidget {
   final String tutorId;
@@ -17,6 +18,7 @@ class TutorReviewPage extends StatelessWidget {
         context,
         title: AppLocalizations.of(context)!.viewReviewButtonText,
       ),
+      body: const ReviewList(),
     );
   }
 }
