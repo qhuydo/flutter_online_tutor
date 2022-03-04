@@ -17,7 +17,8 @@ PreferredSizeWidget buildAppBar(
         color: Theme.of(context).colorScheme.onSurface,
       ),
     ),
-    elevation: 0,
+    elevation: 0.75,
+    shadowColor: Colors.grey[500]?.withOpacity(0.5),
     actions: shouldShowDefaultActions
         ? [
             GestureDetector(

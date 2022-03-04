@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 
 import '../../../common.dart';
 import '../../../routes/app_routes.gr.dart';
+import 'report_dialog.dart';
 
 class TutorDetailsButtonGroup extends StatelessWidget {
   final String tutorId;
@@ -72,7 +73,9 @@ class TutorDetailsButtonGroup extends StatelessWidget {
                 context,
                 title: AppLocalizations.of(context)!.reportIconButtonText,
                 icon: Icons.report_gmailerrorred,
-                onPressed: () {},
+                onPressed: () {
+                  ReportDialog.showReportDialog(context);
+                },
               ),
             ],
           ),

@@ -56,7 +56,7 @@ class ReviewList extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     RatingBarIndicator(
-                      rating: Random().nextInt(5).toDouble(),
+                      rating: Random().nextInt(6).toDouble(),
                       itemBuilder: (context, index) => const Icon(
                         Icons.star,
                         color: Colors.amber,
@@ -69,7 +69,7 @@ class ReviewList extends StatelessWidget {
                       AppLocalizations.of(context)!.loremIpsum,
                       AppLocalizations.of(context)!.mediumLoremIpsum,
                       AppLocalizations.of(context)!.shortLoremIpsum,
-                    ][Random().nextInt(2)]),
+                    ][Random().nextInt(3)]),
                   ],
                 ),
               ),
