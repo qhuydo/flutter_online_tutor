@@ -18,7 +18,7 @@ class CourseDetailsPage extends StatelessWidget {
       ],
       background: Image.asset(
         'assets/images/course.png',
-        fit: BoxFit.fitHeight,
+        fit: BoxFit.cover,
         height: double.infinity,
         width: double.infinity,
       ),

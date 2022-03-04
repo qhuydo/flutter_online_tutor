@@ -1,6 +1,6 @@
 {
     "@@locale": "ja",
-    "@@last_modified": "2022-03-04T03:55:45+00:00",
+    "@@last_modified": "2022-03-04T09:20:05+00:00",
     "appTitle": "オンライン　チューター",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -140,5 +140,11 @@
     "courseLevelAdvanced": "上級",
     "courseLevelVeryAdvanced": "非常に上級",
     "shortLoremIpsum": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.",
-    "mediumLoremIpsum": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
+    "mediumLoremIpsum": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
+    "syllabusBeforeLessonTitle": "レッスン前に",
+    "syllabusLessonSlideTitle": "レッスンのスライド",
+    "syllabusLessonVideoTitle": "動画で復習する",
+    "syllabusBeforeLessonSubtitle": "これらのスライドを復習してレッスンの準備をしましう",
+    "syllabusLessonSlideSubtitle": "これらのスライドはコースのプレービューとして利用できます",
+    "syllabusReviewVideoSubtitle": "講師とのレッスンを完了すると、レッスンスライドで復習ができるようになります"
 }

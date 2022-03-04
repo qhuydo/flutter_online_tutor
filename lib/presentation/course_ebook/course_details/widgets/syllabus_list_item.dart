@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common.dart';
+import '../../../routes/app_routes.gr.dart';
 
 class SyllabusItem {
   String name;
@@ -17,7 +19,7 @@ class SyllabusItem {
 }
 
 class SyllabusListItem extends StatelessWidget {
-  SyllabusItem item;
+  final SyllabusItem item;
 
   SyllabusListItem({
     Key? key,
@@ -28,40 +30,21 @@ class SyllabusListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final textColour = item.canPreview ? null : Theme.of(context).disabledColor;
     return ListTile(
-      onTap: item.canPreview ? () {} : null,
-      // contentPadding: const EdgeInsets.symmetric(vertical: smallItemSpacing),
-      leading: Container(
-        // padding: const EdgeInsets.all(8),
-        // decoration: BoxDecoration(
-        //   shape: BoxShape.rectangle,
-        //   color: Theme.of(context).primaryColorLight,
-        //   border: Border.all(
-        //     color: Theme.of(context).primaryColorDark,
-        //     width: 1.25,
-        //   ),
-        //   borderRadius: BorderRadius.circular(8),
-        // ),
-        // child: AspectRatio(
-        //   aspectRatio: 1,
-        //   child: Center(
-        //     child: Text(
-        //       '${item.orderCourse + 1}',
-        //       style: Theme.of(context).textTheme.titleLarge?.copyWith(
-        //         color: textColour,
-        //         fontWeight: FontWeight.bold,
-        //       ),
-        //       textAlign: TextAlign.center,
-        //     ),
-        //   ),
-        // ),
-        child: Text(
-          '${item.orderCourse + 1}',
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-            color: textColour,
-            fontWeight: FontWeight.bold,
-          ),
-          textAlign: TextAlign.center,
-        ),
+      onTap: item.canPreview
+          ? () {
+              context.router.push(CourseSyllabusRoute(
+                courseId: '',
+                chapterId: item.orderCourse,
+              ));
+            }
+          : null,
+      leading: Text(
+        '${item.orderCourse + 1}',
+        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              color: textColour,
+              fontWeight: FontWeight.bold,
+            ),
+        textAlign: TextAlign.center,
       ),
       title: Text(
         item.name,

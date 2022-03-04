@@ -26,6 +26,7 @@ class TutorRecommendedCourseList extends StatelessWidget {
         ),
         // const SizedBox(height: itemSpacing),
         GridView.builder(
+          padding: const EdgeInsets.all(0),
           primary: false,
           shrinkWrap: true,
           itemCount: 2,

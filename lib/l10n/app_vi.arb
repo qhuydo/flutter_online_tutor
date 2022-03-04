@@ -1,6 +1,6 @@
 {
     "@@locale": "vi",
-    "@@last_modified": "2022-03-04T03:55:47+00:00",
+    "@@last_modified": "2022-03-04T09:20:54+00:00",
     "appTitle": "Gia sư trực tuyến",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -140,5 +140,11 @@
     "courseLevelAdvanced": "Thượng cấp",
     "courseLevelVeryAdvanced": "Thượng thừa",
     "shortLoremIpsum": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.",
-    "mediumLoremIpsum": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
+    "mediumLoremIpsum": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
+    "syllabusBeforeLessonTitle": "Trước buổi học",
+    "syllabusLessonSlideTitle": "Slide bài giảng",
+    "syllabusLessonVideoTitle": "Video ôn tập",
+    "syllabusBeforeLessonSubtitle": "Hãy xem slide chuẩn bị trước khi vào bài học",
+    "syllabusLessonSlideSubtitle": "Slide bài giảng dùng để xem trong trước tổng quan trong khóa học này có gì",
+    "syllabusReviewVideoSubtitle": "Bạn có thể xem lại slide buổi học sau khi hoàn thành bài học"
 }

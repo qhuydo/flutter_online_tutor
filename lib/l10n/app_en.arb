@@ -1,6 +1,6 @@
 {
     "@@locale": "en",
-    "@@last_modified": "2022-03-04T03:55:49+00:00",
+    "@@last_modified": "2022-03-04T09:21:25+00:00",
     "appTitle": "Online tutor",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -148,5 +148,11 @@
     "courseLevelAdvanced": "Advanced",
     "courseLevelVeryAdvanced": "Very advanced",
     "shortLoremIpsum": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.",
-    "mediumLoremIpsum": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
+    "mediumLoremIpsum": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
+    "syllabusBeforeLessonTitle": "Before the lesson",
+    "syllabusLessonSlideTitle": "Lesson slide",
+    "syllabusLessonVideoTitle": "Review video",
+    "syllabusBeforeLessonSubtitle": "Review these slides to prepare for your lesson",
+    "syllabusLessonSlideSubtitle": "These slides are available as a preview of the course",
+    "syllabusReviewVideoSubtitle": "You can review the lesson slides once you have completed the lesson"
 }

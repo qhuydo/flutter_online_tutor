@@ -27,5 +27,9 @@ import '../pages.dart';
       AutoRoute(page: BecomeTutorPage),
       AutoRoute(path: '/tutors/:tutorId', page: TutorDetailsPage),
       AutoRoute(path: '/courses/:courseId', page: CourseDetailsPage),
+      AutoRoute(
+        path: '/courses/syllabus/:courseId/:chapterId',
+        page: CourseSyllabusPage,
+      ),
     ])
 class $AppRouter {}
