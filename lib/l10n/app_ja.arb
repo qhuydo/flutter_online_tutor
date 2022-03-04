@@ -1,6 +1,6 @@
 {
     "@@locale": "ja",
-    "@@last_modified": "2022-03-03T16:22:16+00:00",
+    "@@last_modified": "2022-03-04T03:55:45+00:00",
     "appTitle": "オンライン　チューター",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -121,7 +121,7 @@
     "viewReviewButtonText": "レビュー",
     "favouriteButtonIconText": "お気に入り",
     "reportIconButtonText": "レポート",
-    "tutorDetailsPageTitle": "講師ーについて",
+    "tutorDetailsPageTitle": "講師について",
     "overviewTitleText": "概要",
     "reasonToTakeCourseSubtitle": "このコースを受講をおすすめする理由",
     "canDoSubtitle": "このコースで出来るようになること",
@@ -138,5 +138,7 @@
     "courseLevelUpperIntermediate": "中級上",
     "courseLevelPreAdvanced": "上級前",
     "courseLevelAdvanced": "上級",
-    "courseLevelVeryAdvanced": "非常に上級"
+    "courseLevelVeryAdvanced": "非常に上級",
+    "shortLoremIpsum": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.",
+    "mediumLoremIpsum": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
 }

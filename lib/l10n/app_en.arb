@@ -1,6 +1,6 @@
 {
     "@@locale": "en",
-    "@@last_modified": "2022-03-03T16:22:29+00:00",
+    "@@last_modified": "2022-03-04T03:55:49+00:00",
     "appTitle": "Online tutor",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -146,5 +146,7 @@
     "courseLevelUpperIntermediate": "Upper-intermediate",
     "courseLevelPreAdvanced": "Pre-Advanced",
     "courseLevelAdvanced": "Advanced",
-    "courseLevelVeryAdvanced": "Very advanced"
+    "courseLevelVeryAdvanced": "Very advanced",
+    "shortLoremIpsum": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.",
+    "mediumLoremIpsum": "Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
 }
