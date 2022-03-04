@@ -1,7 +1,15 @@
+import 'package:auto_route/auto_route.dart';
+
 import '../../../common.dart';
+import '../../../routes/app_routes.gr.dart';
 
 class TutorDetailsButtonGroup extends StatelessWidget {
-  const TutorDetailsButtonGroup({Key? key}) : super(key: key);
+  final String tutorId;
+
+  const TutorDetailsButtonGroup({
+    Key? key,
+    required this.tutorId,
+  }) : super(key: key);
 
   Widget buildButton(
     BuildContext context, {
@@ -56,7 +64,9 @@ class TutorDetailsButtonGroup extends StatelessWidget {
                 context,
                 title: AppLocalizations.of(context)!.viewReviewButtonText,
                 icon: Icons.star_outline,
-                onPressed: () {},
+                onPressed: () {
+                  context.router.push(TutorReviewRoute(tutorId: tutorId));
+                },
               ),
               buildButton(
                 context,

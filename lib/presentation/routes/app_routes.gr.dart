@@ -13,6 +13,7 @@
 import 'package:auto_route/auto_route.dart' as _i2;
 import 'package:flutter/material.dart' as _i3;
 
+import '../common.dart' as _i4;
 import '../pages.dart' as _i1;
 
 class AppRouter extends _i2.RootStackRouter {
@@ -85,6 +86,12 @@ class AppRouter extends _i2.RootStackRouter {
               courseId: args.courseId,
               chapterId: args.chapterId));
     },
+    TutorReviewRoute.name: (routeData) {
+      final args = routeData.argsAs<TutorReviewRouteArgs>();
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: _i1.TutorReviewPage(key: args.key, tutorId: args.tutorId));
+    },
     DashboardRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.DashboardPage());
@@ -135,7 +142,8 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(TutorDetailsRoute.name, path: '/tutors/:tutorId'),
         _i2.RouteConfig(CourseDetailsRoute.name, path: '/courses/:courseId'),
         _i2.RouteConfig(CourseSyllabusRoute.name,
-            path: '/courses/syllabus/:courseId/:chapterId')
+            path: '/courses/syllabus/:courseId/:chapterId'),
+        _i2.RouteConfig(TutorReviewRoute.name, path: '/tutors/:tutorId/reviews')
       ];
 }
 
@@ -228,7 +236,7 @@ class BecomeTutorRoute extends _i2.PageRouteInfo<void> {
 /// generated route for
 /// [_i1.TutorDetailsPage]
 class TutorDetailsRoute extends _i2.PageRouteInfo<TutorDetailsRouteArgs> {
-  TutorDetailsRoute({_i3.Key? key, required String tutorId})
+  TutorDetailsRoute({_i4.Key? key, required String tutorId})
       : super(TutorDetailsRoute.name,
             path: '/tutors/:tutorId',
             args: TutorDetailsRouteArgs(key: key, tutorId: tutorId),
@@ -240,7 +248,7 @@ class TutorDetailsRoute extends _i2.PageRouteInfo<TutorDetailsRouteArgs> {
 class TutorDetailsRouteArgs {
   const TutorDetailsRouteArgs({this.key, required this.tutorId});
 
-  final _i3.Key? key;
+  final _i4.Key? key;
 
   final String tutorId;
 
@@ -253,7 +261,7 @@ class TutorDetailsRouteArgs {
 /// generated route for
 /// [_i1.CourseDetailsPage]
 class CourseDetailsRoute extends _i2.PageRouteInfo<CourseDetailsRouteArgs> {
-  CourseDetailsRoute({_i3.Key? key, required String courseId})
+  CourseDetailsRoute({_i4.Key? key, required String courseId})
       : super(CourseDetailsRoute.name,
             path: '/courses/:courseId',
             args: CourseDetailsRouteArgs(key: key, courseId: courseId));
@@ -264,7 +272,7 @@ class CourseDetailsRoute extends _i2.PageRouteInfo<CourseDetailsRouteArgs> {
 class CourseDetailsRouteArgs {
   const CourseDetailsRouteArgs({this.key, required this.courseId});
 
-  final _i3.Key? key;
+  final _i4.Key? key;
 
   final String courseId;
 
@@ -278,7 +286,7 @@ class CourseDetailsRouteArgs {
 /// [_i1.CourseSyllabusPage]
 class CourseSyllabusRoute extends _i2.PageRouteInfo<CourseSyllabusRouteArgs> {
   CourseSyllabusRoute(
-      {_i3.Key? key, required String courseId, required int chapterId})
+      {_i4.Key? key, required String courseId, required int chapterId})
       : super(CourseSyllabusRoute.name,
             path: '/courses/syllabus/:courseId/:chapterId',
             args: CourseSyllabusRouteArgs(
@@ -291,7 +299,7 @@ class CourseSyllabusRouteArgs {
   const CourseSyllabusRouteArgs(
       {this.key, required this.courseId, required this.chapterId});
 
-  final _i3.Key? key;
+  final _i4.Key? key;
 
   final String courseId;
 
@@ -300,6 +308,30 @@ class CourseSyllabusRouteArgs {
   @override
   String toString() {
     return 'CourseSyllabusRouteArgs{key: $key, courseId: $courseId, chapterId: $chapterId}';
+  }
+}
+
+/// generated route for
+/// [_i1.TutorReviewPage]
+class TutorReviewRoute extends _i2.PageRouteInfo<TutorReviewRouteArgs> {
+  TutorReviewRoute({_i4.Key? key, required String tutorId})
+      : super(TutorReviewRoute.name,
+            path: '/tutors/:tutorId/reviews',
+            args: TutorReviewRouteArgs(key: key, tutorId: tutorId));
+
+  static const String name = 'TutorReviewRoute';
+}
+
+class TutorReviewRouteArgs {
+  const TutorReviewRouteArgs({this.key, required this.tutorId});
+
+  final _i4.Key? key;
+
+  final String tutorId;
+
+  @override
+  String toString() {
+    return 'TutorReviewRouteArgs{key: $key, tutorId: $tutorId}';
   }
 }
 

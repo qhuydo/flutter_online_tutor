@@ -1,15 +1,52 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:twemoji/twemoji.dart';
 
 import '../../../common.dart';
+import '../../../routes/app_routes.gr.dart';
 import '../../../utils/string_utils.dart';
 import 'tutor_avatar.dart';
 import 'tutor_details_button_group.dart';
 
 class TutorDetailsHeader extends StatelessWidget {
   static const itemSpacing = 8.0;
+  final String tutorId;
 
-  const TutorDetailsHeader({Key? key}) : super(key: key);
+  const TutorDetailsHeader({
+    Key? key,
+    required this.tutorId,
+  }) : super(key: key);
+
+  Widget buildRatingBar(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        context.router.push(TutorReviewRoute(tutorId: tutorId));
+      },
+      child: Wrap(
+        alignment: WrapAlignment.center,
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: [
+          RatingBarIndicator(
+            rating: 5,
+            itemBuilder: (context, index) => const Icon(
+              Icons.star,
+              color: Colors.amber,
+            ),
+            itemCount: 5,
+            itemSize: 12,
+            direction: Axis.horizontal,
+          ),
+          const SizedBox(width: 8),
+          Text(
+            '(16)',
+            style: Theme.of(context).textTheme.caption?.copyWith(
+              fontStyle: FontStyle.italic,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,23 +71,7 @@ class TutorDetailsHeader extends StatelessWidget {
           crossAxisAlignment: WrapCrossAlignment.center,
           // spacing: 16,
           children: [
-            RatingBarIndicator(
-              rating: 5,
-              itemBuilder: (context, index) => const Icon(
-                Icons.star,
-                color: Colors.amber,
-              ),
-              itemCount: 5,
-              itemSize: 12,
-              direction: Axis.horizontal,
-            ),
-            const SizedBox(width: 8),
-            Text(
-              '(16)',
-              style: Theme.of(context).textTheme.caption?.copyWith(
-                    fontStyle: FontStyle.italic,
-                  ),
-            ),
+            buildRatingBar(context),
             // const SizedBox(width: 16),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -79,7 +100,9 @@ class TutorDetailsHeader extends StatelessWidget {
           ],
         ),
         const SizedBox(height: itemSpacing),
-        const TutorDetailsButtonGroup(),
+        TutorDetailsButtonGroup(
+          tutorId: tutorId,
+        ),
       ],
     );
   }

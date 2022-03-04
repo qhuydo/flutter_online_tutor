@@ -22,7 +22,7 @@ class AuthenScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO review this logic
+    // TODO reviews this logic
     final screenWidth = MediaQuery.of(context).size.width;
     final imageWidth = screenWidth <= 500 ? screenWidth : 500;
 

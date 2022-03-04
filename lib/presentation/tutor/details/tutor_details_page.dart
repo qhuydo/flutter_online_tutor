@@ -33,11 +33,11 @@ class TutorDetailsPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
-                SizedBox(height: itemSpacing),
-                TutorDetailsHeader(),
-                TutorDetailsContent(),
-                TutorRecommendedCourseList(),
+              children: [
+                const SizedBox(height: itemSpacing),
+                TutorDetailsHeader(tutorId: tutorId,),
+                const TutorDetailsContent(),
+                const TutorRecommendedCourseList(),
               ],
             ),
           ),

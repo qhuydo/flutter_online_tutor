@@ -24,7 +24,8 @@ class CourseSyllabusPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(smallItemSpacing),
           child: Column(
-            children: [
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
               PrepareSlides(),
               SizedBox(height: itemSpacing),
               LessonSlides(),
