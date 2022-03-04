@@ -16,12 +16,13 @@ class CourseDetailsPage extends StatelessWidget {
         StretchMode.zoomBackground,
         StretchMode.fadeTitle,
       ],
-      // background: Image.asset(
-      //   'assets/images/course.png',
-      //   fit: BoxFit.fitWidth,
-      //   height: double.infinity,
-      //   width: double.infinity,
-      // ),
+
+      background: Image.asset(
+        'assets/images/course.png',
+        fit: BoxFit.fitHeight,
+        height: double.infinity,
+        width: double.infinity,
+      ),
     );
   }
 
@@ -36,16 +37,20 @@ class CourseDetailsPage extends StatelessWidget {
             ),
             centerTitle: true,
             floating: true,
+            stretch: true,
             expandedHeight: MediaQuery.of(context).size.width * 9 / 13,
             flexibleSpace: _buildFlexibleSpaceBar(context),
           ),
           SliverToBoxAdapter(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
                 SizedBox(height: itemSpacing),
                 CourseDetailsHeader(),
                 // SizedBox(height: 16),
                 CourseDetailsContent(),
+                SizedBox(height: smallItemSpacing),
+                Syllabus(),
               ],
             ),
           ),

@@ -21,15 +21,15 @@ class CourseCarouselCard extends StatelessWidget {
           children: [
             AspectRatio(
               aspectRatio: 13 / 9,
-              // child: Image.asset(
-              //   'assets/images/course.png',
-              //   fit: BoxFit.fitWidth,
-              //   height: double.infinity,
-              //   width: double.infinity,
-              // ),
-              child: Container(
-                color: Colors.blue,
+              child: Image.asset(
+                'assets/images/course.png',
+                fit: BoxFit.fitWidth,
+                height: double.infinity,
+                width: double.infinity,
               ),
+              // child: Container(
+              //   color: Colors.blue,
+              // ),
             ),
             const CourseCarouselCardContent(),
             Container(
