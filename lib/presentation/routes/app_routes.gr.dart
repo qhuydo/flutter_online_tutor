@@ -98,6 +98,10 @@ class AppRouter extends _i2.RootStackRouter {
           routeData: routeData,
           child: _i1.MessageDetailsPage(key: args.key, tutorId: args.tutorId));
     },
+    HistoryRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.HistoryPage());
+    },
     DashboardRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.DashboardPage());
@@ -152,7 +156,8 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(TutorReviewRoute.name,
             path: '/tutors/:tutorId/reviews'),
         _i2.RouteConfig(MessageDetailsRoute.name,
-            path: '/tutors/:tutorId/message')
+            path: '/tutors/:tutorId/message'),
+        _i2.RouteConfig(HistoryRoute.name, path: '/history-page')
       ];
 }
 
@@ -366,6 +371,14 @@ class MessageDetailsRouteArgs {
   String toString() {
     return 'MessageDetailsRouteArgs{key: $key, tutorId: $tutorId}';
   }
+}
+
+/// generated route for
+/// [_i1.HistoryPage]
+class HistoryRoute extends _i2.PageRouteInfo<void> {
+  const HistoryRoute() : super(HistoryRoute.name, path: '/history-page');
+
+  static const String name = 'HistoryRoute';
 }
 
 /// generated route for

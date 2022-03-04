@@ -12,6 +12,16 @@ class UserSettingsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final _settingList = [
       SettingCardItem(
+        iconData: Icons.history_outlined,
+        title: AppLocalizations.of(context)!.historyTitle,
+        onTap: () {
+          context.router.push(const HistoryRoute());
+        },
+        trailingWidget: const Icon(
+          Icons.navigate_next,
+        ),
+      ),
+      SettingCardItem(
         iconData: Icons.manage_accounts_outlined,
         title: AppLocalizations.of(context)!.editProfileLabel,
         onTap: () {

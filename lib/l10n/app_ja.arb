@@ -146,5 +146,6 @@
     "syllabusLessonVideoTitle": "動画で復習する",
     "syllabusBeforeLessonSubtitle": "これらのスライドを復習してレッスンの準備をしましう",
     "syllabusLessonSlideSubtitle": "これらのスライドはコースのプレービューとして利用できます",
-    "syllabusReviewVideoSubtitle": "講師とのレッスンを完了すると、レッスンスライドで復習ができるようになります"
+    "syllabusReviewVideoSubtitle": "講師とのレッスンを完了すると、レッスンスライドで復習ができるようになります",
+    "historyTitle": "レッスンの履歴"
 }
