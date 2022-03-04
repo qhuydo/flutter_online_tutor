@@ -1,4 +1,7 @@
+import 'package:auto_route/auto_route.dart';
+
 import '../../../common.dart';
+import '../../../routes/app_routes.gr.dart';
 
 class TutorCardActionButtons extends StatelessWidget {
   const TutorCardActionButtons({Key? key}) : super(key: key);
@@ -38,7 +41,9 @@ class TutorCardActionButtons extends StatelessWidget {
               ),
             ),
             MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                context.router.push(MessageDetailsRoute(tutorId: ''));
+              },
               shape: StadiumBorder(
                 side: BorderSide(
                   width: 1.25,

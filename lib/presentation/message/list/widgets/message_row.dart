@@ -1,4 +1,7 @@
-import '../../common.dart';
+import 'package:auto_route/auto_route.dart';
+
+import '../../../common.dart';
+import '../../../routes/app_routes.gr.dart';
 
 class MessageRow extends StatelessWidget {
   const MessageRow({Key? key}) : super(key: key);
@@ -22,9 +25,10 @@ class MessageRow extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
       ),
-      trailing: Text(
-        '12:00'
-      ),
+      trailing: const Text('12:00'),
+      onTap: () {
+        context.router.push(MessageDetailsRoute(tutorId: ''));
+      },
     );
   }
 }

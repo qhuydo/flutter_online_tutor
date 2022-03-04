@@ -22,18 +22,23 @@ class OnlySenpaiApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeData = ThemeData.light();
+
     return MaterialApp.router(
       title: 'Flutter Demo',
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      theme: ThemeData.light().copyWith(
-
+      theme: themeData.copyWith(
         // TODO update global theme
         // primarySwatch: Colors.blue,
         visualDensity: VisualDensity.standard,
         textTheme: GoogleFonts.sawarabiGothicTextTheme(
-          ThemeData.light().textTheme,
+          themeData.textTheme,
         ),
+        scaffoldBackgroundColor: themeData.brightness == Brightness.light
+            ? themeData.colorScheme.surface
+            : null,
+        // scaffoldBackgroundColor: themeData.colorScheme.surface,
       ),
       // home: const SignUpByPhonePage(),
       debugShowCheckedModeBanner: false,

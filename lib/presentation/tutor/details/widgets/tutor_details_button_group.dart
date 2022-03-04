@@ -59,7 +59,9 @@ class TutorDetailsButtonGroup extends StatelessWidget {
                 context,
                 title: AppLocalizations.of(context)!.chatButtonText,
                 icon: Icons.message_outlined,
-                onPressed: () {},
+                onPressed: () {
+                  context.router.push(MessageDetailsRoute(tutorId: ''));
+                },
               ),
               buildButton(
                 context,

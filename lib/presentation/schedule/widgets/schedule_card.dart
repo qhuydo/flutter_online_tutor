@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:twemoji/twemoji.dart';
 
 import '../../common.dart';
+import '../../routes/app_routes.gr.dart';
 import '../../tutor/list/widgets/tutor_avatar.dart';
 import '../../utils/string_utils.dart';
 
@@ -130,7 +132,9 @@ class ScheduleCard extends StatelessWidget {
                   ),
                 ),
                 OutlinedButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.router.push(MessageDetailsRoute(tutorId: ''));
+                  },
                   icon: const Icon(Icons.chat_bubble_outline),
                   label: Text(
                     AppLocalizations.of(context)!.chatButtonText,

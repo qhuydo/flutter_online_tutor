@@ -92,6 +92,12 @@ class AppRouter extends _i2.RootStackRouter {
           routeData: routeData,
           child: _i1.TutorReviewPage(key: args.key, tutorId: args.tutorId));
     },
+    MessageDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<MessageDetailsRouteArgs>();
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: _i1.MessageDetailsPage(key: args.key, tutorId: args.tutorId));
+    },
     DashboardRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.DashboardPage());
@@ -143,7 +149,10 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(CourseDetailsRoute.name, path: '/courses/:courseId'),
         _i2.RouteConfig(CourseSyllabusRoute.name,
             path: '/courses/syllabus/:courseId/:chapterId'),
-        _i2.RouteConfig(TutorReviewRoute.name, path: '/tutors/:tutorId/reviews')
+        _i2.RouteConfig(TutorReviewRoute.name,
+            path: '/tutors/:tutorId/reviews'),
+        _i2.RouteConfig(MessageDetailsRoute.name,
+            path: '/tutors/:tutorId/message')
       ];
 }
 
@@ -332,6 +341,30 @@ class TutorReviewRouteArgs {
   @override
   String toString() {
     return 'TutorReviewRouteArgs{key: $key, tutorId: $tutorId}';
+  }
+}
+
+/// generated route for
+/// [_i1.MessageDetailsPage]
+class MessageDetailsRoute extends _i2.PageRouteInfo<MessageDetailsRouteArgs> {
+  MessageDetailsRoute({_i4.Key? key, required String tutorId})
+      : super(MessageDetailsRoute.name,
+            path: '/tutors/:tutorId/message',
+            args: MessageDetailsRouteArgs(key: key, tutorId: tutorId));
+
+  static const String name = 'MessageDetailsRoute';
+}
+
+class MessageDetailsRouteArgs {
+  const MessageDetailsRouteArgs({this.key, required this.tutorId});
+
+  final _i4.Key? key;
+
+  final String tutorId;
+
+  @override
+  String toString() {
+    return 'MessageDetailsRouteArgs{key: $key, tutorId: $tutorId}';
   }
 }
 
