@@ -11,9 +11,9 @@
 // ignore_for_file: type=lint
 
 import 'package:auto_route/auto_route.dart' as _i2;
+import 'package:flutter/cupertino.dart' as _i4;
 import 'package:flutter/material.dart' as _i3;
 
-import '../common.dart' as _i4;
 import '../pages.dart' as _i1;
 
 class AppRouter extends _i2.RootStackRouter {
@@ -102,6 +102,12 @@ class AppRouter extends _i2.RootStackRouter {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.HistoryPage());
     },
+    EbookDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<EbookDetailsRouteArgs>();
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: _i1.EbookDetailsPage(key: args.key, ebookId: args.ebookId));
+    },
     DashboardRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.DashboardPage());
@@ -157,7 +163,8 @@ class AppRouter extends _i2.RootStackRouter {
             path: '/tutors/:tutorId/reviews'),
         _i2.RouteConfig(MessageDetailsRoute.name,
             path: '/tutors/:tutorId/message'),
-        _i2.RouteConfig(HistoryRoute.name, path: '/history-page')
+        _i2.RouteConfig(HistoryRoute.name, path: '/history-page'),
+        _i2.RouteConfig(EbookDetailsRoute.name, path: '/ebooks/:ebookId')
       ];
 }
 
@@ -379,6 +386,30 @@ class HistoryRoute extends _i2.PageRouteInfo<void> {
   const HistoryRoute() : super(HistoryRoute.name, path: '/history-page');
 
   static const String name = 'HistoryRoute';
+}
+
+/// generated route for
+/// [_i1.EbookDetailsPage]
+class EbookDetailsRoute extends _i2.PageRouteInfo<EbookDetailsRouteArgs> {
+  EbookDetailsRoute({_i4.Key? key, required String ebookId})
+      : super(EbookDetailsRoute.name,
+            path: '/ebooks/:ebookId',
+            args: EbookDetailsRouteArgs(key: key, ebookId: ebookId));
+
+  static const String name = 'EbookDetailsRoute';
+}
+
+class EbookDetailsRouteArgs {
+  const EbookDetailsRouteArgs({this.key, required this.ebookId});
+
+  final _i4.Key? key;
+
+  final String ebookId;
+
+  @override
+  String toString() {
+    return 'EbookDetailsRouteArgs{key: $key, ebookId: $ebookId}';
+  }
 }
 
 /// generated route for
