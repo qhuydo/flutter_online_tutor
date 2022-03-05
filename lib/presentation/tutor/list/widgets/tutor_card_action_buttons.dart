@@ -23,7 +23,11 @@ class TutorCardActionButtons extends StatelessWidget {
           runSpacing: 8,
           children: [
             MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                context.router.push(
+                  TutorScheduleRoute(tutorId: ''),
+                );
+              },
               shape: StadiumBorder(
                 side: BorderSide(
                   width: 1.25,

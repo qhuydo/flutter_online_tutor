@@ -112,6 +112,12 @@ class AppRouter extends _i2.RootStackRouter {
           child: _i1.EbookDetailsPage(
               key: args.key, ebookId: args.ebookId, thumbnail: args.thumbnail));
     },
+    TutorScheduleRoute.name: (routeData) {
+      final args = routeData.argsAs<TutorScheduleRouteArgs>();
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: _i1.TutorSchedulePage(key: args.key, tutorId: args.tutorId));
+    },
     DashboardRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.DashboardPage());
@@ -168,7 +174,9 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(MessageDetailsRoute.name,
             path: '/tutors/:tutorId/message'),
         _i2.RouteConfig(HistoryRoute.name, path: '/history-page'),
-        _i2.RouteConfig(EbookDetailsRoute.name, path: '/ebooks/:ebookId')
+        _i2.RouteConfig(EbookDetailsRoute.name, path: '/ebooks/:ebookId'),
+        _i2.RouteConfig(TutorScheduleRoute.name,
+            path: '/tutors/:tutorId/schedule')
       ];
 }
 
@@ -427,6 +435,30 @@ class EbookDetailsRouteArgs {
   @override
   String toString() {
     return 'EbookDetailsRouteArgs{key: $key, ebookId: $ebookId, thumbnail: $thumbnail}';
+  }
+}
+
+/// generated route for
+/// [_i1.TutorSchedulePage]
+class TutorScheduleRoute extends _i2.PageRouteInfo<TutorScheduleRouteArgs> {
+  TutorScheduleRoute({_i4.Key? key, required String tutorId})
+      : super(TutorScheduleRoute.name,
+            path: '/tutors/:tutorId/schedule',
+            args: TutorScheduleRouteArgs(key: key, tutorId: tutorId));
+
+  static const String name = 'TutorScheduleRoute';
+}
+
+class TutorScheduleRouteArgs {
+  const TutorScheduleRouteArgs({this.key, required this.tutorId});
+
+  final _i4.Key? key;
+
+  final String tutorId;
+
+  @override
+  String toString() {
+    return 'TutorScheduleRouteArgs{key: $key, tutorId: $tutorId}';
   }
 }
 

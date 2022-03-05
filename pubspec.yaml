@@ -82,6 +82,10 @@ dependencies:
   # By Christiaan H. Botha.
   multi_select_flutter: ^4.0.0
 
+  # Highly customizable, feature-packed calendar widget for Flutter.
+  # By Aleksander Woźniak.
+  table_calendar: ^3.0.4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

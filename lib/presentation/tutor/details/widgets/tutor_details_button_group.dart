@@ -85,7 +85,11 @@ class TutorDetailsButtonGroup extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(16),
           child: ElevatedButton.icon(
-            onPressed: () {},
+            onPressed: () {
+              context.router.push(
+                TutorScheduleRoute(tutorId: ''),
+              );
+            },
             icon: const Icon(Icons.calendar_today),
             label: Text(
               AppLocalizations.of(context)!.bookButtonText,
