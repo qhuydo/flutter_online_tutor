@@ -1,6 +1,7 @@
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
+import '../../../utils/constants.dart';
 import '../../common.dart';
 import '../../common/widgets/scaffold_with_search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';
@@ -37,11 +38,15 @@ class EbookTabPage extends StatelessWidget {
         child: MasonryGridView.extent(
           primary: false,
           shrinkWrap: true,
-          padding: const EdgeInsets.only(top: searchBarHeight),
+          padding: const EdgeInsets.only(
+            top: searchBarHeight + 12,
+            left: smallItemSpacing,
+            right: smallItemSpacing,
+          ),
           itemCount: 5,
           crossAxisSpacing: 4,
           mainAxisSpacing: 4,
-          maxCrossAxisExtent: 400,
+          maxCrossAxisExtent: 360,
           itemBuilder: (context, index) {
             return const EbookCard();
           },
