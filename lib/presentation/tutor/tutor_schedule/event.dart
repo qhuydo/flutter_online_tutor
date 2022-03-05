@@ -44,14 +44,16 @@ final _kTimeRanges = [
 
 final _random = Random();
 
+const _nItems = 5;
+
 final _kEventSource = {
   for (var item in List.generate(50, (index) => index))
     DateTime.utc(
       kFirstDay.year,
       kFirstDay.month,
-      item * 5,
+      item * _nItems,
     ): List.generate(
-      item % 4 + 1,
+      item % _nItems,
       (index) => ScheduleEvent(
         title: _kTimeRanges[index],
         status: ScheduleStatus

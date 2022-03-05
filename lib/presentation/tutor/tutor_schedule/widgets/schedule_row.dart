@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 
 import '../../../common.dart';
 import '../event.dart';
+import 'book_dialog.dart';
 
 class ScheduleRow extends StatelessWidget {
   final ScheduleEvent event;
+  final DateTime date;
 
   const ScheduleRow({
     Key? key,
     required this.event,
+    required this.date,
   }) : super(key: key);
 
   Widget buildTrailingWidget(BuildContext context) {
@@ -38,7 +41,17 @@ class ScheduleRow extends StatelessWidget {
           child: const Text(
             'Book',
           ),
-          onPressed: () {},
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return BookDialog(
+                  event: event,
+                  date: date
+                );
+              }
+            );
+          },
         );
     }
   }

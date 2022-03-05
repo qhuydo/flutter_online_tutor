@@ -67,26 +67,26 @@ class _TutorSchedulePageState extends State<TutorSchedulePage> {
       body: Column(
         children: [
           TableCalendar(
-            calendarBuilders: CalendarBuilders(markerBuilder: (context,
-                day,
-                events,) {
+            calendarBuilders: CalendarBuilders(markerBuilder: (
+              context,
+              day,
+              events,
+            ) {
               return events.isEmpty
                   ? null
                   : Container(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: Colors.grey.withOpacity(0.6),
-                    width: 1.25,
-                  ),
-                ),
-              );
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Colors.grey.withOpacity(0.6),
+                          width: 1.25,
+                        ),
+                      ),
+                    );
             }),
             // default daysOfWeekHeight is 16
             daysOfWeekHeight: Platform.isLinux ? 16 + 12 : 16,
-            locale: Localizations
-                .localeOf(context)
-                .languageCode,
+            locale: Localizations.localeOf(context).languageCode,
             firstDay: kFirstDay,
             lastDay: kLastDay,
             focusedDay: _focusedDay,
@@ -113,9 +113,11 @@ class _TutorSchedulePageState extends State<TutorSchedulePage> {
               valueListenable: _selectedEvents,
               builder: (context, value, _) {
                 return ListView.builder(
-                    itemCount: value.length,
-                    itemBuilder: (context, index) =>
-                        ScheduleRow(event: value[index]),
+                  itemCount: value.length,
+                  itemBuilder: (context, index) => ScheduleRow(
+                    event: value[index],
+                    date: _focusedDay,
+                  ),
                 );
               },
             ),
