@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
+import '../../../utils/constants.dart';
 import 'widgets/schedule_card.dart';
 
 class SchedulePage extends StatelessWidget {
@@ -9,8 +10,7 @@ class SchedulePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MasonryGridView.extent(
-      // primary: false,
-      shrinkWrap: true,
+      padding: const EdgeInsets.all(smallItemSpacing),
       itemCount: 5,
       crossAxisSpacing: 4,
       mainAxisSpacing: 4,

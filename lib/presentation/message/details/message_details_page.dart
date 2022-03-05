@@ -27,15 +27,16 @@ class _MessageDetailsPageState extends State<MessageDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context,
-      title: AppLocalizations.of(context)!.chatButtonText,
+      appBar: buildAppBar(
+        context,
+        title: AppLocalizations.of(context)!.chatButtonText,
       ),
       body: Stack(
         children: [
           ListView.builder(
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            padding: const EdgeInsets.only(top: 16.0, bottom: 60),
             reverse: true,
             itemBuilder: (context, index) {
               final message = data[index];
