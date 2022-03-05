@@ -62,7 +62,11 @@ class UserSettingsCard extends StatelessWidget {
       SettingCardItem(
         iconData: Icons.logout,
         title: AppLocalizations.of(context)!.logOutLabel,
-        onTap: () {},
+        onTap: () {
+          context.router.popUntilRoot();
+          context.router.replace(const LoginRoute());
+
+        },
         color: Colors.red,
       ),
     ];

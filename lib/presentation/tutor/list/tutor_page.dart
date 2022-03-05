@@ -6,6 +6,7 @@ import '../../common/widgets/scaffold_with_search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';
 import '../list/widgets/tutor_card.dart';
 import 'widgets/specialities_filter_row.dart';
+import 'widgets/tutor_filter_dialog.dart';
 
 class TutorPage extends StatelessWidget {
   const TutorPage({Key? key}) : super(key: key);
@@ -20,7 +21,13 @@ class TutorPage extends StatelessWidget {
         showIfOpened: true,
         child: CircularButton(
           icon: const Icon(Icons.filter_list),
-          onPressed: () {},
+          onPressed: () {
+            showDialog(context: context, builder: (context) {
+              return TutorFilterDialog(
+
+              );
+            });
+          },
         ),
       ),
     ];
