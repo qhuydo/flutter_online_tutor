@@ -6,7 +6,12 @@ import '../../../tutor/list/widgets/topic_chip.dart';
 import 'course_carousel_card_content.dart';
 
 class CourseCarouselCard extends StatelessWidget {
-  const CourseCarouselCard({Key? key}) : super(key: key);
+  final String thumbnail;
+
+  const CourseCarouselCard({
+    Key? key,
+    required this.thumbnail,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +19,7 @@ class CourseCarouselCard extends StatelessWidget {
       child: InkWell(
         onTap: () {
           context.router.push(
-            CourseDetailsRoute(courseId: ''),
+            CourseDetailsRoute(courseId: '', thumbnail: thumbnail),
           );
         },
         child: Column(
@@ -22,7 +27,8 @@ class CourseCarouselCard extends StatelessWidget {
             AspectRatio(
               aspectRatio: 13 / 9,
               child: Image.asset(
-                'assets/images/course.png',
+                // 'assets/images/course.png',
+                thumbnail,
                 fit: BoxFit.fitWidth,
                 height: double.infinity,
                 width: double.infinity,

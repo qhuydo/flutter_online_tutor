@@ -1,5 +1,6 @@
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
+import '../../../utils/constants.dart';
 import '../../common.dart';
 import '../../common/widgets/scaffold_with_search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';
@@ -40,7 +41,9 @@ class CourseTabPage extends StatelessWidget {
           itemCount: 5,
           // separatorBuilder: (context, index) => const SizedBox(height: 8,),
           itemBuilder: (context, index) {
-            return const CourseListCard();
+            return CourseListCard(
+              thumbnail: courseAssets[index % courseAssets.length],
+            );
           },
           // gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           //   childAspectRatio: 1/1.25,

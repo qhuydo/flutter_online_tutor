@@ -1,3 +1,4 @@
+import '../../../../utils/constants.dart';
 import '../../../common.dart';
 import '../../../course_ebook/course_list/widgets/course_list_card.dart';
 
@@ -31,7 +32,9 @@ class TutorRecommendedCourseList extends StatelessWidget {
           shrinkWrap: true,
           itemCount: 2,
           itemBuilder: (context, index) {
-            return const CourseListCard();
+            return CourseListCard(
+              thumbnail: courseAssets[index % courseAssets.length],
+            );
           },
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 400,

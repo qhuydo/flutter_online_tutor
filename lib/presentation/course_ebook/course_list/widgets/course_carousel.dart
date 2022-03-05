@@ -42,7 +42,9 @@ class _CourseCarouselState extends State<CourseCarousel> {
           ),
         );
       },
-      child: const CourseCarouselCard(),
+      child: CourseCarouselCard(
+        thumbnail: courseAssets[index % courseAssets.length],
+      ),
       // child: Container(
       //   margin: const EdgeInsets.all(8.0),
       //   color: index % 2 == 0 ? Colors.blue : Colors.red,

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
@@ -48,7 +50,9 @@ class EbookTabPage extends StatelessWidget {
           mainAxisSpacing: 4,
           maxCrossAxisExtent: 360,
           itemBuilder: (context, index) {
-            return const EbookCard();
+            return EbookCard(
+              thumbnail: bookAssets[Random().nextInt(bookAssets.length)],
+            );
           },
         ),
       ),

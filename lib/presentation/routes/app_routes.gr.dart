@@ -11,9 +11,9 @@
 // ignore_for_file: type=lint
 
 import 'package:auto_route/auto_route.dart' as _i2;
-import 'package:flutter/cupertino.dart' as _i4;
 import 'package:flutter/material.dart' as _i3;
 
+import '../common.dart' as _i4;
 import '../pages.dart' as _i1;
 
 class AppRouter extends _i2.RootStackRouter {
@@ -75,7 +75,10 @@ class AppRouter extends _i2.RootStackRouter {
       final args = routeData.argsAs<CourseDetailsRouteArgs>();
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i1.CourseDetailsPage(key: args.key, courseId: args.courseId));
+          child: _i1.CourseDetailsPage(
+              key: args.key,
+              courseId: args.courseId,
+              thumbnail: args.thumbnail));
     },
     CourseSyllabusRoute.name: (routeData) {
       final args = routeData.argsAs<CourseSyllabusRouteArgs>();
@@ -106,7 +109,8 @@ class AppRouter extends _i2.RootStackRouter {
       final args = routeData.argsAs<EbookDetailsRouteArgs>();
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i1.EbookDetailsPage(key: args.key, ebookId: args.ebookId));
+          child: _i1.EbookDetailsPage(
+              key: args.key, ebookId: args.ebookId, thumbnail: args.thumbnail));
     },
     DashboardRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
@@ -282,24 +286,29 @@ class TutorDetailsRouteArgs {
 /// generated route for
 /// [_i1.CourseDetailsPage]
 class CourseDetailsRoute extends _i2.PageRouteInfo<CourseDetailsRouteArgs> {
-  CourseDetailsRoute({_i4.Key? key, required String courseId})
+  CourseDetailsRoute(
+      {_i4.Key? key, required String courseId, String? thumbnail})
       : super(CourseDetailsRoute.name,
             path: '/courses/:courseId',
-            args: CourseDetailsRouteArgs(key: key, courseId: courseId));
+            args: CourseDetailsRouteArgs(
+                key: key, courseId: courseId, thumbnail: thumbnail));
 
   static const String name = 'CourseDetailsRoute';
 }
 
 class CourseDetailsRouteArgs {
-  const CourseDetailsRouteArgs({this.key, required this.courseId});
+  const CourseDetailsRouteArgs(
+      {this.key, required this.courseId, this.thumbnail});
 
   final _i4.Key? key;
 
   final String courseId;
 
+  final String? thumbnail;
+
   @override
   String toString() {
-    return 'CourseDetailsRouteArgs{key: $key, courseId: $courseId}';
+    return 'CourseDetailsRouteArgs{key: $key, courseId: $courseId, thumbnail: $thumbnail}';
   }
 }
 
@@ -391,24 +400,33 @@ class HistoryRoute extends _i2.PageRouteInfo<void> {
 /// generated route for
 /// [_i1.EbookDetailsPage]
 class EbookDetailsRoute extends _i2.PageRouteInfo<EbookDetailsRouteArgs> {
-  EbookDetailsRoute({_i4.Key? key, required String ebookId})
+  EbookDetailsRoute(
+      {_i4.Key? key,
+      required String ebookId,
+      String thumbnail = 'assets/images/course.png'})
       : super(EbookDetailsRoute.name,
             path: '/ebooks/:ebookId',
-            args: EbookDetailsRouteArgs(key: key, ebookId: ebookId));
+            args: EbookDetailsRouteArgs(
+                key: key, ebookId: ebookId, thumbnail: thumbnail));
 
   static const String name = 'EbookDetailsRoute';
 }
 
 class EbookDetailsRouteArgs {
-  const EbookDetailsRouteArgs({this.key, required this.ebookId});
+  const EbookDetailsRouteArgs(
+      {this.key,
+      required this.ebookId,
+      this.thumbnail = 'assets/images/course.png'});
 
   final _i4.Key? key;
 
   final String ebookId;
 
+  final String thumbnail;
+
   @override
   String toString() {
-    return 'EbookDetailsRouteArgs{key: $key, ebookId: $ebookId}';
+    return 'EbookDetailsRouteArgs{key: $key, ebookId: $ebookId, thumbnail: $thumbnail}';
   }
 }
 

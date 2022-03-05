@@ -5,7 +5,12 @@ import '../../../routes/app_routes.gr.dart';
 import 'course_carousel_card_content.dart';
 
 class CourseListCard extends StatelessWidget {
-  const CourseListCard({Key? key}) : super(key: key);
+  final String thumbnail;
+
+  const CourseListCard({
+    Key? key,
+    required this.thumbnail,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +18,7 @@ class CourseListCard extends StatelessWidget {
       child: InkWell(
         onTap: () {
           context.router.push(
-            CourseDetailsRoute(courseId: ''),
+            CourseDetailsRoute(courseId: '', thumbnail: this.thumbnail),
           );
         },
         child: Column(
@@ -21,7 +26,8 @@ class CourseListCard extends StatelessWidget {
             AspectRatio(
               aspectRatio: 13 / 9,
               child: Image.asset(
-                'assets/images/course.png',
+                // 'assets/images/course.png',
+                thumbnail,
                 fit: BoxFit.fitWidth,
                 height: double.infinity,
                 width: double.infinity,

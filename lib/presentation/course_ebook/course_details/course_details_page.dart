@@ -4,10 +4,12 @@ import 'widgets/widgets.dart';
 
 class CourseDetailsPage extends StatelessWidget {
   final String courseId;
+  final String? thumbnail;
 
   const CourseDetailsPage({
     Key? key,
     required this.courseId,
+    this.thumbnail,
   }) : super(key: key);
 
   Widget _buildFlexibleSpaceBar(BuildContext context) {
@@ -17,7 +19,7 @@ class CourseDetailsPage extends StatelessWidget {
         StretchMode.fadeTitle,
       ],
       background: Image.asset(
-        'assets/images/course.png',
+        thumbnail ?? 'assets/images/course.png',
         fit: BoxFit.cover,
         height: double.infinity,
         width: double.infinity,

@@ -1,25 +1,37 @@
-import 'dart:math';
-
 import 'package:auto_route/auto_route.dart';
 
 import '../../../common.dart';
 import '../../../routes/app_routes.gr.dart';
 
 class EbookCard extends StatelessWidget {
-  const EbookCard({Key? key}) : super(key: key);
+  final String thumbnail;
+
+  const EbookCard({
+    Key? key,
+    required this.thumbnail,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: InkWell(
         onTap: () {
-          context.router.push(EbookDetailsRoute(ebookId: ''));
+          context.router.push(EbookDetailsRoute(
+            ebookId: '',
+            thumbnail: thumbnail,
+          ));
         },
         child: Column(
           children: [
-            Container(
-              height: [200.0, 100.0, 300.0][Random().nextInt(2)],
-              color: Colors.blue,
+            // Container(
+            //   height: [200.0, 100.0, 300.0][Random().nextInt(2)],
+            //   color: Colors.blue,
+            // ),
+            Image.asset(
+              thumbnail,
+              fit: BoxFit.fitWidth,
+              // height: double.infinity,
+              // width: double.infinity,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
