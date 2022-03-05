@@ -87,7 +87,7 @@
     "languageVietnameseOption": "Tiếng Việt",
     "languageEnglishOption": "Tiếng Anh (English)",
     "languageJapaneseOption": "Tiếng Nhật (日本語)",
-    "becomeTeacherLabel": "Trờ thành gia sư",
+    "becomeTeacherLabel": "Trở thành gia sư",
     "basicInfoLabel": "Thông tin cơ bản",
     "tutoringNameTextBoxLabel": "Tên người dạy",
     "uploadProfessionalPhotoLabel": "Vui lòng dùng ảnh đại diện chuyên nghiệp,",
@@ -109,7 +109,7 @@
     "introductionVideoLabel": "Video giới thiệu",
     "introductionVideoStepTitle": "Hãy giới thiệu bản thân",
     "introductionVideoStepTipsLabel": "Một số mẹo giúp ích:\n1. Tìm một nơi sạch sẽ, yên ắng\n2. Hướng ánh mắt vào máy ảnh và mỉm cười\n3. Mặc trang phục gọn gàng, sạch đẹp\n4. Giới thiệu khoảng từ 1 đến 3 phút",
-    "previousStepButtonText": "Quay về bước vừa nãy",
+    "previousStepButtonText": "Bước nãy",
     "chooseVideoButtonText": "Chọn video",
     "approvalStepLabel": "Xác nhận",
     "approvalStepDescriptionTitle": "Bạn đã hoàn thành tất cẳ các bước!\n Vui lòng chờ phê duyệt",
@@ -147,6 +147,6 @@
     "syllabusBeforeLessonSubtitle": "Hãy xem slide chuẩn bị trước khi vào bài học",
     "syllabusLessonSlideSubtitle": "Slide bài giảng dùng để xem trong trước tổng quan trong khóa học này có gì",
     "syllabusReviewVideoSubtitle": "Bạn có thể xem lại slide buổi học sau khi hoàn thành bài học",
-    "historyTitle": "Lích sử các buổi học",
+    "historyTitle": "Lịch sử các buổi học",
     "openEbookButtonText": "Mở từ trình duyệt web"
 }
