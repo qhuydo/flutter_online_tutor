@@ -85,6 +85,7 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
               isNotFirstStep: isNotFirstStep,
               isNotLastStep: isNotLastStep,
               isCompleted: _isCompleted,
+              showLastStep: false,
               onStepCancel: details.onStepCancel,
               onStepContinue: details.onStepContinue,
             );

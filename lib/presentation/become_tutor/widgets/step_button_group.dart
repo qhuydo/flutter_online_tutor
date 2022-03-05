@@ -4,6 +4,7 @@ class StepButtonGroup extends StatelessWidget {
   final bool isNotFirstStep;
   final bool isCompleted;
   final bool isNotLastStep;
+  final bool showLastStep;
   final VoidCallback? onStepCancel;
   final VoidCallback? onStepContinue;
 
@@ -12,6 +13,7 @@ class StepButtonGroup extends StatelessWidget {
     required this.isNotFirstStep,
     required this.isNotLastStep,
     required this.isCompleted,
+    required this.showLastStep,
     this.onStepContinue,
     this.onStepCancel,
   }) : super(key: key);
@@ -24,7 +26,8 @@ class StepButtonGroup extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          if (isNotFirstStep && !isCompleted)
+          if (isNotFirstStep &&
+              !isCompleted && !(!isNotLastStep && !showLastStep))
             OutlinedButton.icon(
               onPressed: onStepCancel,
               icon: const Icon(Icons.navigate_before),

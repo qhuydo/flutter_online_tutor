@@ -1,6 +1,7 @@
 # flutter_online_tutor
 
-A new Flutter project.
+## Demo videos
+* [Milestone-1: Mock-up UI](https://youtu.be/npJajNlE9GA)
 
 ## Getting Started
 

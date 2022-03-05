@@ -22,7 +22,7 @@ class OnlySenpaiApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeData = ThemeData.light();
+    final themeData = ThemeData.dark();
 
     return MaterialApp.router(
       title: 'Flutter Demo',

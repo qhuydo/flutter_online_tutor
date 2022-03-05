@@ -38,6 +38,7 @@ class DashboardCard extends StatelessWidget {
                 )
               ],
             ),
+            const Text('10 hours until the next lesson'),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [

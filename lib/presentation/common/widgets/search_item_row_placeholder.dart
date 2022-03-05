@@ -53,7 +53,7 @@ class SearchItemRowPlaceholder extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'JLPT N2',
+                        'Lorem ipsum',
                         style: textTheme.subtitle1,
                       ),
                     ],
