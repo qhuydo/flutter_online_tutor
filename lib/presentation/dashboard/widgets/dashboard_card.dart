@@ -1,4 +1,7 @@
+import 'package:auto_route/auto_route.dart';
+
 import '../../common.dart';
+import '../../routes/app_routes.gr.dart';
 
 class DashboardCard extends StatelessWidget {
   const DashboardCard({Key? key}) : super(key: key);
@@ -39,7 +42,9 @@ class DashboardCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.router.push(MeetingRoute());
+                  },
                   child: Row(
                     children: [
                       Text(

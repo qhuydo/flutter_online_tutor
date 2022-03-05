@@ -36,5 +36,6 @@ import '../pages.dart';
       AutoRoute(page: HistoryPage),
       AutoRoute(path: '/ebooks/:ebookId', page: EbookDetailsPage),
       AutoRoute(path: '/tutors/:tutorId/schedule', page: TutorSchedulePage),
+      AutoRoute(path: '/meeting/:meetingId', page: MeetingPage),
     ])
 class $AppRouter {}

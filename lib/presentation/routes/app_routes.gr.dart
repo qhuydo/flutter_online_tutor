@@ -118,6 +118,13 @@ class AppRouter extends _i2.RootStackRouter {
           routeData: routeData,
           child: _i1.TutorSchedulePage(key: args.key, tutorId: args.tutorId));
     },
+    MeetingRoute.name: (routeData) {
+      final args = routeData.argsAs<MeetingRouteArgs>(
+          orElse: () => const MeetingRouteArgs());
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: _i1.MeetingPage(key: args.key, meetingId: args.meetingId));
+    },
     DashboardRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.DashboardPage());
@@ -176,7 +183,8 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(HistoryRoute.name, path: '/history-page'),
         _i2.RouteConfig(EbookDetailsRoute.name, path: '/ebooks/:ebookId'),
         _i2.RouteConfig(TutorScheduleRoute.name,
-            path: '/tutors/:tutorId/schedule')
+            path: '/tutors/:tutorId/schedule'),
+        _i2.RouteConfig(MeetingRoute.name, path: '/meeting/:meetingId')
       ];
 }
 
@@ -459,6 +467,30 @@ class TutorScheduleRouteArgs {
   @override
   String toString() {
     return 'TutorScheduleRouteArgs{key: $key, tutorId: $tutorId}';
+  }
+}
+
+/// generated route for
+/// [_i1.MeetingPage]
+class MeetingRoute extends _i2.PageRouteInfo<MeetingRouteArgs> {
+  MeetingRoute({_i4.Key? key, String meetingId = ''})
+      : super(MeetingRoute.name,
+            path: '/meeting/:meetingId',
+            args: MeetingRouteArgs(key: key, meetingId: meetingId));
+
+  static const String name = 'MeetingRoute';
+}
+
+class MeetingRouteArgs {
+  const MeetingRouteArgs({this.key, this.meetingId = ''});
+
+  final _i4.Key? key;
+
+  final String meetingId;
+
+  @override
+  String toString() {
+    return 'MeetingRouteArgs{key: $key, meetingId: $meetingId}';
   }
 }
 
