@@ -7,6 +7,7 @@ PreferredSizeWidget buildAppBar(
   BuildContext context, {
   String? title,
   bool shouldShowDefaultActions = false,
+  double? elevation,
 }) {
   return AppBar(
     backgroundColor: Theme.of(context).colorScheme.surface,
@@ -17,7 +18,7 @@ PreferredSizeWidget buildAppBar(
         color: Theme.of(context).colorScheme.onSurface,
       ),
     ),
-    elevation: 0.75,
+    elevation: elevation ?? 0.75,
     shadowColor: Colors.grey[500]?.withOpacity(0.5),
     actions: shouldShowDefaultActions
         ? [

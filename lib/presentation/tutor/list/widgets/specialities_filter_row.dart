@@ -4,6 +4,12 @@ import 'speciality_chip.dart';
 
 class SpecialitiesFilterRow extends StatelessWidget {
   const SpecialitiesFilterRow({Key? key}) : super(key: key);
+  
+  static final _specialities = [
+    'English for business',
+    'English for kids',
+    'Conversational English',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -11,12 +17,12 @@ class SpecialitiesFilterRow extends StatelessWidget {
       shrinkWrap: true,
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) {
-        return SpecialityChip();
+        return SpecialityChip(label: _specialities[index],);
       },
       separatorBuilder: (context, index) {
         return const SizedBox(width: 8);
       },
-      itemCount: 10,
+      itemCount: _specialities.length,
     );
   }
 }

@@ -32,9 +32,13 @@ class CourseDetailsPage extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         slivers: [
           SliverAppBar(
+            backgroundColor: Theme.of(context).colorScheme.surface,
+            foregroundColor: Theme.of(context).colorScheme.onSurface,
             title: Text(
               AppLocalizations.of(context)!.courseTitle,
             ),
+            elevation: 0.75,
+            shadowColor: Colors.grey[500]?.withOpacity(0.5),
             centerTitle: true,
             floating: true,
             stretch: true,

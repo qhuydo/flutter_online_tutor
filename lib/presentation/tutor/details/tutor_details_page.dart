@@ -22,9 +22,10 @@ class TutorDetailsPage extends StatelessWidget {
             title: Text(
               AppLocalizations.of(context)!.tutorDetailsPageTitle,
             ),
-            elevation: 0,
-            // backgroundColor: Theme.of(context).colorScheme.surface,
-            // foregroundColor: Theme.of(context).colorScheme.onSurface,
+            elevation: 0.75,
+            backgroundColor: Theme.of(context).colorScheme.surface,
+            foregroundColor: Theme.of(context).colorScheme.onSurface,
+            shadowColor: Colors.grey[500]?.withOpacity(0.5),
             centerTitle: true,
             floating: true,
             stretch: true,
@@ -35,7 +36,9 @@ class TutorDetailsPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: itemSpacing),
-                TutorDetailsHeader(tutorId: tutorId,),
+                TutorDetailsHeader(
+                  tutorId: tutorId,
+                ),
                 const TutorDetailsContent(),
                 const TutorRecommendedCourseList(),
               ],
