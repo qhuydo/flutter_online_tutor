@@ -6,6 +6,7 @@ class CoursePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isLightTheme = Theme.of(context).brightness == Brightness.light;
     return DefaultTabController(
       length: 2,
       child: NestedScrollView(
@@ -14,7 +15,8 @@ class CoursePage extends StatelessWidget {
             child: TabBar(
               unselectedLabelColor:
                   Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
-              labelColor: Theme.of(context).primaryColor,
+              labelColor:
+                  isLightTheme ? Theme.of(context).primaryColor : Colors.blue,
               tabs: [
                 Tab(
                   child: Row(

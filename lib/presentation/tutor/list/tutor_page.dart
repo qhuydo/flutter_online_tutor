@@ -23,9 +23,7 @@ class TutorPage extends StatelessWidget {
           icon: const Icon(Icons.filter_list),
           onPressed: () {
             showDialog(context: context, builder: (context) {
-              return TutorFilterDialog(
-
-              );
+              return const TutorFilterDialog();
             });
           },
         ),

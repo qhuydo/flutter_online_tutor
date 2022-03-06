@@ -1,6 +1,6 @@
 {
     "@@locale": "en",
-    "@@last_modified": "2022-03-04T09:21:25+00:00",
+    "@@last_modified": "2022-03-06T15:30:38+00:00",
     "appTitle": "Online tutor",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -156,5 +156,7 @@
     "syllabusLessonSlideSubtitle": "These slides are available as a preview of the course",
     "syllabusReviewVideoSubtitle": "You can review the lesson slides once you have completed the lesson",
     "historyTitle": "Lesson history",
-    "openEbookButtonText": "Open ebook from Browser"
+    "openEbookButtonText": "Open ebook from Browser",
+    "meetingRoomTitle": "Meeting room",
+    "writeMessageInputText": "Type your message"
 }

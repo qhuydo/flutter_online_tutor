@@ -47,7 +47,7 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
             ? AppLocalizations.of(context)!.introductionVideoLabel
             : '',
       ),
-      content: BecomeTutorStep2(),
+      content: const BecomeTutorStep2(),
     );
   }
 
@@ -63,7 +63,7 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
             ? AppLocalizations.of(context)!.approvalStepLabel
             : '',
       ),
-      content: BecomeTutorStep3(),
+      content: const BecomeTutorStep3(),
     );
   }
 

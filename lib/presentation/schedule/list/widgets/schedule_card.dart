@@ -4,7 +4,7 @@ import 'schedule_card_content.dart';
 import 'schedule_card_header.dart';
 
 class ScheduleCard extends StatelessWidget {
-  final showActionButtons;
+  final bool showActionButtons;
 
   const ScheduleCard({
     Key? key,
@@ -22,7 +22,7 @@ class ScheduleCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           const ScheduleCardHeader(),
-          ScheduleCardContent(),
+          const ScheduleCardContent(),
           if (showActionButtons) const ScheduleCardButtonGroup(),
         ],
       ),

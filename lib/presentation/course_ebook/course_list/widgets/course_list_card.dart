@@ -18,7 +18,7 @@ class CourseListCard extends StatelessWidget {
       child: InkWell(
         onTap: () {
           context.router.push(
-            CourseDetailsRoute(courseId: '', thumbnail: this.thumbnail),
+            CourseDetailsRoute(courseId: '', thumbnail: thumbnail),
           );
         },
         child: Column(
@@ -26,39 +26,13 @@ class CourseListCard extends StatelessWidget {
             AspectRatio(
               aspectRatio: 13 / 9,
               child: Image.asset(
-                // 'assets/images/course.png',
                 thumbnail,
                 fit: BoxFit.fitWidth,
                 height: double.infinity,
                 width: double.infinity,
               ),
-              // child: Container(
-              //   color: Colors.blue,
-              // ),
             ),
             const CourseCarouselCardContent(),
-            // Flexible(
-            //   child: Column(
-            //     crossAxisAlignment: CrossAxisAlignment.start,
-            //     children: [
-            //       Text(
-            //         // generateWordPairs().first.join(' '),
-            //         'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-            //         maxLines: 1,
-            //         style: Theme.of(context).textTheme.titleMedium?.copyWith(
-            //               fontWeight: FontWeight.bold,
-            //             ),
-            //         textAlign: TextAlign.start,
-            //         overflow: TextOverflow.ellipsis,
-            //       ),
-            //       Text(
-            //         AppLocalizations.of(context)!.loremIpsum,
-            //         overflow: TextOverflow.ellipsis,
-            //         maxLines: 3,
-            //       ),
-            //     ],
-            //   ),
-            // ),
           ],
         ),
       ),

@@ -21,7 +21,7 @@ class SyllabusItem {
 class SyllabusListItem extends StatelessWidget {
   final SyllabusItem item;
 
-  SyllabusListItem({
+  const SyllabusListItem({
     Key? key,
     required this.item,
   }) : super(key: key);

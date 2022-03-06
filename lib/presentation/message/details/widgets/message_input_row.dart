@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import '../../../common.dart';
 
 class MessageInputRow extends StatelessWidget {
   const MessageInputRow({Key? key}) : super(key: key);
@@ -35,12 +35,13 @@ class MessageInputRow extends StatelessWidget {
                 const SizedBox(
                   width: 15,
                 ),
-                const Expanded(
+                Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                        hintText: 'Write message...',
-                        hintStyle: TextStyle(color: Colors.black54),
-                        border: InputBorder.none,
+                      hintText:
+                          AppLocalizations.of(context)!.writeMessageInputText,
+                      hintStyle: const TextStyle(color: Colors.black54),
+                      border: InputBorder.none,
                     ),
                     minLines: 1,
                     maxLines: 10,

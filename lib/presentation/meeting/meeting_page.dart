@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import '../common.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'widgets/meeting_button_row.dart';
@@ -19,7 +19,7 @@ class MeetingPage extends StatelessWidget {
           ThemeData.dark().textTheme,
         ),
       ),
-      child: MeetingBody(),
+      child: const MeetingBody(),
     );
   }
 }
@@ -34,7 +34,7 @@ class MeetingBody extends StatelessWidget {
         backgroundColor: Colors.black,
         foregroundColor: Theme.of(context).colorScheme.onSurface,
         title: Text(
-          'Meeting room',
+          AppLocalizations.of(context)!.meetingRoomTitle,
           style: TextStyle(
             color: Theme.of(context).colorScheme.onSurface,
           ),
@@ -64,7 +64,7 @@ class MeetingBody extends StatelessWidget {
                 minWidth: MediaQuery.of(context).size.width,
                 minHeight: 80,
               ),
-              child: MeetingButtonRow(),
+              child: const MeetingButtonRow(),
             ),
           )
         ],

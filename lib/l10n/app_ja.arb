@@ -1,6 +1,6 @@
 {
     "@@locale": "ja",
-    "@@last_modified": "2022-03-04T09:20:05+00:00",
+    "@@last_modified": "2022-03-06T15:30:17+00:00",
     "appTitle": "オンライン　チューター",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -148,5 +148,7 @@
     "syllabusLessonSlideSubtitle": "これらのスライドはコースのプレービューとして利用できます",
     "syllabusReviewVideoSubtitle": "講師とのレッスンを完了すると、レッスンスライドで復習ができるようになります",
     "historyTitle": "レッスンの履歴",
-    "openEbookButtonText": "ブラウザで開く"
+    "openEbookButtonText": "ブラウザで開く",
+    "meetingRoomTitle": "ミーティングルーム",
+    "writeMessageInputText": "メッセージを入力"
 }
