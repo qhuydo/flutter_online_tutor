@@ -18,12 +18,10 @@ class MessageRow extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
       ),
-      subtitle: Expanded(
-        child: Text(
-          AppLocalizations.of(context)!.loremIpsum,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
+      subtitle: Text(
+        AppLocalizations.of(context)!.loremIpsum,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
       ),
       trailing: const Text('12:00'),
       onTap: () {

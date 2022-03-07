@@ -72,7 +72,7 @@ dependencies:
 
   # A Flutter implementation of an expandable and animated floating search bar
   # By bxqm.
-  material_floating_search_bar: ^0.3.6
+  material_floating_search_bar: ^0.3.7
 
   # Provides a collection of Flutter grids layouts (staggered, masonry, quilted, woven, etc.).
   # By Romain Rastel.
@@ -85,6 +85,10 @@ dependencies:
   # Highly customizable, feature-packed calendar widget for Flutter.
   # By Aleksander Woźniak.
   table_calendar: ^3.0.4
+
+  # A Flutter package to make and use beautiful color scheme based themes.
+  # By Mike Rydstrom.
+  flex_color_scheme: ^4.2.0
 
 dev_dependencies:
   flutter_test:

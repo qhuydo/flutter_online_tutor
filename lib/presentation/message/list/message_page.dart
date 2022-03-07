@@ -8,7 +8,7 @@ class MessagePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      // shrinkWrap: true,
+      shrinkWrap: true,
       itemBuilder: (context, index) {
         return const MessageRow();
       },

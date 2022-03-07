@@ -10,13 +10,13 @@ PreferredSizeWidget buildAppBar(
   double? elevation,
 }) {
   return AppBar(
-    backgroundColor: Theme.of(context).colorScheme.surface,
-    foregroundColor: Theme.of(context).colorScheme.onSurface,
+    // backgroundColor: Theme.of(context).colorScheme.surface,
+    // foregroundColor: Theme.of(context).colorScheme.onSurface,
     title: Text(
       title ?? AppLocalizations.of(context)!.appTitle,
-      style: TextStyle(
-        color: Theme.of(context).colorScheme.onSurface,
-      ),
+      // style: TextStyle(
+      //   color: Theme.of(context).colorScheme.onSurface,
+      // ),
     ),
     elevation: elevation ?? 0.75,
     shadowColor: Colors.grey[500]?.withOpacity(0.5),

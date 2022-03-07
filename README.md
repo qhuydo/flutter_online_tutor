@@ -1,8 +1,5 @@
 # flutter_online_tutor
 
-## Demo videos
-* [Milestone-1: Mock-up UI](https://youtu.be/npJajNlE9GA)
-
 ## Getting Started
 
 This project is a starting point for a Flutter application.
