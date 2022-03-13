@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-import 'common.dart';
-import 'routes/app_routes.gr.dart';
-import 'utils/default_app_bar.dart';
+import '../common.dart';
+import '../common/routes/app_routes.gr.dart';
+import '../common/utils/default_app_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

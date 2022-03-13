@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common.dart';
-import '../../../routes/app_routes.gr.dart';
+import '../../../common/routes/app_routes.gr.dart';
 
 class SyllabusItem {
   String name;

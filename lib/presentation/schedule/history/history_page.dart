@@ -3,7 +3,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import '../../../utils/constants.dart';
 import '../../common.dart';
 
-import '../../utils/default_app_bar.dart';
+import '../../common/utils/default_app_bar.dart';
 import '../list/widgets/schedule_card.dart';
 
 class HistoryPage extends StatelessWidget {

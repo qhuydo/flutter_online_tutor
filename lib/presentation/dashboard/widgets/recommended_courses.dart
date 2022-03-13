@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 
 import '../../common.dart';
 import '../../course_ebook/course_list/widgets/course_carousel.dart';
-import '../../routes/app_routes.gr.dart';
+import '../../common/routes/app_routes.gr.dart';
 
 class RecommendedCourses extends StatelessWidget {
   const RecommendedCourses({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 
 import '../../../common.dart';
-import '../../../routes/app_routes.gr.dart';
+import '../../../common/routes/app_routes.gr.dart';
 
 class EbookCard extends StatelessWidget {
   final String thumbnail;

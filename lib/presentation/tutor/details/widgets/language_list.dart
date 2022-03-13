@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:twemoji/twemoji.dart';
 
-import '../../../utils/string_utils.dart';
+import '../../../common/utils/string_utils.dart';
 
 class LanguageList extends StatelessWidget {
   const LanguageList({Key? key}) : super(key: key);

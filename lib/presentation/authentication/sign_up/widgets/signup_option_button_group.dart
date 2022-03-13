@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/widgets/social_icon.dart';
-import '../../../routes/app_routes.gr.dart';
+import '../../../common/routes/app_routes.gr.dart';
 
 class SignupOptionButtonGroup extends StatelessWidget {
   final bool hasFacebookOption;

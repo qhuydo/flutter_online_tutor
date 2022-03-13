@@ -1,7 +1,7 @@
 import 'package:twemoji/twemoji.dart';
 
 import '../../../common.dart';
-import '../../../utils/string_utils.dart';
+import '../../../common/utils/string_utils.dart';
 
 enum Language {
   systemDefault,

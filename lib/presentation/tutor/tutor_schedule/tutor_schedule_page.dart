@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../../common.dart';
-import '../../utils/default_app_bar.dart';
+import '../../common/utils/default_app_bar.dart';
 import 'event.dart';
 import 'utils.dart';
 import 'widgets/schedule_row.dart';

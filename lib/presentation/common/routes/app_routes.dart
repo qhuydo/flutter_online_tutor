@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 
-import '../pages.dart';
+import '../../pages.dart';
 
 @MaterialAutoRouter(
     preferRelativeImports: true,

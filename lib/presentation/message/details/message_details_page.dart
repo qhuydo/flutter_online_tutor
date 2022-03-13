@@ -1,5 +1,5 @@
 import '../../common.dart';
-import '../../utils/default_app_bar.dart';
+import '../../common/utils/default_app_bar.dart';
 import 'helpers/message.dart';
 import 'widgets/widgets.dart';
 

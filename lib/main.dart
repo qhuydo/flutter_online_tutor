@@ -6,7 +6,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:window_size/window_size.dart';
 
-import 'presentation/routes/app_routes.gr.dart';
+import 'presentation/common/routes/app_routes.gr.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

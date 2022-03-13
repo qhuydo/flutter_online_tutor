@@ -2,7 +2,7 @@ import 'package:twemoji/twemoji.dart';
 
 import '../../../common.dart';
 import '../../../tutor/list/widgets/tutor_avatar.dart';
-import '../../../utils/string_utils.dart';
+import '../../../common/utils/string_utils.dart';
 
 class ScheduleCardHeader extends StatelessWidget {
   const ScheduleCardHeader({Key? key}) : super(key: key);

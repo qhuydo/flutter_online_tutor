@@ -2,7 +2,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:twemoji/twemoji.dart';
 
 import '../../../common.dart';
-import '../../../utils/string_utils.dart';
+import '../../../common/utils/string_utils.dart';
 import 'widgets.dart';
 
 class TutorCardHeader extends StatelessWidget {

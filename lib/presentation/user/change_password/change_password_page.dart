@@ -1,5 +1,5 @@
 import '../../common.dart';
-import '../../utils/default_app_bar.dart';
+import '../../common/utils/default_app_bar.dart';
 import 'widgets/change_password_form.dart';
 
 class ChangePasswordPage extends StatelessWidget {

@@ -3,8 +3,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:twemoji/twemoji.dart';
 
 import '../../../common.dart';
-import '../../../routes/app_routes.gr.dart';
-import '../../../utils/string_utils.dart';
+import '../../../common/routes/app_routes.gr.dart';
+import '../../../common/utils/string_utils.dart';
 import 'tutor_avatar.dart';
 import 'tutor_details_button_group.dart';
 

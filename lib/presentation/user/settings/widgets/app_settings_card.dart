@@ -1,7 +1,7 @@
 import 'package:twemoji/twemoji.dart';
 
 import '../../../common.dart';
-import '../../../utils/string_utils.dart';
+import '../../../common/utils/string_utils.dart';
 import '../../helpers/setting_card_item.dart';
 import 'change_language_modal.dart';
 import 'change_theme_menu.dart';

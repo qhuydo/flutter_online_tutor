@@ -1,6 +1,6 @@
 import '../../../utils/constants.dart';
 import '../../common.dart';
-import '../../utils/default_app_bar.dart';
+import '../../common/utils/default_app_bar.dart';
 import 'widgets/widgets.dart';
 
 class CourseSyllabusPage extends StatelessWidget {

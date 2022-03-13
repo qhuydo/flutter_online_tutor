@@ -7,4 +7,4 @@ export 'message/pages.dart';
 export 'schedule/pages.dart';
 export 'tutor/pages.dart';
 export 'user/pages.dart';
-export 'home_page.dart';
+export 'home/home_page.dart';
