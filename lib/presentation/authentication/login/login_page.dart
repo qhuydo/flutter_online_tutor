@@ -11,7 +11,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AuthenScaffold(
-      title: AppLocalizations.of(context)!.loginButtonText,
+      title: context.l10n.loginButtonText,
       form: const AuthenticateByMailForm(),
       submitButton: const LoginButton(),
       otherAuthenticateOptions: const LoginOptionButtonGroup(),

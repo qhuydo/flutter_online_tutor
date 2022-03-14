@@ -8,7 +8,7 @@ class ResetPasswordForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(AppLocalizations.of(context)!.resetPasswordDescription),
+        Text(context.l10n.resetPasswordDescription),
         const SizedBox(
           height: 16,
         ),

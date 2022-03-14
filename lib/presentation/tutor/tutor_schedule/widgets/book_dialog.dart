@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import '../../../common.dart';
 import '../event.dart';
 
+// TODO Update translation
 class BookDialog extends StatelessWidget {
   final ScheduleEvent event;
   final DateTime date;

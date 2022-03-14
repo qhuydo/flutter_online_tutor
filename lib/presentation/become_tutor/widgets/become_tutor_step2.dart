@@ -14,7 +14,7 @@ class BecomeTutorStep2 extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppLocalizations.of(context)!.introductionVideoStepTitle,
+            context.l10n.introductionVideoStepTitle,
             style: titleStyle,
           ),
           const Divider(),
@@ -27,7 +27,7 @@ class BecomeTutorStep2 extends StatelessWidget {
               ),
               child: InfoContainer(
                 child: Text(
-                  AppLocalizations.of(context)!.introductionVideoStepTipsLabel,
+                  context.l10n.introductionVideoStepTipsLabel,
                 ),
               ),
             ),
@@ -36,7 +36,7 @@ class BecomeTutorStep2 extends StatelessWidget {
           Center(
             child: ElevatedButton.icon(
               icon: const Icon(Icons.video_library_outlined),
-              label: Text(AppLocalizations.of(context)!.chooseVideoButtonText),
+              label: Text(context.l10n.chooseVideoButtonText),
               onPressed: () {},
             ),
           )

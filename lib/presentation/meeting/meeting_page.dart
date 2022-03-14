@@ -34,7 +34,7 @@ class MeetingBody extends StatelessWidget {
         backgroundColor: Colors.black,
         foregroundColor: Theme.of(context).colorScheme.onSurface,
         title: Text(
-          AppLocalizations.of(context)!.meetingRoomTitle,
+          context.l10n.meetingRoomTitle,
           style: TextStyle(
             color: Theme.of(context).colorScheme.onSurface,
           ),

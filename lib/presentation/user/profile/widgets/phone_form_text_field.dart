@@ -9,7 +9,7 @@ class PhoneFormTextField extends StatelessWidget {
       decoration: InputDecoration(
         icon: const Icon(Icons.phone_outlined),
         border: const OutlineInputBorder(),
-        labelText: AppLocalizations.of(context)!.phoneNumberLabel,
+        labelText: context.l10n.phoneNumberLabel,
       ),
       initialValue: '+84 0123 012 012',
       readOnly: true,

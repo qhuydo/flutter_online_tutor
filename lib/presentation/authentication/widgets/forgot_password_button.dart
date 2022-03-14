@@ -12,7 +12,7 @@ class ForgotPasswordButton extends StatelessWidget {
       onPressed: () {
         context.router.push(const ResetPasswordRoute());
       },
-      child: Text(AppLocalizations.of(context)!.forgotPasswordButtonLabel),
+      child: Text(context.l10n.forgotPasswordButtonLabel),
     );
   }
 }

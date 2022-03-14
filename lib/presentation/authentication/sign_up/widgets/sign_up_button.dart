@@ -11,6 +11,6 @@ class SignUpButton extends SubmitButton {
 
   @override
   String getText(BuildContext context) {
-    return AppLocalizations.of(context)!.signUpButtonText;
+    return context.l10n.signUpButtonText;
   }
 }

@@ -4,6 +4,7 @@ import '../../../common.dart';
 import '../event.dart';
 import 'book_dialog.dart';
 
+// TODO Update translation
 class ScheduleRow extends StatelessWidget {
   final ScheduleEvent event;
   final DateTime date;

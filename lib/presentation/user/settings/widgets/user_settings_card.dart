@@ -13,7 +13,7 @@ class UserSettingsCard extends StatelessWidget {
     final _settingList = [
       SettingCardItem(
         iconData: Icons.history_outlined,
-        title: AppLocalizations.of(context)!.historyTitle,
+        title: context.l10n.historyTitle,
         onTap: () {
           context.router.push(const HistoryRoute());
         },
@@ -23,7 +23,7 @@ class UserSettingsCard extends StatelessWidget {
       ),
       SettingCardItem(
         iconData: Icons.manage_accounts_outlined,
-        title: AppLocalizations.of(context)!.editProfileLabel,
+        title: context.l10n.editProfileLabel,
         onTap: () {
           context.router.push(const ProfileRoute());
         },
@@ -33,7 +33,7 @@ class UserSettingsCard extends StatelessWidget {
       ),
       SettingCardItem(
         iconData: Icons.password,
-        title: AppLocalizations.of(context)!.changePasswordLabel,
+        title: context.l10n.changePasswordLabel,
         onTap: () {
           context.router.push(const ChangePasswordRoute());
         },
@@ -43,7 +43,7 @@ class UserSettingsCard extends StatelessWidget {
       ),
       SettingCardItem(
         iconData: Icons.account_balance_wallet_outlined,
-        title: AppLocalizations.of(context)!.myWalletLabel,
+        title: context.l10n.myWalletLabel,
         onTap: () {},
         trailingWidget: const Icon(
           Icons.navigate_next,
@@ -51,7 +51,7 @@ class UserSettingsCard extends StatelessWidget {
       ),
       SettingCardItem(
         iconData: Icons.assignment_ind_outlined,
-        title: AppLocalizations.of(context)!.becomeTeacherLabel,
+        title: context.l10n.becomeTeacherLabel,
         onTap: () {
           context.router.push(const BecomeTutorRoute());
         },
@@ -61,7 +61,7 @@ class UserSettingsCard extends StatelessWidget {
       ),
       SettingCardItem(
         iconData: Icons.logout,
-        title: AppLocalizations.of(context)!.logOutLabel,
+        title: context.l10n.logOutLabel,
         onTap: () {
           context.router.popUntilRoot();
           context.router.replace(const LoginRoute());

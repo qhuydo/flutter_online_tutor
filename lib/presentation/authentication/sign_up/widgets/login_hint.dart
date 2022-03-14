@@ -11,12 +11,12 @@ class LoginHint extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(AppLocalizations.of(context)!.loginHint),
+        Text(context.l10n.loginHint),
         TextButton(
             onPressed: () {
               context.router.replace(const LoginRoute());
             },
-            child: Text(AppLocalizations.of(context)!.loginButtonText))
+            child: Text(context.l10n.loginButtonText))
       ],
     );
   }

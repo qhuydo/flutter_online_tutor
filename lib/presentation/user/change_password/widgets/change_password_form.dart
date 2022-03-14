@@ -15,25 +15,25 @@ class ChangePasswordForm extends StatelessWidget {
           children: [
             PasswordInput(
               labelText:
-                  AppLocalizations.of(context)!.currentPasswordTextBoxLabel,
+                  context.l10n.currentPasswordTextBoxLabel,
             ),
             const SizedBox(height: rowSpacing),
             PasswordInput(
-              labelText: AppLocalizations.of(context)!.newPasswordTextBoxLabel,
+              labelText: context.l10n.newPasswordTextBoxLabel,
             ),
             const SizedBox(height: rowSpacing),
             PasswordInput(
               labelText:
-                  AppLocalizations.of(context)!.confirmPasswordTextBoxLabel,
+                  context.l10n.confirmPasswordTextBoxLabel,
               hintText:
-                  AppLocalizations.of(context)!.confirmPasswordTextBoxHint,
+                  context.l10n.confirmPasswordTextBoxHint,
             ),
             const SizedBox(height: rowSpacing),
             ElevatedButton.icon(
               icon: const Icon(Icons.save_outlined),
               onPressed: () {},
               label: Text(
-                AppLocalizations.of(context)!.saveButtonLabel,
+                context.l10n.saveButtonLabel,
                 style: TextStyle(
                   fontSize: Theme.of(context).textTheme.titleMedium?.fontSize,
                 ),

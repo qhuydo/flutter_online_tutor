@@ -12,7 +12,7 @@ class LoginByPhonePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AuthenScaffold(
-      title: AppLocalizations.of(context)!.loginButtonText,
+      title: context.l10n.loginButtonText,
       form: const AuthenticateByPhoneNumberForm(),
       submitButton: const LoginButton(),
       otherAuthenticateOptions: const LoginOptionButtonGroup(

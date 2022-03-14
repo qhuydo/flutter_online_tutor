@@ -10,22 +10,22 @@ extension AppThemeModeExtension on AppThemeMode {
   String toOptionString(BuildContext context) {
     switch (this) {
       case AppThemeMode.followSystem:
-        return AppLocalizations.of(context)!.darkModeDefaultOption;
+        return context.l10n.darkModeDefaultOption;
       case AppThemeMode.day:
-        return AppLocalizations.of(context)!.darkModeDisableOption;
+        return context.l10n.darkModeDisableOption;
       case AppThemeMode.night:
-        return AppLocalizations.of(context)!.darkModeEnableOption;
+        return context.l10n.darkModeEnableOption;
     }
   }
 
   String toStatusString(BuildContext context) {
     switch (this) {
       case AppThemeMode.followSystem:
-        return AppLocalizations.of(context)!.darkModeDefaultValue;
+        return context.l10n.darkModeDefaultValue;
       case AppThemeMode.day:
-        return AppLocalizations.of(context)!.darkModeDisabledValue;
+        return context.l10n.darkModeDisabledValue;
       case AppThemeMode.night:
-        return AppLocalizations.of(context)!.darkModeEnabledValue;
+        return context.l10n.darkModeEnabledValue;
     }
   }
 }
@@ -44,7 +44,7 @@ PopupMenuButton changeLanguagePopupMenuButton(BuildContext context, {Key? key}) 
           .toList();
     },
     child: Text(
-      AppLocalizations.of(context)!.darkModeDefaultValue,
+      context.l10n.darkModeDefaultValue,
       style: Theme.of(context).textTheme.caption,
     ),
   );

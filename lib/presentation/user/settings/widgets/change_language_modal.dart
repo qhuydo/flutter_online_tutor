@@ -14,9 +14,9 @@ extension LanguageExtension on Language {
   String toTitle(BuildContext context) {
     switch (this) {
       case Language.systemDefault:
-        return AppLocalizations.of(context)!.languageDefaultValue;
+        return context.l10n.languageDefaultValue;
       case Language.en:
-        return AppLocalizations.of(context)!.languageEnglishOption;
+        return context.l10n.languageEnglishOption;
       case Language.ja:
         return AppLocalizations.of(context)!.languageJapaneseOption;
       case Language.vi:

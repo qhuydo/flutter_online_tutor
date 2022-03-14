@@ -60,7 +60,7 @@ class AuthenScaffold extends StatelessWidget {
               ),
               if (otherAuthenticateOptions != null) ...[
                 TextDivider(
-                  text: AppLocalizations.of(context)!.or.toUpperCase(),
+                  text: context.l10n.or.toUpperCase(),
                 ),
                 const SizedBox(
                   height: 16,

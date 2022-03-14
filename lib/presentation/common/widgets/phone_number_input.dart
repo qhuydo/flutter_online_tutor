@@ -37,8 +37,8 @@ class _PhoneNumberInputState extends State<PhoneNumberInput> {
           child: TextFormField(
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
-                labelText: AppLocalizations.of(context)!.phoneNumberLabel,
-                hintText: AppLocalizations.of(context)!.phoneNumberTextBoxHint,
+                labelText: context.l10n.phoneNumberLabel,
+                hintText: context.l10n.phoneNumberTextBoxHint,
                 // floatingLabelBehavior: FloatingLabelBehavior.auto,
                 border: const OutlineInputBorder()),
           ),

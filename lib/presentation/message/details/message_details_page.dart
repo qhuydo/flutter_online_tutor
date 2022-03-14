@@ -29,7 +29,7 @@ class _MessageDetailsPageState extends State<MessageDetailsPage> {
     return Scaffold(
       appBar: buildAppBar(
         context,
-        title: AppLocalizations.of(context)!.chatButtonText,
+        title: context.l10n.chatButtonText,
       ),
       body: Stack(
         children: [

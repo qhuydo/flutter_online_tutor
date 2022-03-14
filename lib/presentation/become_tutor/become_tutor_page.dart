@@ -28,7 +28,7 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
         // A bug that causes horizontal stepper overflows title
         // see https://github.com/flutter/flutter/issues/40601
         _index == step1Index
-            ? AppLocalizations.of(context)!.completeProfileStepTitle
+            ? context.l10n.completeProfileStepTitle
             : '',
       ),
       content: const BecomeTutorStep1(),
@@ -44,7 +44,7 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
       isActive: _index == step2Index,
       title: Text(
         _index == step2Index
-            ? AppLocalizations.of(context)!.introductionVideoLabel
+            ? context.l10n.introductionVideoLabel
             : '',
       ),
       content: const BecomeTutorStep2(),
@@ -60,7 +60,7 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
       isActive: _index == step3Index,
       title: Text(
         _index == step3Index
-            ? AppLocalizations.of(context)!.approvalStepLabel
+            ? context.l10n.approvalStepLabel
             : '',
       ),
       content: const BecomeTutorStep3(),
@@ -72,7 +72,7 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
     return Scaffold(
       appBar: buildAppBar(
         context,
-        title: AppLocalizations.of(context)!.becomeTeacherLabel,
+        title: context.l10n.becomeTeacherLabel,
         shouldShowDefaultActions: false,
       ),
       body: SafeArea(

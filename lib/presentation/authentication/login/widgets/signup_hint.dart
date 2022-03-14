@@ -12,12 +12,12 @@ class SignupHint extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          AppLocalizations.of(context)!.signUpHint
+          context.l10n.signUpHint
         ),
         TextButton(onPressed: () {
           context.router.replace(const SignUpRoute());
         }, child: Text(
-          AppLocalizations.of(context)!.signUpButtonText
+          context.l10n.signUpButtonText
         ))
       ],
     );

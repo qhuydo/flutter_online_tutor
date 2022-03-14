@@ -10,7 +10,7 @@ class SettingsPage extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(
         context,
-        title: AppLocalizations.of(context)!.settingsBottomNavItem,
+        title: context.l10n.settingsBottomNavItem,
         shouldShowDefaultActions: false,
       ),
       body: SafeArea(

@@ -24,9 +24,9 @@ class _PasswordInputState extends State<PasswordInput> {
       obscureText: _obscureText,
       decoration: InputDecoration(
         labelText:
-            widget.labelText ?? AppLocalizations.of(context)!.passwordLabel,
+            widget.labelText ?? context.l10n.passwordLabel,
         hintText: widget.hintText ??
-            AppLocalizations.of(context)!.passwordTextBoxHint,
+            context.l10n.passwordTextBoxHint,
         floatingLabelBehavior: FloatingLabelBehavior.auto,
         border: const OutlineInputBorder(),
         // filled: true,
@@ -40,8 +40,8 @@ class _PasswordInputState extends State<PasswordInput> {
           child: Icon(
             _obscureText ? Icons.visibility : Icons.visibility_off,
             semanticLabel: _obscureText
-                ? AppLocalizations.of(context)!.showPassword
-                : AppLocalizations.of(context)!.hidePassword,
+                ? context.l10n.showPassword
+                : context.l10n.hidePassword,
           ),
         ),
       ),

@@ -39,7 +39,7 @@ class MessageInputRow extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       hintText:
-                          AppLocalizations.of(context)!.writeMessageInputText,
+                          context.l10n.writeMessageInputText,
                       hintStyle: const TextStyle(color: Colors.black54),
                       border: InputBorder.none,
                     ),

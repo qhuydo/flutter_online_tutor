@@ -10,11 +10,11 @@ extension TargetStudentX on TargetStudent {
   String toTitle(BuildContext context) {
     switch (this) {
       case TargetStudent.beginner:
-        return AppLocalizations.of(context)!.targetStudentBeginnerValue;
+        return context.l10n.targetStudentBeginnerValue;
       case TargetStudent.intermediate:
-        return AppLocalizations.of(context)!.targetStudentIntermediateValue;
+        return context.l10n.targetStudentIntermediateValue;
       case TargetStudent.advanced:
-        return AppLocalizations.of(context)!.targetStudentAdvancedValue;
+        return context.l10n.targetStudentAdvancedValue;
     }
   }
 }

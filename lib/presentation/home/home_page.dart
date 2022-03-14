@@ -73,28 +73,28 @@ class HomePage extends StatelessWidget {
             buildNavBarItem(
               icon: Icons.home_outlined,
               activeIcon: Icons.home,
-              text: AppLocalizations.of(context)!.homeBottomNavItem,
+              text: context.l10n.homeBottomNavItem,
               selectedColour: Colors.blue,
             ),
             buildNavBarItem(
                 icon: Icons.people_outlined,
                 activeIcon: Icons.people,
-                text: AppLocalizations.of(context)!.tutorBottomNavBarItem,
+                text: context.l10n.tutorBottomNavBarItem,
                 selectedColour: Colors.teal),
             buildNavBarItem(
                 icon: Icons.book_outlined,
                 activeIcon: Icons.book,
-                text: AppLocalizations.of(context)!.courseBottomNavItem,
+                text: context.l10n.courseBottomNavItem,
                 selectedColour: Colors.green),
             buildNavBarItem(
                 icon: Icons.event_outlined,
                 activeIcon: Icons.event,
-                text: AppLocalizations.of(context)!.scheduleBottomNavItem,
+                text: context.l10n.scheduleBottomNavItem,
                 selectedColour: Colors.pinkAccent),
             buildNavBarItem(
                 icon: Icons.message_outlined,
                 activeIcon: Icons.message,
-                text: AppLocalizations.of(context)!.messagesBottomNavItem,
+                text: context.l10n.messagesBottomNavItem,
                 selectedColour: Colors.deepOrange),
           ],
         );

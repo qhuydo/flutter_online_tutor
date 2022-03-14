@@ -27,7 +27,7 @@ class _AppSettingsCardState extends State<AppSettingsCard> {
     final _settingList = [
       SettingCardItem(
         iconData: Icons.dark_mode_outlined,
-        title: AppLocalizations.of(context)!.darkModeLabel,
+        title: context.l10n.darkModeLabel,
         onTap: () {
           dynamic state = _changeThemeMenuKey.currentState;
           state?.showButtonMenu();
@@ -36,7 +36,7 @@ class _AppSettingsCardState extends State<AppSettingsCard> {
       ),
       SettingCardItem(
         iconData: Icons.palette_outlined,
-        title: AppLocalizations.of(context)!.colorPaletteLabel,
+        title: context.l10n.colorPaletteLabel,
         onTap: () {},
         trailingWidget: Container(
           height: 32,
@@ -46,7 +46,7 @@ class _AppSettingsCardState extends State<AppSettingsCard> {
       ),
       SettingCardItem(
         iconData: Icons.language,
-        title: AppLocalizations.of(context)!.languageLabel,
+        title: context.l10n.languageLabel,
         onTap: () {
           // showModalBottomSheet(
           //   context: context,
@@ -81,7 +81,7 @@ class _AppSettingsCardState extends State<AppSettingsCard> {
     return SettingsCard(
       settingList: _settingList,
       headerIcon: Icons.settings,
-      title: AppLocalizations.of(context)!.settingsCardHeader,
+      title: context.l10n.settingsCardHeader,
     );
   }
 }

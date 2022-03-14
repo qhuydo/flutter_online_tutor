@@ -12,7 +12,6 @@ class BecomeTutorStep1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final titleStyle = Theme.of(context).textTheme.titleLarge;
-    final appLocalization = AppLocalizations.of(context)!;
 
     return SingleChildScrollView(
       child: Column(
@@ -20,7 +19,7 @@ class BecomeTutorStep1 extends StatelessWidget {
         children: [
           // Basic info
           Text(
-            appLocalization.basicInfoLabel,
+            context.l10n.basicInfoLabel,
             style: titleStyle,
           ),
           const Divider(),
@@ -29,7 +28,7 @@ class BecomeTutorStep1 extends StatelessWidget {
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               icon: const Icon(Icons.badge_outlined),
-              labelText: appLocalization.tutoringNameTextBoxLabel,
+              labelText: context.l10n.tutoringNameTextBoxLabel,
             ),
           ),
           const SizedBox(height: itemSpacing),
@@ -39,16 +38,16 @@ class BecomeTutorStep1 extends StatelessWidget {
           const SizedBox(height: itemSpacing),
           // CV
           Text(
-            appLocalization.cvLabel,
+            context.l10n.cvLabel,
             style: titleStyle,
           ),
           const Divider(),
           const SizedBox(height: itemSpacing),
-          Text(appLocalization.cvInfoNotice),
+          Text(context.l10n.cvInfoNotice),
           const SizedBox(height: itemSpacing),
           InfoContainer(
             child: Text(
-              AppLocalizations.of(context)!.protectPrivacyNotice,
+              context.l10n.protectPrivacyNotice,
             ),
           ),
           const SizedBox(height: itemSpacing),
@@ -58,8 +57,8 @@ class BecomeTutorStep1 extends StatelessWidget {
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               icon: const Icon(Icons.interests_outlined),
-              labelText: appLocalization.interestTextBoxLabel,
-              hintText: appLocalization.interestTextBoxHint,
+              labelText: context.l10n.interestTextBoxLabel,
+              hintText: context.l10n.interestTextBoxHint,
             ),
           ),
           const SizedBox(height: itemSpacing),
@@ -69,8 +68,8 @@ class BecomeTutorStep1 extends StatelessWidget {
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               icon: const Icon(Icons.history_edu_outlined),
-              labelText: appLocalization.academicLevelTextBoxLabel,
-              hintText: appLocalization.academicLevelTextBoxHint,
+              labelText: context.l10n.academicLevelTextBoxLabel,
+              hintText: context.l10n.academicLevelTextBoxHint,
             ),
           ),
           const SizedBox(height: itemSpacing),
@@ -80,7 +79,7 @@ class BecomeTutorStep1 extends StatelessWidget {
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               icon: const Icon(IconData(0)),
-              labelText: appLocalization.experienceTextBoxLabel,
+              labelText: context.l10n.experienceTextBoxLabel,
             ),
           ),
           const SizedBox(height: itemSpacing),
@@ -90,13 +89,13 @@ class BecomeTutorStep1 extends StatelessWidget {
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
               icon: const Icon(Icons.work_outline),
-              labelText: appLocalization.professionTextBoxLabel,
+              labelText: context.l10n.professionTextBoxLabel,
             ),
           ),
           const SizedBox(height: itemSpacing),
           // Language
           Text(
-            appLocalization.aboutLanguageTitle,
+            context.l10n.aboutLanguageTitle,
             style: titleStyle,
           ),
           const Divider(),
@@ -106,7 +105,7 @@ class BecomeTutorStep1 extends StatelessWidget {
           const SizedBox(height: itemSpacing),
           // Target students
           Text(
-            appLocalization.targetStudentTextBoxLabel,
+            context.l10n.targetStudentTextBoxLabel,
             style: titleStyle,
           ),
           const Divider(),

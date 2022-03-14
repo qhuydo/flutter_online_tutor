@@ -9,7 +9,7 @@ class ResetPasswordPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AuthenScaffold(
-      title: AppLocalizations.of(context)!.resetPassword,
+      title: context.l10n.resetPassword,
       form: const ResetPasswordForm(),
       submitButton: const ResetPasswordButton(),
       shouldShowForgotPasswordButton: false,

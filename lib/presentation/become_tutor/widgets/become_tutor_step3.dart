@@ -15,7 +15,7 @@ class BecomeTutorStep3 extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppLocalizations.of(context)!.approvalStepLabel,
+            context.l10n.approvalStepLabel,
             style: titleStyle,
           ),
           const Divider(),
@@ -29,7 +29,7 @@ class BecomeTutorStep3 extends StatelessWidget {
           ),
           const SizedBox(height: itemSpacing),
           Center(
-            child: Text(AppLocalizations.of(context)!.approvalStepDescriptionTitle,
+            child: Text(context.l10n.approvalStepDescriptionTitle,
               textAlign: TextAlign.center,
             ),
           ),
@@ -37,7 +37,7 @@ class BecomeTutorStep3 extends StatelessWidget {
           Center(
             child: OutlinedButton.icon(
               icon: const Icon(Icons.navigate_before),
-              label: Text(AppLocalizations.of(context)!.backButtonText),
+              label: Text(context.l10n.backButtonText),
               onPressed: () {
                 context.router.pop();
               },

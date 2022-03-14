@@ -19,7 +19,7 @@ class MessageRow extends StatelessWidget {
             ),
       ),
       subtitle: Text(
-        AppLocalizations.of(context)!.loremIpsum,
+        context.l10n.loremIpsum,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),

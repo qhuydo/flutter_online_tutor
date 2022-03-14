@@ -11,7 +11,7 @@ class ChangePasswordPage extends StatelessWidget {
       appBar: buildAppBar(
         context,
         shouldShowDefaultActions: false,
-        title: AppLocalizations.of(context)!.changePasswordLabel,
+        title: context.l10n.changePasswordLabel,
       ),
       body: const SafeArea(child: ChangePasswordForm()),
     );

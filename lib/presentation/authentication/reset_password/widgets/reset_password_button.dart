@@ -11,6 +11,6 @@ class ResetPasswordButton extends SubmitButton {
 
   @override
   String getText(BuildContext context) {
-    return AppLocalizations.of(context)!.resetPasswordButtonText;
+    return context.l10n.resetPasswordButtonText;
   }
 }

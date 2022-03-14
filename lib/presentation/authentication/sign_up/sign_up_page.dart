@@ -11,7 +11,7 @@ class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AuthenScaffold(
-      title: AppLocalizations.of(context)!.signUpButtonText,
+      title: context.l10n.signUpButtonText,
       form: const AuthenticateByMailForm(),
       submitButton: const SignUpButton(),
       otherAuthenticateOptions: const SignupOptionButtonGroup(),

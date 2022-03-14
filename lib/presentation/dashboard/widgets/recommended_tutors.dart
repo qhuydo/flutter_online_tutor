@@ -23,7 +23,7 @@ class RecommendedTutors extends StatelessWidget {
             children: [
               // Twemoji(emoji: '🌟'),
               Text(
-                '🌟 ' + AppLocalizations.of(context)!.recommendedTutors,
+                '🌟 ' + context.l10n.recommendedTutors,
                 maxLines: 2,
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       // decoration: TextDecoration.underline,
@@ -38,7 +38,7 @@ class RecommendedTutors extends StatelessWidget {
                 child: Wrap(
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.seeMoreButtonText,
+                      context.l10n.seeMoreButtonText,
                     ),
                     const SizedBox(width: 4),
                     const Icon(Icons.arrow_forward_ios)

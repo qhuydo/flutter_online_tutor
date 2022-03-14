@@ -9,8 +9,8 @@ class NameFormTextField extends StatelessWidget {
       decoration: InputDecoration(
         icon: const Icon(Icons.person_outlined),
         border: const OutlineInputBorder(),
-        labelText: AppLocalizations.of(context)!.fullNameTextBox,
-        hintText: AppLocalizations.of(context)!.fullNameTextBoxHint,
+        labelText: context.l10n.fullNameTextBox,
+        hintText: context.l10n.fullNameTextBoxHint,
       ),
       initialValue: 'Nguyen Van A',
     );

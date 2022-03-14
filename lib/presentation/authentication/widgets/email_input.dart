@@ -8,8 +8,8 @@ class EmailInput extends StatelessWidget {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
-          labelText: AppLocalizations.of(context)!.emailLabel,
-          hintText: AppLocalizations.of(context)!.emailTextBoxHint,
+          labelText: context.l10n.emailLabel,
+          hintText: context.l10n.emailTextBoxHint,
           // floatingLabelBehavior: FloatingLabelBehavior.always,
           border: const OutlineInputBorder()),
     );

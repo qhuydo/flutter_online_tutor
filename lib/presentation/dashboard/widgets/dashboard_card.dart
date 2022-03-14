@@ -16,7 +16,7 @@ class DashboardCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              AppLocalizations.of(context)!.totalHourLearnt('82 hours'),
+              context.l10n.totalHourLearnt('82 hours'),
               style: Theme.of(context).textTheme.headline6,
             ),
             const SizedBox(
@@ -25,7 +25,7 @@ class DashboardCard extends StatelessWidget {
             Wrap(
               children: [
                 Text(
-                  AppLocalizations.of(context)!.upComingLesson,
+                  context.l10n.upComingLesson,
                   style: Theme.of(context).textTheme.bodyText2,
                 ),
                 const SizedBox(width: 8),
@@ -49,7 +49,7 @@ class DashboardCard extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(
-                        AppLocalizations.of(context)!.enterLessonRoom,
+                        context.l10n.enterLessonRoom,
                       ),
                       const SizedBox(
                         width: 4,

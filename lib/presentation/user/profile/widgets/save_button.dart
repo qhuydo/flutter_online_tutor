@@ -12,7 +12,7 @@ class SaveButton extends StatelessWidget {
       //   'Save',
       // ),
       label: Text(
-        AppLocalizations.of(context)!.saveButtonLabel,
+        context.l10n.saveButtonLabel,
         style: TextStyle(
           fontSize: Theme.of(context).textTheme.titleMedium?.fontSize,
         ),

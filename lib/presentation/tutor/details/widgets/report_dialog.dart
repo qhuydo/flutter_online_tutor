@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../utils/constants.dart';
 import '../../../common.dart';
 
+// TODO update translation
 class ReportDialog extends StatelessWidget {
   const ReportDialog({Key? key}) : super(key: key);
 

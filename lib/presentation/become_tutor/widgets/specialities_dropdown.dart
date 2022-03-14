@@ -53,11 +53,11 @@ class _SpecialitiesDropdownState extends State<SpecialitiesDropdown> {
           listType: MultiSelectListType.CHIP,
           searchable: true,
           buttonText: Text(
-            AppLocalizations.of(context)!.specialitiesDropdown,
+            context.l10n.specialitiesDropdown,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           title: Text(
-            AppLocalizations.of(context)!.specialitiesDropdown,
+            context.l10n.specialitiesDropdown,
           ),
           items: _items,
           onConfirm: (values) {
@@ -81,7 +81,7 @@ class _SpecialitiesDropdownState extends State<SpecialitiesDropdown> {
                 padding: const EdgeInsets.all(12),
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  AppLocalizations.of(context)!.noneSelectedOption,
+                  context.l10n.noneSelectedOption,
                   style: Theme.of(context).textTheme.caption,
                 ))
             : Container(),

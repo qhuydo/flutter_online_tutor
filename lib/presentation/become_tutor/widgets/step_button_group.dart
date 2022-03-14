@@ -32,7 +32,7 @@ class StepButtonGroup extends StatelessWidget {
               onPressed: onStepCancel,
               icon: const Icon(Icons.navigate_before),
               label: Text(
-                AppLocalizations.of(context)!.previousStepButtonText,
+                context.l10n.previousStepButtonText,
               ),
             ),
           const Expanded(
@@ -43,7 +43,7 @@ class StepButtonGroup extends StatelessWidget {
               onPressed: onStepContinue,
               icon: const Icon(Icons.navigate_next),
               label: Text(
-                AppLocalizations.of(context)!.nextStepButtonLabel,
+                context.l10n.nextStepButtonLabel,
               ),
             ),
         ],

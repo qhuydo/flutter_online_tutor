@@ -40,7 +40,7 @@ class ProfileAvatar extends StatelessWidget {
                     ),
                     onPressed: () {},
                     tooltip:
-                        AppLocalizations.of(context)!.changeAvatarButtonTooltip,
+                        context.l10n.changeAvatarButtonTooltip,
                   ),
                 ),
               ),

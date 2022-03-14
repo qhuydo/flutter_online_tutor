@@ -45,11 +45,11 @@ class _SubjectDropdownState extends State<SubjectDropdown> {
           listType: MultiSelectListType.CHIP,
           searchable: true,
           buttonText: Text(
-            AppLocalizations.of(context)!.subjectDropdownLabel,
+            context.l10n.subjectDropdownLabel,
             style: Theme.of(context).textTheme.titleMedium,
           ),
           title: Text(
-            AppLocalizations.of(context)!.subjectDropdownLabel,
+            context.l10n.subjectDropdownLabel,
           ),
           items: _items,
           onConfirm: (values) {
@@ -72,7 +72,7 @@ class _SubjectDropdownState extends State<SubjectDropdown> {
                 padding: const EdgeInsets.all(12),
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  AppLocalizations.of(context)!.noneSelectedOption,
+                  context.l10n.noneSelectedOption,
                   style: Theme.of(context).textTheme.caption,
                 ))
             : Container(),

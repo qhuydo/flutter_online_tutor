@@ -10,7 +10,7 @@ class InfoCard extends StatelessWidget {
     final settingList = [
       SettingCardItem(
         iconData: Icons.info_outlined,
-        title: AppLocalizations.of(context)!.aboutTheAppLabel,
+        title: context.l10n.aboutTheAppLabel,
         onTap: () {},
         trailingWidget: const Icon(
           Icons.navigate_next,
@@ -18,7 +18,7 @@ class InfoCard extends StatelessWidget {
       ),
       SettingCardItem(
         iconData: Icons.copyright_outlined,
-        title: AppLocalizations.of(context)!.licenseLabel,
+        title: context.l10n.licenseLabel,
         onTap: () {},
         trailingWidget: const Icon(
           Icons.navigate_next,
@@ -26,7 +26,7 @@ class InfoCard extends StatelessWidget {
       ),
       SettingCardItem(
         iconData: Icons.star_outline,
-        title: AppLocalizations.of(context)!.rateLabel,
+        title: context.l10n.rateLabel,
         onTap: () {},
         trailingWidget: const Icon(
           Icons.open_in_new,
@@ -34,7 +34,7 @@ class InfoCard extends StatelessWidget {
       ),
       SettingCardItem(
         iconData: Icons.policy_outlined,
-        title: AppLocalizations.of(context)!.termsOfServiceLabel,
+        title: context.l10n.termsOfServiceLabel,
         onTap: () {},
         trailingWidget: const Icon(
           Icons.open_in_new,
@@ -42,7 +42,7 @@ class InfoCard extends StatelessWidget {
       ),
       SettingCardItem(
         iconData: Icons.privacy_tip_outlined,
-        title: AppLocalizations.of(context)!.privacyPolicyLabel,
+        title: context.l10n.privacyPolicyLabel,
         onTap: () {},
         trailingWidget: const Icon(
           Icons.open_in_new,
@@ -53,7 +53,7 @@ class InfoCard extends StatelessWidget {
 
     return SettingsCard(settingList: settingList,
     headerIcon: Icons.help_outline,
-      title: AppLocalizations.of(context)!.helpAndInfoLabel,
+      title: context.l10n.helpAndInfoLabel,
     );
   }
 }
