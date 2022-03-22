@@ -16,17 +16,6 @@ class OnlySenpaiApp extends StatelessWidget {
       title: 'Flutter Demo',
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      // theme: themeData.copyWith(
-      //   // TODO update global theme
-      //   // primarySwatch: Colors.blue,
-      //   visualDensity: VisualDensity.standard,
-      //   textTheme: GoogleFonts.sawarabiGothicTextTheme(
-      //     // themeData.textTheme,
-      //   ),
-      //   // scaffoldBackgroundColor: themeData.brightness == Brightness.light
-      //   //     ? themeData.colorScheme.surface
-      //   //     : null,
-      // ),
       theme: FlexThemeData.light(scheme: FlexScheme.bahamaBlue).copyWith(
         visualDensity: VisualDensity.standard,
         textTheme: GoogleFonts.sawarabiGothicTextTheme(),
