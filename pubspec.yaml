@@ -99,13 +99,16 @@ dependencies:
   # (c) MIT License. By Milad Akarie.
   injectable: ^1.5.3
 
+  # (c) BSD 3-Clause License. By The Flutter Authors.
+  shared_preferences: ^2.0.13
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^1.0.0
-  auto_route_generator: 3.2.3
   build_runner: ^2.1.7
+  auto_route_generator: 3.2.3
   injectable_generator:
 
 
