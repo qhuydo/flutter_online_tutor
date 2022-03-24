@@ -1,8 +1,11 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:twemoji/twemoji.dart';
 
+import '../../../../application/common/app/app_cubit.dart';
+import '../../../../domain/common/app/language.dart';
 import '../../../common.dart';
-import '../../../common/utils/string_utils.dart';
 import '../../helpers/setting_card_item.dart';
+import '../helpers/language_extension.dart';
 import 'change_language_modal.dart';
 import 'change_theme_menu.dart';
 import 'settings_card.dart';
@@ -48,17 +51,6 @@ class _AppSettingsCardState extends State<AppSettingsCard> {
         iconData: Icons.language,
         title: context.l10n.languageLabel,
         onTap: () {
-          // showModalBottomSheet(
-          //   context: context,
-          //   isScrollControlled: true,
-          //   shape: const RoundedRectangleBorder(
-          //     borderRadius: BorderRadius.only(
-          //       topRight: Radius.circular(16),
-          //       topLeft: Radius.circular(16),
-          //     ),
-          //   ),
-          //   builder: (_) => const ChangeLanguageModal(),
-          // );
           showDialog(
               context: context,
               builder: (context) {
@@ -70,12 +62,29 @@ class _AppSettingsCardState extends State<AppSettingsCard> {
                 );
               });
         },
-        trailingWidget: Twemoji(
-          emoji: 'GB'.toCountryFlagFromCountryCode(),
-          width: 32,
-          height: 32,
+        // trailingWidget: Twemoji(
+        //   emoji: 'GB'.toCountryFlagFromCountryCode(),
+        //   width: 32,
+        //   height: 32,
+        // ),
+        trailingWidget: BlocBuilder<AppCubit, AppState>(
+          buildWhen: (previous, current) =>
+              previous.language != current.language,
+          builder: (context, state) {
+            if (state.language == Language.followSystem) {
+              return Text(
+                context.l10n.languageDefaultValue,
+                style: Theme.of(context).textTheme.caption,
+              );
+            }
+            return Twemoji(
+              emoji: state.language.toEmoji(),
+              width: 32,
+              height: 32,
+            );
+          },
         ),
-      )
+      ),
     ];
 
     return SettingsCard(
