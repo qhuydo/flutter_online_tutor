@@ -1,5 +1,3 @@
-import '../../../presentation/common.dart';
-
 enum Language {
   followSystem,
   en,
@@ -20,24 +18,5 @@ Language getLanguageFromString(String? value) {
       return Language.vi;
     default:
       return Language.en;
-  }
-}
-
-extension LanguageX on Language {
-  /// Get Locale object from enum value.
-  ///
-  /// Returns null when the enum value is Language.followSystem,
-  /// returns Locale object otherwise.
-  Locale? toLocale() {
-    switch (this) {
-      case Language.followSystem:
-        return null;
-      case Language.en:
-        return const Locale('en');
-      case Language.vi:
-        return const Locale('vi');
-      case Language.ja:
-        return const Locale('ja');
-    }
   }
 }
