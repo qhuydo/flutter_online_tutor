@@ -126,11 +126,12 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AppState implements _AppState {
+class _$_AppState extends _AppState {
   const _$_AppState(
       {required this.language,
       required this.colourScheme,
-      required this.themeMode});
+      required this.themeMode})
+      : super._();
 
   @override
   final Language language;
@@ -168,11 +169,12 @@ class _$_AppState implements _AppState {
       __$AppStateCopyWithImpl<_AppState>(this, _$identity);
 }
 
-abstract class _AppState implements AppState {
+abstract class _AppState extends AppState {
   const factory _AppState(
       {required Language language,
       required ColourScheme colourScheme,
       required AppThemeMode themeMode}) = _$_AppState;
+  const _AppState._() : super._();
 
   @override
   Language get language;

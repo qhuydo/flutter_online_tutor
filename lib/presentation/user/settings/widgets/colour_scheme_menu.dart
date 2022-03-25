@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/common/app/app_cubit.dart';
-import '../../../common/utils/flex_scheme_mapper.dart';
+import '../../../../application/common/app/flex_scheme_mapper.dart';
 
 Widget buildColourSchemeMenu(
   BuildContext context,

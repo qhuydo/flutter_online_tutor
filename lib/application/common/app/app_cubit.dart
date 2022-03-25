@@ -1,11 +1,15 @@
 import 'package:bloc/bloc.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/common/app/colour_scheme.dart';
 import '../../../domain/common/app/i_app_repository.dart';
 import '../../../domain/common/app/language.dart';
 import '../../../domain/common/app/theme_mode.dart';
+import 'flex_scheme_mapper.dart';
 
 part 'app_cubit.freezed.dart';
 

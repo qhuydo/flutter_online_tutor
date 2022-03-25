@@ -7,7 +7,7 @@ import '../../../common.dart';
 import '../../helpers/setting_card_item.dart';
 import '../helpers/language_extension.dart';
 import 'change_language_modal.dart';
-import 'change_theme_menu.dart';
+import 'theme_mode_menu.dart';
 import 'colour_scheme_menu.dart';
 import 'settings_card.dart';
 
