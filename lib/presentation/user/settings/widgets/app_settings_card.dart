@@ -8,6 +8,7 @@ import '../../helpers/setting_card_item.dart';
 import '../helpers/language_extension.dart';
 import 'change_language_modal.dart';
 import 'change_theme_menu.dart';
+import 'colour_scheme_menu.dart';
 import 'settings_card.dart';
 
 class AppSettingsCard extends StatefulWidget {
@@ -18,7 +19,8 @@ class AppSettingsCard extends StatefulWidget {
 }
 
 class _AppSettingsCardState extends State<AppSettingsCard> {
-  final GlobalKey _changeThemeMenuKey = GlobalKey();
+  final _changeThemeMenuKey = GlobalKey();
+  final _changeColourSchemeMenuKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +29,17 @@ class _AppSettingsCardState extends State<AppSettingsCard> {
       key: _changeThemeMenuKey,
     );
 
+    final changeColourSchemeMenuButton = buildColourSchemeMenu(
+      context,
+      _changeColourSchemeMenuKey,
+    );
+
     final _settingList = [
       SettingCardItem(
         iconData: Icons.dark_mode_outlined,
         title: context.l10n.darkModeLabel,
         onTap: () {
-          dynamic state = _changeThemeMenuKey.currentState;
+          final dynamic state = _changeThemeMenuKey.currentState;
           state?.showButtonMenu();
         },
         trailingWidget: changeLanguageButton,
@@ -40,12 +47,11 @@ class _AppSettingsCardState extends State<AppSettingsCard> {
       SettingCardItem(
         iconData: Icons.palette_outlined,
         title: context.l10n.colorPaletteLabel,
-        onTap: () {},
-        trailingWidget: Container(
-          height: 32,
-          width: 32,
-          color: Colors.blue,
-        ),
+        onTap: () {
+          final dynamic state = _changeColourSchemeMenuKey.currentState;
+          state?.showButtonMenu();
+        },
+        trailingWidget: changeColourSchemeMenuButton,
       ),
       SettingCardItem(
         iconData: Icons.language,
@@ -62,11 +68,6 @@ class _AppSettingsCardState extends State<AppSettingsCard> {
                 );
               });
         },
-        // trailingWidget: Twemoji(
-        //   emoji: 'GB'.toCountryFlagFromCountryCode(),
-        //   width: 32,
-        //   height: 32,
-        // ),
         trailingWidget: BlocBuilder<AppCubit, AppState>(
           buildWhen: (previous, current) =>
               previous.language != current.language,

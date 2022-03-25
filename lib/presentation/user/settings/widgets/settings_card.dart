@@ -12,7 +12,7 @@ class SettingsCard extends StatelessWidget {
 
   const SettingsCard({
     Key? key,
-    required this.settingList,
+    this.settingList = const [],
     this.headerIcon,
     this.title,
     this.header,
@@ -27,13 +27,14 @@ class SettingsCard extends StatelessWidget {
           topRight: Radius.circular(16),
         ),
       ),
-      contentPadding: const EdgeInsets.symmetric(
-        vertical: 8,
-        horizontal: 20,
+      contentPadding: const EdgeInsets.only(
+        top: 8,
+        left: 20,
+        right: 20,
       ),
       leading: Icon(
         headerIcon ?? Icons.settings,
-        size: 36,
+        size: 32,
       ),
       title: Text(
         title ?? '',
