@@ -19,10 +19,13 @@ class _$AppStateTearOff {
   const _$AppStateTearOff();
 
   _AppState call(
-      {required Language language, required ColourScheme colourScheme}) {
+      {required Language language,
+      required ColourScheme colourScheme,
+      required AppThemeMode themeMode}) {
     return _AppState(
       language: language,
       colourScheme: colourScheme,
+      themeMode: themeMode,
     );
   }
 }
@@ -34,6 +37,7 @@ const $AppState = _$AppStateTearOff();
 mixin _$AppState {
   Language get language => throw _privateConstructorUsedError;
   ColourScheme get colourScheme => throw _privateConstructorUsedError;
+  AppThemeMode get themeMode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -44,7 +48,8 @@ mixin _$AppState {
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res>;
-  $Res call({Language language, ColourScheme colourScheme});
+  $Res call(
+      {Language language, ColourScheme colourScheme, AppThemeMode themeMode});
 }
 
 /// @nodoc
@@ -59,6 +64,7 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
   $Res call({
     Object? language = freezed,
     Object? colourScheme = freezed,
+    Object? themeMode = freezed,
   }) {
     return _then(_value.copyWith(
       language: language == freezed
@@ -69,6 +75,10 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
           ? _value.colourScheme
           : colourScheme // ignore: cast_nullable_to_non_nullable
               as ColourScheme,
+      themeMode: themeMode == freezed
+          ? _value.themeMode
+          : themeMode // ignore: cast_nullable_to_non_nullable
+              as AppThemeMode,
     ));
   }
 }
@@ -78,7 +88,8 @@ abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   factory _$AppStateCopyWith(_AppState value, $Res Function(_AppState) then) =
       __$AppStateCopyWithImpl<$Res>;
   @override
-  $Res call({Language language, ColourScheme colourScheme});
+  $Res call(
+      {Language language, ColourScheme colourScheme, AppThemeMode themeMode});
 }
 
 /// @nodoc
@@ -94,6 +105,7 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
   $Res call({
     Object? language = freezed,
     Object? colourScheme = freezed,
+    Object? themeMode = freezed,
   }) {
     return _then(_AppState(
       language: language == freezed
@@ -104,6 +116,10 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
           ? _value.colourScheme
           : colourScheme // ignore: cast_nullable_to_non_nullable
               as ColourScheme,
+      themeMode: themeMode == freezed
+          ? _value.themeMode
+          : themeMode // ignore: cast_nullable_to_non_nullable
+              as AppThemeMode,
     ));
   }
 }
@@ -111,16 +127,21 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AppState implements _AppState {
-  const _$_AppState({required this.language, required this.colourScheme});
+  const _$_AppState(
+      {required this.language,
+      required this.colourScheme,
+      required this.themeMode});
 
   @override
   final Language language;
   @override
   final ColourScheme colourScheme;
+  @override
+  final AppThemeMode themeMode;
 
   @override
   String toString() {
-    return 'AppState(language: $language, colourScheme: $colourScheme)';
+    return 'AppState(language: $language, colourScheme: $colourScheme, themeMode: $themeMode)';
   }
 
   @override
@@ -130,14 +151,16 @@ class _$_AppState implements _AppState {
             other is _AppState &&
             const DeepCollectionEquality().equals(other.language, language) &&
             const DeepCollectionEquality()
-                .equals(other.colourScheme, colourScheme));
+                .equals(other.colourScheme, colourScheme) &&
+            const DeepCollectionEquality().equals(other.themeMode, themeMode));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(language),
-      const DeepCollectionEquality().hash(colourScheme));
+      const DeepCollectionEquality().hash(colourScheme),
+      const DeepCollectionEquality().hash(themeMode));
 
   @JsonKey(ignore: true)
   @override
@@ -148,12 +171,15 @@ class _$_AppState implements _AppState {
 abstract class _AppState implements AppState {
   const factory _AppState(
       {required Language language,
-      required ColourScheme colourScheme}) = _$_AppState;
+      required ColourScheme colourScheme,
+      required AppThemeMode themeMode}) = _$_AppState;
 
   @override
   Language get language;
   @override
   ColourScheme get colourScheme;
+  @override
+  AppThemeMode get themeMode;
   @override
   @JsonKey(ignore: true)
   _$AppStateCopyWith<_AppState> get copyWith =>

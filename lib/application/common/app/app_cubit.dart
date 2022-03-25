@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 import '../../../domain/common/app/colour_scheme.dart';
 import '../../../domain/common/app/i_app_repository.dart';
 import '../../../domain/common/app/language.dart';
+import '../../../domain/common/app/theme_mode.dart';
 
 part 'app_cubit.freezed.dart';
 
@@ -22,6 +23,7 @@ class AppCubit extends Cubit<AppState> {
     emit(state.copyWith(
       language: await _appRepository.getLanguage(),
       colourScheme: await _appRepository.getColourScheme(),
+      themeMode: await _appRepository.getAppThemeMode(),
     ));
   }
 
@@ -40,6 +42,16 @@ class AppCubit extends Cubit<AppState> {
     if (result) {
       emit(state.copyWith(
         colourScheme: colourScheme,
+      ));
+    }
+  }
+
+  Future<void> changeThemeMode(AppThemeMode themeMode) async {
+    final result = await _appRepository.setAppThemeMode(themeMode);
+
+    if (result) {
+      emit(state.copyWith(
+        themeMode: themeMode,
       ));
     }
   }
