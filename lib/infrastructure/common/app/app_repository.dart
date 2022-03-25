@@ -3,17 +3,10 @@ import 'dart:ui';
 import 'package:injectable/injectable.dart';
 
 import '../../../common.dart';
+import '../../../domain/common/app/i_app_repository.dart';
 import '../../../domain/common/app/language.dart';
 import '../db/shared_preference_storage.dart';
 import 'language.dart';
-
-abstract class AppRepository {
-  Future<Language> getLanguage();
-
-  Future<Locale?> getLocale();
-
-  Future<bool> setLanguage(Language language);
-}
 
 @LazySingleton(as: AppRepository)
 class AppRepositoryImpl extends AppRepository {
@@ -27,7 +20,6 @@ class AppRepositoryImpl extends AppRepository {
         defaultValue: Language.followSystem,
       ) as String?);
 
-  @override
   Future<Locale?> getLocale() async => (await getLanguage()).toLocale();
 
   @override

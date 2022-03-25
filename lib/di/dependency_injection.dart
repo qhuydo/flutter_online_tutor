@@ -8,6 +8,6 @@ final getIt = GetIt.instance;
 
 /// initializes the configurations of [GetIt].
 @injectableInit
-void configureInjection(String env) => $initGetIt(getIt, environment: env);
+Future configureInjection(String env) => $initGetIt(getIt, environment: env);
 
 

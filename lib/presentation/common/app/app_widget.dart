@@ -13,7 +13,7 @@ class OnlySenpaiApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => getIt<AppCubit>(),
+      create: (_) => getIt<AppCubit>()..initialize(),
       child: const AppView(),
     );
   }

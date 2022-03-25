@@ -7,16 +7,16 @@ enum Language {
 
 /// Get Language enum from [value].
 /// Returns enum value corresponding with [value].
-/// or returns enum.en otherwise.
+/// or returns enum.followSystem otherwise.
 Language getLanguageFromString(String? value) {
   switch (value) {
-    case 'followSystem':
-      return Language.followSystem;
-    case 'ja':
+    case 'Language.en':
+      return Language.en;
+    case 'Language.ja':
       return Language.ja;
-    case 'vi':
+    case 'Language.vi':
       return Language.vi;
     default:
-      return Language.en;
+      return Language.followSystem;
   }
 }

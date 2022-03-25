@@ -2,8 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../domain/common/app/i_app_repository.dart';
 import '../../../domain/common/app/language.dart';
-import '../../../infrastructure/common/app/app_repository.dart';
 
 part 'app_cubit.freezed.dart';
 
@@ -18,7 +18,16 @@ class AppCubit extends Cubit<AppState> {
         super(AppState.initial());
 
   Future<void> changeAppLanguage(Language language) async {
-    await _appRepository.setLanguage(language);
+    final result = await _appRepository.setLanguage(language);
+    if (result) {
+      emit(state.copyWith(
+        language: language,
+      ));
+    }
+  }
+
+  Future<void> initialize() async {
+    final language = await _appRepository.getLanguage();
     emit(state.copyWith(
       language: language,
     ));
