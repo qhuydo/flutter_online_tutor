@@ -18,9 +18,11 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AppStateTearOff {
   const _$AppStateTearOff();
 
-  _AppState call({required Language language}) {
+  _AppState call(
+      {required Language language, required ColourScheme colourScheme}) {
     return _AppState(
       language: language,
+      colourScheme: colourScheme,
     );
   }
 }
@@ -31,6 +33,7 @@ const $AppState = _$AppStateTearOff();
 /// @nodoc
 mixin _$AppState {
   Language get language => throw _privateConstructorUsedError;
+  ColourScheme get colourScheme => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -41,7 +44,7 @@ mixin _$AppState {
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res>;
-  $Res call({Language language});
+  $Res call({Language language, ColourScheme colourScheme});
 }
 
 /// @nodoc
@@ -55,12 +58,17 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
   @override
   $Res call({
     Object? language = freezed,
+    Object? colourScheme = freezed,
   }) {
     return _then(_value.copyWith(
       language: language == freezed
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as Language,
+      colourScheme: colourScheme == freezed
+          ? _value.colourScheme
+          : colourScheme // ignore: cast_nullable_to_non_nullable
+              as ColourScheme,
     ));
   }
 }
@@ -70,7 +78,7 @@ abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
   factory _$AppStateCopyWith(_AppState value, $Res Function(_AppState) then) =
       __$AppStateCopyWithImpl<$Res>;
   @override
-  $Res call({Language language});
+  $Res call({Language language, ColourScheme colourScheme});
 }
 
 /// @nodoc
@@ -85,12 +93,17 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? language = freezed,
+    Object? colourScheme = freezed,
   }) {
     return _then(_AppState(
       language: language == freezed
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as Language,
+      colourScheme: colourScheme == freezed
+          ? _value.colourScheme
+          : colourScheme // ignore: cast_nullable_to_non_nullable
+              as ColourScheme,
     ));
   }
 }
@@ -98,14 +111,16 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AppState implements _AppState {
-  const _$_AppState({required this.language});
+  const _$_AppState({required this.language, required this.colourScheme});
 
   @override
   final Language language;
+  @override
+  final ColourScheme colourScheme;
 
   @override
   String toString() {
-    return 'AppState(language: $language)';
+    return 'AppState(language: $language, colourScheme: $colourScheme)';
   }
 
   @override
@@ -113,12 +128,16 @@ class _$_AppState implements _AppState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AppState &&
-            const DeepCollectionEquality().equals(other.language, language));
+            const DeepCollectionEquality().equals(other.language, language) &&
+            const DeepCollectionEquality()
+                .equals(other.colourScheme, colourScheme));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(language));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(language),
+      const DeepCollectionEquality().hash(colourScheme));
 
   @JsonKey(ignore: true)
   @override
@@ -127,10 +146,14 @@ class _$_AppState implements _AppState {
 }
 
 abstract class _AppState implements AppState {
-  const factory _AppState({required Language language}) = _$_AppState;
+  const factory _AppState(
+      {required Language language,
+      required ColourScheme colourScheme}) = _$_AppState;
 
   @override
   Language get language;
+  @override
+  ColourScheme get colourScheme;
   @override
   @JsonKey(ignore: true)
   _$AppStateCopyWith<_AppState> get copyWith =>

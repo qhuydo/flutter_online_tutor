@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../domain/common/app/colour_scheme.dart';
 import '../../../domain/common/app/i_app_repository.dart';
 import '../../../domain/common/app/language.dart';
 
@@ -17,6 +18,13 @@ class AppCubit extends Cubit<AppState> {
       : _appRepository = appRepository,
         super(AppState.initial());
 
+  Future<void> initialize() async {
+    emit(state.copyWith(
+      language: await _appRepository.getLanguage(),
+      colourScheme: await _appRepository.getColourScheme(),
+    ));
+  }
+
   Future<void> changeAppLanguage(Language language) async {
     final result = await _appRepository.setLanguage(language);
     if (result) {
@@ -26,10 +34,13 @@ class AppCubit extends Cubit<AppState> {
     }
   }
 
-  Future<void> initialize() async {
-    final language = await _appRepository.getLanguage();
-    emit(state.copyWith(
-      language: language,
-    ));
+  Future<void> changeColourScheme(ColourScheme colourScheme) async {
+    final result = await _appRepository.setColourScheme(colourScheme);
+
+    if (result) {
+      emit(state.copyWith(
+        colourScheme: colourScheme,
+      ));
+    }
   }
 }
