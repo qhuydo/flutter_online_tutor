@@ -23,8 +23,6 @@ class TutorDetailsPage extends StatelessWidget {
               AppLocalizations.of(context)!.tutorDetailsPageTitle,
             ),
             elevation: 0.75,
-            backgroundColor: Theme.of(context).colorScheme.surface,
-            foregroundColor: Theme.of(context).colorScheme.onSurface,
             shadowColor: Colors.grey[500]?.withOpacity(0.5),
             centerTitle: true,
             floating: true,

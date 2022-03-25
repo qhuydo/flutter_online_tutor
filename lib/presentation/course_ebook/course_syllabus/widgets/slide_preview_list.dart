@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../utils/constants.dart';
+import '../../../common/utils/constants.dart';
 import '../../../common.dart';
 
 class SlidePreviewList extends StatelessWidget {

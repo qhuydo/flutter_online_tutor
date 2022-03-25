@@ -1,4 +1,4 @@
-import '../../../utils/constants.dart';
+import '../../common/utils/constants.dart';
 import '../../common.dart';
 import 'widgets/widgets.dart';
 
@@ -34,8 +34,6 @@ class CourseDetailsPage extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         slivers: [
           SliverAppBar(
-            backgroundColor: Theme.of(context).colorScheme.surface,
-            foregroundColor: Theme.of(context).colorScheme.onSurface,
             title: Text(
               AppLocalizations.of(context)!.courseTitle,
             ),

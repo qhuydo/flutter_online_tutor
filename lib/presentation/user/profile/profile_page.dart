@@ -1,4 +1,5 @@
 import '../../common.dart';
+import '../../common/utils/default_app_bar.dart';
 import 'widgets/widgets.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -7,16 +8,9 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.surface,
-        foregroundColor: Theme.of(context).colorScheme.onSurface,
-        title: Text(
-          context.l10n.editProfileLabel,
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.onSurface,
-          ),
-        ),
-        elevation: 0,
+      appBar: buildAppBar(
+        context,
+        title: context.l10n.editProfileLabel,
       ),
       body: SingleChildScrollView(
         child: Column(

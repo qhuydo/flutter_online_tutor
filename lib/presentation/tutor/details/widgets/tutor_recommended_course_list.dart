@@ -1,4 +1,4 @@
-import '../../../../utils/constants.dart';
+import '../../../common/utils/constants.dart';
 import '../../../common.dart';
 import '../../../course_ebook/course_list/widgets/course_list_card.dart';
 

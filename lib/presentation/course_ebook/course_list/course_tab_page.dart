@@ -1,6 +1,6 @@
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
-import '../../../utils/constants.dart';
+import '../../common/utils/constants.dart';
 import '../../common.dart';
 import '../../common/widgets/scaffold_with_search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';

@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../utils/constants.dart';
+import '../../../common/utils/constants.dart';
 import '../../../become_tutor/widgets/specialities_dropdown.dart';
 import '../../../user/profile/widgets/country_form_dropdown.dart';
 

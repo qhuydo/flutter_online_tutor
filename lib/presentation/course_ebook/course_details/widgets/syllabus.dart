@@ -1,4 +1,4 @@
-import '../../../../utils/constants.dart';
+import '../../../common/utils/constants.dart';
 import '../../../common.dart';
 import 'syllabus_list_item.dart';
 

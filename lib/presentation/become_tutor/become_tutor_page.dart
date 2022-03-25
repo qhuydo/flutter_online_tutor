@@ -1,5 +1,4 @@
 import '../common.dart';
-
 import '../common/utils/default_app_bar.dart';
 import 'widgets/widgets.dart';
 
@@ -27,9 +26,7 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
       title: Text(
         // A bug that causes horizontal stepper overflows title
         // see https://github.com/flutter/flutter/issues/40601
-        _index == step1Index
-            ? context.l10n.completeProfileStepTitle
-            : '',
+        _index == step1Index ? context.l10n.completeProfileStepTitle : '',
       ),
       content: const BecomeTutorStep1(),
     );
@@ -43,9 +40,7 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
           : StepState.indexed,
       isActive: _index == step2Index,
       title: Text(
-        _index == step2Index
-            ? context.l10n.introductionVideoLabel
-            : '',
+        _index == step2Index ? context.l10n.introductionVideoLabel : '',
       ),
       content: const BecomeTutorStep2(),
     );
@@ -59,9 +54,7 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
           : StepState.indexed,
       isActive: _index == step3Index,
       title: Text(
-        _index == step3Index
-            ? context.l10n.approvalStepLabel
-            : '',
+        _index == step3Index ? context.l10n.approvalStepLabel : '',
       ),
       content: const BecomeTutorStep3(),
     );

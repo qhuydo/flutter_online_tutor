@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-import '../../../../utils/constants.dart';
+import '../../../common/utils/constants.dart';
 import '../../../common.dart';
 
 class ReviewList extends StatelessWidget {

@@ -1,4 +1,4 @@
-import '../../../utils/constants.dart';
+import '../../common/utils/constants.dart';
 import '../../common.dart';
 import '../../common/utils/default_app_bar.dart';
 import 'widgets/widgets.dart';
