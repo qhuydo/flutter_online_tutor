@@ -98,7 +98,7 @@ dependencies:
   shared_preferences: ^2.0.13
 
   # Code generator for unions/pattern-matching/copy
-  # # (c) MIT License. By Remi Rousselet.
+  # (c) MIT License. By Remi Rousselet.
   freezed_annotation: ^1.1.0
 
   # A predictable state management library that helps implement the BLoC (Business Logic Component)
@@ -129,6 +129,10 @@ dev_dependencies:
   json_serializable: ^6.1.5
   hive_generator: ^1.1.2
 
+  # Mock library for Dart inspired by Mockito.
+  # (c) Apache-2.0 License.
+  mockito: ^5.1.0
+
 # The following section is specific to Flutter.
 flutter:
   uses-material-design: true
@@ -136,6 +140,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/
     - assets/images/
     - assets/images/authentication/
     - assets/icons/
