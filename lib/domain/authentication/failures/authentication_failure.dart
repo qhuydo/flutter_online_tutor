@@ -13,4 +13,6 @@ class AuthenticationFailure with _$AuthenticationFailure {
   const factory AuthenticationFailure.noConnection() = _NoConnection;
 
   const factory AuthenticationFailure.serverError() = _ServerError;
+
+  const factory AuthenticationFailure.alreadySignedOut() = _AlreadySignedOut;
 }

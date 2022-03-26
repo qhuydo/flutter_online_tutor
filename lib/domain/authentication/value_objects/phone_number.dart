@@ -12,7 +12,7 @@ class PhoneNumber extends ValueObject<PhoneNumberFailure, String> {
   Either<PhoneNumberFailure, String> get value => _phoneNumberOrFailure;
 
   const PhoneNumber._(
-    Either<PhoneNumberFailure, String> this._phoneNumberOrFailure,
+    this._phoneNumberOrFailure,
   );
 
   factory PhoneNumber(String input) => PhoneNumber._(validate(input));
@@ -26,11 +26,7 @@ class PhoneNumber extends ValueObject<PhoneNumberFailure, String> {
     if (input.isEmpty) return left(const PhoneNumberFailure.emptyValue());
 
     const regex =
-        r"""^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|""" +
-            r""""[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9]""" +
-            r"""[02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|""" +
-            r"""[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext""" +
-            r"""\.?|extension)\s*(\d+))?$""";
+        r'''^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$''';
 
     if (RegExp(regex).hasMatch(input)) {
       return right(input);
@@ -47,11 +43,11 @@ class PhoneNumber extends ValueObject<PhoneNumberFailure, String> {
     }
 
     if (country.isoCode == 'VN') {
-      final phoneNumber = "0$input";
+      final phoneNumber = '0$input';
       return validate(phoneNumber);
     }
 
-    return validate("${country.dialCode}$input");
+    return validate('${country.dialCode}$input');
   }
 
 }

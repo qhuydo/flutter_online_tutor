@@ -33,6 +33,10 @@ class _$AuthenticationFailureTearOff {
   _ServerError serverError() {
     return const _ServerError();
   }
+
+  _AlreadySignedOut alreadySignedOut() {
+    return const _AlreadySignedOut();
+  }
 }
 
 /// @nodoc
@@ -46,6 +50,7 @@ mixin _$AuthenticationFailure {
     required TResult Function() wrongPhoneNumberOrPassword,
     required TResult Function() noConnection,
     required TResult Function() serverError,
+    required TResult Function() alreadySignedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,6 +59,7 @@ mixin _$AuthenticationFailure {
     TResult Function()? wrongPhoneNumberOrPassword,
     TResult Function()? noConnection,
     TResult Function()? serverError,
+    TResult Function()? alreadySignedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +68,7 @@ mixin _$AuthenticationFailure {
     TResult Function()? wrongPhoneNumberOrPassword,
     TResult Function()? noConnection,
     TResult Function()? serverError,
+    TResult Function()? alreadySignedOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -72,6 +79,7 @@ mixin _$AuthenticationFailure {
         wrongPhoneNumberOrPassword,
     required TResult Function(_NoConnection value) noConnection,
     required TResult Function(_ServerError value) serverError,
+    required TResult Function(_AlreadySignedOut value) alreadySignedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +89,7 @@ mixin _$AuthenticationFailure {
         wrongPhoneNumberOrPassword,
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_AlreadySignedOut value)? alreadySignedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,6 +99,7 @@ mixin _$AuthenticationFailure {
         wrongPhoneNumberOrPassword,
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_AlreadySignedOut value)? alreadySignedOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -157,6 +167,7 @@ class _$_WrongEmailOrPassword implements _WrongEmailOrPassword {
     required TResult Function() wrongPhoneNumberOrPassword,
     required TResult Function() noConnection,
     required TResult Function() serverError,
+    required TResult Function() alreadySignedOut,
   }) {
     return wrongEmailOrPassword();
   }
@@ -168,6 +179,7 @@ class _$_WrongEmailOrPassword implements _WrongEmailOrPassword {
     TResult Function()? wrongPhoneNumberOrPassword,
     TResult Function()? noConnection,
     TResult Function()? serverError,
+    TResult Function()? alreadySignedOut,
   }) {
     return wrongEmailOrPassword?.call();
   }
@@ -179,6 +191,7 @@ class _$_WrongEmailOrPassword implements _WrongEmailOrPassword {
     TResult Function()? wrongPhoneNumberOrPassword,
     TResult Function()? noConnection,
     TResult Function()? serverError,
+    TResult Function()? alreadySignedOut,
     required TResult orElse(),
   }) {
     if (wrongEmailOrPassword != null) {
@@ -195,6 +208,7 @@ class _$_WrongEmailOrPassword implements _WrongEmailOrPassword {
         wrongPhoneNumberOrPassword,
     required TResult Function(_NoConnection value) noConnection,
     required TResult Function(_ServerError value) serverError,
+    required TResult Function(_AlreadySignedOut value) alreadySignedOut,
   }) {
     return wrongEmailOrPassword(this);
   }
@@ -207,6 +221,7 @@ class _$_WrongEmailOrPassword implements _WrongEmailOrPassword {
         wrongPhoneNumberOrPassword,
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_AlreadySignedOut value)? alreadySignedOut,
   }) {
     return wrongEmailOrPassword?.call(this);
   }
@@ -219,6 +234,7 @@ class _$_WrongEmailOrPassword implements _WrongEmailOrPassword {
         wrongPhoneNumberOrPassword,
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_AlreadySignedOut value)? alreadySignedOut,
     required TResult orElse(),
   }) {
     if (wrongEmailOrPassword != null) {
@@ -280,6 +296,7 @@ class _$_WrongPhoneNumberOrPassword implements _WrongPhoneNumberOrPassword {
     required TResult Function() wrongPhoneNumberOrPassword,
     required TResult Function() noConnection,
     required TResult Function() serverError,
+    required TResult Function() alreadySignedOut,
   }) {
     return wrongPhoneNumberOrPassword();
   }
@@ -291,6 +308,7 @@ class _$_WrongPhoneNumberOrPassword implements _WrongPhoneNumberOrPassword {
     TResult Function()? wrongPhoneNumberOrPassword,
     TResult Function()? noConnection,
     TResult Function()? serverError,
+    TResult Function()? alreadySignedOut,
   }) {
     return wrongPhoneNumberOrPassword?.call();
   }
@@ -302,6 +320,7 @@ class _$_WrongPhoneNumberOrPassword implements _WrongPhoneNumberOrPassword {
     TResult Function()? wrongPhoneNumberOrPassword,
     TResult Function()? noConnection,
     TResult Function()? serverError,
+    TResult Function()? alreadySignedOut,
     required TResult orElse(),
   }) {
     if (wrongPhoneNumberOrPassword != null) {
@@ -318,6 +337,7 @@ class _$_WrongPhoneNumberOrPassword implements _WrongPhoneNumberOrPassword {
         wrongPhoneNumberOrPassword,
     required TResult Function(_NoConnection value) noConnection,
     required TResult Function(_ServerError value) serverError,
+    required TResult Function(_AlreadySignedOut value) alreadySignedOut,
   }) {
     return wrongPhoneNumberOrPassword(this);
   }
@@ -330,6 +350,7 @@ class _$_WrongPhoneNumberOrPassword implements _WrongPhoneNumberOrPassword {
         wrongPhoneNumberOrPassword,
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_AlreadySignedOut value)? alreadySignedOut,
   }) {
     return wrongPhoneNumberOrPassword?.call(this);
   }
@@ -342,6 +363,7 @@ class _$_WrongPhoneNumberOrPassword implements _WrongPhoneNumberOrPassword {
         wrongPhoneNumberOrPassword,
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_AlreadySignedOut value)? alreadySignedOut,
     required TResult orElse(),
   }) {
     if (wrongPhoneNumberOrPassword != null) {
@@ -400,6 +422,7 @@ class _$_NoConnection implements _NoConnection {
     required TResult Function() wrongPhoneNumberOrPassword,
     required TResult Function() noConnection,
     required TResult Function() serverError,
+    required TResult Function() alreadySignedOut,
   }) {
     return noConnection();
   }
@@ -411,6 +434,7 @@ class _$_NoConnection implements _NoConnection {
     TResult Function()? wrongPhoneNumberOrPassword,
     TResult Function()? noConnection,
     TResult Function()? serverError,
+    TResult Function()? alreadySignedOut,
   }) {
     return noConnection?.call();
   }
@@ -422,6 +446,7 @@ class _$_NoConnection implements _NoConnection {
     TResult Function()? wrongPhoneNumberOrPassword,
     TResult Function()? noConnection,
     TResult Function()? serverError,
+    TResult Function()? alreadySignedOut,
     required TResult orElse(),
   }) {
     if (noConnection != null) {
@@ -438,6 +463,7 @@ class _$_NoConnection implements _NoConnection {
         wrongPhoneNumberOrPassword,
     required TResult Function(_NoConnection value) noConnection,
     required TResult Function(_ServerError value) serverError,
+    required TResult Function(_AlreadySignedOut value) alreadySignedOut,
   }) {
     return noConnection(this);
   }
@@ -450,6 +476,7 @@ class _$_NoConnection implements _NoConnection {
         wrongPhoneNumberOrPassword,
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_AlreadySignedOut value)? alreadySignedOut,
   }) {
     return noConnection?.call(this);
   }
@@ -462,6 +489,7 @@ class _$_NoConnection implements _NoConnection {
         wrongPhoneNumberOrPassword,
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_AlreadySignedOut value)? alreadySignedOut,
     required TResult orElse(),
   }) {
     if (noConnection != null) {
@@ -520,6 +548,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function() wrongPhoneNumberOrPassword,
     required TResult Function() noConnection,
     required TResult Function() serverError,
+    required TResult Function() alreadySignedOut,
   }) {
     return serverError();
   }
@@ -531,6 +560,7 @@ class _$_ServerError implements _ServerError {
     TResult Function()? wrongPhoneNumberOrPassword,
     TResult Function()? noConnection,
     TResult Function()? serverError,
+    TResult Function()? alreadySignedOut,
   }) {
     return serverError?.call();
   }
@@ -542,6 +572,7 @@ class _$_ServerError implements _ServerError {
     TResult Function()? wrongPhoneNumberOrPassword,
     TResult Function()? noConnection,
     TResult Function()? serverError,
+    TResult Function()? alreadySignedOut,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -558,6 +589,7 @@ class _$_ServerError implements _ServerError {
         wrongPhoneNumberOrPassword,
     required TResult Function(_NoConnection value) noConnection,
     required TResult Function(_ServerError value) serverError,
+    required TResult Function(_AlreadySignedOut value) alreadySignedOut,
   }) {
     return serverError(this);
   }
@@ -570,6 +602,7 @@ class _$_ServerError implements _ServerError {
         wrongPhoneNumberOrPassword,
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_AlreadySignedOut value)? alreadySignedOut,
   }) {
     return serverError?.call(this);
   }
@@ -582,6 +615,7 @@ class _$_ServerError implements _ServerError {
         wrongPhoneNumberOrPassword,
     TResult Function(_NoConnection value)? noConnection,
     TResult Function(_ServerError value)? serverError,
+    TResult Function(_AlreadySignedOut value)? alreadySignedOut,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -593,4 +627,130 @@ class _$_ServerError implements _ServerError {
 
 abstract class _ServerError implements AuthenticationFailure {
   const factory _ServerError() = _$_ServerError;
+}
+
+/// @nodoc
+abstract class _$AlreadySignedOutCopyWith<$Res> {
+  factory _$AlreadySignedOutCopyWith(
+          _AlreadySignedOut value, $Res Function(_AlreadySignedOut) then) =
+      __$AlreadySignedOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$AlreadySignedOutCopyWithImpl<$Res>
+    extends _$AuthenticationFailureCopyWithImpl<$Res>
+    implements _$AlreadySignedOutCopyWith<$Res> {
+  __$AlreadySignedOutCopyWithImpl(
+      _AlreadySignedOut _value, $Res Function(_AlreadySignedOut) _then)
+      : super(_value, (v) => _then(v as _AlreadySignedOut));
+
+  @override
+  _AlreadySignedOut get _value => super._value as _AlreadySignedOut;
+}
+
+/// @nodoc
+
+class _$_AlreadySignedOut implements _AlreadySignedOut {
+  const _$_AlreadySignedOut();
+
+  @override
+  String toString() {
+    return 'AuthenticationFailure.alreadySignedOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _AlreadySignedOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() wrongEmailOrPassword,
+    required TResult Function() wrongPhoneNumberOrPassword,
+    required TResult Function() noConnection,
+    required TResult Function() serverError,
+    required TResult Function() alreadySignedOut,
+  }) {
+    return alreadySignedOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? wrongEmailOrPassword,
+    TResult Function()? wrongPhoneNumberOrPassword,
+    TResult Function()? noConnection,
+    TResult Function()? serverError,
+    TResult Function()? alreadySignedOut,
+  }) {
+    return alreadySignedOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? wrongEmailOrPassword,
+    TResult Function()? wrongPhoneNumberOrPassword,
+    TResult Function()? noConnection,
+    TResult Function()? serverError,
+    TResult Function()? alreadySignedOut,
+    required TResult orElse(),
+  }) {
+    if (alreadySignedOut != null) {
+      return alreadySignedOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WrongEmailOrPassword value) wrongEmailOrPassword,
+    required TResult Function(_WrongPhoneNumberOrPassword value)
+        wrongPhoneNumberOrPassword,
+    required TResult Function(_NoConnection value) noConnection,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_AlreadySignedOut value) alreadySignedOut,
+  }) {
+    return alreadySignedOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WrongEmailOrPassword value)? wrongEmailOrPassword,
+    TResult Function(_WrongPhoneNumberOrPassword value)?
+        wrongPhoneNumberOrPassword,
+    TResult Function(_NoConnection value)? noConnection,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_AlreadySignedOut value)? alreadySignedOut,
+  }) {
+    return alreadySignedOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WrongEmailOrPassword value)? wrongEmailOrPassword,
+    TResult Function(_WrongPhoneNumberOrPassword value)?
+        wrongPhoneNumberOrPassword,
+    TResult Function(_NoConnection value)? noConnection,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_AlreadySignedOut value)? alreadySignedOut,
+    required TResult orElse(),
+  }) {
+    if (alreadySignedOut != null) {
+      return alreadySignedOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AlreadySignedOut implements AuthenticationFailure {
+  const factory _AlreadySignedOut() = _$_AlreadySignedOut;
 }

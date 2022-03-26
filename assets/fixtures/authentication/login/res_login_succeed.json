@@ -5,7 +5,7 @@
     "name": "John Doe",
     "avatar": "https://picsum.photos/500",
     "country": "UA",
-    "phone": "3801234567890",
+    "phone": "380123456789",
     "roles": [
       "student",
       "CHANGE_PASSWORD"
