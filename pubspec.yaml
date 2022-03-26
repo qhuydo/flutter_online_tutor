@@ -8,12 +8,6 @@ version: 1.0.0+1
 environment:
   sdk: ">=2.16.0 <3.0.0"
 
-# Dependencies specify other packages that your package needs in order to work.
-# To automatically upgrade your package dependencies to the latest versions
-# consider running `flutter pub upgrade --major-versions`. Alternatively,
-# dependencies can be manually updated by changing the version numbers below to
-# the latest version available on pub.dev. To see which dependencies have newer
-# versions available, run `flutter pub outdated`.
 dependencies:
   flutter:
     sdk: flutter
@@ -112,11 +106,16 @@ dependencies:
   # (c) MIT License. By Felix Angelov.
   bloc: ^8.0.3
   flutter_bloc: ^8.0.1
-  hydrated_bloc: ^8.1.0
 
   # Automatically generate code for converting to and from JSON by annotating Dart classes.
   # (c) BSD 3-Clause License. By the Dart project authors.
   json_annotation: ^4.4.0
+
+  # Lightweight and blazing fast key-value database written in pure Dart. Strongly encrypted using
+  # AES-256.
+  # (c) Apache-2.0 License. By Simon Leier.
+  hive: ^2.0.6
+  hive_flutter: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -128,6 +127,7 @@ dev_dependencies:
   injectable_generator:
   freezed:
   json_serializable: ^6.1.5
+  hive_generator: ^1.1.2
 
 # The following section is specific to Flutter.
 flutter:

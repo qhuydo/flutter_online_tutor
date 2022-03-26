@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 
-import '../interfaces/i_validatalble.dart';
+import '../error/error.dart';
+import '../interfaces/i_validatable.dart';
 
 abstract class ValueObject<F, T> implements Validatable {
   const ValueObject();
@@ -12,6 +13,8 @@ abstract class ValueObject<F, T> implements Validatable {
     if (identical(this, other)) return true;
     return other is ValueObject<F, T> && other.value == value;
   }
+
+  T requireValue() => value.fold((l) => throw NoValueError(l), (r) => r);
 
   @override
   int get hashCode => value.hashCode;
