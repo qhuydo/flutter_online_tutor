@@ -43,11 +43,12 @@ class PhoneNumber extends ValueObject<PhoneNumberFailure, String> {
     }
 
     if (country.isoCode == 'VN') {
+      // 84 00 00 00 000 -> 000 00 00 000
       final phoneNumber = '0$input';
       return validate(phoneNumber);
     }
 
-    return validate('${country.dialCode}$input');
+    return validate('${country.dialCode.replaceFirst('+', '')}$input');
   }
 
 }

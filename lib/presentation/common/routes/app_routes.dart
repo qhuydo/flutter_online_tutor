@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 
-import '../../pages.dart';
+// ignore: prefer_relative_imports
+import 'package:flutter_online_tutor/presentation/pages.dart';
 
 @MaterialAutoRouter(
     preferRelativeImports: true,

@@ -11,13 +11,15 @@ import '../../../domain/authentication/value_objects/password.dart';
 import '../../../domain/authentication/value_objects/phone_number.dart';
 import '../../../presentation/common.dart';
 import '../../common/db/fixture_loader.dart';
-import '../dto/token.dart';
+import '../dto/authentication_dto.dart';
 
 @LazySingleton(as: AuthenticationService)
 class MockAuthenticationService implements AuthenticationService {
   late final Box<String> _box;
+
   // static const _boxName = 'mockSecret';
   static const _keyToken = 'tokens';
+  static const _keyUser = 'user';
 
   static const mockOfflineError = 'offline@mock.com';
 
@@ -43,9 +45,8 @@ class MockAuthenticationService implements AuthenticationService {
 
       if (req['email'] == emailValue && req['password'] == passwordValue) {
         final res = await FixtureLoader.loginResponse;
-        final token = Tokens.fromJson(res['tokens']);
-
-        await _box.put(_keyToken, json.encode(token.toJson()).toString());
+        final authDto = AuthenticationDto.fromJson(res);
+        await _saveAuthData(authDto);
 
         return right(unit);
       }
@@ -69,9 +70,8 @@ class MockAuthenticationService implements AuthenticationService {
 
       if (req['phone'] == phoneValue && req['password'] == passwordValue) {
         final res = await FixtureLoader.loginResponse;
-        final token = Tokens.fromJson(res['tokens']);
-
-        await _box.put(_keyToken, json.encode(token.toJson()).toString());
+        final authDto = AuthenticationDto.fromJson(res);
+        await _saveAuthData(authDto);
         return right(unit);
       }
 
@@ -79,6 +79,18 @@ class MockAuthenticationService implements AuthenticationService {
     } on FlutterError {
       return left(const AuthenticationFailure.serverError());
     }
+  }
+
+  Future _saveAuthData(AuthenticationDto authDto) async {
+    await _box.put(
+      _keyToken,
+      jsonEncode(authDto.tokens),
+    );
+
+    await _box.put(
+      _keyUser,
+      jsonEncode(authDto.user),
+    );
   }
 
   @override

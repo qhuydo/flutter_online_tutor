@@ -25,7 +25,7 @@ class _$WalletDtoTearOff {
   _WalletDto call(
       {required String id,
       required String userId,
-      required double amount,
+      required String amount,
       required bool isBlocked,
       required String createdAt,
       required String updatedAt,
@@ -53,7 +53,7 @@ const $WalletDto = _$WalletDtoTearOff();
 mixin _$WalletDto {
   String get id => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
-  double get amount => throw _privateConstructorUsedError;
+  String get amount => throw _privateConstructorUsedError;
   bool get isBlocked => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
   String get updatedAt => throw _privateConstructorUsedError;
@@ -72,7 +72,7 @@ abstract class $WalletDtoCopyWith<$Res> {
   $Res call(
       {String id,
       String userId,
-      double amount,
+      String amount,
       bool isBlocked,
       String createdAt,
       String updatedAt,
@@ -109,7 +109,7 @@ class _$WalletDtoCopyWithImpl<$Res> implements $WalletDtoCopyWith<$Res> {
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       isBlocked: isBlocked == freezed
           ? _value.isBlocked
           : isBlocked // ignore: cast_nullable_to_non_nullable
@@ -139,7 +139,7 @@ abstract class _$WalletDtoCopyWith<$Res> implements $WalletDtoCopyWith<$Res> {
   $Res call(
       {String id,
       String userId,
-      double amount,
+      String amount,
       bool isBlocked,
       String createdAt,
       String updatedAt,
@@ -177,7 +177,7 @@ class __$WalletDtoCopyWithImpl<$Res> extends _$WalletDtoCopyWithImpl<$Res>
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as double,
+              as String,
       isBlocked: isBlocked == freezed
           ? _value.isBlocked
           : isBlocked // ignore: cast_nullable_to_non_nullable
@@ -218,7 +218,7 @@ class _$_WalletDto implements _WalletDto {
   @override
   final String userId;
   @override
-  final double amount;
+  final String amount;
   @override
   final bool isBlocked;
   @override
@@ -273,7 +273,7 @@ abstract class _WalletDto implements WalletDto {
   const factory _WalletDto(
       {required String id,
       required String userId,
-      required double amount,
+      required String amount,
       required bool isBlocked,
       required String createdAt,
       required String updatedAt,
@@ -287,7 +287,7 @@ abstract class _WalletDto implements WalletDto {
   @override
   String get userId;
   @override
-  double get amount;
+  String get amount;
   @override
   bool get isBlocked;
   @override

@@ -9,7 +9,7 @@ class WalletDto with _$WalletDto {
   const factory WalletDto({
     required String id,
     required String userId,
-    required double amount,
+    required String amount,
     required bool isBlocked,
     required String createdAt,
     required String updatedAt,
