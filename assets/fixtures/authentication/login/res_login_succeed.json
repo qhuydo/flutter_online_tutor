@@ -1,0 +1,49 @@
+{
+  "user": {
+    "id": "30562e8a-fedc-4027-9e74-f81cbfd7b6b7",
+    "email": "test@example.com",
+    "name": "John Doe",
+    "avatar": "https://picsum.photos/500",
+    "country": "UA",
+    "phone": "3801234567890",
+    "roles": [
+      "student",
+      "CHANGE_PASSWORD"
+    ],
+    "language": "Albanian",
+    "birthday": "1999-06-01",
+    "isActivated": true,
+    "walletInfo": {
+      "id": "50c7af05-eb58-4b89-8162-bec3ec373796",
+      "userId": "30562e8a-fedc-4027-9e74-f81cbfd7b6b7",
+      "amount": "86700000",
+      "isBlocked": false,
+      "createdAt": "2021-10-19T13:08:04.697Z",
+      "updatedAt": "2022-03-25T08:50:01.402Z",
+      "bonus": 0
+    },
+    "courses": [],
+    "requireNote": null,
+    "level": "INTERMEDIATE",
+    "learnTopics": [
+      {
+        "id": 3,
+        "key": "english-for-kids",
+        "name": "English for Kids"
+      }
+    ],
+    "testPreparations": [],
+    "isPhoneActivated": true,
+    "timezone": 7
+  },
+  "tokens": {
+    "access": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMwNTYyZThhLWZlZGMtNDAyNy05ZTc0LWY4MWNiZmQ3YjZiNyIsIm5hbWUiOiJKb2huIERvZSIsImlhdCI6MTY1MDk1OTMyMH0.Rd9uUSQXq4luUhPpFoML6wgGtdYQOmxhvqiJgEy7nOE",
+      "expires": "2022-04-26T14:48:40.295Z"
+    },
+    "refresh": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMwNTYyZThhLWZlZGMtNDAyNy05ZTc0LWY4MWNiZmQ3YjZiNyIsIm5hbWUiOiJKb2huIERvZSByZWZyZXNoIiwiaWF0IjoxNjUzNTUxMzIwfQ.uJte5hU5t7-ksOs3X5VvdqsYk2V4IrTX_nzL2Do5qnc",
+      "expires": "2022-05-24T14:48:40.296Z"
+    }
+  }
+}
