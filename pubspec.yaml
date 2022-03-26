@@ -23,68 +23,68 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   # Draw SVG (and some Android VectorDrawable (XML)) files on a Flutter Widget.
-  # By Dan Field.
+  # (c) MIT License. By Dan Field.
   flutter_svg: ^1.0.3
 
   # Functional Programming in Dart.
-  # By Björn Sperber.
+  # (c) MIT License. By Björn Sperber.
   dartz: ^0.10.1
 
   # AutoRoute is a declarative routing solution,
   # where everything needed for navigation is automatically generated for you.
-  # By Milad Akarie.
+  # (c) MIT License. By Milad Akarie.
   auto_route: ^3.2.4
 
   # Yet another bottom navigation bar, but with a few key promises.
-  # By Luke Pighetti.
+  # (c) MIT License. By Luke Pighetti.
   salomon_bottom_bar: ^3.2.0
 
   # Contains code to deal with internationalized/localized messages, date and number formatting
   # and parsing, bi-directional text, and other internationalization issues.
-  # By the Dart project authors.
+  # (c) BSD 3-Clause License. By the Dart project authors.
   intl: ^0.17.0
 
   # Twitter Emojis for Flutter, this package supports svg and png 72x72 emojis
-  # By Abdelhadi Shaar.
+  # (c) MIT License. By Abdelhadi Shaar.
   twemoji: ^0.4.2
 
   # A package to include fonts from fonts.google.com in your Flutter app.
-  # By material.io.
+  # (c) MIT License. By material.io.
   google_fonts: ^2.3.1
 
   # A simple yet fully customizable ratingbar for flutter which also include a rating bar indicator,
   # supporting any fraction of rating.
-  # By Sarbagya Dhaubanjar.
+  # (c) MIT License. By Sarbagya Dhaubanjar.
   flutter_rating_bar: ^4.0.0
 
   # Allows resizing and repositioning the window containing the Flutter content, as well as querying
   # screen information
   # This is a prototype, and in the long term is expected to be replaced by functionality within
   # the Flutter framework.
-  # # (c) Apache-2.0 License.
+  # (c) Apache-2.0 License.
   window_size:
     git:
-      url: git://github.com/google/flutter-desktop-embedding.git
+      url: https://github.com/google/flutter-desktop-embedding.git
       path: plugins/window_size
 
   # Utilities for working with English words.
-  # By Filip Hracek.
+  # (c) MIT License. By Filip Hracek.
   english_words: ^4.0.0
 
   # A Flutter implementation of an expandable and animated floating search bar
-  # By bxqm.
+  # (c) MIT License. By bxqm.
   material_floating_search_bar: ^0.3.7
 
   # Provides a collection of Flutter grids layouts (staggered, masonry, quilted, woven, etc.).
-  # By Romain Rastel.
+  # (c) MIT License. By Romain Rastel.
   flutter_staggered_grid_view: ^0.6.1
 
   # A flexible multi select package for Flutter. Make multi select widgets the way you want.
-  # By Christiaan H. Botha.
+  # (c) BSD 2-Clause License. By Christiaan H. Botha.
   multi_select_flutter: ^4.0.0
 
   # Highly customizable, feature-packed calendar widget for Flutter.
-  # By Aleksander Woźniak.
+  # (c) Apache-2.0 License. By Aleksander Woźniak.
   table_calendar: ^3.0.4
 
   # A Flutter package to make and use beautiful color scheme based themes.
@@ -114,6 +114,10 @@ dependencies:
   flutter_bloc: ^8.0.1
   hydrated_bloc: ^8.1.0
 
+  # Automatically generate code for converting to and from JSON by annotating Dart classes.
+  # (c) BSD 3-Clause License. By the Dart project authors.
+  json_annotation: ^4.4.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -123,6 +127,7 @@ dev_dependencies:
   auto_route_generator: 3.2.3
   injectable_generator:
   freezed:
+  json_serializable: ^6.1.5
 
 # The following section is specific to Flutter.
 flutter:
