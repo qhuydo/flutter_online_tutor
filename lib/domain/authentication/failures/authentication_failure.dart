@@ -15,4 +15,9 @@ class AuthenticationFailure with _$AuthenticationFailure {
   const factory AuthenticationFailure.serverError() = _ServerError;
 
   const factory AuthenticationFailure.alreadySignedOut() = _AlreadySignedOut;
+
+  const factory AuthenticationFailure.emailAlreadyTaken() = _EmailAlreadyTaken;
+
+  const factory AuthenticationFailure.phoneNumberAlreadyTaken() =
+      _PhoneNumberAlreadyTaken;
 }

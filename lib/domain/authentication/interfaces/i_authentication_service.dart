@@ -22,4 +22,14 @@ abstract class AuthenticationService {
   Future<Either<AuthenticationFailure, Unit>> signOut();
 
   Future<Option<User>> getSignedInUser();
+
+  Future<Either<AuthenticationFailure, Unit>> signUp({
+    required EmailAddress emailAddress,
+    required Password password,
+  });
+
+  Future<Either<AuthenticationFailure, Unit>> signUpWithPhone({
+    required PhoneNumber phoneNumber,
+    required Password password,
+  });
 }

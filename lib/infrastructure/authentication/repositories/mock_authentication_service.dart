@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:dartz/dartz.dart';
 import 'package:hive/hive.dart';
@@ -17,7 +18,9 @@ import '../dto/authentication_dto.dart';
 
 @LazySingleton(as: AuthenticationService)
 class MockAuthenticationService implements AuthenticationService {
-  late final Box<String> _box;
+  final Box<String> _box;
+  late final Box<String> _cacheBox;
+  final bool shouldDelay;
 
   // static const _boxName = 'mockSecret';
   static const _keyToken = 'tokens';
@@ -25,7 +28,18 @@ class MockAuthenticationService implements AuthenticationService {
 
   static const mockOfflineError = 'offline@mock.com';
 
-  MockAuthenticationService(@Named('mockSecret') Box<String> box) : _box = box;
+  MockAuthenticationService(
+    @Named('mockSecret') this._box, {
+    Box<String>? cacheBox,
+    bool this.shouldDelay = true,
+  }) {
+    if (cacheBox == null) {
+      Hive.openBox<String>('cache', bytes: Uint8List(0))
+          .then((value) => _cacheBox = value);
+    } else {
+      _cacheBox = cacheBox;
+    }
+  }
 
   @override
   Future<bool> isSignedIn() => Future.value(_box.containsKey(_keyToken));
@@ -44,10 +58,15 @@ class MockAuthenticationService implements AuthenticationService {
 
     try {
       final req = await FixtureLoader.loginRequest;
+      if (!_cacheBox.containsKey(req['email'])) {
+        await _cacheBox.put(req['email'], req['password']);
+      }
 
-      await Future.delayed(const Duration(seconds: 3));
+      final password = _cacheBox.get(emailValue);
 
-      if (req['email'] == emailValue && req['password'] == passwordValue) {
+      await _delay();
+
+      if (password != null && password == passwordValue) {
         final res = await FixtureLoader.loginResponse;
         final authDto = AuthenticationDto.fromJson(res);
 
@@ -72,9 +91,16 @@ class MockAuthenticationService implements AuthenticationService {
 
     try {
       final req = await FixtureLoader.loginByPhoneRequest;
-      await Future.delayed(const Duration(seconds: 3));
 
-      if (req['phone'] == phoneValue && req['password'] == passwordValue) {
+      await _delay();
+
+      if (!_cacheBox.containsKey(req['phone'])) {
+        await _cacheBox.put(req['phone'], req['password']);
+      }
+
+      final password = _cacheBox.get(phoneValue);
+
+      if (password != null && password == passwordValue) {
         final res = await FixtureLoader.loginResponse;
         final authDto = AuthenticationDto.fromJson(res);
 
@@ -112,5 +138,69 @@ class MockAuthenticationService implements AuthenticationService {
     final userDto =
         userStr != null ? UserDto.fromJson(jsonDecode(userStr)) : null;
     return optionOf(userDto?.toDomain());
+  }
+
+  @override
+  Future<Either<AuthenticationFailure, Unit>> signUp({
+    required EmailAddress emailAddress,
+    required Password password,
+  }) async {
+    final emailValue = emailAddress.requireValue();
+    try {
+      final req = await FixtureLoader.loginRequest;
+      if (!_cacheBox.containsKey(req['email'])) {
+        await _cacheBox.put(req['email'], req['password']);
+      }
+
+      await _delay();
+
+      if (!_cacheBox.containsKey(emailValue)) {
+        final res = await FixtureLoader.loginResponse;
+        final authDto = AuthenticationDto.fromJson(res);
+
+        await _saveAuthData(authDto);
+
+        return right(unit);
+      }
+
+      return left(const AuthenticationFailure.emailAlreadyTaken());
+    } on FlutterError {
+      return left(const AuthenticationFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<AuthenticationFailure, Unit>> signUpWithPhone({
+    required PhoneNumber phoneNumber,
+    required Password password,
+  }) async {
+    final phoneValue = phoneNumber.requireValue();
+
+    try {
+      final req = await FixtureLoader.loginByPhoneRequest;
+      await _delay();
+
+      if (!_cacheBox.containsKey(req['phone'])) {
+        await _cacheBox.put(req['phone'], req['password']);
+      }
+
+      if (!_cacheBox.containsKey(phoneValue)) {
+        final res = await FixtureLoader.loginResponse;
+        final authDto = AuthenticationDto.fromJson(res);
+
+        await _saveAuthData(authDto);
+        return right(unit);
+      }
+
+      return left(const AuthenticationFailure.phoneNumberAlreadyTaken());
+    } on FlutterError {
+      return left(const AuthenticationFailure.serverError());
+    }
+  }
+
+  Future<void> _delay() async {
+    if (shouldDelay) {
+      await Future.delayed(const Duration(seconds: 3));
+    }
   }
 }

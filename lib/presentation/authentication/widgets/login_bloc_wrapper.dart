@@ -50,6 +50,7 @@ class _LoginBlocPage extends StatelessWidget {
                 serverError: (_) => 'Server error',
                 orElse: () => '',
               ),
+              duration: const Duration(seconds: 30,),
             ).show(context),
 
             (succeed) {

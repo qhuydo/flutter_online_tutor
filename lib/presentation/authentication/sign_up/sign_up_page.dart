@@ -1,6 +1,7 @@
 import '../../common.dart';
 import '../widgets/authen_scaffold.dart';
 import '../widgets/authenticate_by_mail_form.dart';
+import '../widgets/login_bloc_wrapper.dart';
 import 'widgets/login_hint.dart';
 import 'widgets/sign_up_button.dart';
 import 'widgets/signup_option_button_group.dart';
@@ -10,12 +11,14 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AuthenScaffold(
-      title: context.l10n.signUpButtonText,
-      form: const AuthenticateByMailForm(),
-      submitButton: const SignUpButton(),
-      otherAuthenticateOptions: const SignupOptionButtonGroup(),
-      otherOptions: const LoginHint(),
+    return LoginBlocWrapper(
+      child: AuthenScaffold(
+        title: context.l10n.signUpButtonText,
+        form: const AuthenticateByMailForm(),
+        submitButton: const SignUpButton(),
+        otherAuthenticateOptions: const SignupOptionButtonGroup(),
+        otherOptions: const LoginHint(),
+      ),
     );
   }
 }

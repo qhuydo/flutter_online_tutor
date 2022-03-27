@@ -17,6 +17,7 @@ void main() {
 
   late MockAuthenticationService authenticationService;
   late Box<String> box;
+  late Box<String> cacheBox;
 
   setUp(() async {
     await Hive.initFlutter();
@@ -29,11 +30,21 @@ void main() {
       bytes: Uint8List(0),
     );
 
-    authenticationService = MockAuthenticationService(box);
+    cacheBox = await Hive.openBox<String>(
+      'testCacheBox',
+      bytes: Uint8List(0),
+    );
+
+    authenticationService = MockAuthenticationService(
+      box,
+      cacheBox: cacheBox,
+      shouldDelay: false,
+    );
   });
 
   tearDown(() async {
     await box.clear();
+    await cacheBox.clear();
   });
 
   group('sign in', () {
@@ -197,6 +208,88 @@ void main() {
       expect(isSignedIn, isTrue);
       expect(signedInUser.isSome(), isTrue);
       expect(isSignedOut, isTrue);
+    });
+  });
+
+  group('register', () {
+    test('should register new account & login successfully', () async {
+      // arrange
+      final emailAddress = EmailAddress('test2@example.com');
+      final password = Password('password');
+
+      // act
+      final result = await authenticationService.signUp(
+        emailAddress: emailAddress,
+        password: password,
+      );
+      final isSignedIn = await authenticationService.isSignedIn();
+
+      // assert
+      expect(result, equals(const Right(unit)));
+      expect(isSignedIn, isTrue);
+    });
+
+    test('should not register when email already taken', () async {
+      // arrange
+      // existed email address
+      final emailAddress = EmailAddress('test@example.com');
+      final password = Password('password');
+
+      // act
+      final result = await authenticationService.signUp(
+        emailAddress: emailAddress,
+        password: password,
+      );
+      final isSignedIn = await authenticationService.isSignedIn();
+
+      // assert
+      expect(
+          result,
+          equals(const Left(
+            AuthenticationFailure.emailAlreadyTaken(),
+          )));
+      expect(isSignedIn, isFalse);
+    });
+  });
+
+  group('register with phone', () {
+    test('should register new account & login successfully', () async {
+      // arrange
+      final phone = PhoneNumber('380123456788');
+      final password = Password('password');
+
+      // act
+      final result = await authenticationService.signUpWithPhone(
+        phoneNumber: phone,
+        password: password,
+      );
+      final isSignedIn = await authenticationService.isSignedIn();
+
+      // assert
+      expect(result, equals(const Right(unit)));
+      expect(isSignedIn, isTrue);
+    });
+
+    test('should not register when phone number already taken', () async {
+      // arrange
+      // existed phone number
+      final phone = PhoneNumber('380123456789');
+      final password = Password('password');
+
+      // act
+      final result = await authenticationService.signUpWithPhone(
+        phoneNumber: phone,
+        password: password,
+      );
+      final isSignedIn = await authenticationService.isSignedIn();
+
+      // assert
+      expect(
+          result,
+          equals(const Left(
+            AuthenticationFailure.phoneNumberAlreadyTaken(),
+          )));
+      expect(isSignedIn, isFalse);
     });
   });
 }

@@ -28,7 +28,7 @@ class _PasswordInputState extends State<PasswordInput> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      obscureText: _obscureText,
+      obscureText: widget.isEnabled ? _obscureText : true,
       decoration: InputDecoration(
         labelText: widget.labelText ?? context.l10n.passwordLabel,
         hintText: widget.hintText ?? context.l10n.passwordTextBoxHint,

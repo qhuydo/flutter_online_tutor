@@ -43,7 +43,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => _i8.AppCubit(appRepository: get<_i3.AppRepository>()));
   gh.lazySingleton<_i9.AuthenticationService>(() =>
       _i10.MockAuthenticationService(
-          get<_i5.Box<String>>(instanceName: 'mockSecret')));
+          get<_i5.Box<String>>(instanceName: 'mockSecret'),
+          cacheBox: get<_i5.Box<String>>()));
   gh.factory<_i11.LoginBloc>(
       () => _i11.LoginBloc(get<_i9.AuthenticationService>()));
   gh.factory<_i12.AuthenticationBloc>(
