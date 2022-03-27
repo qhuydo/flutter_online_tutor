@@ -133,7 +133,7 @@ class MockAuthenticationService implements AuthenticationService {
 
   @override
   Future<Option<User>> getSignedInUser() async {
-    final userStr = await _box.get(_keyUser);
+    final userStr = _box.get(_keyUser);
     final userDto =
         userStr != null ? UserDto.fromJson(jsonDecode(userStr)) : null;
     return optionOf(userDto?.toDomain());
@@ -145,6 +145,8 @@ class MockAuthenticationService implements AuthenticationService {
     required Password password,
   }) async {
     final emailValue = emailAddress.requireValue();
+    final passwordValue = password.requireValue();
+
     try {
       final req = await FixtureLoader.loginRequest;
       if (!_cacheBox.containsKey(req['email'])) {
@@ -154,6 +156,8 @@ class MockAuthenticationService implements AuthenticationService {
       await _delay();
 
       if (!_cacheBox.containsKey(emailValue)) {
+        await _cacheBox.put(emailValue, passwordValue);
+
         final res = await FixtureLoader.loginResponse;
         final authDto = AuthenticationDto.fromJson(res);
 
@@ -174,6 +178,7 @@ class MockAuthenticationService implements AuthenticationService {
     required Password password,
   }) async {
     final phoneValue = phoneNumber.requireValue();
+    final passwordValue = password.requireValue();
 
     try {
       final req = await FixtureLoader.loginByPhoneRequest;
@@ -184,6 +189,8 @@ class MockAuthenticationService implements AuthenticationService {
       }
 
       if (!_cacheBox.containsKey(phoneValue)) {
+        await _cacheBox.put(phoneValue, passwordValue);
+
         final res = await FixtureLoader.loginResponse;
         final authDto = AuthenticationDto.fromJson(res);
 
@@ -200,6 +207,32 @@ class MockAuthenticationService implements AuthenticationService {
   Future<void> _delay() async {
     if (shouldDelay) {
       await Future.delayed(const Duration(seconds: 3));
+    }
+  }
+
+  @override
+  Future<Either<AuthenticationFailure, Unit>> resetPassword({
+    required EmailAddress emailAddress,
+  }) async {
+    final emailValue = emailAddress.requireValue();
+
+    try {
+      final req = await FixtureLoader.loginRequest;
+      if (!_cacheBox.containsKey(req['email'])) {
+        await _cacheBox.put(req['email'], req['password']);
+      }
+
+      if (!_cacheBox.containsKey(emailValue)) {
+        return left(const AuthenticationFailure.emailNotExist());
+      }
+
+      await _delay();
+
+      await _cacheBox.put(emailValue, '12345678');
+
+      return right(unit);
+    } on FlutterError {
+      return left(const AuthenticationFailure.serverError());
     }
   }
 }

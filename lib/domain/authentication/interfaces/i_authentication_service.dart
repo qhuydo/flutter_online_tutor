@@ -32,4 +32,8 @@ abstract class AuthenticationService {
     required PhoneNumber phoneNumber,
     required Password password,
   });
+
+  Future<Either<AuthenticationFailure, Unit>> resetPassword({
+    required EmailAddress emailAddress,
+  });
 }

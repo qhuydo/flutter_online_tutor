@@ -214,7 +214,7 @@ void main() {
     test('should register new account & login successfully', () async {
       // arrange
       final emailAddress = EmailAddress('test2@example.com');
-      final password = Password('password');
+      final password = Password('12345678');
 
       // act
       final result = await authenticationService.signUp(
@@ -223,9 +223,17 @@ void main() {
       );
       final isSignedIn = await authenticationService.isSignedIn();
 
+      await authenticationService.signIn(
+        emailAddress: emailAddress,
+        password: password,
+      );
+      final isSignedInAfterRegistered =
+          await authenticationService.isSignedIn();
+
       // assert
       expect(result, equals(const Right(unit)));
       expect(isSignedIn, isTrue);
+      expect(isSignedInAfterRegistered, isTrue);
     });
 
     test('should not register when email already taken', () async {
@@ -255,7 +263,7 @@ void main() {
     test('should register new account & login successfully', () async {
       // arrange
       final phone = PhoneNumber('380123456788');
-      final password = Password('password');
+      final password = Password('12345678');
 
       // act
       final result = await authenticationService.signUpWithPhone(
@@ -264,9 +272,18 @@ void main() {
       );
       final isSignedIn = await authenticationService.isSignedIn();
 
+      await authenticationService.signOut();
+      await authenticationService.signInWithPhone(
+        phoneNumber: phone,
+        password: password,
+      );
+      final isSignedInAfterRegistered =
+          await authenticationService.isSignedIn();
+
       // assert
       expect(result, equals(const Right(unit)));
       expect(isSignedIn, isTrue);
+      expect(isSignedInAfterRegistered, isTrue);
     });
 
     test('should not register when phone number already taken', () async {
@@ -289,6 +306,51 @@ void main() {
             AuthenticationFailure.phoneNumberAlreadyTaken(),
           )));
       expect(isSignedIn, isFalse);
+    });
+  });
+
+  group('reset password', () {
+    test('should reset password to 12345678', () async {
+      // arrange
+      final emailAddress = EmailAddress('test@example.com');
+      final password = Password('12345678');
+      final wrongPassword = Password('password');
+
+      // act
+      final result = await authenticationService.resetPassword(
+        emailAddress: emailAddress,
+      );
+
+      final isNotSignedInWithWrongPassword = await authenticationService.signIn(
+        emailAddress: emailAddress,
+        password: wrongPassword,
+      );
+
+      final isSignedInWithCorrectPassword = await authenticationService.signIn(
+        emailAddress: emailAddress,
+        password: password,
+      );
+
+      // assert
+      expect(result, equals(const Right(unit)));
+      expect(isSignedInWithCorrectPassword, equals(const Right(unit)));
+      expect(isNotSignedInWithWrongPassword, equals(const Left(
+        AuthenticationFailure.wrongEmailOrPassword(),
+      )));
+
+    });
+
+    test('should not reset password of non-exist email', () async {
+      // arrange
+      final emailAddress = EmailAddress('test@example2.com');
+
+      // act
+      final result = await authenticationService.resetPassword(
+        emailAddress: emailAddress,
+      );
+
+      // assert
+      expect(result, equals(const Left(AuthenticationFailure.emailNotExist())));
     });
   });
 }

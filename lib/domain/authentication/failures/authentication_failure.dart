@@ -20,4 +20,6 @@ class AuthenticationFailure with _$AuthenticationFailure {
 
   const factory AuthenticationFailure.phoneNumberAlreadyTaken() =
       _PhoneNumberAlreadyTaken;
+
+  const factory AuthenticationFailure.emailNotExist() = _EmailNotExist;
 }

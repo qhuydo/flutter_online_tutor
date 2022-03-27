@@ -51,6 +51,8 @@ class _AuthenFormBlocPage<B extends Bloc> extends StatelessWidget {
                 alreadySignedOut: (_) => 'Already signed out',
                 emailAlreadyTaken: (_) => 'Email is already taken',
                 phoneNumberAlreadyTaken: (_) => 'Phone number is already taken',
+                emailNotExist: (_) => 'Email does not exist, please register '
+                    'new account',
               ),
               duration: const Duration(
                 seconds: 30,
