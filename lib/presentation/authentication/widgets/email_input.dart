@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/authentication/login/login_bloc.dart';
+import '../../../application/authentication/reset_password/reset_password_bloc.dart';
 import '../../../application/authentication/sign_up/sign_up_bloc.dart';
 import '../../../domain/authentication/failures/email_failure.dart';
 import '../../common.dart';
@@ -65,6 +66,26 @@ class EmailInput extends StatelessWidget {
                   (_) => null,
                 ),
       );
+
+
+  factory EmailInput.withResetPasswordBloc({
+    required BuildContext context,
+    isEnabled = true,
+  }) =>
+      EmailInput(
+        isEnabled: isEnabled,
+        onChanged: (value) => context.read<ResetPasswordBloc>().add(
+              ResetPasswordEvent.emailChanged(value),
+            ),
+        validator: (_) =>
+            // TODO add translation
+            context.watch<ResetPasswordBloc>().state.emailAddress.value.fold(
+                  (f) => f.toErrorMsg(),
+                  (_) => null,
+                ),
+      );
+
+
 }
 
 extension EmailFailureX on EmailFailure {

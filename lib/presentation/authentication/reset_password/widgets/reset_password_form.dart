@@ -1,19 +1,30 @@
 import '../../../common.dart';
-import '../../widgets/email_input.dart';
 
 class ResetPasswordForm extends StatelessWidget {
-  const ResetPasswordForm({Key? key}) : super(key: key);
+  final bool showError;
+
+  final Widget emailInput;
+
+  const ResetPasswordForm({
+    Key? key,
+    required this.showError,
+    required this.emailInput,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(context.l10n.resetPasswordDescription),
-        const SizedBox(
-          height: 16,
-        ),
-        const EmailInput(),
-      ],
+    return Form(
+      autovalidateMode:
+          showError ? AutovalidateMode.always : AutovalidateMode.disabled,
+      child: Column(
+        children: [
+          Text(context.l10n.resetPasswordDescription),
+          const SizedBox(
+            height: 16,
+          ),
+          emailInput,
+        ],
+      ),
     );
   }
 }

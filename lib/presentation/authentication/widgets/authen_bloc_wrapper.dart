@@ -41,24 +41,7 @@ class _AuthenFormBlocPage<B extends Bloc> extends StatelessWidget {
           () {},
           (either) => either.fold(
             // TODO add translation
-            (AuthenticationFailure failure) => FlushBarUtils.createError(
-              message: failure.map(
-                wrongEmailOrPassword: (_) => 'Wrong email or password',
-                wrongPhoneNumberOrPassword: (_) =>
-                    'Wrong phone number or password',
-                noConnection: (_) => 'No internet connection',
-                serverError: (_) => 'Server error',
-                alreadySignedOut: (_) => 'Already signed out',
-                emailAlreadyTaken: (_) => 'Email is already taken',
-                phoneNumberAlreadyTaken: (_) => 'Phone number is already taken',
-                emailNotExist: (_) => 'Email does not exist, please register '
-                    'new account',
-              ),
-              duration: const Duration(
-                seconds: 30,
-              ),
-            ).show(context),
-
+            (AuthenticationFailure failure) => failure.showError(context),
             (succeed) {
               context.replaceRoute(const HomeRoute());
               context.read<AuthenticationBloc>().add(
@@ -70,5 +53,26 @@ class _AuthenFormBlocPage<B extends Bloc> extends StatelessWidget {
       },
       child: child,
     );
+  }
+}
+
+extension AuthenticationFailureX on AuthenticationFailure {
+  Future<dynamic> showError(BuildContext context) {
+    return FlushBarUtils.createError(
+      message: map(
+        wrongEmailOrPassword: (_) => 'Wrong email or password',
+        wrongPhoneNumberOrPassword: (_) => 'Wrong phone number or password',
+        noConnection: (_) => 'No internet connection',
+        serverError: (_) => 'Server error',
+        alreadySignedOut: (_) => 'Already signed out',
+        emailAlreadyTaken: (_) => 'Email is already taken',
+        phoneNumberAlreadyTaken: (_) => 'Phone number is already taken',
+        emailNotExist: (_) => 'Email does not exist, please register '
+            'new account',
+      ),
+      duration: const Duration(
+        seconds: 30,
+      ),
+    ).show(context);
   }
 }

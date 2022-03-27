@@ -34,6 +34,7 @@ class _LoginPage extends StatelessWidget {
       builder: (context, state) {
         return AuthenScaffold(
           title: context.l10n.loginButtonText,
+          isLoading: state.isLoading,
           form: AuthenticateByMailForm(
             showError: state.showError,
             emailInput: EmailInput.withLoginBloc(
@@ -45,7 +46,6 @@ class _LoginPage extends StatelessWidget {
               isEnabled: !state.isLoading,
             ),
           ),
-          isLoading: state.isLoading,
           submitButton: LoginButton(
             isDisabled: state.isLoading,
             onPressed: () => context
