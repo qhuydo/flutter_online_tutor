@@ -1,3 +1,6 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../application/authentication/login/login_bloc.dart';
 import '../../common.dart';
 import '../widgets/authen_scaffold.dart';
 import '../widgets/authenticate_by_phone_form.dart';
@@ -20,17 +23,27 @@ class _LoginByPhonePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LoginBlocWrapper(
-      child: AuthenScaffold(
-        title: context.l10n.loginButtonText,
-        form: const AuthenticateByPhoneNumberForm(),
-        submitButton: const LoginButton(),
-        otherAuthenticateOptions: const LoginOptionButtonGroup(
-          hasMailOption: true,
-          hasPhoneOption: false,
-        ),
-        otherOptions: const SignupHint(),
-      ),
+    return BlocBuilder<LoginBloc, LoginState>(
+      buildWhen: (previous, current) => previous.isLoading != current.isLoading,
+      builder: (context, state) {
+        return AuthenScaffold(
+          isLoading: state.isLoading,
+          title: context.l10n.loginButtonText,
+          form: const AuthenticateByPhoneNumberForm(),
+          submitButton: LoginButton(
+            isDisabled: state.isLoading,
+            onPressed: () => context
+                .read<LoginBloc>()
+                .add(const LoginEvent.logInWithPhoneAndPasswordPressed()),
+          ),
+          otherAuthenticateOptions: LoginOptionButtonGroup(
+            hasMailOption: true,
+            hasPhoneOption: false,
+            isDisabled: state.isLoading,
+          ),
+          otherOptions: SignupHint(isDisabled: state.isLoading),
+        );
+      },
     );
   }
 }

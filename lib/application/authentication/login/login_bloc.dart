@@ -8,6 +8,7 @@ import '../../../domain/authentication/interfaces/i_authentication_service.dart'
 import '../../../domain/authentication/value_objects/email_address.dart';
 import '../../../domain/authentication/value_objects/password.dart';
 import '../../../domain/authentication/value_objects/phone_number.dart';
+import '../../../domain/common/models/country.dart';
 
 part 'login_bloc.freezed.dart';
 
@@ -24,8 +25,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       await event.when(
         emailChanged: (emailStr) => _onEmailChanged(emailStr, emit),
         passwordChanged: (passwordStr) => _onPasswordChanged(passwordStr, emit),
-        phoneNumberChanged: (phoneNumberStr) =>
-            _onPhoneNumberChanged(phoneNumberStr, emit),
+        phoneNumberChanged: (country, phoneNumber) => _onPhoneNumberChanged(
+          country,
+          phoneNumber,
+          emit,
+        ),
         logInWithEmailAndPasswordPressed: () =>
             _onLogInWithEmailAndPasswordPressed(emit),
         logInWithPhoneAndPasswordPressed: () =>
@@ -52,11 +56,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   Future _onPhoneNumberChanged(
-    String phoneNumberStr,
+    Country country,
+    String phoneNumber,
     Emitter<LoginState> emit,
   ) async {
     emit(state.copyWith(
-      phoneNumber: PhoneNumber(phoneNumberStr),
+      phoneNumber: PhoneNumber.fromCountryCodeCombination(
+        country: country,
+        input: phoneNumber,
+      ),
       authFailureOrSuccessOption: none(),
     ));
   }

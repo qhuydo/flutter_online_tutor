@@ -30,9 +30,10 @@ class _$LoginEventTearOff {
     );
   }
 
-  _PhoneNumberChanged phoneNumberChanged(String phoneNumberStr) {
+  _PhoneNumberChanged phoneNumberChanged(Country country, String phoneNumber) {
     return _PhoneNumberChanged(
-      phoneNumberStr,
+      country,
+      phoneNumber,
     );
   }
 
@@ -54,7 +55,8 @@ mixin _$LoginEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
-    required TResult Function(String phoneNumberStr) phoneNumberChanged,
+    required TResult Function(Country country, String phoneNumber)
+        phoneNumberChanged,
     required TResult Function() logInWithEmailAndPasswordPressed,
     required TResult Function() logInWithPhoneAndPasswordPressed,
   }) =>
@@ -63,7 +65,7 @@ mixin _$LoginEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
-    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(Country country, String phoneNumber)? phoneNumberChanged,
     TResult Function()? logInWithEmailAndPasswordPressed,
     TResult Function()? logInWithPhoneAndPasswordPressed,
   }) =>
@@ -72,7 +74,7 @@ mixin _$LoginEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
-    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(Country country, String phoneNumber)? phoneNumberChanged,
     TResult Function()? logInWithEmailAndPasswordPressed,
     TResult Function()? logInWithPhoneAndPasswordPressed,
     required TResult orElse(),
@@ -196,7 +198,8 @@ class _$_EmailChanged implements _EmailChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
-    required TResult Function(String phoneNumberStr) phoneNumberChanged,
+    required TResult Function(Country country, String phoneNumber)
+        phoneNumberChanged,
     required TResult Function() logInWithEmailAndPasswordPressed,
     required TResult Function() logInWithPhoneAndPasswordPressed,
   }) {
@@ -208,7 +211,7 @@ class _$_EmailChanged implements _EmailChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
-    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(Country country, String phoneNumber)? phoneNumberChanged,
     TResult Function()? logInWithEmailAndPasswordPressed,
     TResult Function()? logInWithPhoneAndPasswordPressed,
   }) {
@@ -220,7 +223,7 @@ class _$_EmailChanged implements _EmailChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
-    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(Country country, String phoneNumber)? phoneNumberChanged,
     TResult Function()? logInWithEmailAndPasswordPressed,
     TResult Function()? logInWithPhoneAndPasswordPressed,
     required TResult orElse(),
@@ -355,7 +358,8 @@ class _$_PasswordChanged implements _PasswordChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
-    required TResult Function(String phoneNumberStr) phoneNumberChanged,
+    required TResult Function(Country country, String phoneNumber)
+        phoneNumberChanged,
     required TResult Function() logInWithEmailAndPasswordPressed,
     required TResult Function() logInWithPhoneAndPasswordPressed,
   }) {
@@ -367,7 +371,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
-    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(Country country, String phoneNumber)? phoneNumberChanged,
     TResult Function()? logInWithEmailAndPasswordPressed,
     TResult Function()? logInWithPhoneAndPasswordPressed,
   }) {
@@ -379,7 +383,7 @@ class _$_PasswordChanged implements _PasswordChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
-    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(Country country, String phoneNumber)? phoneNumberChanged,
     TResult Function()? logInWithEmailAndPasswordPressed,
     TResult Function()? logInWithPhoneAndPasswordPressed,
     required TResult orElse(),
@@ -451,7 +455,9 @@ abstract class _$PhoneNumberChangedCopyWith<$Res> {
   factory _$PhoneNumberChangedCopyWith(
           _PhoneNumberChanged value, $Res Function(_PhoneNumberChanged) then) =
       __$PhoneNumberChangedCopyWithImpl<$Res>;
-  $Res call({String phoneNumberStr});
+  $Res call({Country country, String phoneNumber});
+
+  $CountryCopyWith<$Res> get country;
 }
 
 /// @nodoc
@@ -467,28 +473,42 @@ class __$PhoneNumberChangedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? phoneNumberStr = freezed,
+    Object? country = freezed,
+    Object? phoneNumber = freezed,
   }) {
     return _then(_PhoneNumberChanged(
-      phoneNumberStr == freezed
-          ? _value.phoneNumberStr
-          : phoneNumberStr // ignore: cast_nullable_to_non_nullable
+      country == freezed
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as Country,
+      phoneNumber == freezed
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
     ));
+  }
+
+  @override
+  $CountryCopyWith<$Res> get country {
+    return $CountryCopyWith<$Res>(_value.country, (value) {
+      return _then(_value.copyWith(country: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$_PhoneNumberChanged implements _PhoneNumberChanged {
-  const _$_PhoneNumberChanged(this.phoneNumberStr);
+  const _$_PhoneNumberChanged(this.country, this.phoneNumber);
 
   @override
-  final String phoneNumberStr;
+  final Country country;
+  @override
+  final String phoneNumber;
 
   @override
   String toString() {
-    return 'LoginEvent.phoneNumberChanged(phoneNumberStr: $phoneNumberStr)';
+    return 'LoginEvent.phoneNumberChanged(country: $country, phoneNumber: $phoneNumber)';
   }
 
   @override
@@ -496,13 +516,16 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PhoneNumberChanged &&
+            const DeepCollectionEquality().equals(other.country, country) &&
             const DeepCollectionEquality()
-                .equals(other.phoneNumberStr, phoneNumberStr));
+                .equals(other.phoneNumber, phoneNumber));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(phoneNumberStr));
+      runtimeType,
+      const DeepCollectionEquality().hash(country),
+      const DeepCollectionEquality().hash(phoneNumber));
 
   @JsonKey(ignore: true)
   @override
@@ -514,11 +537,12 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
   TResult when<TResult extends Object?>({
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
-    required TResult Function(String phoneNumberStr) phoneNumberChanged,
+    required TResult Function(Country country, String phoneNumber)
+        phoneNumberChanged,
     required TResult Function() logInWithEmailAndPasswordPressed,
     required TResult Function() logInWithPhoneAndPasswordPressed,
   }) {
-    return phoneNumberChanged(phoneNumberStr);
+    return phoneNumberChanged(country, phoneNumber);
   }
 
   @override
@@ -526,11 +550,11 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
-    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(Country country, String phoneNumber)? phoneNumberChanged,
     TResult Function()? logInWithEmailAndPasswordPressed,
     TResult Function()? logInWithPhoneAndPasswordPressed,
   }) {
-    return phoneNumberChanged?.call(phoneNumberStr);
+    return phoneNumberChanged?.call(country, phoneNumber);
   }
 
   @override
@@ -538,13 +562,13 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
-    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(Country country, String phoneNumber)? phoneNumberChanged,
     TResult Function()? logInWithEmailAndPasswordPressed,
     TResult Function()? logInWithPhoneAndPasswordPressed,
     required TResult orElse(),
   }) {
     if (phoneNumberChanged != null) {
-      return phoneNumberChanged(phoneNumberStr);
+      return phoneNumberChanged(country, phoneNumber);
     }
     return orElse();
   }
@@ -597,10 +621,11 @@ class _$_PhoneNumberChanged implements _PhoneNumberChanged {
 }
 
 abstract class _PhoneNumberChanged implements LoginEvent {
-  const factory _PhoneNumberChanged(String phoneNumberStr) =
+  const factory _PhoneNumberChanged(Country country, String phoneNumber) =
       _$_PhoneNumberChanged;
 
-  String get phoneNumberStr;
+  Country get country;
+  String get phoneNumber;
   @JsonKey(ignore: true)
   _$PhoneNumberChangedCopyWith<_PhoneNumberChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -654,7 +679,8 @@ class _$_logInWithEmailAndPasswordPressed
   TResult when<TResult extends Object?>({
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
-    required TResult Function(String phoneNumberStr) phoneNumberChanged,
+    required TResult Function(Country country, String phoneNumber)
+        phoneNumberChanged,
     required TResult Function() logInWithEmailAndPasswordPressed,
     required TResult Function() logInWithPhoneAndPasswordPressed,
   }) {
@@ -666,7 +692,7 @@ class _$_logInWithEmailAndPasswordPressed
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
-    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(Country country, String phoneNumber)? phoneNumberChanged,
     TResult Function()? logInWithEmailAndPasswordPressed,
     TResult Function()? logInWithPhoneAndPasswordPressed,
   }) {
@@ -678,7 +704,7 @@ class _$_logInWithEmailAndPasswordPressed
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
-    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(Country country, String phoneNumber)? phoneNumberChanged,
     TResult Function()? logInWithEmailAndPasswordPressed,
     TResult Function()? logInWithPhoneAndPasswordPressed,
     required TResult orElse(),
@@ -789,7 +815,8 @@ class _$_logInWithPhoneAndPasswordPressed
   TResult when<TResult extends Object?>({
     required TResult Function(String emailStr) emailChanged,
     required TResult Function(String passwordStr) passwordChanged,
-    required TResult Function(String phoneNumberStr) phoneNumberChanged,
+    required TResult Function(Country country, String phoneNumber)
+        phoneNumberChanged,
     required TResult Function() logInWithEmailAndPasswordPressed,
     required TResult Function() logInWithPhoneAndPasswordPressed,
   }) {
@@ -801,7 +828,7 @@ class _$_logInWithPhoneAndPasswordPressed
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
-    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(Country country, String phoneNumber)? phoneNumberChanged,
     TResult Function()? logInWithEmailAndPasswordPressed,
     TResult Function()? logInWithPhoneAndPasswordPressed,
   }) {
@@ -813,7 +840,7 @@ class _$_logInWithPhoneAndPasswordPressed
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String emailStr)? emailChanged,
     TResult Function(String passwordStr)? passwordChanged,
-    TResult Function(String phoneNumberStr)? phoneNumberChanged,
+    TResult Function(Country country, String phoneNumber)? phoneNumberChanged,
     TResult Function()? logInWithEmailAndPasswordPressed,
     TResult Function()? logInWithPhoneAndPasswordPressed,
     required TResult orElse(),
