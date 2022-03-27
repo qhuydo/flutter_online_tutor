@@ -38,8 +38,7 @@ void main() {
     authenticationService = MockAuthenticationService(
       box,
       cacheBox: cacheBox,
-      shouldDelay: false,
-    );
+    )..shouldDelay = false;
   });
 
   tearDown(() async {

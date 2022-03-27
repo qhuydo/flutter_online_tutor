@@ -1,3 +1,4 @@
+import 'dart:typed_data';
 
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
@@ -15,5 +16,11 @@ abstract class AppInjectableModule {
   @preResolve
   @Named('mockSecret')
   Future<Box<String>> get mockSecretBox => Hive.openBox('mockSecret');
-}
 
+  @preResolve
+  @Named('mockCacheSecret')
+  Future<Box<String>> get mockCacheSecretBox => Hive.openBox<String>(
+        'cache',
+        bytes: Uint8List(0),
+      );
+}

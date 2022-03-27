@@ -20,7 +20,7 @@ import '../dto/authentication_dto.dart';
 class MockAuthenticationService implements AuthenticationService {
   final Box<String> _box;
   late final Box<String> _cacheBox;
-  final bool shouldDelay;
+  bool shouldDelay = true;
 
   // static const _boxName = 'mockSecret';
   static const _keyToken = 'tokens';
@@ -30,8 +30,7 @@ class MockAuthenticationService implements AuthenticationService {
 
   MockAuthenticationService(
     @Named('mockSecret') this._box, {
-    Box<String>? cacheBox,
-    bool this.shouldDelay = true,
+    @Named('mockCacheSecret') Box<String>? cacheBox,
   }) {
     if (cacheBox == null) {
       Hive.openBox<String>('cache', bytes: Uint8List(0))

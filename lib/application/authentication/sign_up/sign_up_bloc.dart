@@ -11,37 +11,35 @@ import '../../../domain/authentication/value_objects/phone_number.dart';
 import '../../../domain/common/models/country.dart';
 import '../common/authentication_form_bloc_mixin.dart';
 
-part 'login_bloc.freezed.dart';
+part 'sign_up_bloc.freezed.dart';
 
-part 'login_event.dart';
+part 'sign_up_event.dart';
 
-part 'login_state.dart';
+part 'sign_up_state.dart';
 
 @injectable
-class LoginBloc extends Bloc<LoginEvent, LoginState>
-    with AuthenticationFormBlocMixin {
+class SignUpBloc extends Bloc<SignUpEvent, SignUpState>
+    with AuthenticationFormBlocMixin<SignUpState> {
+
   final AuthenticationService _authService;
 
-  LoginBloc(this._authService) : super(LoginState.initial()) {
-    on<LoginEvent>((event, emit) async {
+  SignUpBloc(this._authService) : super(SignUpState.initial()) {
+    on<SignUpEvent>((event, emit) async {
       await event.when(
         emailChanged: (emailStr) => onEmailChanged(emailStr, emit),
         passwordChanged: (passwordStr) => onPasswordChanged(passwordStr, emit),
-        phoneNumberChanged: (country, phoneNumber) => onPhoneNumberChanged(
-          country,
-          phoneNumber,
-          emit,
-        ),
-        logInWithEmailAndPasswordPressed: () =>
-            _onLogInWithEmailAndPasswordPressed(emit),
-        logInWithPhoneAndPasswordPressed: () =>
-            _onLogInWithPhoneAndPasswordPressed(emit),
+        phoneNumberChanged: (country, phoneNumber) =>
+            onPhoneNumberChanged(country, phoneNumber, emit),
+        signUpWithEmailAndPasswordPressed: () =>
+            _onSignUpWithEmailAndPasswordPressed(emit),
+        signUpWithPhoneAndPasswordPressed: () =>
+            _onSignUpWithPhoneAndPasswordPressed(emit),
       );
     });
   }
 
   // TODO remove duplications
-  Future _onLogInWithEmailAndPasswordPressed(Emitter<LoginState> emit) async {
+  Future _onSignUpWithEmailAndPasswordPressed(Emitter emit) async {
     final isPasswordValid = state.password.isValid();
     final isEmailValid = state.emailAddress.isValid();
 
@@ -53,7 +51,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState>
         authFailureOrSuccessOption: none(),
       ));
 
-      result = await _authService.signIn(
+      result = await _authService.signUp(
         emailAddress: state.emailAddress,
         password: state.password,
       );
@@ -66,7 +64,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState>
     ));
   }
 
-  Future _onLogInWithPhoneAndPasswordPressed(Emitter<LoginState> emit) async {
+  Future _onSignUpWithPhoneAndPasswordPressed(Emitter emit) async {
     final isPasswordValid = state.password.isValid();
     final isPhoneNumberValid = state.phoneNumber.isValid();
 
@@ -78,7 +76,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState>
         authFailureOrSuccessOption: none(),
       ));
 
-      result = await _authService.signInWithPhone(
+      result = await _authService.signUpWithPhone(
         phoneNumber: state.phoneNumber,
         password: state.password,
       );
@@ -90,6 +88,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState>
       authFailureOrSuccessOption: optionOf(result),
     ));
   }
+
 
   @override
   get blocState => state;

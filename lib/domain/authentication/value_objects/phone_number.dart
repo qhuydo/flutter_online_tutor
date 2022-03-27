@@ -38,6 +38,8 @@ class PhoneNumber extends ValueObject<PhoneNumberFailure, String> {
     Country country,
     String input,
   ) {
+    if (input.isEmpty) return left(PhoneNumberFailure.emptyValue());
+
     if (!countryMap.containsKey(country.isoCode)) {
       return left(PhoneNumberFailure.invalidCountryCode(country));
     }
