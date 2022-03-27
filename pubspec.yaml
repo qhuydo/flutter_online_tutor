@@ -121,6 +121,11 @@ dependencies:
   # (c) MIT License. By Yulian Kuncheff.
   uuid: ^3.0.6
 
+  # A flexible widget for user notification. Customize your text, button, duration, animations and much more. For
+  # Android devs, it is made to replace Snackbars and Toasts.
+  # (c) Apache-2.0 License. By André Haueisen Batista de Lima, Hamid Wakili.
+  another_flushbar: ^1.10.28
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

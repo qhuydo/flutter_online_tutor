@@ -189,11 +189,13 @@ void main() {
 
       // act
       final isSignedIn = await authenticationService.isSignedIn();
+      final signedInUser = await authenticationService.getSignedInUser();
       await authenticationService.signOut();
       final isSignedOut = !(await authenticationService.isSignedIn());
 
       // assert
       expect(isSignedIn, isTrue);
+      expect(signedInUser.isSome(), isTrue);
       expect(isSignedOut, isTrue);
     });
   });

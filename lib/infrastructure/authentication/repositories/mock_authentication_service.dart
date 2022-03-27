@@ -104,7 +104,8 @@ class MockAuthenticationService implements AuthenticationService {
   @override
   Future<Option<User>> getSignedInUser() async {
     final userStr = await _box.get(_keyUser);
-    final userDto = userStr != null ? jsonDecode(userStr) as UserDto : null;
+    final userDto =
+        userStr != null ? UserDto.fromJson(jsonDecode(userStr)) : null;
     return optionOf(userDto?.toDomain());
   }
 }
