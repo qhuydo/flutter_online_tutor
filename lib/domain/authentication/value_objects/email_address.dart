@@ -20,6 +20,8 @@ class EmailAddress extends ValueObject<EmailFailure, String> {
   static Either<EmailFailure, String> _validateEmailAddress(
     String input,
   ) {
+    if (input.isEmpty) return left(const EmailFailure.empty());
+
     const emailRegex =
         r'''^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@('''
         r'''([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})''';

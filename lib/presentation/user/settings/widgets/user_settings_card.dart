@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../application/authentication/authentication_bloc.dart';
 import '../../../common.dart';
 import '../../../common/routes/app_routes.gr.dart';
 import '../../helpers/setting_card_item.dart';
@@ -63,9 +65,14 @@ class UserSettingsCard extends StatelessWidget {
         iconData: Icons.logout,
         title: context.l10n.logOutLabel,
         onTap: () {
+          context.read<AuthenticationBloc>().add(
+            const AuthenticationEvent.signedOut(),
+          );
+          context.read<AuthenticationBloc>().add(
+            const AuthenticationEvent.authCheckRequested(),
+          );
           context.router.popUntilRoot();
           context.router.replace(const LoginRoute());
-
         },
         color: Colors.red,
       ),

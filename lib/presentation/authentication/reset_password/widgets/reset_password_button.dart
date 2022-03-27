@@ -1,13 +1,11 @@
-import '../../widgets/submit_button.dart';
 import '../../../common.dart';
+import '../../widgets/submit_button.dart';
 
 class ResetPasswordButton extends SubmitButton {
-  const ResetPasswordButton({Key? key}) : super(key: key);
-
-  @override
-  void onPressed(BuildContext context) {
-    // TODO: implement onPressed
-  }
+  const ResetPasswordButton({
+    Key? key,
+    VoidCallback? onPressed,
+  }) : super(key: key, onPressed: onPressed);
 
   @override
   String getText(BuildContext context) {

@@ -1,4 +1,7 @@
 import 'package:flutter/gestures.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../application/authentication/login/login_bloc.dart';
 import '../../common.dart';
 
 class PasswordInput extends StatefulWidget {
@@ -23,10 +26,8 @@ class _PasswordInputState extends State<PasswordInput> {
     return TextFormField(
       obscureText: _obscureText,
       decoration: InputDecoration(
-        labelText:
-            widget.labelText ?? context.l10n.passwordLabel,
-        hintText: widget.hintText ??
-            context.l10n.passwordTextBoxHint,
+        labelText: widget.labelText ?? context.l10n.passwordLabel,
+        hintText: widget.hintText ?? context.l10n.passwordTextBoxHint,
         floatingLabelBehavior: FloatingLabelBehavior.auto,
         border: const OutlineInputBorder(),
         // filled: true,
@@ -45,6 +46,16 @@ class _PasswordInputState extends State<PasswordInput> {
           ),
         ),
       ),
+      onChanged: (value) =>
+          context.read<LoginBloc>().add(LoginEvent.passwordChanged(value)),
+      // TODO add translation
+      validator: (_) => context.watch<LoginBloc>().state.password.value.fold(
+            (f) => f.map(
+              shortPassword: (_) => 'Short password',
+              emptyPassword: (_) => 'Please enter your password',
+            ),
+            (_) => null,
+          ),
     );
   }
 }

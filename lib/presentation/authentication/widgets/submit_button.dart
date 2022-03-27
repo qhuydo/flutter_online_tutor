@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 
 abstract class SubmitButton extends StatelessWidget {
-  const SubmitButton({Key? key,}) : super(key: key);
+  const SubmitButton({
+    Key? key,
+    this.onPressed,
+  }) : super(key: key);
 
-  void onPressed(BuildContext context);
+  final VoidCallback? onPressed;
 
   String getText(BuildContext context);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () => onPressed(context),
+      onPressed: onPressed,
       child: Text(
         getText(context),
       ),

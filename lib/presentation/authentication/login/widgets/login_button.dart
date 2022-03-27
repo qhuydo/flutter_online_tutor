@@ -1,17 +1,11 @@
-import 'package:auto_route/auto_route.dart';
-
 import '../../../common.dart';
-import '../../../common/routes/app_routes.gr.dart';
 import '../../widgets/submit_button.dart';
 
 class LoginButton extends SubmitButton {
-  const LoginButton({Key? key}) : super(key: key);
-
-  @override
-  void onPressed(BuildContext context) {
-    // TODO: implement onPressed
-    context.router.replace(const HomeRoute());
-  }
+  const LoginButton({
+    Key? key,
+    VoidCallback? onPressed,
+  }) : super(key: key, onPressed: onPressed);
 
   @override
   String getText(BuildContext context) {
