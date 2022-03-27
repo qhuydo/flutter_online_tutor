@@ -7,7 +7,8 @@ import 'package:flutter_online_tutor/presentation/pages.dart';
     preferRelativeImports: true,
     replaceInRouteName: 'Page,Route',
     routes: [
-      AutoRoute(page: LoginPage, initial: true),
+      AutoRoute(page: SplashPage, initial: true),
+      AutoRoute(page: LoginPage),
       AutoRoute(page: LoginByPhonePage),
       AutoRoute(page: SignUpPage),
       AutoRoute(page: SignUpByPhonePage),

@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/authentication/authentication_bloc.dart';
 import '../../../application/common/app/app_cubit.dart';
 import '../../../infrastructure/common/app/language.dart';
 import '../../common.dart';
@@ -11,8 +12,13 @@ class OnlySenpaiApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => getIt<AppCubit>()..initialize(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create:  (_) => getIt<AppCubit>()..initialize()),
+        BlocProvider(create: (_) => getIt<AuthenticationBloc>()..add(
+          const AuthenticationEvent.authCheckRequested(),
+        )),
+      ],
       child: const AppView(),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../domain/authentication/interfaces/i_authentication_service.dart';
 import '../../domain/user/models/user.dart';
@@ -10,6 +11,7 @@ part 'authentication_event.dart';
 
 part 'authentication_state.dart';
 
+@injectable
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
   final AuthenticationService authService;

@@ -22,6 +22,10 @@ class AppRouter extends _i2.RootStackRouter {
 
   @override
   final Map<String, _i2.PageFactory> pagesMap = {
+    SplashRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.SplashPage());
+    },
     LoginRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.LoginPage());
@@ -149,7 +153,8 @@ class AppRouter extends _i2.RootStackRouter {
 
   @override
   List<_i2.RouteConfig> get routes => [
-        _i2.RouteConfig(LoginRoute.name, path: '/'),
+        _i2.RouteConfig(SplashRoute.name, path: '/'),
+        _i2.RouteConfig(LoginRoute.name, path: '/login-page'),
         _i2.RouteConfig(LoginByPhoneRoute.name, path: '/login-by-phone-page'),
         _i2.RouteConfig(SignUpRoute.name, path: '/sign-up-page'),
         _i2.RouteConfig(SignUpByPhoneRoute.name,
@@ -189,9 +194,17 @@ class AppRouter extends _i2.RootStackRouter {
 }
 
 /// generated route for
+/// [_i1.SplashPage]
+class SplashRoute extends _i2.PageRouteInfo<void> {
+  const SplashRoute() : super(SplashRoute.name, path: '/');
+
+  static const String name = 'SplashRoute';
+}
+
+/// generated route for
 /// [_i1.LoginPage]
 class LoginRoute extends _i2.PageRouteInfo<void> {
-  const LoginRoute() : super(LoginRoute.name, path: '/');
+  const LoginRoute() : super(LoginRoute.name, path: '/login-page');
 
   static const String name = 'LoginRoute';
 }
