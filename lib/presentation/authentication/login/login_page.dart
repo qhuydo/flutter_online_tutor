@@ -2,9 +2,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/authentication/login/login_bloc.dart';
 import '../../common.dart';
+import '../widgets/authen_bloc_wrapper.dart';
 import '../widgets/authen_scaffold.dart';
 import '../widgets/authenticate_by_mail_form.dart';
-import '../widgets/login_bloc_wrapper.dart';
+import '../widgets/email_input.dart';
+import '../widgets/password_input.dart';
 import 'widgets/login_button.dart';
 import 'widgets/login_option_button_group.dart';
 import 'widgets/signup_hint.dart';
@@ -14,7 +16,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const LoginBlocWrapper(
+    return const AuthenFormBlocWrapper<LoginBloc>(
       child: _LoginPage(),
     );
   }
@@ -26,12 +28,24 @@ class _LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LoginBloc, LoginState>(
-      buildWhen: (previous, current) => previous.isLoading != current.isLoading,
+      buildWhen: (previous, current) =>
+          previous.isLoading != current.isLoading ||
+          previous.showError != current.showError,
       builder: (context, state) {
         return AuthenScaffold(
-          isLoading: state.isLoading,
           title: context.l10n.loginButtonText,
-          form: const AuthenticateByMailForm(),
+          form: AuthenticateByMailForm(
+            showError: state.showError,
+            emailInput: EmailInput.withLoginBloc(
+              context: context,
+              isEnabled: !state.isLoading,
+            ),
+            passwordInput: PasswordInput.withLoginBloc(
+              context: context,
+              isEnabled: !state.isLoading,
+            ),
+          ),
+          isLoading: state.isLoading,
           submitButton: LoginButton(
             isDisabled: state.isLoading,
             onPressed: () => context

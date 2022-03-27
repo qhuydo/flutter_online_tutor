@@ -1,3 +1,8 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../application/authentication/login/login_bloc.dart';
+import '../../../application/authentication/sign_up/sign_up_bloc.dart';
+import '../../../domain/authentication/failures/email_failure.dart';
 import '../../common.dart';
 
 class EmailInput extends StatelessWidget {
@@ -26,4 +31,45 @@ class EmailInput extends StatelessWidget {
       validator: validator,
     );
   }
+
+  factory EmailInput.withLoginBloc({
+    required BuildContext context,
+    isEnabled = true,
+  }) =>
+      EmailInput(
+        isEnabled: isEnabled,
+        onChanged: (value) => context.read<LoginBloc>().add(
+              LoginEvent.emailChanged(value),
+            ),
+        validator: (_) =>
+            // TODO add translation
+            context.watch<LoginBloc>().state.emailAddress.value.fold(
+                  (f) => f.toErrorMsg(),
+                  (_) => null,
+                ),
+      );
+
+  factory EmailInput.withSignUpBloc({
+    required BuildContext context,
+    isEnabled = true,
+  }) =>
+      EmailInput(
+        isEnabled: isEnabled,
+        onChanged: (value) => context.read<SignUpBloc>().add(
+              SignUpEvent.emailChanged(value),
+            ),
+        validator: (_) =>
+            // TODO add translation
+            context.watch<SignUpBloc>().state.emailAddress.value.fold(
+                  (f) => f.toErrorMsg(),
+                  (_) => null,
+                ),
+      );
+}
+
+extension EmailFailureX on EmailFailure {
+  String toErrorMsg() => map(
+        invalidEmail: (_) => 'Invalid email',
+        empty: (_) => 'Please enter your email',
+      );
 }

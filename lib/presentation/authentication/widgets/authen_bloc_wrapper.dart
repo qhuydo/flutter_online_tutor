@@ -1,56 +1,60 @@
-import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/authentication/authentication_bloc.dart';
-import '../../../application/authentication/login/login_bloc.dart';
 import '../../../di/dependency_injection.dart';
+import '../../../domain/authentication/failures/authentication_failure.dart';
 import '../../common/routes/app_routes.gr.dart';
+import '../../common/utils/flushbar_utils.dart';
 
-class LoginBlocWrapper extends StatelessWidget {
+class AuthenFormBlocWrapper<B extends Bloc> extends StatelessWidget {
   final Widget child;
 
-  const LoginBlocWrapper({
+  const AuthenFormBlocWrapper({
     Key? key,
     required this.child,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<LoginBloc>(
-      create: (context) => getIt<LoginBloc>(),
-      child: _LoginBlocPage(child: child),
+    return BlocProvider(
+      create: (context) => getIt<B>(),
+      child: _AuthenFormBlocPage<B>(child: child),
     );
   }
 }
 
-class _LoginBlocPage extends StatelessWidget {
+class _AuthenFormBlocPage<B extends Bloc> extends StatelessWidget {
   final Widget child;
 
-  const _LoginBlocPage({
+  const _AuthenFormBlocPage({
     Key? key,
     required this.child,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginBloc, LoginState>(
+    return BlocListener<B, dynamic>(
       listener: (context, state) {
         state.authFailureOrSuccessOption.fold(
           () {},
           (either) => either.fold(
             // TODO add translation
-            (failure) => FlushbarHelper.createError(
-              message: failure.maybeMap(
+            (AuthenticationFailure failure) => FlushBarUtils.createError(
+              message: failure.map(
                 wrongEmailOrPassword: (_) => 'Wrong email or password',
                 wrongPhoneNumberOrPassword: (_) =>
                     'Wrong phone number or password',
                 noConnection: (_) => 'No internet connection',
                 serverError: (_) => 'Server error',
-                orElse: () => '',
+                alreadySignedOut: (_) => 'Already signed out',
+                emailAlreadyTaken: (_) => 'Email is already taken',
+                phoneNumberAlreadyTaken: (_) => 'Phone number is already taken',
               ),
-              duration: const Duration(seconds: 30,),
+              duration: const Duration(
+                seconds: 30,
+              ),
             ).show(context),
 
             (succeed) {

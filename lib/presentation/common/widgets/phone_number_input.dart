@@ -1,5 +1,9 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:twemoji/twemoji.dart';
 
+import '../../../application/authentication/login/login_bloc.dart';
+import '../../../application/authentication/sign_up/sign_up_bloc.dart';
+import '../../../domain/authentication/failures/phone_number_failure.dart';
 import '../../../domain/common/constants/countries.dart';
 import '../../../domain/common/models/country.dart';
 import '../../common.dart';
@@ -24,6 +28,40 @@ class PhoneNumberInput extends StatefulWidget {
 
   @override
   _PhoneNumberInputState createState() => _PhoneNumberInputState();
+
+  factory PhoneNumberInput.withLoginBloc({
+    required BuildContext context,
+    isEnabled = true,
+  }) =>
+      PhoneNumberInput(
+        isEnabled: isEnabled,
+        onChanged: (country, number) => context
+            .read<LoginBloc>()
+            .add(LoginEvent.phoneNumberChanged(country, number)),
+        // TODO add translation
+        validator: (_) =>
+            context.watch<LoginBloc>().state.phoneNumber.value.fold(
+                  (f) => f.toMsg(),
+                  (_) => null,
+                ),
+      );
+
+  factory PhoneNumberInput.withSignUpBloc({
+    required BuildContext context,
+    isEnabled = true,
+  }) =>
+      PhoneNumberInput(
+        isEnabled: isEnabled,
+        onChanged: (country, number) => context
+            .read<SignUpBloc>()
+            .add(SignUpEvent.phoneNumberChanged(country, number)),
+        // TODO add translation
+        validator: (_) =>
+            context.watch<SignUpBloc>().state.phoneNumber.value.fold(
+                  (f) => f.toMsg(),
+                  (_) => null,
+                ),
+      );
 }
 
 class _PhoneNumberInputState extends State<PhoneNumberInput> {
@@ -111,4 +149,12 @@ class _PhoneNumberInputState extends State<PhoneNumberInput> {
       ],
     );
   }
+}
+
+extension PhoneNumberFailureX on PhoneNumberFailure {
+  String toMsg() => map(
+        emptyValue: (_) => 'Empty value',
+        invalidPhoneNumber: (_) => 'Invalid phone number',
+        invalidCountryCode: (_) => 'Invalid phone number',
+      );
 }

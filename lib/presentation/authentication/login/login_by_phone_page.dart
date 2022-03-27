@@ -2,9 +2,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/authentication/login/login_bloc.dart';
 import '../../common.dart';
+import '../../common/widgets/phone_number_input.dart';
+import '../widgets/authen_bloc_wrapper.dart';
 import '../widgets/authen_scaffold.dart';
 import '../widgets/authenticate_by_phone_form.dart';
-import '../widgets/login_bloc_wrapper.dart';
+import '../widgets/password_input.dart';
 import 'widgets/login_button.dart';
 import 'widgets/login_option_button_group.dart';
 import 'widgets/signup_hint.dart';
@@ -14,7 +16,7 @@ class LoginByPhonePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const LoginBlocWrapper(child: _LoginByPhonePage());
+    return const AuthenFormBlocWrapper<LoginBloc>(child: _LoginByPhonePage());
   }
 }
 
@@ -29,7 +31,17 @@ class _LoginByPhonePage extends StatelessWidget {
         return AuthenScaffold(
           isLoading: state.isLoading,
           title: context.l10n.loginButtonText,
-          form: const AuthenticateByPhoneNumberForm(),
+          form: AuthenticateByPhoneNumberForm(
+            showError: state.showError,
+            phoneNumberInput: PhoneNumberInput.withLoginBloc(
+              context: context,
+              isEnabled: !state.isLoading,
+            ),
+            passwordInput: PasswordInput.withLoginBloc(
+              context: context,
+              isEnabled: !state.isLoading,
+            ),
+          ),
           submitButton: LoginButton(
             isDisabled: state.isLoading,
             onPressed: () => context

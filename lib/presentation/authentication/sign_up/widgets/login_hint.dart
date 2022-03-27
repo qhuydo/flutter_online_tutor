@@ -4,7 +4,12 @@ import '../../../common.dart';
 import '../../../common/routes/app_routes.gr.dart';
 
 class LoginHint extends StatelessWidget {
-  const LoginHint({Key? key}) : super(key: key);
+  final bool isDisabled;
+
+  const LoginHint({
+    Key? key,
+    this.isDisabled = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +18,11 @@ class LoginHint extends StatelessWidget {
       children: [
         Text(context.l10n.loginHint),
         TextButton(
-            onPressed: () {
-              context.router.replace(const LoginRoute());
-            },
+            onPressed: isDisabled
+                ? null
+                : () {
+                    context.router.replace(const LoginRoute());
+                  },
             child: Text(context.l10n.loginButtonText))
       ],
     );

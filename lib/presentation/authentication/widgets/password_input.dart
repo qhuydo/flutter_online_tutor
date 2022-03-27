@@ -1,5 +1,9 @@
 import 'package:flutter/gestures.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/authentication/login/login_bloc.dart';
+import '../../../application/authentication/sign_up/sign_up_bloc.dart';
+import '../../../domain/authentication/failures/password_failure.dart';
 import '../../common.dart';
 
 class PasswordInput extends StatefulWidget {
@@ -20,6 +24,37 @@ class PasswordInput extends StatefulWidget {
 
   @override
   State<PasswordInput> createState() => _PasswordInputState();
+
+  factory PasswordInput.withLoginBloc({
+    required BuildContext context,
+    isEnabled = true,
+  }) =>
+      PasswordInput(
+        isEnabled: isEnabled,
+        onChanged: (value) =>
+            context.read<LoginBloc>().add(LoginEvent.passwordChanged(value)),
+        // TODO add translation
+        validator: (_) => context.watch<LoginBloc>().state.password.value.fold(
+              (f) => f.toMsg(),
+              (_) => null,
+            ),
+      );
+
+  factory PasswordInput.withSignUpBloc({
+    required BuildContext context,
+    isEnabled = true,
+  }) =>
+      PasswordInput(
+        isEnabled: isEnabled,
+        onChanged: (value) => context.read<SignUpBloc>().add(
+              SignUpEvent.passwordChanged(value),
+            ),
+        // TODO add translation
+        validator: (_) => context.watch<SignUpBloc>().state.password.value.fold(
+              (f) => f.toMsg(),
+              (_) => null,
+            ),
+      );
 }
 
 class _PasswordInputState extends State<PasswordInput> {
@@ -55,4 +90,11 @@ class _PasswordInputState extends State<PasswordInput> {
       enabled: widget.isEnabled,
     );
   }
+}
+
+extension PasswordFailureX on PasswordFailure {
+  String toMsg() => map(
+        shortPassword: (_) => 'Short password',
+        emptyPassword: (_) => 'Please enter your password',
+      );
 }
