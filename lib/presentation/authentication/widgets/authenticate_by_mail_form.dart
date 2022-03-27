@@ -11,6 +11,9 @@ class AuthenticateByMailForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LoginBloc, LoginState>(
+      buildWhen: (previous, current) =>
+          previous.showError != current.showError ||
+          previous.isLoading != current.isLoading,
       builder: (context, state) {
         return Form(
           autovalidateMode: state.showError
@@ -19,32 +22,35 @@ class AuthenticateByMailForm extends StatelessWidget {
           child: Column(
             children: [
               EmailInput(
+                isEnabled: !state.isLoading,
                 onChanged: (value) => context
                     .read<LoginBloc>()
                     .add(LoginEvent.emailChanged(value)),
                 validator: (_) =>
                     // TODO add translation
-                    state.emailAddress.value.fold(
-                  (f) => f.map(
-                    invalidEmail: (_) => 'Invalid email',
-                    empty: (_) => 'Please enter your email',
-                  ),
-                  (_) => null,
-                ),
+                    context.watch<LoginBloc>().state.emailAddress.value.fold(
+                          (f) => f.map(
+                            invalidEmail: (_) => 'Invalid email',
+                            empty: (_) => 'Please enter your email',
+                          ),
+                          (_) => null,
+                        ),
               ),
               const SizedBox(height: 16),
               PasswordInput(
+                isEnabled: !state.isLoading,
                 onChanged: (value) => context
                     .read<LoginBloc>()
                     .add(LoginEvent.passwordChanged(value)),
                 // TODO add translation
-                validator: (_) => state.password.value.fold(
-                  (f) => f.map(
-                    shortPassword: (_) => 'Short password',
-                    emptyPassword: (_) => 'Please enter your password',
-                  ),
-                  (_) => null,
-                ),
+                validator: (_) =>
+                    context.watch<LoginBloc>().state.password.value.fold(
+                          (f) => f.map(
+                            shortPassword: (_) => 'Short password',
+                            emptyPassword: (_) => 'Please enter your password',
+                          ),
+                          (_) => null,
+                        ),
               ),
             ],
           ),

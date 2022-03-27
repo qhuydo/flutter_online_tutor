@@ -4,14 +4,21 @@ import '../../common.dart';
 import '../../common/routes/app_routes.gr.dart';
 
 class ForgotPasswordButton extends StatelessWidget {
-  const ForgotPasswordButton({Key? key}) : super(key: key);
+  final bool isDisabled;
+
+  const ForgotPasswordButton({
+    Key? key,
+    this.isDisabled = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {
-        context.router.push(const ResetPasswordRoute());
-      },
+      onPressed: isDisabled
+          ? null
+          : () {
+              context.router.push(const ResetPasswordRoute());
+            },
       child: Text(context.l10n.forgotPasswordButtonLabel),
     );
   }

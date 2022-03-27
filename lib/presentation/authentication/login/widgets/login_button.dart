@@ -5,7 +5,12 @@ class LoginButton extends SubmitButton {
   const LoginButton({
     Key? key,
     VoidCallback? onPressed,
-  }) : super(key: key, onPressed: onPressed);
+    isDisabled = false,
+  }) : super(
+          key: key,
+          onPressed: onPressed,
+          isDisabled: isDisabled,
+        );
 
   @override
   String getText(BuildContext context) {

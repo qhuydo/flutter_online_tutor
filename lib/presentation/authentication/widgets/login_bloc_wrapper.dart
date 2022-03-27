@@ -8,10 +8,10 @@ import '../../../application/authentication/login/login_bloc.dart';
 import '../../../di/dependency_injection.dart';
 import '../../common/routes/app_routes.gr.dart';
 
-class LoginBlocPage extends StatelessWidget {
+class LoginBlocWrapper extends StatelessWidget {
   final Widget child;
 
-  const LoginBlocPage({
+  const LoginBlocWrapper({
     Key? key,
     required this.child,
   }) : super(key: key);

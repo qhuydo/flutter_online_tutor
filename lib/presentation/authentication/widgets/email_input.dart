@@ -3,11 +3,13 @@ import '../../common.dart';
 class EmailInput extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final FormFieldValidator<String>? validator;
+  final bool isEnabled;
 
   const EmailInput({
     Key? key,
     this.onChanged,
     this.validator,
+    this.isEnabled = true,
   }) : super(key: key);
 
   @override
@@ -19,6 +21,7 @@ class EmailInput extends StatelessWidget {
         hintText: context.l10n.emailTextBoxHint,
         border: const OutlineInputBorder(),
       ),
+      enabled: isEnabled,
       onChanged: onChanged,
       validator: validator,
     );

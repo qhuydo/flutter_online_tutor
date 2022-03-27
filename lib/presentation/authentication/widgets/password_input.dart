@@ -7,6 +7,7 @@ class PasswordInput extends StatefulWidget {
   final String? hintText;
   final ValueChanged<String>? onChanged;
   final FormFieldValidator<String>? validator;
+  final bool isEnabled;
 
   const PasswordInput({
     Key? key,
@@ -14,6 +15,7 @@ class PasswordInput extends StatefulWidget {
     this.hintText,
     this.onChanged,
     this.validator,
+    this.isEnabled = true,
   }) : super(key: key);
 
   @override
@@ -50,6 +52,7 @@ class _PasswordInputState extends State<PasswordInput> {
       ),
       onChanged: widget.onChanged,
       validator: widget.validator,
+      enabled: widget.isEnabled,
     );
   }
 }

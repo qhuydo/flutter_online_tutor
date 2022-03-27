@@ -48,10 +48,14 @@ class AuthenScaffold extends StatelessWidget {
               const SizedBox(height: 16),
               form,
               const SizedBox(height: 8),
-              if (shouldShowForgotPasswordButton) const ForgotPasswordButton(),
+              if (shouldShowForgotPasswordButton)
+                ForgotPasswordButton(isDisabled: isLoading),
               const SizedBox(height: 8),
               submitButton,
-              if (isLoading) const LinearProgressIndicator(),
+              if (isLoading) ...[
+                const SizedBox(height: 16),
+                const LinearProgressIndicator(),
+              ],
               const SizedBox(height: 24),
               if (otherAuthenticateOptions != null) ...[
                 TextDivider(text: context.l10n.or.toUpperCase()),
@@ -60,13 +64,6 @@ class AuthenScaffold extends StatelessWidget {
                 const SizedBox(height: 8),
               ],
               if (otherOptions != null) otherOptions!
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              //   children: [
-              //     const Text('Not a member yet?'),
-              //     TextButton(onPressed: () {}, child: const Text('Sign up'))
-              //   ],
-              // )
             ],
           ),
         ),

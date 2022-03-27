@@ -2,22 +2,24 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 
-import '../../../common/widgets/social_icon.dart';
 import '../../../common/routes/app_routes.gr.dart';
+import '../../../common/widgets/social_icon.dart';
 
 class LoginOptionButtonGroup extends StatelessWidget {
   final bool hasFacebookOption;
   final bool hasGoogleOption;
   final bool hasPhoneOption;
   final bool hasMailOption;
+  final bool isDisabled;
 
-  const LoginOptionButtonGroup(
-      {Key? key,
-      this.hasFacebookOption = true,
-      this.hasGoogleOption = true,
-      this.hasPhoneOption = true,
-      this.hasMailOption = false})
-      : super(key: key);
+  const LoginOptionButtonGroup({
+    Key? key,
+    this.hasFacebookOption = true,
+    this.hasGoogleOption = true,
+    this.hasPhoneOption = true,
+    this.hasMailOption = false,
+    this.isDisabled = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,19 +31,21 @@ class LoginOptionButtonGroup extends StatelessWidget {
           if (hasFacebookOption)
             SocialIcon(
               icon: const Left('assets/icons/fb.svg'),
-              onPressed: () {},
+              onPressed: isDisabled ? null : () {},
             ),
           if (hasGoogleOption)
             SocialIcon(
               icon: const Left('assets/icons/google.svg'),
-              onPressed: () {},
+              onPressed: isDisabled ? null : () {},
             ),
           if (hasPhoneOption)
             SocialIcon(
               icon: const Left('assets/icons/phone.svg'),
-              onPressed: () {
-                context.router.replace(const LoginByPhoneRoute());
-              },
+              onPressed: isDisabled
+                  ? null
+                  : () {
+                      context.router.replace(const LoginByPhoneRoute());
+                    },
             ),
           if (hasMailOption)
             SocialIcon(
@@ -49,9 +53,11 @@ class LoginOptionButtonGroup extends StatelessWidget {
                 Icons.email_outlined,
                 size: 32,
               )),
-              onPressed: () {
-                context.router.replace(const LoginRoute());
-              },
+              onPressed: isDisabled
+                  ? null
+                  : () {
+                      context.router.replace(const LoginRoute());
+                    },
             )
         ],
       ),

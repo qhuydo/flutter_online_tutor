@@ -45,9 +45,12 @@ class MockAuthenticationService implements AuthenticationService {
     try {
       final req = await FixtureLoader.loginRequest;
 
+      await Future.delayed(const Duration(seconds: 3));
+
       if (req['email'] == emailValue && req['password'] == passwordValue) {
         final res = await FixtureLoader.loginResponse;
         final authDto = AuthenticationDto.fromJson(res);
+
         await _saveAuthData(authDto);
 
         return right(unit);
@@ -69,10 +72,12 @@ class MockAuthenticationService implements AuthenticationService {
 
     try {
       final req = await FixtureLoader.loginByPhoneRequest;
+      await Future.delayed(const Duration(seconds: 3));
 
       if (req['phone'] == phoneValue && req['password'] == passwordValue) {
         final res = await FixtureLoader.loginResponse;
         final authDto = AuthenticationDto.fromJson(res);
+
         await _saveAuthData(authDto);
         return right(unit);
       }
