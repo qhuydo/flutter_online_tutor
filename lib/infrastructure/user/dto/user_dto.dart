@@ -1,5 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../domain/authentication/value_objects/email_address.dart';
+import '../../../domain/common/value_objects/id.dart';
+import '../../../domain/user/models/user.dart';
 import '../../course/dto/course_dto.dart';
 import '../../wallet/dto/wallet_dto.dart';
 import 'learning_topic_dto.dart';
@@ -31,4 +34,15 @@ class UserDto with _$UserDto {
 
   factory UserDto.fromJson(Map<String, dynamic> json) =>
       _$UserDtoFromJson(json);
+}
+
+extension UserDtoX on UserDto {
+  User toDomain() {
+    return User(
+      id: Id.fromString(id),
+      emailAddress: EmailAddress(email),
+      name: name,
+      avatar: avatar,
+    );
+  }
 }

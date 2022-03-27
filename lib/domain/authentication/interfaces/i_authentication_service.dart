@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 
+import '../../user/models/user.dart';
 import '../failures/authentication_failure.dart';
 import '../value_objects/email_address.dart';
 import '../value_objects/password.dart';
@@ -19,4 +20,6 @@ abstract class AuthenticationService {
   Future<bool> isSignedIn();
 
   Future<Either<AuthenticationFailure, Unit>> signOut();
+
+  Future<Option<User>> getSignedInUser();
 }

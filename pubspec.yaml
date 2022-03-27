@@ -117,6 +117,10 @@ dependencies:
   hive: ^2.0.6
   hive_flutter: ^1.1.0
 
+  # Simple, fast generation of RFC4122 UUIDs.
+  # (c) MIT License. By Yulian Kuncheff.
+  uuid: ^3.0.6
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

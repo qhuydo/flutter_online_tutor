@@ -9,8 +9,10 @@ import '../../../domain/authentication/interfaces/i_authentication_service.dart'
 import '../../../domain/authentication/value_objects/email_address.dart';
 import '../../../domain/authentication/value_objects/password.dart';
 import '../../../domain/authentication/value_objects/phone_number.dart';
+import '../../../domain/user/models/user.dart';
 import '../../../presentation/common.dart';
 import '../../common/db/fixture_loader.dart';
+import '../../user/dto/user_dto.dart';
 import '../dto/authentication_dto.dart';
 
 @LazySingleton(as: AuthenticationService)
@@ -97,5 +99,12 @@ class MockAuthenticationService implements AuthenticationService {
   Future<Either<AuthenticationFailure, Unit>> signOut() async {
     await _box.clear();
     return right(unit);
+  }
+
+  @override
+  Future<Option<User>> getSignedInUser() async {
+    final userStr = await _box.get(_keyUser);
+    final userDto = userStr != null ? jsonDecode(userStr) as UserDto : null;
+    return optionOf(userDto?.toDomain());
   }
 }
