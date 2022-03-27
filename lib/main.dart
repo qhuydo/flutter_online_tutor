@@ -11,7 +11,7 @@ import 'di/dependency_injection.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
-  await configureInjection(Environment.dev);
+  await configureInjection(Environment.prod);
   if (Platform.isLinux || Platform.isMacOS || Platform.isWindows) {
     setWindowMinSize(const Size(600, 750));
   }

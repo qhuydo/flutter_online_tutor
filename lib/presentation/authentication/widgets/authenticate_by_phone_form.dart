@@ -18,9 +18,7 @@ class AuthenticateByPhoneNumberForm extends StatelessWidget {
         //   ),
         // ),
         PhoneNumberInput(),
-        SizedBox(
-          height: 16,
-        ),
+        SizedBox(height: 16),
         PasswordInput()
       ],
     );

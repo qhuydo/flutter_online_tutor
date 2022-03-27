@@ -9,6 +9,7 @@ class AuthenScaffold extends StatelessWidget {
   final Widget? otherOptions;
   final String title;
   final bool shouldShowForgotPasswordButton;
+  final bool isLoading;
 
   const AuthenScaffold({
     Key? key,
@@ -18,6 +19,7 @@ class AuthenScaffold extends StatelessWidget {
     this.otherAuthenticateOptions,
     this.otherOptions,
     this.shouldShowForgotPasswordButton = true,
+    this.isLoading = false,
   }) : super(key: key);
 
   @override
@@ -43,32 +45,19 @@ class AuthenScaffold extends StatelessWidget {
                   fit: BoxFit.fitWidth,
                 ),
               ),
-              const SizedBox(
-                height: 16,
-              ),
+              const SizedBox(height: 16),
               form,
-              const SizedBox(
-                height: 8,
-              ),
+              const SizedBox(height: 8),
               if (shouldShowForgotPasswordButton) const ForgotPasswordButton(),
-              const SizedBox(
-                height: 8,
-              ),
+              const SizedBox(height: 8),
               submitButton,
-              const SizedBox(
-                height: 24,
-              ),
+              if (isLoading) const LinearProgressIndicator(),
+              const SizedBox(height: 24),
               if (otherAuthenticateOptions != null) ...[
-                TextDivider(
-                  text: context.l10n.or.toUpperCase(),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
+                TextDivider(text: context.l10n.or.toUpperCase()),
+                const SizedBox(height: 16),
                 otherAuthenticateOptions!,
-                const SizedBox(
-                  height: 8,
-                ),
+                const SizedBox(height: 8),
               ],
               if (otherOptions != null) otherOptions!
               // Row(

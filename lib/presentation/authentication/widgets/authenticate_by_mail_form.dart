@@ -11,19 +11,41 @@ class AuthenticateByMailForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LoginBloc, LoginState>(
-      buildWhen: (previous, current) => previous.showError != current.showError,
       builder: (context, state) {
         return Form(
           autovalidateMode: state.showError
               ? AutovalidateMode.always
               : AutovalidateMode.disabled,
           child: Column(
-            children: const [
-              EmailInput(),
-              SizedBox(
-                height: 16,
+            children: [
+              EmailInput(
+                onChanged: (value) => context
+                    .read<LoginBloc>()
+                    .add(LoginEvent.emailChanged(value)),
+                validator: (_) =>
+                    // TODO add translation
+                    state.emailAddress.value.fold(
+                  (f) => f.map(
+                    invalidEmail: (_) => 'Invalid email',
+                    empty: (_) => 'Please enter your email',
+                  ),
+                  (_) => null,
+                ),
               ),
-              PasswordInput()
+              const SizedBox(height: 16),
+              PasswordInput(
+                onChanged: (value) => context
+                    .read<LoginBloc>()
+                    .add(LoginEvent.passwordChanged(value)),
+                // TODO add translation
+                validator: (_) => state.password.value.fold(
+                  (f) => f.map(
+                    shortPassword: (_) => 'Short password',
+                    emptyPassword: (_) => 'Please enter your password',
+                  ),
+                  (_) => null,
+                ),
+              ),
             ],
           ),
         );

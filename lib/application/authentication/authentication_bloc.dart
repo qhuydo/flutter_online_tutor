@@ -29,6 +29,7 @@ class AuthenticationBloc
 
   Future _onAuthCheckRequested(Emitter<AuthenticationState> emit) async {
     final userOption = await authService.getSignedInUser();
+    await Future.delayed(const Duration(seconds: 1));
     userOption.fold(
       () => emit(const AuthenticationState.unauthenticated()),
       (user) => emit(AuthenticationState.authenticated(user)),

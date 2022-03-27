@@ -1,17 +1,19 @@
 import 'package:flutter/gestures.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/authentication/login/login_bloc.dart';
 import '../../common.dart';
 
 class PasswordInput extends StatefulWidget {
   final String? labelText;
   final String? hintText;
+  final ValueChanged<String>? onChanged;
+  final FormFieldValidator<String>? validator;
 
   const PasswordInput({
     Key? key,
     this.labelText,
     this.hintText,
+    this.onChanged,
+    this.validator,
   }) : super(key: key);
 
   @override
@@ -46,16 +48,8 @@ class _PasswordInputState extends State<PasswordInput> {
           ),
         ),
       ),
-      onChanged: (value) =>
-          context.read<LoginBloc>().add(LoginEvent.passwordChanged(value)),
-      // TODO add translation
-      validator: (_) => context.watch<LoginBloc>().state.password.value.fold(
-            (f) => f.map(
-              shortPassword: (_) => 'Short password',
-              emptyPassword: (_) => 'Please enter your password',
-            ),
-            (_) => null,
-          ),
+      onChanged: widget.onChanged,
+      validator: widget.validator,
     );
   }
 }
