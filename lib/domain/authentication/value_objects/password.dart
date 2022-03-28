@@ -18,7 +18,7 @@ class Password extends ValueObject<PasswordFailure, String> {
   @override
   Either<PasswordFailure, String> get value => passwordOrFailure;
 
-  static const _minimumPasswordLength = 8;
+  static const _minimumPasswordLength = 6;
 
   static Either<PasswordFailure, String> validatePassword(String input) {
     if (input.isEmpty) return left(const PasswordFailure.emptyPassword());

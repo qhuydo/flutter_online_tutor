@@ -12,7 +12,7 @@
 
 import 'package:auto_route/auto_route.dart' as _i2;
 import 'package:flutter/material.dart' as _i3;
-import 'package:flutter_online_tutor/presentation/common.dart' as _i4;
+import 'package:flutter/widgets.dart' as _i4;
 import 'package:flutter_online_tutor/presentation/pages.dart' as _i1;
 
 class AppRouter extends _i2.RootStackRouter {
