@@ -50,7 +50,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => _i6.SharedPreferenceStorageImpl());
   await gh.factoryAsync<_i7.SharedPreferences>(() => appInjectableModule.prefs,
       preResolve: true);
-  gh.lazySingleton<_i8.UserRepository>(() => _i9.MockUserRepository());
+  gh.lazySingleton<_i8.UserRepository>(() =>
+      _i9.MockUserRepository(get<_i5.Box<String>>(instanceName: 'mockSecret')));
   gh.factory<_i10.AppCubit>(
       () => _i10.AppCubit(appRepository: get<_i3.AppRepository>()));
   gh.lazySingleton<_i11.AuthenticationService>(() =>

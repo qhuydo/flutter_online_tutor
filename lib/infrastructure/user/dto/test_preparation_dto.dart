@@ -20,6 +20,13 @@ class TestPreparationDto with _$TestPreparationDto {
       _$TestPreparationDtoFromJson(json);
 
   TestPreparation toDomain() => TestPreparation(id: id, key: key, name: name);
+
+  factory TestPreparationDto.fromDomain(TestPreparation testPreparation) =>
+      TestPreparationDto(
+        id: testPreparation.id,
+        key: testPreparation.key,
+        name: testPreparation.name,
+      );
 }
 
 

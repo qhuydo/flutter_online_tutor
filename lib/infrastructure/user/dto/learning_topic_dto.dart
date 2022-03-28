@@ -20,4 +20,11 @@ class LearningTopicDto with _$LearningTopicDto {
       _$LearningTopicDtoFromJson(json);
 
   LearnTopic toDomain() => LearnTopic(id: id, key: key, name: name);
+
+  factory LearningTopicDto.fromDomain(LearnTopic learnTopic) =>
+      LearningTopicDto(
+        id: learnTopic.id,
+        key: learnTopic.key,
+        name: learnTopic.name,
+      );
 }

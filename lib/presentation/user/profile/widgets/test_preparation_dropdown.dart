@@ -2,11 +2,11 @@ import 'package:multi_select_flutter/multi_select_flutter.dart';
 
 import '../../../common.dart';
 
-class TestPreparation {
+class TestPreparation2 {
   final int id;
   final String name;
 
-  TestPreparation({
+  TestPreparation2({
     required this.id,
     required this.name,
   });
@@ -21,29 +21,29 @@ class TestPreparationDropdown extends StatefulWidget {
 }
 
 class _TestPreparationDropdownState extends State<TestPreparationDropdown> {
-  static final List<TestPreparation> _testPreparations = [
-    TestPreparation(id: 1, name: 'STARTERS'),
-    TestPreparation(id: 2, name: 'MOVERS'),
-    TestPreparation(id: 3, name: 'FLYERS'),
-    TestPreparation(id: 4, name: 'KET'),
-    TestPreparation(id: 5, name: 'PET'),
-    TestPreparation(id: 6, name: 'IELTS'),
-    TestPreparation(id: 7, name: 'TOEFL'),
-    TestPreparation(id: 8, name: 'TOEIC'),
+  static final List<TestPreparation2> _testPreparations = [
+    TestPreparation2(id: 1, name: 'STARTERS'),
+    TestPreparation2(id: 2, name: 'MOVERS'),
+    TestPreparation2(id: 3, name: 'FLYERS'),
+    TestPreparation2(id: 4, name: 'KET'),
+    TestPreparation2(id: 5, name: 'PET'),
+    TestPreparation2(id: 6, name: 'IELTS'),
+    TestPreparation2(id: 7, name: 'TOEFL'),
+    TestPreparation2(id: 8, name: 'TOEIC'),
   ];
 
   final _items = _testPreparations
-      .map((testPreparation) => MultiSelectItem<TestPreparation>(
+      .map((testPreparation) => MultiSelectItem<TestPreparation2>(
           testPreparation, testPreparation.name))
       .toList();
 
-  List<TestPreparation>? _selectedTestPreparations;
+  List<TestPreparation2>? _selectedTestPreparations;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        MultiSelectBottomSheetField<TestPreparation?>(
+        MultiSelectBottomSheetField<TestPreparation2?>(
           decoration: const BoxDecoration(
             shape: BoxShape.rectangle,
             borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -61,7 +61,7 @@ class _TestPreparationDropdownState extends State<TestPreparationDropdown> {
           items: _items,
           onConfirm: (values) {
             setState(() {
-              _selectedTestPreparations = values.cast<TestPreparation>();
+              _selectedTestPreparations = values.cast<TestPreparation2>();
             });
           },
           chipDisplay: MultiSelectChipDisplay(

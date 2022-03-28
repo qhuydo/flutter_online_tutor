@@ -2,9 +2,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/authentication/value_objects/email_address.dart';
 import '../../../domain/authentication/value_objects/phone_number.dart';
+import '../../../domain/common/constants/countries.dart';
 import '../../../domain/common/value_objects/id.dart';
 import '../../../domain/user/models/user.dart';
 import '../../../domain/user/value_objects/birthday.dart';
+import '../../../domain/user/value_objects/name.dart';
 import '../../course/dto/course_dto.dart';
 import '../../wallet/dto/wallet_dto.dart';
 import '../utils/level_extension.dart';
@@ -46,7 +48,8 @@ extension UserDtoX on UserDto {
       id: Id.fromString(id),
       birthday: BirthDay(birthday != null ? DateTime.parse(birthday!) : null),
       emailAddress: EmailAddress(email),
-      name: name,
+      name: Name(name),
+      country: countryMap[country],
       avatar: avatar,
       phoneNumber: phone?.isNotEmpty == true ? PhoneNumber(phone!) : null,
       level: level.toLevel(),

@@ -256,7 +256,7 @@ class MockAuthenticationService implements AuthenticationService {
     try {
       final user = userOption.getOrElse(() => throw NoValueError(userOption));
       final email = user.emailAddress.valueOrNull();
-      final phone = user.phoneNumber.fold(() => null, (a) => a.valueOrNull());
+      final phone = user.phoneNumber;
 
       final oldRealPassword = _cacheBox.get(email) ?? _cacheBox.get(phone);
 

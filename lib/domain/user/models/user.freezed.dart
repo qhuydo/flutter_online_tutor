@@ -21,10 +21,11 @@ class _$UserTearOff {
   _User call(
       {required Id id,
       required EmailAddress emailAddress,
-      required String name,
+      required Name name,
       PhoneNumber? phoneNumber,
       String? avatar,
       BirthDay? birthday,
+      Country? country,
       Level level = Level.none,
       List<LearnTopic> learningTopics = const [],
       List<TestPreparation> testPreparationTopics = const []}) {
@@ -35,6 +36,7 @@ class _$UserTearOff {
       phoneNumber: phoneNumber,
       avatar: avatar,
       birthday: birthday,
+      country: country,
       level: level,
       learningTopics: learningTopics,
       testPreparationTopics: testPreparationTopics,
@@ -49,10 +51,11 @@ const $User = _$UserTearOff();
 mixin _$User {
   Id get id => throw _privateConstructorUsedError;
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  Name get name => throw _privateConstructorUsedError;
   PhoneNumber? get phoneNumber => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   BirthDay? get birthday => throw _privateConstructorUsedError;
+  Country? get country => throw _privateConstructorUsedError;
   Level get level => throw _privateConstructorUsedError;
   List<LearnTopic> get learningTopics => throw _privateConstructorUsedError;
   List<TestPreparation> get testPreparationTopics =>
@@ -69,13 +72,16 @@ abstract class $UserCopyWith<$Res> {
   $Res call(
       {Id id,
       EmailAddress emailAddress,
-      String name,
+      Name name,
       PhoneNumber? phoneNumber,
       String? avatar,
       BirthDay? birthday,
+      Country? country,
       Level level,
       List<LearnTopic> learningTopics,
       List<TestPreparation> testPreparationTopics});
+
+  $CountryCopyWith<$Res>? get country;
 }
 
 /// @nodoc
@@ -94,6 +100,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
     Object? phoneNumber = freezed,
     Object? avatar = freezed,
     Object? birthday = freezed,
+    Object? country = freezed,
     Object? level = freezed,
     Object? learningTopics = freezed,
     Object? testPreparationTopics = freezed,
@@ -110,7 +117,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Name,
       phoneNumber: phoneNumber == freezed
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
@@ -123,6 +130,10 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
               as BirthDay?,
+      country: country == freezed
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as Country?,
       level: level == freezed
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
@@ -137,6 +148,17 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
               as List<TestPreparation>,
     ));
   }
+
+  @override
+  $CountryCopyWith<$Res>? get country {
+    if (_value.country == null) {
+      return null;
+    }
+
+    return $CountryCopyWith<$Res>(_value.country!, (value) {
+      return _then(_value.copyWith(country: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -147,13 +169,17 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   $Res call(
       {Id id,
       EmailAddress emailAddress,
-      String name,
+      Name name,
       PhoneNumber? phoneNumber,
       String? avatar,
       BirthDay? birthday,
+      Country? country,
       Level level,
       List<LearnTopic> learningTopics,
       List<TestPreparation> testPreparationTopics});
+
+  @override
+  $CountryCopyWith<$Res>? get country;
 }
 
 /// @nodoc
@@ -173,6 +199,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     Object? phoneNumber = freezed,
     Object? avatar = freezed,
     Object? birthday = freezed,
+    Object? country = freezed,
     Object? level = freezed,
     Object? learningTopics = freezed,
     Object? testPreparationTopics = freezed,
@@ -189,7 +216,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Name,
       phoneNumber: phoneNumber == freezed
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
@@ -202,6 +229,10 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
               as BirthDay?,
+      country: country == freezed
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as Country?,
       level: level == freezed
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
@@ -228,6 +259,7 @@ class _$_User implements _User {
       this.phoneNumber,
       this.avatar,
       this.birthday,
+      this.country,
       this.level = Level.none,
       this.learningTopics = const [],
       this.testPreparationTopics = const []});
@@ -237,13 +269,15 @@ class _$_User implements _User {
   @override
   final EmailAddress emailAddress;
   @override
-  final String name;
+  final Name name;
   @override
   final PhoneNumber? phoneNumber;
   @override
   final String? avatar;
   @override
   final BirthDay? birthday;
+  @override
+  final Country? country;
   @JsonKey()
   @override
   final Level level;
@@ -256,7 +290,7 @@ class _$_User implements _User {
 
   @override
   String toString() {
-    return 'User(id: $id, emailAddress: $emailAddress, name: $name, phoneNumber: $phoneNumber, avatar: $avatar, birthday: $birthday, level: $level, learningTopics: $learningTopics, testPreparationTopics: $testPreparationTopics)';
+    return 'User(id: $id, emailAddress: $emailAddress, name: $name, phoneNumber: $phoneNumber, avatar: $avatar, birthday: $birthday, country: $country, level: $level, learningTopics: $learningTopics, testPreparationTopics: $testPreparationTopics)';
   }
 
   @override
@@ -272,6 +306,7 @@ class _$_User implements _User {
                 .equals(other.phoneNumber, phoneNumber) &&
             const DeepCollectionEquality().equals(other.avatar, avatar) &&
             const DeepCollectionEquality().equals(other.birthday, birthday) &&
+            const DeepCollectionEquality().equals(other.country, country) &&
             const DeepCollectionEquality().equals(other.level, level) &&
             const DeepCollectionEquality()
                 .equals(other.learningTopics, learningTopics) &&
@@ -288,6 +323,7 @@ class _$_User implements _User {
       const DeepCollectionEquality().hash(phoneNumber),
       const DeepCollectionEquality().hash(avatar),
       const DeepCollectionEquality().hash(birthday),
+      const DeepCollectionEquality().hash(country),
       const DeepCollectionEquality().hash(level),
       const DeepCollectionEquality().hash(learningTopics),
       const DeepCollectionEquality().hash(testPreparationTopics));
@@ -302,10 +338,11 @@ abstract class _User implements User {
   const factory _User(
       {required Id id,
       required EmailAddress emailAddress,
-      required String name,
+      required Name name,
       PhoneNumber? phoneNumber,
       String? avatar,
       BirthDay? birthday,
+      Country? country,
       Level level,
       List<LearnTopic> learningTopics,
       List<TestPreparation> testPreparationTopics}) = _$_User;
@@ -315,13 +352,15 @@ abstract class _User implements User {
   @override
   EmailAddress get emailAddress;
   @override
-  String get name;
+  Name get name;
   @override
   PhoneNumber? get phoneNumber;
   @override
   String? get avatar;
   @override
   BirthDay? get birthday;
+  @override
+  Country? get country;
   @override
   Level get level;
   @override
