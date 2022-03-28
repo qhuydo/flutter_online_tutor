@@ -243,6 +243,8 @@ class MockAuthenticationService implements AuthenticationService {
     required Password oldPassword,
     required Password newPassword,
   }) async {
+    await _delay();
+
     if (!(await isSignedIn())) {
       return left(const AuthenticationFailure.unauthorized());
     }
