@@ -1,6 +1,8 @@
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/authentication/value_objects/email_address.dart';
+import '../../../domain/authentication/value_objects/phone_number.dart';
 import '../../../domain/common/value_objects/id.dart';
 import '../../../domain/user/models/user.dart';
 import '../../course/dto/course_dto.dart';
@@ -39,10 +41,11 @@ class UserDto with _$UserDto {
 extension UserDtoX on UserDto {
   User toDomain() {
     return User(
-      id: Id.fromString(id),
+      id: Id.fromString(this.id),
       emailAddress: EmailAddress(email),
       name: name,
       avatar: avatar,
+      phoneNumber: phone.isEmpty ? none() : some(PhoneNumber(phone)),
     );
   }
 }

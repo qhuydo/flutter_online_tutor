@@ -36,4 +36,9 @@ abstract class AuthenticationService {
   Future<Either<AuthenticationFailure, Unit>> resetPassword({
     required EmailAddress emailAddress,
   });
+
+  Future<Either<AuthenticationFailure, Unit>> changePassword({
+    required Password oldPassword,
+    required Password newPassword,
+  });
 }

@@ -23,5 +23,8 @@ class AuthenticationFailure with _$AuthenticationFailure {
 
   const factory AuthenticationFailure.emailNotExist() = _EmailNotExist;
 
-  const factory AuthenticationFailure.wrongCurrentPassword() = _WrongCurrentPassword;
+  const factory AuthenticationFailure.wrongCurrentPassword() =
+      _WrongCurrentPassword;
+
+  const factory AuthenticationFailure.unauthorized() = _Unauthorzied;
 }

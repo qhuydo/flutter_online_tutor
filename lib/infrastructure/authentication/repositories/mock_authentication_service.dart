@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:dartz/dartz.dart';
@@ -10,6 +11,7 @@ import '../../../domain/authentication/interfaces/i_authentication_service.dart'
 import '../../../domain/authentication/value_objects/email_address.dart';
 import '../../../domain/authentication/value_objects/password.dart';
 import '../../../domain/authentication/value_objects/phone_number.dart';
+import '../../../domain/common/error/error.dart';
 import '../../../domain/user/models/user.dart';
 import '../../../presentation/common.dart';
 import '../../common/db/fixture_loader.dart';
@@ -233,6 +235,43 @@ class MockAuthenticationService implements AuthenticationService {
       return right(unit);
     } on FlutterError {
       return left(const AuthenticationFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<AuthenticationFailure, Unit>> changePassword({
+    required Password oldPassword,
+    required Password newPassword,
+  }) async {
+    if (!(await isSignedIn())) {
+      return left(const AuthenticationFailure.unauthorized());
+    }
+
+    final oldPasswordValue = oldPassword.requireValue();
+    final newPasswordValue = newPassword.requireValue();
+
+    final userOption = await getSignedInUser();
+    try {
+      final user = userOption.getOrElse(() => throw NoValueError(userOption));
+      final email = user.emailAddress.valueOrNull();
+      final phone = user.phoneNumber.fold(() => null, (a) => a.valueOrNull());
+
+      final oldRealPassword = _cacheBox.get(email) ?? _cacheBox.get(phone);
+
+      if (oldPasswordValue != oldRealPassword) {
+        return left(const AuthenticationFailure.wrongCurrentPassword());
+      }
+
+      if (_cacheBox.containsKey(email)) {
+        _cacheBox.put(email, newPasswordValue);
+      } else {
+        _cacheBox.put(phone, newPasswordValue);
+      }
+
+      return right(unit);
+    } on NoValueError catch (e) {
+      log(e.toString());
+      return left(const AuthenticationFailure.unauthorized());
     }
   }
 }

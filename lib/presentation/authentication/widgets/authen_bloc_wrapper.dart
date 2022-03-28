@@ -70,6 +70,7 @@ extension AuthenticationFailureX on AuthenticationFailure {
         emailNotExist: (_) => 'Email does not exist, please register '
             'new account',
         wrongCurrentPassword: (_) => 'Wrong current password',
+        unauthorized: (_) => 'Unauthorized',
       ),
       duration: const Duration(
         seconds: 30,

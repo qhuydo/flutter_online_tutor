@@ -16,6 +16,8 @@ abstract class ValueObject<F, T> implements Validatable {
 
   T requireValue() => value.fold((l) => throw NoValueError(l), (r) => r);
 
+  T? valueOrNull() => value.fold((l) => null, (r) => r);
+
   @override
   int get hashCode => value.hashCode;
 

@@ -22,11 +22,13 @@ class _$UserTearOff {
       {required Id id,
       required EmailAddress emailAddress,
       required String name,
+      Option<PhoneNumber> phoneNumber = const None(),
       String? avatar}) {
     return _User(
       id: id,
       emailAddress: emailAddress,
       name: name,
+      phoneNumber: phoneNumber,
       avatar: avatar,
     );
   }
@@ -40,6 +42,7 @@ mixin _$User {
   Id get id => throw _privateConstructorUsedError;
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  Option<PhoneNumber> get phoneNumber => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -50,7 +53,12 @@ mixin _$User {
 abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
-  $Res call({Id id, EmailAddress emailAddress, String name, String? avatar});
+  $Res call(
+      {Id id,
+      EmailAddress emailAddress,
+      String name,
+      Option<PhoneNumber> phoneNumber,
+      String? avatar});
 }
 
 /// @nodoc
@@ -66,6 +74,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
     Object? id = freezed,
     Object? emailAddress = freezed,
     Object? name = freezed,
+    Object? phoneNumber = freezed,
     Object? avatar = freezed,
   }) {
     return _then(_value.copyWith(
@@ -81,6 +90,10 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      phoneNumber: phoneNumber == freezed
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as Option<PhoneNumber>,
       avatar: avatar == freezed
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -94,7 +107,12 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$UserCopyWith(_User value, $Res Function(_User) then) =
       __$UserCopyWithImpl<$Res>;
   @override
-  $Res call({Id id, EmailAddress emailAddress, String name, String? avatar});
+  $Res call(
+      {Id id,
+      EmailAddress emailAddress,
+      String name,
+      Option<PhoneNumber> phoneNumber,
+      String? avatar});
 }
 
 /// @nodoc
@@ -111,6 +129,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     Object? id = freezed,
     Object? emailAddress = freezed,
     Object? name = freezed,
+    Object? phoneNumber = freezed,
     Object? avatar = freezed,
   }) {
     return _then(_User(
@@ -126,6 +145,10 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      phoneNumber: phoneNumber == freezed
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as Option<PhoneNumber>,
       avatar: avatar == freezed
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -141,6 +164,7 @@ class _$_User implements _User {
       {required this.id,
       required this.emailAddress,
       required this.name,
+      this.phoneNumber = const None(),
       this.avatar});
 
   @override
@@ -149,12 +173,15 @@ class _$_User implements _User {
   final EmailAddress emailAddress;
   @override
   final String name;
+  @JsonKey()
+  @override
+  final Option<PhoneNumber> phoneNumber;
   @override
   final String? avatar;
 
   @override
   String toString() {
-    return 'User(id: $id, emailAddress: $emailAddress, name: $name, avatar: $avatar)';
+    return 'User(id: $id, emailAddress: $emailAddress, name: $name, phoneNumber: $phoneNumber, avatar: $avatar)';
   }
 
   @override
@@ -166,6 +193,8 @@ class _$_User implements _User {
             const DeepCollectionEquality()
                 .equals(other.emailAddress, emailAddress) &&
             const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality()
+                .equals(other.phoneNumber, phoneNumber) &&
             const DeepCollectionEquality().equals(other.avatar, avatar));
   }
 
@@ -175,6 +204,7 @@ class _$_User implements _User {
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(emailAddress),
       const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(phoneNumber),
       const DeepCollectionEquality().hash(avatar));
 
   @JsonKey(ignore: true)
@@ -188,6 +218,7 @@ abstract class _User implements User {
       {required Id id,
       required EmailAddress emailAddress,
       required String name,
+      Option<PhoneNumber> phoneNumber,
       String? avatar}) = _$_User;
 
   @override
@@ -196,6 +227,8 @@ abstract class _User implements User {
   EmailAddress get emailAddress;
   @override
   String get name;
+  @override
+  Option<PhoneNumber> get phoneNumber;
   @override
   String? get avatar;
   @override

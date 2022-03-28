@@ -334,10 +334,11 @@ void main() {
       // assert
       expect(result, equals(const Right(unit)));
       expect(isSignedInWithCorrectPassword, equals(const Right(unit)));
-      expect(isNotSignedInWithWrongPassword, equals(const Left(
-        AuthenticationFailure.wrongEmailOrPassword(),
-      )));
-
+      expect(
+          isNotSignedInWithWrongPassword,
+          equals(const Left(
+            AuthenticationFailure.wrongEmailOrPassword(),
+          )));
     });
 
     test('should not reset password of non-exist email', () async {
@@ -351,6 +352,113 @@ void main() {
 
       // assert
       expect(result, equals(const Left(AuthenticationFailure.emailNotExist())));
+    });
+  });
+
+  group('change password', () {
+    test('should change password after signing in', () async {
+      // arrange
+      final emailAddress = EmailAddress('test@example.com');
+      final password = Password('password');
+      await authenticationService.signIn(
+        emailAddress: emailAddress,
+        password: password,
+      );
+      final newPassword = Password('12345678');
+
+      // act
+      await authenticationService.changePassword(
+        oldPassword: password,
+        newPassword: newPassword,
+      );
+      await authenticationService.signOut();
+      final result = await authenticationService.signIn(
+        emailAddress: emailAddress,
+        password: newPassword,
+      );
+      final isSignedIn = await authenticationService.isSignedIn();
+
+      // assert
+      expect(result.isRight(), isTrue);
+      expect(isSignedIn, isTrue);
+    });
+
+    test('should change password after signing in with phone number', () async {
+      // arrange
+      final phone = PhoneNumber('380123456789');
+      final password = Password('password');
+      await authenticationService.signInWithPhone(
+        phoneNumber: phone,
+        password: password,
+      );
+      final newPassword = Password('12345678');
+
+      // act
+      await authenticationService.changePassword(
+        oldPassword: password,
+        newPassword: newPassword,
+      );
+      await authenticationService.signOut();
+      final result = await authenticationService.signInWithPhone(
+        phoneNumber: phone,
+        password: newPassword,
+      );
+      final isSignedIn = await authenticationService.isSignedIn();
+
+      // assert
+      expect(result.isRight(), isTrue);
+      expect(isSignedIn, isTrue);
+    });
+
+    test('should not change password when enter wrong password', () async {
+      // arrange
+      final emailAddress = EmailAddress('test@example.com');
+      final password = Password('password');
+      await authenticationService.signIn(
+        emailAddress: emailAddress,
+        password: password,
+      );
+      final oldPassword = Password('12345678');
+      final newPassword = Password('12345678');
+
+      // act
+      final changePasswordResult = await authenticationService.changePassword(
+        oldPassword: oldPassword,
+        newPassword: newPassword,
+      );
+      await authenticationService.signOut();
+      final signInResult = await authenticationService.signIn(
+        emailAddress: emailAddress,
+        password: newPassword,
+      );
+      final isSignedIn = await authenticationService.isSignedIn();
+
+      // assert
+      expect(changePasswordResult, equals(
+        left(const AuthenticationFailure.wrongCurrentPassword()),
+      ));
+      expect(
+          signInResult,
+          equals(
+            left(const AuthenticationFailure.wrongEmailOrPassword()),
+          ));
+      expect(isSignedIn, isFalse);
+    });
+
+    test('should return failure users did not signed in', () async {
+      final oldPassword = Password('12345678');
+      final newPassword = Password('12345678');
+
+      // act
+      final changePasswordResult = await authenticationService.changePassword(
+        oldPassword: oldPassword,
+        newPassword: newPassword,
+      );
+
+      // assert
+      expect(changePasswordResult, equals(
+        left(const AuthenticationFailure.unauthorized()),
+      ));
     });
   });
 }
