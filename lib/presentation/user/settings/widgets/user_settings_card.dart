@@ -92,7 +92,6 @@ class UserSettingsCard extends StatelessWidget {
         },
         contentPadding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
         leading: const CircleAvatar(
-          backgroundColor: Colors.blue,
           radius: 36,
         ),
         title: Text(

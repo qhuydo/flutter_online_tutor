@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/authentication/reset_password/reset_password_bloc.dart';
 import '../../common.dart';
-import '../widgets/authen_bloc_wrapper.dart';
+import '../helpers/authentication_failure_extension.dart';
 import '../widgets/authen_scaffold.dart';
 import '../widgets/email_input.dart';
 import 'widgets/reset_password_button.dart';
@@ -29,15 +29,14 @@ class _ResetPasswordPage extends StatelessWidget {
     return BlocConsumer<ResetPasswordBloc, ResetPasswordState>(
       listener: (context, state) {
         state.authFailureOrSuccessOption.fold(
-                () {},
-                (either) =>
-                either.fold(
-                      (failure) => failure.showError(context),
-                      (succeed) => showSucceedDialog(context),
+            () {},
+            (either) => either.fold(
+                  (failure) => failure.showError(context),
+                  (succeed) => showSucceedDialog(context),
                 ));
       },
       buildWhen: (previous, current) =>
-      previous.isLoading != current.isLoading ||
+          previous.isLoading != current.isLoading ||
           previous.showError != current.showError,
       builder: (context, state) {
         return AuthenScaffold(
@@ -52,10 +51,9 @@ class _ResetPasswordPage extends StatelessWidget {
           ),
           submitButton: ResetPasswordButton(
             isDisabled: state.isLoading,
-            onPressed: () =>
-                context
-                    .read<ResetPasswordBloc>()
-                    .add(const ResetPasswordEvent.buttonPressed()),
+            onPressed: () => context
+                .read<ResetPasswordBloc>()
+                .add(const ResetPasswordEvent.buttonPressed()),
           ),
           shouldShowForgotPasswordButton: false,
         );

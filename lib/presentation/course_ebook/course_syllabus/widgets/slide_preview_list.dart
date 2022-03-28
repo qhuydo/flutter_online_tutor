@@ -24,7 +24,8 @@ class SlidePreviewList extends StatelessWidget {
               // color: Colors.blue,
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Colors.grey[600]?.withOpacity(0.8) ?? Colors.grey,
+                  // color: Colors.grey[600]?.withOpacity(0.8) ?? Colors.grey,
+                  color: Theme.of(context).colorScheme.secondary,
                   width: 2,
                 ),
                 borderRadius: BorderRadius.circular(8),

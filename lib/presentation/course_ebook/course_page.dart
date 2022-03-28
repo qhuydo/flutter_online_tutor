@@ -6,41 +6,41 @@ class CoursePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isLightTheme = Theme.of(context).brightness == Brightness.light;
     return DefaultTabController(
       length: 2,
       child: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) => [
           SliverToBoxAdapter(
-            child: TabBar(
-              unselectedLabelColor:
-                  Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
-              labelColor:
-                  isLightTheme ? Theme.of(context).primaryColor : Colors.blue,
-              tabs: [
-                Tab(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(Icons.videocam),
-                      const SizedBox(width: 8),
-                      Text(AppLocalizations.of(context)!.courseTabLabel),
-                    ],
-                  ),
-                ),
-                Tab(
-                  child: Center(
+            child: Container(
+              color: Theme.of(context).appBarTheme.backgroundColor,
+              child: TabBar(
+                // unselectedLabelColor: Theme.of(context).appBarTheme.foregroundColor,
+                // labelColor: Theme.of(context).appBarTheme.foregroundColor,
+                tabs: [
+                  Tab(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Icon(Icons.book),
+                        const Icon(Icons.videocam),
                         const SizedBox(width: 8),
-                        Text(AppLocalizations.of(context)!.ebookTabLabel),
+                        Text(AppLocalizations.of(context)!.courseTabLabel),
                       ],
                     ),
                   ),
-                ),
-              ],
+                  Tab(
+                    child: Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.book),
+                          const SizedBox(width: 8),
+                          Text(AppLocalizations.of(context)!.ebookTabLabel),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

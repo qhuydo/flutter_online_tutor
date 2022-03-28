@@ -18,6 +18,10 @@ class _SpecialityChipState extends State<SpecialityChip> {
   @override
   Widget build(BuildContext context) {
     return FilterChip(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+        side: Theme.of(context).inputDecorationTheme.enabledBorder!.borderSide,
+      ),
       label: Text(widget.label),
       onSelected: (value) {
         setState(() {

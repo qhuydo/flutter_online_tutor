@@ -23,7 +23,7 @@ class TopicList extends StatelessWidget {
 
   Widget buildList(BuildContext context) {
     return Container(
-      height: 40,
+      height: 36,
       padding: const EdgeInsets.symmetric(horizontal: 2),
       child: ShaderMask(
         shaderCallback: (Rect rect) {
