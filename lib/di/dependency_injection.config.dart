@@ -9,14 +9,15 @@ import 'package:hive/hive.dart' as _i5;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:shared_preferences/shared_preferences.dart' as _i7;
 
-import '../application/authentication/authentication_bloc.dart' as _i17;
+import '../application/authentication/authentication_bloc.dart' as _i18;
 import '../application/authentication/change_password/change_password_bloc.dart'
     as _i13;
 import '../application/authentication/login/login_bloc.dart' as _i14;
 import '../application/authentication/reset_password/reset_password_bloc.dart'
-    as _i15;
-import '../application/authentication/sign_up/sign_up_bloc.dart' as _i16;
+    as _i16;
+import '../application/authentication/sign_up/sign_up_bloc.dart' as _i17;
 import '../application/common/app/app_cubit.dart' as _i10;
+import '../application/user/profile/profile_bloc.dart' as _i15;
 import '../domain/authentication/interfaces/i_authentication_service.dart'
     as _i11;
 import '../domain/common/app/i_app_repository.dart' as _i3;
@@ -25,7 +26,7 @@ import '../infrastructure/authentication/repositories/mock_authentication_servic
     as _i12;
 import '../infrastructure/common/app/app_repository.dart' as _i4;
 import '../infrastructure/common/db/shared_preference_storage.dart' as _i6;
-import '../infrastructure/common/di/app_injectable_module.dart' as _i18;
+import '../infrastructure/common/di/app_injectable_module.dart' as _i19;
 import '../infrastructure/user/repositories/mock_user_repository.dart'
     as _i9; // ignore_for_file: unnecessary_lambdas
 
@@ -62,13 +63,15 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => _i13.ChangePasswordBloc(get<_i11.AuthenticationService>()));
   gh.factory<_i14.LoginBloc>(
       () => _i14.LoginBloc(get<_i11.AuthenticationService>()));
-  gh.factory<_i15.ResetPasswordBloc>(
-      () => _i15.ResetPasswordBloc(get<_i11.AuthenticationService>()));
-  gh.factory<_i16.SignUpBloc>(
-      () => _i16.SignUpBloc(get<_i11.AuthenticationService>()));
-  gh.factory<_i17.AuthenticationBloc>(
-      () => _i17.AuthenticationBloc(get<_i11.AuthenticationService>()));
+  gh.factory<_i15.ProfileBloc>(() => _i15.ProfileBloc(
+      get<_i11.AuthenticationService>(), get<_i8.UserRepository>()));
+  gh.factory<_i16.ResetPasswordBloc>(
+      () => _i16.ResetPasswordBloc(get<_i11.AuthenticationService>()));
+  gh.factory<_i17.SignUpBloc>(
+      () => _i17.SignUpBloc(get<_i11.AuthenticationService>()));
+  gh.factory<_i18.AuthenticationBloc>(
+      () => _i18.AuthenticationBloc(get<_i11.AuthenticationService>()));
   return get;
 }
 
-class _$AppInjectableModule extends _i18.AppInjectableModule {}
+class _$AppInjectableModule extends _i19.AppInjectableModule {}

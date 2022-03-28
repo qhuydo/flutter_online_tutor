@@ -251,7 +251,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_User implements _User {
+class _$_User extends _User {
   const _$_User(
       {required this.id,
       required this.emailAddress,
@@ -262,7 +262,8 @@ class _$_User implements _User {
       this.country,
       this.level = Level.none,
       this.learningTopics = const [],
-      this.testPreparationTopics = const []});
+      this.testPreparationTopics = const []})
+      : super._();
 
   @override
   final Id id;
@@ -334,7 +335,7 @@ class _$_User implements _User {
       __$UserCopyWithImpl<_User>(this, _$identity);
 }
 
-abstract class _User implements User {
+abstract class _User extends User {
   const factory _User(
       {required Id id,
       required EmailAddress emailAddress,
@@ -346,6 +347,7 @@ abstract class _User implements User {
       Level level,
       List<LearnTopic> learningTopics,
       List<TestPreparation> testPreparationTopics}) = _$_User;
+  const _User._() : super._();
 
   @override
   Id get id;

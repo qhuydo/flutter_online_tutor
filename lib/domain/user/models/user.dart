@@ -14,6 +14,8 @@ part 'user.freezed.dart';
 
 @freezed
 class User with _$User {
+  const User._();
+
   const factory User({
     required Id id,
     required EmailAddress emailAddress,
@@ -26,4 +28,10 @@ class User with _$User {
     @Default([]) List<LearnTopic> learningTopics,
     @Default([]) List<TestPreparation> testPreparationTopics,
   }) = _User;
+
+  factory User.initial() => User(
+    id: Id(),
+    emailAddress: EmailAddress(''),
+    name: Name(''),
+  );
 }
