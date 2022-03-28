@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'learning_topic_dto.dart';
+part of 'test_preparation_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,59 +14,59 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-LearningTopicDto _$LearningTopicDtoFromJson(Map<String, dynamic> json) {
-  return _LearningTopicDto.fromJson(json);
+TestPreparationDto _$TestPreparationDtoFromJson(Map<String, dynamic> json) {
+  return _TestPreparationDto.fromJson(json);
 }
 
 /// @nodoc
-class _$LearningTopicDtoTearOff {
-  const _$LearningTopicDtoTearOff();
+class _$TestPreparationDtoTearOff {
+  const _$TestPreparationDtoTearOff();
 
-  _LearningTopicDto call(
+  _TestPreparationDto call(
       {required int id, required String key, required String name}) {
-    return _LearningTopicDto(
+    return _TestPreparationDto(
       id: id,
       key: key,
       name: name,
     );
   }
 
-  LearningTopicDto fromJson(Map<String, Object?> json) {
-    return LearningTopicDto.fromJson(json);
+  TestPreparationDto fromJson(Map<String, Object?> json) {
+    return TestPreparationDto.fromJson(json);
   }
 }
 
 /// @nodoc
-const $LearningTopicDto = _$LearningTopicDtoTearOff();
+const $TestPreparationDto = _$TestPreparationDtoTearOff();
 
 /// @nodoc
-mixin _$LearningTopicDto {
+mixin _$TestPreparationDto {
   int get id => throw _privateConstructorUsedError;
   String get key => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LearningTopicDtoCopyWith<LearningTopicDto> get copyWith =>
+  $TestPreparationDtoCopyWith<TestPreparationDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LearningTopicDtoCopyWith<$Res> {
-  factory $LearningTopicDtoCopyWith(
-          LearningTopicDto value, $Res Function(LearningTopicDto) then) =
-      _$LearningTopicDtoCopyWithImpl<$Res>;
+abstract class $TestPreparationDtoCopyWith<$Res> {
+  factory $TestPreparationDtoCopyWith(
+          TestPreparationDto value, $Res Function(TestPreparationDto) then) =
+      _$TestPreparationDtoCopyWithImpl<$Res>;
   $Res call({int id, String key, String name});
 }
 
 /// @nodoc
-class _$LearningTopicDtoCopyWithImpl<$Res>
-    implements $LearningTopicDtoCopyWith<$Res> {
-  _$LearningTopicDtoCopyWithImpl(this._value, this._then);
+class _$TestPreparationDtoCopyWithImpl<$Res>
+    implements $TestPreparationDtoCopyWith<$Res> {
+  _$TestPreparationDtoCopyWithImpl(this._value, this._then);
 
-  final LearningTopicDto _value;
+  final TestPreparationDto _value;
   // ignore: unused_field
-  final $Res Function(LearningTopicDto) _then;
+  final $Res Function(TestPreparationDto) _then;
 
   @override
   $Res call({
@@ -92,25 +92,25 @@ class _$LearningTopicDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$LearningTopicDtoCopyWith<$Res>
-    implements $LearningTopicDtoCopyWith<$Res> {
-  factory _$LearningTopicDtoCopyWith(
-          _LearningTopicDto value, $Res Function(_LearningTopicDto) then) =
-      __$LearningTopicDtoCopyWithImpl<$Res>;
+abstract class _$TestPreparationDtoCopyWith<$Res>
+    implements $TestPreparationDtoCopyWith<$Res> {
+  factory _$TestPreparationDtoCopyWith(
+          _TestPreparationDto value, $Res Function(_TestPreparationDto) then) =
+      __$TestPreparationDtoCopyWithImpl<$Res>;
   @override
   $Res call({int id, String key, String name});
 }
 
 /// @nodoc
-class __$LearningTopicDtoCopyWithImpl<$Res>
-    extends _$LearningTopicDtoCopyWithImpl<$Res>
-    implements _$LearningTopicDtoCopyWith<$Res> {
-  __$LearningTopicDtoCopyWithImpl(
-      _LearningTopicDto _value, $Res Function(_LearningTopicDto) _then)
-      : super(_value, (v) => _then(v as _LearningTopicDto));
+class __$TestPreparationDtoCopyWithImpl<$Res>
+    extends _$TestPreparationDtoCopyWithImpl<$Res>
+    implements _$TestPreparationDtoCopyWith<$Res> {
+  __$TestPreparationDtoCopyWithImpl(
+      _TestPreparationDto _value, $Res Function(_TestPreparationDto) _then)
+      : super(_value, (v) => _then(v as _TestPreparationDto));
 
   @override
-  _LearningTopicDto get _value => super._value as _LearningTopicDto;
+  _TestPreparationDto get _value => super._value as _TestPreparationDto;
 
   @override
   $Res call({
@@ -118,7 +118,7 @@ class __$LearningTopicDtoCopyWithImpl<$Res>
     Object? key = freezed,
     Object? name = freezed,
   }) {
-    return _then(_LearningTopicDto(
+    return _then(_TestPreparationDto(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -137,13 +137,13 @@ class __$LearningTopicDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LearningTopicDto extends _LearningTopicDto {
-  const _$_LearningTopicDto(
+class _$_TestPreparationDto extends _TestPreparationDto {
+  const _$_TestPreparationDto(
       {required this.id, required this.key, required this.name})
       : super._();
 
-  factory _$_LearningTopicDto.fromJson(Map<String, dynamic> json) =>
-      _$$_LearningTopicDtoFromJson(json);
+  factory _$_TestPreparationDto.fromJson(Map<String, dynamic> json) =>
+      _$$_TestPreparationDtoFromJson(json);
 
   @override
   final int id;
@@ -154,14 +154,14 @@ class _$_LearningTopicDto extends _LearningTopicDto {
 
   @override
   String toString() {
-    return 'LearningTopicDto(id: $id, key: $key, name: $name)';
+    return 'TestPreparationDto(id: $id, key: $key, name: $name)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _LearningTopicDto &&
+            other is _TestPreparationDto &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.key, key) &&
             const DeepCollectionEquality().equals(other.name, name));
@@ -176,24 +176,24 @@ class _$_LearningTopicDto extends _LearningTopicDto {
 
   @JsonKey(ignore: true)
   @override
-  _$LearningTopicDtoCopyWith<_LearningTopicDto> get copyWith =>
-      __$LearningTopicDtoCopyWithImpl<_LearningTopicDto>(this, _$identity);
+  _$TestPreparationDtoCopyWith<_TestPreparationDto> get copyWith =>
+      __$TestPreparationDtoCopyWithImpl<_TestPreparationDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LearningTopicDtoToJson(this);
+    return _$$_TestPreparationDtoToJson(this);
   }
 }
 
-abstract class _LearningTopicDto extends LearningTopicDto {
-  const factory _LearningTopicDto(
+abstract class _TestPreparationDto extends TestPreparationDto {
+  const factory _TestPreparationDto(
       {required int id,
       required String key,
-      required String name}) = _$_LearningTopicDto;
-  const _LearningTopicDto._() : super._();
+      required String name}) = _$_TestPreparationDto;
+  const _TestPreparationDto._() : super._();
 
-  factory _LearningTopicDto.fromJson(Map<String, dynamic> json) =
-      _$_LearningTopicDto.fromJson;
+  factory _TestPreparationDto.fromJson(Map<String, dynamic> json) =
+      _$_TestPreparationDto.fromJson;
 
   @override
   int get id;
@@ -203,6 +203,6 @@ abstract class _LearningTopicDto extends LearningTopicDto {
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$LearningTopicDtoCopyWith<_LearningTopicDto> get copyWith =>
+  _$TestPreparationDtoCopyWith<_TestPreparationDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -155,3 +155,5 @@ flutter:
     - assets/icons/
     - assets/icons/twemoji/
     - assets/fixtures/authentication/login/
+    - assets/fixtures/common/learn_topic/
+    - assets/fixtures/common/test_preparation/

@@ -27,16 +27,16 @@ class _$UserDtoTearOff {
       required String email,
       required String name,
       required String avatar,
-      required String country,
-      required String phone,
-      required String language,
-      required String birthday,
+      String? country,
+      String? phone,
+      String? language,
+      String? birthday,
       required bool isActivated,
       required WalletDto walletInfo,
       required List<CourseDto> courses,
-      required String level,
-      required List<LearningTopicDto> learnTopics,
-      required List<String> testPreparations,
+      String? level,
+      List<LearningTopicDto> learnTopics = const [],
+      List<TestPreparationDto> testPreparations = const [],
       required bool isPhoneActivated,
       required int timezone}) {
     return _UserDto(
@@ -73,16 +73,17 @@ mixin _$UserDto {
   String get email => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get avatar => throw _privateConstructorUsedError;
-  String get country => throw _privateConstructorUsedError;
-  String get phone => throw _privateConstructorUsedError;
-  String get language => throw _privateConstructorUsedError;
-  String get birthday => throw _privateConstructorUsedError;
+  String? get country => throw _privateConstructorUsedError;
+  String? get phone => throw _privateConstructorUsedError;
+  String? get language => throw _privateConstructorUsedError;
+  String? get birthday => throw _privateConstructorUsedError;
   bool get isActivated => throw _privateConstructorUsedError;
   WalletDto get walletInfo => throw _privateConstructorUsedError;
   List<CourseDto> get courses => throw _privateConstructorUsedError;
-  String get level => throw _privateConstructorUsedError;
+  String? get level => throw _privateConstructorUsedError;
   List<LearningTopicDto> get learnTopics => throw _privateConstructorUsedError;
-  List<String> get testPreparations => throw _privateConstructorUsedError;
+  List<TestPreparationDto> get testPreparations =>
+      throw _privateConstructorUsedError;
   bool get isPhoneActivated => throw _privateConstructorUsedError;
   int get timezone => throw _privateConstructorUsedError;
 
@@ -100,16 +101,16 @@ abstract class $UserDtoCopyWith<$Res> {
       String email,
       String name,
       String avatar,
-      String country,
-      String phone,
-      String language,
-      String birthday,
+      String? country,
+      String? phone,
+      String? language,
+      String? birthday,
       bool isActivated,
       WalletDto walletInfo,
       List<CourseDto> courses,
-      String level,
+      String? level,
       List<LearningTopicDto> learnTopics,
-      List<String> testPreparations,
+      List<TestPreparationDto> testPreparations,
       bool isPhoneActivated,
       int timezone});
 
@@ -163,19 +164,19 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
       country: country == freezed
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       phone: phone == freezed
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       language: language == freezed
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       birthday: birthday == freezed
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isActivated: isActivated == freezed
           ? _value.isActivated
           : isActivated // ignore: cast_nullable_to_non_nullable
@@ -191,7 +192,7 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
       level: level == freezed
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       learnTopics: learnTopics == freezed
           ? _value.learnTopics
           : learnTopics // ignore: cast_nullable_to_non_nullable
@@ -199,7 +200,7 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
       testPreparations: testPreparations == freezed
           ? _value.testPreparations
           : testPreparations // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<TestPreparationDto>,
       isPhoneActivated: isPhoneActivated == freezed
           ? _value.isPhoneActivated
           : isPhoneActivated // ignore: cast_nullable_to_non_nullable
@@ -229,16 +230,16 @@ abstract class _$UserDtoCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
       String email,
       String name,
       String avatar,
-      String country,
-      String phone,
-      String language,
-      String birthday,
+      String? country,
+      String? phone,
+      String? language,
+      String? birthday,
       bool isActivated,
       WalletDto walletInfo,
       List<CourseDto> courses,
-      String level,
+      String? level,
       List<LearningTopicDto> learnTopics,
-      List<String> testPreparations,
+      List<TestPreparationDto> testPreparations,
       bool isPhoneActivated,
       int timezone});
 
@@ -294,19 +295,19 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
       country: country == freezed
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       phone: phone == freezed
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       language: language == freezed
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       birthday: birthday == freezed
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isActivated: isActivated == freezed
           ? _value.isActivated
           : isActivated // ignore: cast_nullable_to_non_nullable
@@ -322,7 +323,7 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
       level: level == freezed
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       learnTopics: learnTopics == freezed
           ? _value.learnTopics
           : learnTopics // ignore: cast_nullable_to_non_nullable
@@ -330,7 +331,7 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
       testPreparations: testPreparations == freezed
           ? _value.testPreparations
           : testPreparations // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<TestPreparationDto>,
       isPhoneActivated: isPhoneActivated == freezed
           ? _value.isPhoneActivated
           : isPhoneActivated // ignore: cast_nullable_to_non_nullable
@@ -351,16 +352,16 @@ class _$_UserDto implements _UserDto {
       required this.email,
       required this.name,
       required this.avatar,
-      required this.country,
-      required this.phone,
-      required this.language,
-      required this.birthday,
+      this.country,
+      this.phone,
+      this.language,
+      this.birthday,
       required this.isActivated,
       required this.walletInfo,
       required this.courses,
-      required this.level,
-      required this.learnTopics,
-      required this.testPreparations,
+      this.level,
+      this.learnTopics = const [],
+      this.testPreparations = const [],
       required this.isPhoneActivated,
       required this.timezone});
 
@@ -376,13 +377,13 @@ class _$_UserDto implements _UserDto {
   @override
   final String avatar;
   @override
-  final String country;
+  final String? country;
   @override
-  final String phone;
+  final String? phone;
   @override
-  final String language;
+  final String? language;
   @override
-  final String birthday;
+  final String? birthday;
   @override
   final bool isActivated;
   @override
@@ -390,11 +391,13 @@ class _$_UserDto implements _UserDto {
   @override
   final List<CourseDto> courses;
   @override
-  final String level;
+  final String? level;
+  @JsonKey()
   @override
   final List<LearningTopicDto> learnTopics;
+  @JsonKey()
   @override
-  final List<String> testPreparations;
+  final List<TestPreparationDto> testPreparations;
   @override
   final bool isPhoneActivated;
   @override
@@ -470,16 +473,16 @@ abstract class _UserDto implements UserDto {
       required String email,
       required String name,
       required String avatar,
-      required String country,
-      required String phone,
-      required String language,
-      required String birthday,
+      String? country,
+      String? phone,
+      String? language,
+      String? birthday,
       required bool isActivated,
       required WalletDto walletInfo,
       required List<CourseDto> courses,
-      required String level,
-      required List<LearningTopicDto> learnTopics,
-      required List<String> testPreparations,
+      String? level,
+      List<LearningTopicDto> learnTopics,
+      List<TestPreparationDto> testPreparations,
       required bool isPhoneActivated,
       required int timezone}) = _$_UserDto;
 
@@ -494,13 +497,13 @@ abstract class _UserDto implements UserDto {
   @override
   String get avatar;
   @override
-  String get country;
+  String? get country;
   @override
-  String get phone;
+  String? get phone;
   @override
-  String get language;
+  String? get language;
   @override
-  String get birthday;
+  String? get birthday;
   @override
   bool get isActivated;
   @override
@@ -508,11 +511,11 @@ abstract class _UserDto implements UserDto {
   @override
   List<CourseDto> get courses;
   @override
-  String get level;
+  String? get level;
   @override
   List<LearningTopicDto> get learnTopics;
   @override
-  List<String> get testPreparations;
+  List<TestPreparationDto> get testPreparations;
   @override
   bool get isPhoneActivated;
   @override

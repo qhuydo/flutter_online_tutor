@@ -8,6 +8,7 @@ import '../../../domain/user/models/user.dart';
 import '../../course/dto/course_dto.dart';
 import '../../wallet/dto/wallet_dto.dart';
 import 'learning_topic_dto.dart';
+import 'test_preparation_dto.dart';
 
 part 'user_dto.freezed.dart';
 
@@ -20,16 +21,16 @@ class UserDto with _$UserDto {
     required String email,
     required String name,
     required String avatar,
-    required String country,
-    required String phone,
-    required String language,
-    required String birthday,
+    String? country,
+    String? phone,
+    String? language,
+    String? birthday,
     required bool isActivated,
     required WalletDto walletInfo,
     required List<CourseDto> courses,
-    required String level,
-    required List<LearningTopicDto> learnTopics,
-    required List<String> testPreparations,
+    String? level,
+    @Default([]) List<LearningTopicDto> learnTopics,
+    @Default([]) List<TestPreparationDto> testPreparations,
     required bool isPhoneActivated,
     required int timezone,
   }) = _UserDto;
@@ -45,7 +46,8 @@ extension UserDtoX on UserDto {
       emailAddress: EmailAddress(email),
       name: name,
       avatar: avatar,
-      phoneNumber: phone.isEmpty ? none() : some(PhoneNumber(phone)),
+      phoneNumber:
+          phone?.isNotEmpty == true ? some(PhoneNumber(phone!)) : none(),
     );
   }
 }

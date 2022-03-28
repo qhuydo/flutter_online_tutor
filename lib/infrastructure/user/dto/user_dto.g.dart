@@ -11,23 +11,26 @@ _$_UserDto _$$_UserDtoFromJson(Map<String, dynamic> json) => _$_UserDto(
       email: json['email'] as String,
       name: json['name'] as String,
       avatar: json['avatar'] as String,
-      country: json['country'] as String,
-      phone: json['phone'] as String,
-      language: json['language'] as String,
-      birthday: json['birthday'] as String,
+      country: json['country'] as String?,
+      phone: json['phone'] as String?,
+      language: json['language'] as String?,
+      birthday: json['birthday'] as String?,
       isActivated: json['isActivated'] as bool,
       walletInfo:
           WalletDto.fromJson(json['walletInfo'] as Map<String, dynamic>),
       courses: (json['courses'] as List<dynamic>)
           .map((e) => CourseDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      level: json['level'] as String,
-      learnTopics: (json['learnTopics'] as List<dynamic>)
-          .map((e) => LearningTopicDto.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      testPreparations: (json['testPreparations'] as List<dynamic>)
-          .map((e) => e as String)
-          .toList(),
+      level: json['level'] as String?,
+      learnTopics: (json['learnTopics'] as List<dynamic>?)
+              ?.map((e) => LearningTopicDto.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      testPreparations: (json['testPreparations'] as List<dynamic>?)
+              ?.map(
+                  (e) => TestPreparationDto.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       isPhoneActivated: json['isPhoneActivated'] as bool,
       timezone: json['timezone'] as int,
     );
