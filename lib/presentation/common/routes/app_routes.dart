@@ -1,10 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 
-// ignore: prefer_relative_imports
-import 'package:flutter_online_tutor/presentation/pages.dart';
+import '../../all_pages.dart';
 
 @MaterialAutoRouter(
-    preferRelativeImports: false,
     replaceInRouteName: 'Page,Route',
     routes: [
       AutoRoute(page: SplashPage, initial: true),

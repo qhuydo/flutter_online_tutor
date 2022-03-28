@@ -22,14 +22,22 @@ class _$UserTearOff {
       {required Id id,
       required EmailAddress emailAddress,
       required String name,
-      Option<PhoneNumber> phoneNumber = const None(),
-      String? avatar}) {
+      PhoneNumber? phoneNumber,
+      String? avatar,
+      BirthDay? birthday,
+      Level level = Level.none,
+      List<LearnTopic> learningTopics = const [],
+      List<TestPreparation> testPreparationTopics = const []}) {
     return _User(
       id: id,
       emailAddress: emailAddress,
       name: name,
       phoneNumber: phoneNumber,
       avatar: avatar,
+      birthday: birthday,
+      level: level,
+      learningTopics: learningTopics,
+      testPreparationTopics: testPreparationTopics,
     );
   }
 }
@@ -42,8 +50,13 @@ mixin _$User {
   Id get id => throw _privateConstructorUsedError;
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  Option<PhoneNumber> get phoneNumber => throw _privateConstructorUsedError;
+  PhoneNumber? get phoneNumber => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
+  BirthDay? get birthday => throw _privateConstructorUsedError;
+  Level get level => throw _privateConstructorUsedError;
+  List<LearnTopic> get learningTopics => throw _privateConstructorUsedError;
+  List<TestPreparation> get testPreparationTopics =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
@@ -57,8 +70,12 @@ abstract class $UserCopyWith<$Res> {
       {Id id,
       EmailAddress emailAddress,
       String name,
-      Option<PhoneNumber> phoneNumber,
-      String? avatar});
+      PhoneNumber? phoneNumber,
+      String? avatar,
+      BirthDay? birthday,
+      Level level,
+      List<LearnTopic> learningTopics,
+      List<TestPreparation> testPreparationTopics});
 }
 
 /// @nodoc
@@ -76,6 +93,10 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
     Object? name = freezed,
     Object? phoneNumber = freezed,
     Object? avatar = freezed,
+    Object? birthday = freezed,
+    Object? level = freezed,
+    Object? learningTopics = freezed,
+    Object? testPreparationTopics = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -93,11 +114,27 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
       phoneNumber: phoneNumber == freezed
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as Option<PhoneNumber>,
+              as PhoneNumber?,
       avatar: avatar == freezed
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
+      birthday: birthday == freezed
+          ? _value.birthday
+          : birthday // ignore: cast_nullable_to_non_nullable
+              as BirthDay?,
+      level: level == freezed
+          ? _value.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as Level,
+      learningTopics: learningTopics == freezed
+          ? _value.learningTopics
+          : learningTopics // ignore: cast_nullable_to_non_nullable
+              as List<LearnTopic>,
+      testPreparationTopics: testPreparationTopics == freezed
+          ? _value.testPreparationTopics
+          : testPreparationTopics // ignore: cast_nullable_to_non_nullable
+              as List<TestPreparation>,
     ));
   }
 }
@@ -111,8 +148,12 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       {Id id,
       EmailAddress emailAddress,
       String name,
-      Option<PhoneNumber> phoneNumber,
-      String? avatar});
+      PhoneNumber? phoneNumber,
+      String? avatar,
+      BirthDay? birthday,
+      Level level,
+      List<LearnTopic> learningTopics,
+      List<TestPreparation> testPreparationTopics});
 }
 
 /// @nodoc
@@ -131,6 +172,10 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     Object? name = freezed,
     Object? phoneNumber = freezed,
     Object? avatar = freezed,
+    Object? birthday = freezed,
+    Object? level = freezed,
+    Object? learningTopics = freezed,
+    Object? testPreparationTopics = freezed,
   }) {
     return _then(_User(
       id: id == freezed
@@ -148,11 +193,27 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
       phoneNumber: phoneNumber == freezed
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as Option<PhoneNumber>,
+              as PhoneNumber?,
       avatar: avatar == freezed
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
+      birthday: birthday == freezed
+          ? _value.birthday
+          : birthday // ignore: cast_nullable_to_non_nullable
+              as BirthDay?,
+      level: level == freezed
+          ? _value.level
+          : level // ignore: cast_nullable_to_non_nullable
+              as Level,
+      learningTopics: learningTopics == freezed
+          ? _value.learningTopics
+          : learningTopics // ignore: cast_nullable_to_non_nullable
+              as List<LearnTopic>,
+      testPreparationTopics: testPreparationTopics == freezed
+          ? _value.testPreparationTopics
+          : testPreparationTopics // ignore: cast_nullable_to_non_nullable
+              as List<TestPreparation>,
     ));
   }
 }
@@ -164,8 +225,12 @@ class _$_User implements _User {
       {required this.id,
       required this.emailAddress,
       required this.name,
-      this.phoneNumber = const None(),
-      this.avatar});
+      this.phoneNumber,
+      this.avatar,
+      this.birthday,
+      this.level = Level.none,
+      this.learningTopics = const [],
+      this.testPreparationTopics = const []});
 
   @override
   final Id id;
@@ -173,15 +238,25 @@ class _$_User implements _User {
   final EmailAddress emailAddress;
   @override
   final String name;
-  @JsonKey()
   @override
-  final Option<PhoneNumber> phoneNumber;
+  final PhoneNumber? phoneNumber;
   @override
   final String? avatar;
+  @override
+  final BirthDay? birthday;
+  @JsonKey()
+  @override
+  final Level level;
+  @JsonKey()
+  @override
+  final List<LearnTopic> learningTopics;
+  @JsonKey()
+  @override
+  final List<TestPreparation> testPreparationTopics;
 
   @override
   String toString() {
-    return 'User(id: $id, emailAddress: $emailAddress, name: $name, phoneNumber: $phoneNumber, avatar: $avatar)';
+    return 'User(id: $id, emailAddress: $emailAddress, name: $name, phoneNumber: $phoneNumber, avatar: $avatar, birthday: $birthday, level: $level, learningTopics: $learningTopics, testPreparationTopics: $testPreparationTopics)';
   }
 
   @override
@@ -195,7 +270,13 @@ class _$_User implements _User {
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
                 .equals(other.phoneNumber, phoneNumber) &&
-            const DeepCollectionEquality().equals(other.avatar, avatar));
+            const DeepCollectionEquality().equals(other.avatar, avatar) &&
+            const DeepCollectionEquality().equals(other.birthday, birthday) &&
+            const DeepCollectionEquality().equals(other.level, level) &&
+            const DeepCollectionEquality()
+                .equals(other.learningTopics, learningTopics) &&
+            const DeepCollectionEquality()
+                .equals(other.testPreparationTopics, testPreparationTopics));
   }
 
   @override
@@ -205,7 +286,11 @@ class _$_User implements _User {
       const DeepCollectionEquality().hash(emailAddress),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(phoneNumber),
-      const DeepCollectionEquality().hash(avatar));
+      const DeepCollectionEquality().hash(avatar),
+      const DeepCollectionEquality().hash(birthday),
+      const DeepCollectionEquality().hash(level),
+      const DeepCollectionEquality().hash(learningTopics),
+      const DeepCollectionEquality().hash(testPreparationTopics));
 
   @JsonKey(ignore: true)
   @override
@@ -218,8 +303,12 @@ abstract class _User implements User {
       {required Id id,
       required EmailAddress emailAddress,
       required String name,
-      Option<PhoneNumber> phoneNumber,
-      String? avatar}) = _$_User;
+      PhoneNumber? phoneNumber,
+      String? avatar,
+      BirthDay? birthday,
+      Level level,
+      List<LearnTopic> learningTopics,
+      List<TestPreparation> testPreparationTopics}) = _$_User;
 
   @override
   Id get id;
@@ -228,9 +317,17 @@ abstract class _User implements User {
   @override
   String get name;
   @override
-  Option<PhoneNumber> get phoneNumber;
+  PhoneNumber? get phoneNumber;
   @override
   String? get avatar;
+  @override
+  BirthDay? get birthday;
+  @override
+  Level get level;
+  @override
+  List<LearnTopic> get learningTopics;
+  @override
+  List<TestPreparation> get testPreparationTopics;
   @override
   @JsonKey(ignore: true)
   _$UserCopyWith<_User> get copyWith => throw _privateConstructorUsedError;

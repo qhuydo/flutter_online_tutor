@@ -132,7 +132,7 @@ dev_dependencies:
 
   flutter_lints: ^1.0.0
   build_runner: ^2.1.7
-  auto_route_generator: 3.2.3
+  auto_route_generator: ^3.2.3
   injectable_generator:
   freezed:
   json_serializable: ^6.1.5

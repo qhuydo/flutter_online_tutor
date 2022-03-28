@@ -1,12 +1,13 @@
-import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/authentication/value_objects/email_address.dart';
 import '../../../domain/authentication/value_objects/phone_number.dart';
 import '../../../domain/common/value_objects/id.dart';
 import '../../../domain/user/models/user.dart';
+import '../../../domain/user/value_objects/birthday.dart';
 import '../../course/dto/course_dto.dart';
 import '../../wallet/dto/wallet_dto.dart';
+import '../utils/level_extension.dart';
 import 'learning_topic_dto.dart';
 import 'test_preparation_dto.dart';
 
@@ -42,12 +43,15 @@ class UserDto with _$UserDto {
 extension UserDtoX on UserDto {
   User toDomain() {
     return User(
-      id: Id.fromString(this.id),
+      id: Id.fromString(id),
+      birthday: BirthDay(birthday != null ? DateTime.parse(birthday!) : null),
       emailAddress: EmailAddress(email),
       name: name,
       avatar: avatar,
-      phoneNumber:
-          phone?.isNotEmpty == true ? some(PhoneNumber(phone!)) : none(),
+      phoneNumber: phone?.isNotEmpty == true ? PhoneNumber(phone!) : null,
+      level: level.toLevel(),
+      learningTopics: learnTopics.map((e) => e.toDomain()).toList(),
+      testPreparationTopics: testPreparations.map((e) => e.toDomain()).toList(),
     );
   }
 }

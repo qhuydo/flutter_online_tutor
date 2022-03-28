@@ -10,4 +10,6 @@ class Failure with _$Failure {
 
   const factory Failure.apiError({int? errorCode, String? message}) =
       _ApiError;
+
+  const factory Failure.internalError() = _InternalError;
 }

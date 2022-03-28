@@ -16,7 +16,7 @@ class BirthDay extends ValueObject<ValueFailure, DateTime> {
   /// Validate birth date some time before today's date and within 120 years.
   static Either<ValueFailure, DateTime> _validate(DateTime? dateTime) {
     if (dateTime == null) {
-      return left(const ValueFailure.emptyValue());
+      return left(const ValueFailure.valueIsRequired());
     }
 
     final dateBefore120Years = dateTime.subtract(

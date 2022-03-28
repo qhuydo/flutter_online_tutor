@@ -1,9 +1,12 @@
-import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../authentication/value_objects/email_address.dart';
 import '../../authentication/value_objects/phone_number.dart';
 import '../../common/value_objects/id.dart';
+import '../constants/levels.dart';
+import '../value_objects/birthday.dart';
+import 'learn_topic.dart';
+import 'test_preparation.dart';
 
 part 'user.freezed.dart';
 
@@ -13,7 +16,11 @@ class User with _$User {
     required Id id,
     required EmailAddress emailAddress,
     required String name,
-    @Default(None()) Option<PhoneNumber> phoneNumber,
+    PhoneNumber? phoneNumber,
     String? avatar,
+    BirthDay? birthday,
+    @Default(Level.none) Level level,
+    @Default([]) List<LearnTopic> learningTopics,
+    @Default([]) List<TestPreparation> testPreparationTopics,
   }) = _User;
 }
