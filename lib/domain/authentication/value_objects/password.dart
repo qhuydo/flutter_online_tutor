@@ -4,18 +4,23 @@ import '../../common/value_objects/value_object.dart';
 import '../failures/password_failure.dart';
 
 class Password extends ValueObject<PasswordFailure, String> {
-  final Either<PasswordFailure, String> _passwordOrFailure;
+  final Either<PasswordFailure, String> passwordOrFailure;
 
-  const Password._(this._passwordOrFailure);
+  Password._(this.passwordOrFailure);
 
-  factory Password(String input) => Password._(_validatePassword(input));
+  factory Password.failure(PasswordFailure f) => Password._(left(f));
+
+  Password.fromEither(Either<PasswordFailure, String> either)
+      : passwordOrFailure = either;
+
+  Password(String input) : passwordOrFailure = validatePassword(input);
 
   @override
-  Either<PasswordFailure, String> get value => _passwordOrFailure;
+  Either<PasswordFailure, String> get value => passwordOrFailure;
 
   static const _minimumPasswordLength = 8;
 
-  static Either<PasswordFailure, String> _validatePassword(String input) {
+  static Either<PasswordFailure, String> validatePassword(String input) {
     if (input.isEmpty) return left(const PasswordFailure.emptyPassword());
 
     if (input.length < _minimumPasswordLength) {

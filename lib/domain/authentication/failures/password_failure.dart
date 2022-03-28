@@ -8,4 +8,8 @@ class PasswordFailure with _$PasswordFailure {
   const factory PasswordFailure.emptyPassword() = _EmptyPassword;
 
   const factory PasswordFailure.shortPassword() = _ShortPassword;
+
+  const factory PasswordFailure.wrongCurrentPassword() = _WrongCurrentPassword;
+
+  const factory PasswordFailure.wrongNewPassword() = _WrongNewPassword;
 }

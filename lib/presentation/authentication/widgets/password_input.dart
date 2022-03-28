@@ -96,5 +96,7 @@ extension PasswordFailureX on PasswordFailure {
   String toMsg() => map(
         shortPassword: (_) => 'Short password',
         emptyPassword: (_) => 'Please enter your password',
+        wrongCurrentPassword: (_) => 'Wrong current password',
+        wrongNewPassword: (_) => 'Wrong new password',
       );
 }

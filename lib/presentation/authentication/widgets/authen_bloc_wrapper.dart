@@ -69,6 +69,7 @@ extension AuthenticationFailureX on AuthenticationFailure {
         phoneNumberAlreadyTaken: (_) => 'Phone number is already taken',
         emailNotExist: (_) => 'Email does not exist, please register '
             'new account',
+        wrongCurrentPassword: (_) => 'Wrong current password',
       ),
       duration: const Duration(
         seconds: 30,

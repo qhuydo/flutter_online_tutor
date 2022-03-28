@@ -49,6 +49,10 @@ class _$AuthenticationFailureTearOff {
   _EmailNotExist emailNotExist() {
     return const _EmailNotExist();
   }
+
+  _WrongCurrentPassword wrongCurrentPassword() {
+    return const _WrongCurrentPassword();
+  }
 }
 
 /// @nodoc
@@ -66,6 +70,7 @@ mixin _$AuthenticationFailure {
     required TResult Function() emailAlreadyTaken,
     required TResult Function() phoneNumberAlreadyTaken,
     required TResult Function() emailNotExist,
+    required TResult Function() wrongCurrentPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,6 +83,7 @@ mixin _$AuthenticationFailure {
     TResult Function()? emailAlreadyTaken,
     TResult Function()? phoneNumberAlreadyTaken,
     TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,6 +96,7 @@ mixin _$AuthenticationFailure {
     TResult Function()? emailAlreadyTaken,
     TResult Function()? phoneNumberAlreadyTaken,
     TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -105,6 +112,7 @@ mixin _$AuthenticationFailure {
     required TResult Function(_PhoneNumberAlreadyTaken value)
         phoneNumberAlreadyTaken,
     required TResult Function(_EmailNotExist value) emailNotExist,
+    required TResult Function(_WrongCurrentPassword value) wrongCurrentPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -118,6 +126,7 @@ mixin _$AuthenticationFailure {
     TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
     TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
     TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -131,6 +140,7 @@ mixin _$AuthenticationFailure {
     TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
     TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
     TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -202,6 +212,7 @@ class _$_WrongEmailOrPassword implements _WrongEmailOrPassword {
     required TResult Function() emailAlreadyTaken,
     required TResult Function() phoneNumberAlreadyTaken,
     required TResult Function() emailNotExist,
+    required TResult Function() wrongCurrentPassword,
   }) {
     return wrongEmailOrPassword();
   }
@@ -217,6 +228,7 @@ class _$_WrongEmailOrPassword implements _WrongEmailOrPassword {
     TResult Function()? emailAlreadyTaken,
     TResult Function()? phoneNumberAlreadyTaken,
     TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
   }) {
     return wrongEmailOrPassword?.call();
   }
@@ -232,6 +244,7 @@ class _$_WrongEmailOrPassword implements _WrongEmailOrPassword {
     TResult Function()? emailAlreadyTaken,
     TResult Function()? phoneNumberAlreadyTaken,
     TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
     required TResult orElse(),
   }) {
     if (wrongEmailOrPassword != null) {
@@ -253,6 +266,7 @@ class _$_WrongEmailOrPassword implements _WrongEmailOrPassword {
     required TResult Function(_PhoneNumberAlreadyTaken value)
         phoneNumberAlreadyTaken,
     required TResult Function(_EmailNotExist value) emailNotExist,
+    required TResult Function(_WrongCurrentPassword value) wrongCurrentPassword,
   }) {
     return wrongEmailOrPassword(this);
   }
@@ -269,6 +283,7 @@ class _$_WrongEmailOrPassword implements _WrongEmailOrPassword {
     TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
     TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
     TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
   }) {
     return wrongEmailOrPassword?.call(this);
   }
@@ -285,6 +300,7 @@ class _$_WrongEmailOrPassword implements _WrongEmailOrPassword {
     TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
     TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
     TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
     required TResult orElse(),
   }) {
     if (wrongEmailOrPassword != null) {
@@ -350,6 +366,7 @@ class _$_WrongPhoneNumberOrPassword implements _WrongPhoneNumberOrPassword {
     required TResult Function() emailAlreadyTaken,
     required TResult Function() phoneNumberAlreadyTaken,
     required TResult Function() emailNotExist,
+    required TResult Function() wrongCurrentPassword,
   }) {
     return wrongPhoneNumberOrPassword();
   }
@@ -365,6 +382,7 @@ class _$_WrongPhoneNumberOrPassword implements _WrongPhoneNumberOrPassword {
     TResult Function()? emailAlreadyTaken,
     TResult Function()? phoneNumberAlreadyTaken,
     TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
   }) {
     return wrongPhoneNumberOrPassword?.call();
   }
@@ -380,6 +398,7 @@ class _$_WrongPhoneNumberOrPassword implements _WrongPhoneNumberOrPassword {
     TResult Function()? emailAlreadyTaken,
     TResult Function()? phoneNumberAlreadyTaken,
     TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
     required TResult orElse(),
   }) {
     if (wrongPhoneNumberOrPassword != null) {
@@ -401,6 +420,7 @@ class _$_WrongPhoneNumberOrPassword implements _WrongPhoneNumberOrPassword {
     required TResult Function(_PhoneNumberAlreadyTaken value)
         phoneNumberAlreadyTaken,
     required TResult Function(_EmailNotExist value) emailNotExist,
+    required TResult Function(_WrongCurrentPassword value) wrongCurrentPassword,
   }) {
     return wrongPhoneNumberOrPassword(this);
   }
@@ -417,6 +437,7 @@ class _$_WrongPhoneNumberOrPassword implements _WrongPhoneNumberOrPassword {
     TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
     TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
     TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
   }) {
     return wrongPhoneNumberOrPassword?.call(this);
   }
@@ -433,6 +454,7 @@ class _$_WrongPhoneNumberOrPassword implements _WrongPhoneNumberOrPassword {
     TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
     TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
     TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
     required TResult orElse(),
   }) {
     if (wrongPhoneNumberOrPassword != null) {
@@ -495,6 +517,7 @@ class _$_NoConnection implements _NoConnection {
     required TResult Function() emailAlreadyTaken,
     required TResult Function() phoneNumberAlreadyTaken,
     required TResult Function() emailNotExist,
+    required TResult Function() wrongCurrentPassword,
   }) {
     return noConnection();
   }
@@ -510,6 +533,7 @@ class _$_NoConnection implements _NoConnection {
     TResult Function()? emailAlreadyTaken,
     TResult Function()? phoneNumberAlreadyTaken,
     TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
   }) {
     return noConnection?.call();
   }
@@ -525,6 +549,7 @@ class _$_NoConnection implements _NoConnection {
     TResult Function()? emailAlreadyTaken,
     TResult Function()? phoneNumberAlreadyTaken,
     TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
     required TResult orElse(),
   }) {
     if (noConnection != null) {
@@ -546,6 +571,7 @@ class _$_NoConnection implements _NoConnection {
     required TResult Function(_PhoneNumberAlreadyTaken value)
         phoneNumberAlreadyTaken,
     required TResult Function(_EmailNotExist value) emailNotExist,
+    required TResult Function(_WrongCurrentPassword value) wrongCurrentPassword,
   }) {
     return noConnection(this);
   }
@@ -562,6 +588,7 @@ class _$_NoConnection implements _NoConnection {
     TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
     TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
     TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
   }) {
     return noConnection?.call(this);
   }
@@ -578,6 +605,7 @@ class _$_NoConnection implements _NoConnection {
     TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
     TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
     TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
     required TResult orElse(),
   }) {
     if (noConnection != null) {
@@ -640,6 +668,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function() emailAlreadyTaken,
     required TResult Function() phoneNumberAlreadyTaken,
     required TResult Function() emailNotExist,
+    required TResult Function() wrongCurrentPassword,
   }) {
     return serverError();
   }
@@ -655,6 +684,7 @@ class _$_ServerError implements _ServerError {
     TResult Function()? emailAlreadyTaken,
     TResult Function()? phoneNumberAlreadyTaken,
     TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
   }) {
     return serverError?.call();
   }
@@ -670,6 +700,7 @@ class _$_ServerError implements _ServerError {
     TResult Function()? emailAlreadyTaken,
     TResult Function()? phoneNumberAlreadyTaken,
     TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -691,6 +722,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function(_PhoneNumberAlreadyTaken value)
         phoneNumberAlreadyTaken,
     required TResult Function(_EmailNotExist value) emailNotExist,
+    required TResult Function(_WrongCurrentPassword value) wrongCurrentPassword,
   }) {
     return serverError(this);
   }
@@ -707,6 +739,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
     TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
     TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
   }) {
     return serverError?.call(this);
   }
@@ -723,6 +756,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
     TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
     TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -785,6 +819,7 @@ class _$_AlreadySignedOut implements _AlreadySignedOut {
     required TResult Function() emailAlreadyTaken,
     required TResult Function() phoneNumberAlreadyTaken,
     required TResult Function() emailNotExist,
+    required TResult Function() wrongCurrentPassword,
   }) {
     return alreadySignedOut();
   }
@@ -800,6 +835,7 @@ class _$_AlreadySignedOut implements _AlreadySignedOut {
     TResult Function()? emailAlreadyTaken,
     TResult Function()? phoneNumberAlreadyTaken,
     TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
   }) {
     return alreadySignedOut?.call();
   }
@@ -815,6 +851,7 @@ class _$_AlreadySignedOut implements _AlreadySignedOut {
     TResult Function()? emailAlreadyTaken,
     TResult Function()? phoneNumberAlreadyTaken,
     TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
     required TResult orElse(),
   }) {
     if (alreadySignedOut != null) {
@@ -836,6 +873,7 @@ class _$_AlreadySignedOut implements _AlreadySignedOut {
     required TResult Function(_PhoneNumberAlreadyTaken value)
         phoneNumberAlreadyTaken,
     required TResult Function(_EmailNotExist value) emailNotExist,
+    required TResult Function(_WrongCurrentPassword value) wrongCurrentPassword,
   }) {
     return alreadySignedOut(this);
   }
@@ -852,6 +890,7 @@ class _$_AlreadySignedOut implements _AlreadySignedOut {
     TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
     TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
     TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
   }) {
     return alreadySignedOut?.call(this);
   }
@@ -868,6 +907,7 @@ class _$_AlreadySignedOut implements _AlreadySignedOut {
     TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
     TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
     TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
     required TResult orElse(),
   }) {
     if (alreadySignedOut != null) {
@@ -930,6 +970,7 @@ class _$_EmailAlreadyTaken implements _EmailAlreadyTaken {
     required TResult Function() emailAlreadyTaken,
     required TResult Function() phoneNumberAlreadyTaken,
     required TResult Function() emailNotExist,
+    required TResult Function() wrongCurrentPassword,
   }) {
     return emailAlreadyTaken();
   }
@@ -945,6 +986,7 @@ class _$_EmailAlreadyTaken implements _EmailAlreadyTaken {
     TResult Function()? emailAlreadyTaken,
     TResult Function()? phoneNumberAlreadyTaken,
     TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
   }) {
     return emailAlreadyTaken?.call();
   }
@@ -960,6 +1002,7 @@ class _$_EmailAlreadyTaken implements _EmailAlreadyTaken {
     TResult Function()? emailAlreadyTaken,
     TResult Function()? phoneNumberAlreadyTaken,
     TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
     required TResult orElse(),
   }) {
     if (emailAlreadyTaken != null) {
@@ -981,6 +1024,7 @@ class _$_EmailAlreadyTaken implements _EmailAlreadyTaken {
     required TResult Function(_PhoneNumberAlreadyTaken value)
         phoneNumberAlreadyTaken,
     required TResult Function(_EmailNotExist value) emailNotExist,
+    required TResult Function(_WrongCurrentPassword value) wrongCurrentPassword,
   }) {
     return emailAlreadyTaken(this);
   }
@@ -997,6 +1041,7 @@ class _$_EmailAlreadyTaken implements _EmailAlreadyTaken {
     TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
     TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
     TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
   }) {
     return emailAlreadyTaken?.call(this);
   }
@@ -1013,6 +1058,7 @@ class _$_EmailAlreadyTaken implements _EmailAlreadyTaken {
     TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
     TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
     TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
     required TResult orElse(),
   }) {
     if (emailAlreadyTaken != null) {
@@ -1076,6 +1122,7 @@ class _$_PhoneNumberAlreadyTaken implements _PhoneNumberAlreadyTaken {
     required TResult Function() emailAlreadyTaken,
     required TResult Function() phoneNumberAlreadyTaken,
     required TResult Function() emailNotExist,
+    required TResult Function() wrongCurrentPassword,
   }) {
     return phoneNumberAlreadyTaken();
   }
@@ -1091,6 +1138,7 @@ class _$_PhoneNumberAlreadyTaken implements _PhoneNumberAlreadyTaken {
     TResult Function()? emailAlreadyTaken,
     TResult Function()? phoneNumberAlreadyTaken,
     TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
   }) {
     return phoneNumberAlreadyTaken?.call();
   }
@@ -1106,6 +1154,7 @@ class _$_PhoneNumberAlreadyTaken implements _PhoneNumberAlreadyTaken {
     TResult Function()? emailAlreadyTaken,
     TResult Function()? phoneNumberAlreadyTaken,
     TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
     required TResult orElse(),
   }) {
     if (phoneNumberAlreadyTaken != null) {
@@ -1127,6 +1176,7 @@ class _$_PhoneNumberAlreadyTaken implements _PhoneNumberAlreadyTaken {
     required TResult Function(_PhoneNumberAlreadyTaken value)
         phoneNumberAlreadyTaken,
     required TResult Function(_EmailNotExist value) emailNotExist,
+    required TResult Function(_WrongCurrentPassword value) wrongCurrentPassword,
   }) {
     return phoneNumberAlreadyTaken(this);
   }
@@ -1143,6 +1193,7 @@ class _$_PhoneNumberAlreadyTaken implements _PhoneNumberAlreadyTaken {
     TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
     TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
     TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
   }) {
     return phoneNumberAlreadyTaken?.call(this);
   }
@@ -1159,6 +1210,7 @@ class _$_PhoneNumberAlreadyTaken implements _PhoneNumberAlreadyTaken {
     TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
     TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
     TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
     required TResult orElse(),
   }) {
     if (phoneNumberAlreadyTaken != null) {
@@ -1221,6 +1273,7 @@ class _$_EmailNotExist implements _EmailNotExist {
     required TResult Function() emailAlreadyTaken,
     required TResult Function() phoneNumberAlreadyTaken,
     required TResult Function() emailNotExist,
+    required TResult Function() wrongCurrentPassword,
   }) {
     return emailNotExist();
   }
@@ -1236,6 +1289,7 @@ class _$_EmailNotExist implements _EmailNotExist {
     TResult Function()? emailAlreadyTaken,
     TResult Function()? phoneNumberAlreadyTaken,
     TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
   }) {
     return emailNotExist?.call();
   }
@@ -1251,6 +1305,7 @@ class _$_EmailNotExist implements _EmailNotExist {
     TResult Function()? emailAlreadyTaken,
     TResult Function()? phoneNumberAlreadyTaken,
     TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
     required TResult orElse(),
   }) {
     if (emailNotExist != null) {
@@ -1272,6 +1327,7 @@ class _$_EmailNotExist implements _EmailNotExist {
     required TResult Function(_PhoneNumberAlreadyTaken value)
         phoneNumberAlreadyTaken,
     required TResult Function(_EmailNotExist value) emailNotExist,
+    required TResult Function(_WrongCurrentPassword value) wrongCurrentPassword,
   }) {
     return emailNotExist(this);
   }
@@ -1288,6 +1344,7 @@ class _$_EmailNotExist implements _EmailNotExist {
     TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
     TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
     TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
   }) {
     return emailNotExist?.call(this);
   }
@@ -1304,6 +1361,7 @@ class _$_EmailNotExist implements _EmailNotExist {
     TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
     TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
     TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
     required TResult orElse(),
   }) {
     if (emailNotExist != null) {
@@ -1315,4 +1373,155 @@ class _$_EmailNotExist implements _EmailNotExist {
 
 abstract class _EmailNotExist implements AuthenticationFailure {
   const factory _EmailNotExist() = _$_EmailNotExist;
+}
+
+/// @nodoc
+abstract class _$WrongCurrentPasswordCopyWith<$Res> {
+  factory _$WrongCurrentPasswordCopyWith(_WrongCurrentPassword value,
+          $Res Function(_WrongCurrentPassword) then) =
+      __$WrongCurrentPasswordCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$WrongCurrentPasswordCopyWithImpl<$Res>
+    extends _$AuthenticationFailureCopyWithImpl<$Res>
+    implements _$WrongCurrentPasswordCopyWith<$Res> {
+  __$WrongCurrentPasswordCopyWithImpl(
+      _WrongCurrentPassword _value, $Res Function(_WrongCurrentPassword) _then)
+      : super(_value, (v) => _then(v as _WrongCurrentPassword));
+
+  @override
+  _WrongCurrentPassword get _value => super._value as _WrongCurrentPassword;
+}
+
+/// @nodoc
+
+class _$_WrongCurrentPassword implements _WrongCurrentPassword {
+  const _$_WrongCurrentPassword();
+
+  @override
+  String toString() {
+    return 'AuthenticationFailure.wrongCurrentPassword()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _WrongCurrentPassword);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() wrongEmailOrPassword,
+    required TResult Function() wrongPhoneNumberOrPassword,
+    required TResult Function() noConnection,
+    required TResult Function() serverError,
+    required TResult Function() alreadySignedOut,
+    required TResult Function() emailAlreadyTaken,
+    required TResult Function() phoneNumberAlreadyTaken,
+    required TResult Function() emailNotExist,
+    required TResult Function() wrongCurrentPassword,
+  }) {
+    return wrongCurrentPassword();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? wrongEmailOrPassword,
+    TResult Function()? wrongPhoneNumberOrPassword,
+    TResult Function()? noConnection,
+    TResult Function()? serverError,
+    TResult Function()? alreadySignedOut,
+    TResult Function()? emailAlreadyTaken,
+    TResult Function()? phoneNumberAlreadyTaken,
+    TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
+  }) {
+    return wrongCurrentPassword?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? wrongEmailOrPassword,
+    TResult Function()? wrongPhoneNumberOrPassword,
+    TResult Function()? noConnection,
+    TResult Function()? serverError,
+    TResult Function()? alreadySignedOut,
+    TResult Function()? emailAlreadyTaken,
+    TResult Function()? phoneNumberAlreadyTaken,
+    TResult Function()? emailNotExist,
+    TResult Function()? wrongCurrentPassword,
+    required TResult orElse(),
+  }) {
+    if (wrongCurrentPassword != null) {
+      return wrongCurrentPassword();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WrongEmailOrPassword value) wrongEmailOrPassword,
+    required TResult Function(_WrongPhoneNumberOrPassword value)
+        wrongPhoneNumberOrPassword,
+    required TResult Function(_NoConnection value) noConnection,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_AlreadySignedOut value) alreadySignedOut,
+    required TResult Function(_EmailAlreadyTaken value) emailAlreadyTaken,
+    required TResult Function(_PhoneNumberAlreadyTaken value)
+        phoneNumberAlreadyTaken,
+    required TResult Function(_EmailNotExist value) emailNotExist,
+    required TResult Function(_WrongCurrentPassword value) wrongCurrentPassword,
+  }) {
+    return wrongCurrentPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WrongEmailOrPassword value)? wrongEmailOrPassword,
+    TResult Function(_WrongPhoneNumberOrPassword value)?
+        wrongPhoneNumberOrPassword,
+    TResult Function(_NoConnection value)? noConnection,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_AlreadySignedOut value)? alreadySignedOut,
+    TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
+    TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
+    TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
+  }) {
+    return wrongCurrentPassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WrongEmailOrPassword value)? wrongEmailOrPassword,
+    TResult Function(_WrongPhoneNumberOrPassword value)?
+        wrongPhoneNumberOrPassword,
+    TResult Function(_NoConnection value)? noConnection,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_AlreadySignedOut value)? alreadySignedOut,
+    TResult Function(_EmailAlreadyTaken value)? emailAlreadyTaken,
+    TResult Function(_PhoneNumberAlreadyTaken value)? phoneNumberAlreadyTaken,
+    TResult Function(_EmailNotExist value)? emailNotExist,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
+    required TResult orElse(),
+  }) {
+    if (wrongCurrentPassword != null) {
+      return wrongCurrentPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WrongCurrentPassword implements AuthenticationFailure {
+  const factory _WrongCurrentPassword() = _$_WrongCurrentPassword;
 }

@@ -69,7 +69,7 @@ class _ResetPasswordPage extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Reset password'),
-          content: const Text('Your password was changed to: 123456'),
+          content: const Text('Your password was changed to: 12345678'),
           actions: [
             TextButton(
               onPressed: () {

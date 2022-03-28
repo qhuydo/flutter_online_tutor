@@ -25,6 +25,14 @@ class _$PasswordFailureTearOff {
   _ShortPassword shortPassword() {
     return const _ShortPassword();
   }
+
+  _WrongCurrentPassword wrongCurrentPassword() {
+    return const _WrongCurrentPassword();
+  }
+
+  _WrongNewPassword wrongNewPassword() {
+    return const _WrongNewPassword();
+  }
 }
 
 /// @nodoc
@@ -36,18 +44,24 @@ mixin _$PasswordFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() emptyPassword,
     required TResult Function() shortPassword,
+    required TResult Function() wrongCurrentPassword,
+    required TResult Function() wrongNewPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? emptyPassword,
     TResult Function()? shortPassword,
+    TResult Function()? wrongCurrentPassword,
+    TResult Function()? wrongNewPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? emptyPassword,
     TResult Function()? shortPassword,
+    TResult Function()? wrongCurrentPassword,
+    TResult Function()? wrongNewPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,18 +69,24 @@ mixin _$PasswordFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(_EmptyPassword value) emptyPassword,
     required TResult Function(_ShortPassword value) shortPassword,
+    required TResult Function(_WrongCurrentPassword value) wrongCurrentPassword,
+    required TResult Function(_WrongNewPassword value) wrongNewPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_EmptyPassword value)? emptyPassword,
     TResult Function(_ShortPassword value)? shortPassword,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
+    TResult Function(_WrongNewPassword value)? wrongNewPassword,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_EmptyPassword value)? emptyPassword,
     TResult Function(_ShortPassword value)? shortPassword,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
+    TResult Function(_WrongNewPassword value)? wrongNewPassword,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -132,6 +152,8 @@ class _$_EmptyPassword implements _EmptyPassword {
   TResult when<TResult extends Object?>({
     required TResult Function() emptyPassword,
     required TResult Function() shortPassword,
+    required TResult Function() wrongCurrentPassword,
+    required TResult Function() wrongNewPassword,
   }) {
     return emptyPassword();
   }
@@ -141,6 +163,8 @@ class _$_EmptyPassword implements _EmptyPassword {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? emptyPassword,
     TResult Function()? shortPassword,
+    TResult Function()? wrongCurrentPassword,
+    TResult Function()? wrongNewPassword,
   }) {
     return emptyPassword?.call();
   }
@@ -150,6 +174,8 @@ class _$_EmptyPassword implements _EmptyPassword {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? emptyPassword,
     TResult Function()? shortPassword,
+    TResult Function()? wrongCurrentPassword,
+    TResult Function()? wrongNewPassword,
     required TResult orElse(),
   }) {
     if (emptyPassword != null) {
@@ -163,6 +189,8 @@ class _$_EmptyPassword implements _EmptyPassword {
   TResult map<TResult extends Object?>({
     required TResult Function(_EmptyPassword value) emptyPassword,
     required TResult Function(_ShortPassword value) shortPassword,
+    required TResult Function(_WrongCurrentPassword value) wrongCurrentPassword,
+    required TResult Function(_WrongNewPassword value) wrongNewPassword,
   }) {
     return emptyPassword(this);
   }
@@ -172,6 +200,8 @@ class _$_EmptyPassword implements _EmptyPassword {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_EmptyPassword value)? emptyPassword,
     TResult Function(_ShortPassword value)? shortPassword,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
+    TResult Function(_WrongNewPassword value)? wrongNewPassword,
   }) {
     return emptyPassword?.call(this);
   }
@@ -181,6 +211,8 @@ class _$_EmptyPassword implements _EmptyPassword {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_EmptyPassword value)? emptyPassword,
     TResult Function(_ShortPassword value)? shortPassword,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
+    TResult Function(_WrongNewPassword value)? wrongNewPassword,
     required TResult orElse(),
   }) {
     if (emptyPassword != null) {
@@ -237,6 +269,8 @@ class _$_ShortPassword implements _ShortPassword {
   TResult when<TResult extends Object?>({
     required TResult Function() emptyPassword,
     required TResult Function() shortPassword,
+    required TResult Function() wrongCurrentPassword,
+    required TResult Function() wrongNewPassword,
   }) {
     return shortPassword();
   }
@@ -246,6 +280,8 @@ class _$_ShortPassword implements _ShortPassword {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? emptyPassword,
     TResult Function()? shortPassword,
+    TResult Function()? wrongCurrentPassword,
+    TResult Function()? wrongNewPassword,
   }) {
     return shortPassword?.call();
   }
@@ -255,6 +291,8 @@ class _$_ShortPassword implements _ShortPassword {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? emptyPassword,
     TResult Function()? shortPassword,
+    TResult Function()? wrongCurrentPassword,
+    TResult Function()? wrongNewPassword,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -268,6 +306,8 @@ class _$_ShortPassword implements _ShortPassword {
   TResult map<TResult extends Object?>({
     required TResult Function(_EmptyPassword value) emptyPassword,
     required TResult Function(_ShortPassword value) shortPassword,
+    required TResult Function(_WrongCurrentPassword value) wrongCurrentPassword,
+    required TResult Function(_WrongNewPassword value) wrongNewPassword,
   }) {
     return shortPassword(this);
   }
@@ -277,6 +317,8 @@ class _$_ShortPassword implements _ShortPassword {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_EmptyPassword value)? emptyPassword,
     TResult Function(_ShortPassword value)? shortPassword,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
+    TResult Function(_WrongNewPassword value)? wrongNewPassword,
   }) {
     return shortPassword?.call(this);
   }
@@ -286,6 +328,8 @@ class _$_ShortPassword implements _ShortPassword {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_EmptyPassword value)? emptyPassword,
     TResult Function(_ShortPassword value)? shortPassword,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
+    TResult Function(_WrongNewPassword value)? wrongNewPassword,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -297,4 +341,238 @@ class _$_ShortPassword implements _ShortPassword {
 
 abstract class _ShortPassword implements PasswordFailure {
   const factory _ShortPassword() = _$_ShortPassword;
+}
+
+/// @nodoc
+abstract class _$WrongCurrentPasswordCopyWith<$Res> {
+  factory _$WrongCurrentPasswordCopyWith(_WrongCurrentPassword value,
+          $Res Function(_WrongCurrentPassword) then) =
+      __$WrongCurrentPasswordCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$WrongCurrentPasswordCopyWithImpl<$Res>
+    extends _$PasswordFailureCopyWithImpl<$Res>
+    implements _$WrongCurrentPasswordCopyWith<$Res> {
+  __$WrongCurrentPasswordCopyWithImpl(
+      _WrongCurrentPassword _value, $Res Function(_WrongCurrentPassword) _then)
+      : super(_value, (v) => _then(v as _WrongCurrentPassword));
+
+  @override
+  _WrongCurrentPassword get _value => super._value as _WrongCurrentPassword;
+}
+
+/// @nodoc
+
+class _$_WrongCurrentPassword implements _WrongCurrentPassword {
+  const _$_WrongCurrentPassword();
+
+  @override
+  String toString() {
+    return 'PasswordFailure.wrongCurrentPassword()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _WrongCurrentPassword);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() emptyPassword,
+    required TResult Function() shortPassword,
+    required TResult Function() wrongCurrentPassword,
+    required TResult Function() wrongNewPassword,
+  }) {
+    return wrongCurrentPassword();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? emptyPassword,
+    TResult Function()? shortPassword,
+    TResult Function()? wrongCurrentPassword,
+    TResult Function()? wrongNewPassword,
+  }) {
+    return wrongCurrentPassword?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? emptyPassword,
+    TResult Function()? shortPassword,
+    TResult Function()? wrongCurrentPassword,
+    TResult Function()? wrongNewPassword,
+    required TResult orElse(),
+  }) {
+    if (wrongCurrentPassword != null) {
+      return wrongCurrentPassword();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_EmptyPassword value) emptyPassword,
+    required TResult Function(_ShortPassword value) shortPassword,
+    required TResult Function(_WrongCurrentPassword value) wrongCurrentPassword,
+    required TResult Function(_WrongNewPassword value) wrongNewPassword,
+  }) {
+    return wrongCurrentPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_EmptyPassword value)? emptyPassword,
+    TResult Function(_ShortPassword value)? shortPassword,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
+    TResult Function(_WrongNewPassword value)? wrongNewPassword,
+  }) {
+    return wrongCurrentPassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EmptyPassword value)? emptyPassword,
+    TResult Function(_ShortPassword value)? shortPassword,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
+    TResult Function(_WrongNewPassword value)? wrongNewPassword,
+    required TResult orElse(),
+  }) {
+    if (wrongCurrentPassword != null) {
+      return wrongCurrentPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WrongCurrentPassword implements PasswordFailure {
+  const factory _WrongCurrentPassword() = _$_WrongCurrentPassword;
+}
+
+/// @nodoc
+abstract class _$WrongNewPasswordCopyWith<$Res> {
+  factory _$WrongNewPasswordCopyWith(
+          _WrongNewPassword value, $Res Function(_WrongNewPassword) then) =
+      __$WrongNewPasswordCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$WrongNewPasswordCopyWithImpl<$Res>
+    extends _$PasswordFailureCopyWithImpl<$Res>
+    implements _$WrongNewPasswordCopyWith<$Res> {
+  __$WrongNewPasswordCopyWithImpl(
+      _WrongNewPassword _value, $Res Function(_WrongNewPassword) _then)
+      : super(_value, (v) => _then(v as _WrongNewPassword));
+
+  @override
+  _WrongNewPassword get _value => super._value as _WrongNewPassword;
+}
+
+/// @nodoc
+
+class _$_WrongNewPassword implements _WrongNewPassword {
+  const _$_WrongNewPassword();
+
+  @override
+  String toString() {
+    return 'PasswordFailure.wrongNewPassword()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _WrongNewPassword);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() emptyPassword,
+    required TResult Function() shortPassword,
+    required TResult Function() wrongCurrentPassword,
+    required TResult Function() wrongNewPassword,
+  }) {
+    return wrongNewPassword();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? emptyPassword,
+    TResult Function()? shortPassword,
+    TResult Function()? wrongCurrentPassword,
+    TResult Function()? wrongNewPassword,
+  }) {
+    return wrongNewPassword?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? emptyPassword,
+    TResult Function()? shortPassword,
+    TResult Function()? wrongCurrentPassword,
+    TResult Function()? wrongNewPassword,
+    required TResult orElse(),
+  }) {
+    if (wrongNewPassword != null) {
+      return wrongNewPassword();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_EmptyPassword value) emptyPassword,
+    required TResult Function(_ShortPassword value) shortPassword,
+    required TResult Function(_WrongCurrentPassword value) wrongCurrentPassword,
+    required TResult Function(_WrongNewPassword value) wrongNewPassword,
+  }) {
+    return wrongNewPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_EmptyPassword value)? emptyPassword,
+    TResult Function(_ShortPassword value)? shortPassword,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
+    TResult Function(_WrongNewPassword value)? wrongNewPassword,
+  }) {
+    return wrongNewPassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_EmptyPassword value)? emptyPassword,
+    TResult Function(_ShortPassword value)? shortPassword,
+    TResult Function(_WrongCurrentPassword value)? wrongCurrentPassword,
+    TResult Function(_WrongNewPassword value)? wrongNewPassword,
+    required TResult orElse(),
+  }) {
+    if (wrongNewPassword != null) {
+      return wrongNewPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WrongNewPassword implements PasswordFailure {
+  const factory _WrongNewPassword() = _$_WrongNewPassword;
 }
