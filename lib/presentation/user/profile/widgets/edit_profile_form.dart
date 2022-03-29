@@ -23,6 +23,7 @@ class _EditProfileFormState extends State<EditProfileForm> {
   final _formKey = GlobalKey<FormState>();
 
   static const rowSpacing = 20.0;
+  static const defaultRowSizeBox = SizedBox(height: rowSpacing);
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +55,7 @@ class _EditProfileFormState extends State<EditProfileForm> {
                       .value
                       .fold((l) => l.toErrorText(context), (r) => null),
                 ),
-                const SizedBox(height: rowSpacing),
+                defaultRowSizeBox,
                 DateOfBirthFormField(
                   initialDate: state.birthDay?.valueOrNull(),
                   enabled: !state.isLoading,
@@ -65,16 +66,21 @@ class _EditProfileFormState extends State<EditProfileForm> {
                           );
                     }
                   },
-                  validator: (_) =>
-                      state.birthDay?.value
-                          .fold((l) => l.toErrorText(context), (r) => null) ??
-                      const ValueFailure.valueIsRequired().toErrorText(context),
+                  validator: (_) {
+                    if (state.birthDay == null) {
+                      return const ValueFailure.valueIsRequired().toErrorText(
+                        context,
+                      );
+                    }
+                    return state.birthDay?.value
+                        .fold((l) => l.toErrorText(context), (r) => null);
+                  },
                 ),
-                const SizedBox(height: rowSpacing),
+                defaultRowSizeBox,
                 PhoneFormTextField(
                   initialValue: state.user.phoneNumber?.valueOrNull() ?? '',
                 ),
-                const SizedBox(height: rowSpacing),
+                defaultRowSizeBox,
                 CountryFormDropdown(
                   value: state.country,
                   onChanged: (value) {
@@ -85,7 +91,7 @@ class _EditProfileFormState extends State<EditProfileForm> {
                     }
                   },
                 ),
-                const SizedBox(height: rowSpacing),
+                defaultRowSizeBox,
                 LevelFormDropdown(
                   initialValue: state.level,
                   enabled: !state.isLoading,
@@ -97,7 +103,7 @@ class _EditProfileFormState extends State<EditProfileForm> {
                     }
                   },
                 ),
-                const SizedBox(height: rowSpacing),
+                defaultRowSizeBox,
                 LearningTopicsDropdown(
                   allTopics: state.allLearnTopics,
                   selectedLearnTopics: state.learnTopics,
@@ -115,33 +121,38 @@ class _EditProfileFormState extends State<EditProfileForm> {
                     }
                   },
                 ),
-                const SizedBox(height: rowSpacing),
+                defaultRowSizeBox,
                 TestPreparationDropdown(
                   allTopics: state.allTestPreparations,
                   selectedTestPreparations: state.testPreparations,
                   onItemsSelected: (topics) {
                     context.read<ProfileBloc>().add(
-                      ProfileEvent.testPreparationTopicsChanged(topics.cast()),
-                    );
+                          ProfileEvent.testPreparationTopicsChanged(
+                              topics.cast()),
+                        );
                   },
                   onItemRemoved: (item) {
                     if (item != null) {
                       context.read<ProfileBloc>().add(
-                        ProfileEvent.testPreparationTopicsChanged(
-                            state.testPreparations.toList()..remove(item)),
-                      );
+                            ProfileEvent.testPreparationTopicsChanged(
+                                state.testPreparations.toList()..remove(item)),
+                          );
                     }
                   },
                 ),
-                const SizedBox(height: rowSpacing),
+                defaultRowSizeBox,
                 SaveButton(
                   enabled: !state.isLoading,
                   onPressed: () {
                     context.read<ProfileBloc>().add(
-                      const ProfileEvent.updateButtonPressed(),
-                    );
+                          const ProfileEvent.updateButtonPressed(),
+                        );
                   },
                 ),
+                if (state.isLoading) ...[
+                  defaultRowSizeBox,
+                  const LinearProgressIndicator(),
+                ],
               ],
             ),
           );

@@ -53,7 +53,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       badState: false,
     ));
 
-    await Future.delayed(const Duration(seconds: 2));
+    // await Future.delayed(const Duration(seconds: 2));
 
     final user = (await _authenticationService.getSignedInUser()).fold(
       () => null,
@@ -152,7 +152,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         testPreparations: state.testPreparations,
       );
     }
-
     await _onInitialize(emit, reloadTopics: false);
 
     emit(state.copyWith(
