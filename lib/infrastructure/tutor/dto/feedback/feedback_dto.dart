@@ -29,10 +29,10 @@ class FirstInfo with _$FirstInfo {
     required String email,
     required String name,
     required String avatar,
-    String? country,
-    String? phone,
-    String? language,
-    String? birthday,
+    // String? country,
+    // String? phone,
+    // String? language,
+    // String? birthday,
   }) = _FirstInfo;
 
   factory FirstInfo.fromJson(Map<String, dynamic> json) =>

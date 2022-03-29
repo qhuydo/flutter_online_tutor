@@ -371,20 +371,12 @@ class _$FirstInfoTearOff {
       {required String id,
       required String email,
       required String name,
-      required String avatar,
-      String? country,
-      String? phone,
-      String? language,
-      String? birthday}) {
+      required String avatar}) {
     return _FirstInfo(
       id: id,
       email: email,
       name: name,
       avatar: avatar,
-      country: country,
-      phone: phone,
-      language: language,
-      birthday: birthday,
     );
   }
 
@@ -402,10 +394,6 @@ mixin _$FirstInfo {
   String get email => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get avatar => throw _privateConstructorUsedError;
-  String? get country => throw _privateConstructorUsedError;
-  String? get phone => throw _privateConstructorUsedError;
-  String? get language => throw _privateConstructorUsedError;
-  String? get birthday => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -417,15 +405,7 @@ mixin _$FirstInfo {
 abstract class $FirstInfoCopyWith<$Res> {
   factory $FirstInfoCopyWith(FirstInfo value, $Res Function(FirstInfo) then) =
       _$FirstInfoCopyWithImpl<$Res>;
-  $Res call(
-      {String id,
-      String email,
-      String name,
-      String avatar,
-      String? country,
-      String? phone,
-      String? language,
-      String? birthday});
+  $Res call({String id, String email, String name, String avatar});
 }
 
 /// @nodoc
@@ -442,10 +422,6 @@ class _$FirstInfoCopyWithImpl<$Res> implements $FirstInfoCopyWith<$Res> {
     Object? email = freezed,
     Object? name = freezed,
     Object? avatar = freezed,
-    Object? country = freezed,
-    Object? phone = freezed,
-    Object? language = freezed,
-    Object? birthday = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -464,22 +440,6 @@ class _$FirstInfoCopyWithImpl<$Res> implements $FirstInfoCopyWith<$Res> {
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String,
-      country: country == freezed
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone: phone == freezed
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
-      language: language == freezed
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String?,
-      birthday: birthday == freezed
-          ? _value.birthday
-          : birthday // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -490,15 +450,7 @@ abstract class _$FirstInfoCopyWith<$Res> implements $FirstInfoCopyWith<$Res> {
           _FirstInfo value, $Res Function(_FirstInfo) then) =
       __$FirstInfoCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {String id,
-      String email,
-      String name,
-      String avatar,
-      String? country,
-      String? phone,
-      String? language,
-      String? birthday});
+  $Res call({String id, String email, String name, String avatar});
 }
 
 /// @nodoc
@@ -516,10 +468,6 @@ class __$FirstInfoCopyWithImpl<$Res> extends _$FirstInfoCopyWithImpl<$Res>
     Object? email = freezed,
     Object? name = freezed,
     Object? avatar = freezed,
-    Object? country = freezed,
-    Object? phone = freezed,
-    Object? language = freezed,
-    Object? birthday = freezed,
   }) {
     return _then(_FirstInfo(
       id: id == freezed
@@ -538,22 +486,6 @@ class __$FirstInfoCopyWithImpl<$Res> extends _$FirstInfoCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String,
-      country: country == freezed
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone: phone == freezed
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String?,
-      language: language == freezed
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String?,
-      birthday: birthday == freezed
-          ? _value.birthday
-          : birthday // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -565,11 +497,7 @@ class _$_FirstInfo implements _FirstInfo {
       {required this.id,
       required this.email,
       required this.name,
-      required this.avatar,
-      this.country,
-      this.phone,
-      this.language,
-      this.birthday});
+      required this.avatar});
 
   factory _$_FirstInfo.fromJson(Map<String, dynamic> json) =>
       _$$_FirstInfoFromJson(json);
@@ -582,18 +510,10 @@ class _$_FirstInfo implements _FirstInfo {
   final String name;
   @override
   final String avatar;
-  @override
-  final String? country;
-  @override
-  final String? phone;
-  @override
-  final String? language;
-  @override
-  final String? birthday;
 
   @override
   String toString() {
-    return 'FirstInfo(id: $id, email: $email, name: $name, avatar: $avatar, country: $country, phone: $phone, language: $language, birthday: $birthday)';
+    return 'FirstInfo(id: $id, email: $email, name: $name, avatar: $avatar)';
   }
 
   @override
@@ -604,11 +524,7 @@ class _$_FirstInfo implements _FirstInfo {
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.avatar, avatar) &&
-            const DeepCollectionEquality().equals(other.country, country) &&
-            const DeepCollectionEquality().equals(other.phone, phone) &&
-            const DeepCollectionEquality().equals(other.language, language) &&
-            const DeepCollectionEquality().equals(other.birthday, birthday));
+            const DeepCollectionEquality().equals(other.avatar, avatar));
   }
 
   @override
@@ -617,11 +533,7 @@ class _$_FirstInfo implements _FirstInfo {
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(email),
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(avatar),
-      const DeepCollectionEquality().hash(country),
-      const DeepCollectionEquality().hash(phone),
-      const DeepCollectionEquality().hash(language),
-      const DeepCollectionEquality().hash(birthday));
+      const DeepCollectionEquality().hash(avatar));
 
   @JsonKey(ignore: true)
   @override
@@ -639,11 +551,7 @@ abstract class _FirstInfo implements FirstInfo {
       {required String id,
       required String email,
       required String name,
-      required String avatar,
-      String? country,
-      String? phone,
-      String? language,
-      String? birthday}) = _$_FirstInfo;
+      required String avatar}) = _$_FirstInfo;
 
   factory _FirstInfo.fromJson(Map<String, dynamic> json) =
       _$_FirstInfo.fromJson;
@@ -656,14 +564,6 @@ abstract class _FirstInfo implements FirstInfo {
   String get name;
   @override
   String get avatar;
-  @override
-  String? get country;
-  @override
-  String? get phone;
-  @override
-  String? get language;
-  @override
-  String? get birthday;
   @override
   @JsonKey(ignore: true)
   _$FirstInfoCopyWith<_FirstInfo> get copyWith =>

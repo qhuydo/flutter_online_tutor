@@ -31,9 +31,6 @@ class _$TutorListItemDtoTearOff {
       required String phone,
       required String language,
       required DateTime birthday,
-      required bool requestPassword,
-      required bool isActivated,
-      required int timezone,
       required List<FeedbackDto> feedbacks,
       required String id,
       required String userId,
@@ -57,9 +54,6 @@ class _$TutorListItemDtoTearOff {
       phone: phone,
       language: language,
       birthday: birthday,
-      requestPassword: requestPassword,
-      isActivated: isActivated,
-      timezone: timezone,
       feedbacks: feedbacks,
       id: id,
       userId: userId,
@@ -96,12 +90,13 @@ mixin _$TutorListItemDto {
   String get country => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
   String get language => throw _privateConstructorUsedError;
-  DateTime get birthday => throw _privateConstructorUsedError;
-  bool get requestPassword => throw _privateConstructorUsedError;
-  bool get isActivated =>
-      throw _privateConstructorUsedError; // bool? isPhoneActivated,
+  DateTime get birthday =>
+      throw _privateConstructorUsedError; // required bool requestPassword,
+// required bool isActivated,
+// bool? isPhoneActivated,
 // dynamic requireNote,
-  int get timezone => throw _privateConstructorUsedError; // dynamic phoneAuth,
+// required int timezone,
+// dynamic phoneAuth,
 // required bool isPhoneAuthActivated,
 // required DateTime createdAt,
 // required DateTime updatedAt,
@@ -144,9 +139,6 @@ abstract class $TutorListItemDtoCopyWith<$Res> {
       String phone,
       String language,
       DateTime birthday,
-      bool requestPassword,
-      bool isActivated,
-      int timezone,
       List<FeedbackDto> feedbacks,
       String id,
       String userId,
@@ -182,9 +174,6 @@ class _$TutorListItemDtoCopyWithImpl<$Res>
     Object? phone = freezed,
     Object? language = freezed,
     Object? birthday = freezed,
-    Object? requestPassword = freezed,
-    Object? isActivated = freezed,
-    Object? timezone = freezed,
     Object? feedbacks = freezed,
     Object? id = freezed,
     Object? userId = freezed,
@@ -233,18 +222,6 @@ class _$TutorListItemDtoCopyWithImpl<$Res>
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      requestPassword: requestPassword == freezed
-          ? _value.requestPassword
-          : requestPassword // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isActivated: isActivated == freezed
-          ? _value.isActivated
-          : isActivated // ignore: cast_nullable_to_non_nullable
-              as bool,
-      timezone: timezone == freezed
-          ? _value.timezone
-          : timezone // ignore: cast_nullable_to_non_nullable
-              as int,
       feedbacks: feedbacks == freezed
           ? _value.feedbacks
           : feedbacks // ignore: cast_nullable_to_non_nullable
@@ -321,9 +298,6 @@ abstract class _$TutorListItemDtoCopyWith<$Res>
       String phone,
       String language,
       DateTime birthday,
-      bool requestPassword,
-      bool isActivated,
-      int timezone,
       List<FeedbackDto> feedbacks,
       String id,
       String userId,
@@ -361,9 +335,6 @@ class __$TutorListItemDtoCopyWithImpl<$Res>
     Object? phone = freezed,
     Object? language = freezed,
     Object? birthday = freezed,
-    Object? requestPassword = freezed,
-    Object? isActivated = freezed,
-    Object? timezone = freezed,
     Object? feedbacks = freezed,
     Object? id = freezed,
     Object? userId = freezed,
@@ -412,18 +383,6 @@ class __$TutorListItemDtoCopyWithImpl<$Res>
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      requestPassword: requestPassword == freezed
-          ? _value.requestPassword
-          : requestPassword // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isActivated: isActivated == freezed
-          ? _value.isActivated
-          : isActivated // ignore: cast_nullable_to_non_nullable
-              as bool,
-      timezone: timezone == freezed
-          ? _value.timezone
-          : timezone // ignore: cast_nullable_to_non_nullable
-              as int,
       feedbacks: feedbacks == freezed
           ? _value.feedbacks
           : feedbacks // ignore: cast_nullable_to_non_nullable
@@ -496,9 +455,6 @@ class _$_TutorListItemDto implements _TutorListItemDto {
       required this.phone,
       required this.language,
       required this.birthday,
-      required this.requestPassword,
-      required this.isActivated,
-      required this.timezone,
       required this.feedbacks,
       required this.id,
       required this.userId,
@@ -535,14 +491,12 @@ class _$_TutorListItemDto implements _TutorListItemDto {
   final String language;
   @override
   final DateTime birthday;
-  @override
-  final bool requestPassword;
-  @override
-  final bool isActivated;
-  @override // bool? isPhoneActivated,
+  @override // required bool requestPassword,
+// required bool isActivated,
+// bool? isPhoneActivated,
 // dynamic requireNote,
-  final int timezone;
-  @override // dynamic phoneAuth,
+// required int timezone,
+// dynamic phoneAuth,
 // required bool isPhoneAuthActivated,
 // required DateTime createdAt,
 // required DateTime updatedAt,
@@ -578,7 +532,7 @@ class _$_TutorListItemDto implements _TutorListItemDto {
 
   @override
   String toString() {
-    return 'TutorListItemDto(level: $level, email: $email, avatar: $avatar, name: $name, country: $country, phone: $phone, language: $language, birthday: $birthday, requestPassword: $requestPassword, isActivated: $isActivated, timezone: $timezone, feedbacks: $feedbacks, id: $id, userId: $userId, video: $video, bio: $bio, education: $education, experience: $experience, profession: $profession, targetStudent: $targetStudent, interests: $interests, languages: $languages, specialties: $specialties, price: $price, isOnline: $isOnline)';
+    return 'TutorListItemDto(level: $level, email: $email, avatar: $avatar, name: $name, country: $country, phone: $phone, language: $language, birthday: $birthday, feedbacks: $feedbacks, id: $id, userId: $userId, video: $video, bio: $bio, education: $education, experience: $experience, profession: $profession, targetStudent: $targetStudent, interests: $interests, languages: $languages, specialties: $specialties, price: $price, isOnline: $isOnline)';
   }
 
   @override
@@ -594,11 +548,6 @@ class _$_TutorListItemDto implements _TutorListItemDto {
             const DeepCollectionEquality().equals(other.phone, phone) &&
             const DeepCollectionEquality().equals(other.language, language) &&
             const DeepCollectionEquality().equals(other.birthday, birthday) &&
-            const DeepCollectionEquality()
-                .equals(other.requestPassword, requestPassword) &&
-            const DeepCollectionEquality()
-                .equals(other.isActivated, isActivated) &&
-            const DeepCollectionEquality().equals(other.timezone, timezone) &&
             const DeepCollectionEquality().equals(other.feedbacks, feedbacks) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.userId, userId) &&
@@ -630,9 +579,6 @@ class _$_TutorListItemDto implements _TutorListItemDto {
         const DeepCollectionEquality().hash(phone),
         const DeepCollectionEquality().hash(language),
         const DeepCollectionEquality().hash(birthday),
-        const DeepCollectionEquality().hash(requestPassword),
-        const DeepCollectionEquality().hash(isActivated),
-        const DeepCollectionEquality().hash(timezone),
         const DeepCollectionEquality().hash(feedbacks),
         const DeepCollectionEquality().hash(id),
         const DeepCollectionEquality().hash(userId),
@@ -670,9 +616,6 @@ abstract class _TutorListItemDto implements TutorListItemDto {
       required String phone,
       required String language,
       required DateTime birthday,
-      required bool requestPassword,
-      required bool isActivated,
-      required int timezone,
       required List<FeedbackDto> feedbacks,
       required String id,
       required String userId,
@@ -709,14 +652,12 @@ abstract class _TutorListItemDto implements TutorListItemDto {
   String get language;
   @override
   DateTime get birthday;
-  @override
-  bool get requestPassword;
-  @override
-  bool get isActivated;
-  @override // bool? isPhoneActivated,
+  @override // required bool requestPassword,
+// required bool isActivated,
+// bool? isPhoneActivated,
 // dynamic requireNote,
-  int get timezone;
-  @override // dynamic phoneAuth,
+// required int timezone,
+// dynamic phoneAuth,
 // required bool isPhoneAuthActivated,
 // required DateTime createdAt,
 // required DateTime updatedAt,

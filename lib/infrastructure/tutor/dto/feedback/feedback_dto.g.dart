@@ -36,10 +36,6 @@ _$_FirstInfo _$$_FirstInfoFromJson(Map<String, dynamic> json) => _$_FirstInfo(
       email: json['email'] as String,
       name: json['name'] as String,
       avatar: json['avatar'] as String,
-      country: json['country'] as String?,
-      phone: json['phone'] as String?,
-      language: json['language'] as String?,
-      birthday: json['birthday'] as String?,
     );
 
 Map<String, dynamic> _$$_FirstInfoToJson(_$_FirstInfo instance) =>
@@ -48,8 +44,4 @@ Map<String, dynamic> _$$_FirstInfoToJson(_$_FirstInfo instance) =>
       'email': instance.email,
       'name': instance.name,
       'avatar': instance.avatar,
-      'country': instance.country,
-      'phone': instance.phone,
-      'language': instance.language,
-      'birthday': instance.birthday,
     };

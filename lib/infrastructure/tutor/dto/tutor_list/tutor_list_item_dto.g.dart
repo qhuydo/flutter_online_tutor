@@ -16,9 +16,6 @@ _$_TutorListItemDto _$$_TutorListItemDtoFromJson(Map<String, dynamic> json) =>
       phone: json['phone'] as String,
       language: json['language'] as String,
       birthday: DateTime.parse(json['birthday'] as String),
-      requestPassword: json['requestPassword'] as bool,
-      isActivated: json['isActivated'] as bool,
-      timezone: json['timezone'] as int,
       feedbacks: (json['feedbacks'] as List<dynamic>)
           .map((e) => FeedbackDto.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -47,9 +44,6 @@ Map<String, dynamic> _$$_TutorListItemDtoToJson(_$_TutorListItemDto instance) =>
       'phone': instance.phone,
       'language': instance.language,
       'birthday': instance.birthday.toIso8601String(),
-      'requestPassword': instance.requestPassword,
-      'isActivated': instance.isActivated,
-      'timezone': instance.timezone,
       'feedbacks': instance.feedbacks,
       'id': instance.id,
       'userId': instance.userId,
