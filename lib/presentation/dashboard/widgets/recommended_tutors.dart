@@ -10,6 +10,7 @@ class RecommendedTutors extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         ConstrainedBox(
           constraints: BoxConstraints(
@@ -50,6 +51,7 @@ class RecommendedTutors extends StatelessWidget {
         ),
         // const SizedBox(height: 16),
         ListView.separated(
+          controller: ScrollController(),
           separatorBuilder: (BuildContext context, int index) {
             return const SizedBox(height: 8);
           },
@@ -58,8 +60,8 @@ class RecommendedTutors extends StatelessWidget {
           },
           physics: const NeverScrollableScrollPhysics(),
           primary: false,
-          itemCount: 5,
           shrinkWrap: true,
+          itemCount: 5,
         ),
         // const TutorCard(),
       ],

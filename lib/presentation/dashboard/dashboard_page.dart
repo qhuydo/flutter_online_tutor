@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../common/utils/constants.dart';
 import 'widgets/widgets.dart';
 
 class DashboardPage extends StatelessWidget {
@@ -7,21 +8,24 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Column(
-            children: const [
-              DashboardCard(),
-              SizedBox(height: 16),
-              RecommendedCourses(),
-              SizedBox(height: 16),
-              RecommendedTutors(),
-            ],
+    return SingleChildScrollView(
+      controller: ScrollController(),
+      physics: const BouncingScrollPhysics(),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: const [
+          Padding(
+            padding: EdgeInsets.all(smallItemSpacing),
+            child: DashboardCard(),
           ),
-        ),
+          SizedBox(height: smallItemSpacing),
+          RecommendedCourses(),
+          SizedBox(height: itemSpacing),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: smallItemSpacing),
+            child: RecommendedTutors(),
+          ),
+        ],
       ),
     );
   }

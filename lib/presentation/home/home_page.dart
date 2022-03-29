@@ -47,8 +47,8 @@ class HomePage extends StatelessWidget {
             NavigationDestination(
               icon: Icon(
                 tabsRouter.activeIndex == 2
-                    ? Icons.event_outlined
-                    : Icons.all_inbox_outlined,
+                    ? Icons.event
+                    : Icons.event_outlined,
               ),
               label: context.l10n.scheduleBottomNavItem,
             ),
