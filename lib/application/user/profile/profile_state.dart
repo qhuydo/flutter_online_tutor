@@ -18,6 +18,8 @@ class ProfileState with _$ProfileState {
     @Default(false) bool badState,
     @Default(false) bool showError,
     @Default(None()) Option<Either<Failure, Unit>> updateFailureOrSuccessOption,
+    @Default([]) List<LearnTopic> allLearnTopics,
+    @Default([]) List<TestPreparation> allTestPreparations,
   }) = _ProfileState;
 
   factory ProfileState.initial() => ProfileState(

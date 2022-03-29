@@ -1,7 +1,19 @@
 import '../../../common.dart';
 
 class PhoneFormTextField extends StatelessWidget {
-  const PhoneFormTextField({Key? key}) : super(key: key);
+  final String initialValue;
+  final ValueChanged? onChanged;
+  final FormFieldValidator<String>? validator;
+  final bool readOnly;
+  final bool enabled;
+
+  const PhoneFormTextField({Key? key,
+    this.initialValue = '',
+    this.onChanged,
+    this.validator,
+    this.readOnly = true,
+    this.enabled = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +23,11 @@ class PhoneFormTextField extends StatelessWidget {
         border: const OutlineInputBorder(),
         labelText: context.l10n.phoneNumberLabel,
       ),
-      initialValue: '+84 0123 012 012',
-      readOnly: true,
-      enabled: false,
+      onChanged: onChanged,
+      validator: validator,
+      initialValue: initialValue,
+      readOnly: readOnly,
+      enabled: enabled,
     );
   }
 }

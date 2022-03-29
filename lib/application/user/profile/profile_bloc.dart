@@ -44,7 +44,10 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     });
   }
 
-  Future _onInitialize(Emitter<ProfileState> emit) async {
+  Future _onInitialize(
+    Emitter<ProfileState> emit, {
+    bool reloadTopics = true,
+  }) async {
     emit(state.copyWith(
       isInitializing: true,
       badState: false,
@@ -65,12 +68,33 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       return;
     }
 
+    if (reloadTopics) {
+      final learnTopics = await _repository.getLearnTopics();
+      final testPreparations = await _repository.getTestPreparationTopics();
+
+      final isValid = learnTopics.isRight() && testPreparations.isRight();
+      if (!isValid) {
+        emit(state.copyWith(
+          isInitializing: false,
+          badState: true,
+          updateFailureOrSuccessOption: const None(),
+        ));
+        return;
+      }
+
+      emit(state.copyWith(
+        allLearnTopics: learnTopics.fold((l) => [], (r) => r),
+        allTestPreparations: testPreparations.fold((l) => [], (r) => r),
+      ));
+    }
+
     emit(state.copyWith(
       isInitializing: false,
       badState: false,
       user: user,
       name: user.name,
       birthDay: user.birthday,
+      country: user.country,
       level: user.level,
       learnTopics: user.learningTopics,
       testPreparations: user.testPreparationTopics,
@@ -128,6 +152,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         testPreparations: state.testPreparations,
       );
     }
+
+    await _onInitialize(emit, reloadTopics: false);
 
     emit(state.copyWith(
       isLoading: false,

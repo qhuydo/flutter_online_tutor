@@ -1548,8 +1548,9 @@ class _$ProfileStateTearOff {
       bool isLoading = false,
       bool badState = false,
       bool showError = false,
-      Option<Either<Failure, Unit>> updateFailureOrSuccessOption =
-          const None()}) {
+      Option<Either<Failure, Unit>> updateFailureOrSuccessOption = const None(),
+      List<LearnTopic> allLearnTopics = const [],
+      List<TestPreparation> allTestPreparations = const []}) {
     return _ProfileState(
       user: user,
       name: name,
@@ -1563,6 +1564,8 @@ class _$ProfileStateTearOff {
       badState: badState,
       showError: showError,
       updateFailureOrSuccessOption: updateFailureOrSuccessOption,
+      allLearnTopics: allLearnTopics,
+      allTestPreparations: allTestPreparations,
     );
   }
 }
@@ -1587,6 +1590,9 @@ mixin _$ProfileState {
   bool get showError => throw _privateConstructorUsedError;
   Option<Either<Failure, Unit>> get updateFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
+  List<LearnTopic> get allLearnTopics => throw _privateConstructorUsedError;
+  List<TestPreparation> get allTestPreparations =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileStateCopyWith<ProfileState> get copyWith =>
@@ -1610,7 +1616,9 @@ abstract class $ProfileStateCopyWith<$Res> {
       bool isLoading,
       bool badState,
       bool showError,
-      Option<Either<Failure, Unit>> updateFailureOrSuccessOption});
+      Option<Either<Failure, Unit>> updateFailureOrSuccessOption,
+      List<LearnTopic> allLearnTopics,
+      List<TestPreparation> allTestPreparations});
 
   $UserCopyWith<$Res> get user;
   $CountryCopyWith<$Res>? get country;
@@ -1638,6 +1646,8 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
     Object? badState = freezed,
     Object? showError = freezed,
     Object? updateFailureOrSuccessOption = freezed,
+    Object? allLearnTopics = freezed,
+    Object? allTestPreparations = freezed,
   }) {
     return _then(_value.copyWith(
       user: user == freezed
@@ -1688,6 +1698,14 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
           ? _value.updateFailureOrSuccessOption
           : updateFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<Failure, Unit>>,
+      allLearnTopics: allLearnTopics == freezed
+          ? _value.allLearnTopics
+          : allLearnTopics // ignore: cast_nullable_to_non_nullable
+              as List<LearnTopic>,
+      allTestPreparations: allTestPreparations == freezed
+          ? _value.allTestPreparations
+          : allTestPreparations // ignore: cast_nullable_to_non_nullable
+              as List<TestPreparation>,
     ));
   }
 
@@ -1729,7 +1747,9 @@ abstract class _$ProfileStateCopyWith<$Res>
       bool isLoading,
       bool badState,
       bool showError,
-      Option<Either<Failure, Unit>> updateFailureOrSuccessOption});
+      Option<Either<Failure, Unit>> updateFailureOrSuccessOption,
+      List<LearnTopic> allLearnTopics,
+      List<TestPreparation> allTestPreparations});
 
   @override
   $UserCopyWith<$Res> get user;
@@ -1761,6 +1781,8 @@ class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
     Object? badState = freezed,
     Object? showError = freezed,
     Object? updateFailureOrSuccessOption = freezed,
+    Object? allLearnTopics = freezed,
+    Object? allTestPreparations = freezed,
   }) {
     return _then(_ProfileState(
       user: user == freezed
@@ -1811,6 +1833,14 @@ class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
           ? _value.updateFailureOrSuccessOption
           : updateFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<Failure, Unit>>,
+      allLearnTopics: allLearnTopics == freezed
+          ? _value.allLearnTopics
+          : allLearnTopics // ignore: cast_nullable_to_non_nullable
+              as List<LearnTopic>,
+      allTestPreparations: allTestPreparations == freezed
+          ? _value.allTestPreparations
+          : allTestPreparations // ignore: cast_nullable_to_non_nullable
+              as List<TestPreparation>,
     ));
   }
 }
@@ -1830,7 +1860,9 @@ class _$_ProfileState extends _ProfileState {
       this.isLoading = false,
       this.badState = false,
       this.showError = false,
-      this.updateFailureOrSuccessOption = const None()})
+      this.updateFailureOrSuccessOption = const None(),
+      this.allLearnTopics = const [],
+      this.allTestPreparations = const []})
       : super._();
 
   @override
@@ -1865,10 +1897,16 @@ class _$_ProfileState extends _ProfileState {
   @JsonKey()
   @override
   final Option<Either<Failure, Unit>> updateFailureOrSuccessOption;
+  @JsonKey()
+  @override
+  final List<LearnTopic> allLearnTopics;
+  @JsonKey()
+  @override
+  final List<TestPreparation> allTestPreparations;
 
   @override
   String toString() {
-    return 'ProfileState(user: $user, name: $name, birthDay: $birthDay, country: $country, level: $level, learnTopics: $learnTopics, testPreparations: $testPreparations, isInitializing: $isInitializing, isLoading: $isLoading, badState: $badState, showError: $showError, updateFailureOrSuccessOption: $updateFailureOrSuccessOption)';
+    return 'ProfileState(user: $user, name: $name, birthDay: $birthDay, country: $country, level: $level, learnTopics: $learnTopics, testPreparations: $testPreparations, isInitializing: $isInitializing, isLoading: $isLoading, badState: $badState, showError: $showError, updateFailureOrSuccessOption: $updateFailureOrSuccessOption, allLearnTopics: $allLearnTopics, allTestPreparations: $allTestPreparations)';
   }
 
   @override
@@ -1892,7 +1930,11 @@ class _$_ProfileState extends _ProfileState {
             const DeepCollectionEquality().equals(other.showError, showError) &&
             const DeepCollectionEquality().equals(
                 other.updateFailureOrSuccessOption,
-                updateFailureOrSuccessOption));
+                updateFailureOrSuccessOption) &&
+            const DeepCollectionEquality()
+                .equals(other.allLearnTopics, allLearnTopics) &&
+            const DeepCollectionEquality()
+                .equals(other.allTestPreparations, allTestPreparations));
   }
 
   @override
@@ -1909,7 +1951,9 @@ class _$_ProfileState extends _ProfileState {
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(badState),
       const DeepCollectionEquality().hash(showError),
-      const DeepCollectionEquality().hash(updateFailureOrSuccessOption));
+      const DeepCollectionEquality().hash(updateFailureOrSuccessOption),
+      const DeepCollectionEquality().hash(allLearnTopics),
+      const DeepCollectionEquality().hash(allTestPreparations));
 
   @JsonKey(ignore: true)
   @override
@@ -1919,19 +1963,20 @@ class _$_ProfileState extends _ProfileState {
 
 abstract class _ProfileState extends ProfileState {
   factory _ProfileState(
-          {required User user,
-          required Name name,
-          BirthDay? birthDay,
-          Country? country,
-          Level level,
-          List<LearnTopic> learnTopics,
-          List<TestPreparation> testPreparations,
-          bool isInitializing,
-          bool isLoading,
-          bool badState,
-          bool showError,
-          Option<Either<Failure, Unit>> updateFailureOrSuccessOption}) =
-      _$_ProfileState;
+      {required User user,
+      required Name name,
+      BirthDay? birthDay,
+      Country? country,
+      Level level,
+      List<LearnTopic> learnTopics,
+      List<TestPreparation> testPreparations,
+      bool isInitializing,
+      bool isLoading,
+      bool badState,
+      bool showError,
+      Option<Either<Failure, Unit>> updateFailureOrSuccessOption,
+      List<LearnTopic> allLearnTopics,
+      List<TestPreparation> allTestPreparations}) = _$_ProfileState;
   _ProfileState._() : super._();
 
   @override
@@ -1958,6 +2003,10 @@ abstract class _ProfileState extends ProfileState {
   bool get showError;
   @override
   Option<Either<Failure, Unit>> get updateFailureOrSuccessOption;
+  @override
+  List<LearnTopic> get allLearnTopics;
+  @override
+  List<TestPreparation> get allTestPreparations;
   @override
   @JsonKey(ignore: true)
   _$ProfileStateCopyWith<_ProfileState> get copyWith =>
