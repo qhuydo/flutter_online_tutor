@@ -1,16 +1,19 @@
 import '../../../common.dart';
 
 class SaveButton extends StatelessWidget {
-  const SaveButton({Key? key}) : super(key: key);
+  final VoidCallback? onPressed;
+  final bool enabled;
+
+  const SaveButton({
+    Key? key,
+    this.onPressed,
+    this.enabled = true,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       icon: const Icon(Icons.save_outlined),
-      onPressed: () {},
-      // child: const Text(
-      //   'Save',
-      // ),
       label: Text(
         context.l10n.saveButtonLabel,
         style: TextStyle(
@@ -20,6 +23,7 @@ class SaveButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         minimumSize: const Size.fromHeight(56),
       ),
+      onPressed: enabled ? onPressed : null,
     );
   }
 }

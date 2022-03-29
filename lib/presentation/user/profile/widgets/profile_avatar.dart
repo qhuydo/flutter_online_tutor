@@ -1,3 +1,6 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../application/user/profile/profile_bloc.dart';
 import '../../../common.dart';
 
 class ProfileAvatar extends StatelessWidget {
@@ -39,8 +42,7 @@ class ProfileAvatar extends StatelessWidget {
                       Icons.photo_camera,
                     ),
                     onPressed: () {},
-                    tooltip:
-                        context.l10n.changeAvatarButtonTooltip,
+                    tooltip: context.l10n.changeAvatarButtonTooltip,
                   ),
                 ),
               ),
@@ -48,22 +50,32 @@ class ProfileAvatar extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        Text(
-          'Nguyen Van A',
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
-          textAlign: TextAlign.center,
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
+        BlocBuilder<ProfileBloc, ProfileState>(
+          buildWhen: (previous, current) => previous.user != current.user,
+          builder: (context, state) {
+            return Column(
+              children: [
+                Text(
+                  state.name.valueOrNull() ?? '',
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Text(
+                  state.user.emailAddress.valueOrNull() ?? '',
+                  style: Theme.of(context).textTheme.subtitle1,
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                )
+              ],
+            );
+          },
         ),
-        Text(
-          'email@example.com',
-          style: Theme.of(context).textTheme.subtitle1,
-          textAlign: TextAlign.center,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        )
+
       ],
     );
   }
