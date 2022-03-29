@@ -19,7 +19,6 @@ import '../../common/db/fixture_loader.dart';
 import '../dto/learning_topic_dto.dart';
 import '../dto/test_preparation_dto.dart';
 import '../dto/user_dto.dart';
-import '../utils/birthday_extension.dart';
 import '../utils/level_extension.dart';
 
 @LazySingleton(as: UserRepository)

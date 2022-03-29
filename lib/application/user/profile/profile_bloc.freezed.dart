@@ -22,13 +22,13 @@ class _$ProfileEventTearOff {
     return const _Initialize();
   }
 
-  _NameChanged nameChanged(Name name) {
+  _NameChanged nameChanged(String name) {
     return _NameChanged(
       name,
     );
   }
 
-  _BirthDayChanged birthDayChanged(BirthDay birthDay) {
+  _BirthDayChanged birthDayChanged(String birthDay) {
     return _BirthDayChanged(
       birthDay,
     );
@@ -72,8 +72,8 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
-    required TResult Function(Name name) nameChanged,
-    required TResult Function(BirthDay birthDay) birthDayChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
     required TResult Function(Level level) levelChanged,
     required TResult Function(List<LearnTopic> learnTopics) learnTopicsChanged,
@@ -85,8 +85,8 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function(Name name)? nameChanged,
-    TResult Function(BirthDay birthDay)? birthDayChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
     TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
@@ -98,8 +98,8 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function(Name name)? nameChanged,
-    TResult Function(BirthDay birthDay)? birthDayChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
     TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
@@ -208,8 +208,8 @@ class _$_Initialize implements _Initialize {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
-    required TResult Function(Name name) nameChanged,
-    required TResult Function(BirthDay birthDay) birthDayChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
     required TResult Function(Level level) levelChanged,
     required TResult Function(List<LearnTopic> learnTopics) learnTopicsChanged,
@@ -224,8 +224,8 @@ class _$_Initialize implements _Initialize {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function(Name name)? nameChanged,
-    TResult Function(BirthDay birthDay)? birthDayChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
     TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
@@ -240,8 +240,8 @@ class _$_Initialize implements _Initialize {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function(Name name)? nameChanged,
-    TResult Function(BirthDay birthDay)? birthDayChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
     TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
@@ -318,7 +318,7 @@ abstract class _$NameChangedCopyWith<$Res> {
   factory _$NameChangedCopyWith(
           _NameChanged value, $Res Function(_NameChanged) then) =
       __$NameChangedCopyWithImpl<$Res>;
-  $Res call({Name name});
+  $Res call({String name});
 }
 
 /// @nodoc
@@ -339,7 +339,7 @@ class __$NameChangedCopyWithImpl<$Res> extends _$ProfileEventCopyWithImpl<$Res>
       name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as Name,
+              as String,
     ));
   }
 }
@@ -350,7 +350,7 @@ class _$_NameChanged implements _NameChanged {
   const _$_NameChanged(this.name);
 
   @override
-  final Name name;
+  final String name;
 
   @override
   String toString() {
@@ -378,8 +378,8 @@ class _$_NameChanged implements _NameChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
-    required TResult Function(Name name) nameChanged,
-    required TResult Function(BirthDay birthDay) birthDayChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
     required TResult Function(Level level) levelChanged,
     required TResult Function(List<LearnTopic> learnTopics) learnTopicsChanged,
@@ -394,8 +394,8 @@ class _$_NameChanged implements _NameChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function(Name name)? nameChanged,
-    TResult Function(BirthDay birthDay)? birthDayChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
     TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
@@ -410,8 +410,8 @@ class _$_NameChanged implements _NameChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function(Name name)? nameChanged,
-    TResult Function(BirthDay birthDay)? birthDayChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
     TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
@@ -480,9 +480,9 @@ class _$_NameChanged implements _NameChanged {
 }
 
 abstract class _NameChanged implements ProfileEvent {
-  const factory _NameChanged(Name name) = _$_NameChanged;
+  const factory _NameChanged(String name) = _$_NameChanged;
 
-  Name get name;
+  String get name;
   @JsonKey(ignore: true)
   _$NameChangedCopyWith<_NameChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -493,7 +493,7 @@ abstract class _$BirthDayChangedCopyWith<$Res> {
   factory _$BirthDayChangedCopyWith(
           _BirthDayChanged value, $Res Function(_BirthDayChanged) then) =
       __$BirthDayChangedCopyWithImpl<$Res>;
-  $Res call({BirthDay birthDay});
+  $Res call({String birthDay});
 }
 
 /// @nodoc
@@ -515,7 +515,7 @@ class __$BirthDayChangedCopyWithImpl<$Res>
       birthDay == freezed
           ? _value.birthDay
           : birthDay // ignore: cast_nullable_to_non_nullable
-              as BirthDay,
+              as String,
     ));
   }
 }
@@ -526,7 +526,7 @@ class _$_BirthDayChanged implements _BirthDayChanged {
   const _$_BirthDayChanged(this.birthDay);
 
   @override
-  final BirthDay birthDay;
+  final String birthDay;
 
   @override
   String toString() {
@@ -554,8 +554,8 @@ class _$_BirthDayChanged implements _BirthDayChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
-    required TResult Function(Name name) nameChanged,
-    required TResult Function(BirthDay birthDay) birthDayChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
     required TResult Function(Level level) levelChanged,
     required TResult Function(List<LearnTopic> learnTopics) learnTopicsChanged,
@@ -570,8 +570,8 @@ class _$_BirthDayChanged implements _BirthDayChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function(Name name)? nameChanged,
-    TResult Function(BirthDay birthDay)? birthDayChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
     TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
@@ -586,8 +586,8 @@ class _$_BirthDayChanged implements _BirthDayChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function(Name name)? nameChanged,
-    TResult Function(BirthDay birthDay)? birthDayChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
     TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
@@ -656,9 +656,9 @@ class _$_BirthDayChanged implements _BirthDayChanged {
 }
 
 abstract class _BirthDayChanged implements ProfileEvent {
-  const factory _BirthDayChanged(BirthDay birthDay) = _$_BirthDayChanged;
+  const factory _BirthDayChanged(String birthDay) = _$_BirthDayChanged;
 
-  BirthDay get birthDay;
+  String get birthDay;
   @JsonKey(ignore: true)
   _$BirthDayChangedCopyWith<_BirthDayChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -739,8 +739,8 @@ class _$_CountryChanged implements _CountryChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
-    required TResult Function(Name name) nameChanged,
-    required TResult Function(BirthDay birthDay) birthDayChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
     required TResult Function(Level level) levelChanged,
     required TResult Function(List<LearnTopic> learnTopics) learnTopicsChanged,
@@ -755,8 +755,8 @@ class _$_CountryChanged implements _CountryChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function(Name name)? nameChanged,
-    TResult Function(BirthDay birthDay)? birthDayChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
     TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
@@ -771,8 +771,8 @@ class _$_CountryChanged implements _CountryChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function(Name name)? nameChanged,
-    TResult Function(BirthDay birthDay)? birthDayChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
     TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
@@ -914,8 +914,8 @@ class _$_LevelChanged implements _LevelChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
-    required TResult Function(Name name) nameChanged,
-    required TResult Function(BirthDay birthDay) birthDayChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
     required TResult Function(Level level) levelChanged,
     required TResult Function(List<LearnTopic> learnTopics) learnTopicsChanged,
@@ -930,8 +930,8 @@ class _$_LevelChanged implements _LevelChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function(Name name)? nameChanged,
-    TResult Function(BirthDay birthDay)? birthDayChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
     TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
@@ -946,8 +946,8 @@ class _$_LevelChanged implements _LevelChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function(Name name)? nameChanged,
-    TResult Function(BirthDay birthDay)? birthDayChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
     TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
@@ -1091,8 +1091,8 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
-    required TResult Function(Name name) nameChanged,
-    required TResult Function(BirthDay birthDay) birthDayChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
     required TResult Function(Level level) levelChanged,
     required TResult Function(List<LearnTopic> learnTopics) learnTopicsChanged,
@@ -1107,8 +1107,8 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function(Name name)? nameChanged,
-    TResult Function(BirthDay birthDay)? birthDayChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
     TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
@@ -1123,8 +1123,8 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function(Name name)? nameChanged,
-    TResult Function(BirthDay birthDay)? birthDayChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
     TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
@@ -1273,8 +1273,8 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
-    required TResult Function(Name name) nameChanged,
-    required TResult Function(BirthDay birthDay) birthDayChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
     required TResult Function(Level level) levelChanged,
     required TResult Function(List<LearnTopic> learnTopics) learnTopicsChanged,
@@ -1289,8 +1289,8 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function(Name name)? nameChanged,
-    TResult Function(BirthDay birthDay)? birthDayChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
     TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
@@ -1305,8 +1305,8 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function(Name name)? nameChanged,
-    TResult Function(BirthDay birthDay)? birthDayChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
     TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
@@ -1427,8 +1427,8 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
-    required TResult Function(Name name) nameChanged,
-    required TResult Function(BirthDay birthDay) birthDayChanged,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
     required TResult Function(Level level) levelChanged,
     required TResult Function(List<LearnTopic> learnTopics) learnTopicsChanged,
@@ -1443,8 +1443,8 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function(Name name)? nameChanged,
-    TResult Function(BirthDay birthDay)? birthDayChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
     TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
@@ -1459,8 +1459,8 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
-    TResult Function(Name name)? nameChanged,
-    TResult Function(BirthDay birthDay)? birthDayChanged,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
     TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,

@@ -1,14 +1,20 @@
 import 'package:dartz/dartz.dart';
+import 'package:intl/intl.dart';
 
 import '../../authentication/failures/value_failure.dart';
 import '../../common/value_objects/value_object.dart';
 
 class BirthDay extends ValueObject<ValueFailure, DateTime> {
+  static final _dateFormat = DateFormat('yyyy-MM-dd');
+
   final Either<ValueFailure, DateTime> _birthDayOrFailure;
 
   BirthDay._(this._birthDayOrFailure);
 
   factory BirthDay(DateTime? dateTime) => BirthDay._(_validate(dateTime));
+
+  factory BirthDay.fromString(String value) =>
+      BirthDay._(_validate(DateTime.tryParse(value)));
 
   @override
   Either<ValueFailure, DateTime> get value => _birthDayOrFailure;
@@ -32,4 +38,10 @@ class BirthDay extends ValueObject<ValueFailure, DateTime> {
 
     return right(dateTime);
   }
+
+  String requireStringValue() {
+    return _dateFormat.format(requireValue());
+  }
+
+  static String formatDate(DateTime date) => _dateFormat.format(date);
 }

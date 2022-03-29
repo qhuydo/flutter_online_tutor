@@ -50,6 +50,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       badState: false,
     ));
 
+    await Future.delayed(const Duration(seconds: 2));
+
     final user = (await _authenticationService.getSignedInUser()).fold(
       () => null,
       (a) => a,
@@ -77,12 +79,12 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     ));
   }
 
-  Future _onNameChanged(Name value, Emitter<ProfileState> emit) async {
-    emit(state.copyWith(name: value));
+  Future _onNameChanged(String value, Emitter<ProfileState> emit) async {
+    emit(state.copyWith(name: Name(value)));
   }
 
-  Future _onBirthDayChanged(BirthDay value, Emitter<ProfileState> emit) async {
-    emit(state.copyWith(birthDay: value));
+  Future _onBirthDayChanged(String value, Emitter<ProfileState> emit) async {
+    emit(state.copyWith(birthDay: BirthDay.fromString(value)));
   }
 
   Future _onCountryChanged(Country value, Emitter<ProfileState> emit) async {

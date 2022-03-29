@@ -4,9 +4,9 @@ part of 'profile_bloc.dart';
 class ProfileEvent with _$ProfileEvent {
   const factory ProfileEvent.initialize() = _Initialize;
 
-  const factory ProfileEvent.nameChanged(Name name) = _NameChanged;
+  const factory ProfileEvent.nameChanged(String name) = _NameChanged;
 
-  const factory ProfileEvent.birthDayChanged(BirthDay birthDay) =
+  const factory ProfileEvent.birthDayChanged(String birthDay) =
       _BirthDayChanged;
 
   const factory ProfileEvent.countryChanged(Country country) = _CountryChanged;
