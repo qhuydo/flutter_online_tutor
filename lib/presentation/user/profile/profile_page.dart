@@ -39,12 +39,20 @@ class _ProfilePage extends StatelessWidget {
       builder: (context, state) {
         if (state.isInitializing) return const LoadingWidget();
         return SingleChildScrollView(
-          child: Column(
-            children: const [
-              ProfileAvatar(),
-              SizedBox(height: 16),
-              EditProfileForm(),
-            ],
+          child: Center(
+            child: ConstrainedBox(
+              constraints: BoxConstraints.loose(
+                // TODO re-organise size constraints
+                const Size(800, double.infinity),
+              ),
+              child: Column(
+                children: const [
+                  ProfileAvatar(),
+                  SizedBox(height: 16),
+                  EditProfileForm(),
+                ],
+              ),
+            ),
           ),
         );
       },

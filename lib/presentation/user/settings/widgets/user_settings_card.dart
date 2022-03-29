@@ -65,14 +65,13 @@ class UserSettingsCard extends StatelessWidget {
         iconData: Icons.logout,
         title: context.l10n.logOutLabel,
         onTap: () {
-          context.read<AuthenticationBloc>().add(
-            const AuthenticationEvent.signedOut(),
-          );
-          context.read<AuthenticationBloc>().add(
-            const AuthenticationEvent.authCheckRequested(),
-          );
-          context.router.popUntilRoot();
-          context.router.replace(const LoginRoute());
+          context.read<AuthenticationBloc>()
+            ..add(const AuthenticationEvent.signedOut())
+            ..add(const AuthenticationEvent.authCheckRequested());
+
+          context.router
+            ..popUntilRoot()
+            ..replace(const LoginRoute());
         },
         color: Colors.red,
       ),
@@ -80,36 +79,9 @@ class UserSettingsCard extends StatelessWidget {
 
     return SettingsCard(
       settingList: _settingList,
-      header: ListTile(
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(16),
-            topRight: Radius.circular(16),
-          ),
-        ),
-        onTap: () {
-          context.router.push(const ProfileRoute());
-        },
-        contentPadding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
-        leading: const CircleAvatar(
-          radius: 36,
-        ),
-        title: Text(
-          'Nguyen Van A',
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
-        ),
-        subtitle: Text(
-          'example@email.com',
-          style: Theme.of(context).textTheme.titleSmall,
-        ),
-        trailing: Icon(
-          Icons.navigate_next,
-          size: 32,
-          color: Theme.of(context).buttonTheme.colorScheme?.onSurface,
-        ),
-      ),
+      headerIcon: Icons.account_box,
+      // TODO: update translation
+      title: 'Profile',
     );
   }
 }

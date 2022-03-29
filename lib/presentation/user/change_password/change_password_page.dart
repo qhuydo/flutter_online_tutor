@@ -63,7 +63,13 @@ class _ChangePasswordPage extends StatelessWidget {
           ),
         );
       },
-      child: const ChangePasswordForm(),
+      child: Center(
+        child: ConstrainedBox(
+          // TODO re-organise size constraints
+          constraints: BoxConstraints.loose(const Size(800, double.infinity)),
+          child: const ChangePasswordForm(),
+        ),
+      ),
     );
   }
 }
