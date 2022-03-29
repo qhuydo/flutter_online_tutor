@@ -29,10 +29,6 @@ dependencies:
   # (c) MIT License. By Milad Akarie.
   auto_route: ^3.2.4
 
-  # Yet another bottom navigation bar, but with a few key promises.
-  # (c) MIT License. By Luke Pighetti.
-  salomon_bottom_bar: ^3.2.0
-
   # Contains code to deal with internationalized/localized messages, date and number formatting
   # and parsing, bi-directional text, and other internationalization issues.
   # (c) BSD 3-Clause License. By the Dart project authors.
