@@ -36,9 +36,7 @@ class _$UserDtoTearOff {
       required List<CourseDto> courses,
       String? level,
       List<SpecialityDto> learnTopics = const [],
-      List<SpecialityDto> testPreparations = const [],
-      required bool isPhoneActivated,
-      required int timezone}) {
+      List<SpecialityDto> testPreparations = const []}) {
     return _UserDto(
       id: id,
       email: email,
@@ -54,8 +52,6 @@ class _$UserDtoTearOff {
       level: level,
       learnTopics: learnTopics,
       testPreparations: testPreparations,
-      isPhoneActivated: isPhoneActivated,
-      timezone: timezone,
     );
   }
 
@@ -84,8 +80,6 @@ mixin _$UserDto {
   List<SpecialityDto> get learnTopics => throw _privateConstructorUsedError;
   List<SpecialityDto> get testPreparations =>
       throw _privateConstructorUsedError;
-  bool get isPhoneActivated => throw _privateConstructorUsedError;
-  int get timezone => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -110,9 +104,7 @@ abstract class $UserDtoCopyWith<$Res> {
       List<CourseDto> courses,
       String? level,
       List<SpecialityDto> learnTopics,
-      List<SpecialityDto> testPreparations,
-      bool isPhoneActivated,
-      int timezone});
+      List<SpecialityDto> testPreparations});
 
   $WalletDtoCopyWith<$Res> get walletInfo;
 }
@@ -141,8 +133,6 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
     Object? level = freezed,
     Object? learnTopics = freezed,
     Object? testPreparations = freezed,
-    Object? isPhoneActivated = freezed,
-    Object? timezone = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -201,14 +191,6 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
           ? _value.testPreparations
           : testPreparations // ignore: cast_nullable_to_non_nullable
               as List<SpecialityDto>,
-      isPhoneActivated: isPhoneActivated == freezed
-          ? _value.isPhoneActivated
-          : isPhoneActivated // ignore: cast_nullable_to_non_nullable
-              as bool,
-      timezone: timezone == freezed
-          ? _value.timezone
-          : timezone // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 
@@ -239,9 +221,7 @@ abstract class _$UserDtoCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
       List<CourseDto> courses,
       String? level,
       List<SpecialityDto> learnTopics,
-      List<SpecialityDto> testPreparations,
-      bool isPhoneActivated,
-      int timezone});
+      List<SpecialityDto> testPreparations});
 
   @override
   $WalletDtoCopyWith<$Res> get walletInfo;
@@ -272,8 +252,6 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
     Object? level = freezed,
     Object? learnTopics = freezed,
     Object? testPreparations = freezed,
-    Object? isPhoneActivated = freezed,
-    Object? timezone = freezed,
   }) {
     return _then(_UserDto(
       id: id == freezed
@@ -332,14 +310,6 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
           ? _value.testPreparations
           : testPreparations // ignore: cast_nullable_to_non_nullable
               as List<SpecialityDto>,
-      isPhoneActivated: isPhoneActivated == freezed
-          ? _value.isPhoneActivated
-          : isPhoneActivated // ignore: cast_nullable_to_non_nullable
-              as bool,
-      timezone: timezone == freezed
-          ? _value.timezone
-          : timezone // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -361,9 +331,7 @@ class _$_UserDto implements _UserDto {
       required this.courses,
       this.level,
       this.learnTopics = const [],
-      this.testPreparations = const [],
-      required this.isPhoneActivated,
-      required this.timezone});
+      this.testPreparations = const []});
 
   factory _$_UserDto.fromJson(Map<String, dynamic> json) =>
       _$$_UserDtoFromJson(json);
@@ -398,14 +366,10 @@ class _$_UserDto implements _UserDto {
   @JsonKey()
   @override
   final List<SpecialityDto> testPreparations;
-  @override
-  final bool isPhoneActivated;
-  @override
-  final int timezone;
 
   @override
   String toString() {
-    return 'UserDto(id: $id, email: $email, name: $name, avatar: $avatar, country: $country, phone: $phone, language: $language, birthday: $birthday, isActivated: $isActivated, walletInfo: $walletInfo, courses: $courses, level: $level, learnTopics: $learnTopics, testPreparations: $testPreparations, isPhoneActivated: $isPhoneActivated, timezone: $timezone)';
+    return 'UserDto(id: $id, email: $email, name: $name, avatar: $avatar, country: $country, phone: $phone, language: $language, birthday: $birthday, isActivated: $isActivated, walletInfo: $walletInfo, courses: $courses, level: $level, learnTopics: $learnTopics, testPreparations: $testPreparations)';
   }
 
   @override
@@ -430,10 +394,7 @@ class _$_UserDto implements _UserDto {
             const DeepCollectionEquality()
                 .equals(other.learnTopics, learnTopics) &&
             const DeepCollectionEquality()
-                .equals(other.testPreparations, testPreparations) &&
-            const DeepCollectionEquality()
-                .equals(other.isPhoneActivated, isPhoneActivated) &&
-            const DeepCollectionEquality().equals(other.timezone, timezone));
+                .equals(other.testPreparations, testPreparations));
   }
 
   @override
@@ -452,9 +413,7 @@ class _$_UserDto implements _UserDto {
       const DeepCollectionEquality().hash(courses),
       const DeepCollectionEquality().hash(level),
       const DeepCollectionEquality().hash(learnTopics),
-      const DeepCollectionEquality().hash(testPreparations),
-      const DeepCollectionEquality().hash(isPhoneActivated),
-      const DeepCollectionEquality().hash(timezone));
+      const DeepCollectionEquality().hash(testPreparations));
 
   @JsonKey(ignore: true)
   @override
@@ -482,9 +441,7 @@ abstract class _UserDto implements UserDto {
       required List<CourseDto> courses,
       String? level,
       List<SpecialityDto> learnTopics,
-      List<SpecialityDto> testPreparations,
-      required bool isPhoneActivated,
-      required int timezone}) = _$_UserDto;
+      List<SpecialityDto> testPreparations}) = _$_UserDto;
 
   factory _UserDto.fromJson(Map<String, dynamic> json) = _$_UserDto.fromJson;
 
@@ -516,10 +473,6 @@ abstract class _UserDto implements UserDto {
   List<SpecialityDto> get learnTopics;
   @override
   List<SpecialityDto> get testPreparations;
-  @override
-  bool get isPhoneActivated;
-  @override
-  int get timezone;
   @override
   @JsonKey(ignore: true)
   _$UserDtoCopyWith<_UserDto> get copyWith =>

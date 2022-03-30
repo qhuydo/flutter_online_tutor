@@ -19,7 +19,7 @@ class ProfilePage extends StatelessWidget {
       body: BlocProvider(
         create: (context) =>
             getIt<ProfileBloc>()..add(const ProfileEvent.initialize()),
-        child: _ProfilePage(),
+        child: const _ProfilePage(),
       ),
     );
   }

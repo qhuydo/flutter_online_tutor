@@ -96,7 +96,7 @@ class _PhoneNumberInputState extends State<PhoneNumberInput> {
                       .inputDecorationTheme
                       .enabledBorder!
                       .borderSide,
-                  borderRadius: BorderRadius.all(const Radius.circular(8)),
+                  borderRadius: const BorderRadius.all(Radius.circular(8)),
                 ),
                 leading: Twemoji(
                   emoji: currentCountry.isoCode.toCountryFlagFromCountryCode(),

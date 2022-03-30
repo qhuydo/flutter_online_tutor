@@ -1,4 +1,3 @@
-import 'package:flutter_online_tutor/infrastructure/user/dto/speciality_dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/authentication/value_objects/email_address.dart';
@@ -11,6 +10,7 @@ import '../../../domain/user/value_objects/name.dart';
 import '../../course/dto/course_dto.dart';
 import '../../wallet/dto/wallet_dto.dart';
 import '../utils/level_extension.dart';
+import 'speciality_dto.dart';
 
 part 'user_dto.freezed.dart';
 
@@ -33,8 +33,8 @@ class UserDto with _$UserDto {
     String? level,
     @Default([]) List<SpecialityDto> learnTopics,
     @Default([]) List<SpecialityDto> testPreparations,
-    required bool isPhoneActivated,
-    required int timezone,
+    // required bool isPhoneActivated,
+    // required int timezone,
   }) = _UserDto;
 
   factory UserDto.fromJson(Map<String, dynamic> json) =>
