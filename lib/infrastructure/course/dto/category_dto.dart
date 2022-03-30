@@ -9,7 +9,7 @@ class CategoryDto with _$CategoryDto {
   const factory CategoryDto({
     required String id,
     required String name,
-    required String description,
+    String? description,
     required String key,
     required String createdAt,
     required String updatedAt,

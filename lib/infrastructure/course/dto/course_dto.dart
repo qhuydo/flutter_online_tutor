@@ -17,16 +17,16 @@ class CourseDto with _$CourseDto {
     required String level,
     required String reason,
     required String purpose,
-    required String otherDetails,
-    required int defaultPrice,
-    required int coursePrice,
-    required String courseType,
-    required String sectionType,
+    // @JsonKey(name: 'other_details') required String otherDetails,
+    // @JsonKey(name: 'default_price') required int defaultPrice,
+    // @JsonKey(name: 'course_price') required int coursePrice,
+    String? courseType,
+    String? sectionType,
     required bool visible,
     required String createdAt,
     required String updatedAt,
-    required List<TopicDto> topics,
-    required List<CategoryDto> categories,
+    @Default([]) List<TopicDto> topics,
+    @Default([]) List<CategoryDto> categories,
   }) = _CourseDto;
 
   factory CourseDto.fromJson(Map<String, dynamic> json) =>

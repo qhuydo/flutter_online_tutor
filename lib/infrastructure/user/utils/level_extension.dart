@@ -58,4 +58,32 @@ extension LevelFromStringX on String? {
         return Level.none;
     }
   }
+
+  Level toLevelFromLevelOrder() {
+    switch (this) {
+      case '1':
+        return Level.beginner;
+
+      case '2':
+        return Level.higherBeginner;
+
+      case '3':
+        return Level.preIntermediate;
+
+      case '4':
+        return Level.intermediate;
+
+      case '5':
+        return Level.upperIntermediate;
+
+      case '6':
+        return Level.advanced;
+
+      case '7':
+        return Level.proficiency;
+
+      default:
+        return Level.none;
+    }
+  }
 }

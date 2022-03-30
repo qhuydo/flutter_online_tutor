@@ -14,20 +14,19 @@ _$_CourseDto _$$_CourseDtoFromJson(Map<String, dynamic> json) => _$_CourseDto(
       level: json['level'] as String,
       reason: json['reason'] as String,
       purpose: json['purpose'] as String,
-      otherDetails: json['otherDetails'] as String,
-      defaultPrice: json['defaultPrice'] as int,
-      coursePrice: json['coursePrice'] as int,
-      courseType: json['courseType'] as String,
-      sectionType: json['sectionType'] as String,
+      courseType: json['courseType'] as String?,
+      sectionType: json['sectionType'] as String?,
       visible: json['visible'] as bool,
       createdAt: json['createdAt'] as String,
       updatedAt: json['updatedAt'] as String,
-      topics: (json['topics'] as List<dynamic>)
-          .map((e) => TopicDto.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      categories: (json['categories'] as List<dynamic>)
-          .map((e) => CategoryDto.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      topics: (json['topics'] as List<dynamic>?)
+              ?.map((e) => TopicDto.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
+      categories: (json['categories'] as List<dynamic>?)
+              ?.map((e) => CategoryDto.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$_CourseDtoToJson(_$_CourseDto instance) =>
@@ -39,9 +38,6 @@ Map<String, dynamic> _$$_CourseDtoToJson(_$_CourseDto instance) =>
       'level': instance.level,
       'reason': instance.reason,
       'purpose': instance.purpose,
-      'otherDetails': instance.otherDetails,
-      'defaultPrice': instance.defaultPrice,
-      'coursePrice': instance.coursePrice,
       'courseType': instance.courseType,
       'sectionType': instance.sectionType,
       'visible': instance.visible,

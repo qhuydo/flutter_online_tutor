@@ -30,16 +30,13 @@ class _$CourseDtoTearOff {
       required String level,
       required String reason,
       required String purpose,
-      required String otherDetails,
-      required int defaultPrice,
-      required int coursePrice,
-      required String courseType,
-      required String sectionType,
+      String? courseType,
+      String? sectionType,
       required bool visible,
       required String createdAt,
       required String updatedAt,
-      required List<TopicDto> topics,
-      required List<CategoryDto> categories}) {
+      List<TopicDto> topics = const [],
+      List<CategoryDto> categories = const []}) {
     return _CourseDto(
       id: id,
       name: name,
@@ -48,9 +45,6 @@ class _$CourseDtoTearOff {
       level: level,
       reason: reason,
       purpose: purpose,
-      otherDetails: otherDetails,
-      defaultPrice: defaultPrice,
-      coursePrice: coursePrice,
       courseType: courseType,
       sectionType: sectionType,
       visible: visible,
@@ -77,12 +71,12 @@ mixin _$CourseDto {
   String get imageUrl => throw _privateConstructorUsedError;
   String get level => throw _privateConstructorUsedError;
   String get reason => throw _privateConstructorUsedError;
-  String get purpose => throw _privateConstructorUsedError;
-  String get otherDetails => throw _privateConstructorUsedError;
-  int get defaultPrice => throw _privateConstructorUsedError;
-  int get coursePrice => throw _privateConstructorUsedError;
-  String get courseType => throw _privateConstructorUsedError;
-  String get sectionType => throw _privateConstructorUsedError;
+  String get purpose =>
+      throw _privateConstructorUsedError; // @JsonKey(name: 'other_details') required String otherDetails,
+// @JsonKey(name: 'default_price') required int defaultPrice,
+// @JsonKey(name: 'course_price') required int coursePrice,
+  String? get courseType => throw _privateConstructorUsedError;
+  String? get sectionType => throw _privateConstructorUsedError;
   bool get visible => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
   String get updatedAt => throw _privateConstructorUsedError;
@@ -107,11 +101,8 @@ abstract class $CourseDtoCopyWith<$Res> {
       String level,
       String reason,
       String purpose,
-      String otherDetails,
-      int defaultPrice,
-      int coursePrice,
-      String courseType,
-      String sectionType,
+      String? courseType,
+      String? sectionType,
       bool visible,
       String createdAt,
       String updatedAt,
@@ -136,9 +127,6 @@ class _$CourseDtoCopyWithImpl<$Res> implements $CourseDtoCopyWith<$Res> {
     Object? level = freezed,
     Object? reason = freezed,
     Object? purpose = freezed,
-    Object? otherDetails = freezed,
-    Object? defaultPrice = freezed,
-    Object? coursePrice = freezed,
     Object? courseType = freezed,
     Object? sectionType = freezed,
     Object? visible = freezed,
@@ -176,26 +164,14 @@ class _$CourseDtoCopyWithImpl<$Res> implements $CourseDtoCopyWith<$Res> {
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
               as String,
-      otherDetails: otherDetails == freezed
-          ? _value.otherDetails
-          : otherDetails // ignore: cast_nullable_to_non_nullable
-              as String,
-      defaultPrice: defaultPrice == freezed
-          ? _value.defaultPrice
-          : defaultPrice // ignore: cast_nullable_to_non_nullable
-              as int,
-      coursePrice: coursePrice == freezed
-          ? _value.coursePrice
-          : coursePrice // ignore: cast_nullable_to_non_nullable
-              as int,
       courseType: courseType == freezed
           ? _value.courseType
           : courseType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       sectionType: sectionType == freezed
           ? _value.sectionType
           : sectionType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       visible: visible == freezed
           ? _value.visible
           : visible // ignore: cast_nullable_to_non_nullable
@@ -234,11 +210,8 @@ abstract class _$CourseDtoCopyWith<$Res> implements $CourseDtoCopyWith<$Res> {
       String level,
       String reason,
       String purpose,
-      String otherDetails,
-      int defaultPrice,
-      int coursePrice,
-      String courseType,
-      String sectionType,
+      String? courseType,
+      String? sectionType,
       bool visible,
       String createdAt,
       String updatedAt,
@@ -264,9 +237,6 @@ class __$CourseDtoCopyWithImpl<$Res> extends _$CourseDtoCopyWithImpl<$Res>
     Object? level = freezed,
     Object? reason = freezed,
     Object? purpose = freezed,
-    Object? otherDetails = freezed,
-    Object? defaultPrice = freezed,
-    Object? coursePrice = freezed,
     Object? courseType = freezed,
     Object? sectionType = freezed,
     Object? visible = freezed,
@@ -304,26 +274,14 @@ class __$CourseDtoCopyWithImpl<$Res> extends _$CourseDtoCopyWithImpl<$Res>
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
               as String,
-      otherDetails: otherDetails == freezed
-          ? _value.otherDetails
-          : otherDetails // ignore: cast_nullable_to_non_nullable
-              as String,
-      defaultPrice: defaultPrice == freezed
-          ? _value.defaultPrice
-          : defaultPrice // ignore: cast_nullable_to_non_nullable
-              as int,
-      coursePrice: coursePrice == freezed
-          ? _value.coursePrice
-          : coursePrice // ignore: cast_nullable_to_non_nullable
-              as int,
       courseType: courseType == freezed
           ? _value.courseType
           : courseType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       sectionType: sectionType == freezed
           ? _value.sectionType
           : sectionType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       visible: visible == freezed
           ? _value.visible
           : visible // ignore: cast_nullable_to_non_nullable
@@ -359,16 +317,13 @@ class _$_CourseDto implements _CourseDto {
       required this.level,
       required this.reason,
       required this.purpose,
-      required this.otherDetails,
-      required this.defaultPrice,
-      required this.coursePrice,
-      required this.courseType,
-      required this.sectionType,
+      this.courseType,
+      this.sectionType,
       required this.visible,
       required this.createdAt,
       required this.updatedAt,
-      required this.topics,
-      required this.categories});
+      this.topics = const [],
+      this.categories = const []});
 
   factory _$_CourseDto.fromJson(Map<String, dynamic> json) =>
       _$$_CourseDtoFromJson(json);
@@ -387,30 +342,28 @@ class _$_CourseDto implements _CourseDto {
   final String reason;
   @override
   final String purpose;
+  @override // @JsonKey(name: 'other_details') required String otherDetails,
+// @JsonKey(name: 'default_price') required int defaultPrice,
+// @JsonKey(name: 'course_price') required int coursePrice,
+  final String? courseType;
   @override
-  final String otherDetails;
-  @override
-  final int defaultPrice;
-  @override
-  final int coursePrice;
-  @override
-  final String courseType;
-  @override
-  final String sectionType;
+  final String? sectionType;
   @override
   final bool visible;
   @override
   final String createdAt;
   @override
   final String updatedAt;
+  @JsonKey()
   @override
   final List<TopicDto> topics;
+  @JsonKey()
   @override
   final List<CategoryDto> categories;
 
   @override
   String toString() {
-    return 'CourseDto(id: $id, name: $name, description: $description, imageUrl: $imageUrl, level: $level, reason: $reason, purpose: $purpose, otherDetails: $otherDetails, defaultPrice: $defaultPrice, coursePrice: $coursePrice, courseType: $courseType, sectionType: $sectionType, visible: $visible, createdAt: $createdAt, updatedAt: $updatedAt, topics: $topics, categories: $categories)';
+    return 'CourseDto(id: $id, name: $name, description: $description, imageUrl: $imageUrl, level: $level, reason: $reason, purpose: $purpose, courseType: $courseType, sectionType: $sectionType, visible: $visible, createdAt: $createdAt, updatedAt: $updatedAt, topics: $topics, categories: $categories)';
   }
 
   @override
@@ -426,12 +379,6 @@ class _$_CourseDto implements _CourseDto {
             const DeepCollectionEquality().equals(other.level, level) &&
             const DeepCollectionEquality().equals(other.reason, reason) &&
             const DeepCollectionEquality().equals(other.purpose, purpose) &&
-            const DeepCollectionEquality()
-                .equals(other.otherDetails, otherDetails) &&
-            const DeepCollectionEquality()
-                .equals(other.defaultPrice, defaultPrice) &&
-            const DeepCollectionEquality()
-                .equals(other.coursePrice, coursePrice) &&
             const DeepCollectionEquality()
                 .equals(other.courseType, courseType) &&
             const DeepCollectionEquality()
@@ -454,9 +401,6 @@ class _$_CourseDto implements _CourseDto {
       const DeepCollectionEquality().hash(level),
       const DeepCollectionEquality().hash(reason),
       const DeepCollectionEquality().hash(purpose),
-      const DeepCollectionEquality().hash(otherDetails),
-      const DeepCollectionEquality().hash(defaultPrice),
-      const DeepCollectionEquality().hash(coursePrice),
       const DeepCollectionEquality().hash(courseType),
       const DeepCollectionEquality().hash(sectionType),
       const DeepCollectionEquality().hash(visible),
@@ -485,16 +429,13 @@ abstract class _CourseDto implements CourseDto {
       required String level,
       required String reason,
       required String purpose,
-      required String otherDetails,
-      required int defaultPrice,
-      required int coursePrice,
-      required String courseType,
-      required String sectionType,
+      String? courseType,
+      String? sectionType,
       required bool visible,
       required String createdAt,
       required String updatedAt,
-      required List<TopicDto> topics,
-      required List<CategoryDto> categories}) = _$_CourseDto;
+      List<TopicDto> topics,
+      List<CategoryDto> categories}) = _$_CourseDto;
 
   factory _CourseDto.fromJson(Map<String, dynamic> json) =
       _$_CourseDto.fromJson;
@@ -513,16 +454,12 @@ abstract class _CourseDto implements CourseDto {
   String get reason;
   @override
   String get purpose;
+  @override // @JsonKey(name: 'other_details') required String otherDetails,
+// @JsonKey(name: 'default_price') required int defaultPrice,
+// @JsonKey(name: 'course_price') required int coursePrice,
+  String? get courseType;
   @override
-  String get otherDetails;
-  @override
-  int get defaultPrice;
-  @override
-  int get coursePrice;
-  @override
-  String get courseType;
-  @override
-  String get sectionType;
+  String? get sectionType;
   @override
   bool get visible;
   @override

@@ -13,7 +13,7 @@ class TopicDto with _$TopicDto {
     required String name,
     required String nameFile,
     required String description,
-    required String videoUrl,
+    String? videoUrl,
     required String createdAt,
     required String updatedAt,
   }) = _TopicDto;

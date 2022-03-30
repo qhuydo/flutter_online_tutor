@@ -25,7 +25,7 @@ class _$CategoryDtoTearOff {
   _CategoryDto call(
       {required String id,
       required String name,
-      required String description,
+      String? description,
       required String key,
       required String createdAt,
       required String updatedAt}) {
@@ -51,7 +51,7 @@ const $CategoryDto = _$CategoryDtoTearOff();
 mixin _$CategoryDto {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   String get key => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
   String get updatedAt => throw _privateConstructorUsedError;
@@ -70,7 +70,7 @@ abstract class $CategoryDtoCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
-      String description,
+      String? description,
       String key,
       String createdAt,
       String updatedAt});
@@ -105,7 +105,7 @@ class _$CategoryDtoCopyWithImpl<$Res> implements $CategoryDtoCopyWith<$Res> {
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       key: key == freezed
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
@@ -132,7 +132,7 @@ abstract class _$CategoryDtoCopyWith<$Res>
   $Res call(
       {String id,
       String name,
-      String description,
+      String? description,
       String key,
       String createdAt,
       String updatedAt});
@@ -169,7 +169,7 @@ class __$CategoryDtoCopyWithImpl<$Res> extends _$CategoryDtoCopyWithImpl<$Res>
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       key: key == freezed
           ? _value.key
           : key // ignore: cast_nullable_to_non_nullable
@@ -192,7 +192,7 @@ class _$_CategoryDto implements _CategoryDto {
   const _$_CategoryDto(
       {required this.id,
       required this.name,
-      required this.description,
+      this.description,
       required this.key,
       required this.createdAt,
       required this.updatedAt});
@@ -205,7 +205,7 @@ class _$_CategoryDto implements _CategoryDto {
   @override
   final String name;
   @override
-  final String description;
+  final String? description;
   @override
   final String key;
   @override
@@ -257,7 +257,7 @@ abstract class _CategoryDto implements CategoryDto {
   const factory _CategoryDto(
       {required String id,
       required String name,
-      required String description,
+      String? description,
       required String key,
       required String createdAt,
       required String updatedAt}) = _$_CategoryDto;
@@ -270,7 +270,7 @@ abstract class _CategoryDto implements CategoryDto {
   @override
   String get name;
   @override
-  String get description;
+  String? get description;
   @override
   String get key;
   @override

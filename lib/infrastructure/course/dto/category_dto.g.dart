@@ -10,7 +10,7 @@ _$_CategoryDto _$$_CategoryDtoFromJson(Map<String, dynamic> json) =>
     _$_CategoryDto(
       id: json['id'] as String,
       name: json['name'] as String,
-      description: json['description'] as String,
+      description: json['description'] as String?,
       key: json['key'] as String,
       createdAt: json['createdAt'] as String,
       updatedAt: json['updatedAt'] as String,

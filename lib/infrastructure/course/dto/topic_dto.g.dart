@@ -13,7 +13,7 @@ _$_TopicDto _$$_TopicDtoFromJson(Map<String, dynamic> json) => _$_TopicDto(
       name: json['name'] as String,
       nameFile: json['nameFile'] as String,
       description: json['description'] as String,
-      videoUrl: json['videoUrl'] as String,
+      videoUrl: json['videoUrl'] as String?,
       createdAt: json['createdAt'] as String,
       updatedAt: json['updatedAt'] as String,
     );

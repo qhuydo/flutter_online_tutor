@@ -29,7 +29,7 @@ class _$TopicDtoTearOff {
       required String name,
       required String nameFile,
       required String description,
-      required String videoUrl,
+      String? videoUrl,
       required String createdAt,
       required String updatedAt}) {
     return _TopicDto(
@@ -61,7 +61,7 @@ mixin _$TopicDto {
   String get name => throw _privateConstructorUsedError;
   String get nameFile => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  String get videoUrl => throw _privateConstructorUsedError;
+  String? get videoUrl => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
   String get updatedAt => throw _privateConstructorUsedError;
 
@@ -82,7 +82,7 @@ abstract class $TopicDtoCopyWith<$Res> {
       String name,
       String nameFile,
       String description,
-      String videoUrl,
+      String? videoUrl,
       String createdAt,
       String updatedAt});
 }
@@ -135,7 +135,7 @@ class _$TopicDtoCopyWithImpl<$Res> implements $TopicDtoCopyWith<$Res> {
       videoUrl: videoUrl == freezed
           ? _value.videoUrl
           : videoUrl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -160,7 +160,7 @@ abstract class _$TopicDtoCopyWith<$Res> implements $TopicDtoCopyWith<$Res> {
       String name,
       String nameFile,
       String description,
-      String videoUrl,
+      String? videoUrl,
       String createdAt,
       String updatedAt});
 }
@@ -214,7 +214,7 @@ class __$TopicDtoCopyWithImpl<$Res> extends _$TopicDtoCopyWithImpl<$Res>
       videoUrl: videoUrl == freezed
           ? _value.videoUrl
           : videoUrl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -237,7 +237,7 @@ class _$_TopicDto implements _TopicDto {
       required this.name,
       required this.nameFile,
       required this.description,
-      required this.videoUrl,
+      this.videoUrl,
       required this.createdAt,
       required this.updatedAt});
 
@@ -257,7 +257,7 @@ class _$_TopicDto implements _TopicDto {
   @override
   final String description;
   @override
-  final String videoUrl;
+  final String? videoUrl;
   @override
   final String createdAt;
   @override
@@ -318,7 +318,7 @@ abstract class _TopicDto implements TopicDto {
       required String name,
       required String nameFile,
       required String description,
-      required String videoUrl,
+      String? videoUrl,
       required String createdAt,
       required String updatedAt}) = _$_TopicDto;
 
@@ -337,7 +337,7 @@ abstract class _TopicDto implements TopicDto {
   @override
   String get description;
   @override
-  String get videoUrl;
+  String? get videoUrl;
   @override
   String get createdAt;
   @override
