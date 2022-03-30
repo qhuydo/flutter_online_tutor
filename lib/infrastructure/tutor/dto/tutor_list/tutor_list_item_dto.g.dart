@@ -19,7 +19,6 @@ _$_TutorListItemDto _$$_TutorListItemDtoFromJson(Map<String, dynamic> json) =>
       feedbacks: (json['feedbacks'] as List<dynamic>)
           .map((e) => FeedbackDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      id: json['id'] as String,
       userId: json['userId'] as String,
       video: json['video'] as String,
       bio: json['bio'] as String,
@@ -45,7 +44,6 @@ Map<String, dynamic> _$$_TutorListItemDtoToJson(_$_TutorListItemDto instance) =>
       'language': instance.language,
       'birthday': instance.birthday.toIso8601String(),
       'feedbacks': instance.feedbacks,
-      'id': instance.id,
       'userId': instance.userId,
       'video': instance.video,
       'bio': instance.bio,

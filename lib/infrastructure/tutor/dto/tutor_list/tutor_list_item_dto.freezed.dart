@@ -32,7 +32,6 @@ class _$TutorListItemDtoTearOff {
       required String language,
       required DateTime birthday,
       required List<FeedbackDto> feedbacks,
-      required String id,
       required String userId,
       required String video,
       required String bio,
@@ -55,7 +54,6 @@ class _$TutorListItemDtoTearOff {
       language: language,
       birthday: birthday,
       feedbacks: feedbacks,
-      id: id,
       userId: userId,
       video: video,
       bio: bio,
@@ -101,8 +99,8 @@ mixin _$TutorListItemDto {
 // required DateTime createdAt,
 // required DateTime updatedAt,
 // DateTime? deletedAt,
-  List<FeedbackDto> get feedbacks => throw _privateConstructorUsedError;
-  String get id => throw _privateConstructorUsedError;
+  List<FeedbackDto> get feedbacks =>
+      throw _privateConstructorUsedError; // required String id,
   String get userId => throw _privateConstructorUsedError;
   String get video => throw _privateConstructorUsedError;
   String get bio => throw _privateConstructorUsedError;
@@ -140,7 +138,6 @@ abstract class $TutorListItemDtoCopyWith<$Res> {
       String language,
       DateTime birthday,
       List<FeedbackDto> feedbacks,
-      String id,
       String userId,
       String video,
       String bio,
@@ -175,7 +172,6 @@ class _$TutorListItemDtoCopyWithImpl<$Res>
     Object? language = freezed,
     Object? birthday = freezed,
     Object? feedbacks = freezed,
-    Object? id = freezed,
     Object? userId = freezed,
     Object? video = freezed,
     Object? bio = freezed,
@@ -226,10 +222,6 @@ class _$TutorListItemDtoCopyWithImpl<$Res>
           ? _value.feedbacks
           : feedbacks // ignore: cast_nullable_to_non_nullable
               as List<FeedbackDto>,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       userId: userId == freezed
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -299,7 +291,6 @@ abstract class _$TutorListItemDtoCopyWith<$Res>
       String language,
       DateTime birthday,
       List<FeedbackDto> feedbacks,
-      String id,
       String userId,
       String video,
       String bio,
@@ -336,7 +327,6 @@ class __$TutorListItemDtoCopyWithImpl<$Res>
     Object? language = freezed,
     Object? birthday = freezed,
     Object? feedbacks = freezed,
-    Object? id = freezed,
     Object? userId = freezed,
     Object? video = freezed,
     Object? bio = freezed,
@@ -387,10 +377,6 @@ class __$TutorListItemDtoCopyWithImpl<$Res>
           ? _value.feedbacks
           : feedbacks // ignore: cast_nullable_to_non_nullable
               as List<FeedbackDto>,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       userId: userId == freezed
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -456,7 +442,6 @@ class _$_TutorListItemDto extends _TutorListItemDto {
       required this.language,
       required this.birthday,
       required this.feedbacks,
-      required this.id,
       required this.userId,
       required this.video,
       required this.bio,
@@ -503,9 +488,7 @@ class _$_TutorListItemDto extends _TutorListItemDto {
 // required DateTime updatedAt,
 // DateTime? deletedAt,
   final List<FeedbackDto> feedbacks;
-  @override
-  final String id;
-  @override
+  @override // required String id,
   final String userId;
   @override
   final String video;
@@ -533,7 +516,7 @@ class _$_TutorListItemDto extends _TutorListItemDto {
 
   @override
   String toString() {
-    return 'TutorListItemDto(level: $level, email: $email, avatar: $avatar, name: $name, country: $country, phone: $phone, language: $language, birthday: $birthday, feedbacks: $feedbacks, id: $id, userId: $userId, video: $video, bio: $bio, education: $education, experience: $experience, profession: $profession, targetStudent: $targetStudent, interests: $interests, languages: $languages, specialties: $specialties, price: $price, isOnline: $isOnline)';
+    return 'TutorListItemDto(level: $level, email: $email, avatar: $avatar, name: $name, country: $country, phone: $phone, language: $language, birthday: $birthday, feedbacks: $feedbacks, userId: $userId, video: $video, bio: $bio, education: $education, experience: $experience, profession: $profession, targetStudent: $targetStudent, interests: $interests, languages: $languages, specialties: $specialties, price: $price, isOnline: $isOnline)';
   }
 
   @override
@@ -550,7 +533,6 @@ class _$_TutorListItemDto extends _TutorListItemDto {
             const DeepCollectionEquality().equals(other.language, language) &&
             const DeepCollectionEquality().equals(other.birthday, birthday) &&
             const DeepCollectionEquality().equals(other.feedbacks, feedbacks) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.userId, userId) &&
             const DeepCollectionEquality().equals(other.video, video) &&
             const DeepCollectionEquality().equals(other.bio, bio) &&
@@ -581,7 +563,6 @@ class _$_TutorListItemDto extends _TutorListItemDto {
         const DeepCollectionEquality().hash(language),
         const DeepCollectionEquality().hash(birthday),
         const DeepCollectionEquality().hash(feedbacks),
-        const DeepCollectionEquality().hash(id),
         const DeepCollectionEquality().hash(userId),
         const DeepCollectionEquality().hash(video),
         const DeepCollectionEquality().hash(bio),
@@ -618,7 +599,6 @@ abstract class _TutorListItemDto extends TutorListItemDto {
       required String language,
       required DateTime birthday,
       required List<FeedbackDto> feedbacks,
-      required String id,
       required String userId,
       required String video,
       required String bio,
@@ -665,9 +645,7 @@ abstract class _TutorListItemDto extends TutorListItemDto {
 // required DateTime updatedAt,
 // DateTime? deletedAt,
   List<FeedbackDto> get feedbacks;
-  @override
-  String get id;
-  @override
+  @override // required String id,
   String get userId;
   @override
   String get video;

@@ -14,12 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Tutor _$TutorFromJson(Map<String, dynamic> json) {
+  return _Tutor.fromJson(json);
+}
+
 /// @nodoc
 class _$TutorTearOff {
   const _$TutorTearOff();
 
   _Tutor call(
-      {required Id id,
+      {required String id,
       String? avatar,
       required String bio,
       required Country country,
@@ -54,6 +58,10 @@ class _$TutorTearOff {
       video: video,
     );
   }
+
+  Tutor fromJson(Map<String, Object?> json) {
+    return Tutor.fromJson(json);
+  }
 }
 
 /// @nodoc
@@ -61,7 +69,7 @@ const $Tutor = _$TutorTearOff();
 
 /// @nodoc
 mixin _$Tutor {
-  Id get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   String get bio => throw _privateConstructorUsedError;
   Country get country => throw _privateConstructorUsedError;
@@ -79,6 +87,7 @@ mixin _$Tutor {
   Level get targetStudent => throw _privateConstructorUsedError;
   String get video => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TutorCopyWith<Tutor> get copyWith => throw _privateConstructorUsedError;
 }
@@ -88,7 +97,7 @@ abstract class $TutorCopyWith<$Res> {
   factory $TutorCopyWith(Tutor value, $Res Function(Tutor) then) =
       _$TutorCopyWithImpl<$Res>;
   $Res call(
-      {Id id,
+      {String id,
       String? avatar,
       String bio,
       Country country,
@@ -139,7 +148,7 @@ class _$TutorCopyWithImpl<$Res> implements $TutorCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as Id,
+              as String,
       avatar: avatar == freezed
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -217,7 +226,7 @@ abstract class _$TutorCopyWith<$Res> implements $TutorCopyWith<$Res> {
       __$TutorCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Id id,
+      {String id,
       String? avatar,
       String bio,
       Country country,
@@ -270,7 +279,7 @@ class __$TutorCopyWithImpl<$Res> extends _$TutorCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as Id,
+              as String,
       avatar: avatar == freezed
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -336,7 +345,7 @@ class __$TutorCopyWithImpl<$Res> extends _$TutorCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Tutor implements _Tutor {
   const _$_Tutor(
       {required this.id,
@@ -356,8 +365,11 @@ class _$_Tutor implements _Tutor {
       required this.targetStudent,
       required this.video});
 
+  factory _$_Tutor.fromJson(Map<String, dynamic> json) =>
+      _$$_TutorFromJson(json);
+
   @override
-  final Id id;
+  final String id;
   @override
   final String? avatar;
   @override
@@ -449,11 +461,16 @@ class _$_Tutor implements _Tutor {
   @override
   _$TutorCopyWith<_Tutor> get copyWith =>
       __$TutorCopyWithImpl<_Tutor>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TutorToJson(this);
+  }
 }
 
 abstract class _Tutor implements Tutor {
   const factory _Tutor(
-      {required Id id,
+      {required String id,
       String? avatar,
       required String bio,
       required Country country,
@@ -470,8 +487,10 @@ abstract class _Tutor implements Tutor {
       required Level targetStudent,
       required String video}) = _$_Tutor;
 
+  factory _Tutor.fromJson(Map<String, dynamic> json) = _$_Tutor.fromJson;
+
   @override
-  Id get id;
+  String get id;
   @override
   String? get avatar;
   @override

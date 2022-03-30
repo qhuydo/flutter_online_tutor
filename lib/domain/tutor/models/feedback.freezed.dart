@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Feedback _$FeedbackFromJson(Map<String, dynamic> json) {
+  return _Feedback.fromJson(json);
+}
+
 /// @nodoc
 class _$FeedbackTearOff {
   const _$FeedbackTearOff();
@@ -36,6 +40,10 @@ class _$FeedbackTearOff {
       updatedAt: updatedAt,
     );
   }
+
+  Feedback fromJson(Map<String, Object?> json) {
+    return Feedback.fromJson(json);
+  }
 }
 
 /// @nodoc
@@ -51,6 +59,7 @@ mixin _$Feedback {
   int get rating => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $FeedbackCopyWith<Feedback> get copyWith =>
       throw _privateConstructorUsedError;
@@ -189,7 +198,7 @@ class __$FeedbackCopyWithImpl<$Res> extends _$FeedbackCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Feedback extends _Feedback {
   const _$_Feedback(
       {required this.avatar,
@@ -200,6 +209,9 @@ class _$_Feedback extends _Feedback {
       required this.rating,
       required this.updatedAt})
       : super._();
+
+  factory _$_Feedback.fromJson(Map<String, dynamic> json) =>
+      _$$_FeedbackFromJson(json);
 
   @override
   final String avatar;
@@ -250,6 +262,11 @@ class _$_Feedback extends _Feedback {
   @override
   _$FeedbackCopyWith<_Feedback> get copyWith =>
       __$FeedbackCopyWithImpl<_Feedback>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_FeedbackToJson(this);
+  }
 }
 
 abstract class _Feedback extends Feedback {
@@ -262,6 +279,8 @@ abstract class _Feedback extends Feedback {
       required int rating,
       required DateTime updatedAt}) = _$_Feedback;
   const _Feedback._() : super._();
+
+  factory _Feedback.fromJson(Map<String, dynamic> json) = _$_Feedback.fromJson;
 
   @override
   String get avatar;

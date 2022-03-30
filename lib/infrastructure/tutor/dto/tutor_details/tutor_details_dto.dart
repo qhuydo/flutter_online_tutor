@@ -4,7 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../domain/common/helpers/language_converter.dart';
 import '../../../../domain/common/models/country.dart';
-import '../../../../domain/common/value_objects/id.dart';
 import '../../../../domain/tutor/models/tutor.dart';
 import '../../../../domain/user/helpers/speciality_converter.dart';
 import '../../../../domain/user/models/speciality.dart';
@@ -27,7 +26,7 @@ class TutorDetailsDto with _$TutorDetailsDto {
   const TutorDetailsDto._();
 
   const factory TutorDetailsDto({
-    required String id,
+    // required String id,
     required String userId,
     required String video,
     required String bio,
@@ -57,7 +56,7 @@ class TutorDetailsDto with _$TutorDetailsDto {
       _$TutorDetailsDtoFromJson(json);
 
   Tutor toDomain({required List<Speciality> specialityMap}) => Tutor(
-        id: Id.fromString(id),
+        id: userId,
         avatar: user.avatar,
         bio: bio,
         country: Country.fromIsoCodeOrAntarctica(user.country),

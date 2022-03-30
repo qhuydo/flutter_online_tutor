@@ -4,7 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../domain/common/helpers/language_converter.dart';
 import '../../../../domain/common/models/country.dart';
-import '../../../../domain/common/value_objects/id.dart';
 import '../../../../domain/tutor/models/tutor.dart';
 import '../../../../domain/user/helpers/speciality_converter.dart';
 import '../../../../domain/user/models/speciality.dart';
@@ -59,7 +58,7 @@ class TutorListItemDto with _$TutorListItemDto {
     // required DateTime updatedAt,
     // DateTime? deletedAt,
     required List<FeedbackDto> feedbacks,
-    required String id,
+    // required String id,
     required String userId,
     required String video,
     required String bio,
@@ -85,7 +84,7 @@ class TutorListItemDto with _$TutorListItemDto {
     required bool isFavourite,
   }) =>
       Tutor(
-        id: Id.fromString(id),
+        id: userId,
         avatar: avatar,
         bio: bio,
         country: Country.fromIsoCodeOrAntarctica(country),

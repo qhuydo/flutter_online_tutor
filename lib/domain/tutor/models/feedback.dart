@@ -2,6 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'feedback.freezed.dart';
 
+part 'feedback.g.dart';
+
 @freezed
 class Feedback with _$Feedback {
   const Feedback._();
@@ -17,4 +19,7 @@ class Feedback with _$Feedback {
   }) = _Feedback;
 
   bool get isEdited => createdAt != updatedAt;
+
+  factory Feedback.fromJson(Map<String, dynamic> json) =>
+      _$FeedbackFromJson(json);
 }

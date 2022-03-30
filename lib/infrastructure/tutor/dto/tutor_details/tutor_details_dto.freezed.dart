@@ -23,8 +23,7 @@ class _$TutorDetailsDtoTearOff {
   const _$TutorDetailsDtoTearOff();
 
   _TutorDetailsDto call(
-      {required String id,
-      required String userId,
+      {required String userId,
       required String video,
       required String bio,
       required String education,
@@ -39,7 +38,6 @@ class _$TutorDetailsDtoTearOff {
       required double avgRating,
       required int price}) {
     return _TutorDetailsDto(
-      id: id,
       userId: userId,
       video: video,
       bio: bio,
@@ -67,7 +65,7 @@ const $TutorDetailsDto = _$TutorDetailsDtoTearOff();
 
 /// @nodoc
 mixin _$TutorDetailsDto {
-  String get id => throw _privateConstructorUsedError;
+// required String id,
   String get userId => throw _privateConstructorUsedError;
   String get video => throw _privateConstructorUsedError;
   String get bio => throw _privateConstructorUsedError;
@@ -104,8 +102,7 @@ abstract class $TutorDetailsDtoCopyWith<$Res> {
           TutorDetailsDto value, $Res Function(TutorDetailsDto) then) =
       _$TutorDetailsDtoCopyWithImpl<$Res>;
   $Res call(
-      {String id,
-      String userId,
+      {String userId,
       String video,
       String bio,
       String education,
@@ -134,7 +131,6 @@ class _$TutorDetailsDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? userId = freezed,
     Object? video = freezed,
     Object? bio = freezed,
@@ -151,10 +147,6 @@ class _$TutorDetailsDtoCopyWithImpl<$Res>
     Object? price = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       userId: userId == freezed
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -230,8 +222,7 @@ abstract class _$TutorDetailsDtoCopyWith<$Res>
       __$TutorDetailsDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id,
-      String userId,
+      {String userId,
       String video,
       String bio,
       String education,
@@ -263,7 +254,6 @@ class __$TutorDetailsDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? userId = freezed,
     Object? video = freezed,
     Object? bio = freezed,
@@ -280,10 +270,6 @@ class __$TutorDetailsDtoCopyWithImpl<$Res>
     Object? price = freezed,
   }) {
     return _then(_TutorDetailsDto(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       userId: userId == freezed
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -348,8 +334,7 @@ class __$TutorDetailsDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TutorDetailsDto extends _TutorDetailsDto {
   const _$_TutorDetailsDto(
-      {required this.id,
-      required this.userId,
+      {required this.userId,
       required this.video,
       required this.bio,
       required this.education,
@@ -368,9 +353,7 @@ class _$_TutorDetailsDto extends _TutorDetailsDto {
   factory _$_TutorDetailsDto.fromJson(Map<String, dynamic> json) =>
       _$$_TutorDetailsDtoFromJson(json);
 
-  @override
-  final String id;
-  @override
+  @override // required String id,
   final String userId;
   @override
   final String video;
@@ -408,7 +391,7 @@ class _$_TutorDetailsDto extends _TutorDetailsDto {
 
   @override
   String toString() {
-    return 'TutorDetailsDto(id: $id, userId: $userId, video: $video, bio: $bio, education: $education, experience: $experience, profession: $profession, targetStudent: $targetStudent, interests: $interests, languages: $languages, specialties: $specialties, user: $user, isFavorite: $isFavorite, avgRating: $avgRating, price: $price)';
+    return 'TutorDetailsDto(userId: $userId, video: $video, bio: $bio, education: $education, experience: $experience, profession: $profession, targetStudent: $targetStudent, interests: $interests, languages: $languages, specialties: $specialties, user: $user, isFavorite: $isFavorite, avgRating: $avgRating, price: $price)';
   }
 
   @override
@@ -416,7 +399,6 @@ class _$_TutorDetailsDto extends _TutorDetailsDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TutorDetailsDto &&
-            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.userId, userId) &&
             const DeepCollectionEquality().equals(other.video, video) &&
             const DeepCollectionEquality().equals(other.bio, bio) &&
@@ -441,7 +423,6 @@ class _$_TutorDetailsDto extends _TutorDetailsDto {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(userId),
       const DeepCollectionEquality().hash(video),
       const DeepCollectionEquality().hash(bio),
@@ -470,8 +451,7 @@ class _$_TutorDetailsDto extends _TutorDetailsDto {
 
 abstract class _TutorDetailsDto extends TutorDetailsDto {
   const factory _TutorDetailsDto(
-      {required String id,
-      required String userId,
+      {required String userId,
       required String video,
       required String bio,
       required String education,
@@ -490,9 +470,7 @@ abstract class _TutorDetailsDto extends TutorDetailsDto {
   factory _TutorDetailsDto.fromJson(Map<String, dynamic> json) =
       _$_TutorDetailsDto.fromJson;
 
-  @override
-  String get id;
-  @override
+  @override // required String id,
   String get userId;
   @override
   String get video;

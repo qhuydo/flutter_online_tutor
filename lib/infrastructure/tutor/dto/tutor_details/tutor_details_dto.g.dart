@@ -8,7 +8,6 @@ part of 'tutor_details_dto.dart';
 
 _$_TutorDetailsDto _$$_TutorDetailsDtoFromJson(Map<String, dynamic> json) =>
     _$_TutorDetailsDto(
-      id: json['id'] as String,
       userId: json['userId'] as String,
       video: json['video'] as String,
       bio: json['bio'] as String,
@@ -27,7 +26,6 @@ _$_TutorDetailsDto _$$_TutorDetailsDtoFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_TutorDetailsDtoToJson(_$_TutorDetailsDto instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'userId': instance.userId,
       'video': instance.video,
       'bio': instance.bio,
