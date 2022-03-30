@@ -1,11 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../common/app/language.dart';
 import '../../common/models/country.dart';
 import '../../common/value_objects/id.dart';
 import '../../user/constants/levels.dart';
 import '../../user/models/speciality.dart';
 import 'feedback.dart';
+import 'language.dart';
 
 part 'tutor.freezed.dart';
 

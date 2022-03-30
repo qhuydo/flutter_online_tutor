@@ -85,6 +85,7 @@ mixin _$TutorDetailsDto {
 // DateTime createdAt,
 // DateTime updatedAt,
 // "stoopid" api returns 'User' instead of 'user'
+// ignore: invalid_annotation_target
   @JsonKey(name: 'User')
   User get user => throw _privateConstructorUsedError;
   bool get isFavorite => throw _privateConstructorUsedError;
@@ -345,7 +346,7 @@ class __$TutorDetailsDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TutorDetailsDto implements _TutorDetailsDto {
+class _$_TutorDetailsDto extends _TutorDetailsDto {
   const _$_TutorDetailsDto(
       {required this.id,
       required this.userId,
@@ -361,7 +362,8 @@ class _$_TutorDetailsDto implements _TutorDetailsDto {
       @JsonKey(name: 'User') required this.user,
       required this.isFavorite,
       required this.avgRating,
-      required this.price});
+      required this.price})
+      : super._();
 
   factory _$_TutorDetailsDto.fromJson(Map<String, dynamic> json) =>
       _$$_TutorDetailsDtoFromJson(json);
@@ -394,6 +396,7 @@ class _$_TutorDetailsDto implements _TutorDetailsDto {
 // DateTime createdAt,
 // DateTime updatedAt,
 // "stoopid" api returns 'User' instead of 'user'
+// ignore: invalid_annotation_target
   @JsonKey(name: 'User')
   final User user;
   @override
@@ -465,7 +468,7 @@ class _$_TutorDetailsDto implements _TutorDetailsDto {
   }
 }
 
-abstract class _TutorDetailsDto implements TutorDetailsDto {
+abstract class _TutorDetailsDto extends TutorDetailsDto {
   const factory _TutorDetailsDto(
       {required String id,
       required String userId,
@@ -482,6 +485,7 @@ abstract class _TutorDetailsDto implements TutorDetailsDto {
       required bool isFavorite,
       required double avgRating,
       required int price}) = _$_TutorDetailsDto;
+  const _TutorDetailsDto._() : super._();
 
   factory _TutorDetailsDto.fromJson(Map<String, dynamic> json) =
       _$_TutorDetailsDto.fromJson;
@@ -514,6 +518,7 @@ abstract class _TutorDetailsDto implements TutorDetailsDto {
 // DateTime createdAt,
 // DateTime updatedAt,
 // "stoopid" api returns 'User' instead of 'user'
+// ignore: invalid_annotation_target
   @JsonKey(name: 'User')
   User get user;
   @override

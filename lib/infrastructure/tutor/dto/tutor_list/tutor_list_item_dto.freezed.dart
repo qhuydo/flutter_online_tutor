@@ -445,7 +445,7 @@ class __$TutorListItemDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TutorListItemDto implements _TutorListItemDto {
+class _$_TutorListItemDto extends _TutorListItemDto {
   const _$_TutorListItemDto(
       {required this.level,
       required this.email,
@@ -468,7 +468,8 @@ class _$_TutorListItemDto implements _TutorListItemDto {
       required this.languages,
       required this.specialties,
       required this.price,
-      required this.isOnline});
+      required this.isOnline})
+      : super._();
 
   factory _$_TutorListItemDto.fromJson(Map<String, dynamic> json) =>
       _$$_TutorListItemDtoFromJson(json);
@@ -606,7 +607,7 @@ class _$_TutorListItemDto implements _TutorListItemDto {
   }
 }
 
-abstract class _TutorListItemDto implements TutorListItemDto {
+abstract class _TutorListItemDto extends TutorListItemDto {
   const factory _TutorListItemDto(
       {required String level,
       required String email,
@@ -630,6 +631,7 @@ abstract class _TutorListItemDto implements TutorListItemDto {
       required String specialties,
       required int price,
       required bool isOnline}) = _$_TutorListItemDto;
+  const _TutorListItemDto._() : super._();
 
   factory _TutorListItemDto.fromJson(Map<String, dynamic> json) =
       _$_TutorListItemDto.fromJson;

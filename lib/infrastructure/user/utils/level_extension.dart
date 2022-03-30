@@ -86,4 +86,18 @@ extension LevelFromStringX on String? {
         return Level.none;
     }
   }
+
+  Level toLevelFromTargetStudent() {
+    switch(this) {
+      case 'Intermediate':
+        return Level.beginner;
+
+      case 'Advanced':
+        return Level.advanced;
+
+      default:
+        return Level.beginner;
+
+    }
+  }
 }

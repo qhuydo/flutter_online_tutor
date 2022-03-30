@@ -2,7 +2,14 @@ import 'dart:convert';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../domain/common/helpers/language_converter.dart';
+import '../../../../domain/common/models/country.dart';
+import '../../../../domain/common/value_objects/id.dart';
+import '../../../../domain/tutor/models/tutor.dart';
+import '../../../../domain/user/helpers/speciality_converter.dart';
+import '../../../../domain/user/models/speciality.dart';
 import '../../../course/dto/course_dto.dart';
+import '../../../user/utils/level_extension.dart';
 import '../feedback/feedback_dto.dart';
 
 part 'tutor_details_dto.freezed.dart';
@@ -12,10 +19,13 @@ part 'tutor_details_dto.g.dart';
 TutorDetailsDto tutorDetailsDtoFromJson(String str) =>
     TutorDetailsDto.fromJson(json.decode(str));
 
-String tutorDetailsDtoToJson(TutorDetailsDto data) => json.encode(data.toJson());
+String tutorDetailsDtoToJson(TutorDetailsDto data) =>
+    json.encode(data.toJson());
 
 @freezed
 class TutorDetailsDto with _$TutorDetailsDto {
+  const TutorDetailsDto._();
+
   const factory TutorDetailsDto({
     required String id,
     required String userId,
@@ -36,6 +46,7 @@ class TutorDetailsDto with _$TutorDetailsDto {
     // DateTime updatedAt,
 
     // "stoopid" api returns 'User' instead of 'user'
+    // ignore: invalid_annotation_target
     @JsonKey(name: 'User') required User user,
     required bool isFavorite,
     required double avgRating,
@@ -44,6 +55,27 @@ class TutorDetailsDto with _$TutorDetailsDto {
 
   factory TutorDetailsDto.fromJson(Map<String, dynamic> json) =>
       _$TutorDetailsDtoFromJson(json);
+
+  Tutor toDomain({required List<Speciality> specialityMap}) => Tutor(
+        id: Id.fromString(id),
+        avatar: user.avatar,
+        bio: bio,
+        country: Country.fromIsoCodeOrAntarctica(user.country),
+        education: education,
+        averageRating: avgRating,
+        feedbacks:
+            user.feedbacks.map((e) => e.toDomain()).toList(growable: false),
+        interests: interests,
+        isFavourite: isFavorite,
+        languages: LanguageConverter.parseFromLanguageKeyString(languages),
+        name: user.name,
+        price: price.toDouble(),
+        profession: profession,
+        specialities: SpecialityConverter.parseFromSpecialityKeyString(
+            specialties, specialityMap),
+        targetStudent: targetStudent.toLevelFromTargetStudent(),
+        video: video,
+      );
 }
 
 @freezed

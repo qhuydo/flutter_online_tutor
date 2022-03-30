@@ -242,7 +242,7 @@ class __$FeedbackCopyWithImpl<$Res> extends _$FeedbackDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Feedback implements _Feedback {
+class _$_Feedback extends _Feedback {
   const _$_Feedback(
       {required this.id,
       required this.bookingId,
@@ -252,7 +252,8 @@ class _$_Feedback implements _Feedback {
       required this.content,
       required this.createdAt,
       required this.updatedAt,
-      required this.firstInfo});
+      required this.firstInfo})
+      : super._();
 
   factory _$_Feedback.fromJson(Map<String, dynamic> json) =>
       _$$_FeedbackFromJson(json);
@@ -321,7 +322,7 @@ class _$_Feedback implements _Feedback {
   }
 }
 
-abstract class _Feedback implements FeedbackDto {
+abstract class _Feedback extends FeedbackDto {
   const factory _Feedback(
       {required String id,
       required String bookingId,
@@ -332,6 +333,7 @@ abstract class _Feedback implements FeedbackDto {
       required DateTime createdAt,
       required DateTime updatedAt,
       required FirstInfo firstInfo}) = _$_Feedback;
+  const _Feedback._() : super._();
 
   factory _Feedback.fromJson(Map<String, dynamic> json) = _$_Feedback.fromJson;
 

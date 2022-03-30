@@ -20,4 +20,7 @@ class Country with _$Country {
       _$CountryFromJson(json);
 
   get isValid => countryMap[isoCode] != null;
+
+  factory Country.fromIsoCodeOrAntarctica(String isoCode) =>
+      countryMap[isoCode] ?? countryMap['AQ']!;
 }
