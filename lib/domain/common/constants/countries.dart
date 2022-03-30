@@ -174,7 +174,7 @@ final countryMap = UnmodifiableMapView(const <String, Country>{
   'NR': Country(name: 'Nauru', dialCode: '+674', isoCode: 'NR'),
   'NP': Country(name: 'Nepal', dialCode: '+977', isoCode: 'NP'),
   'NL': Country(name: 'Netherlands', dialCode: '+31', isoCode: 'NL'),
-  'AN': Country(name: 'Netherlands Antilles', dialCode: '+599', isoCode: 'AN'),
+  // 'AN': Country(name: 'Netherlands Antilles', dialCode: '+599', isoCode: 'AN'),
   'NC': Country(name: 'New Caledonia', dialCode: '+687', isoCode: 'NC'),
   'NZ': Country(name: 'New Zealand', dialCode: '+64', isoCode: 'NZ'),
   'NI': Country(name: 'Nicaragua', dialCode: '+505', isoCode: 'NI'),
@@ -270,10 +270,10 @@ final countryMap = UnmodifiableMapView(const <String, Country>{
   'AE': Country(name: 'United Arab Emirates', dialCode: '+971', isoCode: 'AE'),
   'GB': Country(name: 'United Kingdom', dialCode: '+44', isoCode: 'GB'),
   'US': Country(name: 'United States', dialCode: '+1', isoCode: 'US'),
-  'UMI': Country(
-      name: 'United States Minor Outlying Islands',
-      dialCode: '+246',
-      isoCode: 'UMI'),
+  // 'UMI': Country(
+  //     name: 'United States Minor Outlying Islands',
+  //     dialCode: '+246',
+  //     isoCode: 'UMI'),
   'UY': Country(name: 'Uruguay', dialCode: '+598', isoCode: 'UY'),
   'UZ': Country(name: 'Uzbekistan', dialCode: '+998', isoCode: 'UZ'),
   'VU': Country(name: 'Vanuatu', dialCode: '+678', isoCode: 'VU'),

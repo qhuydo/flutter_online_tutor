@@ -1,5 +1,7 @@
+import '../../../domain/tutor/models/language.dart';
 import '../../common.dart';
 import '../../common/widgets/info_container.dart';
+import '../../common/widgets/language_multi_select_bottom_field.dart';
 import '../../user/profile/widgets/country_form_dropdown.dart';
 import '../../user/profile/widgets/date_of_birth_form_field.dart';
 import 'specialities_dropdown.dart';
@@ -8,6 +10,7 @@ import 'target_student_radio_button_group.dart';
 class BecomeTutorStep1 extends StatelessWidget {
   const BecomeTutorStep1({Key? key}) : super(key: key);
   static const itemSpacing = 16.0;
+  static const defaultSpacingSizedBox = SizedBox(height: itemSpacing);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,7 @@ class BecomeTutorStep1 extends StatelessWidget {
             style: titleStyle,
           ),
           const Divider(),
-          const SizedBox(height: itemSpacing),
+          defaultSpacingSizedBox,
           TextFormField(
             decoration: InputDecoration(
               border: const OutlineInputBorder(),
@@ -31,26 +34,26 @@ class BecomeTutorStep1 extends StatelessWidget {
               labelText: context.l10n.tutoringNameTextBoxLabel,
             ),
           ),
-          const SizedBox(height: itemSpacing),
+          defaultSpacingSizedBox,
           const CountryFormDropdown(),
-          const SizedBox(height: itemSpacing),
+          defaultSpacingSizedBox,
           const DateOfBirthFormField(),
-          const SizedBox(height: itemSpacing),
+          defaultSpacingSizedBox,
           // CV
           Text(
             context.l10n.cvLabel,
             style: titleStyle,
           ),
           const Divider(),
-          const SizedBox(height: itemSpacing),
+          defaultSpacingSizedBox,
           Text(context.l10n.cvInfoNotice),
-          const SizedBox(height: itemSpacing),
+          defaultSpacingSizedBox,
           InfoContainer(
             child: Text(
               context.l10n.protectPrivacyNotice,
             ),
           ),
-          const SizedBox(height: itemSpacing),
+          defaultSpacingSizedBox,
           TextFormField(
             minLines: 3,
             maxLines: 15,
@@ -61,7 +64,7 @@ class BecomeTutorStep1 extends StatelessWidget {
               hintText: context.l10n.interestTextBoxHint,
             ),
           ),
-          const SizedBox(height: itemSpacing),
+          defaultSpacingSizedBox,
           TextFormField(
             minLines: 3,
             maxLines: 15,
@@ -72,7 +75,7 @@ class BecomeTutorStep1 extends StatelessWidget {
               hintText: context.l10n.academicLevelTextBoxHint,
             ),
           ),
-          const SizedBox(height: itemSpacing),
+          defaultSpacingSizedBox,
           TextFormField(
             minLines: 3,
             maxLines: 15,
@@ -82,7 +85,7 @@ class BecomeTutorStep1 extends StatelessWidget {
               labelText: context.l10n.experienceTextBoxLabel,
             ),
           ),
-          const SizedBox(height: itemSpacing),
+          defaultSpacingSizedBox,
           TextFormField(
             minLines: 1,
             maxLines: 5,
@@ -92,26 +95,30 @@ class BecomeTutorStep1 extends StatelessWidget {
               labelText: context.l10n.professionTextBoxLabel,
             ),
           ),
-          const SizedBox(height: itemSpacing),
+          defaultSpacingSizedBox,
           // Language
           Text(
             context.l10n.aboutLanguageTitle,
             style: titleStyle,
           ),
           const Divider(),
-          const SizedBox(height: itemSpacing),
+          defaultSpacingSizedBox,
           // TODO replace & add language dropdown
-          const CountryFormDropdown(),
-          const SizedBox(height: itemSpacing),
+          LanguageMultiSelectBottomField(
+            selectedLanguages: [],
+            onItemRemoved: (Language? language) {},
+            onItemsSelected: (List<Language?> languages) {},
+          ),
+          defaultSpacingSizedBox,
           // Target students
           Text(
             context.l10n.targetStudentTextBoxLabel,
             style: titleStyle,
           ),
           const Divider(),
-          // const SizedBox(height: itemSpacing),
+          // defaultSpacingSizedBox,
           const TargetStudentRadioButtonGroup(),
-          // const SizedBox(height: itemSpacing),
+          // defaultSpacingSizedBox,
           const SpecialitiesDropdown(),
         ],
       ),
