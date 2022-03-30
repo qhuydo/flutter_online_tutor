@@ -153,3 +153,5 @@ flutter:
     - assets/fixtures/authentication/login/
     - assets/fixtures/common/learn_topic/
     - assets/fixtures/common/test_preparation/
+    - assets/fixtures/user/level/
+    - assets/json/
