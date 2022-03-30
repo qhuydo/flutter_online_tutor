@@ -122,6 +122,11 @@ dependencies:
   # (c) Apache-2.0 License. By André Haueisen Batista de Lima, Hamid Wakili.
   another_flushbar: ^1.10.28
 
+  # RxDart is an implementation of the popular reactiveX api for asynchronous programming, leveraging the native Dart
+  # Streams api.
+  # (c) Apache-2.0 License.
+  rxdart: ^0.27.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
