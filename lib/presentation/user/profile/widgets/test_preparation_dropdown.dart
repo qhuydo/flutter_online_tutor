@@ -26,31 +26,35 @@ class TestPreparationDropdown extends StatelessWidget {
         .toList();
     return Column(
       children: <Widget>[
-        MultiSelectBottomSheetField<Speciality?>(
-          decoration: const BoxDecoration(
-            shape: BoxShape.rectangle,
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+        IgnorePointer(
+          ignoring: !enabled,
+          child: MultiSelectBottomSheetField<Speciality?>(
+            decoration: const BoxDecoration(
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+            ),
+            initialChildSize: 0.4,
+            listType: MultiSelectListType.CHIP,
+            searchable: true,
+            buttonText: Text(
+              context.l10n.testPreparationDropdown,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            title: Text(
+              context.l10n.testPreparationDropdown,
+            ),
+            items: _items,
+            initialValue: selectedTestPreparations,
+            onConfirm: onItemsSelected,
+            chipDisplay: MultiSelectChipDisplay(),
           ),
-          initialChildSize: 0.4,
-          listType: MultiSelectListType.CHIP,
-          searchable: true,
-          buttonText: Text(
-            AppLocalizations.of(context)!.testPreparationDropdown,
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-          title: Text(
-            AppLocalizations.of(context)!.testPreparationDropdown,
-          ),
-          items: _items,
-          onConfirm: onItemsSelected,
-          chipDisplay: MultiSelectChipDisplay(),
         ),
         selectedTestPreparations.isEmpty
             ? Container(
                 padding: const EdgeInsets.all(12),
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  AppLocalizations.of(context)!.noneSelectedOption,
+                  context.l10n.noneSelectedOption,
                   style: Theme.of(context).textTheme.caption,
                 ))
             : Container(),

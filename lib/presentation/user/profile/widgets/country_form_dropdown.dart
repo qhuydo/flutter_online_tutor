@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:twemoji/twemoji.dart';
 
 import '../../../../domain/common/constants/countries.dart';

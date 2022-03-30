@@ -105,7 +105,7 @@ class BecomeTutorStep1 extends StatelessWidget {
           defaultSpacingSizedBox,
           // TODO replace & add language dropdown
           LanguageMultiSelectBottomField(
-            selectedLanguages: [],
+            selectedLanguages: const [],
             onItemRemoved: (Language? language) {},
             onItemsSelected: (List<Language?> languages) {},
           ),

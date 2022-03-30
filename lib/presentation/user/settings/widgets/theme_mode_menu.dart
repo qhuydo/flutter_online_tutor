@@ -14,9 +14,7 @@ Widget changeLanguagePopupMenuButton(
       return PopupMenuButton<AppThemeMode>(
         key: key,
         onSelected: (value) {
-          if (value != null) {
-            context.read<AppCubit>().changeThemeMode(value);
-          }
+          context.read<AppCubit>().changeThemeMode(value);
         },
         itemBuilder: (context) {
           return AppThemeMode.values

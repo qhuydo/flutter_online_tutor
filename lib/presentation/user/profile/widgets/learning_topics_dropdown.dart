@@ -48,10 +48,7 @@ class LearningTopicsDropdown extends StatelessWidget {
             items: _items,
             initialValue: selectedLearnTopics,
             onConfirm: onItemsSelected,
-            chipDisplay: MultiSelectChipDisplay(
-                // icon: const Icon(Icons.cancel_outlined),
-                // onTap: onItemRemoved,
-                ),
+            chipDisplay: MultiSelectChipDisplay(),
           ),
         ),
         selectedLearnTopics.isEmpty

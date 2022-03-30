@@ -46,7 +46,13 @@ class HomePage extends StatelessWidget {
             ),
             NavigationDestination(
               icon: Icon(
-                tabsRouter.activeIndex == 2
+                tabsRouter.activeIndex == 2 ? Icons.book : Icons.book_outlined,
+              ),
+              label: context.l10n.courseBottomNavItem,
+            ),
+            NavigationDestination(
+              icon: Icon(
+                tabsRouter.activeIndex == 3
                     ? Icons.event
                     : Icons.event_outlined,
               ),
@@ -54,7 +60,7 @@ class HomePage extends StatelessWidget {
             ),
             NavigationDestination(
               icon: Icon(
-                tabsRouter.activeIndex == 3
+                tabsRouter.activeIndex == 4
                     ? Icons.message
                     : Icons.message_outlined,
               ),
