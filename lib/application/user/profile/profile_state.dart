@@ -11,15 +11,15 @@ class ProfileState with _$ProfileState {
     // PhoneNumber? phoneNumber,
     Country? country,
     @Default(Level.none) Level level,
-    @Default([]) List<LearnTopic> learnTopics,
-    @Default([]) List<TestPreparation> testPreparations,
+    @Default([]) List<Speciality> learnTopics,
+    @Default([]) List<Speciality> testPreparations,
     @Default(true) bool isInitializing,
     @Default(false) bool isLoading,
     @Default(false) bool badState,
     @Default(false) bool showError,
     @Default(None()) Option<Either<Failure, Unit>> updateFailureOrSuccessOption,
-    @Default([]) List<LearnTopic> allLearnTopics,
-    @Default([]) List<TestPreparation> allTestPreparations,
+    @Default([]) List<Speciality> allLearnTopics,
+    @Default([]) List<Speciality> allTestPreparations,
   }) = _ProfileState;
 
   factory ProfileState.initial() => ProfileState(

@@ -46,14 +46,14 @@ class _$ProfileEventTearOff {
     );
   }
 
-  _LearnTopicsChanged learnTopicsChanged(List<LearnTopic> learnTopics) {
+  _LearnTopicsChanged learnTopicsChanged(List<Speciality> learnTopics) {
     return _LearnTopicsChanged(
       learnTopics,
     );
   }
 
   _TestPreparationTopicsChanged testPreparationTopicsChanged(
-      List<TestPreparation> testPreparationTopics) {
+      List<Speciality> testPreparationTopics) {
     return _TestPreparationTopicsChanged(
       testPreparationTopics,
     );
@@ -76,8 +76,8 @@ mixin _$ProfileEvent {
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
     required TResult Function(Level level) levelChanged,
-    required TResult Function(List<LearnTopic> learnTopics) learnTopicsChanged,
-    required TResult Function(List<TestPreparation> testPreparationTopics)
+    required TResult Function(List<Speciality> learnTopics) learnTopicsChanged,
+    required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
   }) =>
@@ -89,8 +89,8 @@ mixin _$ProfileEvent {
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
-    TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
-    TResult Function(List<TestPreparation> testPreparationTopics)?
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
   }) =>
@@ -102,8 +102,8 @@ mixin _$ProfileEvent {
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
-    TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
-    TResult Function(List<TestPreparation> testPreparationTopics)?
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
     required TResult orElse(),
@@ -212,8 +212,8 @@ class _$_Initialize implements _Initialize {
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
     required TResult Function(Level level) levelChanged,
-    required TResult Function(List<LearnTopic> learnTopics) learnTopicsChanged,
-    required TResult Function(List<TestPreparation> testPreparationTopics)
+    required TResult Function(List<Speciality> learnTopics) learnTopicsChanged,
+    required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
   }) {
@@ -228,8 +228,8 @@ class _$_Initialize implements _Initialize {
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
-    TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
-    TResult Function(List<TestPreparation> testPreparationTopics)?
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
   }) {
@@ -244,8 +244,8 @@ class _$_Initialize implements _Initialize {
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
-    TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
-    TResult Function(List<TestPreparation> testPreparationTopics)?
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
     required TResult orElse(),
@@ -382,8 +382,8 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
     required TResult Function(Level level) levelChanged,
-    required TResult Function(List<LearnTopic> learnTopics) learnTopicsChanged,
-    required TResult Function(List<TestPreparation> testPreparationTopics)
+    required TResult Function(List<Speciality> learnTopics) learnTopicsChanged,
+    required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
   }) {
@@ -398,8 +398,8 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
-    TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
-    TResult Function(List<TestPreparation> testPreparationTopics)?
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
   }) {
@@ -414,8 +414,8 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
-    TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
-    TResult Function(List<TestPreparation> testPreparationTopics)?
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
     required TResult orElse(),
@@ -558,8 +558,8 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
     required TResult Function(Level level) levelChanged,
-    required TResult Function(List<LearnTopic> learnTopics) learnTopicsChanged,
-    required TResult Function(List<TestPreparation> testPreparationTopics)
+    required TResult Function(List<Speciality> learnTopics) learnTopicsChanged,
+    required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
   }) {
@@ -574,8 +574,8 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
-    TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
-    TResult Function(List<TestPreparation> testPreparationTopics)?
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
   }) {
@@ -590,8 +590,8 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
-    TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
-    TResult Function(List<TestPreparation> testPreparationTopics)?
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
     required TResult orElse(),
@@ -743,8 +743,8 @@ class _$_CountryChanged implements _CountryChanged {
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
     required TResult Function(Level level) levelChanged,
-    required TResult Function(List<LearnTopic> learnTopics) learnTopicsChanged,
-    required TResult Function(List<TestPreparation> testPreparationTopics)
+    required TResult Function(List<Speciality> learnTopics) learnTopicsChanged,
+    required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
   }) {
@@ -759,8 +759,8 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
-    TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
-    TResult Function(List<TestPreparation> testPreparationTopics)?
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
   }) {
@@ -775,8 +775,8 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
-    TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
-    TResult Function(List<TestPreparation> testPreparationTopics)?
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
     required TResult orElse(),
@@ -918,8 +918,8 @@ class _$_LevelChanged implements _LevelChanged {
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
     required TResult Function(Level level) levelChanged,
-    required TResult Function(List<LearnTopic> learnTopics) learnTopicsChanged,
-    required TResult Function(List<TestPreparation> testPreparationTopics)
+    required TResult Function(List<Speciality> learnTopics) learnTopicsChanged,
+    required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
   }) {
@@ -934,8 +934,8 @@ class _$_LevelChanged implements _LevelChanged {
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
-    TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
-    TResult Function(List<TestPreparation> testPreparationTopics)?
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
   }) {
@@ -950,8 +950,8 @@ class _$_LevelChanged implements _LevelChanged {
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
-    TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
-    TResult Function(List<TestPreparation> testPreparationTopics)?
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
     required TResult orElse(),
@@ -1029,7 +1029,7 @@ abstract class _$LearnTopicsChangedCopyWith<$Res> {
   factory _$LearnTopicsChangedCopyWith(
           _LearnTopicsChanged value, $Res Function(_LearnTopicsChanged) then) =
       __$LearnTopicsChangedCopyWithImpl<$Res>;
-  $Res call({List<LearnTopic> learnTopics});
+  $Res call({List<Speciality> learnTopics});
 }
 
 /// @nodoc
@@ -1051,7 +1051,7 @@ class __$LearnTopicsChangedCopyWithImpl<$Res>
       learnTopics == freezed
           ? _value.learnTopics
           : learnTopics // ignore: cast_nullable_to_non_nullable
-              as List<LearnTopic>,
+              as List<Speciality>,
     ));
   }
 }
@@ -1062,7 +1062,7 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
   const _$_LearnTopicsChanged(this.learnTopics);
 
   @override
-  final List<LearnTopic> learnTopics;
+  final List<Speciality> learnTopics;
 
   @override
   String toString() {
@@ -1095,8 +1095,8 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
     required TResult Function(Level level) levelChanged,
-    required TResult Function(List<LearnTopic> learnTopics) learnTopicsChanged,
-    required TResult Function(List<TestPreparation> testPreparationTopics)
+    required TResult Function(List<Speciality> learnTopics) learnTopicsChanged,
+    required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
   }) {
@@ -1111,8 +1111,8 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
-    TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
-    TResult Function(List<TestPreparation> testPreparationTopics)?
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
   }) {
@@ -1127,8 +1127,8 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
-    TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
-    TResult Function(List<TestPreparation> testPreparationTopics)?
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
     required TResult orElse(),
@@ -1193,10 +1193,10 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
 }
 
 abstract class _LearnTopicsChanged implements ProfileEvent {
-  const factory _LearnTopicsChanged(List<LearnTopic> learnTopics) =
+  const factory _LearnTopicsChanged(List<Speciality> learnTopics) =
       _$_LearnTopicsChanged;
 
-  List<LearnTopic> get learnTopics;
+  List<Speciality> get learnTopics;
   @JsonKey(ignore: true)
   _$LearnTopicsChangedCopyWith<_LearnTopicsChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1208,7 +1208,7 @@ abstract class _$TestPreparationTopicsChangedCopyWith<$Res> {
           _TestPreparationTopicsChanged value,
           $Res Function(_TestPreparationTopicsChanged) then) =
       __$TestPreparationTopicsChangedCopyWithImpl<$Res>;
-  $Res call({List<TestPreparation> testPreparationTopics});
+  $Res call({List<Speciality> testPreparationTopics});
 }
 
 /// @nodoc
@@ -1232,7 +1232,7 @@ class __$TestPreparationTopicsChangedCopyWithImpl<$Res>
       testPreparationTopics == freezed
           ? _value.testPreparationTopics
           : testPreparationTopics // ignore: cast_nullable_to_non_nullable
-              as List<TestPreparation>,
+              as List<Speciality>,
     ));
   }
 }
@@ -1243,7 +1243,7 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
   const _$_TestPreparationTopicsChanged(this.testPreparationTopics);
 
   @override
-  final List<TestPreparation> testPreparationTopics;
+  final List<Speciality> testPreparationTopics;
 
   @override
   String toString() {
@@ -1277,8 +1277,8 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
     required TResult Function(Level level) levelChanged,
-    required TResult Function(List<LearnTopic> learnTopics) learnTopicsChanged,
-    required TResult Function(List<TestPreparation> testPreparationTopics)
+    required TResult Function(List<Speciality> learnTopics) learnTopicsChanged,
+    required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
   }) {
@@ -1293,8 +1293,8 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
-    TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
-    TResult Function(List<TestPreparation> testPreparationTopics)?
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
   }) {
@@ -1309,8 +1309,8 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
-    TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
-    TResult Function(List<TestPreparation> testPreparationTopics)?
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
     required TResult orElse(),
@@ -1376,10 +1376,9 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
 
 abstract class _TestPreparationTopicsChanged implements ProfileEvent {
   const factory _TestPreparationTopicsChanged(
-          List<TestPreparation> testPreparationTopics) =
-      _$_TestPreparationTopicsChanged;
+      List<Speciality> testPreparationTopics) = _$_TestPreparationTopicsChanged;
 
-  List<TestPreparation> get testPreparationTopics;
+  List<Speciality> get testPreparationTopics;
   @JsonKey(ignore: true)
   _$TestPreparationTopicsChangedCopyWith<_TestPreparationTopicsChanged>
       get copyWith => throw _privateConstructorUsedError;
@@ -1431,8 +1430,8 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
     required TResult Function(Level level) levelChanged,
-    required TResult Function(List<LearnTopic> learnTopics) learnTopicsChanged,
-    required TResult Function(List<TestPreparation> testPreparationTopics)
+    required TResult Function(List<Speciality> learnTopics) learnTopicsChanged,
+    required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
   }) {
@@ -1447,8 +1446,8 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
-    TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
-    TResult Function(List<TestPreparation> testPreparationTopics)?
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
   }) {
@@ -1463,8 +1462,8 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
     TResult Function(Level level)? levelChanged,
-    TResult Function(List<LearnTopic> learnTopics)? learnTopicsChanged,
-    TResult Function(List<TestPreparation> testPreparationTopics)?
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
     required TResult orElse(),
@@ -1542,15 +1541,15 @@ class _$ProfileStateTearOff {
       BirthDay? birthDay,
       Country? country,
       Level level = Level.none,
-      List<LearnTopic> learnTopics = const [],
-      List<TestPreparation> testPreparations = const [],
+      List<Speciality> learnTopics = const [],
+      List<Speciality> testPreparations = const [],
       bool isInitializing = true,
       bool isLoading = false,
       bool badState = false,
       bool showError = false,
       Option<Either<Failure, Unit>> updateFailureOrSuccessOption = const None(),
-      List<LearnTopic> allLearnTopics = const [],
-      List<TestPreparation> allTestPreparations = const []}) {
+      List<Speciality> allLearnTopics = const [],
+      List<Speciality> allTestPreparations = const []}) {
     return _ProfileState(
       user: user,
       name: name,
@@ -1581,17 +1580,16 @@ mixin _$ProfileState {
       throw _privateConstructorUsedError; // PhoneNumber? phoneNumber,
   Country? get country => throw _privateConstructorUsedError;
   Level get level => throw _privateConstructorUsedError;
-  List<LearnTopic> get learnTopics => throw _privateConstructorUsedError;
-  List<TestPreparation> get testPreparations =>
-      throw _privateConstructorUsedError;
+  List<Speciality> get learnTopics => throw _privateConstructorUsedError;
+  List<Speciality> get testPreparations => throw _privateConstructorUsedError;
   bool get isInitializing => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get badState => throw _privateConstructorUsedError;
   bool get showError => throw _privateConstructorUsedError;
   Option<Either<Failure, Unit>> get updateFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
-  List<LearnTopic> get allLearnTopics => throw _privateConstructorUsedError;
-  List<TestPreparation> get allTestPreparations =>
+  List<Speciality> get allLearnTopics => throw _privateConstructorUsedError;
+  List<Speciality> get allTestPreparations =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1610,15 +1608,15 @@ abstract class $ProfileStateCopyWith<$Res> {
       BirthDay? birthDay,
       Country? country,
       Level level,
-      List<LearnTopic> learnTopics,
-      List<TestPreparation> testPreparations,
+      List<Speciality> learnTopics,
+      List<Speciality> testPreparations,
       bool isInitializing,
       bool isLoading,
       bool badState,
       bool showError,
       Option<Either<Failure, Unit>> updateFailureOrSuccessOption,
-      List<LearnTopic> allLearnTopics,
-      List<TestPreparation> allTestPreparations});
+      List<Speciality> allLearnTopics,
+      List<Speciality> allTestPreparations});
 
   $UserCopyWith<$Res> get user;
   $CountryCopyWith<$Res>? get country;
@@ -1673,11 +1671,11 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
       learnTopics: learnTopics == freezed
           ? _value.learnTopics
           : learnTopics // ignore: cast_nullable_to_non_nullable
-              as List<LearnTopic>,
+              as List<Speciality>,
       testPreparations: testPreparations == freezed
           ? _value.testPreparations
           : testPreparations // ignore: cast_nullable_to_non_nullable
-              as List<TestPreparation>,
+              as List<Speciality>,
       isInitializing: isInitializing == freezed
           ? _value.isInitializing
           : isInitializing // ignore: cast_nullable_to_non_nullable
@@ -1701,11 +1699,11 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
       allLearnTopics: allLearnTopics == freezed
           ? _value.allLearnTopics
           : allLearnTopics // ignore: cast_nullable_to_non_nullable
-              as List<LearnTopic>,
+              as List<Speciality>,
       allTestPreparations: allTestPreparations == freezed
           ? _value.allTestPreparations
           : allTestPreparations // ignore: cast_nullable_to_non_nullable
-              as List<TestPreparation>,
+              as List<Speciality>,
     ));
   }
 
@@ -1741,15 +1739,15 @@ abstract class _$ProfileStateCopyWith<$Res>
       BirthDay? birthDay,
       Country? country,
       Level level,
-      List<LearnTopic> learnTopics,
-      List<TestPreparation> testPreparations,
+      List<Speciality> learnTopics,
+      List<Speciality> testPreparations,
       bool isInitializing,
       bool isLoading,
       bool badState,
       bool showError,
       Option<Either<Failure, Unit>> updateFailureOrSuccessOption,
-      List<LearnTopic> allLearnTopics,
-      List<TestPreparation> allTestPreparations});
+      List<Speciality> allLearnTopics,
+      List<Speciality> allTestPreparations});
 
   @override
   $UserCopyWith<$Res> get user;
@@ -1808,11 +1806,11 @@ class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
       learnTopics: learnTopics == freezed
           ? _value.learnTopics
           : learnTopics // ignore: cast_nullable_to_non_nullable
-              as List<LearnTopic>,
+              as List<Speciality>,
       testPreparations: testPreparations == freezed
           ? _value.testPreparations
           : testPreparations // ignore: cast_nullable_to_non_nullable
-              as List<TestPreparation>,
+              as List<Speciality>,
       isInitializing: isInitializing == freezed
           ? _value.isInitializing
           : isInitializing // ignore: cast_nullable_to_non_nullable
@@ -1836,11 +1834,11 @@ class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
       allLearnTopics: allLearnTopics == freezed
           ? _value.allLearnTopics
           : allLearnTopics // ignore: cast_nullable_to_non_nullable
-              as List<LearnTopic>,
+              as List<Speciality>,
       allTestPreparations: allTestPreparations == freezed
           ? _value.allTestPreparations
           : allTestPreparations // ignore: cast_nullable_to_non_nullable
-              as List<TestPreparation>,
+              as List<Speciality>,
     ));
   }
 }
@@ -1878,10 +1876,10 @@ class _$_ProfileState extends _ProfileState {
   final Level level;
   @JsonKey()
   @override
-  final List<LearnTopic> learnTopics;
+  final List<Speciality> learnTopics;
   @JsonKey()
   @override
-  final List<TestPreparation> testPreparations;
+  final List<Speciality> testPreparations;
   @JsonKey()
   @override
   final bool isInitializing;
@@ -1899,10 +1897,10 @@ class _$_ProfileState extends _ProfileState {
   final Option<Either<Failure, Unit>> updateFailureOrSuccessOption;
   @JsonKey()
   @override
-  final List<LearnTopic> allLearnTopics;
+  final List<Speciality> allLearnTopics;
   @JsonKey()
   @override
-  final List<TestPreparation> allTestPreparations;
+  final List<Speciality> allTestPreparations;
 
   @override
   String toString() {
@@ -1968,15 +1966,15 @@ abstract class _ProfileState extends ProfileState {
       BirthDay? birthDay,
       Country? country,
       Level level,
-      List<LearnTopic> learnTopics,
-      List<TestPreparation> testPreparations,
+      List<Speciality> learnTopics,
+      List<Speciality> testPreparations,
       bool isInitializing,
       bool isLoading,
       bool badState,
       bool showError,
       Option<Either<Failure, Unit>> updateFailureOrSuccessOption,
-      List<LearnTopic> allLearnTopics,
-      List<TestPreparation> allTestPreparations}) = _$_ProfileState;
+      List<Speciality> allLearnTopics,
+      List<Speciality> allTestPreparations}) = _$_ProfileState;
   _ProfileState._() : super._();
 
   @override
@@ -1990,9 +1988,9 @@ abstract class _ProfileState extends ProfileState {
   @override
   Level get level;
   @override
-  List<LearnTopic> get learnTopics;
+  List<Speciality> get learnTopics;
   @override
-  List<TestPreparation> get testPreparations;
+  List<Speciality> get testPreparations;
   @override
   bool get isInitializing;
   @override
@@ -2004,9 +2002,9 @@ abstract class _ProfileState extends ProfileState {
   @override
   Option<Either<Failure, Unit>> get updateFailureOrSuccessOption;
   @override
-  List<LearnTopic> get allLearnTopics;
+  List<Speciality> get allLearnTopics;
   @override
-  List<TestPreparation> get allTestPreparations;
+  List<Speciality> get allTestPreparations;
   @override
   @JsonKey(ignore: true)
   _$ProfileStateCopyWith<_ProfileState> get copyWith =>

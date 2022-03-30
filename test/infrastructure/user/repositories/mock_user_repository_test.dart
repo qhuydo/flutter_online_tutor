@@ -6,8 +6,7 @@ import 'package:flutter_online_tutor/domain/authentication/value_objects/phone_n
 import 'package:flutter_online_tutor/domain/common/constants/countries.dart';
 import 'package:flutter_online_tutor/domain/common/models/country.dart';
 import 'package:flutter_online_tutor/domain/user/constants/levels.dart';
-import 'package:flutter_online_tutor/domain/user/models/learn_topic.dart';
-import 'package:flutter_online_tutor/domain/user/models/test_preparation.dart';
+import 'package:flutter_online_tutor/domain/user/models/speciality.dart';
 import 'package:flutter_online_tutor/domain/user/value_objects/birthday.dart';
 import 'package:flutter_online_tutor/domain/user/value_objects/name.dart';
 import 'package:flutter_online_tutor/infrastructure/authentication/repositories/mock_authentication_service.dart';
@@ -75,8 +74,8 @@ void main() {
       final PhoneNumber? phoneNumber = PhoneNumber('380123456789');
       final Country country = countryMap['UA']!;
       const Level level = Level.advanced;
-      final List<LearnTopic> learnTopics = [];
-      final List<TestPreparation> testPreparations = [];
+      final List<Speciality> learnTopics = [];
+      final List<Speciality> testPreparations = [];
 
       // act
       final result = await userRepository.updateUserInfo(

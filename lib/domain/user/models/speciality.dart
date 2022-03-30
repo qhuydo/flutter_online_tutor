@@ -1,12 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'test_preparation.freezed.dart';
+part 'speciality.freezed.dart';
 
 @freezed
-class TestPreparation with _$TestPreparation {
-  const factory TestPreparation({
+class Speciality with _$Speciality {
+  const factory Speciality({
     required int id,
     required String key,
     required String name,
-  }) = _TestPreparation;
+  }) = _Speciality;
 }

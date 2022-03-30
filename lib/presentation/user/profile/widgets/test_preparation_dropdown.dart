@@ -1,13 +1,13 @@
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
-import '../../../../domain/user/models/test_preparation.dart';
+import '../../../../domain/user/models/speciality.dart';
 import '../../../common.dart';
 
 class TestPreparationDropdown extends StatelessWidget {
-  final List<TestPreparation> allTopics;
-  final void Function(List<TestPreparation?>) onItemsSelected;
-  final List<TestPreparation> selectedTestPreparations;
-  final void Function(TestPreparation?) onItemRemoved;
+  final List<Speciality> allTopics;
+  final void Function(List<Speciality?>) onItemsSelected;
+  final List<Speciality> selectedTestPreparations;
+  final void Function(Speciality?) onItemRemoved;
   final bool enabled;
 
   const TestPreparationDropdown({
@@ -22,11 +22,11 @@ class TestPreparationDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _items = allTopics
-        .map((topic) => MultiSelectItem<TestPreparation>(topic, topic.name))
+        .map((topic) => MultiSelectItem<Speciality>(topic, topic.name))
         .toList();
     return Column(
       children: <Widget>[
-        MultiSelectBottomSheetField<TestPreparation?>(
+        MultiSelectBottomSheetField<Speciality?>(
           decoration: const BoxDecoration(
             shape: BoxShape.rectangle,
             borderRadius: BorderRadius.all(Radius.circular(8)),

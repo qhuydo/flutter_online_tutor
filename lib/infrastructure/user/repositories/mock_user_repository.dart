@@ -10,14 +10,12 @@ import '../../../domain/common/failures/failure.dart';
 import '../../../domain/common/models/country.dart';
 import '../../../domain/user/constants/levels.dart';
 import '../../../domain/user/interfaces/i_user_repository.dart';
-import '../../../domain/user/models/learn_topic.dart';
-import '../../../domain/user/models/test_preparation.dart';
+import '../../../domain/user/models/speciality.dart';
 import '../../../domain/user/value_objects/birthday.dart';
 import '../../../domain/user/value_objects/name.dart';
 import '../../../presentation/common.dart';
 import '../../common/db/fixture_loader.dart';
-import '../dto/learning_topic_dto.dart';
-import '../dto/test_preparation_dto.dart';
+import '../dto/speciality_dto.dart';
 import '../dto/user_dto.dart';
 import '../utils/level_extension.dart';
 
@@ -32,11 +30,11 @@ class MockUserRepository extends UserRepository {
   );
 
   @override
-  Future<Either<Failure, List<LearnTopic>>> getLearnTopics() async {
+  Future<Either<Failure, List<Speciality>>> getLearnTopics() async {
     try {
       final res = await FixtureLoader.learnTopicResponse;
-      final list = List<LearningTopicDto>.from(
-        res.map((x) => LearningTopicDto.fromJson(x)),
+      final list = List<SpecialityDto>.from(
+        res.map((x) => SpecialityDto.fromJson(x)),
       );
 
       return right(list.map((e) => e.toDomain()).toList());
@@ -46,12 +44,12 @@ class MockUserRepository extends UserRepository {
   }
 
   @override
-  Future<Either<Failure, List<TestPreparation>>>
+  Future<Either<Failure, List<Speciality>>>
       getTestPreparationTopics() async {
     try {
       final res = await FixtureLoader.testPreparationResponse;
-      final list = List<TestPreparationDto>.from(
-        res.map((x) => TestPreparationDto.fromJson(x)),
+      final list = List<SpecialityDto>.from(
+        res.map((x) => SpecialityDto.fromJson(x)),
       );
 
       return right(list.map((e) => e.toDomain()).toList());
@@ -67,8 +65,8 @@ class MockUserRepository extends UserRepository {
     required PhoneNumber? phoneNumber,
     required Country country,
     required Level level,
-    required List<LearnTopic> learnTopics,
-    required List<TestPreparation> testPreparations,
+    required List<Speciality> learnTopics,
+    required List<Speciality> testPreparations,
   }) async {
     try {
       if (!_box.containsKey(_keyUser)) {
@@ -84,9 +82,9 @@ class MockUserRepository extends UserRepository {
       final countryValue = country.isoCode;
       final levelValue = level.toEncodeString();
       final learnTopicValue =
-          learnTopics.map((e) => LearningTopicDto.fromDomain(e)).toList();
+          learnTopics.map((e) => SpecialityDto.fromDomain(e)).toList();
       final testPreparationValue = testPreparations
-          .map((e) => TestPreparationDto.fromDomain(e))
+          .map((e) => SpecialityDto.fromDomain(e))
           .toList();
 
       final dto = user.copyWith(

@@ -1,13 +1,13 @@
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
-import '../../../../domain/user/models/learn_topic.dart';
+import '../../../../domain/user/models/speciality.dart';
 import '../../../common.dart';
 
 class LearningTopicsDropdown extends StatelessWidget {
-  final List<LearnTopic> allTopics;
-  final void Function(List<LearnTopic?>) onItemsSelected;
-  final List<LearnTopic> selectedLearnTopics;
-  final void Function(LearnTopic?) onItemRemoved;
+  final List<Speciality> allTopics;
+  final void Function(List<Speciality?>) onItemsSelected;
+  final List<Speciality> selectedLearnTopics;
+  final void Function(Speciality?) onItemRemoved;
   final bool enabled;
 
   // final List<MultiSelectItem<LearnTopic>> _items;
@@ -23,14 +23,14 @@ class LearningTopicsDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _items = allTopics
-        .map((topic) => MultiSelectItem<LearnTopic>(topic, topic.name))
+        .map((topic) => MultiSelectItem<Speciality>(topic, topic.name))
         .toList();
 
     return Column(
       children: <Widget>[
         IgnorePointer(
           ignoring: !enabled,
-          child: MultiSelectBottomSheetField<LearnTopic?>(
+          child: MultiSelectBottomSheetField<Speciality?>(
             decoration: const BoxDecoration(
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -49,9 +49,9 @@ class LearningTopicsDropdown extends StatelessWidget {
             initialValue: selectedLearnTopics,
             onConfirm: onItemsSelected,
             chipDisplay: MultiSelectChipDisplay(
-              // icon: const Icon(Icons.cancel_outlined),
-              // onTap: onItemRemoved,
-            ),
+                // icon: const Icon(Icons.cancel_outlined),
+                // onTap: onItemRemoved,
+                ),
           ),
         ),
         selectedLearnTopics.isEmpty
@@ -67,4 +67,3 @@ class LearningTopicsDropdown extends StatelessWidget {
     );
   }
 }
-

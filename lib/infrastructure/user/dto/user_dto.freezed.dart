@@ -35,8 +35,8 @@ class _$UserDtoTearOff {
       required WalletDto walletInfo,
       required List<CourseDto> courses,
       String? level,
-      List<LearningTopicDto> learnTopics = const [],
-      List<TestPreparationDto> testPreparations = const [],
+      List<SpecialityDto> learnTopics = const [],
+      List<SpecialityDto> testPreparations = const [],
       required bool isPhoneActivated,
       required int timezone}) {
     return _UserDto(
@@ -81,8 +81,8 @@ mixin _$UserDto {
   WalletDto get walletInfo => throw _privateConstructorUsedError;
   List<CourseDto> get courses => throw _privateConstructorUsedError;
   String? get level => throw _privateConstructorUsedError;
-  List<LearningTopicDto> get learnTopics => throw _privateConstructorUsedError;
-  List<TestPreparationDto> get testPreparations =>
+  List<SpecialityDto> get learnTopics => throw _privateConstructorUsedError;
+  List<SpecialityDto> get testPreparations =>
       throw _privateConstructorUsedError;
   bool get isPhoneActivated => throw _privateConstructorUsedError;
   int get timezone => throw _privateConstructorUsedError;
@@ -109,8 +109,8 @@ abstract class $UserDtoCopyWith<$Res> {
       WalletDto walletInfo,
       List<CourseDto> courses,
       String? level,
-      List<LearningTopicDto> learnTopics,
-      List<TestPreparationDto> testPreparations,
+      List<SpecialityDto> learnTopics,
+      List<SpecialityDto> testPreparations,
       bool isPhoneActivated,
       int timezone});
 
@@ -196,11 +196,11 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
       learnTopics: learnTopics == freezed
           ? _value.learnTopics
           : learnTopics // ignore: cast_nullable_to_non_nullable
-              as List<LearningTopicDto>,
+              as List<SpecialityDto>,
       testPreparations: testPreparations == freezed
           ? _value.testPreparations
           : testPreparations // ignore: cast_nullable_to_non_nullable
-              as List<TestPreparationDto>,
+              as List<SpecialityDto>,
       isPhoneActivated: isPhoneActivated == freezed
           ? _value.isPhoneActivated
           : isPhoneActivated // ignore: cast_nullable_to_non_nullable
@@ -238,8 +238,8 @@ abstract class _$UserDtoCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
       WalletDto walletInfo,
       List<CourseDto> courses,
       String? level,
-      List<LearningTopicDto> learnTopics,
-      List<TestPreparationDto> testPreparations,
+      List<SpecialityDto> learnTopics,
+      List<SpecialityDto> testPreparations,
       bool isPhoneActivated,
       int timezone});
 
@@ -327,11 +327,11 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
       learnTopics: learnTopics == freezed
           ? _value.learnTopics
           : learnTopics // ignore: cast_nullable_to_non_nullable
-              as List<LearningTopicDto>,
+              as List<SpecialityDto>,
       testPreparations: testPreparations == freezed
           ? _value.testPreparations
           : testPreparations // ignore: cast_nullable_to_non_nullable
-              as List<TestPreparationDto>,
+              as List<SpecialityDto>,
       isPhoneActivated: isPhoneActivated == freezed
           ? _value.isPhoneActivated
           : isPhoneActivated // ignore: cast_nullable_to_non_nullable
@@ -394,10 +394,10 @@ class _$_UserDto implements _UserDto {
   final String? level;
   @JsonKey()
   @override
-  final List<LearningTopicDto> learnTopics;
+  final List<SpecialityDto> learnTopics;
   @JsonKey()
   @override
-  final List<TestPreparationDto> testPreparations;
+  final List<SpecialityDto> testPreparations;
   @override
   final bool isPhoneActivated;
   @override
@@ -481,8 +481,8 @@ abstract class _UserDto implements UserDto {
       required WalletDto walletInfo,
       required List<CourseDto> courses,
       String? level,
-      List<LearningTopicDto> learnTopics,
-      List<TestPreparationDto> testPreparations,
+      List<SpecialityDto> learnTopics,
+      List<SpecialityDto> testPreparations,
       required bool isPhoneActivated,
       required int timezone}) = _$_UserDto;
 
@@ -513,9 +513,9 @@ abstract class _UserDto implements UserDto {
   @override
   String? get level;
   @override
-  List<LearningTopicDto> get learnTopics;
+  List<SpecialityDto> get learnTopics;
   @override
-  List<TestPreparationDto> get testPreparations;
+  List<SpecialityDto> get testPreparations;
   @override
   bool get isPhoneActivated;
   @override

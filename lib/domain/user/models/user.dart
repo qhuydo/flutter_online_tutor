@@ -7,8 +7,7 @@ import '../../common/value_objects/id.dart';
 import '../constants/levels.dart';
 import '../value_objects/birthday.dart';
 import '../value_objects/name.dart';
-import 'learn_topic.dart';
-import 'test_preparation.dart';
+import 'speciality.dart';
 
 part 'user.freezed.dart';
 
@@ -25,8 +24,8 @@ class User with _$User {
     BirthDay? birthday,
     Country? country,
     @Default(Level.none) Level level,
-    @Default([]) List<LearnTopic> learningTopics,
-    @Default([]) List<TestPreparation> testPreparationTopics,
+    @Default([]) List<Speciality> learningTopics,
+    @Default([]) List<Speciality> testPreparationTopics,
   }) = _User;
 
   factory User.initial() => User(

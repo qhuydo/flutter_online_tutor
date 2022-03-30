@@ -27,8 +27,8 @@ class _$UserTearOff {
       BirthDay? birthday,
       Country? country,
       Level level = Level.none,
-      List<LearnTopic> learningTopics = const [],
-      List<TestPreparation> testPreparationTopics = const []}) {
+      List<Speciality> learningTopics = const [],
+      List<Speciality> testPreparationTopics = const []}) {
     return _User(
       id: id,
       emailAddress: emailAddress,
@@ -57,8 +57,8 @@ mixin _$User {
   BirthDay? get birthday => throw _privateConstructorUsedError;
   Country? get country => throw _privateConstructorUsedError;
   Level get level => throw _privateConstructorUsedError;
-  List<LearnTopic> get learningTopics => throw _privateConstructorUsedError;
-  List<TestPreparation> get testPreparationTopics =>
+  List<Speciality> get learningTopics => throw _privateConstructorUsedError;
+  List<Speciality> get testPreparationTopics =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -78,8 +78,8 @@ abstract class $UserCopyWith<$Res> {
       BirthDay? birthday,
       Country? country,
       Level level,
-      List<LearnTopic> learningTopics,
-      List<TestPreparation> testPreparationTopics});
+      List<Speciality> learningTopics,
+      List<Speciality> testPreparationTopics});
 
   $CountryCopyWith<$Res>? get country;
 }
@@ -141,11 +141,11 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
       learningTopics: learningTopics == freezed
           ? _value.learningTopics
           : learningTopics // ignore: cast_nullable_to_non_nullable
-              as List<LearnTopic>,
+              as List<Speciality>,
       testPreparationTopics: testPreparationTopics == freezed
           ? _value.testPreparationTopics
           : testPreparationTopics // ignore: cast_nullable_to_non_nullable
-              as List<TestPreparation>,
+              as List<Speciality>,
     ));
   }
 
@@ -175,8 +175,8 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       BirthDay? birthday,
       Country? country,
       Level level,
-      List<LearnTopic> learningTopics,
-      List<TestPreparation> testPreparationTopics});
+      List<Speciality> learningTopics,
+      List<Speciality> testPreparationTopics});
 
   @override
   $CountryCopyWith<$Res>? get country;
@@ -240,11 +240,11 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
       learningTopics: learningTopics == freezed
           ? _value.learningTopics
           : learningTopics // ignore: cast_nullable_to_non_nullable
-              as List<LearnTopic>,
+              as List<Speciality>,
       testPreparationTopics: testPreparationTopics == freezed
           ? _value.testPreparationTopics
           : testPreparationTopics // ignore: cast_nullable_to_non_nullable
-              as List<TestPreparation>,
+              as List<Speciality>,
     ));
   }
 }
@@ -284,10 +284,10 @@ class _$_User extends _User {
   final Level level;
   @JsonKey()
   @override
-  final List<LearnTopic> learningTopics;
+  final List<Speciality> learningTopics;
   @JsonKey()
   @override
-  final List<TestPreparation> testPreparationTopics;
+  final List<Speciality> testPreparationTopics;
 
   @override
   String toString() {
@@ -345,8 +345,8 @@ abstract class _User extends User {
       BirthDay? birthday,
       Country? country,
       Level level,
-      List<LearnTopic> learningTopics,
-      List<TestPreparation> testPreparationTopics}) = _$_User;
+      List<Speciality> learningTopics,
+      List<Speciality> testPreparationTopics}) = _$_User;
   const _User._() : super._();
 
   @override
@@ -366,9 +366,9 @@ abstract class _User extends User {
   @override
   Level get level;
   @override
-  List<LearnTopic> get learningTopics;
+  List<Speciality> get learningTopics;
   @override
-  List<TestPreparation> get testPreparationTopics;
+  List<Speciality> get testPreparationTopics;
   @override
   @JsonKey(ignore: true)
   _$UserCopyWith<_User> get copyWith => throw _privateConstructorUsedError;

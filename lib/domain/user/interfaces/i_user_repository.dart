@@ -4,15 +4,14 @@ import '../../authentication/value_objects/phone_number.dart';
 import '../../common/failures/failure.dart';
 import '../../common/models/country.dart';
 import '../constants/levels.dart';
-import '../models/learn_topic.dart';
-import '../models/test_preparation.dart';
+import '../models/speciality.dart';
 import '../value_objects/birthday.dart';
 import '../value_objects/name.dart';
 
 abstract class UserRepository {
-  Future<Either<Failure, List<LearnTopic>>> getLearnTopics();
+  Future<Either<Failure, List<Speciality>>> getLearnTopics();
 
-  Future<Either<Failure, List<TestPreparation>>> getTestPreparationTopics();
+  Future<Either<Failure, List<Speciality>>> getTestPreparationTopics();
 
   Future<Either<Failure, Unit>> updateUserInfo({
     required Name name,
@@ -20,7 +19,7 @@ abstract class UserRepository {
     required PhoneNumber? phoneNumber,
     required Country country,
     required Level level,
-    required List<LearnTopic> learnTopics,
-    required List<TestPreparation> testPreparations,
+    required List<Speciality> learnTopics,
+    required List<Speciality> testPreparations,
   });
 }

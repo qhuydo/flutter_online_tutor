@@ -10,8 +10,7 @@ import '../../../domain/common/failures/failure.dart';
 import '../../../domain/common/models/country.dart';
 import '../../../domain/user/constants/levels.dart';
 import '../../../domain/user/interfaces/i_user_repository.dart';
-import '../../../domain/user/models/learn_topic.dart';
-import '../../../domain/user/models/test_preparation.dart';
+import '../../../domain/user/models/speciality.dart';
 import '../../../domain/user/models/user.dart';
 import '../../../domain/user/value_objects/birthday.dart';
 import '../../../domain/user/value_objects/name.dart';
@@ -120,14 +119,14 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   }
 
   Future _onLearnTopicsChanged(
-    List<LearnTopic> value,
+    List<Speciality> value,
     Emitter<ProfileState> emit,
   ) async {
     emit(state.copyWith(learnTopics: value));
   }
 
   Future _onTestPreparationTopicsChanged(
-    List<TestPreparation> value,
+    List<Speciality> value,
     Emitter<ProfileState> emit,
   ) async {
     emit(state.copyWith(testPreparations: value));
