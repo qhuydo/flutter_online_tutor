@@ -124,7 +124,7 @@ class MockTutorRepository implements TutorRepository {
       isFavourite: !tutor.isFavourite,
     );
     await _dataSource.saveTutor(newValue);
-    _eventStreamController.add(TutorRepositoryEvent.tutorDataChanged(tutor));
+    _eventStreamController.add(TutorRepositoryEvent.tutorDataChanged(newValue));
 
     return right(unit);
   }

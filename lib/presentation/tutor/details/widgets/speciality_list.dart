@@ -7,11 +7,13 @@ class SpecialityList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final topics = context.read<Tutor>().specialities;
+
     return Wrap(
       spacing: 8,
-      children: const [
-        TopicChip(),
-        TopicChip(),
+      children: [
+        for (final topic in ['English'])
+          TopicChip(label: topic),
       ],
     );
   }

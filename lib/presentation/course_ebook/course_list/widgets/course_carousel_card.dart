@@ -42,7 +42,7 @@ class CourseCarouselCard extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(8, 0, 8, 16),
               child: Row(
                 children: const [
-                  TopicChip(),
+                  TopicChip(label: 'English'),
                 ],
               ),
             ),

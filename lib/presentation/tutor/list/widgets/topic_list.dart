@@ -1,27 +1,30 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../../domain/tutor/models/tutor.dart';
 import '../../../common.dart';
 import 'topic_chip.dart';
 
 class TopicList extends StatelessWidget {
-  const TopicList({Key? key}) : super(key: key);
+  const TopicList({Key? key,}) : super(key: key);
 
   Widget buildListAtLinuxPlatform(BuildContext context) {
+    final topics = context.read<Tutor>().specialities;
     return Wrap(
       spacing: 8,
       runSpacing: 4,
-      children: const [
-        TopicChip(),
-        TopicChip(),
-        TopicChip(),
-        TopicChip(),
+      children: [
+        for (final topic in topics)
+          TopicChip(label: topic.name),
       ],
     );
   }
 
   Widget buildList(BuildContext context) {
+    final topics = context.read<Tutor>().specialities;
+
     return Container(
       height: 36,
       padding: const EdgeInsets.symmetric(horizontal: 2),
@@ -54,9 +57,9 @@ class TopicList extends StatelessWidget {
             return const SizedBox(width: 8);
           },
           itemBuilder: (BuildContext context, int index) {
-            return const TopicChip();
+            return TopicChip(label: topics[index].name);
           },
-          itemCount: 4,
+          itemCount: topics.length,
         ),
       ),
     );

@@ -1,6 +1,8 @@
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:provider/provider.dart';
 import 'package:twemoji/twemoji.dart';
 
+import '../../../../domain/tutor/models/tutor.dart';
 import '../../../common.dart';
 import '../../../common/utils/string_utils.dart';
 import 'widgets.dart';
@@ -10,17 +12,18 @@ class TutorCardHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tutor = context.read<Tutor>();
     return Row(
       // crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const TutorAvatar(),
+        TutorAvatar(tutor: tutor),
         const SizedBox(width: 8),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Nguyen Van A',
+                tutor.name,
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -34,7 +37,7 @@ class TutorCardHeader extends StatelessWidget {
                 crossAxisAlignment: WrapCrossAlignment.center,
                 children: [
                   RatingBarIndicator(
-                    rating: 5,
+                    rating: tutor.averageRating,
                     itemBuilder: (context, index) => const Icon(
                       Icons.star,
                       color: Colors.amber,
@@ -44,7 +47,7 @@ class TutorCardHeader extends StatelessWidget {
                     direction: Axis.horizontal,
                   ),
                   Text(
-                    'Vietnam',
+                    tutor.country.name,
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
@@ -57,7 +60,11 @@ class TutorCardHeader extends StatelessWidget {
           ),
         ),
         Twemoji(
-          emoji: 'VN'.toCountryFlagFromCountryCode(),
+          emoji: context
+              .read<Tutor>()
+              .country
+              .isoCode
+              .toCountryFlagFromCountryCode(),
           width: 44,
           height: 44,
         ),

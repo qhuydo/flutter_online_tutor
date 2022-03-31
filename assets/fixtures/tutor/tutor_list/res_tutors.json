@@ -181,7 +181,7 @@
         "resume": null,
         "isNative": null,
         "price": 50000,
-        "isOnline": false
+        "isOnline": true
       }
     ]
   },

@@ -4,7 +4,6 @@ import '../../common/utils/constants.dart';
 import '../../common.dart';
 import '../../common/widgets/scaffold_with_search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';
-import '../list/widgets/tutor_card.dart';
 import 'widgets/specialities_filter_row.dart';
 import 'widgets/tutor_filter_dialog.dart';
 
@@ -51,15 +50,15 @@ class TutorPage extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(child: SpecialitiesFilterRow(), height: 40,),
-                ListView.builder(
-                  primary: false,
-                  shrinkWrap: true,
-                  itemCount: 5,
-                  // separatorBuilder: (context, index) => const Divider(),
-                  itemBuilder: (context, index) {
-                    return const TutorCard();
-                  },
-                ),
+                // ListView.builder(
+                //   primary: false,
+                //   shrinkWrap: true,
+                //   itemCount: 5,
+                //   // separatorBuilder: (context, index) => const Divider(),
+                //   itemBuilder: (context, index) {
+                //     return TutorCard();
+                //   },
+                // ),
               ],
             ),
           ),

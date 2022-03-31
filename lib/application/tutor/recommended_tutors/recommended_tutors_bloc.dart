@@ -67,9 +67,11 @@ class RecommendedTutorsBloc
     String tutorId,
     Emitter<RecommendedTutorsState> emit,
   ) async {
-    final newSet = state.loadingTutors..add(tutorId)..toSet();
-    state.copyWith(loadingTutors: newSet);
-    await Future.delayed(const Duration(seconds: 2));
+    state.copyWith(
+      loadingTutors: state.loadingTutors
+        ..add(tutorId)
+        ..toSet(),
+    );
     await _repository.toggleFavourite(tutorId);
   }
 }
