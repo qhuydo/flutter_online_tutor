@@ -23,6 +23,7 @@ class Tutor with _$Tutor {
     @Default([]) List<Feedback> feedbacks,
     required String interests,
     required bool isFavourite,
+    required bool? isOnline,
     @Default([]) List<Language> languages,
     required String name,
     required double price,

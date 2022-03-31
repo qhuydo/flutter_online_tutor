@@ -9,7 +9,7 @@ import '../../tutor/dto/tutor_details/tutor_details_dto.dart';
 import '../../tutor/dto/tutor_list/tutor_list_item_dto.dart';
 import 'i_tutor_data_source.dart';
 
-@LazySingleton(as: TutorDataSource)
+@Singleton(as: TutorDataSource)
 class LocalTutorDataSource implements TutorDataSource {
   static const _boxTutor = 'tutors';
 

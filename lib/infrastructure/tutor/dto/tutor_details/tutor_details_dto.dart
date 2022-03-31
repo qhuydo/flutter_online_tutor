@@ -66,6 +66,7 @@ class TutorDetailsDto with _$TutorDetailsDto {
             user.feedbacks.map((e) => e.toDomain()).toList(growable: false),
         interests: interests,
         isFavourite: isFavorite,
+        isOnline: null,
         languages: LanguageConverter.parseFromLanguageKeyString(languages),
         name: user.name,
         price: price.toDouble(),

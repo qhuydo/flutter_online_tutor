@@ -19,6 +19,7 @@ _$_Tutor _$$_TutorFromJson(Map<String, dynamic> json) => _$_Tutor(
           const [],
       interests: json['interests'] as String,
       isFavourite: json['isFavourite'] as bool,
+      isOnline: json['isOnline'] as bool?,
       languages: (json['languages'] as List<dynamic>?)
               ?.map((e) => Language.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -44,6 +45,7 @@ Map<String, dynamic> _$$_TutorToJson(_$_Tutor instance) => <String, dynamic>{
       'feedbacks': instance.feedbacks,
       'interests': instance.interests,
       'isFavourite': instance.isFavourite,
+      'isOnline': instance.isOnline,
       'languages': instance.languages,
       'name': instance.name,
       'price': instance.price,

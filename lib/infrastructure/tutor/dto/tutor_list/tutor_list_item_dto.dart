@@ -93,6 +93,7 @@ class TutorListItemDto with _$TutorListItemDto {
         feedbacks: feedbacks.map((e) => e.toDomain()).toList(growable: false),
         interests: interests,
         isFavourite: isFavourite,
+        isOnline: isOnline,
         languages: LanguageConverter.parseFromLanguageKeyString(languages),
         name: name,
         price: price.toDouble(),

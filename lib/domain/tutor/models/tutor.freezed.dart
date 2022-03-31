@@ -32,6 +32,7 @@ class _$TutorTearOff {
       List<Feedback> feedbacks = const [],
       required String interests,
       required bool isFavourite,
+      required bool? isOnline,
       List<Language> languages = const [],
       required String name,
       required double price,
@@ -49,6 +50,7 @@ class _$TutorTearOff {
       feedbacks: feedbacks,
       interests: interests,
       isFavourite: isFavourite,
+      isOnline: isOnline,
       languages: languages,
       name: name,
       price: price,
@@ -79,6 +81,7 @@ mixin _$Tutor {
   List<Feedback> get feedbacks => throw _privateConstructorUsedError;
   String get interests => throw _privateConstructorUsedError;
   bool get isFavourite => throw _privateConstructorUsedError;
+  bool? get isOnline => throw _privateConstructorUsedError;
   List<Language> get languages => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
@@ -106,6 +109,7 @@ abstract class $TutorCopyWith<$Res> {
       List<Feedback> feedbacks,
       String interests,
       bool isFavourite,
+      bool? isOnline,
       List<Language> languages,
       String name,
       double price,
@@ -136,6 +140,7 @@ class _$TutorCopyWithImpl<$Res> implements $TutorCopyWith<$Res> {
     Object? feedbacks = freezed,
     Object? interests = freezed,
     Object? isFavourite = freezed,
+    Object? isOnline = freezed,
     Object? languages = freezed,
     Object? name = freezed,
     Object? price = freezed,
@@ -181,6 +186,10 @@ class _$TutorCopyWithImpl<$Res> implements $TutorCopyWith<$Res> {
           ? _value.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
               as bool,
+      isOnline: isOnline == freezed
+          ? _value.isOnline
+          : isOnline // ignore: cast_nullable_to_non_nullable
+              as bool?,
       languages: languages == freezed
           ? _value.languages
           : languages // ignore: cast_nullable_to_non_nullable
@@ -235,6 +244,7 @@ abstract class _$TutorCopyWith<$Res> implements $TutorCopyWith<$Res> {
       List<Feedback> feedbacks,
       String interests,
       bool isFavourite,
+      bool? isOnline,
       List<Language> languages,
       String name,
       double price,
@@ -267,6 +277,7 @@ class __$TutorCopyWithImpl<$Res> extends _$TutorCopyWithImpl<$Res>
     Object? feedbacks = freezed,
     Object? interests = freezed,
     Object? isFavourite = freezed,
+    Object? isOnline = freezed,
     Object? languages = freezed,
     Object? name = freezed,
     Object? price = freezed,
@@ -312,6 +323,10 @@ class __$TutorCopyWithImpl<$Res> extends _$TutorCopyWithImpl<$Res>
           ? _value.isFavourite
           : isFavourite // ignore: cast_nullable_to_non_nullable
               as bool,
+      isOnline: isOnline == freezed
+          ? _value.isOnline
+          : isOnline // ignore: cast_nullable_to_non_nullable
+              as bool?,
       languages: languages == freezed
           ? _value.languages
           : languages // ignore: cast_nullable_to_non_nullable
@@ -357,6 +372,7 @@ class _$_Tutor implements _Tutor {
       this.feedbacks = const [],
       required this.interests,
       required this.isFavourite,
+      required this.isOnline,
       this.languages = const [],
       required this.name,
       required this.price,
@@ -387,6 +403,8 @@ class _$_Tutor implements _Tutor {
   final String interests;
   @override
   final bool isFavourite;
+  @override
+  final bool? isOnline;
   @JsonKey()
   @override
   final List<Language> languages;
@@ -406,7 +424,7 @@ class _$_Tutor implements _Tutor {
 
   @override
   String toString() {
-    return 'Tutor(id: $id, avatar: $avatar, bio: $bio, country: $country, education: $education, averageRating: $averageRating, feedbacks: $feedbacks, interests: $interests, isFavourite: $isFavourite, languages: $languages, name: $name, price: $price, profession: $profession, specialities: $specialities, targetStudent: $targetStudent, video: $video)';
+    return 'Tutor(id: $id, avatar: $avatar, bio: $bio, country: $country, education: $education, averageRating: $averageRating, feedbacks: $feedbacks, interests: $interests, isFavourite: $isFavourite, isOnline: $isOnline, languages: $languages, name: $name, price: $price, profession: $profession, specialities: $specialities, targetStudent: $targetStudent, video: $video)';
   }
 
   @override
@@ -425,6 +443,7 @@ class _$_Tutor implements _Tutor {
             const DeepCollectionEquality().equals(other.interests, interests) &&
             const DeepCollectionEquality()
                 .equals(other.isFavourite, isFavourite) &&
+            const DeepCollectionEquality().equals(other.isOnline, isOnline) &&
             const DeepCollectionEquality().equals(other.languages, languages) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.price, price) &&
@@ -449,6 +468,7 @@ class _$_Tutor implements _Tutor {
       const DeepCollectionEquality().hash(feedbacks),
       const DeepCollectionEquality().hash(interests),
       const DeepCollectionEquality().hash(isFavourite),
+      const DeepCollectionEquality().hash(isOnline),
       const DeepCollectionEquality().hash(languages),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(price),
@@ -479,6 +499,7 @@ abstract class _Tutor implements Tutor {
       List<Feedback> feedbacks,
       required String interests,
       required bool isFavourite,
+      required bool? isOnline,
       List<Language> languages,
       required String name,
       required double price,
@@ -507,6 +528,8 @@ abstract class _Tutor implements Tutor {
   String get interests;
   @override
   bool get isFavourite;
+  @override
+  bool? get isOnline;
   @override
   List<Language> get languages;
   @override

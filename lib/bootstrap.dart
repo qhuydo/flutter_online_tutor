@@ -14,7 +14,7 @@ void bootstrap() {
   runZonedGuarded(
     () => BlocOverrides.runZoned(
       () async => runApp(
-        OnlySenpaiApp(),
+        const OnlySenpaiApp(),
       ),
       blocObserver: AppBlocObserver(),
     ),
@@ -29,15 +29,15 @@ class AppBlocObserver extends BlocObserver {
     log('onEvent  - $event');
   }
 
-  @override
-  void onChange(BlocBase bloc, Change change) {
-    super.onChange(bloc, change);
-    log(
-      'onChange - $bloc\n'
-      '${change.currentState.toString()}\n'
-      '${change.nextState.toString()}',
-    );
-  }
+  // @override
+  // void onChange(BlocBase bloc, Change change) {
+  //   super.onChange(bloc, change);
+  //   log(
+  //     'onChange - $bloc\n'
+  //     '${change.currentState.toString()}\n'
+  //     '${change.nextState.toString()}',
+  //   );
+  // }
 
   @override
   void onCreate(BlocBase bloc) {
