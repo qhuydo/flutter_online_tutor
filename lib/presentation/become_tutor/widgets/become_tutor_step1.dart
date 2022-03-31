@@ -119,7 +119,8 @@ class BecomeTutorStep1 extends StatelessWidget {
           // defaultSpacingSizedBox,
           const TargetStudentRadioButtonGroup(),
           // defaultSpacingSizedBox,
-          const SpecialitiesDropdown(),
+          // TODO update SpecialitiesDropdown
+          // const SpecialitiesDropdown(),
         ],
       ),
     );

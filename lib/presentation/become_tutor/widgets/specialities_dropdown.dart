@@ -1,82 +1,56 @@
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
+import '../../../../domain/user/models/speciality.dart';
 import '../../common.dart';
 
-// TODO add all specialities & add translations
-enum Speciality {
-  englishForKids,
-  englishForBusiness,
-  conversational,
-}
+class SpecialitiesDropdown extends StatelessWidget {
+  final List<Speciality> allSpecialities;
+  final void Function(List<Speciality?>) onItemsSelected;
+  final List<Speciality> selectedSpecialities;
+  final void Function(Speciality?) onItemRemoved;
+  final bool enabled;
 
-extension SpecialityX on Speciality {
-  String toTitle(BuildContext context) {
-    switch (this) {
-      case Speciality.englishForKids:
-        return 'English for kids';
-      case Speciality.englishForBusiness:
-        return 'English for business';
-      case Speciality.conversational:
-        return 'Conversational';
-    }
-  }
-}
-
-class SpecialitiesDropdown extends StatefulWidget {
-  const SpecialitiesDropdown({Key? key}) : super(key: key);
-
-  @override
-  _SpecialitiesDropdownState createState() => _SpecialitiesDropdownState();
-}
-
-class _SpecialitiesDropdownState extends State<SpecialitiesDropdown> {
-
-  List<Speciality>? _selectedSpecialities;
+  const SpecialitiesDropdown({
+    Key? key,
+    required this.allSpecialities,
+    required this.selectedSpecialities,
+    required this.onItemsSelected,
+    required this.onItemRemoved,
+    this.enabled = true,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final _items = Speciality.values
-        .map((speciality) => MultiSelectItem<Speciality>(
-              speciality,
-              speciality.toTitle(context),
-            ))
+    final _items = allSpecialities
+        .map((topic) => MultiSelectItem<Speciality>(topic, topic.name))
         .toList();
 
     return Column(
-      children: [
-        MultiSelectBottomSheetField<Speciality?>(
-          decoration: const BoxDecoration(
-            shape: BoxShape.rectangle,
-            borderRadius: BorderRadius.all(Radius.circular(4)),
-          ),
-          initialChildSize: 0.5,
-          listType: MultiSelectListType.CHIP,
-          searchable: true,
-          buttonText: Text(
-            context.l10n.specialitiesDropdown,
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-          title: Text(
-            context.l10n.specialitiesDropdown,
-          ),
-          items: _items,
-          onConfirm: (values) {
-            setState(() {
-              _selectedSpecialities = values.cast<Speciality>();
-            });
-          },
-          chipDisplay: MultiSelectChipDisplay(
-            icon: const Icon(Icons.cancel),
-            onTap: (value) {
-              setState(() {
-                _selectedSpecialities?.remove(value);
-              });
-            },
+      children: <Widget>[
+        IgnorePointer(
+          ignoring: !enabled,
+          child: MultiSelectBottomSheetField<Speciality?>(
+            decoration: const BoxDecoration(
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+            ),
+            initialChildSize: 0.4,
+            listType: MultiSelectListType.CHIP,
+            searchable: true,
+            buttonText: Text(
+              context.l10n.specialitiesDropdown,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            title: Text(
+              context.l10n.specialitiesDropdown,
+            ),
+            items: _items,
+            initialValue: selectedSpecialities,
+            onConfirm: onItemsSelected,
+            chipDisplay: MultiSelectChipDisplay(),
           ),
         ),
-        _selectedSpecialities == null ||
-                (_selectedSpecialities != null &&
-                    _selectedSpecialities!.isEmpty)
+        selectedSpecialities.isEmpty
             ? Container(
                 padding: const EdgeInsets.all(12),
                 alignment: Alignment.centerLeft,

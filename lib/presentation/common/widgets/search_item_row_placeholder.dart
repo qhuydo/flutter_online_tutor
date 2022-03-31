@@ -17,7 +17,7 @@ class SearchItemRowPlaceholder extends StatelessWidget {
           itemBuilder: (context, item) {
             return const SearchItemRowPlaceholder();
           },
-          itemCount: 5,
+          itemCount: 0,
         ),
       ),
     );
