@@ -36,6 +36,10 @@ class _$FailureTearOff {
   _InternalError internalError() {
     return const _InternalError();
   }
+
+  _NotFound notFound() {
+    return const _NotFound();
+  }
 }
 
 /// @nodoc
@@ -49,6 +53,7 @@ mixin _$Failure {
     required TResult Function() serverError,
     required TResult Function(int? errorCode, String? message) apiError,
     required TResult Function() internalError,
+    required TResult Function() notFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$Failure {
     TResult Function()? serverError,
     TResult Function(int? errorCode, String? message)? apiError,
     TResult Function()? internalError,
+    TResult Function()? notFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +71,7 @@ mixin _$Failure {
     TResult Function()? serverError,
     TResult Function(int? errorCode, String? message)? apiError,
     TResult Function()? internalError,
+    TResult Function()? notFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -74,6 +81,7 @@ mixin _$Failure {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_ApiError value) apiError,
     required TResult Function(_InternalError value) internalError,
+    required TResult Function(_NotFound value) notFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +90,7 @@ mixin _$Failure {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_ApiError value)? apiError,
     TResult Function(_InternalError value)? internalError,
+    TResult Function(_NotFound value)? notFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -90,6 +99,7 @@ mixin _$Failure {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_ApiError value)? apiError,
     TResult Function(_InternalError value)? internalError,
+    TResult Function(_NotFound value)? notFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -154,6 +164,7 @@ class _$_NoConnection implements _NoConnection {
     required TResult Function() serverError,
     required TResult Function(int? errorCode, String? message) apiError,
     required TResult Function() internalError,
+    required TResult Function() notFound,
   }) {
     return noConnection();
   }
@@ -165,6 +176,7 @@ class _$_NoConnection implements _NoConnection {
     TResult Function()? serverError,
     TResult Function(int? errorCode, String? message)? apiError,
     TResult Function()? internalError,
+    TResult Function()? notFound,
   }) {
     return noConnection?.call();
   }
@@ -176,6 +188,7 @@ class _$_NoConnection implements _NoConnection {
     TResult Function()? serverError,
     TResult Function(int? errorCode, String? message)? apiError,
     TResult Function()? internalError,
+    TResult Function()? notFound,
     required TResult orElse(),
   }) {
     if (noConnection != null) {
@@ -191,6 +204,7 @@ class _$_NoConnection implements _NoConnection {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_ApiError value) apiError,
     required TResult Function(_InternalError value) internalError,
+    required TResult Function(_NotFound value) notFound,
   }) {
     return noConnection(this);
   }
@@ -202,6 +216,7 @@ class _$_NoConnection implements _NoConnection {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_ApiError value)? apiError,
     TResult Function(_InternalError value)? internalError,
+    TResult Function(_NotFound value)? notFound,
   }) {
     return noConnection?.call(this);
   }
@@ -213,6 +228,7 @@ class _$_NoConnection implements _NoConnection {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_ApiError value)? apiError,
     TResult Function(_InternalError value)? internalError,
+    TResult Function(_NotFound value)? notFound,
     required TResult orElse(),
   }) {
     if (noConnection != null) {
@@ -270,6 +286,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function() serverError,
     required TResult Function(int? errorCode, String? message) apiError,
     required TResult Function() internalError,
+    required TResult Function() notFound,
   }) {
     return serverError();
   }
@@ -281,6 +298,7 @@ class _$_ServerError implements _ServerError {
     TResult Function()? serverError,
     TResult Function(int? errorCode, String? message)? apiError,
     TResult Function()? internalError,
+    TResult Function()? notFound,
   }) {
     return serverError?.call();
   }
@@ -292,6 +310,7 @@ class _$_ServerError implements _ServerError {
     TResult Function()? serverError,
     TResult Function(int? errorCode, String? message)? apiError,
     TResult Function()? internalError,
+    TResult Function()? notFound,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -307,6 +326,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_ApiError value) apiError,
     required TResult Function(_InternalError value) internalError,
+    required TResult Function(_NotFound value) notFound,
   }) {
     return serverError(this);
   }
@@ -318,6 +338,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_ApiError value)? apiError,
     TResult Function(_InternalError value)? internalError,
+    TResult Function(_NotFound value)? notFound,
   }) {
     return serverError?.call(this);
   }
@@ -329,6 +350,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_ApiError value)? apiError,
     TResult Function(_InternalError value)? internalError,
+    TResult Function(_NotFound value)? notFound,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -418,6 +440,7 @@ class _$_ApiError implements _ApiError {
     required TResult Function() serverError,
     required TResult Function(int? errorCode, String? message) apiError,
     required TResult Function() internalError,
+    required TResult Function() notFound,
   }) {
     return apiError(errorCode, message);
   }
@@ -429,6 +452,7 @@ class _$_ApiError implements _ApiError {
     TResult Function()? serverError,
     TResult Function(int? errorCode, String? message)? apiError,
     TResult Function()? internalError,
+    TResult Function()? notFound,
   }) {
     return apiError?.call(errorCode, message);
   }
@@ -440,6 +464,7 @@ class _$_ApiError implements _ApiError {
     TResult Function()? serverError,
     TResult Function(int? errorCode, String? message)? apiError,
     TResult Function()? internalError,
+    TResult Function()? notFound,
     required TResult orElse(),
   }) {
     if (apiError != null) {
@@ -455,6 +480,7 @@ class _$_ApiError implements _ApiError {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_ApiError value) apiError,
     required TResult Function(_InternalError value) internalError,
+    required TResult Function(_NotFound value) notFound,
   }) {
     return apiError(this);
   }
@@ -466,6 +492,7 @@ class _$_ApiError implements _ApiError {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_ApiError value)? apiError,
     TResult Function(_InternalError value)? internalError,
+    TResult Function(_NotFound value)? notFound,
   }) {
     return apiError?.call(this);
   }
@@ -477,6 +504,7 @@ class _$_ApiError implements _ApiError {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_ApiError value)? apiError,
     TResult Function(_InternalError value)? internalError,
+    TResult Function(_NotFound value)? notFound,
     required TResult orElse(),
   }) {
     if (apiError != null) {
@@ -540,6 +568,7 @@ class _$_InternalError implements _InternalError {
     required TResult Function() serverError,
     required TResult Function(int? errorCode, String? message) apiError,
     required TResult Function() internalError,
+    required TResult Function() notFound,
   }) {
     return internalError();
   }
@@ -551,6 +580,7 @@ class _$_InternalError implements _InternalError {
     TResult Function()? serverError,
     TResult Function(int? errorCode, String? message)? apiError,
     TResult Function()? internalError,
+    TResult Function()? notFound,
   }) {
     return internalError?.call();
   }
@@ -562,6 +592,7 @@ class _$_InternalError implements _InternalError {
     TResult Function()? serverError,
     TResult Function(int? errorCode, String? message)? apiError,
     TResult Function()? internalError,
+    TResult Function()? notFound,
     required TResult orElse(),
   }) {
     if (internalError != null) {
@@ -577,6 +608,7 @@ class _$_InternalError implements _InternalError {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_ApiError value) apiError,
     required TResult Function(_InternalError value) internalError,
+    required TResult Function(_NotFound value) notFound,
   }) {
     return internalError(this);
   }
@@ -588,6 +620,7 @@ class _$_InternalError implements _InternalError {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_ApiError value)? apiError,
     TResult Function(_InternalError value)? internalError,
+    TResult Function(_NotFound value)? notFound,
   }) {
     return internalError?.call(this);
   }
@@ -599,6 +632,7 @@ class _$_InternalError implements _InternalError {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_ApiError value)? apiError,
     TResult Function(_InternalError value)? internalError,
+    TResult Function(_NotFound value)? notFound,
     required TResult orElse(),
   }) {
     if (internalError != null) {
@@ -610,4 +644,124 @@ class _$_InternalError implements _InternalError {
 
 abstract class _InternalError implements Failure {
   const factory _InternalError() = _$_InternalError;
+}
+
+/// @nodoc
+abstract class _$NotFoundCopyWith<$Res> {
+  factory _$NotFoundCopyWith(_NotFound value, $Res Function(_NotFound) then) =
+      __$NotFoundCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$NotFoundCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
+    implements _$NotFoundCopyWith<$Res> {
+  __$NotFoundCopyWithImpl(_NotFound _value, $Res Function(_NotFound) _then)
+      : super(_value, (v) => _then(v as _NotFound));
+
+  @override
+  _NotFound get _value => super._value as _NotFound;
+}
+
+/// @nodoc
+
+class _$_NotFound implements _NotFound {
+  const _$_NotFound();
+
+  @override
+  String toString() {
+    return 'Failure.notFound()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _NotFound);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noConnection,
+    required TResult Function() serverError,
+    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function() internalError,
+    required TResult Function() notFound,
+  }) {
+    return notFound();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noConnection,
+    TResult Function()? serverError,
+    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function()? internalError,
+    TResult Function()? notFound,
+  }) {
+    return notFound?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noConnection,
+    TResult Function()? serverError,
+    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function()? internalError,
+    TResult Function()? notFound,
+    required TResult orElse(),
+  }) {
+    if (notFound != null) {
+      return notFound();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NoConnection value) noConnection,
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_ApiError value) apiError,
+    required TResult Function(_InternalError value) internalError,
+    required TResult Function(_NotFound value) notFound,
+  }) {
+    return notFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_NoConnection value)? noConnection,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_ApiError value)? apiError,
+    TResult Function(_InternalError value)? internalError,
+    TResult Function(_NotFound value)? notFound,
+  }) {
+    return notFound?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NoConnection value)? noConnection,
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_ApiError value)? apiError,
+    TResult Function(_InternalError value)? internalError,
+    TResult Function(_NotFound value)? notFound,
+    required TResult orElse(),
+  }) {
+    if (notFound != null) {
+      return notFound(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NotFound implements Failure {
+  const factory _NotFound() = _$_NotFound;
 }

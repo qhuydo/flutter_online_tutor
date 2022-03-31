@@ -527,8 +527,8 @@ class _$UserTearOff {
       required String name,
       required String country,
       required String phone,
-      required String language,
-      required String birthday,
+      required String? languages,
+      required String? birthday,
       required List<FeedbackDto> feedbacks,
       required List<CourseDto> courses}) {
     return _User(
@@ -539,7 +539,7 @@ class _$UserTearOff {
       name: name,
       country: country,
       phone: phone,
-      language: language,
+      languages: languages,
       birthday: birthday,
       feedbacks: feedbacks,
       courses: courses,
@@ -565,8 +565,8 @@ mixin _$User {
   String get name => throw _privateConstructorUsedError;
   String get country => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
-  String get language => throw _privateConstructorUsedError;
-  String get birthday =>
+  String? get languages => throw _privateConstructorUsedError;
+  String? get birthday =>
       throw _privateConstructorUsedError; // bool requestPassword,
 // bool isActivated,
 // bool isPhoneActivated,
@@ -597,8 +597,8 @@ abstract class $UserCopyWith<$Res> {
       String name,
       String country,
       String phone,
-      String language,
-      String birthday,
+      String? languages,
+      String? birthday,
       List<FeedbackDto> feedbacks,
       List<CourseDto> courses});
 }
@@ -620,7 +620,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
     Object? name = freezed,
     Object? country = freezed,
     Object? phone = freezed,
-    Object? language = freezed,
+    Object? languages = freezed,
     Object? birthday = freezed,
     Object? feedbacks = freezed,
     Object? courses = freezed,
@@ -654,14 +654,14 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      language: language == freezed
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String,
+      languages: languages == freezed
+          ? _value.languages
+          : languages // ignore: cast_nullable_to_non_nullable
+              as String?,
       birthday: birthday == freezed
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       feedbacks: feedbacks == freezed
           ? _value.feedbacks
           : feedbacks // ignore: cast_nullable_to_non_nullable
@@ -687,8 +687,8 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       String name,
       String country,
       String phone,
-      String language,
-      String birthday,
+      String? languages,
+      String? birthday,
       List<FeedbackDto> feedbacks,
       List<CourseDto> courses});
 }
@@ -711,7 +711,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     Object? name = freezed,
     Object? country = freezed,
     Object? phone = freezed,
-    Object? language = freezed,
+    Object? languages = freezed,
     Object? birthday = freezed,
     Object? feedbacks = freezed,
     Object? courses = freezed,
@@ -745,14 +745,14 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
-      language: language == freezed
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String,
+      languages: languages == freezed
+          ? _value.languages
+          : languages // ignore: cast_nullable_to_non_nullable
+              as String?,
       birthday: birthday == freezed
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       feedbacks: feedbacks == freezed
           ? _value.feedbacks
           : feedbacks // ignore: cast_nullable_to_non_nullable
@@ -776,7 +776,7 @@ class _$_User implements _User {
       required this.name,
       required this.country,
       required this.phone,
-      required this.language,
+      required this.languages,
       required this.birthday,
       required this.feedbacks,
       required this.courses});
@@ -800,9 +800,9 @@ class _$_User implements _User {
   @override
   final String phone;
   @override
-  final String language;
+  final String? languages;
   @override
-  final String birthday;
+  final String? birthday;
   @override // bool requestPassword,
 // bool isActivated,
 // bool isPhoneActivated,
@@ -819,7 +819,7 @@ class _$_User implements _User {
 
   @override
   String toString() {
-    return 'User(id: $id, level: $level, email: $email, avatar: $avatar, name: $name, country: $country, phone: $phone, language: $language, birthday: $birthday, feedbacks: $feedbacks, courses: $courses)';
+    return 'User(id: $id, level: $level, email: $email, avatar: $avatar, name: $name, country: $country, phone: $phone, languages: $languages, birthday: $birthday, feedbacks: $feedbacks, courses: $courses)';
   }
 
   @override
@@ -834,7 +834,7 @@ class _$_User implements _User {
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.country, country) &&
             const DeepCollectionEquality().equals(other.phone, phone) &&
-            const DeepCollectionEquality().equals(other.language, language) &&
+            const DeepCollectionEquality().equals(other.languages, languages) &&
             const DeepCollectionEquality().equals(other.birthday, birthday) &&
             const DeepCollectionEquality().equals(other.feedbacks, feedbacks) &&
             const DeepCollectionEquality().equals(other.courses, courses));
@@ -850,7 +850,7 @@ class _$_User implements _User {
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(country),
       const DeepCollectionEquality().hash(phone),
-      const DeepCollectionEquality().hash(language),
+      const DeepCollectionEquality().hash(languages),
       const DeepCollectionEquality().hash(birthday),
       const DeepCollectionEquality().hash(feedbacks),
       const DeepCollectionEquality().hash(courses));
@@ -875,8 +875,8 @@ abstract class _User implements User {
       required String name,
       required String country,
       required String phone,
-      required String language,
-      required String birthday,
+      required String? languages,
+      required String? birthday,
       required List<FeedbackDto> feedbacks,
       required List<CourseDto> courses}) = _$_User;
 
@@ -899,9 +899,9 @@ abstract class _User implements User {
   @override
   String get phone;
   @override
-  String get language;
+  String? get languages;
   @override
-  String get birthday;
+  String? get birthday;
   @override // bool requestPassword,
 // bool isActivated,
 // bool isPhoneActivated,

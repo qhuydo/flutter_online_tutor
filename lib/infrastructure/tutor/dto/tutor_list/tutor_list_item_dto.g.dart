@@ -14,7 +14,7 @@ _$_TutorListItemDto _$$_TutorListItemDtoFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       country: json['country'] as String,
       phone: json['phone'] as String,
-      language: json['language'] as String,
+      language: json['language'] as String?,
       birthday: DateTime.parse(json['birthday'] as String),
       feedbacks: (json['feedbacks'] as List<dynamic>)
           .map((e) => FeedbackDto.fromJson(e as Map<String, dynamic>))

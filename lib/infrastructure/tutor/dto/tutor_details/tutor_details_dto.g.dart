@@ -50,8 +50,8 @@ _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
       name: json['name'] as String,
       country: json['country'] as String,
       phone: json['phone'] as String,
-      language: json['language'] as String,
-      birthday: json['birthday'] as String,
+      languages: json['languages'] as String?,
+      birthday: json['birthday'] as String?,
       feedbacks: (json['feedbacks'] as List<dynamic>)
           .map((e) => FeedbackDto.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -68,7 +68,7 @@ Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
       'name': instance.name,
       'country': instance.country,
       'phone': instance.phone,
-      'language': instance.language,
+      'languages': instance.languages,
       'birthday': instance.birthday,
       'feedbacks': instance.feedbacks,
       'courses': instance.courses,

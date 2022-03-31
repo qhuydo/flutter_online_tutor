@@ -29,7 +29,7 @@ class _$TutorListItemDtoTearOff {
       required String name,
       required String country,
       required String phone,
-      required String language,
+      required String? language,
       required DateTime birthday,
       required List<FeedbackDto> feedbacks,
       required String userId,
@@ -87,7 +87,7 @@ mixin _$TutorListItemDto {
   String get name => throw _privateConstructorUsedError;
   String get country => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
-  String get language => throw _privateConstructorUsedError;
+  String? get language => throw _privateConstructorUsedError;
   DateTime get birthday =>
       throw _privateConstructorUsedError; // required bool requestPassword,
 // required bool isActivated,
@@ -135,7 +135,7 @@ abstract class $TutorListItemDtoCopyWith<$Res> {
       String name,
       String country,
       String phone,
-      String language,
+      String? language,
       DateTime birthday,
       List<FeedbackDto> feedbacks,
       String userId,
@@ -213,7 +213,7 @@ class _$TutorListItemDtoCopyWithImpl<$Res>
       language: language == freezed
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       birthday: birthday == freezed
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
@@ -288,7 +288,7 @@ abstract class _$TutorListItemDtoCopyWith<$Res>
       String name,
       String country,
       String phone,
-      String language,
+      String? language,
       DateTime birthday,
       List<FeedbackDto> feedbacks,
       String userId,
@@ -368,7 +368,7 @@ class __$TutorListItemDtoCopyWithImpl<$Res>
       language: language == freezed
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       birthday: birthday == freezed
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
@@ -474,7 +474,7 @@ class _$_TutorListItemDto extends _TutorListItemDto {
   @override
   final String phone;
   @override
-  final String language;
+  final String? language;
   @override
   final DateTime birthday;
   @override // required bool requestPassword,
@@ -596,7 +596,7 @@ abstract class _TutorListItemDto extends TutorListItemDto {
       required String name,
       required String country,
       required String phone,
-      required String language,
+      required String? language,
       required DateTime birthday,
       required List<FeedbackDto> feedbacks,
       required String userId,
@@ -631,7 +631,7 @@ abstract class _TutorListItemDto extends TutorListItemDto {
   @override
   String get phone;
   @override
-  String get language;
+  String? get language;
   @override
   DateTime get birthday;
   @override // required bool requestPassword,

@@ -8,23 +8,27 @@ import '../models/tutor.dart';
 import '../models/tutor_search_options.dart';
 
 abstract class TutorRepository {
-  Either<Failure, List<Tutor>> getAllTutors();
+  // Either<Failure, List<Tutor>> getAllTutors();
 
-  Either<Failure, List<Tutor>> searchTutor({
+  Future<Either<Failure, List<Tutor>>> searchTutor({
     required List<Speciality> specialities,
     required String keyword,
     Country? country,
     TutorSortBy sortBy = TutorSortBy.defaultSort,
-    int page,
-    int limit,
+    required int page,
+    required int limit,
   });
 
-  Either<Failure, List<Tutor>> getRecommendedTutors({
-    int page,
-    int limit,
+  Future<Either<Failure, List<Tutor>>> getRecommendedTutors({
+    required int page,
+    required int limit,
   });
 
   Stream<TutorRepositoryEvent> subscribe();
+
+  Future<Either<Failure, Unit>> toggleFavourite(String tutorId);
+
+  Future<List<Speciality>> getSpecialities();
 
   Future dispose();
 }

@@ -40,14 +40,14 @@ class FixtureLoader {
           as Map<String, dynamic>);
 
   static Future<Map<String, dynamic>> get tutorList async => (await _loadJson(
-        '$_assetPath/tutor/tutor_list/res_tutors.json',
+        '$_fixturePath/tutor/tutor_list/res_tutors.json',
       ) as Map<String, dynamic>);
 
   static Future<Map<String, dynamic>> tutorDetails(String id) async =>
-      (await _loadJson('$_assetPath/tutor/tutor_details/$id.json')
+      (await _loadJson('$_fixturePath/tutor/tutor_details/$id.json')
           as Map<String, dynamic>);
 
   static Future<List> get specialities async => (await _loadJson(
-        '_$_assetPath/common/specialities/specialities.json',
+        '$_fixturePath/common/specialities/specialities.json',
       ) as List);
 }

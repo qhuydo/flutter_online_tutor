@@ -370,12 +370,8 @@ class _$FirstInfoTearOff {
   const _$FirstInfoTearOff();
 
   _FirstInfo call(
-      {required String id,
-      required String email,
-      required String name,
-      required String avatar}) {
+      {required String email, required String name, required String avatar}) {
     return _FirstInfo(
-      id: id,
       email: email,
       name: name,
       avatar: avatar,
@@ -392,7 +388,6 @@ const $FirstInfo = _$FirstInfoTearOff();
 
 /// @nodoc
 mixin _$FirstInfo {
-  String get id => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get avatar => throw _privateConstructorUsedError;
@@ -407,7 +402,7 @@ mixin _$FirstInfo {
 abstract class $FirstInfoCopyWith<$Res> {
   factory $FirstInfoCopyWith(FirstInfo value, $Res Function(FirstInfo) then) =
       _$FirstInfoCopyWithImpl<$Res>;
-  $Res call({String id, String email, String name, String avatar});
+  $Res call({String email, String name, String avatar});
 }
 
 /// @nodoc
@@ -420,16 +415,11 @@ class _$FirstInfoCopyWithImpl<$Res> implements $FirstInfoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? email = freezed,
     Object? name = freezed,
     Object? avatar = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -452,7 +442,7 @@ abstract class _$FirstInfoCopyWith<$Res> implements $FirstInfoCopyWith<$Res> {
           _FirstInfo value, $Res Function(_FirstInfo) then) =
       __$FirstInfoCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String email, String name, String avatar});
+  $Res call({String email, String name, String avatar});
 }
 
 /// @nodoc
@@ -466,16 +456,11 @@ class __$FirstInfoCopyWithImpl<$Res> extends _$FirstInfoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? id = freezed,
     Object? email = freezed,
     Object? name = freezed,
     Object? avatar = freezed,
   }) {
     return _then(_FirstInfo(
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -496,16 +481,11 @@ class __$FirstInfoCopyWithImpl<$Res> extends _$FirstInfoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_FirstInfo implements _FirstInfo {
   const _$_FirstInfo(
-      {required this.id,
-      required this.email,
-      required this.name,
-      required this.avatar});
+      {required this.email, required this.name, required this.avatar});
 
   factory _$_FirstInfo.fromJson(Map<String, dynamic> json) =>
       _$$_FirstInfoFromJson(json);
 
-  @override
-  final String id;
   @override
   final String email;
   @override
@@ -515,7 +495,7 @@ class _$_FirstInfo implements _FirstInfo {
 
   @override
   String toString() {
-    return 'FirstInfo(id: $id, email: $email, name: $name, avatar: $avatar)';
+    return 'FirstInfo(email: $email, name: $name, avatar: $avatar)';
   }
 
   @override
@@ -523,7 +503,6 @@ class _$_FirstInfo implements _FirstInfo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _FirstInfo &&
-            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.avatar, avatar));
@@ -532,7 +511,6 @@ class _$_FirstInfo implements _FirstInfo {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(email),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(avatar));
@@ -550,16 +528,13 @@ class _$_FirstInfo implements _FirstInfo {
 
 abstract class _FirstInfo implements FirstInfo {
   const factory _FirstInfo(
-      {required String id,
-      required String email,
+      {required String email,
       required String name,
       required String avatar}) = _$_FirstInfo;
 
   factory _FirstInfo.fromJson(Map<String, dynamic> json) =
       _$_FirstInfo.fromJson;
 
-  @override
-  String get id;
   @override
   String get email;
   @override

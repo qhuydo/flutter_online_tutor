@@ -12,4 +12,6 @@ class Failure with _$Failure {
       _ApiError;
 
   const factory Failure.internalError() = _InternalError;
+
+  const factory Failure.notFound() = _NotFound;
 }

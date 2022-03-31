@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rxdart/rxdart.dart';
 
 import '../../../domain/tutor/models/tutor.dart';
+import '../../../domain/user/models/speciality.dart';
 import '../../tutor/dto/tutor_details/tutor_details_dto.dart';
 import '../../tutor/dto/tutor_list/tutor_list_item_dto.dart';
 import 'i_tutor_data_source.dart';
@@ -14,7 +14,6 @@ class LocalTutorDataSource implements TutorDataSource {
   static const _boxTutor = 'tutors';
 
   late Box<String> _box;
-  final _tutorStreamController = BehaviorSubject<List<Tutor>>.seeded(const []);
 
   LocalTutorDataSource() {
     _init();
@@ -22,12 +21,11 @@ class LocalTutorDataSource implements TutorDataSource {
 
   Future _init() async {
     _box = await Hive.openBox<String>(_boxTutor);
-    _addListToStream();
   }
 
+  @override
   @disposeMethod
   Future dispose() async {
-    _tutorStreamController.close();
     _box.close();
   }
 
@@ -42,46 +40,49 @@ class LocalTutorDataSource implements TutorDataSource {
     return Tutor.fromJson(jsonDecode(tutor));
   }
 
-  void _addListToStream() {
-    final values = _box.values.map((e) => Tutor.fromJson(jsonDecode(e)));
-    _tutorStreamController.add(values.toList(growable: false));
-  }
-
   @override
-  Stream<List<Tutor>> getAllTutors() =>
-      _tutorStreamController.asBroadcastStream();
+  List<Tutor> getAllTutors() => _box.values
+      .map((e) => Tutor.fromJson(jsonDecode(e)))
+      .toList(growable: false);
 
   @override
   Future<Tutor?> getTutor(String id) async => decode(_box.get(id));
 
   @override
-  Future<bool> saveTutorFromTutorDetailsDto(
+  Future<Tutor> saveTutorFromTutorDetailsDto(
+    List<Speciality> specialityMap,
     TutorDetailsDto tutorDetailsDto,
   ) async {
-    // TODO add specialityMap
-    final tutor = tutorDetailsDto.toDomain(specialityMap: []);
+    final tutor = tutorDetailsDto.toDomain(specialityMap: specialityMap);
 
-    await _box.put(tutor.id, jsonEncode(tutor.toJson()));
-    _addListToStream();
-    return true;
+    await _box.put(tutor.id, jsonEncode(tutor));
+    return tutor;
   }
 
   @override
-  Future<bool> saveTutorsFromTutorListItemDto(
+  Future<List<Tutor>?> saveTutorsFromTutorListItemDto(
+    List<Speciality> specialityMap,
     List<TutorListItemDto> tutorDtoList,
     List<String> favouriteTutors,
   ) async {
+    final tutorsMap = <String, String>{};
+    final tutors = <Tutor>[];
 
-    // TODO add specialityMap
-    final tutorsMap = {
-      for (final tutor in tutorDtoList)
-        tutor.userId: jsonEncode(tutor.toDomain(
-            specialityMap: [],
-            isFavourite: favouriteTutors.contains(tutor.userId)).toJson())
-    };
+    for (final tutorDto in tutorDtoList) {
+      final tutor = tutorDto.toDomain(
+          specialityMap: specialityMap,
+          isFavourite: favouriteTutors.contains(tutorDto.userId));
+
+      tutors.add(tutor);
+      tutorsMap.addEntries({tutorDto.userId: jsonEncode(tutor)}.entries);
+    }
 
     await _box.putAll(tutorsMap);
-    _addListToStream();
-    return true;
+    return tutors;
+  }
+
+  @override
+  Future saveTutor(Tutor tutor) async {
+    await _box.put(tutor.id, jsonEncode(tutor));
   }
 }

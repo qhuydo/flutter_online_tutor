@@ -39,7 +39,6 @@ class FeedbackDto with _$FeedbackDto {
 @freezed
 class FirstInfo with _$FirstInfo {
   const factory FirstInfo({
-    required String id,
     required String email,
     required String name,
     required String avatar,

@@ -45,7 +45,7 @@ class TutorListItemDto with _$TutorListItemDto {
     required String name,
     required String country,
     required String phone,
-    required String language,
+    required String? language,
     required DateTime birthday,
     // required bool requestPassword,
     // required bool isActivated,
