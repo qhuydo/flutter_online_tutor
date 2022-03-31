@@ -4,6 +4,7 @@ part of 'search_tutors_bloc.dart';
 class SearchTutorsState with _$SearchTutorsState {
   const factory SearchTutorsState({
     @Default(false) bool isLoading,
+    @Default(true) bool isInitial,
     @Default('') String keyword,
     @Default(1) int currentPage,
     @Default(20) int limit,

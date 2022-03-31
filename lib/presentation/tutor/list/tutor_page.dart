@@ -1,10 +1,14 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
-import '../../common/utils/constants.dart';
+import '../../../application/tutor/search_tutors/search_tutors_bloc.dart';
 import '../../common.dart';
+import '../../common/utils/constants.dart';
+import '../../common/widgets/empty_page.dart';
 import '../../common/widgets/scaffold_with_search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';
 import 'widgets/specialities_filter_row.dart';
+import 'widgets/tutor_card.dart';
 import 'widgets/tutor_filter_dialog.dart';
 
 class TutorPage extends StatelessWidget {
@@ -12,58 +16,142 @@ class TutorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final actions = [
-      FloatingSearchBarAction.searchToClear(
-        showIfClosed: true,
+    return BlocProvider(
+      create: (context) => getIt<SearchTutorsBloc>()..add(
+        const SearchTutorsEvent.initialise(),
       ),
-      FloatingSearchBarAction(
-        showIfOpened: true,
-        child: CircularButton(
-          icon: const Icon(Icons.filter_list),
-          onPressed: () {
-            showDialog(context: context, builder: (context) {
-              return const TutorFilterDialog();
-            });
-          },
-        ),
-      ),
-    ];
+      child: const _TutorPage(),
+    );
+  }
+}
 
-    final leadingActions = [
-      FloatingSearchBarAction.back(),
-    ];
+class _TutorPage extends StatefulWidget {
+  const _TutorPage({Key? key}) : super(key: key);
 
-    return ScaffoldWithSearchBar(
-      builder: (context, _) => SearchItemRowPlaceholder.buildExpandableBody(),
-      hint: AppLocalizations.of(context)!.findTutorHint,
-      actions: actions,
-      leadingActions: leadingActions,
-      body: FloatingSearchBarScrollNotifier(
-        child: SingleChildScrollView(
-          primary: false,
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: searchBarHeight + 12,
-              left: smallItemSpacing,
-              right: smallItemSpacing,
-            ),
-            child: Column(
-              children: [
-                const SizedBox(child: SpecialitiesFilterRow(), height: 40,),
-                // ListView.builder(
-                //   primary: false,
-                //   shrinkWrap: true,
-                //   itemCount: 5,
-                //   // separatorBuilder: (context, index) => const Divider(),
-                //   itemBuilder: (context, index) {
-                //     return TutorCard();
-                //   },
-                // ),
-              ],
+  @override
+  State<_TutorPage> createState() => _TutorPageState();
+}
+
+class _TutorPageState extends State<_TutorPage> {
+  final controller = FloatingSearchBarController();
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SearchTutorsBloc, SearchTutorsState>(
+      builder: (context, state) {
+        final bloc = context.read<SearchTutorsBloc>();
+        final actions = [
+          FloatingSearchBarAction.searchToClear(),
+          FloatingSearchBarAction(
+            showIfOpened: true,
+            child: CircularButton(
+              icon: const Icon(
+                Icons.filter_list,
+                // color: state.searchOption.filterApplied
+                //     ? Theme.of(context).colorScheme.secondary
+                //     : null,
+              ),
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return BlocProvider.value(
+                        value: bloc,
+                        child: const TutorFilterDialog(),
+                      );
+                    });
+              },
             ),
           ),
+        ];
+
+        return ScaffoldWithSearchBar(
+          builder: (context, _) =>
+              SearchItemRowPlaceholder.buildExpandableBody(),
+          hint: AppLocalizations.of(context)!.findTutorHint,
+          actions: actions,
+          controller: controller,
+          onSubmitted: (keyword) {
+            bloc
+              ..add(SearchTutorsEvent.keywordChanged(keyword))
+              ..add(const SearchTutorsEvent.submitted());
+
+            controller.close();
+          },
+          body: buildBody(state, context),
+        );
+      },
+    );
+  }
+
+  Widget buildBody(SearchTutorsState state, BuildContext context) {
+
+    if (state.isInitial) {
+      return const EmptyPage(
+        emoticon: '🔍',
+        text: 'Type your keyword, then hit enter',
+      );
+    }
+
+    final resultList = state.result.fold((l) => null, (r) => r);
+
+    if (resultList == null) {
+      return const SizedBox(
+        height: 60,
+        child: Center(
+          child: Text('Error occurred'),
+        ),
+      );
+    }
+
+    if (resultList.isEmpty) {
+      return const EmptyPage(
+        text: 'Empty result',
+      );
+    }
+
+    // final bloc = context.read<SearchTutorsBloc>();
+
+    return SingleChildScrollView(
+      primary: false,
+      child: Padding(
+        padding: const EdgeInsets.only(
+          top: searchBarHeight + 12,
+          left: smallItemSpacing,
+          right: smallItemSpacing,
+        ),
+        child: Column(
+          children: [
+            SizedBox(
+              child: SpecialitiesFilterRow(
+                specialities: state.allSpecialities,
+              ),
+              height: 40,
+            ),
+            ListView.builder(
+              primary: false,
+              shrinkWrap: true,
+              itemCount: resultList.length,
+              // separatorBuilder: (context, index) => const Divider(),
+              itemBuilder: (context, index) {
+                return TutorCard(
+                  tutor: resultList[index],
+                  // TODO
+                  // onFavouriteButtonPressed: () => bloc.add(
+                  //
+                  // ),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
   }
 }

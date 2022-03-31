@@ -1701,6 +1701,7 @@ class _$SearchTutorsStateTearOff {
 
   _SearchTutorsState call(
       {bool isLoading = false,
+      bool isInitial = true,
       String keyword = '',
       int currentPage = 1,
       int limit = 20,
@@ -1711,6 +1712,7 @@ class _$SearchTutorsStateTearOff {
       List<Speciality> allSpecialities = const []}) {
     return _SearchTutorsState(
       isLoading: isLoading,
+      isInitial: isInitial,
       keyword: keyword,
       currentPage: currentPage,
       limit: limit,
@@ -1729,6 +1731,7 @@ const $SearchTutorsState = _$SearchTutorsStateTearOff();
 /// @nodoc
 mixin _$SearchTutorsState {
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isInitial => throw _privateConstructorUsedError;
   String get keyword => throw _privateConstructorUsedError;
   int get currentPage => throw _privateConstructorUsedError;
   int get limit => throw _privateConstructorUsedError;
@@ -1750,6 +1753,7 @@ abstract class $SearchTutorsStateCopyWith<$Res> {
       _$SearchTutorsStateCopyWithImpl<$Res>;
   $Res call(
       {bool isLoading,
+      bool isInitial,
       String keyword,
       int currentPage,
       int limit,
@@ -1774,6 +1778,7 @@ class _$SearchTutorsStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? isInitial = freezed,
     Object? keyword = freezed,
     Object? currentPage = freezed,
     Object? limit = freezed,
@@ -1787,6 +1792,10 @@ class _$SearchTutorsStateCopyWithImpl<$Res>
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isInitial: isInitial == freezed
+          ? _value.isInitial
+          : isInitial // ignore: cast_nullable_to_non_nullable
               as bool,
       keyword: keyword == freezed
           ? _value.keyword
@@ -1844,6 +1853,7 @@ abstract class _$SearchTutorsStateCopyWith<$Res>
   @override
   $Res call(
       {bool isLoading,
+      bool isInitial,
       String keyword,
       int currentPage,
       int limit,
@@ -1871,6 +1881,7 @@ class __$SearchTutorsStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? isInitial = freezed,
     Object? keyword = freezed,
     Object? currentPage = freezed,
     Object? limit = freezed,
@@ -1884,6 +1895,10 @@ class __$SearchTutorsStateCopyWithImpl<$Res>
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isInitial: isInitial == freezed
+          ? _value.isInitial
+          : isInitial // ignore: cast_nullable_to_non_nullable
               as bool,
       keyword: keyword == freezed
           ? _value.keyword
@@ -1926,6 +1941,7 @@ class __$SearchTutorsStateCopyWithImpl<$Res>
 class _$_SearchTutorsState implements _SearchTutorsState {
   const _$_SearchTutorsState(
       {this.isLoading = false,
+      this.isInitial = true,
       this.keyword = '',
       this.currentPage = 1,
       this.limit = 20,
@@ -1938,6 +1954,9 @@ class _$_SearchTutorsState implements _SearchTutorsState {
   @JsonKey()
   @override
   final bool isLoading;
+  @JsonKey()
+  @override
+  final bool isInitial;
   @JsonKey()
   @override
   final String keyword;
@@ -1964,7 +1983,7 @@ class _$_SearchTutorsState implements _SearchTutorsState {
 
   @override
   String toString() {
-    return 'SearchTutorsState(isLoading: $isLoading, keyword: $keyword, currentPage: $currentPage, limit: $limit, country: $country, specialities: $specialities, sortOption: $sortOption, result: $result, allSpecialities: $allSpecialities)';
+    return 'SearchTutorsState(isLoading: $isLoading, isInitial: $isInitial, keyword: $keyword, currentPage: $currentPage, limit: $limit, country: $country, specialities: $specialities, sortOption: $sortOption, result: $result, allSpecialities: $allSpecialities)';
   }
 
   @override
@@ -1973,6 +1992,7 @@ class _$_SearchTutorsState implements _SearchTutorsState {
         (other.runtimeType == runtimeType &&
             other is _SearchTutorsState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality().equals(other.isInitial, isInitial) &&
             const DeepCollectionEquality().equals(other.keyword, keyword) &&
             const DeepCollectionEquality()
                 .equals(other.currentPage, currentPage) &&
@@ -1991,6 +2011,7 @@ class _$_SearchTutorsState implements _SearchTutorsState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(isInitial),
       const DeepCollectionEquality().hash(keyword),
       const DeepCollectionEquality().hash(currentPage),
       const DeepCollectionEquality().hash(limit),
@@ -2009,6 +2030,7 @@ class _$_SearchTutorsState implements _SearchTutorsState {
 abstract class _SearchTutorsState implements SearchTutorsState {
   const factory _SearchTutorsState(
       {bool isLoading,
+      bool isInitial,
       String keyword,
       int currentPage,
       int limit,
@@ -2020,6 +2042,8 @@ abstract class _SearchTutorsState implements SearchTutorsState {
 
   @override
   bool get isLoading;
+  @override
+  bool get isInitial;
   @override
   String get keyword;
   @override

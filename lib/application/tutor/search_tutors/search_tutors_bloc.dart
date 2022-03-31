@@ -142,6 +142,7 @@ class SearchTutorsBloc extends Bloc<SearchTutorsEvent, SearchTutorsState> {
     );
 
     emit(state.copyWith(
+      isInitial: false,
       isLoading: false,
       result: result,
     ));
