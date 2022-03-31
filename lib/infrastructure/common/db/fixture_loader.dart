@@ -32,13 +32,22 @@ class FixtureLoader {
         '$_fixturePath/common/test_preparation/test_preparation.json',
       ) as List);
 
-  static Future<List> get languagesResponse async => (await _loadJson(
-    '$_fixturePath/user/level/languages.json'
-  ) as List);
-  
-  static Future<Map<String, dynamic>> get languageJson async => (await _loadJson(
-    '$_assetPath/json/languages.json'
-  ) as Map<String, dynamic>);
+  static Future<List> get languagesResponse async =>
+      (await _loadJson('$_fixturePath/user/level/languages.json') as List);
 
-  
+  static Future<Map<String, dynamic>> get languageJson async =>
+      (await _loadJson('$_assetPath/json/languages.json')
+          as Map<String, dynamic>);
+
+  static Future<Map<String, dynamic>> get tutorList async => (await _loadJson(
+        '$_assetPath/tutor/tutor_list/res_tutors.json',
+      ) as Map<String, dynamic>);
+
+  static Future<Map<String, dynamic>> tutorDetails(String id) async =>
+      (await _loadJson('$_assetPath/tutor/tutor_details/$id.json')
+          as Map<String, dynamic>);
+
+  static Future<List> get specialities async => (await _loadJson(
+        '_$_assetPath/common/specialities/specialities.json',
+      ) as List);
 }

@@ -158,5 +158,8 @@ flutter:
     - assets/fixtures/authentication/login/
     - assets/fixtures/common/learn_topic/
     - assets/fixtures/common/test_preparation/
+    - assets/fixtures/common/specialities/
+    - assets/fixtures/tutor/tutor_details/
+    - assets/fixtures/tutor/tutor_list/
     - assets/fixtures/user/level/
     - assets/json/
