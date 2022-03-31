@@ -26,7 +26,7 @@ class LocalTutorDataSource implements TutorDataSource {
   }
 
   @disposeMethod
-  void dispose() {
+  Future dispose() async {
     _tutorStreamController.close();
     _box.close();
   }

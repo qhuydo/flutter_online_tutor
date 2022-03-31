@@ -15,4 +15,6 @@ abstract class TutorDataSource {
   );
 
   Future clear();
+
+  Future dispose();
 }
