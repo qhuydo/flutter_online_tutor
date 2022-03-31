@@ -17,9 +17,10 @@ class TutorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<SearchTutorsBloc>()..add(
-        const SearchTutorsEvent.initialise(),
-      ),
+      create: (context) => getIt<SearchTutorsBloc>()
+        ..add(
+          const SearchTutorsEvent.initialise(),
+        ),
       child: const _TutorPage(),
     );
   }
@@ -45,11 +46,11 @@ class _TutorPageState extends State<_TutorPage> {
           FloatingSearchBarAction(
             showIfOpened: true,
             child: CircularButton(
-              icon: const Icon(
+              icon: Icon(
                 Icons.filter_list,
-                // color: state.searchOption.filterApplied
-                //     ? Theme.of(context).colorScheme.secondary
-                //     : null,
+                color: state.isFilterApplied
+                    ? Theme.of(context).colorScheme.secondary
+                    : null,
               ),
               onPressed: () {
                 showDialog(
@@ -68,14 +69,18 @@ class _TutorPageState extends State<_TutorPage> {
         return ScaffoldWithSearchBar(
           builder: (context, _) =>
               SearchItemRowPlaceholder.buildExpandableBody(),
-          hint: AppLocalizations.of(context)!.findTutorHint,
+          hint: context.l10n.findTutorHint,
           actions: actions,
           controller: controller,
+          title: Text(
+            state.keyword.isNotEmpty
+                ? state.keyword
+                : context.l10n.findTutorHint,
+          ),
           onSubmitted: (keyword) {
             bloc
               ..add(SearchTutorsEvent.keywordChanged(keyword))
               ..add(const SearchTutorsEvent.submitted());
-
             controller.close();
           },
           body: buildBody(state, context),
@@ -85,13 +90,12 @@ class _TutorPageState extends State<_TutorPage> {
   }
 
   Widget buildBody(SearchTutorsState state, BuildContext context) {
-
-    if (state.isInitial) {
-      return const EmptyPage(
-        emoticon: '🔍',
-        text: 'Type your keyword, then hit enter',
-      );
-    }
+    // if (state.isInitial) {
+    //   return const EmptyPage(
+    //     emoticon: '🔍',
+    //     text: 'Type your keyword, then hit enter',
+    //   );
+    // }
 
     final resultList = state.result.fold((l) => null, (r) => r);
 
@@ -104,13 +108,13 @@ class _TutorPageState extends State<_TutorPage> {
       );
     }
 
-    if (resultList.isEmpty) {
-      return const EmptyPage(
-        text: 'Empty result',
-      );
-    }
+    // if (!state.isInitial && resultList.isEmpty) {
+    //   return const EmptyPage(
+    //     text: 'Empty result',
+    //   );
+    // }
 
-    // final bloc = context.read<SearchTutorsBloc>();
+    final bloc = context.read<SearchTutorsBloc>();
 
     return SingleChildScrollView(
       primary: false,
@@ -125,24 +129,37 @@ class _TutorPageState extends State<_TutorPage> {
             SizedBox(
               child: SpecialitiesFilterRow(
                 specialities: state.allSpecialities,
+                selectedSpecialities: state.specialities,
+                onSelectionChanged: (value) {
+                  bloc
+                    ..add(SearchTutorsEvent.specialitiesChanged(value))
+                    ..add(const SearchTutorsEvent.submitted());
+                },
               ),
               height: 40,
             ),
-            ListView.builder(
-              primary: false,
-              shrinkWrap: true,
-              itemCount: resultList.length,
-              // separatorBuilder: (context, index) => const Divider(),
-              itemBuilder: (context, index) {
-                return TutorCard(
-                  tutor: resultList[index],
-                  // TODO
-                  // onFavouriteButtonPressed: () => bloc.add(
-                  //
-                  // ),
-                );
-              },
-            ),
+            state.isInitial || resultList.isNotEmpty
+                ? ListView.builder(
+                    primary: false,
+                    shrinkWrap: true,
+                    itemCount: resultList.length,
+                    // separatorBuilder: (context, index) => const Divider(),
+                    itemBuilder: (context, index) {
+                      return TutorCard(
+                        tutor: resultList[index],
+                        onFavouriteButtonPressed: () => bloc.add(
+                          SearchTutorsEvent.toggleFavourite(
+                              resultList[index].id),
+                        ),
+                      );
+                    },
+                  )
+                : SizedBox(
+                    height: 400,
+                    child: const EmptyPage(
+                      text: 'Empty result',
+                    ),
+                  ),
           ],
         ),
       ),

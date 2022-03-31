@@ -24,4 +24,8 @@ class SearchTutorsEvent with _$SearchTutorsEvent {
   const factory SearchTutorsEvent.searchOptionCleared() = _SearchOptionCleared;
 
   const factory SearchTutorsEvent.submitted() = _Submitted;
+
+  const factory SearchTutorsEvent.toggleFavourite(
+    String tutorId,
+  ) = _ToggleFavourite;
 }

@@ -65,6 +65,12 @@ class _$SearchTutorsEventTearOff {
   _Submitted submitted() {
     return const _Submitted();
   }
+
+  _ToggleFavourite toggleFavourite(String tutorId) {
+    return _ToggleFavourite(
+      tutorId,
+    );
+  }
 }
 
 /// @nodoc
@@ -84,6 +90,7 @@ mixin _$SearchTutorsEvent {
     required TResult Function(TutorSortBy sortOption) sortOptionChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function(String tutorId) toggleFavourite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -97,6 +104,7 @@ mixin _$SearchTutorsEvent {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -110,6 +118,7 @@ mixin _$SearchTutorsEvent {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -124,6 +133,7 @@ mixin _$SearchTutorsEvent {
     required TResult Function(_SortOptionChanged value) sortOptionChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_ToggleFavourite value) toggleFavourite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -137,6 +147,7 @@ mixin _$SearchTutorsEvent {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -150,6 +161,7 @@ mixin _$SearchTutorsEvent {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -223,6 +235,7 @@ class _$_Initialise implements _Initialise {
     required TResult Function(TutorSortBy sortOption) sortOptionChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function(String tutorId) toggleFavourite,
   }) {
     return initialise();
   }
@@ -239,6 +252,7 @@ class _$_Initialise implements _Initialise {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
   }) {
     return initialise?.call();
   }
@@ -255,6 +269,7 @@ class _$_Initialise implements _Initialise {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
     required TResult orElse(),
   }) {
     if (initialise != null) {
@@ -275,6 +290,7 @@ class _$_Initialise implements _Initialise {
     required TResult Function(_SortOptionChanged value) sortOptionChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_ToggleFavourite value) toggleFavourite,
   }) {
     return initialise(this);
   }
@@ -291,6 +307,7 @@ class _$_Initialise implements _Initialise {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
   }) {
     return initialise?.call(this);
   }
@@ -307,6 +324,7 @@ class _$_Initialise implements _Initialise {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
     required TResult orElse(),
   }) {
     if (initialise != null) {
@@ -395,6 +413,7 @@ class _$_KeywordChanged implements _KeywordChanged {
     required TResult Function(TutorSortBy sortOption) sortOptionChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function(String tutorId) toggleFavourite,
   }) {
     return keywordChanged(keyword);
   }
@@ -411,6 +430,7 @@ class _$_KeywordChanged implements _KeywordChanged {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
   }) {
     return keywordChanged?.call(keyword);
   }
@@ -427,6 +447,7 @@ class _$_KeywordChanged implements _KeywordChanged {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
     required TResult orElse(),
   }) {
     if (keywordChanged != null) {
@@ -447,6 +468,7 @@ class _$_KeywordChanged implements _KeywordChanged {
     required TResult Function(_SortOptionChanged value) sortOptionChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_ToggleFavourite value) toggleFavourite,
   }) {
     return keywordChanged(this);
   }
@@ -463,6 +485,7 @@ class _$_KeywordChanged implements _KeywordChanged {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
   }) {
     return keywordChanged?.call(this);
   }
@@ -479,6 +502,7 @@ class _$_KeywordChanged implements _KeywordChanged {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
     required TResult orElse(),
   }) {
     if (keywordChanged != null) {
@@ -572,6 +596,7 @@ class _$_PageChanged implements _PageChanged {
     required TResult Function(TutorSortBy sortOption) sortOptionChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function(String tutorId) toggleFavourite,
   }) {
     return pageChanged(page);
   }
@@ -588,6 +613,7 @@ class _$_PageChanged implements _PageChanged {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
   }) {
     return pageChanged?.call(page);
   }
@@ -604,6 +630,7 @@ class _$_PageChanged implements _PageChanged {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
     required TResult orElse(),
   }) {
     if (pageChanged != null) {
@@ -624,6 +651,7 @@ class _$_PageChanged implements _PageChanged {
     required TResult Function(_SortOptionChanged value) sortOptionChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_ToggleFavourite value) toggleFavourite,
   }) {
     return pageChanged(this);
   }
@@ -640,6 +668,7 @@ class _$_PageChanged implements _PageChanged {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
   }) {
     return pageChanged?.call(this);
   }
@@ -656,6 +685,7 @@ class _$_PageChanged implements _PageChanged {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
     required TResult orElse(),
   }) {
     if (pageChanged != null) {
@@ -749,6 +779,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
     required TResult Function(TutorSortBy sortOption) sortOptionChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function(String tutorId) toggleFavourite,
   }) {
     return pageLimitChanged(page);
   }
@@ -765,6 +796,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
   }) {
     return pageLimitChanged?.call(page);
   }
@@ -781,6 +813,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
     required TResult orElse(),
   }) {
     if (pageLimitChanged != null) {
@@ -801,6 +834,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
     required TResult Function(_SortOptionChanged value) sortOptionChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_ToggleFavourite value) toggleFavourite,
   }) {
     return pageLimitChanged(this);
   }
@@ -817,6 +851,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
   }) {
     return pageLimitChanged?.call(this);
   }
@@ -833,6 +868,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
     required TResult orElse(),
   }) {
     if (pageLimitChanged != null) {
@@ -939,6 +975,7 @@ class _$_CountryChanged implements _CountryChanged {
     required TResult Function(TutorSortBy sortOption) sortOptionChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function(String tutorId) toggleFavourite,
   }) {
     return countryChanged(country);
   }
@@ -955,6 +992,7 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
   }) {
     return countryChanged?.call(country);
   }
@@ -971,6 +1009,7 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
     required TResult orElse(),
   }) {
     if (countryChanged != null) {
@@ -991,6 +1030,7 @@ class _$_CountryChanged implements _CountryChanged {
     required TResult Function(_SortOptionChanged value) sortOptionChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_ToggleFavourite value) toggleFavourite,
   }) {
     return countryChanged(this);
   }
@@ -1007,6 +1047,7 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
   }) {
     return countryChanged?.call(this);
   }
@@ -1023,6 +1064,7 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
     required TResult orElse(),
   }) {
     if (countryChanged != null) {
@@ -1118,6 +1160,7 @@ class _$_SpecialitiesChanged implements _SpecialitiesChanged {
     required TResult Function(TutorSortBy sortOption) sortOptionChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function(String tutorId) toggleFavourite,
   }) {
     return specialitiesChanged(specialities);
   }
@@ -1134,6 +1177,7 @@ class _$_SpecialitiesChanged implements _SpecialitiesChanged {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
   }) {
     return specialitiesChanged?.call(specialities);
   }
@@ -1150,6 +1194,7 @@ class _$_SpecialitiesChanged implements _SpecialitiesChanged {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
     required TResult orElse(),
   }) {
     if (specialitiesChanged != null) {
@@ -1170,6 +1215,7 @@ class _$_SpecialitiesChanged implements _SpecialitiesChanged {
     required TResult Function(_SortOptionChanged value) sortOptionChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_ToggleFavourite value) toggleFavourite,
   }) {
     return specialitiesChanged(this);
   }
@@ -1186,6 +1232,7 @@ class _$_SpecialitiesChanged implements _SpecialitiesChanged {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
   }) {
     return specialitiesChanged?.call(this);
   }
@@ -1202,6 +1249,7 @@ class _$_SpecialitiesChanged implements _SpecialitiesChanged {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
     required TResult orElse(),
   }) {
     if (specialitiesChanged != null) {
@@ -1297,6 +1345,7 @@ class _$_SortOptionChanged implements _SortOptionChanged {
     required TResult Function(TutorSortBy sortOption) sortOptionChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function(String tutorId) toggleFavourite,
   }) {
     return sortOptionChanged(sortOption);
   }
@@ -1313,6 +1362,7 @@ class _$_SortOptionChanged implements _SortOptionChanged {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
   }) {
     return sortOptionChanged?.call(sortOption);
   }
@@ -1329,6 +1379,7 @@ class _$_SortOptionChanged implements _SortOptionChanged {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
     required TResult orElse(),
   }) {
     if (sortOptionChanged != null) {
@@ -1349,6 +1400,7 @@ class _$_SortOptionChanged implements _SortOptionChanged {
     required TResult Function(_SortOptionChanged value) sortOptionChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_ToggleFavourite value) toggleFavourite,
   }) {
     return sortOptionChanged(this);
   }
@@ -1365,6 +1417,7 @@ class _$_SortOptionChanged implements _SortOptionChanged {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
   }) {
     return sortOptionChanged?.call(this);
   }
@@ -1381,6 +1434,7 @@ class _$_SortOptionChanged implements _SortOptionChanged {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
     required TResult orElse(),
   }) {
     if (sortOptionChanged != null) {
@@ -1451,6 +1505,7 @@ class _$_SearchOptionCleared implements _SearchOptionCleared {
     required TResult Function(TutorSortBy sortOption) sortOptionChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function(String tutorId) toggleFavourite,
   }) {
     return searchOptionCleared();
   }
@@ -1467,6 +1522,7 @@ class _$_SearchOptionCleared implements _SearchOptionCleared {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
   }) {
     return searchOptionCleared?.call();
   }
@@ -1483,6 +1539,7 @@ class _$_SearchOptionCleared implements _SearchOptionCleared {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
     required TResult orElse(),
   }) {
     if (searchOptionCleared != null) {
@@ -1503,6 +1560,7 @@ class _$_SearchOptionCleared implements _SearchOptionCleared {
     required TResult Function(_SortOptionChanged value) sortOptionChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_ToggleFavourite value) toggleFavourite,
   }) {
     return searchOptionCleared(this);
   }
@@ -1519,6 +1577,7 @@ class _$_SearchOptionCleared implements _SearchOptionCleared {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
   }) {
     return searchOptionCleared?.call(this);
   }
@@ -1535,6 +1594,7 @@ class _$_SearchOptionCleared implements _SearchOptionCleared {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
     required TResult orElse(),
   }) {
     if (searchOptionCleared != null) {
@@ -1598,6 +1658,7 @@ class _$_Submitted implements _Submitted {
     required TResult Function(TutorSortBy sortOption) sortOptionChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function(String tutorId) toggleFavourite,
   }) {
     return submitted();
   }
@@ -1614,6 +1675,7 @@ class _$_Submitted implements _Submitted {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
   }) {
     return submitted?.call();
   }
@@ -1630,6 +1692,7 @@ class _$_Submitted implements _Submitted {
     TResult Function(TutorSortBy sortOption)? sortOptionChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
     required TResult orElse(),
   }) {
     if (submitted != null) {
@@ -1650,6 +1713,7 @@ class _$_Submitted implements _Submitted {
     required TResult Function(_SortOptionChanged value) sortOptionChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_ToggleFavourite value) toggleFavourite,
   }) {
     return submitted(this);
   }
@@ -1666,6 +1730,7 @@ class _$_Submitted implements _Submitted {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
   }) {
     return submitted?.call(this);
   }
@@ -1682,6 +1747,7 @@ class _$_Submitted implements _Submitted {
     TResult Function(_SortOptionChanged value)? sortOptionChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
     required TResult orElse(),
   }) {
     if (submitted != null) {
@@ -1693,6 +1759,189 @@ class _$_Submitted implements _Submitted {
 
 abstract class _Submitted implements SearchTutorsEvent {
   const factory _Submitted() = _$_Submitted;
+}
+
+/// @nodoc
+abstract class _$ToggleFavouriteCopyWith<$Res> {
+  factory _$ToggleFavouriteCopyWith(
+          _ToggleFavourite value, $Res Function(_ToggleFavourite) then) =
+      __$ToggleFavouriteCopyWithImpl<$Res>;
+  $Res call({String tutorId});
+}
+
+/// @nodoc
+class __$ToggleFavouriteCopyWithImpl<$Res>
+    extends _$SearchTutorsEventCopyWithImpl<$Res>
+    implements _$ToggleFavouriteCopyWith<$Res> {
+  __$ToggleFavouriteCopyWithImpl(
+      _ToggleFavourite _value, $Res Function(_ToggleFavourite) _then)
+      : super(_value, (v) => _then(v as _ToggleFavourite));
+
+  @override
+  _ToggleFavourite get _value => super._value as _ToggleFavourite;
+
+  @override
+  $Res call({
+    Object? tutorId = freezed,
+  }) {
+    return _then(_ToggleFavourite(
+      tutorId == freezed
+          ? _value.tutorId
+          : tutorId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ToggleFavourite implements _ToggleFavourite {
+  const _$_ToggleFavourite(this.tutorId);
+
+  @override
+  final String tutorId;
+
+  @override
+  String toString() {
+    return 'SearchTutorsEvent.toggleFavourite(tutorId: $tutorId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ToggleFavourite &&
+            const DeepCollectionEquality().equals(other.tutorId, tutorId));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(tutorId));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ToggleFavouriteCopyWith<_ToggleFavourite> get copyWith =>
+      __$ToggleFavouriteCopyWithImpl<_ToggleFavourite>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialise,
+    required TResult Function(String keyword) keywordChanged,
+    required TResult Function(int page) pageChanged,
+    required TResult Function(int page) pageLimitChanged,
+    required TResult Function(Country? country) countryChanged,
+    required TResult Function(List<Speciality> specialities)
+        specialitiesChanged,
+    required TResult Function(TutorSortBy sortOption) sortOptionChanged,
+    required TResult Function() searchOptionCleared,
+    required TResult Function() submitted,
+    required TResult Function(String tutorId) toggleFavourite,
+  }) {
+    return toggleFavourite(tutorId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function(String keyword)? keywordChanged,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int page)? pageLimitChanged,
+    TResult Function(Country? country)? countryChanged,
+    TResult Function(List<Speciality> specialities)? specialitiesChanged,
+    TResult Function(TutorSortBy sortOption)? sortOptionChanged,
+    TResult Function()? searchOptionCleared,
+    TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
+  }) {
+    return toggleFavourite?.call(tutorId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function(String keyword)? keywordChanged,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int page)? pageLimitChanged,
+    TResult Function(Country? country)? countryChanged,
+    TResult Function(List<Speciality> specialities)? specialitiesChanged,
+    TResult Function(TutorSortBy sortOption)? sortOptionChanged,
+    TResult Function()? searchOptionCleared,
+    TResult Function()? submitted,
+    TResult Function(String tutorId)? toggleFavourite,
+    required TResult orElse(),
+  }) {
+    if (toggleFavourite != null) {
+      return toggleFavourite(tutorId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialise value) initialise,
+    required TResult Function(_KeywordChanged value) keywordChanged,
+    required TResult Function(_PageChanged value) pageChanged,
+    required TResult Function(_PageLimitChanged value) pageLimitChanged,
+    required TResult Function(_CountryChanged value) countryChanged,
+    required TResult Function(_SpecialitiesChanged value) specialitiesChanged,
+    required TResult Function(_SortOptionChanged value) sortOptionChanged,
+    required TResult Function(_SearchOptionCleared value) searchOptionCleared,
+    required TResult Function(_Submitted value) submitted,
+    required TResult Function(_ToggleFavourite value) toggleFavourite,
+  }) {
+    return toggleFavourite(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_KeywordChanged value)? keywordChanged,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_CountryChanged value)? countryChanged,
+    TResult Function(_SpecialitiesChanged value)? specialitiesChanged,
+    TResult Function(_SortOptionChanged value)? sortOptionChanged,
+    TResult Function(_SearchOptionCleared value)? searchOptionCleared,
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
+  }) {
+    return toggleFavourite?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_KeywordChanged value)? keywordChanged,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_CountryChanged value)? countryChanged,
+    TResult Function(_SpecialitiesChanged value)? specialitiesChanged,
+    TResult Function(_SortOptionChanged value)? sortOptionChanged,
+    TResult Function(_SearchOptionCleared value)? searchOptionCleared,
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_ToggleFavourite value)? toggleFavourite,
+    required TResult orElse(),
+  }) {
+    if (toggleFavourite != null) {
+      return toggleFavourite(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ToggleFavourite implements SearchTutorsEvent {
+  const factory _ToggleFavourite(String tutorId) = _$_ToggleFavourite;
+
+  String get tutorId;
+  @JsonKey(ignore: true)
+  _$ToggleFavouriteCopyWith<_ToggleFavourite> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1938,7 +2187,7 @@ class __$SearchTutorsStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SearchTutorsState implements _SearchTutorsState {
+class _$_SearchTutorsState extends _SearchTutorsState {
   const _$_SearchTutorsState(
       {this.isLoading = false,
       this.isInitial = true,
@@ -1949,7 +2198,8 @@ class _$_SearchTutorsState implements _SearchTutorsState {
       this.specialities = const [],
       this.sortOption = TutorSortBy.defaultSort,
       this.result = const Right([]),
-      this.allSpecialities = const []});
+      this.allSpecialities = const []})
+      : super._();
 
   @JsonKey()
   @override
@@ -2027,7 +2277,7 @@ class _$_SearchTutorsState implements _SearchTutorsState {
       __$SearchTutorsStateCopyWithImpl<_SearchTutorsState>(this, _$identity);
 }
 
-abstract class _SearchTutorsState implements SearchTutorsState {
+abstract class _SearchTutorsState extends SearchTutorsState {
   const factory _SearchTutorsState(
       {bool isLoading,
       bool isInitial,
@@ -2039,6 +2289,7 @@ abstract class _SearchTutorsState implements SearchTutorsState {
       TutorSortBy sortOption,
       Either<Failure, List<Tutor>> result,
       List<Speciality> allSpecialities}) = _$_SearchTutorsState;
+  const _SearchTutorsState._() : super._();
 
   @override
   bool get isLoading;

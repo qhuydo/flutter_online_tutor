@@ -74,6 +74,13 @@ class TutorFilterDialog extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () {
+                bloc.add(const SearchTutorsEvent.searchOptionCleared());
+                context.router.pop();
+              },
+              child: const Text('Clear'),
+            ),
+            TextButton(
+              onPressed: () {
                 bloc.add(const SearchTutorsEvent.submitted());
                 context.router.pop();
               },

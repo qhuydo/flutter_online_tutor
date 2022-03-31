@@ -1,19 +1,17 @@
 import '../../../common.dart';
 
-class SpecialityChip extends StatefulWidget {
+class SpecialityChip extends StatelessWidget {
   final String label;
+  final bool isSelected;
+  final ValueChanged<bool>? onSelected;
 
   const SpecialityChip({
     Key? key,
     this.label = '',
+    this.isSelected = false,
+    this.onSelected,
   }) : super(key: key);
 
-  @override
-  State<SpecialityChip> createState() => _SpecialityChipState();
-}
-
-class _SpecialityChipState extends State<SpecialityChip> {
-  bool _isSelected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +20,9 @@ class _SpecialityChipState extends State<SpecialityChip> {
         borderRadius: BorderRadius.circular(8),
         side: Theme.of(context).inputDecorationTheme.enabledBorder!.borderSide,
       ),
-      label: Text(widget.label),
-      onSelected: (value) {
-        setState(() {
-          _isSelected = value;
-        });
-      },
-      selected: _isSelected,
+      label: Text(label),
+      onSelected: onSelected,
+      selected: isSelected,
     );
   }
 }

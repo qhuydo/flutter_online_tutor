@@ -11,7 +11,7 @@ class TopicList extends StatelessWidget {
   const TopicList({Key? key,}) : super(key: key);
 
   Widget buildListAtLinuxPlatform(BuildContext context) {
-    final topics = context.read<Tutor>().specialities;
+    final topics = context.watch<Tutor>().specialities;
     return Wrap(
       spacing: 8,
       runSpacing: 4,
@@ -23,7 +23,7 @@ class TopicList extends StatelessWidget {
   }
 
   Widget buildList(BuildContext context) {
-    final topics = context.read<Tutor>().specialities;
+    final topics = context.watch<Tutor>().specialities;
 
     return Container(
       height: 36,

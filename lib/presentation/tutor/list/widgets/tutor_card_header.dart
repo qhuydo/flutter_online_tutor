@@ -12,7 +12,7 @@ class TutorCardHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tutor = context.read<Tutor>();
+    final tutor = context.watch<Tutor>();
     return Row(
       // crossAxisAlignment: CrossAxisAlignment.start,
       children: [

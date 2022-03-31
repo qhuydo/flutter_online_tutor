@@ -35,6 +35,7 @@ class SearchTutorsBloc extends Bloc<SearchTutorsEvent, SearchTutorsState> {
         sortOptionChanged: (value) => _sortOptionChanged(value, emit),
         searchOptionCleared: () => _searchOptionCleared(emit),
         submitted: () => _submitted(emit),
+        toggleFavourite: (tutorId) => _toggleFavourite(tutorId, emit),
       );
     });
   }
@@ -147,4 +148,9 @@ class SearchTutorsBloc extends Bloc<SearchTutorsEvent, SearchTutorsState> {
       result: result,
     ));
   }
+
+  Future _toggleFavourite(
+    String tutorId,
+    Emitter<SearchTutorsState> emit,
+  ) => _repository.toggleFavourite(tutorId);
 }
