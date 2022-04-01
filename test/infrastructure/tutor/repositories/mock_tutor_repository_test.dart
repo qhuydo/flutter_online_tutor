@@ -69,7 +69,7 @@ main() {
   group('get tutor details', () {
     test('should get tutor', () async {
       // arrange
-      const tutorId = '45f8709e-2e84-46f2-b238-817a85cc2b29';
+      const tutorId = '4d54d3d7-d2a9-42e5-97a2-5ed38af5789a';
 
       // act
       final result = await repository.getTutorById(tutorId);

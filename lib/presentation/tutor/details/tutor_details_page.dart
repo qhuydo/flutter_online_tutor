@@ -32,10 +32,12 @@ class TutorDetailsPage extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: BlocProvider(
-                create: (context) => getIt<TutorDetailsBloc>()..add(
+              create: (context) => getIt<TutorDetailsBloc>()
+                ..add(
                   TutorDetailsEvent.initialise(tutorId),
                 ),
-                child: const _TutorDetailsPage()),
+              child: const _TutorDetailsPage(),
+            ),
           ),
         ],
       ),
