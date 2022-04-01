@@ -1,60 +1,56 @@
 import 'package:flutter/material.dart';
 
+import '../../../../domain/schedule/models/schedule.dart';
 import '../../../common.dart';
-import '../event.dart';
+import '../utils/schedule_extension.dart';
 import 'book_dialog.dart';
 
 // TODO Update translation
 class ScheduleRow extends StatelessWidget {
-  final ScheduleEvent event;
-  final DateTime date;
+  final Schedule schedule;
 
   const ScheduleRow({
     Key? key,
-    required this.event,
-    required this.date,
+    required this.schedule,
   }) : super(key: key);
 
   Widget buildTrailingWidget(BuildContext context) {
-    switch (event.status) {
-      case ScheduleStatus.booked:
-        return TextButton(
-          child: Text(
-            'Booked',
-            style: Theme.of(context).textTheme.button?.copyWith(
-                  fontStyle: FontStyle.italic,
-                ),
-          ),
-          onPressed: null,
-        );
-      case ScheduleStatus.reserved:
-        return TextButton(
-          child: Text(
-            'Reserved',
-            style: Theme.of(context).textTheme.button?.copyWith(
-                  fontStyle: FontStyle.italic,
-                ),
-          ),
-          onPressed: null,
-        );
-      case ScheduleStatus.empty:
-        return TextButton(
-          child: const Text(
-            'Book',
-          ),
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return BookDialog(
-                  event: event,
-                  date: date
-                );
-              }
-            );
-          },
-        );
+    if (schedule.isBooked) {
+      return TextButton(
+        child: Text(
+          'Booked',
+          style: Theme.of(context).textTheme.button?.copyWith(
+                fontStyle: FontStyle.italic,
+              ),
+        ),
+        onPressed: null,
+      );
     }
+    if (schedule.isReserved) {
+      return TextButton(
+        child: Text(
+          'Reserved',
+          style: Theme.of(context).textTheme.button?.copyWith(
+                fontStyle: FontStyle.italic,
+              ),
+        ),
+        onPressed: null,
+      );
+    }
+    return TextButton(
+      child: const Text(
+        'Book',
+      ),
+      onPressed: () {
+        showDialog(
+            context: context,
+            builder: (context) {
+              return BookDialog(
+                schedule: schedule,
+              );
+            });
+      },
+    );
   }
 
   @override
@@ -70,7 +66,7 @@ class ScheduleRow extends StatelessWidget {
       ),
       child: ListTile(
         onTap: () {},
-        title: Text(event.title),
+        title: Text(schedule.getMeetingTime(context)),
         trailing: buildTrailingWidget(context),
       ),
     );

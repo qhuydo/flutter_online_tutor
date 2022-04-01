@@ -1,18 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../domain/schedule/models/schedule.dart';
 import '../../../common.dart';
-import '../event.dart';
+import '../utils/schedule_extension.dart';
 
 // TODO Update translation
 class BookDialog extends StatelessWidget {
-  final ScheduleEvent event;
-  final DateTime date;
+  final Schedule schedule;
 
   const BookDialog({
     Key? key,
-    required this.event,
-    required this.date,
+    required this.schedule,
   }) : super(key: key);
 
   @override
@@ -21,7 +20,7 @@ class BookDialog extends StatelessWidget {
     final formatter = DateFormat.yMMMMd(
       Localizations.localeOf(context).languageCode,
     );
-    final String formattedDate = formatter.format(date);
+    final String formattedDate = formatter.format(schedule.meetingTime.start);
 
     return AlertDialog(
       title: const Text('Booking details'),
@@ -34,7 +33,9 @@ class BookDialog extends StatelessWidget {
             children: [
               ListTile(
                 title: const Text('Date'),
-                trailing: Text('$formattedDate ${event.title}'),
+                trailing: Text(
+                  '$formattedDate ${schedule.getMeetingTime(context)}',
+                ),
               ),
               const ListTile(
                 title: Text('Balance'),
@@ -69,15 +70,17 @@ class BookDialog extends StatelessWidget {
       ),
       actions: [
         OutlinedButton(
-            onPressed: () {
-              context.router.pop();
-            },
-            child: const Text('Cancel')),
+          onPressed: () {
+            context.router.pop();
+          },
+          child: const Text('Cancel'),
+        ),
         ElevatedButton(
-            onPressed: () {
-              context.router.pop();
-            },
-            child: const Text('Book')),
+          onPressed: () {
+            context.router.pop();
+          },
+          child: const Text('Book'),
+        ),
       ],
     );
   }

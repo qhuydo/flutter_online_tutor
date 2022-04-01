@@ -45,9 +45,8 @@ class MockScheduleRepository extends ScheduleRepository {
       }
 
       final res = await FixtureLoader.tutorSchedule(tutorId);
-      final tutorScheduleDto =
-          (res['scheduleOfTutor'] as List)
-              .map((e) => TutorScheduleDto.fromJson(e));
+      final tutorScheduleDto = (res['scheduleOfTutor'] as List)
+          .map((e) => TutorScheduleDto.fromJson(e));
 
       final schedule = [
         for (final dto in tutorScheduleDto)
@@ -58,11 +57,9 @@ class MockScheduleRepository extends ScheduleRepository {
               meetingTime: DateTimeRange(
                 start: DateTime.fromMillisecondsSinceEpoch(
                   details.startPeriodTimestamp,
-                  isUtc: true,
                 ),
                 end: DateTime.fromMillisecondsSinceEpoch(
                   details.endPeriodTimestamp,
-                  isUtc: true,
                 ),
               ),
               isBooked: details.isBooked,

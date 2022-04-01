@@ -746,7 +746,7 @@ class __$TutorSchedulePageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TutorSchedulePage implements _TutorSchedulePage {
+class _$_TutorSchedulePage extends _TutorSchedulePage {
   const _$_TutorSchedulePage(
       {this.tutorId,
       this.isLoading = false,
@@ -755,7 +755,8 @@ class _$_TutorSchedulePage implements _TutorSchedulePage {
       this.selectedDay,
       required this.firstDay,
       required this.lastDay,
-      this.scheduleOrFailure = const Right({})});
+      this.scheduleOrFailure = const Right({})})
+      : super._();
 
   @override
   final String? tutorId;
@@ -817,7 +818,7 @@ class _$_TutorSchedulePage implements _TutorSchedulePage {
       __$TutorSchedulePageCopyWithImpl<_TutorSchedulePage>(this, _$identity);
 }
 
-abstract class _TutorSchedulePage implements TutorScheduleState {
+abstract class _TutorSchedulePage extends TutorScheduleState {
   const factory _TutorSchedulePage(
           {String? tutorId,
           bool isLoading,
@@ -828,6 +829,7 @@ abstract class _TutorSchedulePage implements TutorScheduleState {
           required DateTime lastDay,
           Either<Failure, Map<DateTime, List<Schedule>>> scheduleOrFailure}) =
       _$_TutorSchedulePage;
+  const _TutorSchedulePage._() : super._();
 
   @override
   String? get tutorId;

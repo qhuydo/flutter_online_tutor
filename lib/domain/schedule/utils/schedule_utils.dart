@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 import '../../../presentation/common.dart';
 
 class ScheduleUtils {
@@ -28,6 +30,7 @@ class ScheduleUtils {
       ),
     );
   }
+
   static DateTimeRange dateTimeRangeInThreeMonths(DateTime selectedDate) {
     final month = selectedDate.month;
     final year = selectedDate.year;
@@ -45,5 +48,21 @@ class ScheduleUtils {
       ),
     );
   }
+}
 
+extension DateTimeX on DateTime {
+  bool isSameDate(DateTime other) {
+    return year == other.year && month == other.month && day == other.day;
+  }
+
+  DateTime keepDayInfo() {
+    return DateTime(year, month, day);
+  }
+
+  String getFormattedDueDateWithTime() {
+    return '${DateFormat.yMMMd().format(this)}'
+        ' ${DateFormat.jm().format(this)}';
+  }
+
+  String getFormattedDueDate() => DateFormat.yMMMd().format(this);
 }

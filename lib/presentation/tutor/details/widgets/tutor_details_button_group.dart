@@ -34,6 +34,11 @@ class TutorDetailsButtonGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final tutorId = context
+        .read<TutorDetailsBloc>()
+        .state
+        .tutorOrFailure
+        .fold((l) => null, (r) => r.id) ?? '';
     return Column(
       children: [
         ConstrainedBox(
@@ -69,7 +74,8 @@ class TutorDetailsButtonGroup extends StatelessWidget {
                 title: context.l10n.chatButtonText,
                 icon: Icons.message_outlined,
                 onPressed: () {
-                  context.router.push(MessageDetailsRoute(tutorId: ''));
+                  context.router
+                      .push(MessageDetailsRoute(tutorId: tutorId));
                 },
               ),
               buildButton(
@@ -77,7 +83,7 @@ class TutorDetailsButtonGroup extends StatelessWidget {
                 title: context.l10n.viewReviewButtonText,
                 icon: Icons.star_outline,
                 onPressed: () {
-                  context.router.push(TutorReviewRoute(tutorId: ''));
+                  context.router.push(TutorReviewRoute(tutorId: tutorId));
                 },
               ),
               buildButton(
@@ -96,7 +102,7 @@ class TutorDetailsButtonGroup extends StatelessWidget {
           child: ElevatedButton.icon(
             onPressed: () {
               context.router.push(
-                TutorScheduleRoute(tutorId: ''),
+                TutorScheduleRoute(tutorId: tutorId),
               );
             },
             icon: const Icon(Icons.calendar_today),
