@@ -1,36 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:twemoji/twemoji.dart';
 
-import '../../../common/utils/string_utils.dart';
+import '../../../../domain/tutor/models/language.dart';
 
 class LanguageList extends StatelessWidget {
-  const LanguageList({Key? key}) : super(key: key);
+  final List<Language> languages;
+
+  const LanguageList({
+    Key? key,
+    required this.languages,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Wrap(
       spacing: 8,
       children: [
-        Chip(
-          label: Wrap(
-            crossAxisAlignment: WrapCrossAlignment.center,
-            spacing: 4,
-            children: [
-              Twemoji(emoji: 'VN'.toCountryFlagFromCountryCode()),
-              const Text('Vietnamese'),
-            ],
+        for (final language in languages)
+          Chip(
+            label: Text('${language.name} (${language.native})'),
           ),
-        ),
-        Chip(
-          label: Wrap(
-            crossAxisAlignment: WrapCrossAlignment.center,
-            spacing: 4,
-            children: [
-              Twemoji(emoji: 'UA'.toCountryFlagFromCountryCode()),
-              const Text('Ukrainian'),
-            ],
-          ),
-        ),
       ],
     );
   }

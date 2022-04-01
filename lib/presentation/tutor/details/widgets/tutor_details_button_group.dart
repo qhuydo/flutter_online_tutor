@@ -1,16 +1,13 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../application/tutor/tutor_details/tutor_details_bloc.dart';
 import '../../../common.dart';
 import '../../../common/routes/app_routes.gr.dart';
 import 'report_dialog.dart';
 
 class TutorDetailsButtonGroup extends StatelessWidget {
-  final String tutorId;
-
-  const TutorDetailsButtonGroup({
-    Key? key,
-    required this.tutorId,
-  }) : super(key: key);
+  const TutorDetailsButtonGroup({Key? key}) : super(key: key);
 
   Widget buildButton(
     BuildContext context, {
@@ -51,13 +48,25 @@ class TutorDetailsButtonGroup extends StatelessWidget {
             children: [
               buildButton(
                 context,
-                title: AppLocalizations.of(context)!.favouriteButtonIconText,
-                icon: Icons.favorite_border_outlined,
-                onPressed: () {},
+                title: context.l10n.favouriteButtonIconText,
+                icon: context
+                            .watch<TutorDetailsBloc>()
+                            .state
+                            .tutorOrFailure
+                            .fold((l) => null, (r) => r)
+                            ?.isFavourite ==
+                        true
+                    ? Icons.favorite
+                    : Icons.favorite_border_outlined,
+                onPressed: () {
+                  context.read<TutorDetailsBloc>().add(
+                        const TutorDetailsEvent.toggleFavourite(),
+                      );
+                },
               ),
               buildButton(
                 context,
-                title: AppLocalizations.of(context)!.chatButtonText,
+                title: context.l10n.chatButtonText,
                 icon: Icons.message_outlined,
                 onPressed: () {
                   context.router.push(MessageDetailsRoute(tutorId: ''));
@@ -65,15 +74,15 @@ class TutorDetailsButtonGroup extends StatelessWidget {
               ),
               buildButton(
                 context,
-                title: AppLocalizations.of(context)!.viewReviewButtonText,
+                title: context.l10n.viewReviewButtonText,
                 icon: Icons.star_outline,
                 onPressed: () {
-                  context.router.push(TutorReviewRoute(tutorId: tutorId));
+                  context.router.push(TutorReviewRoute(tutorId: ''));
                 },
               ),
               buildButton(
                 context,
-                title: AppLocalizations.of(context)!.reportIconButtonText,
+                title: context.l10n.reportIconButtonText,
                 icon: Icons.report_gmailerrorred,
                 onPressed: () {
                   ReportDialog.showReportDialog(context);
@@ -91,9 +100,7 @@ class TutorDetailsButtonGroup extends StatelessWidget {
               );
             },
             icon: const Icon(Icons.calendar_today),
-            label: Text(
-              AppLocalizations.of(context)!.bookButtonText,
-            ),
+            label: Text(context.l10n.bookButtonText),
             style: ElevatedButton.styleFrom(
               minimumSize: const Size(600, 44),
             ),

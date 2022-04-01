@@ -9,7 +9,7 @@ import 'package:hive/hive.dart' as _i5;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:shared_preferences/shared_preferences.dart' as _i7;
 
-import '../application/authentication/authentication_bloc.dart' as _i24;
+import '../application/authentication/authentication_bloc.dart' as _i25;
 import '../application/authentication/change_password/change_password_bloc.dart'
     as _i17;
 import '../application/authentication/login/login_bloc.dart' as _i18;
@@ -20,6 +20,7 @@ import '../application/common/app/app_cubit.dart' as _i14;
 import '../application/tutor/recommended_tutors/recommended_tutors_bloc.dart'
     as _i20;
 import '../application/tutor/search_tutors/search_tutors_bloc.dart' as _i22;
+import '../application/tutor/tutor_details/tutor_details_bloc.dart' as _i24;
 import '../application/user/profile/profile_bloc.dart' as _i19;
 import '../domain/authentication/interfaces/i_authentication_service.dart'
     as _i15;
@@ -30,7 +31,7 @@ import '../infrastructure/authentication/repositories/mock_authentication_servic
     as _i16;
 import '../infrastructure/common/app/app_repository.dart' as _i4;
 import '../infrastructure/common/db/shared_preference_storage.dart' as _i6;
-import '../infrastructure/common/di/app_injectable_module.dart' as _i25;
+import '../infrastructure/common/di/app_injectable_module.dart' as _i26;
 import '../infrastructure/tutor/repository/mock_tutor_repository.dart' as _i11;
 import '../infrastructure/user/data_source/i_tutor_data_source.dart' as _i8;
 import '../infrastructure/user/data_source/local_tutor_data_source.dart' as _i9;
@@ -84,9 +85,11 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => _i22.SearchTutorsBloc(get<_i10.TutorRepository>()));
   gh.factory<_i23.SignUpBloc>(
       () => _i23.SignUpBloc(get<_i15.AuthenticationService>()));
-  gh.factory<_i24.AuthenticationBloc>(
-      () => _i24.AuthenticationBloc(get<_i15.AuthenticationService>()));
+  gh.factory<_i24.TutorDetailsBloc>(
+      () => _i24.TutorDetailsBloc(get<_i10.TutorRepository>()));
+  gh.factory<_i25.AuthenticationBloc>(
+      () => _i25.AuthenticationBloc(get<_i15.AuthenticationService>()));
   return get;
 }
 
-class _$AppInjectableModule extends _i25.AppInjectableModule {}
+class _$AppInjectableModule extends _i26.AppInjectableModule {}
