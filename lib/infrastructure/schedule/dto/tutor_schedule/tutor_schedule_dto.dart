@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../schedule_details/schedule_details_dto.dart';
+import 'schedule_details/schedule_details_dto.dart';
 
 part 'tutor_schedule_dto.freezed.dart';
 
