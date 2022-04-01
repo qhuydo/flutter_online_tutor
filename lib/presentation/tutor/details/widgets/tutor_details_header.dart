@@ -20,7 +20,7 @@ class TutorDetailsHeader extends StatelessWidget {
   Widget buildRatingBar(BuildContext context, Tutor tutor) {
     return InkWell(
       onTap: () {
-        context.router.push(TutorReviewRoute(tutorId: tutor.id));
+        context.router.push(TutorReviewRoute(tutorId: tutor.id, tutor: tutor));
       },
       child: Wrap(
         alignment: WrapAlignment.center,

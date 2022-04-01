@@ -41,7 +41,7 @@ class FirstInfo with _$FirstInfo {
   const factory FirstInfo({
     required String email,
     required String name,
-    required String avatar,
+    required String? avatar,
     // String? country,
     // String? phone,
     // String? language,

@@ -370,7 +370,7 @@ class _$FirstInfoTearOff {
   const _$FirstInfoTearOff();
 
   _FirstInfo call(
-      {required String email, required String name, required String avatar}) {
+      {required String email, required String name, required String? avatar}) {
     return _FirstInfo(
       email: email,
       name: name,
@@ -390,7 +390,7 @@ const $FirstInfo = _$FirstInfoTearOff();
 mixin _$FirstInfo {
   String get email => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get avatar => throw _privateConstructorUsedError;
+  String? get avatar => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -402,7 +402,7 @@ mixin _$FirstInfo {
 abstract class $FirstInfoCopyWith<$Res> {
   factory $FirstInfoCopyWith(FirstInfo value, $Res Function(FirstInfo) then) =
       _$FirstInfoCopyWithImpl<$Res>;
-  $Res call({String email, String name, String avatar});
+  $Res call({String email, String name, String? avatar});
 }
 
 /// @nodoc
@@ -431,7 +431,7 @@ class _$FirstInfoCopyWithImpl<$Res> implements $FirstInfoCopyWith<$Res> {
       avatar: avatar == freezed
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -442,7 +442,7 @@ abstract class _$FirstInfoCopyWith<$Res> implements $FirstInfoCopyWith<$Res> {
           _FirstInfo value, $Res Function(_FirstInfo) then) =
       __$FirstInfoCopyWithImpl<$Res>;
   @override
-  $Res call({String email, String name, String avatar});
+  $Res call({String email, String name, String? avatar});
 }
 
 /// @nodoc
@@ -472,7 +472,7 @@ class __$FirstInfoCopyWithImpl<$Res> extends _$FirstInfoCopyWithImpl<$Res>
       avatar: avatar == freezed
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -491,7 +491,7 @@ class _$_FirstInfo implements _FirstInfo {
   @override
   final String name;
   @override
-  final String avatar;
+  final String? avatar;
 
   @override
   String toString() {
@@ -530,7 +530,7 @@ abstract class _FirstInfo implements FirstInfo {
   const factory _FirstInfo(
       {required String email,
       required String name,
-      required String avatar}) = _$_FirstInfo;
+      required String? avatar}) = _$_FirstInfo;
 
   factory _FirstInfo.fromJson(Map<String, dynamic> json) =
       _$_FirstInfo.fromJson;
@@ -540,7 +540,7 @@ abstract class _FirstInfo implements FirstInfo {
   @override
   String get name;
   @override
-  String get avatar;
+  String? get avatar;
   @override
   @JsonKey(ignore: true)
   _$FirstInfoCopyWith<_FirstInfo> get copyWith =>

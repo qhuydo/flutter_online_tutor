@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../../../../application/schedule/tutor_schedule/tutor_schedule_bloc.dart';
+import '../../../../domain/schedule/models/schedule.dart';
 import '../../../../domain/schedule/utils/schedule_utils.dart';
 import '../../../common.dart';
 
@@ -17,12 +18,8 @@ class ScheduleCalendar extends StatelessWidget {
       builder: (context, state) {
         final eventMap = state.scheduleOrFailure.fold((l) {
           log('$l');
-          return null;
+          return <DateTime, List<Schedule>>{};
         }, (r) => r);
-
-        if (eventMap == null) {
-          return const SizedBox();
-        }
 
         final theme = Theme.of(context);
 

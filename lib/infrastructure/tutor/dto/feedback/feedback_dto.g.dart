@@ -34,7 +34,7 @@ Map<String, dynamic> _$$_FeedbackToJson(_$_Feedback instance) =>
 _$_FirstInfo _$$_FirstInfoFromJson(Map<String, dynamic> json) => _$_FirstInfo(
       email: json['email'] as String,
       name: json['name'] as String,
-      avatar: json['avatar'] as String,
+      avatar: json['avatar'] as String?,
     );
 
 Map<String, dynamic> _$$_FirstInfoToJson(_$_FirstInfo instance) =>

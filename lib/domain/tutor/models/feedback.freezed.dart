@@ -23,7 +23,7 @@ class _$FeedbackTearOff {
   const _$FeedbackTearOff();
 
   _Feedback call(
-      {required String avatar,
+      {required String? avatar,
       required DateTime createdAt,
       required String content,
       required String id,
@@ -51,7 +51,7 @@ const $Feedback = _$FeedbackTearOff();
 
 /// @nodoc
 mixin _$Feedback {
-  String get avatar => throw _privateConstructorUsedError;
+  String? get avatar => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
@@ -70,7 +70,7 @@ abstract class $FeedbackCopyWith<$Res> {
   factory $FeedbackCopyWith(Feedback value, $Res Function(Feedback) then) =
       _$FeedbackCopyWithImpl<$Res>;
   $Res call(
-      {String avatar,
+      {String? avatar,
       DateTime createdAt,
       String content,
       String id,
@@ -101,7 +101,7 @@ class _$FeedbackCopyWithImpl<$Res> implements $FeedbackCopyWith<$Res> {
       avatar: avatar == freezed
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -136,7 +136,7 @@ abstract class _$FeedbackCopyWith<$Res> implements $FeedbackCopyWith<$Res> {
       __$FeedbackCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String avatar,
+      {String? avatar,
       DateTime createdAt,
       String content,
       String id,
@@ -168,7 +168,7 @@ class __$FeedbackCopyWithImpl<$Res> extends _$FeedbackCopyWithImpl<$Res>
       avatar: avatar == freezed
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -214,7 +214,7 @@ class _$_Feedback extends _Feedback {
       _$$_FeedbackFromJson(json);
 
   @override
-  final String avatar;
+  final String? avatar;
   @override
   final DateTime createdAt;
   @override
@@ -271,7 +271,7 @@ class _$_Feedback extends _Feedback {
 
 abstract class _Feedback extends Feedback {
   const factory _Feedback(
-      {required String avatar,
+      {required String? avatar,
       required DateTime createdAt,
       required String content,
       required String id,
@@ -283,7 +283,7 @@ abstract class _Feedback extends Feedback {
   factory _Feedback.fromJson(Map<String, dynamic> json) = _$_Feedback.fromJson;
 
   @override
-  String get avatar;
+  String? get avatar;
   @override
   DateTime get createdAt;
   @override

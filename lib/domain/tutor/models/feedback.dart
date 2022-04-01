@@ -9,7 +9,7 @@ class Feedback with _$Feedback {
   const Feedback._();
 
   const factory Feedback({
-    required String avatar,
+    required String? avatar,
     required DateTime createdAt,
     required String content,
     required String id,

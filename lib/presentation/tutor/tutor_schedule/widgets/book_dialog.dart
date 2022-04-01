@@ -35,6 +35,7 @@ class BookDialog extends StatelessWidget {
                 title: const Text('Date'),
                 trailing: Text(
                   '$formattedDate ${schedule.getMeetingTime(context)}',
+                  maxLines: 4,
                 ),
               ),
               const ListTile(

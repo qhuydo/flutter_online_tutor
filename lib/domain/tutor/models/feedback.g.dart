@@ -7,7 +7,7 @@ part of 'feedback.dart';
 // **************************************************************************
 
 _$_Feedback _$$_FeedbackFromJson(Map<String, dynamic> json) => _$_Feedback(
-      avatar: json['avatar'] as String,
+      avatar: json['avatar'] as String?,
       createdAt: DateTime.parse(json['createdAt'] as String),
       content: json['content'] as String,
       id: json['id'] as String,

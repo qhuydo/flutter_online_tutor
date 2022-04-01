@@ -1,50 +1,44 @@
-import 'dart:math';
-
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:intl/intl.dart';
 
-import '../../../common/utils/constants.dart';
+import '../../../../domain/tutor/models/feedback.dart' as feedback;
 import '../../../common.dart';
+import '../../../common/utils/constants.dart';
 
 class ReviewList extends StatelessWidget {
-  const ReviewList({Key? key}) : super(key: key);
+  final List<feedback.Feedback> feedbackList;
+
+  const ReviewList({
+    Key? key,
+    required this.feedbackList,
+  }) : super(key: key);
+
+  String formatDate(BuildContext context, DateTime value) {
+    final locale = Localizations.localeOf(context).languageCode;
+
+    final dateFormatter = DateFormat.yMMMd(locale);
+    final timeFormatter = DateFormat.jm(locale);
+    return '${dateFormatter.format(value)} '
+        '${timeFormatter.format(value)}';
+  }
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
       padding: const EdgeInsets.symmetric(vertical: itemSpacing),
       itemBuilder: (context, index) {
-        // return ListTile(
-        //   leading: const CircleAvatar(
-        //     radius: 24,
-        //   ),
-        //   isThreeLine: true,
-        //   title: Text(
-        //     'Nguyen Van A',
-        //     style: Theme.of(context).textTheme.titleMedium,
-        //   ),
-        //   subtitle: RatingBarIndicator(
-        //     rating: Random().nextInt(5).toDouble(),
-        //     itemBuilder: (context, index) => const Icon(
-        //       Icons.star,
-        //       color: Colors.amber,
-        //     ),
-        //     itemCount: 5,
-        //     itemSize: 12,
-        //     direction: Axis.horizontal,
-        //   ),
-        // );
         return Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: itemSpacing,
           ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
-            // crossAxisAlignment: WrapCrossAlignment.start,
-            // direction: Axis.horizontal,
-            // spacing: itemSpacing,
             children: [
-              const CircleAvatar(
+              CircleAvatar(
                 radius: 24,
+                backgroundImage: feedbackList[index].avatar != null
+                    ? NetworkImage(feedbackList[index].avatar!)
+                    : null,
               ),
               const SizedBox(width: itemSpacing),
               Expanded(
@@ -52,24 +46,39 @@ class ReviewList extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Nguyen Van A',
+                      feedbackList[index].name,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
-                    RatingBarIndicator(
-                      rating: Random().nextInt(6).toDouble(),
-                      itemBuilder: (context, index) => const Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                      ),
-                      itemCount: 5,
-                      itemSize: 20,
-                      direction: Axis.horizontal,
+                    Row(
+                      children: [
+                        RatingBarIndicator(
+                          rating: feedbackList[index].rating.toDouble(),
+                          itemBuilder: (context, index) => const Icon(
+                            Icons.star,
+                            color: Colors.amber,
+                          ),
+                          itemCount: 5,
+                          itemSize: 20,
+                          direction: Axis.horizontal,
+                        ),
+                        const SizedBox(width: smallItemSpacing),
+                        Text(formatDate(
+                          context,
+                          feedbackList[index].updatedAt,
+                        )),
+                        if (feedbackList[index].isEdited) ...[
+                          const SizedBox(width: 4),
+                          Text(
+                            'Edited',
+                            style:
+                                Theme.of(context).textTheme.caption!.copyWith(
+                                      fontStyle: FontStyle.italic,
+                                    ),
+                          )
+                        ]
+                      ],
                     ),
-                    Text([
-                      AppLocalizations.of(context)!.loremIpsum,
-                      AppLocalizations.of(context)!.mediumLoremIpsum,
-                      AppLocalizations.of(context)!.shortLoremIpsum,
-                    ][Random().nextInt(3)]),
+                    Text(feedbackList[index].content),
                   ],
                 ),
               ),
@@ -78,7 +87,7 @@ class ReviewList extends StatelessWidget {
         );
       },
       separatorBuilder: (context, index) => const SizedBox(height: itemSpacing),
-      itemCount: 10,
+      itemCount: feedbackList.length,
     );
   }
 }
