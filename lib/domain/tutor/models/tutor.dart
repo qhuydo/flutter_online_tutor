@@ -34,4 +34,20 @@ class Tutor with _$Tutor {
   }) = _Tutor;
 
   factory Tutor.fromJson(Map<String, dynamic> json) => _$TutorFromJson(json);
+
+  factory Tutor.empty() => Tutor(
+        id: '',
+        bio: '',
+        country: Country.antarctica(),
+        education: '',
+        averageRating: 0,
+        interests: '',
+        isFavourite: false,
+        isOnline: false,
+        name: '',
+        price: 0,
+        profession: '',
+        targetStudent: Level.none,
+        video: '',
+      );
 }

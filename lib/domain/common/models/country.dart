@@ -23,4 +23,6 @@ class Country with _$Country {
 
   factory Country.fromIsoCodeOrAntarctica(String isoCode) =>
       countryMap[isoCode] ?? countryMap['AQ']!;
+
+  factory Country.antarctica() => countryMap['AQ']!;
 }
