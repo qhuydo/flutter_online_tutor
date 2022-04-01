@@ -30,7 +30,7 @@ class _$BookingInfoDtoTearOff {
       required String scheduleDetailId,
       required String tutorMeetingLink,
       required String studentMeetingLink,
-      required String studentRequest,
+      required String? studentRequest,
       required String? tutorReview,
       required DateTime createdAt,
       required DateTime updatedAt,
@@ -70,7 +70,7 @@ mixin _$BookingInfoDto {
   String get scheduleDetailId => throw _privateConstructorUsedError;
   String get tutorMeetingLink => throw _privateConstructorUsedError;
   String get studentMeetingLink => throw _privateConstructorUsedError;
-  String get studentRequest => throw _privateConstructorUsedError;
+  String? get studentRequest => throw _privateConstructorUsedError;
   String? get tutorReview =>
       throw _privateConstructorUsedError; // dynamic scoreByTutor,
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -97,7 +97,7 @@ abstract class $BookingInfoDtoCopyWith<$Res> {
       String scheduleDetailId,
       String tutorMeetingLink,
       String studentMeetingLink,
-      String studentRequest,
+      String? studentRequest,
       String? tutorReview,
       DateTime createdAt,
       DateTime updatedAt,
@@ -162,7 +162,7 @@ class _$BookingInfoDtoCopyWithImpl<$Res>
       studentRequest: studentRequest == freezed
           ? _value.studentRequest
           : studentRequest // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       tutorReview: tutorReview == freezed
           ? _value.tutorReview
           : tutorReview // ignore: cast_nullable_to_non_nullable
@@ -202,7 +202,7 @@ abstract class _$BookingInfoDtoCopyWith<$Res>
       String scheduleDetailId,
       String tutorMeetingLink,
       String studentMeetingLink,
-      String studentRequest,
+      String? studentRequest,
       String? tutorReview,
       DateTime createdAt,
       DateTime updatedAt,
@@ -269,7 +269,7 @@ class __$BookingInfoDtoCopyWithImpl<$Res>
       studentRequest: studentRequest == freezed
           ? _value.studentRequest
           : studentRequest // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       tutorReview: tutorReview == freezed
           ? _value.tutorReview
           : tutorReview // ignore: cast_nullable_to_non_nullable
@@ -330,7 +330,7 @@ class _$_BookingInfoDto implements _BookingInfoDto {
   @override
   final String studentMeetingLink;
   @override
-  final String studentRequest;
+  final String? studentRequest;
   @override
   final String? tutorReview;
   @override // dynamic scoreByTutor,
@@ -411,7 +411,7 @@ abstract class _BookingInfoDto implements BookingInfoDto {
       required String scheduleDetailId,
       required String tutorMeetingLink,
       required String studentMeetingLink,
-      required String studentRequest,
+      required String? studentRequest,
       required String? tutorReview,
       required DateTime createdAt,
       required DateTime updatedAt,
@@ -436,7 +436,7 @@ abstract class _BookingInfoDto implements BookingInfoDto {
   @override
   String get studentMeetingLink;
   @override
-  String get studentRequest;
+  String? get studentRequest;
   @override
   String? get tutorReview;
   @override // dynamic scoreByTutor,

@@ -52,6 +52,6 @@ class FixtureLoader {
       ) as List);
 
   static Future<Map<String, dynamic>> tutorSchedule(String tutorId) async =>
-      (await _loadJson('$_fixturePath/tutor/tutor_schedule/$tutorId')
+      (await _loadJson('$_fixturePath/tutor/tutor_schedule/$tutorId.json')
           as Map<String, dynamic>);
 }

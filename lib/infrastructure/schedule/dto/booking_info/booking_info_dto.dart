@@ -14,7 +14,7 @@ class BookingInfoDto with _$BookingInfoDto {
     required String scheduleDetailId,
     required String tutorMeetingLink,
     required String studentMeetingLink,
-    required String studentRequest,
+    required String? studentRequest,
     required String? tutorReview,
     // dynamic scoreByTutor,
     required DateTime createdAt,

@@ -15,7 +15,7 @@ _$_BookingInfoDto _$$_BookingInfoDtoFromJson(Map<String, dynamic> json) =>
       scheduleDetailId: json['scheduleDetailId'] as String,
       tutorMeetingLink: json['tutorMeetingLink'] as String,
       studentMeetingLink: json['studentMeetingLink'] as String,
-      studentRequest: json['studentRequest'] as String,
+      studentRequest: json['studentRequest'] as String?,
       tutorReview: json['tutorReview'] as String?,
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),
