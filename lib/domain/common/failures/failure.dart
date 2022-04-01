@@ -14,4 +14,7 @@ class Failure with _$Failure {
   const factory Failure.internalError() = _InternalError;
 
   const factory Failure.notFound() = _NotFound;
+
+  // What a Terrible Failure
+  const factory Failure.wtf(String? details) = _Wtf;
 }

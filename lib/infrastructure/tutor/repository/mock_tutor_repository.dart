@@ -13,6 +13,7 @@ import '../../../presentation/common.dart';
 import '../../common/db/fixture_loader.dart';
 import '../../user/data_source/i_tutor_data_source.dart';
 import '../../user/dto/speciality_dto.dart';
+import '../dto/tutor_details/tutor_details_dto.dart';
 import '../dto/tutor_list/tutor_list_item_dto.dart';
 
 @LazySingleton(as: TutorRepository)
@@ -127,6 +128,33 @@ class MockTutorRepository implements TutorRepository {
     _eventStreamController.add(TutorRepositoryEvent.tutorDataChanged(newValue));
 
     return right(unit);
+  }
+
+  @override
+  Future<Either<Failure, Tutor>> getTutorById(String tutorId) async {
+    final tutor = await _dataSource.getTutor(tutorId);
+    // TODO review the logic after adding course model
+    if (tutor == null) {
+      try {
+        final res = await FixtureLoader.tutorDetails(tutorId);
+        final tutorDetailsDto = TutorDetailsDto.fromJson(res);
+
+        final result = await _dataSource.saveTutorFromTutorDetailsDto(
+          await getSpecialities(),
+          tutorDetailsDto,
+        );
+        if (result == null) {
+          return left(
+            const Failure.wtf('Cannot save tutor details'),
+          );
+        }
+
+        return right(result);
+      } on FlutterError {
+        return left(const Failure.notFound());
+      }
+    }
+    return right(tutor);
   }
 }
 

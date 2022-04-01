@@ -55,6 +55,12 @@ class LocalTutorDataSource implements TutorDataSource {
   ) async {
     final tutor = tutorDetailsDto.toDomain(specialityMap: specialityMap);
 
+    if (_box.containsKey(tutor.id)) {
+      tutor.copyWith(
+        isOnline: decode(_box.get(tutor.id)!)?.isOnline,
+      );
+    }
+
     await _box.put(tutor.id, jsonEncode(tutor));
     return tutor;
   }

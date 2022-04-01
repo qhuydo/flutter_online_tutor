@@ -149,14 +149,15 @@ class _TutorPageState extends State<_TutorPage> {
                         tutor: resultList[index],
                         onFavouriteButtonPressed: () => bloc.add(
                           SearchTutorsEvent.toggleFavourite(
-                              resultList[index].id),
+                            resultList[index].id,
+                          ),
                         ),
                       );
                     },
                   )
-                : SizedBox(
+                : const SizedBox(
                     height: 400,
-                    child: const EmptyPage(
+                    child: EmptyPage(
                       text: 'Empty result',
                     ),
                   ),
