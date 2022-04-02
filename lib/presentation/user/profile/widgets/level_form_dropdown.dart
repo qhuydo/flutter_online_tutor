@@ -38,6 +38,7 @@ class LevelFormDropdown extends StatelessWidget {
   }
 }
 
+// TODO move to another file
 extension LevelX on Level {
   String toDisplayString(BuildContext context) {
     switch (this) {

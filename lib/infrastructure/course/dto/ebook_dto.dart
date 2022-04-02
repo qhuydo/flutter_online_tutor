@@ -29,5 +29,6 @@ extension EbookDtoX on EbookDto {
         description: description ?? '',
         level: level.toLevelFromLevelOrder(),
         fileUrl: fileUrl,
+        imageUrl: imageUrl,
       );
 }

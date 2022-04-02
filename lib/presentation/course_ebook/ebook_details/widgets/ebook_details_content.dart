@@ -1,8 +1,18 @@
-import '../../../common/utils/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '../../../../domain/course_ebook/models/ebook.dart';
 import '../../../common.dart';
+import '../../../common/utils/constants.dart';
+import '../../../common/utils/flushbar_utils.dart';
+import '../../../user/profile/widgets/level_form_dropdown.dart';
 
 class EbookDetailsContent extends StatelessWidget {
-  const EbookDetailsContent({Key? key}) : super(key: key);
+  final Ebook ebook;
+
+  const EbookDetailsContent({
+    Key? key,
+    required this.ebook,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,16 +20,24 @@ class EbookDetailsContent extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          AppLocalizations.of(context)!.shortLoremIpsum,
+          ebook.name,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
+                fontWeight: FontWeight.bold,
+              ),
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: smallItemSpacing),
         Center(
           child: ElevatedButton.icon(
-            onPressed: () {},
+            onPressed: () async {
+              if (await canLaunch(ebook.fileUrl)) {
+                await launch(ebook.fileUrl);
+              } else {
+                // TODO update translation
+                FlushBarUtils.createError(message: 'Cannot launch ebook')
+                    .show(context);
+              }
+            },
             icon: const Icon(
               Icons.open_in_new,
             ),
@@ -28,26 +46,21 @@ class EbookDetailsContent extends StatelessWidget {
         ),
         const SizedBox(height: smallItemSpacing),
         Text(
-          AppLocalizations.of(context)!.overviewTitleText,
+          context.l10n.overviewTitleText,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
+                fontWeight: FontWeight.bold,
+              ),
         ),
         const SizedBox(height: smallItemSpacing),
-        Text(
-          AppLocalizations.of(context)!.mediumLoremIpsum,
-          style: Theme.of(context).textTheme.caption,
-        ),
+        Text(ebook.description),
         const SizedBox(height: smallItemSpacing),
         Text(
-          AppLocalizations.of(context)!.experienceLevelTitle,
+          context.l10n.experienceLevelTitle,
           style: Theme.of(context).textTheme.subtitle1?.copyWith(
-            color: Theme.of(context).textTheme.caption?.color,
-          ),
+                color: Theme.of(context).textTheme.caption?.color,
+              ),
         ),
-        Text(
-          AppLocalizations.of(context)!.courseLevelAny,
-        ),
+        Text(ebook.level.toDisplayString(context)),
       ],
     );
   }

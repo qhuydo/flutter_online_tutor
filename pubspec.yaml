@@ -127,6 +127,10 @@ dependencies:
   # (c) Apache-2.0 License.
   rxdart: ^0.27.3
 
+  # A Flutter plugin for launching a URL.
+  # (c) BSD 3-Clause License. By The Flutter Authors.
+  url_launcher: ^6.0.20
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

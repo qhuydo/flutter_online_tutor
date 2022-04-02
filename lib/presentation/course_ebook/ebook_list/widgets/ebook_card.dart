@@ -1,46 +1,38 @@
 import 'package:auto_route/auto_route.dart';
 
+import '../../../../domain/course_ebook/models/ebook.dart';
 import '../../../common.dart';
 import '../../../common/routes/app_routes.gr.dart';
 
 class EbookCard extends StatelessWidget {
-  final String thumbnail;
+  final Ebook ebook;
 
   const EbookCard({
     Key? key,
-    required this.thumbnail,
+    required this.ebook,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: InkWell(
-        onTap: () {
-          context.router.push(EbookDetailsRoute(
-            ebookId: '',
-            thumbnail: thumbnail,
-          ));
-        },
+        onTap: () => context.router.push(EbookDetailsRoute(
+          ebookId: ebook.id,
+          thumbnail: '',
+        )),
         child: Column(
           children: [
-            // Container(
-            //   height: [200.0, 100.0, 300.0][Random().nextInt(2)],
-            //   color: Colors.blue,
-            // ),
-            Image.asset(
-              thumbnail,
+            Image.network(
+              ebook.imageUrl ?? '',
               fit: BoxFit.fitWidth,
-              // height: double.infinity,
-              // width: double.infinity,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
                   Text(
-                    // generateWordPairs().first.join(' '),
-                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                    maxLines: 2,
+                    ebook.name,
+                    maxLines: 3,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
@@ -48,7 +40,7 @@ class EbookCard extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   Text(
-                    AppLocalizations.of(context)!.loremIpsum,
+                    ebook.description,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 4,
                   ),
