@@ -27,8 +27,8 @@ class _$TopicDtoTearOff {
       required String courseId,
       required int orderCourse,
       required String name,
-      required String nameFile,
-      required String description,
+      String? nameFile,
+      String? description,
       String? videoUrl,
       required String createdAt,
       required String updatedAt}) {
@@ -59,8 +59,8 @@ mixin _$TopicDto {
   String get courseId => throw _privateConstructorUsedError;
   int get orderCourse => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get nameFile => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
+  String? get nameFile => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   String? get videoUrl => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
   String get updatedAt => throw _privateConstructorUsedError;
@@ -80,8 +80,8 @@ abstract class $TopicDtoCopyWith<$Res> {
       String courseId,
       int orderCourse,
       String name,
-      String nameFile,
-      String description,
+      String? nameFile,
+      String? description,
       String? videoUrl,
       String createdAt,
       String updatedAt});
@@ -127,11 +127,11 @@ class _$TopicDtoCopyWithImpl<$Res> implements $TopicDtoCopyWith<$Res> {
       nameFile: nameFile == freezed
           ? _value.nameFile
           : nameFile // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       videoUrl: videoUrl == freezed
           ? _value.videoUrl
           : videoUrl // ignore: cast_nullable_to_non_nullable
@@ -158,8 +158,8 @@ abstract class _$TopicDtoCopyWith<$Res> implements $TopicDtoCopyWith<$Res> {
       String courseId,
       int orderCourse,
       String name,
-      String nameFile,
-      String description,
+      String? nameFile,
+      String? description,
       String? videoUrl,
       String createdAt,
       String updatedAt});
@@ -206,11 +206,11 @@ class __$TopicDtoCopyWithImpl<$Res> extends _$TopicDtoCopyWithImpl<$Res>
       nameFile: nameFile == freezed
           ? _value.nameFile
           : nameFile // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       videoUrl: videoUrl == freezed
           ? _value.videoUrl
           : videoUrl // ignore: cast_nullable_to_non_nullable
@@ -235,8 +235,8 @@ class _$_TopicDto implements _TopicDto {
       required this.courseId,
       required this.orderCourse,
       required this.name,
-      required this.nameFile,
-      required this.description,
+      this.nameFile,
+      this.description,
       this.videoUrl,
       required this.createdAt,
       required this.updatedAt});
@@ -253,9 +253,9 @@ class _$_TopicDto implements _TopicDto {
   @override
   final String name;
   @override
-  final String nameFile;
+  final String? nameFile;
   @override
-  final String description;
+  final String? description;
   @override
   final String? videoUrl;
   @override
@@ -316,8 +316,8 @@ abstract class _TopicDto implements TopicDto {
       required String courseId,
       required int orderCourse,
       required String name,
-      required String nameFile,
-      required String description,
+      String? nameFile,
+      String? description,
       String? videoUrl,
       required String createdAt,
       required String updatedAt}) = _$_TopicDto;
@@ -333,9 +333,9 @@ abstract class _TopicDto implements TopicDto {
   @override
   String get name;
   @override
-  String get nameFile;
+  String? get nameFile;
   @override
-  String get description;
+  String? get description;
   @override
   String? get videoUrl;
   @override

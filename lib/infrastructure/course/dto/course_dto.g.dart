@@ -24,9 +24,8 @@ _$_CourseDto _$$_CourseDtoFromJson(Map<String, dynamic> json) => _$_CourseDto(
               .toList() ??
           const [],
       categories: (json['categories'] as List<dynamic>?)
-              ?.map((e) => CategoryDto.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
+          ?.map((e) => CategoryDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$_CourseDtoToJson(_$_CourseDto instance) =>

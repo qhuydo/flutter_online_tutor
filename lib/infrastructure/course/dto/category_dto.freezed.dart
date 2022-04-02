@@ -24,13 +24,15 @@ class _$CategoryDtoTearOff {
 
   _CategoryDto call(
       {required String id,
-      required String name,
+      String? title,
+      String? name,
       String? description,
       required String key,
       required String createdAt,
       required String updatedAt}) {
     return _CategoryDto(
       id: id,
+      title: title,
       name: name,
       description: description,
       key: key,
@@ -50,7 +52,8 @@ const $CategoryDto = _$CategoryDtoTearOff();
 /// @nodoc
 mixin _$CategoryDto {
   String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String get key => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
@@ -69,7 +72,8 @@ abstract class $CategoryDtoCopyWith<$Res> {
       _$CategoryDtoCopyWithImpl<$Res>;
   $Res call(
       {String id,
-      String name,
+      String? title,
+      String? name,
       String? description,
       String key,
       String createdAt,
@@ -87,6 +91,7 @@ class _$CategoryDtoCopyWithImpl<$Res> implements $CategoryDtoCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
+    Object? title = freezed,
     Object? name = freezed,
     Object? description = freezed,
     Object? key = freezed,
@@ -98,10 +103,14 @@ class _$CategoryDtoCopyWithImpl<$Res> implements $CategoryDtoCopyWith<$Res> {
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -131,7 +140,8 @@ abstract class _$CategoryDtoCopyWith<$Res>
   @override
   $Res call(
       {String id,
-      String name,
+      String? title,
+      String? name,
       String? description,
       String key,
       String createdAt,
@@ -151,6 +161,7 @@ class __$CategoryDtoCopyWithImpl<$Res> extends _$CategoryDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
+    Object? title = freezed,
     Object? name = freezed,
     Object? description = freezed,
     Object? key = freezed,
@@ -162,10 +173,14 @@ class __$CategoryDtoCopyWithImpl<$Res> extends _$CategoryDtoCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -191,7 +206,8 @@ class __$CategoryDtoCopyWithImpl<$Res> extends _$CategoryDtoCopyWithImpl<$Res>
 class _$_CategoryDto implements _CategoryDto {
   const _$_CategoryDto(
       {required this.id,
-      required this.name,
+      this.title,
+      this.name,
       this.description,
       required this.key,
       required this.createdAt,
@@ -203,7 +219,9 @@ class _$_CategoryDto implements _CategoryDto {
   @override
   final String id;
   @override
-  final String name;
+  final String? title;
+  @override
+  final String? name;
   @override
   final String? description;
   @override
@@ -215,7 +233,7 @@ class _$_CategoryDto implements _CategoryDto {
 
   @override
   String toString() {
-    return 'CategoryDto(id: $id, name: $name, description: $description, key: $key, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'CategoryDto(id: $id, title: $title, name: $name, description: $description, key: $key, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -224,6 +242,7 @@ class _$_CategoryDto implements _CategoryDto {
         (other.runtimeType == runtimeType &&
             other is _CategoryDto &&
             const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
@@ -236,6 +255,7 @@ class _$_CategoryDto implements _CategoryDto {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(key),
@@ -256,7 +276,8 @@ class _$_CategoryDto implements _CategoryDto {
 abstract class _CategoryDto implements CategoryDto {
   const factory _CategoryDto(
       {required String id,
-      required String name,
+      String? title,
+      String? name,
       String? description,
       required String key,
       required String createdAt,
@@ -268,7 +289,9 @@ abstract class _CategoryDto implements CategoryDto {
   @override
   String get id;
   @override
-  String get name;
+  String? get title;
+  @override
+  String? get name;
   @override
   String? get description;
   @override

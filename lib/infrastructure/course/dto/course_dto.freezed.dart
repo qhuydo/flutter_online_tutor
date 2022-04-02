@@ -36,7 +36,7 @@ class _$CourseDtoTearOff {
       required String createdAt,
       required String updatedAt,
       List<TopicDto> topics = const [],
-      List<CategoryDto> categories = const []}) {
+      List<CategoryDto>? categories}) {
     return _CourseDto(
       id: id,
       name: name,
@@ -81,7 +81,7 @@ mixin _$CourseDto {
   String get createdAt => throw _privateConstructorUsedError;
   String get updatedAt => throw _privateConstructorUsedError;
   List<TopicDto> get topics => throw _privateConstructorUsedError;
-  List<CategoryDto> get categories => throw _privateConstructorUsedError;
+  List<CategoryDto>? get categories => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -107,7 +107,7 @@ abstract class $CourseDtoCopyWith<$Res> {
       String createdAt,
       String updatedAt,
       List<TopicDto> topics,
-      List<CategoryDto> categories});
+      List<CategoryDto>? categories});
 }
 
 /// @nodoc
@@ -191,7 +191,7 @@ class _$CourseDtoCopyWithImpl<$Res> implements $CourseDtoCopyWith<$Res> {
       categories: categories == freezed
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
-              as List<CategoryDto>,
+              as List<CategoryDto>?,
     ));
   }
 }
@@ -216,7 +216,7 @@ abstract class _$CourseDtoCopyWith<$Res> implements $CourseDtoCopyWith<$Res> {
       String createdAt,
       String updatedAt,
       List<TopicDto> topics,
-      List<CategoryDto> categories});
+      List<CategoryDto>? categories});
 }
 
 /// @nodoc
@@ -301,7 +301,7 @@ class __$CourseDtoCopyWithImpl<$Res> extends _$CourseDtoCopyWithImpl<$Res>
       categories: categories == freezed
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
-              as List<CategoryDto>,
+              as List<CategoryDto>?,
     ));
   }
 }
@@ -323,7 +323,7 @@ class _$_CourseDto implements _CourseDto {
       required this.createdAt,
       required this.updatedAt,
       this.topics = const [],
-      this.categories = const []});
+      this.categories});
 
   factory _$_CourseDto.fromJson(Map<String, dynamic> json) =>
       _$$_CourseDtoFromJson(json);
@@ -357,9 +357,8 @@ class _$_CourseDto implements _CourseDto {
   @JsonKey()
   @override
   final List<TopicDto> topics;
-  @JsonKey()
   @override
-  final List<CategoryDto> categories;
+  final List<CategoryDto>? categories;
 
   @override
   String toString() {
@@ -435,7 +434,7 @@ abstract class _CourseDto implements CourseDto {
       required String createdAt,
       required String updatedAt,
       List<TopicDto> topics,
-      List<CategoryDto> categories}) = _$_CourseDto;
+      List<CategoryDto>? categories}) = _$_CourseDto;
 
   factory _CourseDto.fromJson(Map<String, dynamic> json) =
       _$_CourseDto.fromJson;
@@ -469,7 +468,7 @@ abstract class _CourseDto implements CourseDto {
   @override
   List<TopicDto> get topics;
   @override
-  List<CategoryDto> get categories;
+  List<CategoryDto>? get categories;
   @override
   @JsonKey(ignore: true)
   _$CourseDtoCopyWith<_CourseDto> get copyWith =>

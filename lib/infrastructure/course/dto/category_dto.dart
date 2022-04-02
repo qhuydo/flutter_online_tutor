@@ -8,7 +8,8 @@ part 'category_dto.g.dart';
 class CategoryDto with _$CategoryDto {
   const factory CategoryDto({
     required String id,
-    required String name,
+    String? title,
+    String? name,
     String? description,
     required String key,
     required String createdAt,

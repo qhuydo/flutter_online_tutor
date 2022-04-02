@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 import '../../../application/tutor/search_tutors/search_tutors_bloc.dart';
@@ -139,7 +140,10 @@ class _TutorPageState extends State<_TutorPage> {
               height: 40,
             ),
             state.isInitial || resultList.isNotEmpty
-                ? ListView.builder(
+                ? AlignedGridView.extent(
+                    maxCrossAxisExtent: 600,
+                    crossAxisSpacing: smallItemSpacing,
+                    mainAxisSpacing: smallItemSpacing,
                     primary: false,
                     shrinkWrap: true,
                     itemCount: resultList.length,

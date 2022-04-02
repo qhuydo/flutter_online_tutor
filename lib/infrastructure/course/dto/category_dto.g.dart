@@ -9,7 +9,8 @@ part of 'category_dto.dart';
 _$_CategoryDto _$$_CategoryDtoFromJson(Map<String, dynamic> json) =>
     _$_CategoryDto(
       id: json['id'] as String,
-      name: json['name'] as String,
+      title: json['title'] as String?,
+      name: json['name'] as String?,
       description: json['description'] as String?,
       key: json['key'] as String,
       createdAt: json['createdAt'] as String,
@@ -19,6 +20,7 @@ _$_CategoryDto _$$_CategoryDtoFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_CategoryDtoToJson(_$_CategoryDto instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'title': instance.title,
       'name': instance.name,
       'description': instance.description,
       'key': instance.key,

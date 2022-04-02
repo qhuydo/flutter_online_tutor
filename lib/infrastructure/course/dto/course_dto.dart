@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../domain/course_ebook/models/course.dart';
+import '../../user/utils/level_extension.dart';
 import 'category_dto.dart';
 import 'topic_dto.dart';
 
@@ -26,9 +28,21 @@ class CourseDto with _$CourseDto {
     required String createdAt,
     required String updatedAt,
     @Default([]) List<TopicDto> topics,
-    @Default([]) List<CategoryDto> categories,
+    List<CategoryDto>? categories,
   }) = _CourseDto;
 
   factory CourseDto.fromJson(Map<String, dynamic> json) =>
       _$CourseDtoFromJson(json);
+}
+
+extension CourseDtoX on CourseDto {
+  Course toDomain() => Course(
+        id: id,
+        name: name,
+        level: level.toLevelFromLevelOrder(),
+        reason: reason,
+        purpose: purpose,
+        courseTopic: topics.map((e) => e.toDomain()).toList(growable: false)
+          ..sort((a, b) => a.order.compareTo(b.order)),
+      );
 }
