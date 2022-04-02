@@ -1,9 +1,13 @@
 // To parse this JSON data, do
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../domain/common/models/country.dart';
+import '../../../../domain/schedule/models/appointment.dart';
+import '../../../../presentation/common.dart';
 import 'appointment_details/appointment_details_dto.dart';
 
 part 'appointment_dto.freezed.dart';
+
 part 'appointment_dto.g.dart';
 
 @freezed
@@ -37,7 +41,7 @@ class Row with _$Row {
     required String scheduleDetailId,
     // String tutorMeetingLink,
     required String studentMeetingLink,
-    required String studentRequest,
+    required String? studentRequest,
     // String? tutorReview,
     // String? scoreByTutor,
     required DateTime createdAt,
@@ -50,4 +54,26 @@ class Row with _$Row {
   }) = _Row;
 
   factory Row.fromJson(Map<String, dynamic> json) => _$RowFromJson(json);
+}
+
+extension RowX on Row {
+  Appointment toDomain() => Appointment(
+        scheduleId: scheduleDetailInfo.scheduleId,
+        bookId: scheduleDetailInfo.id,
+        tutorId: scheduleDetailInfo.scheduleInfo.tutorId,
+        meetingTime: DateTimeRange(
+          start: DateTime(scheduleDetailInfo.startPeriodTimestamp),
+          end: DateTime(scheduleDetailInfo.endPeriodTimestamp),
+        ),
+        studentRequest: studentRequest ?? '',
+        tutorCountry: Country.fromIsoCodeOrAntarctica(
+          scheduleDetailInfo.scheduleInfo.tutorInfo.country,
+        ),
+        tutorAvatar: scheduleDetailInfo.scheduleInfo.tutorInfo.avatar,
+        tutorName: scheduleDetailInfo.scheduleInfo.tutorInfo.name,
+      );
+}
+
+extension AppointmentDtoX on AppointmentDto {
+  List<Appointment> toDomain() => data.rows.map((e) => e.toDomain()).toList();
 }

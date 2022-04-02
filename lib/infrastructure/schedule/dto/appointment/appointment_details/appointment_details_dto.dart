@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../domain/schedule/models/appointment.dart';
 import '../schedule_info/schedule_info_dto.dart';
 
 part 'appointment_details_dto.freezed.dart';

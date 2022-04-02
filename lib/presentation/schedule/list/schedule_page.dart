@@ -10,6 +10,7 @@ class SchedulePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MasonryGridView.extent(
+      controller: ScrollController(),
       padding: const EdgeInsets.all(smallItemSpacing),
       itemCount: 5,
       crossAxisSpacing: 4,

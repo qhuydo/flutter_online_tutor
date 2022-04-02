@@ -35,7 +35,7 @@ _$_Row _$$_RowFromJson(Map<String, dynamic> json) => _$_Row(
       userId: json['userId'] as String,
       scheduleDetailId: json['scheduleDetailId'] as String,
       studentMeetingLink: json['studentMeetingLink'] as String,
-      studentRequest: json['studentRequest'] as String,
+      studentRequest: json['studentRequest'] as String?,
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),
       isDeleted: json['isDeleted'] as bool,

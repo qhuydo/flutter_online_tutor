@@ -349,7 +349,7 @@ class _$RowTearOff {
       required String userId,
       required String scheduleDetailId,
       required String studentMeetingLink,
-      required String studentRequest,
+      required String? studentRequest,
       required DateTime createdAt,
       required DateTime updatedAt,
       required bool isDeleted,
@@ -386,7 +386,7 @@ mixin _$Row {
   String get scheduleDetailId =>
       throw _privateConstructorUsedError; // String tutorMeetingLink,
   String get studentMeetingLink => throw _privateConstructorUsedError;
-  String get studentRequest =>
+  String? get studentRequest =>
       throw _privateConstructorUsedError; // String? tutorReview,
 // String? scoreByTutor,
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -412,7 +412,7 @@ abstract class $RowCopyWith<$Res> {
       String userId,
       String scheduleDetailId,
       String studentMeetingLink,
-      String studentRequest,
+      String? studentRequest,
       DateTime createdAt,
       DateTime updatedAt,
       bool isDeleted,
@@ -471,7 +471,7 @@ class _$RowCopyWithImpl<$Res> implements $RowCopyWith<$Res> {
       studentRequest: studentRequest == freezed
           ? _value.studentRequest
           : studentRequest // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -512,7 +512,7 @@ abstract class _$RowCopyWith<$Res> implements $RowCopyWith<$Res> {
       String userId,
       String scheduleDetailId,
       String studentMeetingLink,
-      String studentRequest,
+      String? studentRequest,
       DateTime createdAt,
       DateTime updatedAt,
       bool isDeleted,
@@ -573,7 +573,7 @@ class __$RowCopyWithImpl<$Res> extends _$RowCopyWithImpl<$Res>
       studentRequest: studentRequest == freezed
           ? _value.studentRequest
           : studentRequest // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -625,7 +625,7 @@ class _$_Row implements _Row {
   @override // String tutorMeetingLink,
   final String studentMeetingLink;
   @override
-  final String studentRequest;
+  final String? studentRequest;
   @override // String? tutorReview,
 // String? scoreByTutor,
   final DateTime createdAt;
@@ -699,7 +699,7 @@ abstract class _Row implements Row {
       required String userId,
       required String scheduleDetailId,
       required String studentMeetingLink,
-      required String studentRequest,
+      required String? studentRequest,
       required DateTime createdAt,
       required DateTime updatedAt,
       required bool isDeleted,
@@ -720,7 +720,7 @@ abstract class _Row implements Row {
   @override // String tutorMeetingLink,
   String get studentMeetingLink;
   @override
-  String get studentRequest;
+  String? get studentRequest;
   @override // String? tutorReview,
 // String? scoreByTutor,
   DateTime get createdAt;
