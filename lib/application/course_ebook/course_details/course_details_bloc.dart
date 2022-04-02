@@ -30,7 +30,7 @@ class CourseDetailsBloc extends Bloc<CourseDetailsEvent, CourseDetailsState> {
       isLoading: true,
     ));
 
-    await Future.delayed(const Duration(seconds: 2));
+    // await Future.delayed(const Duration(seconds: 2));
 
     final result = await _repository.getCourseById(id);
     emit(state.copyWith(

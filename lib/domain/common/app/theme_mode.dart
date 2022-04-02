@@ -7,9 +7,9 @@ enum AppThemeMode {
 extension AppThemeModeX on String? {
   AppThemeMode toAppThemeMode() {
     switch (this) {
-      case 'ThemeMode.day':
+      case 'AppThemeMode.day':
         return AppThemeMode.day;
-      case 'ThemeMode.night':
+      case 'AppThemeMode.night':
         return AppThemeMode.night;
       default:
         return AppThemeMode.followSystem;

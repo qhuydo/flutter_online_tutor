@@ -34,6 +34,7 @@ class TutorCard extends StatelessWidget {
           child: ProxyProvider(
             update: (_, __, ___) => tutor,
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const TutorCardHeader(),

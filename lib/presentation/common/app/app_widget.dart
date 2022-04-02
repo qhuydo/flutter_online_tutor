@@ -14,10 +14,12 @@ class OnlySenpaiApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create:  (_) => getIt<AppCubit>()..initialize()),
-        BlocProvider(create: (_) => getIt<AuthenticationBloc>()..add(
-          const AuthenticationEvent.authCheckRequested(),
-        )),
+        BlocProvider(create: (_) => getIt<AppCubit>()..initialize()),
+        BlocProvider(
+            create: (_) => getIt<AuthenticationBloc>()
+              ..add(
+                const AuthenticationEvent.authCheckRequested(),
+              )),
       ],
       child: const AppView(),
     );
@@ -39,7 +41,6 @@ class _AppViewState extends State<AppView> {
     return BlocBuilder<AppCubit, AppState>(
       builder: (context, state) {
         return MaterialApp.router(
-          title: 'Flutter Demo',
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           locale: state.language.toLocale(),

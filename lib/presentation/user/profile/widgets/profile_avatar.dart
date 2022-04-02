@@ -19,11 +19,20 @@ class ProfileAvatar extends StatelessWidget {
         Center(
           child: Stack(
             children: [
-              const Padding(
+              Padding(
                 padding: EdgeInsets.all(8.0),
-                child: CircleAvatar(
-                  minRadius: 40,
-                  maxRadius: 60,
+                child: BlocBuilder<ProfileBloc, ProfileState>(
+                  buildWhen: (previous, current) =>
+                      previous.user.avatar != current.user.avatar,
+                  builder: (context, state) {
+                    final avatar = state.user.avatar;
+                    return CircleAvatar(
+                      minRadius: 40,
+                      maxRadius: 60,
+                      backgroundImage:
+                          avatar == null ? null : NetworkImage(avatar),
+                    );
+                  },
                 ),
               ),
               Positioned(
@@ -75,7 +84,6 @@ class ProfileAvatar extends StatelessWidget {
             );
           },
         ),
-
       ],
     );
   }

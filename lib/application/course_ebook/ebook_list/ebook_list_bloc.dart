@@ -31,7 +31,7 @@ class EbookListBloc extends Bloc<EbookListEvent, EbookListState> {
       isLoading: true,
     ));
 
-    await Future.delayed(const Duration(seconds: 2));
+    // await Future.delayed(const Duration(seconds: 2));
 
     final result = await _repository.getRecommendedEbooks(
       page: 1,

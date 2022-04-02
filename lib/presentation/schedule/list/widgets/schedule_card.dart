@@ -17,7 +17,6 @@ class ScheduleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.grey[100]?.withOpacity(0.9),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [

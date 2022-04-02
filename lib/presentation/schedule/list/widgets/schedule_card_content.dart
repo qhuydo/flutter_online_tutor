@@ -14,7 +14,6 @@ class ScheduleCardContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey[100]?.withOpacity(0.95),
       margin: const EdgeInsets.symmetric(
         horizontal: 16.0,
         vertical: 8.0,
@@ -54,6 +53,8 @@ class ScheduleCardContent extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             children: [
               ExpansionTile(
+                expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                expandedAlignment: Alignment.topLeft,
                 childrenPadding: const EdgeInsets.symmetric(
                   horizontal: itemSpacing,
                   vertical: smallItemSpacing,

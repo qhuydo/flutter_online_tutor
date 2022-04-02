@@ -26,7 +26,7 @@ class HistoryBloc extends Bloc<HistoryEvent, HistoryState> {
   Future _initialise(Emitter<HistoryState> emit) async {
     emit(state.copyWith(isLoading: true));
 
-    await Future.delayed(const Duration(seconds: 2));
+    // await Future.delayed(const Duration(seconds: 2));
     final result = await _repository.getHistory();
 
     emit(state.copyWith(

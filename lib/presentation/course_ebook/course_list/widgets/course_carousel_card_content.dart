@@ -2,6 +2,7 @@ import 'dart:math';
 
 import '../../../../domain/course_ebook/models/course.dart';
 import '../../../common.dart';
+import '../../../user/profile/widgets/level_form_dropdown.dart';
 
 class CourseCarouselCardContent extends StatelessWidget {
   final Course course;
@@ -24,13 +25,9 @@ class CourseCarouselCardContent extends StatelessWidget {
             Text(
               course.name,
               maxLines: 3,
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .titleMedium
-                  ?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
               textAlign: TextAlign.start,
             ),
 
@@ -40,10 +37,7 @@ class CourseCarouselCardContent extends StatelessWidget {
             // https://github.com/flutter/flutter/issues/15465
             Flexible(
               child: LayoutBuilder(builder: (context, constraints) {
-                final style = Theme
-                    .of(context)
-                    .textTheme
-                    .bodyText2!;
+                final style = Theme.of(context).textTheme.bodyText2!;
 
                 // use a text painter to calculate the height taking into account text scale factor.
                 //could be moved to a extension method or similar
@@ -53,12 +47,9 @@ class CourseCarouselCardContent extends StatelessWidget {
                     style: style,
                   ),
                   maxLines: 1,
-                  textScaleFactor: MediaQuery
-                      .of(context)
-                      .textScaleFactor,
+                  textScaleFactor: MediaQuery.of(context).textScaleFactor,
                   textDirection: TextDirection.ltr,
-                )
-                  ..layout())
+                )..layout())
                     .size;
 
                 //lets not return 0 max lines or less
@@ -67,13 +58,37 @@ class CourseCarouselCardContent extends StatelessWidget {
                   (constraints.biggest.height / size.height).floor(),
                 );
 
-                return Text(
-                  course.description,
-                  style: style,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: maxLines,
+                return SizedBox(
+                  height: constraints.maxHeight,
+                  child: Text(
+                    course.description,
+                    style: style,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: maxLines,
+                  ),
                 );
               }),
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    course.level.toDisplayString(context),
+                    style: Theme.of(context).textTheme.caption?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.start,
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    // TODO update translation
+                    '${course.courseLength} lessons',
+                    style: Theme.of(context).textTheme.caption,
+                    textAlign: TextAlign.end,
+                  ),
+                ),
+              ],
             ),
           ],
         ),

@@ -28,39 +28,18 @@ class TopicList extends StatelessWidget {
     return Container(
       height: 36,
       padding: const EdgeInsets.symmetric(horizontal: 2),
-      child: ShaderMask(
-        shaderCallback: (Rect rect) {
-          return LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [
-              Theme.of(context).cardColor,
-              Colors.transparent,
-              Colors.transparent,
-              Theme.of(context).cardColor,
-            ],
-            stops: const [
-              0.0,
-              0.0,
-              0.9,
-              1.0,
-            ],
-          ).createShader(rect);
+      child: ListView.separated(
+        // primary: false,
+        shrinkWrap: true,
+        physics: const ClampingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        separatorBuilder: (BuildContext context, int index) {
+          return const SizedBox(width: 8);
         },
-        blendMode: BlendMode.dstOut,
-        child: ListView.separated(
-          // primary: false,
-          shrinkWrap: true,
-          physics: const ClampingScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          separatorBuilder: (BuildContext context, int index) {
-            return const SizedBox(width: 8);
-          },
-          itemBuilder: (BuildContext context, int index) {
-            return TopicChip(label: topics[index].name);
-          },
-          itemCount: topics.length,
-        ),
+        itemBuilder: (BuildContext context, int index) {
+          return TopicChip(label: topics[index].name);
+        },
+        itemCount: topics.length,
       ),
     );
   }
