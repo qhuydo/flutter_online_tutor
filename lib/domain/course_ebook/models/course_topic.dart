@@ -4,6 +4,9 @@ part 'course_topic.freezed.dart';
 
 @freezed
 class CourseTopic with _$CourseTopic {
+
+  const CourseTopic._();
+
   const factory CourseTopic({
     required String id,
     required int order,
@@ -12,5 +15,7 @@ class CourseTopic with _$CourseTopic {
     String? description,
     String? videoUrl,
   }) = _CourseTopic;
+
+  bool get canPreview => fileName != null || videoUrl != null;
 
 }

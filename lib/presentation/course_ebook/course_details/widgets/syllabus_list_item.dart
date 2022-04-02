@@ -1,25 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../domain/course_ebook/models/course_topic.dart';
 import '../../../common.dart';
 import '../../../common/routes/app_routes.gr.dart';
 
-class SyllabusItem {
-  String name;
-
-  // chapter
-  int orderCourse;
-  bool canPreview;
-
-  SyllabusItem({
-    required this.name,
-    required this.orderCourse,
-    required this.canPreview,
-  });
-}
-
 class SyllabusListItem extends StatelessWidget {
-  final SyllabusItem item;
+  final CourseTopic item;
 
   const SyllabusListItem({
     Key? key,
@@ -34,12 +21,12 @@ class SyllabusListItem extends StatelessWidget {
           ? () {
               context.router.push(CourseSyllabusRoute(
                 courseId: '',
-                chapterId: item.orderCourse,
+                chapterId: item.order,
               ));
             }
           : null,
       leading: Text(
-        '${item.orderCourse + 1}',
+        '${item.order + 1}',
         style: Theme.of(context).textTheme.titleLarge?.copyWith(
               color: textColour,
               fontWeight: FontWeight.bold,

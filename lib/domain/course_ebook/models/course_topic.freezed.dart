@@ -179,14 +179,15 @@ class __$CourseTopicCopyWithImpl<$Res> extends _$CourseTopicCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CourseTopic implements _CourseTopic {
+class _$_CourseTopic extends _CourseTopic {
   const _$_CourseTopic(
       {required this.id,
       required this.order,
       required this.name,
       this.fileName,
       this.description,
-      this.videoUrl});
+      this.videoUrl})
+      : super._();
 
   @override
   final String id;
@@ -236,7 +237,7 @@ class _$_CourseTopic implements _CourseTopic {
       __$CourseTopicCopyWithImpl<_CourseTopic>(this, _$identity);
 }
 
-abstract class _CourseTopic implements CourseTopic {
+abstract class _CourseTopic extends CourseTopic {
   const factory _CourseTopic(
       {required String id,
       required int order,
@@ -244,6 +245,7 @@ abstract class _CourseTopic implements CourseTopic {
       String? fileName,
       String? description,
       String? videoUrl}) = _$_CourseTopic;
+  const _CourseTopic._() : super._();
 
   @override
   String get id;

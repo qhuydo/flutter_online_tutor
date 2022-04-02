@@ -1,8 +1,15 @@
-import '../../../common/utils/constants.dart';
+import '../../../../domain/course_ebook/models/course.dart';
 import '../../../common.dart';
+import '../../../common/utils/constants.dart';
+import '../../../user/profile/widgets/level_form_dropdown.dart';
 
 class CourseDetailsContent extends StatelessWidget {
-  const CourseDetailsContent({Key? key}) : super(key: key);
+  final Course course;
+
+  const CourseDetailsContent({
+    Key? key,
+    required this.course,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,52 +37,46 @@ class CourseDetailsContent extends StatelessWidget {
               ),
               initiallyExpanded: true,
               title: Text(
-                AppLocalizations.of(context)!.overviewTitleText,
+                context.l10n.overviewTitleText,
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
               ),
               children: [
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: smallItemSpacing),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: smallItemSpacing,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       //
                       Text(
-                        AppLocalizations.of(context)!
-                            .reasonToTakeCourseSubtitle,
+                        context.l10n.reasonToTakeCourseSubtitle,
                         style: subtitleTextStyle,
                       ),
-                      Text(
-                        AppLocalizations.of(context)!.mediumLoremIpsum,
-                      ),
+                      Text(course.reason),
                       //
                       const SizedBox(height: smallItemSpacing),
                       Text(
-                        AppLocalizations.of(context)!.canDoSubtitle,
+                        context.l10n.canDoSubtitle,
                         style: subtitleTextStyle,
                       ),
-                      Text(
-                        AppLocalizations.of(context)!.loremIpsum,
-                      ),
+                      Text(course.purpose),
                       //
                       const SizedBox(height: smallItemSpacing),
                       Text(
-                        AppLocalizations.of(context)!.experienceLevelTitle,
+                        context.l10n.experienceLevelTitle,
                         style: subtitleTextStyle,
                       ),
-                      Text(
-                        AppLocalizations.of(context)!.courseLevelAny,
-                      ),
+                      Text(course.level.toDisplayString(context)),
                       //
                       const SizedBox(height: smallItemSpacing),
                       Text(
-                        AppLocalizations.of(context)!.courseLengthTitle,
+                        context.l10n.courseLengthTitle,
                         style: subtitleTextStyle,
                       ),
-                      const Text('10'),
+                      Text(course.courseLength.toString()),
                     ],
                   ),
                 ),

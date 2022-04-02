@@ -1,37 +1,15 @@
-import '../../../common/utils/constants.dart';
+import '../../../../domain/course_ebook/models/course_topic.dart';
 import '../../../common.dart';
+import '../../../common/utils/constants.dart';
 import 'syllabus_list_item.dart';
 
 class Syllabus extends StatelessWidget {
-  static final syllabus = [
-    SyllabusItem(
-      name: 'Foods you love',
-      canPreview: true,
-      orderCourse: 0,
-    ),
-    SyllabusItem(
-      name: 'Your job',
-      canPreview: false,
-      orderCourse: 1,
-    ),
-    SyllabusItem(
-      name: 'Playing and Watching Sports',
-      canPreview: false,
-      orderCourse: 2,
-    ),
-    SyllabusItem(
-      name: 'The Best pet',
-      canPreview: false,
-      orderCourse: 3,
-    ),
-    SyllabusItem(
-      name: 'Having fun in your free time',
-      canPreview: false,
-      orderCourse: 4,
-    ),
-  ];
+  final List<CourseTopic> syllabus;
 
-  const Syllabus({Key? key}) : super(key: key);
+  const Syllabus({
+    Key? key,
+    required this.syllabus,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +35,7 @@ class Syllabus extends StatelessWidget {
             primary: false,
             shrinkWrap: true,
             itemBuilder: (context, index) => SyllabusListItem(
-              item: syllabus[index],
+              item: syllabus[index]
             ),
             separatorBuilder: (context, index) => const Divider(),
             itemCount: syllabus.length,
