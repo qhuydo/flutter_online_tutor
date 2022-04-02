@@ -10,6 +10,6 @@ class HistoryState with _$HistoryState {
     @Default(Right([])) Either<Failure, List<Appointment>> classOrFailure,
   }) = _HistoryState;
 
-  List<Appointment>? getClass() => classOrFailure.fold((l) => null, (r) => r);
+  List<Appointment>? get history => classOrFailure.fold((l) => null, (r) => r);
 }
 

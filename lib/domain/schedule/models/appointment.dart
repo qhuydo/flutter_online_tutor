@@ -14,7 +14,7 @@ class Appointment with _$Appointment {
     required DateTimeRange meetingTime,
     required String studentRequest,
     required String tutorName,
+    required Country tutorCountry,
     String? tutorAvatar,
-    Country? tutorCountry,
   }) = _Appointment;
 }

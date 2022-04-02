@@ -1,17 +1,20 @@
-import '../../../common/utils/constants.dart';
+import '../../../../domain/schedule/models/appointment.dart';
 import '../../../common.dart';
+import '../../../common/utils/constants.dart';
+import '../../../tutor/tutor_schedule/utils/schedule_extension.dart';
 
 class ScheduleCardContent extends StatelessWidget {
-  const ScheduleCardContent({Key? key}) : super(key: key);
+  final Appointment appointment;
+
+  const ScheduleCardContent({
+    Key? key,
+    required this.appointment,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final lightTheme = Theme.of(context).brightness == Brightness.light;
-
     return Container(
-      color: lightTheme
-          ? Colors.grey[100]?.withOpacity(0.95)
-          : Colors.grey[100]?.withOpacity(0.05),
+      color: Colors.grey[100]?.withOpacity(0.95),
       margin: const EdgeInsets.symmetric(
         horizontal: 16.0,
         vertical: 8.0,
@@ -32,11 +35,11 @@ class ScheduleCardContent extends StatelessWidget {
               alignment: WrapAlignment.start,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.lessonTimeDescription,
+                  context.l10n.lessonTimeDescription,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 Text(
-                  '10:00 - 12:00',
+                  appointment.meetingTime.getMeetingTime(context),
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
@@ -56,13 +59,9 @@ class ScheduleCardContent extends StatelessWidget {
                   vertical: smallItemSpacing,
                 ),
                 leading: const Icon(Icons.event),
-                title: Text(
-                  AppLocalizations.of(context)!.requestForLessonLabel,
-                ),
+                title: Text(context.l10n.requestForLessonLabel),
                 children: [
-                  Text(
-                    AppLocalizations.of(context)!.loremIpsum,
-                  ),
+                  Text(appointment.studentRequest),
                 ],
               ),
             ],

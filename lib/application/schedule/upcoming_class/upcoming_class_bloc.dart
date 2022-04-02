@@ -30,7 +30,7 @@ class UpcomingClassBloc extends Bloc<UpcomingClassEvent, UpcomingClassState> {
     final result = await _repository.getUpcomingClasses();
 
     emit(state.copyWith(
-      isLoading: true,
+      isLoading: false,
       classOrFailure: result,
     ));
   }

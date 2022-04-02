@@ -25,8 +25,8 @@ class _$AppointmentTearOff {
       required DateTimeRange meetingTime,
       required String studentRequest,
       required String tutorName,
-      String? tutorAvatar,
-      Country? tutorCountry}) {
+      required Country tutorCountry,
+      String? tutorAvatar}) {
     return _Appointment(
       scheduleId: scheduleId,
       bookId: bookId,
@@ -34,8 +34,8 @@ class _$AppointmentTearOff {
       meetingTime: meetingTime,
       studentRequest: studentRequest,
       tutorName: tutorName,
-      tutorAvatar: tutorAvatar,
       tutorCountry: tutorCountry,
+      tutorAvatar: tutorAvatar,
     );
   }
 }
@@ -51,8 +51,8 @@ mixin _$Appointment {
   DateTimeRange get meetingTime => throw _privateConstructorUsedError;
   String get studentRequest => throw _privateConstructorUsedError;
   String get tutorName => throw _privateConstructorUsedError;
+  Country get tutorCountry => throw _privateConstructorUsedError;
   String? get tutorAvatar => throw _privateConstructorUsedError;
-  Country? get tutorCountry => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppointmentCopyWith<Appointment> get copyWith =>
@@ -71,10 +71,10 @@ abstract class $AppointmentCopyWith<$Res> {
       DateTimeRange meetingTime,
       String studentRequest,
       String tutorName,
-      String? tutorAvatar,
-      Country? tutorCountry});
+      Country tutorCountry,
+      String? tutorAvatar});
 
-  $CountryCopyWith<$Res>? get tutorCountry;
+  $CountryCopyWith<$Res> get tutorCountry;
 }
 
 /// @nodoc
@@ -93,8 +93,8 @@ class _$AppointmentCopyWithImpl<$Res> implements $AppointmentCopyWith<$Res> {
     Object? meetingTime = freezed,
     Object? studentRequest = freezed,
     Object? tutorName = freezed,
-    Object? tutorAvatar = freezed,
     Object? tutorCountry = freezed,
+    Object? tutorAvatar = freezed,
   }) {
     return _then(_value.copyWith(
       scheduleId: scheduleId == freezed
@@ -121,24 +121,20 @@ class _$AppointmentCopyWithImpl<$Res> implements $AppointmentCopyWith<$Res> {
           ? _value.tutorName
           : tutorName // ignore: cast_nullable_to_non_nullable
               as String,
+      tutorCountry: tutorCountry == freezed
+          ? _value.tutorCountry
+          : tutorCountry // ignore: cast_nullable_to_non_nullable
+              as Country,
       tutorAvatar: tutorAvatar == freezed
           ? _value.tutorAvatar
           : tutorAvatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      tutorCountry: tutorCountry == freezed
-          ? _value.tutorCountry
-          : tutorCountry // ignore: cast_nullable_to_non_nullable
-              as Country?,
     ));
   }
 
   @override
-  $CountryCopyWith<$Res>? get tutorCountry {
-    if (_value.tutorCountry == null) {
-      return null;
-    }
-
-    return $CountryCopyWith<$Res>(_value.tutorCountry!, (value) {
+  $CountryCopyWith<$Res> get tutorCountry {
+    return $CountryCopyWith<$Res>(_value.tutorCountry, (value) {
       return _then(_value.copyWith(tutorCountry: value));
     });
   }
@@ -158,11 +154,11 @@ abstract class _$AppointmentCopyWith<$Res>
       DateTimeRange meetingTime,
       String studentRequest,
       String tutorName,
-      String? tutorAvatar,
-      Country? tutorCountry});
+      Country tutorCountry,
+      String? tutorAvatar});
 
   @override
-  $CountryCopyWith<$Res>? get tutorCountry;
+  $CountryCopyWith<$Res> get tutorCountry;
 }
 
 /// @nodoc
@@ -183,8 +179,8 @@ class __$AppointmentCopyWithImpl<$Res> extends _$AppointmentCopyWithImpl<$Res>
     Object? meetingTime = freezed,
     Object? studentRequest = freezed,
     Object? tutorName = freezed,
-    Object? tutorAvatar = freezed,
     Object? tutorCountry = freezed,
+    Object? tutorAvatar = freezed,
   }) {
     return _then(_Appointment(
       scheduleId: scheduleId == freezed
@@ -211,14 +207,14 @@ class __$AppointmentCopyWithImpl<$Res> extends _$AppointmentCopyWithImpl<$Res>
           ? _value.tutorName
           : tutorName // ignore: cast_nullable_to_non_nullable
               as String,
+      tutorCountry: tutorCountry == freezed
+          ? _value.tutorCountry
+          : tutorCountry // ignore: cast_nullable_to_non_nullable
+              as Country,
       tutorAvatar: tutorAvatar == freezed
           ? _value.tutorAvatar
           : tutorAvatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      tutorCountry: tutorCountry == freezed
-          ? _value.tutorCountry
-          : tutorCountry // ignore: cast_nullable_to_non_nullable
-              as Country?,
     ));
   }
 }
@@ -233,8 +229,8 @@ class _$_Appointment implements _Appointment {
       required this.meetingTime,
       required this.studentRequest,
       required this.tutorName,
-      this.tutorAvatar,
-      this.tutorCountry});
+      required this.tutorCountry,
+      this.tutorAvatar});
 
   @override
   final String scheduleId;
@@ -249,13 +245,13 @@ class _$_Appointment implements _Appointment {
   @override
   final String tutorName;
   @override
-  final String? tutorAvatar;
+  final Country tutorCountry;
   @override
-  final Country? tutorCountry;
+  final String? tutorAvatar;
 
   @override
   String toString() {
-    return 'Appointment(scheduleId: $scheduleId, bookId: $bookId, tutorId: $tutorId, meetingTime: $meetingTime, studentRequest: $studentRequest, tutorName: $tutorName, tutorAvatar: $tutorAvatar, tutorCountry: $tutorCountry)';
+    return 'Appointment(scheduleId: $scheduleId, bookId: $bookId, tutorId: $tutorId, meetingTime: $meetingTime, studentRequest: $studentRequest, tutorName: $tutorName, tutorCountry: $tutorCountry, tutorAvatar: $tutorAvatar)';
   }
 
   @override
@@ -273,9 +269,9 @@ class _$_Appointment implements _Appointment {
                 .equals(other.studentRequest, studentRequest) &&
             const DeepCollectionEquality().equals(other.tutorName, tutorName) &&
             const DeepCollectionEquality()
-                .equals(other.tutorAvatar, tutorAvatar) &&
+                .equals(other.tutorCountry, tutorCountry) &&
             const DeepCollectionEquality()
-                .equals(other.tutorCountry, tutorCountry));
+                .equals(other.tutorAvatar, tutorAvatar));
   }
 
   @override
@@ -287,8 +283,8 @@ class _$_Appointment implements _Appointment {
       const DeepCollectionEquality().hash(meetingTime),
       const DeepCollectionEquality().hash(studentRequest),
       const DeepCollectionEquality().hash(tutorName),
-      const DeepCollectionEquality().hash(tutorAvatar),
-      const DeepCollectionEquality().hash(tutorCountry));
+      const DeepCollectionEquality().hash(tutorCountry),
+      const DeepCollectionEquality().hash(tutorAvatar));
 
   @JsonKey(ignore: true)
   @override
@@ -304,8 +300,8 @@ abstract class _Appointment implements Appointment {
       required DateTimeRange meetingTime,
       required String studentRequest,
       required String tutorName,
-      String? tutorAvatar,
-      Country? tutorCountry}) = _$_Appointment;
+      required Country tutorCountry,
+      String? tutorAvatar}) = _$_Appointment;
 
   @override
   String get scheduleId;
@@ -320,9 +316,9 @@ abstract class _Appointment implements Appointment {
   @override
   String get tutorName;
   @override
-  String? get tutorAvatar;
+  Country get tutorCountry;
   @override
-  Country? get tutorCountry;
+  String? get tutorAvatar;
   @override
   @JsonKey(ignore: true)
   _$AppointmentCopyWith<_Appointment> get copyWith =>

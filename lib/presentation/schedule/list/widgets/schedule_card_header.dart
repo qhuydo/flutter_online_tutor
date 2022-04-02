@@ -1,14 +1,24 @@
+import 'package:intl/intl.dart';
 import 'package:twemoji/twemoji.dart';
 
+import '../../../../domain/schedule/models/appointment.dart';
 import '../../../common.dart';
-import '../../../tutor/list/widgets/tutor_avatar.dart';
 import '../../../common/utils/string_utils.dart';
 
 class ScheduleCardHeader extends StatelessWidget {
-  const ScheduleCardHeader({Key? key}) : super(key: key);
+  final Appointment appointment;
+
+  const ScheduleCardHeader({
+    Key? key,
+    required this.appointment,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final locale = context.l10n.localeName;
+    // final weekdayFormatter = DateFormat('EEEE', locale);
+    final dateFormatter = DateFormat.yMMMMEEEEd(locale);
+
     return Column(
       children: [
         Row(
@@ -19,7 +29,7 @@ class ScheduleCardHeader extends StatelessWidget {
                 vertical: 8,
               ),
               child: Text(
-                'Sunday, 27/02/2022',
+                dateFormatter.format(appointment.meetingTime.start),
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -28,19 +38,28 @@ class ScheduleCardHeader extends StatelessWidget {
           ],
         ),
         ListTile(
-          leading: const TutorAvatar(),
+          leading: CircleAvatar(
+            backgroundColor: appointment.tutorAvatar == null
+                ? Colors.grey.withOpacity(0.2)
+                : null,
+            radius: 32,
+            backgroundImage: appointment.tutorAvatar != null
+                ? NetworkImage(appointment.tutorAvatar!)
+                : null,
+          ),
           title: Text(
-            'Nguyen Van A',
+            appointment.tutorName,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
           ),
           subtitle: Text(
-            'Vietnam',
+            appointment.tutorCountry.name,
             style: Theme.of(context).textTheme.caption,
           ),
           trailing: Twemoji(
-            emoji: 'VN'.toCountryFlagFromCountryCode(),
+            emoji:
+                appointment.tutorCountry.isoCode.toCountryFlagFromCountryCode(),
             width: 44,
             height: 44,
           ),

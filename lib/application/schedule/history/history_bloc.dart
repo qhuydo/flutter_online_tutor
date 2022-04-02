@@ -30,7 +30,7 @@ class HistoryBloc extends Bloc<HistoryEvent, HistoryState> {
     final result = await _repository.getHistory();
 
     emit(state.copyWith(
-      isLoading: true,
+      isLoading: false,
       classOrFailure: result,
     ));
   }

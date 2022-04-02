@@ -66,7 +66,7 @@ class ScheduleRow extends StatelessWidget {
       ),
       child: ListTile(
         onTap: () {},
-        title: Text(schedule.getMeetingTime(context)),
+        title: Text(schedule.meetingTime.getMeetingTime(context)),
         trailing: buildTrailingWidget(context),
       ),
     );

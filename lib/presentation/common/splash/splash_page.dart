@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/authentication/authentication_bloc.dart';
 import '../routes/app_routes.gr.dart';
+import '../utils/constants.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -34,7 +35,10 @@ class _SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: LinearProgressIndicator(),
+        child: Padding(
+          padding: EdgeInsets.all(itemSpacing),
+          child: LinearProgressIndicator(),
+        ),
       ),
     );
   }
