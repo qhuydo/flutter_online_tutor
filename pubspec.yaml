@@ -159,6 +159,7 @@ flutter:
     - assets/fixtures/common/learn_topic/
     - assets/fixtures/common/test_preparation/
     - assets/fixtures/common/specialities/
+    - assets/fixtures/course/list/
     - assets/fixtures/schedule/history/
     - assets/fixtures/schedule/schedule_list/
     - assets/fixtures/tutor/tutor_details/
