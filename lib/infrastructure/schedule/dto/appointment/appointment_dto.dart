@@ -62,8 +62,12 @@ extension RowX on Row {
         bookId: scheduleDetailInfo.id,
         tutorId: scheduleDetailInfo.scheduleInfo.tutorId,
         meetingTime: DateTimeRange(
-          start: DateTime(scheduleDetailInfo.startPeriodTimestamp),
-          end: DateTime(scheduleDetailInfo.endPeriodTimestamp),
+          start: DateTime.fromMillisecondsSinceEpoch(
+            scheduleDetailInfo.startPeriodTimestamp,
+          ),
+          end: DateTime.fromMillisecondsSinceEpoch(
+            scheduleDetailInfo.endPeriodTimestamp,
+          ),
         ),
         studentRequest: studentRequest ?? '',
         tutorCountry: Country.fromIsoCodeOrAntarctica(

@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 
 import '../../../presentation/common.dart';
 import '../../common/failures/failure.dart';
+import '../models/appointment.dart';
 import '../models/schedule.dart';
 
 abstract class ScheduleRepository {
@@ -23,4 +24,8 @@ abstract class ScheduleRepository {
     required String bookedId,
     required String note,
   });
+
+  Future<Either<Failure, List<Appointment>>> getUpcomingClasses();
+
+  Future<Either<Failure, List<Appointment>>> getHistory();
 }

@@ -5,9 +5,11 @@ import 'package:injectable/injectable.dart';
 
 import '../../../domain/common/failures/failure.dart';
 import '../../../domain/schedule/interfaces/i_schedule_repository.dart';
+import '../../../domain/schedule/models/appointment.dart';
 import '../../../domain/schedule/models/schedule.dart';
 import '../../../presentation/common.dart';
 import '../../common/db/fixture_loader.dart';
+import '../dto/appointment/appointment_dto.dart';
 import '../dto/tutor_schedule/tutor_schedule_dto.dart';
 
 @LazySingleton(as: ScheduleRepository)
@@ -88,4 +90,42 @@ class MockScheduleRepository extends ScheduleRepository {
     required String note,
   }) async =>
       right(unit);
+
+  @override
+  Future<Either<Failure, List<Appointment>>> getHistory() async {
+    try {
+      final userId = _box.get(_keyUser);
+      if (userId == null) {
+        return left(const Failure.wtf(
+          'Local storage does not contains user id',
+        ));
+      }
+
+      final res = AppointmentDto.fromJson(await FixtureLoader.classHistory);
+      final history = res.toDomain();
+
+      return right(history);
+    } on FlutterError {
+      return left(const Failure.notFound());
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<Appointment>>> getUpcomingClasses() async {
+    try {
+      final userId = _box.get(_keyUser);
+      if (userId == null) {
+        return left(const Failure.wtf(
+          'Local storage does not contains user id',
+        ));
+      }
+
+      final res = AppointmentDto.fromJson(await FixtureLoader.upcomingClasses);
+      final upcomingClasses = res.toDomain();
+
+      return right(upcomingClasses);
+    } on FlutterError {
+      return left(const Failure.notFound());
+    }
+  }
 }

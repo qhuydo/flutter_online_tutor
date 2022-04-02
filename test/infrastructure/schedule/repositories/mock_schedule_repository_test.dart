@@ -58,4 +58,30 @@ void main() {
       expect(list?.isNotEmpty, isTrue);
     });
   });
+
+  group('get upcoming classes', () {
+    test('should get upcoming classes', () async {
+      // act
+      final result = await repository.getUpcomingClasses();
+
+      final list = result.fold((l) => null, (r) => r);
+
+      // assert
+      expect(result.isRight(), isTrue);
+      expect(list?.isNotEmpty, isTrue);
+    });
+  });
+
+  group('get meeting history', () {
+    test('should get meeting histories', () async {
+      // act
+      final result = await repository.getHistory();
+
+      final list = result.fold((l) => null, (r) => r);
+
+      // assert
+      expect(result.isRight(), isTrue);
+      expect(list?.isNotEmpty, isTrue);
+    });
+  });
 }
