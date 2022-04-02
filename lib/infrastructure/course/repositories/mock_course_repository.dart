@@ -4,9 +4,11 @@ import 'package:injectable/injectable.dart';
 import '../../../domain/common/failures/failure.dart';
 import '../../../domain/course_ebook/interfaces/i_course_repository.dart';
 import '../../../domain/course_ebook/models/course.dart';
+import '../../../domain/course_ebook/models/ebook.dart';
 import '../../../presentation/common.dart';
 import '../../common/db/fixture_loader.dart';
 import '../dto/course_dto.dart';
+import '../dto/ebook_dto.dart';
 
 @lazySingleton
 class MockCourseRepository implements CourseRepository {
@@ -40,6 +42,43 @@ class MockCourseRepository implements CourseRepository {
           .toList(growable: false);
 
       return right(courses);
+    } on NullThrownError {
+      return left(const Failure.apiError());
+    } on FlutterError {
+      return left(const Failure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<Failure, Ebook>> getEbookById(String ebookId) async {
+    final list = (await getRecommendedEbooks(page: 1, limit: 100)).fold(
+      (l) => null,
+      (r) => r,
+    );
+
+    if (list == null) return left(const Failure.notFound());
+
+    final idx = list.indexWhere((element) => element.id == ebookId);
+    if (idx < 0) return left(const Failure.notFound());
+    return right(list[idx]);
+  }
+
+  @override
+  Future<Either<Failure, List<Ebook>>> getRecommendedEbooks({
+    required int page,
+    required int limit,
+  }) async {
+    if (page < 1 || limit <= 0) {
+      return left(const Failure.internalError());
+    }
+
+    try {
+      final res = await FixtureLoader.ebookList;
+      final ebooks = (res['data']['rows'] as List)
+          .map((e) => EbookDto.fromJson(e).toDomain())
+          .toList(growable: false);
+
+      return right(ebooks);
     } on NullThrownError {
       return left(const Failure.apiError());
     } on FlutterError {

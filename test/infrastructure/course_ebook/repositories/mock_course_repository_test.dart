@@ -23,4 +23,18 @@ void main() {
       expect(list?.isNotEmpty, isTrue);
     });
   });
+
+  group('ebook list', () {
+    test('get ebook list', () async {
+      final result = await repository.getRecommendedEbooks(
+        page: 1,
+        limit: 100,
+      );
+      final list = result.fold((l) => null, (r) => r);
+
+      // assert
+      expect(result.isRight(), isTrue);
+      expect(list?.isNotEmpty, isTrue);
+    });
+  });
 }

@@ -18,5 +18,14 @@ class Course with _$Course {
     required List<CourseTopic> courseTopic,
   }) = _Course;
 
+  factory Course.empty() => const Course(
+        id: '',
+        name: '',
+        level: Level.none,
+        reason: '',
+        purpose: '',
+        courseTopic: [],
+      );
+
   int get courseLength => courseTopic.length;
 }
