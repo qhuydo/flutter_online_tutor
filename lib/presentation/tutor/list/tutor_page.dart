@@ -91,12 +91,6 @@ class _TutorPageState extends State<_TutorPage> {
   }
 
   Widget buildBody(SearchTutorsState state, BuildContext context) {
-    // if (state.isInitial) {
-    //   return const EmptyPage(
-    //     emoticon: '🔍',
-    //     text: 'Type your keyword, then hit enter',
-    //   );
-    // }
 
     final resultList = state.result.fold((l) => null, (r) => r);
 
@@ -108,12 +102,6 @@ class _TutorPageState extends State<_TutorPage> {
         ),
       );
     }
-
-    // if (!state.isInitial && resultList.isEmpty) {
-    //   return const EmptyPage(
-    //     text: 'Empty result',
-    //   );
-    // }
 
     final bloc = context.read<SearchTutorsBloc>();
 
@@ -140,24 +128,26 @@ class _TutorPageState extends State<_TutorPage> {
               height: 40,
             ),
             state.isInitial || resultList.isNotEmpty
-                ? AlignedGridView.extent(
-                    maxCrossAxisExtent: 600,
-                    crossAxisSpacing: smallItemSpacing,
-                    mainAxisSpacing: smallItemSpacing,
-                    primary: false,
-                    shrinkWrap: true,
-                    itemCount: resultList.length,
-                    // separatorBuilder: (context, index) => const Divider(),
-                    itemBuilder: (context, index) {
-                      return TutorCard(
-                        tutor: resultList[index],
-                        onFavouriteButtonPressed: () => bloc.add(
-                          SearchTutorsEvent.toggleFavourite(
-                            resultList[index].id,
+                ? FloatingSearchBarScrollNotifier(
+                    child: AlignedGridView.extent(
+                      maxCrossAxisExtent: 600,
+                      crossAxisSpacing: smallItemSpacing,
+                      mainAxisSpacing: smallItemSpacing,
+                      primary: false,
+                      shrinkWrap: true,
+                      itemCount: resultList.length,
+                      // separatorBuilder: (context, index) => const Divider(),
+                      itemBuilder: (context, index) {
+                        return TutorCard(
+                          tutor: resultList[index],
+                          onFavouriteButtonPressed: () => bloc.add(
+                            SearchTutorsEvent.toggleFavourite(
+                              resultList[index].id,
+                            ),
                           ),
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   )
                 : const SizedBox(
                     height: 400,

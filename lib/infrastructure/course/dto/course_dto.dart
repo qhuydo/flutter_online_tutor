@@ -44,5 +44,7 @@ extension CourseDtoX on CourseDto {
         purpose: purpose,
         courseTopic: topics.map((e) => e.toDomain()).toList(growable: false)
           ..sort((a, b) => a.order.compareTo(b.order)),
+        imageUrl: imageUrl,
+        description: description,
       );
 }

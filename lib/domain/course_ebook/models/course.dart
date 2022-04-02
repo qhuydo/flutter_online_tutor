@@ -15,7 +15,9 @@ class Course with _$Course {
     required Level level,
     required String reason,
     required String purpose,
+    required String description,
     required List<CourseTopic> courseTopic,
+    required String imageUrl,
   }) = _Course;
 
   factory Course.empty() => const Course(
@@ -25,6 +27,8 @@ class Course with _$Course {
         reason: '',
         purpose: '',
         courseTopic: [],
+        imageUrl: '',
+        description: '',
       );
 
   int get courseLength => courseTopic.length;

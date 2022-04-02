@@ -10,7 +10,7 @@ import '../../common/db/fixture_loader.dart';
 import '../dto/course_dto.dart';
 import '../dto/ebook_dto.dart';
 
-@lazySingleton
+@LazySingleton(as: CourseRepository)
 class MockCourseRepository implements CourseRepository {
   @override
   Future<Either<Failure, Course>> getCourseById(String courseId) async {

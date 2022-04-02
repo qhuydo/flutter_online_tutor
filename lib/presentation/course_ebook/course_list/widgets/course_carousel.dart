@@ -1,19 +1,23 @@
-import '../../../common/utils/constants.dart';
+import '../../../../domain/course_ebook/models/course.dart';
 import '../../../common.dart';
+import '../../../common/utils/constants.dart';
 import '../../../common/widgets/dots_indicator.dart';
 import 'course_carousel_card.dart';
 
 class CourseCarousel extends StatefulWidget {
-  const CourseCarousel({Key? key}) : super(key: key);
+  final List<Course> courses;
+
+  const CourseCarousel({
+    Key? key,
+    required this.courses,
+  }) : super(key: key);
 
   @override
   State<CourseCarousel> createState() => _CourseCarouselState();
 }
 
-const int _itemCount = 5;
 class _CourseCarouselState extends State<CourseCarousel> {
   final _controller = PageController(
-    initialPage: _itemCount,
     viewportFraction: goldenRatioInverse,
   );
 
@@ -43,12 +47,8 @@ class _CourseCarouselState extends State<CourseCarousel> {
         );
       },
       child: CourseCarouselCard(
-        thumbnail: courseAssets[index % courseAssets.length],
+        course: widget.courses[index % widget.courses.length],
       ),
-      // child: Container(
-      //   margin: const EdgeInsets.all(8.0),
-      //   color: index % 2 == 0 ? Colors.blue : Colors.red,
-      // ),
     );
   }
 
@@ -63,32 +63,25 @@ class _CourseCarouselState extends State<CourseCarousel> {
 
     return Column(
       children: [
-        SizedBox(
-          height: cardHeight,
-          child: PageView.builder(
-            controller: _controller,
-            itemBuilder: _buildCourseList,
-            // itemCount: _itemCount,
+        if (widget.courses.isNotEmpty)
+          SizedBox(
+            height: cardHeight,
+            child: PageView.builder(
+              controller: _controller,
+              itemBuilder: _buildCourseList,
+            ),
           ),
-          // child: PageView.builder(
-          //   itemBuilder: (context, index) {
-          //     return const CourseCard();
-          //   },
-          //   itemCount: _itemCount,
-          //   controller: _controller,
-          // ),
-        ),
-        if (_itemCount > 1)
+        if (widget.courses.length > 1)
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 16, 0, 0),
             child: Center(
               child: DotsIndicator(
                 color: Colors.grey[600]!.withOpacity(0.8),
                 controller: _controller,
-                itemCount: _itemCount,
+                itemCount: widget.courses.length,
                 onPageSelected: (int page) {
                   _controller.animateToPage(
-                    page % _itemCount,
+                    page % widget.courses.length,
                     duration: _kDuration,
                     curve: _kCurve,
                   );

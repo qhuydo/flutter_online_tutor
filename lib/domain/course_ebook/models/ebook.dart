@@ -14,4 +14,12 @@ class Ebook with _$Ebook {
     required String fileUrl,
     String? imageUrl,
   }) = _Ebook;
+
+  factory Ebook.empty() => const Ebook(
+        id: '',
+        name: '',
+        description: '',
+        level: Level.none,
+        fileUrl: '',
+      );
 }

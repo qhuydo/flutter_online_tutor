@@ -1,16 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 
+import '../../../../domain/course_ebook/models/course.dart';
 import '../../../common.dart';
 import '../../../common/routes/app_routes.gr.dart';
-import '../../../tutor/list/widgets/topic_chip.dart';
+import '../../../user/profile/widgets/level_form_dropdown.dart';
 import 'course_carousel_card_content.dart';
 
 class CourseCarouselCard extends StatelessWidget {
-  final String thumbnail;
+  final Course course;
 
   const CourseCarouselCard({
     Key? key,
-    required this.thumbnail,
+    required this.course,
   }) : super(key: key);
 
   @override
@@ -19,16 +20,16 @@ class CourseCarouselCard extends StatelessWidget {
       child: InkWell(
         onTap: () {
           context.router.push(
-            CourseDetailsRoute(courseId: '', thumbnail: thumbnail),
+            CourseDetailsRoute(courseId: course.id, thumbnail: ''),
           );
         },
         child: Column(
           children: [
             AspectRatio(
               aspectRatio: 13 / 9,
-              child: Image.asset(
+              child: Image.network(
                 // 'assets/images/course.png',
-                thumbnail,
+                course.imageUrl,
                 fit: BoxFit.fitWidth,
                 height: double.infinity,
                 width: double.infinity,
@@ -37,14 +38,10 @@ class CourseCarouselCard extends StatelessWidget {
               //   color: Colors.blue,
               // ),
             ),
-            const CourseCarouselCardContent(),
-            Container(
-              padding: const EdgeInsets.fromLTRB(8, 0, 8, 16),
-              child: Row(
-                children: const [
-                  TopicChip(label: 'English'),
-                ],
-              ),
+            CourseCarouselCardContent(course: course),
+            Text(
+              course.level.toDisplayString(context),
+              style: Theme.of(context).textTheme.caption,
             ),
           ],
         ),

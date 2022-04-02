@@ -24,14 +24,18 @@ class _$CourseTearOff {
       required Level level,
       required String reason,
       required String purpose,
-      required List<CourseTopic> courseTopic}) {
+      required String description,
+      required List<CourseTopic> courseTopic,
+      required String imageUrl}) {
     return _Course(
       id: id,
       name: name,
       level: level,
       reason: reason,
       purpose: purpose,
+      description: description,
       courseTopic: courseTopic,
+      imageUrl: imageUrl,
     );
   }
 }
@@ -46,7 +50,9 @@ mixin _$Course {
   Level get level => throw _privateConstructorUsedError;
   String get reason => throw _privateConstructorUsedError;
   String get purpose => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
   List<CourseTopic> get courseTopic => throw _privateConstructorUsedError;
+  String get imageUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CourseCopyWith<Course> get copyWith => throw _privateConstructorUsedError;
@@ -62,7 +68,9 @@ abstract class $CourseCopyWith<$Res> {
       Level level,
       String reason,
       String purpose,
-      List<CourseTopic> courseTopic});
+      String description,
+      List<CourseTopic> courseTopic,
+      String imageUrl});
 }
 
 /// @nodoc
@@ -80,7 +88,9 @@ class _$CourseCopyWithImpl<$Res> implements $CourseCopyWith<$Res> {
     Object? level = freezed,
     Object? reason = freezed,
     Object? purpose = freezed,
+    Object? description = freezed,
     Object? courseTopic = freezed,
+    Object? imageUrl = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -103,10 +113,18 @@ class _$CourseCopyWithImpl<$Res> implements $CourseCopyWith<$Res> {
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
               as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
       courseTopic: courseTopic == freezed
           ? _value.courseTopic
           : courseTopic // ignore: cast_nullable_to_non_nullable
               as List<CourseTopic>,
+      imageUrl: imageUrl == freezed
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -122,7 +140,9 @@ abstract class _$CourseCopyWith<$Res> implements $CourseCopyWith<$Res> {
       Level level,
       String reason,
       String purpose,
-      List<CourseTopic> courseTopic});
+      String description,
+      List<CourseTopic> courseTopic,
+      String imageUrl});
 }
 
 /// @nodoc
@@ -141,7 +161,9 @@ class __$CourseCopyWithImpl<$Res> extends _$CourseCopyWithImpl<$Res>
     Object? level = freezed,
     Object? reason = freezed,
     Object? purpose = freezed,
+    Object? description = freezed,
     Object? courseTopic = freezed,
+    Object? imageUrl = freezed,
   }) {
     return _then(_Course(
       id: id == freezed
@@ -164,10 +186,18 @@ class __$CourseCopyWithImpl<$Res> extends _$CourseCopyWithImpl<$Res>
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
               as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
       courseTopic: courseTopic == freezed
           ? _value.courseTopic
           : courseTopic // ignore: cast_nullable_to_non_nullable
               as List<CourseTopic>,
+      imageUrl: imageUrl == freezed
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -181,7 +211,9 @@ class _$_Course extends _Course {
       required this.level,
       required this.reason,
       required this.purpose,
-      required this.courseTopic})
+      required this.description,
+      required this.courseTopic,
+      required this.imageUrl})
       : super._();
 
   @override
@@ -195,11 +227,15 @@ class _$_Course extends _Course {
   @override
   final String purpose;
   @override
+  final String description;
+  @override
   final List<CourseTopic> courseTopic;
+  @override
+  final String imageUrl;
 
   @override
   String toString() {
-    return 'Course(id: $id, name: $name, level: $level, reason: $reason, purpose: $purpose, courseTopic: $courseTopic)';
+    return 'Course(id: $id, name: $name, level: $level, reason: $reason, purpose: $purpose, description: $description, courseTopic: $courseTopic, imageUrl: $imageUrl)';
   }
 
   @override
@@ -213,7 +249,10 @@ class _$_Course extends _Course {
             const DeepCollectionEquality().equals(other.reason, reason) &&
             const DeepCollectionEquality().equals(other.purpose, purpose) &&
             const DeepCollectionEquality()
-                .equals(other.courseTopic, courseTopic));
+                .equals(other.description, description) &&
+            const DeepCollectionEquality()
+                .equals(other.courseTopic, courseTopic) &&
+            const DeepCollectionEquality().equals(other.imageUrl, imageUrl));
   }
 
   @override
@@ -224,7 +263,9 @@ class _$_Course extends _Course {
       const DeepCollectionEquality().hash(level),
       const DeepCollectionEquality().hash(reason),
       const DeepCollectionEquality().hash(purpose),
-      const DeepCollectionEquality().hash(courseTopic));
+      const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(courseTopic),
+      const DeepCollectionEquality().hash(imageUrl));
 
   @JsonKey(ignore: true)
   @override
@@ -239,7 +280,9 @@ abstract class _Course extends Course {
       required Level level,
       required String reason,
       required String purpose,
-      required List<CourseTopic> courseTopic}) = _$_Course;
+      required String description,
+      required List<CourseTopic> courseTopic,
+      required String imageUrl}) = _$_Course;
   const _Course._() : super._();
 
   @override
@@ -253,7 +296,11 @@ abstract class _Course extends Course {
   @override
   String get purpose;
   @override
+  String get description;
+  @override
   List<CourseTopic> get courseTopic;
+  @override
+  String get imageUrl;
   @override
   @JsonKey(ignore: true)
   _$CourseCopyWith<_Course> get copyWith => throw _privateConstructorUsedError;

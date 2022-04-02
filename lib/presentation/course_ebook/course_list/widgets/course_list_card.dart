@@ -1,15 +1,16 @@
 import 'package:auto_route/auto_route.dart';
 
+import '../../../../domain/course_ebook/models/course.dart';
 import '../../../common.dart';
 import '../../../common/routes/app_routes.gr.dart';
 import 'course_carousel_card_content.dart';
 
 class CourseListCard extends StatelessWidget {
-  final String thumbnail;
+  final Course course;
 
   const CourseListCard({
     Key? key,
-    required this.thumbnail,
+    required this.course,
   }) : super(key: key);
 
   @override
@@ -18,21 +19,21 @@ class CourseListCard extends StatelessWidget {
       child: InkWell(
         onTap: () {
           context.router.push(
-            CourseDetailsRoute(courseId: '', thumbnail: thumbnail),
+            CourseDetailsRoute(courseId: course.id, thumbnail: ''),
           );
         },
         child: Column(
           children: [
             AspectRatio(
               aspectRatio: 13 / 9,
-              child: Image.asset(
-                thumbnail,
+              child: Image.network(
+                course.imageUrl,
                 fit: BoxFit.fitWidth,
                 height: double.infinity,
                 width: double.infinity,
               ),
             ),
-            const CourseCarouselCardContent(),
+            CourseCarouselCardContent(course: course),
           ],
         ),
       ),

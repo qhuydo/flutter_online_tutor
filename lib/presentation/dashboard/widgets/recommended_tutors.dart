@@ -1,9 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../../../application/tutor/recommended_tutors/recommended_tutors_bloc.dart';
 import '../../common.dart';
 import '../../common/routes/app_routes.gr.dart';
+import '../../common/utils/constants.dart';
 import '../../tutor/list/widgets/tutor_card.dart';
 
 class RecommendedTutors extends StatelessWidget {
@@ -88,11 +90,11 @@ class _RecommendedTutors extends StatelessWidget {
         }
         // TODO add widget for empty list state
 
-        return ListView.separated(
+        return AlignedGridView.extent(
+          maxCrossAxisExtent: 600,
+          crossAxisSpacing: smallItemSpacing,
+          mainAxisSpacing: smallItemSpacing,
           controller: ScrollController(),
-          separatorBuilder: (BuildContext context, int index) {
-            return const SizedBox(height: 8);
-          },
           itemBuilder: (BuildContext context, int index) {
             return TutorCard(
               tutor: tutors[index],
