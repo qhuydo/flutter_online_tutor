@@ -39,9 +39,7 @@ class EmptyPage extends StatelessWidget {
             style: Theme.of(context).textTheme.headline1,
           ),
           const SizedBox(height: 8),
-          Text(
-            text ?? 'It\'s empty here',
-          )
+          Text(text ?? '')
         ],
       ),
     );

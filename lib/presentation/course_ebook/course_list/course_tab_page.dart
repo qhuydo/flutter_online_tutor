@@ -56,6 +56,7 @@ class _CourseTabPage extends StatelessWidget {
             return const SizedBox(
               height: 60,
               child: Center(
+                // TODO update translation
                 child: Text('Error occurred'),
               ),
             );

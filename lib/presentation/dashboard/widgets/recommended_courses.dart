@@ -35,6 +35,7 @@ class _RecommendedCourses extends StatelessWidget {
           return const SizedBox(
             height: 60,
             child: Center(
+              // TODO add translation
               child: Text('Error occurred'),
             ),
           );

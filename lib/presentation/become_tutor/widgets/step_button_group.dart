@@ -27,7 +27,8 @@ class StepButtonGroup extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           if (isNotFirstStep &&
-              !isCompleted && !(!isNotLastStep && !showLastStep))
+              !isCompleted &&
+              !(!isNotLastStep && !showLastStep))
             OutlinedButton.icon(
               onPressed: onStepCancel,
               icon: const Icon(Icons.navigate_before),
@@ -35,9 +36,7 @@ class StepButtonGroup extends StatelessWidget {
                 context.l10n.previousStepButtonText,
               ),
             ),
-          const Expanded(
-            child: SizedBox(),
-          ),
+          const Expanded(child: SizedBox()),
           if (isNotLastStep && !isCompleted)
             ElevatedButton.icon(
               onPressed: onStepContinue,

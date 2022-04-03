@@ -52,6 +52,7 @@ class _CourseDetailsPage extends StatelessWidget {
         title: context.l10n.courseTitle,
       ),
       body: const Center(
+        // TODO add translation
         child: Text('Not found'),
       ),
     );

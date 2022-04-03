@@ -68,6 +68,7 @@ class ReviewList extends StatelessWidget {
                         )),
                         if (feedbackList[index].isEdited) ...[
                           const SizedBox(width: 4),
+                          // TODO add translation
                           Text(
                             'Edited',
                             style:

@@ -18,7 +18,7 @@ class ReportDialog extends StatelessWidget {
             TextButton(
               onPressed: () {},
               child: const Text(
-                'Dismiss',
+                'Cancel',
                 textAlign: TextAlign.end,
               ),
             ),

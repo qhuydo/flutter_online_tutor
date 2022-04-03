@@ -1,6 +1,6 @@
 {
     "@@locale": "en",
-    "@@last_modified": "2022-03-06T15:30:38+00:00",
+    "@@last_modified": "2022-04-03T07:49:50+00:00",
     "appTitle": "Online tutor",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -155,8 +155,91 @@
     "syllabusBeforeLessonSubtitle": "Review these slides to prepare for your lesson",
     "syllabusLessonSlideSubtitle": "These slides are available as a preview of the course",
     "syllabusReviewVideoSubtitle": "You can review the lesson slides once you have completed the lesson",
+    "meetingRoomTitle": "Meeting room",
+    "writeMessageInputText": "Type your message",
     "historyTitle": "Lesson history",
     "openEbookButtonText": "Open ebook from Browser",
-    "meetingRoomTitle": "Meeting room",
-    "writeMessageInputText": "Type your message"
+    "passwordChangedDialogContent": "Please use the new password next time you login.",
+    "passwordChangedDialogTitle": "Password has been changed successfully",
+    "okButton": "OK",
+    "valueFalureUnknownError": "An unknown error occurred",
+    "valueFailureEmptyValue": "Empty value is not allowed",
+    "valueFailureValueInvalid": "Value is invalid",
+    "reportFDialogTitle": "Report",
+    "filterDialogTitle": "Filter",
+    "filterOptionSortBy": "Sort by",
+    "clearFilterButton": "Clear filters",
+    "tutorSortByDefaultSort": "Name",
+    "tutorSortByFavourite": "Favourite",
+    "tutorSortByRating": "Rating",
+    "editedTextLabel": "(Edited)",
+    "meetingTime": "{from} - {to}",
+    "@meetingTime": {
+      "placeholders": {
+        "from": {
+          "type": "String",
+          "example": "12:00"
+        },
+        "to": {
+          "type": "String",
+          "example": "12:30"
+        }
+      }
+    },
+    "bookDialogTitle": "Book a class",
+    "balanceLabel": "Balance",
+    "balanceStatusText": "{count, plural, other {You have {count} courses left} one {You have one course left}}",
+    "@balanceStatusText": {
+      "placeholders": {
+        "count": {
+          "type": "int"
+        }
+      }
+    },
+    "priceTextLabel": "Price",
+    "priceValue": "{count, plural, one {one course} other {{count} courses}}",
+    "@priceValue": {
+      "placeholders": {
+        "count": {
+          "type": "int"
+        }
+      }
+    },
+    "tutorNotFoundTextLabel": "Not found any tutors match the query",
+    "courseLengthTextLabel": "{count, plural, one {One lesson} other {{count} lessons}}",
+    "@courseLengthTextLabel": {
+      "placeholders": {
+        "count": {
+          "type": "int"
+        }
+      }
+    },
+    "unableToOpenBrowser": "Cannot open web browser",
+    "phoneNumberFailureInvalidPhoneNumber": "Invalid phone number",
+    "authenticationFailureWrongEmailOrPassword": "Incorrect email or password",
+    "authenticationFailureWrongPhoneOrPassword": "Incorrect phone number or password",
+    "authenticationFailureNoInternet": "No internet connection",
+    "authenticationFailureServerError": "An internal server error has occurred",
+    "authenticationFailureAlreadySignedOut": "You are already signed out",
+    "authenticationFailureEmailTaken": "The email is already taken",
+    "authenticationFailurePhoneTaken": "The phone number is already taken",
+    "authenticationFailureEmailNotExist": "The email address does not exist within the system. Please register a new account first.",
+    "authenticationErrorWrongPassword": "The entered password is incorrect.",
+    "authenticationFailureUnauthorized": "Error: unauthorized",
+    "resetPasswordDialogTitle": "Your password has been reset",
+    "resetPasswordContent": "Your password has been reset to {password}.",
+    "@resetPasswordContent": {
+      "placeholders": {
+        "password": {
+          "type": "String"
+        }
+      }
+    },
+    "emailFailureInvalidEmail": "The entered email is invalid",
+    "emailFailureEmptyValue": "Please enter your email address",
+    "passwordFailureShortPassword": "The password you entered was too short.",
+    "passwordFailureEmptyPassword": "Please enter your password",
+    "passwordFailureWrongCurrentPassword": "The entered password is incorrect.",
+    "passwordValueWrongNewPassword": "New password and confirm password does not match",
+    "favouriteTutorsTitle": "Favourite tutors"
 }

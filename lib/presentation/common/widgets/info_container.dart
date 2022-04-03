@@ -7,20 +7,19 @@ class InfoContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final backgroundColour = Theme
-        .of(context)
-        .primaryColorLight;
+    final backgroundColour = Theme.of(context).primaryColorLight;
 
-    final onBackgroundColour = ThemeData.estimateBrightnessForColor(
-        backgroundColour) == Brightness.light ? Colors.black : Colors.white;
+    final onBackgroundColour =
+        ThemeData.estimateBrightnessForColor(backgroundColour) ==
+                Brightness.light
+            ? Colors.black
+            : Colors.white;
 
     return DefaultTextStyle.merge(
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
-            color: Theme
-                .of(context)
-                .primaryColorDark,
+            color: Theme.of(context).primaryColorDark,
             width: 1.25,
           ),
           borderRadius: BorderRadius.circular(8),
@@ -31,9 +30,7 @@ class InfoContainer extends StatelessWidget {
           child: child,
         ),
       ),
-      style: TextStyle(
-          color: onBackgroundColour,
-      ),
+      style: TextStyle(color: onBackgroundColour),
     );
   }
 }

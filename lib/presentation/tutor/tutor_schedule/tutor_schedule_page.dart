@@ -8,7 +8,6 @@ import '../../common/utils/default_app_bar.dart';
 import 'widgets/schedule_calendar.dart';
 import 'widgets/schedule_row.dart';
 
-// TODO refactor this mess
 class TutorSchedulePage extends StatelessWidget {
   final String tutorId;
 

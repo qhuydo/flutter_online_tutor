@@ -84,6 +84,7 @@ class _RecommendedTutors extends StatelessWidget {
           return const SizedBox(
             height: 50,
             child: Center(
+              // add translation
               child: Text('Something went wrong'),
             ),
           );

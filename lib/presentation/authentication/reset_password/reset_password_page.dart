@@ -65,6 +65,7 @@ class _ResetPasswordPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (BuildContext context) {
+        // TODO add translation
         return AlertDialog(
           title: const Text('Reset password'),
           content: const Text('Your password was changed to: 12345678'),

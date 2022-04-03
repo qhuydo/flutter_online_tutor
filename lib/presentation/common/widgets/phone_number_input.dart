@@ -152,6 +152,7 @@ class _PhoneNumberInputState extends State<PhoneNumberInput> {
 }
 
 extension PhoneNumberFailureX on PhoneNumberFailure {
+  // TODO update translation
   String toMsg() => map(
         emptyValue: (_) => 'Empty value',
         invalidPhoneNumber: (_) => 'Invalid phone number',

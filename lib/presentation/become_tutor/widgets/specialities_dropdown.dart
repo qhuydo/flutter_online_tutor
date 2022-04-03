@@ -41,9 +41,7 @@ class SpecialitiesDropdown extends StatelessWidget {
               context.l10n.specialitiesDropdown,
               style: Theme.of(context).textTheme.titleMedium,
             ),
-            title: Text(
-              context.l10n.specialitiesDropdown,
-            ),
+            title: Text(context.l10n.specialitiesDropdown),
             items: _items,
             initialValue: selectedSpecialities,
             onConfirm: onItemsSelected,
