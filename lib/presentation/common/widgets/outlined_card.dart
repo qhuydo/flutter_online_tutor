@@ -21,7 +21,7 @@ class OutlinedCard extends Card {
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
                 side: BorderSide(
-                  color: Colors.grey.withOpacity(0.2),
+                  color: Colors.grey.withOpacity(0.4),
                   width: 1.25,
                 ),
               ),

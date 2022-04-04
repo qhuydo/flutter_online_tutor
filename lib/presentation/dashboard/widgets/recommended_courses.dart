@@ -90,7 +90,7 @@ class _RecommendedCourses extends StatelessWidget {
             LayoutBuilder(
               builder: (context, constraints) {
                 final width = constraints.maxWidth;
-                return width < 300
+                return width < 600
                     ? CourseCarousel(courses: list)
                     : SizedBox(
                         height: 360,

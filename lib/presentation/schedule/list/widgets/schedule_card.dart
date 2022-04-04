@@ -1,5 +1,6 @@
 import '../../../../domain/schedule/models/appointment.dart';
 import '../../../common.dart';
+import '../../../common/widgets/outlined_card.dart';
 import 'schedule_card_button_group.dart';
 import 'schedule_card_content.dart';
 import 'schedule_card_header.dart';
@@ -16,7 +17,7 @@ class ScheduleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return OutlinedCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [

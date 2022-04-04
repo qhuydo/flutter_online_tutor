@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../../../domain/tutor/models/tutor.dart';
 import '../../../common.dart';
 import '../../../common/routes/app_routes.gr.dart';
+import '../../../common/widgets/outlined_card.dart';
 import 'tutor_card_action_buttons.dart';
 import 'tutor_card_header.dart';
 import 'widgets.dart';
@@ -22,7 +23,7 @@ class TutorCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return OutlinedCard(
       child: InkWell(
         onTap: () {
           context.router.push(TutorDetailsRoute(

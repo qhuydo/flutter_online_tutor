@@ -56,7 +56,7 @@ class _CourseCarouselState extends State<CourseCarousel> {
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
     cardWidth = deviceWidth * goldenRatioInverse;
-    cardHeight = deviceWidth;
+    cardHeight = 400;
 
     // cardWidth = 288;
     // cardHeight = cardWidth * goldenRatio;

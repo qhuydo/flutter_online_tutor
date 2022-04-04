@@ -79,7 +79,7 @@ dependencies:
 
   # A Flutter package to make and use beautiful color scheme based themes.
   # (c) BSD-3-Clause License. By Mike Rydstrom.
-  flex_color_scheme: ^4.2.0
+  flex_color_scheme: ^5.0.0-dev.2
 
   # Simple direct Service Locator that allows to decouple the interface from a concrete implementation and to access the
   # concrete implementation from everywhere in your App.

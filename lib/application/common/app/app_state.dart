@@ -2,7 +2,7 @@ part of 'app_cubit.dart';
 
 @freezed
 class AppState with _$AppState {
-  static const _surfaceMode = FlexSurfaceMode.highScaffoldLowSurface;
+  static const _surfaceMode = FlexSurfaceMode.highScaffoldLevelSurface;
   static const _blendLevel = 18;
   static const _defaultAppBarStyleLight = FlexAppBarStyle.primary;
   static const _defaultAppBarStyleDark = FlexAppBarStyle.background;
@@ -12,7 +12,7 @@ class AppState with _$AppState {
   static const _tabBarStyle = FlexTabBarStyle.forAppBar;
   static const _tooltipsMatchBackground = true;
   static const _swapColours = false;
-  static const _lightIsWhite = false;
+  static const _lightIsWhite = true;
   static const _darkIsTrueBlack = false;
   static const _useSubTheme = true;
   static final _visualDensity = FlexColorScheme.comfortablePlatformDensity;

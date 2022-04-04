@@ -2,13 +2,14 @@ import 'package:auto_route/auto_route.dart';
 
 import '../../common.dart';
 import '../../common/routes/app_routes.gr.dart';
+import '../../common/widgets/outlined_card.dart';
 
 class DashboardCard extends StatelessWidget {
   const DashboardCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return OutlinedCard(
       // color: Colors.blueGrey,
       child: Padding(
         padding: const EdgeInsets.all(16),
