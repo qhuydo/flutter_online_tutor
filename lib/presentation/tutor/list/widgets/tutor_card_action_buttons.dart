@@ -25,60 +25,42 @@ class TutorCardActionButtons extends StatelessWidget {
             : IconButton(
                 onPressed: onFavouriteButtonPressed,
                 icon: Icon(
-                  tutor.isFavourite
-                      ? Icons.favorite
-                      : Icons.favorite_border,
+                  tutor.isFavourite ? Icons.favorite : Icons.favorite_border,
                   size: 28,
                   color: tutor.isFavourite
                       ? Theme.of(context).colorScheme.secondary
                       : null,
                 ),
-                tooltip: AppLocalizations.of(context)!.addToFavouriteTooltip,
+                tooltip: context.l10n.addToFavouriteTooltip,
               ),
         const Expanded(child: SizedBox()),
         Wrap(
           spacing: 8,
           runSpacing: 8,
           children: [
-            MaterialButton(
+            OutlinedButton(
               onPressed: () {
                 context.router.push(
                   TutorScheduleRoute(tutorId: tutor.id),
                 );
               },
-              shape: StadiumBorder(
-                side: BorderSide(
-                  width: 1.25,
-                  color: Theme.of(context).iconTheme.color ?? Colors.black,
-                ),
-              ),
               child: Row(
                 children: [
                   const Icon(Icons.event),
                   const SizedBox(width: 4),
-                  Text(
-                    AppLocalizations.of(context)!.bookButtonText,
-                  ),
+                  Text(context.l10n.bookButtonText),
                 ],
               ),
             ),
-            MaterialButton(
+            OutlinedButton(
               onPressed: () {
                 context.router.push(MessageDetailsRoute(tutorId: tutor.id));
               },
-              shape: StadiumBorder(
-                side: BorderSide(
-                  width: 1.25,
-                  color: Theme.of(context).iconTheme.color ?? Colors.black,
-                ),
-              ),
               child: Row(
                 children: [
                   const Icon(Icons.chat_bubble_outline),
                   const SizedBox(width: 4),
-                  Text(
-                    AppLocalizations.of(context)!.chatButtonText,
-                  ),
+                  Text(context.l10n.chatButtonText),
                 ],
               ),
             ),

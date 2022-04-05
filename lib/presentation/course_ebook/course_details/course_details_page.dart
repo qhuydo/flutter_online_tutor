@@ -5,6 +5,7 @@ import '../../../domain/course_ebook/models/course.dart';
 import '../../common.dart';
 import '../../common/utils/constants.dart';
 import '../../common/utils/default_app_bar.dart';
+import '../utils/constants.dart';
 import 'widgets/widgets.dart';
 
 class CourseDetailsPage extends StatelessWidget {
@@ -93,7 +94,8 @@ class _CourseDetailsPage extends StatelessWidget {
                 centerTitle: true,
                 floating: true,
                 stretch: true,
-                expandedHeight: MediaQuery.of(context).size.width * 9 / 13,
+                expandedHeight: MediaQuery.of(context).size.width *
+                    courseThumbnailRatioInverse,
                 flexibleSpace: _buildFlexibleSpaceBar(context, course),
               ),
               SliverToBoxAdapter(

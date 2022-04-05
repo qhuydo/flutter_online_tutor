@@ -16,12 +16,12 @@ class OutlinedCard extends Card {
           key: key,
           color: color,
           shadowColor: shadowColor,
-          elevation: elevation ?? 0,
+          elevation: elevation ?? 0.5,
           shape: shape ??
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
                 side: BorderSide(
-                  color: Colors.grey.withOpacity(0.4),
+                  color: Colors.grey.withOpacity(0.25),
                   width: 1.25,
                 ),
               ),

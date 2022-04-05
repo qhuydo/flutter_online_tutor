@@ -5,6 +5,7 @@ import '../../../common.dart';
 import '../../../common/routes/app_routes.gr.dart';
 import '../../../common/widgets/outlined_card.dart';
 import '../../../user/profile/widgets/level_form_dropdown.dart';
+import '../../utils/constants.dart';
 import 'course_carousel_card_content.dart';
 
 class CourseCarouselCard extends StatelessWidget {
@@ -23,7 +24,7 @@ class CourseCarouselCard extends StatelessWidget {
           Column(
             children: [
               AspectRatio(
-                aspectRatio: 13 / 9,
+                aspectRatio: courseThumbnailRatio,
                 child: Image.network(
                   // 'assets/images/course.png',
                   course.imageUrl,
