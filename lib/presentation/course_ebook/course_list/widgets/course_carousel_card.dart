@@ -4,7 +4,6 @@ import '../../../../domain/course_ebook/models/course.dart';
 import '../../../common.dart';
 import '../../../common/routes/app_routes.gr.dart';
 import '../../../common/widgets/outlined_card.dart';
-import '../../../user/profile/widgets/level_form_dropdown.dart';
 import '../../utils/constants.dart';
 import 'course_carousel_card_content.dart';
 
@@ -37,10 +36,6 @@ class CourseCarouselCard extends StatelessWidget {
                 // ),
               ),
               CourseCarouselCardContent(course: course),
-              Text(
-                course.level.toDisplayString(context),
-                style: Theme.of(context).textTheme.caption,
-              ),
             ],
           ),
           Positioned.fill(

@@ -22,18 +22,17 @@ class SettingsPage extends StatelessWidget {
         title: context.l10n.settingsBottomNavItem,
         shouldShowDefaultActions: false,
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: smallItemSpacing),
-          child: AlignedGridView.extent(
-            maxCrossAxisExtent: 600,
-            crossAxisSpacing: smallItemSpacing,
-            mainAxisSpacing: smallItemSpacing,
-            itemCount: _items.length,
-            itemBuilder: (BuildContext context, int index) {
-              return _items[index];
-            },
-          ),
+      extendBodyBehindAppBar: true,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: smallItemSpacing),
+        child: AlignedGridView.extent(
+          maxCrossAxisExtent: 600,
+          crossAxisSpacing: smallItemSpacing,
+          mainAxisSpacing: smallItemSpacing,
+          itemCount: _items.length,
+          itemBuilder: (BuildContext context, int index) {
+            return _items[index];
+          },
         ),
       ),
     );

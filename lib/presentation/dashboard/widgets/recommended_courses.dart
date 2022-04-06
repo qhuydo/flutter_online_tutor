@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -40,6 +42,7 @@ class _RecommendedCoursesState extends State<_RecommendedCourses> {
 
   @override
   Widget build(BuildContext context) {
+    final isDesktop = Platform.isLinux || Platform.isMacOS || Platform.isWindows;
     return BlocBuilder<CourseListBloc, CourseListState>(
       builder: (context, state) {
         final list = state.courseList;
@@ -108,7 +111,8 @@ class _RecommendedCoursesState extends State<_RecommendedCourses> {
                     : LimitedBox(
                         maxHeight: 400,
                         child: Scrollbar(
-                          scrollbarOrientation: ScrollbarOrientation.bottom,
+                          thickness: isDesktop ? null : 0,
+                          isAlwaysShown: true,
                           controller: scrollController,
                           child: ListView.builder(
                             controller: scrollController,

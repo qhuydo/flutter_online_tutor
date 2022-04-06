@@ -47,24 +47,17 @@ class ScheduleCardContent extends StatelessWidget {
             ),
           ),
           // const SizedBox(height: 8),
-          ListView(
-            primary: false,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
+          ExpansionTile(
+            expandedCrossAxisAlignment: CrossAxisAlignment.start,
+            expandedAlignment: Alignment.topLeft,
+            childrenPadding: const EdgeInsets.symmetric(
+              horizontal: itemSpacing,
+              vertical: smallItemSpacing,
+            ),
+            leading: const Icon(Icons.event),
+            title: Text(context.l10n.requestForLessonLabel),
             children: [
-              ExpansionTile(
-                expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                expandedAlignment: Alignment.topLeft,
-                childrenPadding: const EdgeInsets.symmetric(
-                  horizontal: itemSpacing,
-                  vertical: smallItemSpacing,
-                ),
-                leading: const Icon(Icons.event),
-                title: Text(context.l10n.requestForLessonLabel),
-                children: [
-                  Text(appointment.studentRequest),
-                ],
-              ),
+              Text(appointment.studentRequest),
             ],
           ),
         ],

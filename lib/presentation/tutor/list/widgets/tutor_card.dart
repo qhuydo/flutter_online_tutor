@@ -49,9 +49,14 @@ class TutorCard extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyText2,
                 ),
                 const SizedBox(height: 16),
-                TutorCardActionButtons(
-                  onFavouriteButtonPressed: onFavouriteButtonPressed,
-                  isLoading: isLoading,
+                Flexible(
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: TutorCardActionButtons(
+                      onFavouriteButtonPressed: onFavouriteButtonPressed,
+                      isLoading: isLoading,
+                    ),
+                  ),
                 ),
               ],
             ),

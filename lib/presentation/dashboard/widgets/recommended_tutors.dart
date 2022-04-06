@@ -92,7 +92,7 @@ class _RecommendedTutors extends StatelessWidget {
         // TODO add widget for empty list state
 
         return AlignedGridView.extent(
-          maxCrossAxisExtent: 600,
+          maxCrossAxisExtent: 725,
           crossAxisSpacing: smallItemSpacing,
           mainAxisSpacing: smallItemSpacing,
           controller: ScrollController(),

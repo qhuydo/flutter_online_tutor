@@ -69,26 +69,29 @@ class CourseCarouselCardContent extends StatelessWidget {
                 );
               }),
             ),
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    course.level.toDisplayString(context),
-                    style: Theme.of(context).textTheme.caption?.copyWith(
-                      fontWeight: FontWeight.bold,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      course.level.toDisplayString(context),
+                      style: Theme.of(context).textTheme.caption?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.start,
                     ),
-                    textAlign: TextAlign.start,
                   ),
-                ),
-                Expanded(
-                  child: Text(
-                    // TODO update translation
-                    '${course.courseLength} lessons',
-                    style: Theme.of(context).textTheme.caption,
-                    textAlign: TextAlign.end,
+                  Expanded(
+                    child: Text(
+                      // TODO update translation
+                      '${course.courseLength} lessons',
+                      style: Theme.of(context).textTheme.caption,
+                      textAlign: TextAlign.end,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),

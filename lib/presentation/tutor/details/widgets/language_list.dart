@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../domain/tutor/models/language.dart';
+import '../../../common/utils/constants.dart';
 
 class LanguageList extends StatelessWidget {
   final List<Language> languages;
@@ -13,7 +14,8 @@ class LanguageList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Wrap(
-      spacing: 8,
+      spacing: smallItemSpacing,
+      runSpacing: smallItemSpacing,
       children: [
         for (final language in languages)
           Chip(

@@ -34,9 +34,11 @@ class EmptyPage extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            emoticon ?? emoticons[Random().nextInt(emoticons.length)],
-            style: Theme.of(context).textTheme.headline1,
+          FittedBox(
+            child: Text(
+              emoticon ?? emoticons[Random().nextInt(emoticons.length)],
+              style: Theme.of(context).textTheme.headline1,
+            ),
           ),
           const SizedBox(height: 8),
           Text(text ?? '')

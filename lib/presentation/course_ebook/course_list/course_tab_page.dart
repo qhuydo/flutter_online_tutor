@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 import '../../../application/course_ebook/course_list/course_list_bloc.dart';
@@ -26,6 +29,8 @@ class _CourseTabPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDesktop = Platform.isLinux || Platform.isMacOS || Platform.isWindows;
+
     final actions = [
       FloatingSearchBarAction.searchToClear(
         showIfClosed: true,
@@ -62,18 +67,18 @@ class _CourseTabPage extends StatelessWidget {
             );
           }
           return FloatingSearchBarScrollNotifier(
-            child: GridView.builder(
+            child: AlignedGridView.extent(
               primary: false,
               shrinkWrap: true,
               padding: const EdgeInsets.only(top: searchBarHeight + 12),
               itemCount: list.length,
-              itemBuilder: (context, index) => CourseListCard(
-                course: list[index],
+              itemBuilder: (context, index) => LimitedBox(
+                maxHeight: isDesktop ? 360 : 300,
+                child: CourseListCard(
+                  course: list[index],
+                ),
               ),
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 400,
-                childAspectRatio: 1 / 1.25,
-              ),
+              maxCrossAxisExtent: 360,
             ),
           );
         },
