@@ -91,15 +91,13 @@ class _TutorPageState extends State<_TutorPage> {
   }
 
   Widget buildBody(SearchTutorsState state, BuildContext context) {
-
     final resultList = state.result.fold((l) => null, (r) => r);
 
     if (resultList == null) {
-      return const SizedBox(
+      // TODO add error widget
+      return SizedBox(
         height: 60,
-        child: Center(
-          child: Text('Error occurred'),
-        ),
+        child: Center(child: Text(context.l10n.valueFalureUnknownError)),
       );
     }
 
@@ -149,11 +147,9 @@ class _TutorPageState extends State<_TutorPage> {
                       },
                     ),
                   )
-                : const SizedBox(
+                : SizedBox(
                     height: 400,
-                    child: EmptyPage(
-                      text: 'Empty result',
-                    ),
+                    child: EmptyPage(text: context.l10n.emptyResult),
                   ),
           ],
         ),

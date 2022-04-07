@@ -5,6 +5,7 @@ import '../../../domain/course_ebook/models/course.dart';
 import '../../common.dart';
 import '../../common/utils/constants.dart';
 import '../../common/utils/default_app_bar.dart';
+import '../../common/widgets/empty_page.dart';
 import '../utils/constants.dart';
 import 'widgets/widgets.dart';
 
@@ -46,16 +47,14 @@ class _CourseDetailsPage extends StatelessWidget {
     );
   }
 
+  // TODO refactor into a widget
   Widget _buildNotFoundWidget(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(
         context,
         title: context.l10n.courseTitle,
       ),
-      body: const Center(
-        // TODO add translation
-        child: Text('Not found'),
-      ),
+      body: EmptyPage(text: context.l10n.pageNotFound),
     );
   }
 

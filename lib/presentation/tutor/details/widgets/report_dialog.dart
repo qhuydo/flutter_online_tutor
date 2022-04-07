@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../common/utils/constants.dart';
 import '../../../common.dart';
+import '../../../common/utils/constants.dart';
 
-// TODO update translation
 class ReportDialog extends StatelessWidget {
   const ReportDialog({Key? key}) : super(key: key);
 
@@ -12,24 +11,23 @@ class ReportDialog extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Report'),
+          title: Text(context.l10n.reportDialogTitle),
           content: const ReportDialog(),
           actions: [
             TextButton(
               onPressed: () {},
-              child: const Text(
-                'Cancel',
+              child: Text(
+                context.l10n.cancelButtonLabel,
                 textAlign: TextAlign.end,
               ),
             ),
             TextButton(
               onPressed: () {},
-              child: const Text(
-                'Save',
+              child: Text(
+                context.l10n.saveButtonLabel,
                 textAlign: TextAlign.end,
               ),
             ),
-
           ],
         );
       },
@@ -45,8 +43,8 @@ class ReportDialog extends StatelessWidget {
         Text(
           'Help us understand what\'s happening',
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
+                fontWeight: FontWeight.bold,
+              ),
         ),
         const SizedBox(height: itemSpacing),
         TextFormField(

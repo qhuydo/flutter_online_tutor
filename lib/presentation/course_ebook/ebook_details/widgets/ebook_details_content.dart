@@ -33,9 +33,9 @@ class EbookDetailsContent extends StatelessWidget {
               if (await canLaunch(ebook.fileUrl)) {
                 await launch(ebook.fileUrl);
               } else {
-                // TODO update translation
-                FlushBarUtils.createError(message: 'Cannot launch ebook')
-                    .show(context);
+                FlushBarUtils.createError(
+                  message: context.l10n.unableToOpenBrowser,
+                ).show(context);
               }
             },
             icon: const Icon(

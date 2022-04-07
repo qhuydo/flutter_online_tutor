@@ -1,6 +1,6 @@
 {
     "@@locale": "ja",
-    "@@last_modified": "2022-04-03T08:02:14+00:00",
+    "@@last_modified": "2022-04-07T05:02:41+00:00",
     "appTitle": "オンライン　チューター",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -152,12 +152,12 @@
     "historyTitle": "レッスンの履歴",
     "openEbookButtonText": "ブラウザで開く",
     "passwordChangedDialogContent": "次回のログインから、新しいパスワードを使用してください。",
-    "passwordChangedDialogTitle": "パスワードが正常に変更されました",
+    "passwordChangedDialogTitle": "パスワードが正常に変更されました。",
     "okButton": "OK",
     "valueFalureUnknownError": "不明なエラーが発生した。",
     "valueFailureEmptyValue": "値を入力してください。",
     "valueFailureValueInvalid": "値が無効です。",
-    "reportFDialogTitle": "報告",
+    "reportDialogTitle": "報告",
     "filterDialogTitle": "フィルタ",
     "filterOptionSortBy": "ソート・キー",
     "clearFilterButton": "フィルタを消去",
@@ -193,5 +193,10 @@
     "passwordFailureEmptyPassword": "パスワードを入力してください。",
     "passwordFailureWrongCurrentPassword": "入力されたパスワードが正しくありません。",
     "passwordValueWrongNewPassword": "新しいパスワードと確認パスワードが一致しません",
-    "favouriteTutorsTitle": "お気に入りの講師"
+    "favouriteTutorsTitle": "お気に入りの講師",
+    "pageNotFound": "ページが見つかりません。",
+    "emptyResult": "表示する結果がありません。",
+    "noteLabel": "ノート",
+    "bookedLabel": "予約済み",
+    "reservedLabel": "予約されています"
 }

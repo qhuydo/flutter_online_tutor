@@ -39,7 +39,7 @@ class ChangePasswordForm extends StatelessWidget {
                       .oldPassword
                       .value
                       .fold(
-                        (f) => f.toMsg(),
+                        (f) => f.toMsg(context),
                         (_) => null,
                       ),
                 ),
@@ -58,7 +58,7 @@ class ChangePasswordForm extends StatelessWidget {
                       .newPassword
                       .value
                       .fold(
-                        (f) => f.toMsg(),
+                        (f) => f.toMsg(context),
                         (_) => null,
                       ),
                 ),
@@ -78,7 +78,7 @@ class ChangePasswordForm extends StatelessWidget {
                       .confirmPassword
                       .value
                       .fold(
-                        (f) => f.toMsg(),
+                        (f) => f.toMsg(context),
                         (_) => null,
                       ),
                 ),

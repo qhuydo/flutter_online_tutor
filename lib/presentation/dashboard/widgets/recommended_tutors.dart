@@ -81,12 +81,10 @@ class _RecommendedTutors extends StatelessWidget {
 
         final tutors = state.tutorsOrFailure.fold((l) => null, (r) => r);
         if (tutors == null) {
-          return const SizedBox(
+          // TODO add error widget
+          return SizedBox(
             height: 50,
-            child: Center(
-              // add translation
-              child: Text('Something went wrong'),
-            ),
+            child: Center(child: Text(context.l10n.valueFalureUnknownError)),
           );
         }
         // TODO add widget for empty list state

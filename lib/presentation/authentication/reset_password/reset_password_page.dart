@@ -64,24 +64,18 @@ class _ResetPasswordPage extends StatelessWidget {
   void showSucceedDialog(BuildContext context) {
     showDialog(
       context: context,
-      builder: (BuildContext context) {
-        // TODO add translation
-        return AlertDialog(
-          title: const Text('Reset password'),
-          content: const Text('Your password was changed to: 12345678'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                context.router.popUntilRoot();
-              },
-              child: const Text(
-                'OK',
-                textAlign: TextAlign.end,
-              ),
-            ),
-          ],
-        );
-      },
+      builder: (_) => AlertDialog(
+        title: Text(context.l10n.resetPasswordDialogTitle),
+        content: Text(context.l10n.resetPasswordContent('12345678')),
+        actions: [
+          TextButton(
+            onPressed: () {
+              context.router.popUntilRoot();
+            },
+            child: Text(context.l10n.okButton, textAlign: TextAlign.end),
+          ),
+        ],
+      ),
     ).then((_) => context.router.popUntilRoot());
   }
 }

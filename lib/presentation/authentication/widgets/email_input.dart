@@ -43,9 +43,8 @@ class EmailInput extends StatelessWidget {
               LoginEvent.emailChanged(value),
             ),
         validator: (_) =>
-            // TODO add translation
             context.watch<LoginBloc>().state.emailAddress.value.fold(
-                  (f) => f.toErrorMsg(),
+                  (f) => f.toErrorMsg(context),
                   (_) => null,
                 ),
       );
@@ -60,13 +59,11 @@ class EmailInput extends StatelessWidget {
               SignUpEvent.emailChanged(value),
             ),
         validator: (_) =>
-            // TODO add translation
             context.watch<SignUpBloc>().state.emailAddress.value.fold(
-                  (f) => f.toErrorMsg(),
+                  (f) => f.toErrorMsg(context),
                   (_) => null,
                 ),
       );
-
 
   factory EmailInput.withResetPasswordBloc({
     required BuildContext context,
@@ -78,19 +75,16 @@ class EmailInput extends StatelessWidget {
               ResetPasswordEvent.emailChanged(value),
             ),
         validator: (_) =>
-            // TODO add translation
             context.watch<ResetPasswordBloc>().state.emailAddress.value.fold(
-                  (f) => f.toErrorMsg(),
+                  (f) => f.toErrorMsg(context),
                   (_) => null,
                 ),
       );
-
-
 }
 
 extension EmailFailureX on EmailFailure {
-  String toErrorMsg() => map(
-        invalidEmail: (_) => 'Invalid email',
-        empty: (_) => 'Please enter your email',
+  String toErrorMsg(BuildContext context) => map(
+        invalidEmail: (_) => context.l10n.emailFailureInvalidEmail,
+        empty: (_) => context.l10n.emailFailureEmptyValue,
       );
 }

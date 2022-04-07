@@ -5,10 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../application/tutor/search_tutors/search_tutors_bloc.dart';
 import '../../../../domain/tutor/models/tutor_search_options.dart';
 import '../../../become_tutor/widgets/specialities_dropdown.dart';
+import '../../../common.dart';
 import '../../../common/utils/constants.dart';
 import '../../../user/profile/widgets/country_form_dropdown.dart';
 
-// TODO Update translation
 class TutorFilterDialog extends StatelessWidget {
   const TutorFilterDialog({Key? key}) : super(key: key);
 
@@ -19,7 +19,7 @@ class TutorFilterDialog extends StatelessWidget {
         final bloc = context.read<SearchTutorsBloc>();
 
         return AlertDialog(
-          title: const Text('Filter'),
+          title: Text(context.l10n.filterDialogTitle),
           content: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 600),
             child: Column(
@@ -29,17 +29,16 @@ class TutorFilterDialog extends StatelessWidget {
                   allSpecialities: state.allSpecialities,
                   selectedSpecialities: state.specialities,
                   onItemRemoved: (_) {},
-                  onItemsSelected: (value) {
-                    bloc.add(
-                      SearchTutorsEvent.specialitiesChanged(value.cast()),
-                    );
-                  },
+                  onItemsSelected: (value) => bloc.add(
+                    SearchTutorsEvent.specialitiesChanged(value.cast()),
+                  ),
                 ),
                 const SizedBox(height: itemSpacing),
                 CountryFormDropdown(
                   value: state.country,
-                  onChanged: (value) =>
-                      bloc.add(SearchTutorsEvent.countryChanged(value)),
+                  onChanged: (value) => bloc.add(
+                    SearchTutorsEvent.countryChanged(value),
+                  ),
                 ),
                 const SizedBox(height: itemSpacing),
                 DropdownButtonFormField<TutorSortBy>(
@@ -55,12 +54,11 @@ class TutorFilterDialog extends StatelessWidget {
                     );
                   }).toList(),
                   value: state.sortOption,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     // contentPadding: EdgeInsets.all(18),
-                    border: OutlineInputBorder(),
-                    icon: Icon(Icons.sort),
-                    // TODO add translation
-                    labelText: 'Sort by',
+                    border: const OutlineInputBorder(),
+                    icon: const Icon(Icons.sort),
+                    labelText: context.l10n.filterOptionSortBy,
                   ),
                   onChanged: (value) {
                     if (value != null) {
@@ -77,14 +75,14 @@ class TutorFilterDialog extends StatelessWidget {
                 bloc.add(const SearchTutorsEvent.searchOptionCleared());
                 context.router.pop();
               },
-              child: const Text('Clear'),
+              child: Text(context.l10n.clearFilterButton),
             ),
             TextButton(
               onPressed: () {
                 bloc.add(const SearchTutorsEvent.submitted());
                 context.router.pop();
               },
-              child: const Text('OK'),
+              child: Text(context.l10n.okButton),
             ),
           ],
         );
@@ -97,11 +95,11 @@ extension TutorSortByX on TutorSortBy {
   String toText(BuildContext context) {
     switch (this) {
       case TutorSortBy.defaultSort:
-        return 'Name';
+        return context.l10n.tutorSortByDefaultSort;
       case TutorSortBy.favourite:
-        return 'Favourite';
+        return context.l10n.tutorSortByFavourite;
       case TutorSortBy.rating:
-        return 'Rating';
+        return context.l10n.tutorSortByRating;
     }
   }
 }

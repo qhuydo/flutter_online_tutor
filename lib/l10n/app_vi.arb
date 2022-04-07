@@ -1,6 +1,6 @@
 {
     "@@locale": "vi",
-    "@@last_modified": "2022-04-03T08:02:27+00:00",
+    "@@last_modified": "2022-04-07T05:03:27+00:00",
     "appTitle": "Gia sư trực tuyến",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -87,7 +87,7 @@
     "languageVietnameseOption": "Tiếng Việt",
     "languageEnglishOption": "Tiếng Anh (English)",
     "languageJapaneseOption": "Tiếng Nhật (日本語)",
-    "becomeTeacherLabel": "Trờ thành gia sư",
+    "becomeTeacherLabel": "Trở thành gia sư",
     "basicInfoLabel": "Thông tin cơ bản",
     "tutoringNameTextBoxLabel": "Tên người dạy",
     "uploadProfessionalPhotoLabel": "Vui lòng dùng ảnh đại diện chuyên nghiệp,",
@@ -109,7 +109,7 @@
     "introductionVideoLabel": "Video giới thiệu",
     "introductionVideoStepTitle": "Hãy giới thiệu bản thân",
     "introductionVideoStepTipsLabel": "Một số mẹo giúp ích:\n1. Tìm một nơi sạch sẽ, yên ắng\n2. Hướng ánh mắt vào máy ảnh và mỉm cười\n3. Mặc trang phục gọn gàng, sạch đẹp\n4. Giới thiệu khoảng từ 1 đến 3 phút",
-    "previousStepButtonText": "Quay về bước vừa nãy",
+    "previousStepButtonText": "Bước trước",
     "chooseVideoButtonText": "Chọn video",
     "approvalStepLabel": "Xác nhận",
     "approvalStepDescriptionTitle": "Bạn đã hoàn thành tất cẳ các bước!\n Vui lòng chờ phê duyệt",
@@ -157,7 +157,7 @@
     "valueFalureUnknownError": "Xuất hiện lỗi",
     "valueFailureEmptyValue": "Xin hãy nhập giá trị",
     "valueFailureValueInvalid": "Giá trị không hợp lệ",
-    "reportFDialogTitle": "Báo cáo lạm dụng",
+    "reportDialogTitle": "Báo cáo lạm dụng",
     "filterDialogTitle": "Lọc",
     "filterOptionSortBy": "Sắp xếp bởi",
     "clearFilterButton": "Xóa lọc",
@@ -193,5 +193,10 @@
     "passwordFailureEmptyPassword": "Xin hãy nhập mật khẩu",
     "passwordFailureWrongCurrentPassword": "Mật khẩu không đúng.",
     "passwordValueWrongNewPassword": "Mật khẩu mới không khớp",
-    "favouriteTutorsTitle": "Gia sư yêu thích"
+    "favouriteTutorsTitle": "Gia sư yêu thích",
+    "pageNotFound": "Không tìm thấy trang",
+    "emptyResult": "Không tìm thấy kết quả để hiển thị",
+    "noteLabel": "Ghi chú",
+    "bookedLabel": "Đã đặt lịch",
+    "reservedLabel": "Đã được đặt"
 }

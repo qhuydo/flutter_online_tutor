@@ -27,6 +27,7 @@ class ReviewList extends StatelessWidget {
     return ListView.separated(
       padding: const EdgeInsets.symmetric(vertical: itemSpacing),
       itemBuilder: (context, index) {
+        final textTheme = Theme.of(context).textTheme;
         return Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: itemSpacing,
@@ -47,7 +48,7 @@ class ReviewList extends StatelessWidget {
                   children: [
                     Text(
                       feedbackList[index].name,
-                      style: Theme.of(context).textTheme.titleLarge,
+                      style: textTheme.titleLarge,
                     ),
                     Row(
                       children: [
@@ -68,13 +69,11 @@ class ReviewList extends StatelessWidget {
                         )),
                         if (feedbackList[index].isEdited) ...[
                           const SizedBox(width: 4),
-                          // TODO add translation
                           Text(
-                            'Edited',
-                            style:
-                                Theme.of(context).textTheme.caption!.copyWith(
-                                      fontStyle: FontStyle.italic,
-                                    ),
+                            context.l10n.editedTextLabel,
+                            style: textTheme.caption!.copyWith(
+                              fontStyle: FontStyle.italic,
+                            ),
                           )
                         ]
                       ],

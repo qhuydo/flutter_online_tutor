@@ -5,7 +5,6 @@ import '../../../../domain/schedule/models/schedule.dart';
 import '../../../common.dart';
 import '../utils/schedule_extension.dart';
 
-// TODO Update translation
 class BookDialog extends StatelessWidget {
   final Schedule schedule;
 
@@ -23,7 +22,7 @@ class BookDialog extends StatelessWidget {
     final String formattedDate = formatter.format(schedule.meetingTime.start);
 
     return AlertDialog(
-      title: const Text('Booking details'),
+      title: Text(context.l10n.bookDialogTitle),
       content: SizedBox(
         width: deviceWidth <= 600 ? deviceWidth : 600,
         child: SingleChildScrollView(
@@ -32,19 +31,20 @@ class BookDialog extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ListTile(
-                title: const Text('Date'),
-                trailing: Text(
+                title: Text(
                   '$formattedDate ${schedule.meetingTime.getMeetingTime(context)}',
                   maxLines: 4,
                 ),
               ),
-              const ListTile(
-                title: Text('Balance'),
-                trailing: Text('You have 1 course left'),
+              ListTile(
+                title: Text(context.l10n.balanceLabel),
+                // TODO get balance from data
+                trailing: Text(context.l10n.balanceStatusText(1)),
               ),
-              const ListTile(
-                title: Text('Price'),
-                trailing: Text('1 course'),
+              ListTile(
+                title: Text(context.l10n.priceTextLabel),
+                // TODO get price from data
+                trailing: Text(context.l10n.priceValue(1)),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(
@@ -52,7 +52,7 @@ class BookDialog extends StatelessWidget {
                   vertical: 8,
                 ),
                 child: Text(
-                  'Note',
+                  context.l10n.noteLabel,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
@@ -74,13 +74,13 @@ class BookDialog extends StatelessWidget {
           onPressed: () {
             context.router.pop();
           },
-          child: const Text('Cancel'),
+          child: Text(context.l10n.cancelButtonLabel),
         ),
         ElevatedButton(
           onPressed: () {
             context.router.pop();
           },
-          child: const Text('Book'),
+          child: Text(context.l10n.bookButtonText),
         ),
       ],
     );

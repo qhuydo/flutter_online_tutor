@@ -1,6 +1,6 @@
 {
     "@@locale": "en",
-    "@@last_modified": "2022-04-03T07:49:50+00:00",
+    "@@last_modified": "2022-04-07T05:03:31+00:00",
     "appTitle": "Online tutor",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -165,7 +165,7 @@
     "valueFalureUnknownError": "An unknown error occurred",
     "valueFailureEmptyValue": "Empty value is not allowed",
     "valueFailureValueInvalid": "Value is invalid",
-    "reportFDialogTitle": "Report",
+    "reportDialogTitle": "Report",
     "filterDialogTitle": "Filter",
     "filterOptionSortBy": "Sort by",
     "clearFilterButton": "Clear filters",
@@ -241,5 +241,10 @@
     "passwordFailureEmptyPassword": "Please enter your password",
     "passwordFailureWrongCurrentPassword": "The entered password is incorrect.",
     "passwordValueWrongNewPassword": "New password and confirm password does not match",
-    "favouriteTutorsTitle": "Favourite tutors"
+    "favouriteTutorsTitle": "Favourite tutors",
+    "pageNotFound": "Page not found",
+    "emptyResult": "No result display",
+    "noteLabel": "Note",
+    "bookedLabel": "Booked",
+    "reservedLabel": "Reserved"
 }

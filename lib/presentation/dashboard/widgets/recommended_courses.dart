@@ -42,18 +42,17 @@ class _RecommendedCoursesState extends State<_RecommendedCourses> {
 
   @override
   Widget build(BuildContext context) {
-    final isDesktop = Platform.isLinux || Platform.isMacOS || Platform.isWindows;
+    final isDesktop =
+        Platform.isLinux || Platform.isMacOS || Platform.isWindows;
     return BlocBuilder<CourseListBloc, CourseListState>(
       builder: (context, state) {
         final list = state.courseList;
 
         if (list == null) {
-          return const SizedBox(
+          // TODO add error widget
+          return SizedBox(
             height: 60,
-            child: Center(
-              // TODO add translation
-              child: Text('Error occurred'),
-            ),
+            child: Center(child: Text(context.l10n.valueFalureUnknownError)),
           );
         }
 

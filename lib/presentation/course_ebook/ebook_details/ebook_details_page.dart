@@ -53,9 +53,7 @@ class _EbookDetailsPage extends StatelessWidget {
         context,
         title: context.l10n.ebookTabLabel,
       ),
-      body: const Center(
-        child: Text('Not found'),
-      ),
+      body: Center(child: Text(context.l10n.pageNotFound)),
     );
   }
 

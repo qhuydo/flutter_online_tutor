@@ -43,17 +43,16 @@ class _ChangePasswordPage extends StatelessWidget {
             (failure) => failure.showError(context),
             (_) => showDialog(
               context: context,
-              // TODO add translation
               builder: (context) => AlertDialog(
-                title: const Text('Change password'),
-                content: const Text('Change password successfully'),
+                title: Text(context.l10n.passwordChangedDialogTitle),
+                content: Text(context.l10n.passwordChangedDialogContent),
                 actions: [
                   TextButton(
                     onPressed: () {
                       context.router.navigate(const SettingsRoute());
                     },
-                    child: const Text(
-                      'OK',
+                    child: Text(
+                      context.l10n.okButton,
                       textAlign: TextAlign.end,
                     ),
                   ),

@@ -40,13 +40,13 @@ class _AuthenFormBlocPage<B extends Bloc> extends StatelessWidget {
         state.authFailureOrSuccessOption.fold(
           () {},
           (either) => either.fold(
-            // TODO add translation
             (AuthenticationFailure failure) => failure.showError(context),
             (succeed) {
-              context.replaceRoute(const HomeRoute());
-              context.read<AuthenticationBloc>().add(
-                    const AuthenticationEvent.authCheckRequested(),
-                  );
+              context
+                ..replaceRoute(const HomeRoute())
+                ..read<AuthenticationBloc>().add(
+                  const AuthenticationEvent.authCheckRequested(),
+                );
             },
           ),
         );

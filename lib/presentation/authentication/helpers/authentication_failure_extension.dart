@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 
 import '../../../domain/authentication/failures/authentication_failure.dart';
+import '../../../l10n/l10n.dart';
 import '../../common/utils/flushbar_utils.dart';
 
 extension AuthenticationFailureX on AuthenticationFailure {
-  Future<dynamic> showError(BuildContext context) {
+  Future showError(BuildContext context) {
+    final l10n = context.l10n;
     return FlushBarUtils.createError(
       message: map(
-        wrongEmailOrPassword: (_) => 'Wrong email or password',
-        wrongPhoneNumberOrPassword: (_) => 'Wrong phone number or password',
-        noConnection: (_) => 'No internet connection',
-        serverError: (_) => 'Server error',
-        alreadySignedOut: (_) => 'Already signed out',
-        emailAlreadyTaken: (_) => 'Email is already taken',
-        phoneNumberAlreadyTaken: (_) => 'Phone number is already taken',
-        emailNotExist: (_) => 'Email does not exist, please register '
-            'new account',
-        wrongCurrentPassword: (_) => 'Wrong current password',
-        unauthorized: (_) => 'Unauthorized',
+        wrongEmailOrPassword: (_) => l10n.authenticationErrorWrongPassword,
+        wrongPhoneNumberOrPassword: (_) =>
+            l10n.authenticationFailureWrongPhoneOrPassword,
+        noConnection: (_) => l10n.authenticationFailureNoInternet,
+        serverError: (_) => l10n.authenticationFailureServerError,
+        alreadySignedOut: (_) => l10n.authenticationFailureAlreadySignedOut,
+        emailAlreadyTaken: (_) => l10n.authenticationFailureEmailTaken,
+        phoneNumberAlreadyTaken: (_) => l10n.authenticationFailurePhoneTaken,
+        emailNotExist: (_) => l10n.authenticationFailureEmailNotExist,
+        wrongCurrentPassword: (_) => l10n.authenticationErrorWrongPassword,
+        unauthorized: (_) => l10n.authenticationFailureUnauthorized,
       ),
       duration: const Duration(
         seconds: 15,

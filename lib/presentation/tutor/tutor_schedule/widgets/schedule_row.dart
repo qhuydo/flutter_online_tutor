@@ -1,11 +1,8 @@
-import 'package:flutter/material.dart';
-
 import '../../../../domain/schedule/models/schedule.dart';
 import '../../../common.dart';
 import '../utils/schedule_extension.dart';
 import 'book_dialog.dart';
 
-// TODO Update translation
 class ScheduleRow extends StatelessWidget {
   final Schedule schedule;
 
@@ -18,7 +15,7 @@ class ScheduleRow extends StatelessWidget {
     if (schedule.isBooked) {
       return TextButton(
         child: Text(
-          'Booked',
+          context.l10n.bookedLabel,
           style: Theme.of(context).textTheme.button?.copyWith(
                 fontStyle: FontStyle.italic,
               ),
@@ -29,7 +26,7 @@ class ScheduleRow extends StatelessWidget {
     if (schedule.isReserved) {
       return TextButton(
         child: Text(
-          'Reserved',
+          context.l10n.reservedLabel,
           style: Theme.of(context).textTheme.button?.copyWith(
                 fontStyle: FontStyle.italic,
               ),
@@ -38,9 +35,7 @@ class ScheduleRow extends StatelessWidget {
       );
     }
     return TextButton(
-      child: const Text(
-        'Book',
-      ),
+      child: Text(context.l10n.bookButtonText),
       onPressed: () {
         showDialog(
             context: context,

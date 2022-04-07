@@ -7,8 +7,9 @@ extension ScheduleX on DateTimeRange {
     final formatter = DateFormat.jm(
       Localizations.localeOf(context).languageCode,
     );
-    // TODO update translation
-    return '${formatter.format(start)} -'
-        ' ${formatter.format(end)}';
+    return context.l10n.meetingTime(
+      formatter.format(start),
+      formatter.format(end),
+    );
   }
 }

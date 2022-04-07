@@ -58,11 +58,11 @@ class _CourseTabPage extends StatelessWidget {
           final list = state.courseList;
 
           if (list == null) {
-            return const SizedBox(
+            // TODO change to error widget
+            return SizedBox(
               height: 60,
               child: Center(
-                // TODO update translation
-                child: Text('Error occurred'),
+                child: Text(context.l10n.valueFalureUnknownError),
               ),
             );
           }

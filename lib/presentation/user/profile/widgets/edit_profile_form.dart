@@ -163,13 +163,13 @@ class _EditProfileFormState extends State<EditProfileForm> {
 }
 
 extension ValueFailureX on ValueFailure {
-  // TODO add translation
   String toErrorText(BuildContext context) {
+    final l10n = context.l10n;
     return when(
-      () => 'Unknown error',
-      valueIsRequired: () => 'Value is required',
-      emptyValue: () => 'Empty value is not allowed',
-      invalidValue: () => 'Value is invalid',
+      () => l10n.valueFalureUnknownError,
+      valueIsRequired: () => l10n.valueFailureEmptyValue,
+      emptyValue: () => l10n.valueFailureEmptyValue,
+      invalidValue: () => l10n.valueFailureValueInvalid,
     );
   }
 }

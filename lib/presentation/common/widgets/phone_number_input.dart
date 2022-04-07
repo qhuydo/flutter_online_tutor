@@ -38,10 +38,9 @@ class PhoneNumberInput extends StatefulWidget {
         onChanged: (country, number) => context
             .read<LoginBloc>()
             .add(LoginEvent.phoneNumberChanged(country, number)),
-        // TODO add translation
         validator: (_) =>
             context.watch<LoginBloc>().state.phoneNumber.value.fold(
-                  (f) => f.toMsg(),
+                  (f) => f.toMsg(context),
                   (_) => null,
                 ),
       );
@@ -55,10 +54,9 @@ class PhoneNumberInput extends StatefulWidget {
         onChanged: (country, number) => context
             .read<SignUpBloc>()
             .add(SignUpEvent.phoneNumberChanged(country, number)),
-        // TODO add translation
         validator: (_) =>
             context.watch<SignUpBloc>().state.phoneNumber.value.fold(
-                  (f) => f.toMsg(),
+                  (f) => f.toMsg(context),
                   (_) => null,
                 ),
       );
@@ -152,10 +150,12 @@ class _PhoneNumberInputState extends State<PhoneNumberInput> {
 }
 
 extension PhoneNumberFailureX on PhoneNumberFailure {
-  // TODO update translation
-  String toMsg() => map(
-        emptyValue: (_) => 'Empty value',
-        invalidPhoneNumber: (_) => 'Invalid phone number',
-        invalidCountryCode: (_) => 'Invalid phone number',
+  String toMsg(BuildContext context) {
+    final l10n = context.l10n;
+    return map(
+        emptyValue: (_) => l10n.phoneNumberFailureInvalidPhoneNumber,
+        invalidPhoneNumber: (_) => l10n.phoneNumberFailureInvalidPhoneNumber,
+        invalidCountryCode: (_) => l10n.phoneNumberFailureInvalidPhoneNumber,
       );
+  }
 }

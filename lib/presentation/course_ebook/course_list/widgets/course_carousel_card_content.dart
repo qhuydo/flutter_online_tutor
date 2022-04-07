@@ -84,8 +84,7 @@ class CourseCarouselCardContent extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                      // TODO update translation
-                      '${course.courseLength} lessons',
+                      context.l10n.courseLengthTextLabel(course.courseLength),
                       style: Theme.of(context).textTheme.caption,
                       textAlign: TextAlign.end,
                     ),

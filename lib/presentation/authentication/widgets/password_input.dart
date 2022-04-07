@@ -33,9 +33,8 @@ class PasswordInput extends StatefulWidget {
         isEnabled: isEnabled,
         onChanged: (value) =>
             context.read<LoginBloc>().add(LoginEvent.passwordChanged(value)),
-        // TODO add translation
         validator: (_) => context.watch<LoginBloc>().state.password.value.fold(
-              (f) => f.toMsg(),
+              (f) => f.toMsg(context),
               (_) => null,
             ),
       );
@@ -49,9 +48,8 @@ class PasswordInput extends StatefulWidget {
         onChanged: (value) => context.read<SignUpBloc>().add(
               SignUpEvent.passwordChanged(value),
             ),
-        // TODO add translation
         validator: (_) => context.watch<SignUpBloc>().state.password.value.fold(
-              (f) => f.toMsg(),
+              (f) => f.toMsg(context),
               (_) => null,
             ),
       );
@@ -93,10 +91,13 @@ class _PasswordInputState extends State<PasswordInput> {
 }
 
 extension PasswordFailureX on PasswordFailure {
-  String toMsg() => map(
-        shortPassword: (_) => 'Short password',
-        emptyPassword: (_) => 'Please enter your password',
-        wrongCurrentPassword: (_) => 'Wrong current password',
-        wrongNewPassword: (_) => 'Wrong new password',
-      );
+  String toMsg(BuildContext context) {
+    final l10n = context.l10n;
+    return map(
+      shortPassword: (_) => l10n.passwordFailureShortPassword,
+      emptyPassword: (_) => l10n.passwordFailureEmptyPassword,
+      wrongCurrentPassword: (_) => l10n.passwordFailureWrongCurrentPassword,
+      wrongNewPassword: (_) => l10n.passwordValueWrongNewPassword,
+    );
+  }
 }
