@@ -1,6 +1,6 @@
 import '../../common.dart';
 
-class OutlinedCard extends StatelessWidget {
+class OutlinedCard extends StatefulWidget {
   final Color? color;
   final Color? shadowColor;
   final double? elevation;
@@ -10,6 +10,9 @@ class OutlinedCard extends StatelessWidget {
   final Clip? clipBehavior;
   final Widget? child;
   final bool semanticContainer;
+  final VoidCallback? onTap;
+  final bool useOnTappedCallback;
+  final bool childInsideInkwell;
 
   const OutlinedCard({
     Key? key,
@@ -22,28 +25,71 @@ class OutlinedCard extends StatelessWidget {
     this.clipBehavior,
     this.child,
     this.semanticContainer = true,
+    this.onTap,
+    this.useOnTappedCallback = true,
+    this.childInsideInkwell = true,
   }) : super(key: key);
 
   @override
+  State<OutlinedCard> createState() => _OutlinedCardState();
+}
+
+class _OutlinedCardState extends State<OutlinedCard> {
+  bool isHovered = false;
+
+  @override
   Widget build(BuildContext context) {
+    final primaryColour = Theme.of(context).primaryColor;
+    final unHoveredColour = primaryColour.withOpacity(0.25);
+    final hoveredColour = primaryColour;
+
     return Card(
-      key: key,
-      color: color,
-      shadowColor: shadowColor,
-      elevation: elevation ?? 0.5,
-      shape: shape ??
+      key: widget.key,
+      color: widget.color,
+      shadowColor: widget.shadowColor,
+      elevation: isHovered ? 2 : 0.5,
+      shape: widget.shape ??
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
             side: BorderSide(
-              color: Theme.of(context).primaryColor.withOpacity(0.25),
-              width: 1.25,
+              color: isHovered ? hoveredColour : unHoveredColour,
+              width: isHovered ? 2 : 1.25,
             ),
           ),
-      borderOnForeground: borderOnForeground,
-      margin: margin,
-      clipBehavior: clipBehavior,
-      child: child,
-      semanticContainer: semanticContainer,
+      borderOnForeground: widget.borderOnForeground,
+      margin: widget.margin,
+      clipBehavior: widget.clipBehavior,
+      child: widget.childInsideInkwell
+          ? Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: widget.onTap,
+                onHover: (value) => setState(() {
+                  isHovered = value;
+                }),
+                child: widget.childInsideInkwell ? widget.child! : null,
+              ),
+            )
+          : Stack(
+              children: widget.child != null
+                  ? [
+                      widget.child!,
+                      if (widget.useOnTappedCallback)
+                        Positioned.fill(
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              onTap: widget.onTap,
+                              onHover: (value) => setState(() {
+                                isHovered = value;
+                              }),
+                            ),
+                          ),
+                        ),
+                    ]
+                  : [],
+            ),
+      semanticContainer: widget.semanticContainer,
     );
   }
 }

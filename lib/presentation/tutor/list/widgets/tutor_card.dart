@@ -24,42 +24,37 @@ class TutorCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlinedCard(
-      child: InkWell(
-        onTap: () {
-          context.router.push(TutorDetailsRoute(
-            tutorId: tutor.id,
-          ));
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: ProxyProvider(
-            update: (_, __, ___) => tutor,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const TutorCardHeader(),
-                const SizedBox(height: 8),
-                const TopicList(),
-                const SizedBox(height: 8),
-                Text(
-                  tutor.bio,
-                  maxLines: 5,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.bodyText2,
-                ),
-                const SizedBox(height: 16),
-                Flexible(
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: TutorCardActionButtons(
-                      onFavouriteButtonPressed: onFavouriteButtonPressed,
-                      isLoading: isLoading,
-                    ),
+      childInsideInkwell: true,
+      onTap: () => context.router.push(TutorDetailsRoute(tutorId: tutor.id)),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: ProxyProvider(
+          update: (_, __, ___) => tutor,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const IgnorePointer(child: TutorCardHeader()),
+              const SizedBox(height: 8),
+              const TopicList(),
+              const SizedBox(height: 8),
+              Text(
+                tutor.bio,
+                maxLines: 5,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.bodyText2,
+              ),
+              const SizedBox(height: 16),
+              Flexible(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: TutorCardActionButtons(
+                    onFavouriteButtonPressed: onFavouriteButtonPressed,
+                    isLoading: isLoading,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

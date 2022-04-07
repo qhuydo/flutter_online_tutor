@@ -49,6 +49,7 @@ class SettingsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlinedCard(
+      useOnTappedCallback: false,
       child: Column(
         children: [
           header != null ? header! : buildDefaultListHeader(context),

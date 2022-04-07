@@ -18,6 +18,8 @@ class ScheduleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlinedCard(
+      childInsideInkwell: true,
+      onTap: () {},
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [

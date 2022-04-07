@@ -18,32 +18,21 @@ class CourseListCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlinedCard(
-      child: Stack(
+      onTap: () => context.router.push(
+        CourseDetailsRoute(courseId: course.id, thumbnail: ''),
+      ),
+      child: Column(
         children: [
-          Column(
-            children: [
-              AspectRatio(
-                aspectRatio: courseThumbnailRatio,
-                child: Image.network(
-                  course.imageUrl,
-                  fit: BoxFit.fitWidth,
-                  height: double.infinity,
-                  width: double.infinity,
-                ),
-              ),
-              CourseCarouselCardContent(course: course),
-            ],
-          ),
-          Positioned.fill(child: Material(
-            color: Colors.transparent,
-            child: InkWell(
-                onTap: () {
-                  context.router.push(
-                    CourseDetailsRoute(courseId: course.id, thumbnail: ''),
-                  );
-                }
+          AspectRatio(
+            aspectRatio: courseThumbnailRatio,
+            child: Image.network(
+              course.imageUrl,
+              fit: BoxFit.fitWidth,
+              height: double.infinity,
+              width: double.infinity,
             ),
-          )),
+          ),
+          CourseCarouselCardContent(course: course),
         ],
       ),
     );
