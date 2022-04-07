@@ -21,7 +21,7 @@ class AppRepositoryImpl extends AppRepository {
   @override
   Future<Language> getLanguage() async => getLanguageFromString(storage.get(
         keyLanguage,
-        defaultValue: Language.followSystem,
+        defaultValue: Language.followSystem.toString(),
       ) as String?);
 
   Future<Locale?> getLocale() async => (await getLanguage()).toLocale();

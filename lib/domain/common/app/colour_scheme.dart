@@ -116,6 +116,10 @@ enum ColourScheme {
   /// Blumine blumine blue green color, eastern blue, with saffron mango
   /// and mulled wine theme.
   blumineBlue,
+  flutterDash,
+  materialBaseline,
+  verdunHemlock,
+  dellGenoa,
 }
 
 extension ColourSchemeX on String? {

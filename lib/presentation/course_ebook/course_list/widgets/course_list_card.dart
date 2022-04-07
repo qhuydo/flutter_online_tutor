@@ -18,6 +18,7 @@ class CourseListCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlinedCard(
+      childInsideInkwell: false,
       onTap: () => context.router.push(
         CourseDetailsRoute(courseId: course.id, thumbnail: ''),
       ),

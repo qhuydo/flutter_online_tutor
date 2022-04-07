@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../../../domain/tutor/models/tutor.dart';
 import '../../../common.dart';
 import '../../../common/routes/app_routes.gr.dart';
+import '../../../common/utils/constants.dart';
 import '../../../common/widgets/outlined_card.dart';
 import 'tutor_card_action_buttons.dart';
 import 'tutor_card_header.dart';
@@ -26,31 +27,41 @@ class TutorCard extends StatelessWidget {
     return OutlinedCard(
       childInsideInkwell: true,
       onTap: () => context.router.push(TutorDetailsRoute(tutorId: tutor.id)),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: ProxyProvider(
-          update: (_, __, ___) => tutor,
+      child: ProxyProvider(
+        update: (_, __, ___) => tutor,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: itemSpacing),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const IgnorePointer(child: TutorCardHeader()),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: itemSpacing),
+                child: IgnorePointer(child: TutorCardHeader()),
+              ),
               const SizedBox(height: 8),
               const TopicList(),
               const SizedBox(height: 8),
-              Text(
-                tutor.bio,
-                maxLines: 5,
-                overflow: TextOverflow.ellipsis,
-                style: Theme.of(context).textTheme.bodyText2,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: itemSpacing),
+                child: Text(
+                  tutor.bio,
+                  maxLines: 5,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.bodyText2,
+                ),
               ),
               const SizedBox(height: 16),
               Flexible(
                 child: Align(
                   alignment: Alignment.bottomCenter,
-                  child: TutorCardActionButtons(
-                    onFavouriteButtonPressed: onFavouriteButtonPressed,
-                    isLoading: isLoading,
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: itemSpacing),
+                    child: TutorCardActionButtons(
+                      onFavouriteButtonPressed: onFavouriteButtonPressed,
+                      isLoading: isLoading,
+                    ),
                   ),
                 ),
               ),

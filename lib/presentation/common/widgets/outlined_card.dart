@@ -37,6 +37,22 @@ class OutlinedCard extends StatefulWidget {
 class _OutlinedCardState extends State<OutlinedCard> {
   bool isHovered = false;
 
+  Widget buildInkWell() {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: widget.onTap,
+        onHover: (value) => setState(() {
+          isHovered = value;
+        }),
+        onHighlightChanged: (value) => setState(() {
+          isHovered = value;
+        }),
+        child: widget.childInsideInkwell ? widget.child! : null,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final primaryColour = Theme.of(context).primaryColor;
@@ -47,7 +63,7 @@ class _OutlinedCardState extends State<OutlinedCard> {
       key: widget.key,
       color: widget.color,
       shadowColor: widget.shadowColor,
-      elevation: isHovered ? 2 : 0.5,
+      elevation: isHovered ? 3 : 0.5,
       shape: widget.shape ??
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
@@ -60,32 +76,13 @@ class _OutlinedCardState extends State<OutlinedCard> {
       margin: widget.margin,
       clipBehavior: widget.clipBehavior,
       child: widget.childInsideInkwell
-          ? Material(
-              color: Colors.transparent,
-              child: InkWell(
-                onTap: widget.onTap,
-                onHover: (value) => setState(() {
-                  isHovered = value;
-                }),
-                child: widget.childInsideInkwell ? widget.child! : null,
-              ),
-            )
+          ? buildInkWell()
           : Stack(
               children: widget.child != null
                   ? [
                       widget.child!,
                       if (widget.useOnTappedCallback)
-                        Positioned.fill(
-                          child: Material(
-                            color: Colors.transparent,
-                            child: InkWell(
-                              onTap: widget.onTap,
-                              onHover: (value) => setState(() {
-                                isHovered = value;
-                              }),
-                            ),
-                          ),
-                        ),
+                        Positioned.fill(child: buildInkWell()),
                     ]
                   : [],
             ),

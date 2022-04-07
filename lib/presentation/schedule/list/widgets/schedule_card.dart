@@ -1,5 +1,6 @@
 import '../../../../domain/schedule/models/appointment.dart';
 import '../../../common.dart';
+import '../../../common/utils/constants.dart';
 import '../../../common/widgets/outlined_card.dart';
 import 'schedule_card_button_group.dart';
 import 'schedule_card_content.dart';
@@ -25,7 +26,10 @@ class ScheduleCard extends StatelessWidget {
         children: [
           ScheduleCardHeader(appointment: appointment),
           ScheduleCardContent(appointment: appointment),
-          if (showActionButtons) const ScheduleCardButtonGroup(),
+          if (showActionButtons) const Padding(
+            padding: EdgeInsets.only(bottom: smallItemSpacing),
+            child: ScheduleCardButtonGroup(),
+          ),
         ],
       ),
     );
