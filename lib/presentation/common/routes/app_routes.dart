@@ -37,5 +37,6 @@ import '../../all_pages.dart';
       AutoRoute(path: '/ebooks/:ebookId', page: EbookDetailsPage),
       AutoRoute(path: '/tutors/:tutorId/schedule', page: TutorSchedulePage),
       AutoRoute(path: '/meeting/:meetingId', page: MeetingPage),
+      AutoRoute(page: SettingsUnauthorizedPage),
     ])
 class $AppRouter {}

@@ -1,4 +1,7 @@
+import 'package:auto_route/auto_route.dart';
+
 import '../../common.dart';
+import '../../common/routes/app_routes.gr.dart';
 import '../../common/widgets/text_divider.dart';
 import 'forgot_password_button.dart';
 
@@ -31,6 +34,14 @@ class AuthenScaffold extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
+        actions: [
+          IconButton(
+            onPressed: () => context.pushRoute(
+              const SettingsUnauthorizedRoute(),
+            ),
+            icon: const Icon(Icons.settings_outlined),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Container(
