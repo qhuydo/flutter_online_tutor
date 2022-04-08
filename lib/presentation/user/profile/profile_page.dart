@@ -16,6 +16,7 @@ class ProfilePage extends StatelessWidget {
         context,
         title: context.l10n.editProfileLabel,
       ),
+      extendBodyBehindAppBar: true,
       body: BlocProvider(
         create: (context) =>
             getIt<ProfileBloc>()..add(const ProfileEvent.initialize()),
@@ -39,18 +40,20 @@ class _ProfilePage extends StatelessWidget {
       builder: (context, state) {
         if (state.isInitializing) return const LoadingWidget();
         return SingleChildScrollView(
-          child: Center(
-            child: ConstrainedBox(
-              constraints: BoxConstraints.loose(
-                // TODO re-organise size constraints
-                const Size(800, double.infinity),
-              ),
-              child: Column(
-                children: const [
-                  ProfileAvatar(),
-                  SizedBox(height: 16),
-                  EditProfileForm(),
-                ],
+          child: SafeArea(
+            child: Center(
+              child: ConstrainedBox(
+                constraints: BoxConstraints.loose(
+                  // TODO re-organise size constraints
+                  const Size(800, double.infinity),
+                ),
+                child: Column(
+                  children: const [
+                    ProfileAvatar(),
+                    SizedBox(height: 16),
+                    EditProfileForm(),
+                  ],
+                ),
               ),
             ),
           ),

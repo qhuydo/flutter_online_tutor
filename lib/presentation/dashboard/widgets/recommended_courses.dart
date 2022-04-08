@@ -114,11 +114,10 @@ class _RecommendedCoursesState extends State<_RecommendedCourses> {
                           isAlwaysShown: true,
                           controller: scrollController,
                           child: ListView.builder(
-                            controller: scrollController,
-                            padding: const EdgeInsets.only(
-                              top: smallItemSpacing,
-                              bottom: itemSpacing,
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: itemSpacing,
                             ),
+                            controller: scrollController,
                             // primary: true,
                             scrollDirection: Axis.horizontal,
                             // shrinkWrap: true,

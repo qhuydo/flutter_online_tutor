@@ -98,16 +98,19 @@ class _CourseDetailsPage extends StatelessWidget {
                 flexibleSpace: _buildFlexibleSpaceBar(context, course),
               ),
               SliverToBoxAdapter(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: itemSpacing),
-                    CourseDetailsHeader(course: course),
-                    // SizedBox(height: 16),
-                    CourseDetailsContent(course: course),
-                    const SizedBox(height: smallItemSpacing),
-                    Syllabus(syllabus: course.courseTopic),
-                  ],
+                child: SafeArea(
+                  top: false,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: itemSpacing),
+                      CourseDetailsHeader(course: course),
+                      // SizedBox(height: 16),
+                      CourseDetailsContent(course: course),
+                      const SizedBox(height: smallItemSpacing),
+                      Syllabus(syllabus: course.courseTopic),
+                    ],
+                  ),
                 ),
               ),
             ],

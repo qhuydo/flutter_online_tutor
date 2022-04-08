@@ -62,15 +62,18 @@ class _TutorDetailsPage extends StatelessWidget {
           );
         }
 
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            SizedBox(height: smallItemSpacing),
-            TutorDetailsHeader(),
-            TutorDetailsContent(),
-            TutorRecommendedCourseList(),
-          ],
+        return SafeArea(
+          top: false,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              SizedBox(height: smallItemSpacing),
+              TutorDetailsHeader(),
+              TutorDetailsContent(),
+              TutorRecommendedCourseList(),
+            ],
+          ),
         );
       },
     );

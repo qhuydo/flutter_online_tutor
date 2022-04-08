@@ -14,7 +14,6 @@ class AppState with _$AppState {
   static const _swapColours = false;
   static const _lightIsWhite = true;
   static const _darkIsTrueBlack = false;
-  static const _useSubTheme = true;
   static final _visualDensity = FlexColorScheme.comfortablePlatformDensity;
   static final _fontFamily = GoogleFonts.sawarabiGothic().fontFamily;
   static const _subThemeData = FlexSubThemesData(
@@ -25,7 +24,7 @@ class AppState with _$AppState {
     bottomNavigationBarElevation: 0,
     bottomNavigationBarOpacity: 0.95,
     navigationBarOpacity: 0.95,
-    navigationBarMutedUnselectedText: true,
+    navigationBarMutedUnselectedLabel: true,
     navigationBarMutedUnselectedIcon: true,
     inputDecoratorIsFilled: true,
     inputDecoratorBorderType: FlexInputBorderType.outline,
@@ -34,6 +33,7 @@ class AppState with _$AppState {
     blendTextTheme: true,
     popupMenuOpacity: 0.95,
   );
+  static const _useMaterial3 = true;
 
   const AppState._();
 
@@ -61,10 +61,10 @@ class AppState with _$AppState {
     tooltipsMatchBackground: _tooltipsMatchBackground,
     swapColors: _swapColours,
     lightIsWhite: _lightIsWhite,
-    useSubThemes: _useSubTheme,
     visualDensity: _visualDensity,
     fontFamily: _fontFamily,
     subThemesData: _subThemeData,
+    useMaterial3: _useMaterial3,
   );
 
   ThemeData get dark => FlexThemeData.dark(
@@ -72,17 +72,17 @@ class AppState with _$AppState {
     surfaceMode: _surfaceMode,
     blendLevel: _blendLevel,
     appBarStyle: _defaultAppBarStyleDark,
-    appBarOpacity: _appBarOpacity,
+    appBarOpacity: 0.9,
     appBarElevation: _appBarElevation,
     transparentStatusBar: _transparentStatusBar,
     tabBarStyle: _tabBarStyle,
     tooltipsMatchBackground: _tooltipsMatchBackground,
     swapColors: _swapColours,
     darkIsTrueBlack: _darkIsTrueBlack,
-    useSubThemes: _useSubTheme,
     visualDensity: _visualDensity,
     fontFamily: _fontFamily,
     subThemesData: _subThemeData,
+    useMaterial3: _useMaterial3,
   );
 
   ThemeData get lightWithSurfaceColouredAppBar => FlexThemeData.light(
@@ -97,10 +97,10 @@ class AppState with _$AppState {
     tooltipsMatchBackground: _tooltipsMatchBackground,
     swapColors: _swapColours,
     lightIsWhite: _lightIsWhite,
-    useSubThemes: _useSubTheme,
     visualDensity: _visualDensity,
     fontFamily: _fontFamily,
     subThemesData: _subThemeData,
+    useMaterial3: _useMaterial3,
   );
 
   ThemeData get darkWithSurfaceColouredAppBar => dark;
