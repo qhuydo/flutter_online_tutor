@@ -29,12 +29,11 @@ class SpecialitiesDropdown extends StatelessWidget {
       children: <Widget>[
         IgnorePointer(
           ignoring: !enabled,
-          child: MultiSelectBottomSheetField<Speciality?>(
+          child: MultiSelectDialogField<Speciality?>(
             decoration: const BoxDecoration(
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.all(Radius.circular(8)),
             ),
-            initialChildSize: 0.4,
             listType: MultiSelectListType.CHIP,
             searchable: true,
             buttonText: Text(
@@ -45,7 +44,6 @@ class SpecialitiesDropdown extends StatelessWidget {
             items: _items,
             initialValue: selectedSpecialities,
             onConfirm: onItemsSelected,
-            chipDisplay: MultiSelectChipDisplay(),
           ),
         ),
         selectedSpecialities.isEmpty

@@ -28,12 +28,11 @@ class TestPreparationDropdown extends StatelessWidget {
       children: <Widget>[
         IgnorePointer(
           ignoring: !enabled,
-          child: MultiSelectBottomSheetField<Speciality?>(
+          child: MultiSelectDialogField<Speciality?>(
             decoration: const BoxDecoration(
               shape: BoxShape.rectangle,
               borderRadius: BorderRadius.all(Radius.circular(8)),
             ),
-            initialChildSize: 0.4,
             listType: MultiSelectListType.CHIP,
             searchable: true,
             buttonText: Text(
@@ -46,7 +45,6 @@ class TestPreparationDropdown extends StatelessWidget {
             items: _items,
             initialValue: selectedTestPreparations,
             onConfirm: onItemsSelected,
-            chipDisplay: MultiSelectChipDisplay(),
           ),
         ),
         selectedTestPreparations.isEmpty

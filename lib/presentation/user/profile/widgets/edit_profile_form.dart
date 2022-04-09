@@ -81,15 +81,18 @@ class _EditProfileFormState extends State<EditProfileForm> {
                   initialValue: state.user.phoneNumber?.valueOrNull() ?? '',
                 ),
                 defaultRowSizeBox,
-                CountryFormDropdown(
-                  value: state.country,
-                  onChanged: (value) {
-                    if (value != null) {
-                      context.read<ProfileBloc>().add(
-                            ProfileEvent.countryChanged(value),
-                          );
-                    }
-                  },
+                IgnorePointer(
+                  ignoring: state.isLoading,
+                  child: CountryFormDropdown(
+                    value: state.country,
+                    onChanged: (value) {
+                      if (value != null) {
+                        context.read<ProfileBloc>().add(
+                              ProfileEvent.countryChanged(value),
+                            );
+                      }
+                    },
+                  ),
                 ),
                 defaultRowSizeBox,
                 LevelFormDropdown(
