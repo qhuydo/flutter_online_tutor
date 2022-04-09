@@ -19,71 +19,63 @@ class CourseDetailsContent extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: smallItemSpacing),
-      child: ListView(
-        padding: const EdgeInsets.all(0),
-        primary: false,
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        children: [
-          Theme(
-            data: Theme.of(context).copyWith(
-              dividerColor: Colors.transparent,
-              // primaryColor: Theme.of(context).textTheme.titleLarge?.color,
-            ),
-            child: ExpansionTile(
-              iconColor: Theme.of(context).textTheme.titleLarge?.color,
-              tilePadding: const EdgeInsets.symmetric(
+      child: Theme(
+        data: Theme.of(context).copyWith(
+          dividerColor: Colors.transparent,
+          // primaryColor: Theme.of(context).textTheme.titleLarge?.color,
+        ),
+        child: ExpansionTile(
+          iconColor: Theme.of(context).textTheme.titleLarge?.color,
+          tilePadding: const EdgeInsets.symmetric(
+            horizontal: smallItemSpacing,
+          ),
+          initiallyExpanded: true,
+          title: Text(
+            context.l10n.overviewTitleText,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+          ),
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
                 horizontal: smallItemSpacing,
               ),
-              initiallyExpanded: true,
-              title: Text(
-                context.l10n.overviewTitleText,
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  //
+                  Text(
+                    context.l10n.reasonToTakeCourseSubtitle,
+                    style: subtitleTextStyle,
+                  ),
+                  Text(course.reason),
+                  //
+                  const SizedBox(height: smallItemSpacing),
+                  Text(
+                    context.l10n.canDoSubtitle,
+                    style: subtitleTextStyle,
+                  ),
+                  Text(course.purpose),
+                  //
+                  const SizedBox(height: smallItemSpacing),
+                  Text(
+                    context.l10n.experienceLevelTitle,
+                    style: subtitleTextStyle,
+                  ),
+                  Text(course.level.toDisplayString(context)),
+                  //
+                  const SizedBox(height: smallItemSpacing),
+                  Text(
+                    context.l10n.courseLengthTitle,
+                    style: subtitleTextStyle,
+                  ),
+                  Text(course.courseLength.toString()),
+                ],
               ),
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: smallItemSpacing,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      //
-                      Text(
-                        context.l10n.reasonToTakeCourseSubtitle,
-                        style: subtitleTextStyle,
-                      ),
-                      Text(course.reason),
-                      //
-                      const SizedBox(height: smallItemSpacing),
-                      Text(
-                        context.l10n.canDoSubtitle,
-                        style: subtitleTextStyle,
-                      ),
-                      Text(course.purpose),
-                      //
-                      const SizedBox(height: smallItemSpacing),
-                      Text(
-                        context.l10n.experienceLevelTitle,
-                        style: subtitleTextStyle,
-                      ),
-                      Text(course.level.toDisplayString(context)),
-                      //
-                      const SizedBox(height: smallItemSpacing),
-                      Text(
-                        context.l10n.courseLengthTitle,
-                        style: subtitleTextStyle,
-                      ),
-                      Text(course.courseLength.toString()),
-                    ],
-                  ),
-                ),
-              ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

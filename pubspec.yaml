@@ -131,6 +131,10 @@ dependencies:
   # (c) BSD 3-Clause License. By The Flutter Authors.
   url_launcher: ^6.0.20
 
+  # A Flutter plugin to calculate the material design breakpoints.
+  # (c) MIT License. By Rody Davis.
+  breakpoint: ^1.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

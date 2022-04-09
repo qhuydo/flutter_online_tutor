@@ -13,7 +13,7 @@ class CourseDetailsHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: smallItemSpacing),
+      padding: const EdgeInsets.symmetric(horizontal: itemSpacing),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -25,10 +25,7 @@ class CourseDetailsHeader extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: smallItemSpacing),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: smallItemSpacing),
-            child: Text(course.description),
-          ),
+          Text(course.description),
           // const SizedBox(height: itemSmallSpacing),
           // const Divider(),
         ],

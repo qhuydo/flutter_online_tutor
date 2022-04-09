@@ -1,3 +1,5 @@
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
 import '../../../../domain/course_ebook/models/course_topic.dart';
 import '../../../common.dart';
 import '../../../common/utils/constants.dart';
@@ -24,20 +26,20 @@ class Syllabus extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppLocalizations.of(context)!.syllabusTitle,
+            context.l10n.syllabusTitle,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
             textAlign: TextAlign.start,
           ),
-          ListView.separated(
+          AlignedGridView.extent(
+            maxCrossAxisExtent: 700,
             padding: const EdgeInsets.all(0),
             primary: false,
             shrinkWrap: true,
             itemBuilder: (context, index) => SyllabusListItem(
-              item: syllabus[index]
+              item: syllabus[index],
             ),
-            separatorBuilder: (context, index) => const Divider(),
             itemCount: syllabus.length,
           ),
         ],
