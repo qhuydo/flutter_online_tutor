@@ -1,17 +1,17 @@
-import 'package:url_launcher/url_launcher.dart';
-
 import '../../../../domain/course_ebook/models/ebook.dart';
 import '../../../common.dart';
 import '../../../common/utils/constants.dart';
-import '../../../common/utils/flushbar_utils.dart';
 import '../../../user/profile/widgets/level_form_dropdown.dart';
+import 'open_ebook_button.dart';
 
 class EbookDetailsContent extends StatelessWidget {
   final Ebook ebook;
+  final bool showButton;
 
   const EbookDetailsContent({
     Key? key,
     required this.ebook,
+    this.showButton = true,
   }) : super(key: key);
 
   @override
@@ -26,24 +26,10 @@ class EbookDetailsContent extends StatelessWidget {
               ),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: smallItemSpacing),
-        Center(
-          child: ElevatedButton.icon(
-            onPressed: () async {
-              if (await canLaunch(ebook.fileUrl)) {
-                await launch(ebook.fileUrl);
-              } else {
-                FlushBarUtils.createError(
-                  message: context.l10n.unableToOpenBrowser,
-                ).show(context);
-              }
-            },
-            icon: const Icon(
-              Icons.open_in_new,
-            ),
-            label: Text(AppLocalizations.of(context)!.openEbookButtonText),
-          ),
-        ),
+        if (showButton) ...[
+          const SizedBox(height: smallItemSpacing),
+          OpenEbookButton(url: ebook.fileUrl),
+        ],
         const SizedBox(height: smallItemSpacing),
         Text(
           context.l10n.overviewTitleText,

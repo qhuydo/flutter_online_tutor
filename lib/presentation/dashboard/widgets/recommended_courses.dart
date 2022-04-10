@@ -107,29 +107,34 @@ class _RecommendedCoursesState extends State<_RecommendedCourses> {
                 final width = constraints.maxWidth;
                 return width < 200
                     ? CourseCarousel(courses: list)
-                    : LimitedBox(
-                        maxHeight: 400,
-                        child: Scrollbar(
-                          thickness: isDesktop ? null : 0,
-                          isAlwaysShown: true,
-                          controller: scrollController,
-                          child: ListView.builder(
+                    : Scrollbar(
+                        thickness: isDesktop ? null : 0,
+                        isAlwaysShown: true,
+                        controller: scrollController,
+                        child: LimitedBox(
+                          maxHeight: 400,
+                          child: Padding(
                             padding: const EdgeInsets.symmetric(
-                              horizontal: itemSpacing,
+                              vertical: smallItemSpacing,
                             ),
-                            controller: scrollController,
-                            // primary: true,
-                            scrollDirection: Axis.horizontal,
-                            // shrinkWrap: true,
-                            itemCount: list.length,
-                            itemBuilder: (context, index) {
-                              return LimitedBox(
-                                maxWidth: 300,
-                                child: CourseListCard(
-                                  course: list[index],
-                                ),
-                              );
-                            },
+                            child: ListView.builder(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: itemSpacing,
+                              ),
+                              controller: scrollController,
+                              // primary: true,
+                              scrollDirection: Axis.horizontal,
+                              // shrinkWrap: true,
+                              itemCount: list.length,
+                              itemBuilder: (context, index) {
+                                return LimitedBox(
+                                  maxWidth: 300,
+                                  child: CourseListCard(
+                                    course: list[index],
+                                  ),
+                                );
+                              },
+                            ),
                           ),
                         ),
                       );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_online_tutor/domain/course_ebook/models/course.dart';
 import 'package:flutter_online_tutor/presentation/course_ebook/course_details/widgets/syllabus.dart';
 
 import '../../../../application/course_ebook/course_details/course_details_bloc.dart';
@@ -56,51 +57,7 @@ class CourseDetailsBodyDesktop extends StatelessWidget {
               Flexible(
                 flex: 2,
                 fit: FlexFit.loose,
-                child: SingleChildScrollView(
-                  padding: const EdgeInsetsDirectional.only(
-                    start: itemSpacing,
-                    top: itemSpacing,
-                  ),
-                  child: OutlinedCard(
-                    childInsideInkwell: false,
-                    onTap: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: smallItemSpacing),
-                      child: ConstrainedBox(
-                        constraints: BoxConstraints(maxWidth: 600),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Image.network(
-                              course.imageUrl,
-                              fit: BoxFit.fitHeight,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(smallItemSpacing),
-                              child: Text(
-                                course.name,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleLarge
-                                    ?.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                textAlign: TextAlign.start,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(itemSpacing),
-                              child: Text(
-                                course.description,
-                                style: Theme.of(context).textTheme.bodyText1,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                child: buildDesktopCard(course, context),
               ),
               const SizedBox(width: smallItemSpacing),
               Expanded(
@@ -119,6 +76,53 @@ class CourseDetailsBodyDesktop extends StatelessWidget {
             ],
           );
         },
+      ),
+    );
+  }
+
+  SingleChildScrollView buildDesktopCard(Course course, BuildContext context) {
+    return SingleChildScrollView(
+      padding: const EdgeInsetsDirectional.only(
+        start: itemSpacing,
+        top: itemSpacing,
+      ),
+      child: Center(
+        child: OutlinedCard(
+          childInsideInkwell: false,
+          onTap: () {},
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: smallItemSpacing),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 600),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.network(
+                    course.imageUrl,
+                    fit: BoxFit.fitHeight,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(smallItemSpacing),
+                    child: Text(
+                      course.name,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(itemSpacing),
+                    child: Text(
+                      course.description,
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
