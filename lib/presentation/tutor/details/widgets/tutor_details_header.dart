@@ -7,14 +7,16 @@ import '../../../../application/tutor/tutor_details/tutor_details_bloc.dart';
 import '../../../../domain/tutor/models/tutor.dart';
 import '../../../common.dart';
 import '../../../common/routes/app_routes.gr.dart';
+import '../../../common/utils/constants.dart';
 import '../../../common/utils/string_utils.dart';
 import 'tutor_details_button_group.dart';
 
 class TutorDetailsHeader extends StatelessWidget {
-  static const itemSpacing = 8.0;
+  final bool showBookButton;
 
   const TutorDetailsHeader({
     Key? key,
+    this.showBookButton = true,
   }) : super(key: key);
 
   Widget buildRatingBar(BuildContext context, Tutor tutor) {
@@ -73,7 +75,7 @@ class TutorDetailsHeader extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: itemSpacing),
+            const SizedBox(height: smallItemSpacing),
             Text(
               tutor.name,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -83,7 +85,7 @@ class TutorDetailsHeader extends StatelessWidget {
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
-            const SizedBox(height: itemSpacing),
+            const SizedBox(height: smallItemSpacing),
             Wrap(
               alignment: WrapAlignment.center,
               crossAxisAlignment: WrapCrossAlignment.center,
@@ -109,7 +111,7 @@ class TutorDetailsHeader extends StatelessWidget {
                   softWrap: true,
                   overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: smallItemSpacing),
                 Twemoji(
                   emoji: tutor.country.isoCode.toCountryFlagFromCountryCode(),
                   width: 44,
@@ -117,8 +119,8 @@ class TutorDetailsHeader extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: itemSpacing),
-            const TutorDetailsButtonGroup(),
+            const SizedBox(height: smallItemSpacing),
+            TutorDetailsButtonGroup(showBookButton: showBookButton),
           ],
         );
       },

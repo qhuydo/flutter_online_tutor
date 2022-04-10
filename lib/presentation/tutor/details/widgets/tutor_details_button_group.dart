@@ -8,7 +8,12 @@ import '../../../common/routes/app_routes.gr.dart';
 import 'report_dialog.dart';
 
 class TutorDetailsButtonGroup extends StatelessWidget {
-  const TutorDetailsButtonGroup({Key? key}) : super(key: key);
+  final bool showBookButton;
+
+  const TutorDetailsButtonGroup({
+    Key? key,
+    this.showBookButton = true,
+  }) : super(key: key);
 
   Widget buildButton(
     BuildContext context, {
@@ -102,7 +107,7 @@ class TutorDetailsButtonGroup extends StatelessWidget {
             ],
           ),
         ),
-        Container(
+        if (showBookButton) Container(
           padding: const EdgeInsets.all(16),
           child: ElevatedButton.icon(
             onPressed: () {

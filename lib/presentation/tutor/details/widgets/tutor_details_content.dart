@@ -2,14 +2,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/tutor/tutor_details/tutor_details_bloc.dart';
 import '../../../common.dart';
+import '../../../common/utils/constants.dart';
 import 'language_list.dart';
 import 'speciality_list.dart';
 import 'video_preview.dart';
 
 class TutorDetailsContent extends StatelessWidget {
-  static const itemSpacing = 16.0;
+  final bool showVideo;
 
-  const TutorDetailsContent({Key? key}) : super(key: key);
+  const TutorDetailsContent({
+    Key? key,
+    this.showVideo = true,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +25,6 @@ class TutorDetailsContent extends StatelessWidget {
         buildWhen: (previous, current) =>
             previous.tutorOrFailure != current.tutorOrFailure,
         builder: (context, state) {
-
           final tutor = state.tutorOrFailure.fold((l) => null, (r) => r);
           if (tutor == null) {
             return const SizedBox();
@@ -32,8 +35,10 @@ class TutorDetailsContent extends StatelessWidget {
             children: [
               Text(tutor.bio),
               const SizedBox(height: itemSpacing),
-              const VideoPreview(),
-              const SizedBox(height: itemSpacing),
+              if (showVideo) ...[
+                const VideoPreview(),
+                const SizedBox(height: itemSpacing),
+              ],
               // language
               Text(
                 context.l10n.languageLabel,

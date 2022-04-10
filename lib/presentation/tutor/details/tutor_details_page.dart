@@ -1,10 +1,11 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/tutor/tutor_details/tutor_details_bloc.dart';
 import '../../common.dart';
-import '../../common/utils/constants.dart';
-import 'widgets/widgets.dart';
+import 'widgets/tutor_details_page_body.dart';
+import 'widgets/tutor_details_page_body_desktop.dart';
 
 class TutorDetailsPage extends StatelessWidget {
   final String tutorId;
@@ -16,66 +17,15 @@ class TutorDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
-        slivers: [
-          SliverAppBar(
-            title: Text(
-              AppLocalizations.of(context)!.tutorDetailsPageTitle,
-            ),
-            elevation: 0.75,
-            shadowColor: Colors.grey[500]?.withOpacity(0.5),
-            centerTitle: true,
-            floating: true,
-            stretch: true,
-          ),
-          SliverToBoxAdapter(
-            child: BlocProvider(
-              create: (context) => getIt<TutorDetailsBloc>()
-                ..add(
-                  TutorDetailsEvent.initialise(tutorId),
-                ),
-              child: const _TutorDetailsPage(),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _TutorDetailsPage extends StatelessWidget {
-  const _TutorDetailsPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<TutorDetailsBloc, TutorDetailsState>(
-      buildWhen: (previous, current) => previous.isLoading != current.isLoading,
-      builder: (context, state) {
-        if (state.isLoading) {
-          return const Center(
-            child: Padding(
-              padding: EdgeInsets.all(itemSpacing),
-              child: LinearProgressIndicator(),
-            ),
-          );
-        }
-
-        return SafeArea(
-          top: false,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              SizedBox(height: smallItemSpacing),
-              TutorDetailsHeader(),
-              TutorDetailsContent(),
-              TutorRecommendedCourseList(),
-            ],
-          ),
-        );
-      },
+    final breakpoint = Breakpoint.fromMediaQuery(context);
+    return BlocProvider(
+      create: (context) => getIt<TutorDetailsBloc>()
+        ..add(
+          TutorDetailsEvent.initialise(tutorId),
+        ),
+      child:breakpoint.window >= WindowSize.medium
+          ? TutorDetailsPageBodyDesktop(tutorId: tutorId)
+          : TutorDetailsPageBody(tutorId: tutorId),
     );
   }
 }

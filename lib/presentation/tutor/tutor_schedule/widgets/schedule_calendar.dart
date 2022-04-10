@@ -14,6 +14,7 @@ class ScheduleCalendar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locale = Localizations.localeOf(context).languageCode;
     return BlocBuilder<TutorScheduleBloc, TutorScheduleState>(
       builder: (context, state) {
         final eventMap = state.scheduleOrFailure.fold((l) {
@@ -28,6 +29,7 @@ class ScheduleCalendar extends StatelessWidget {
           child: TableCalendar(
             headerVisible: true,
             daysOfWeekHeight: Platform.isLinux ? 16 + 16 : 20,
+            locale: locale,
             calendarFormat: state.format,
             focusedDay: state.focusedDay,
             firstDay: state.firstDay,
