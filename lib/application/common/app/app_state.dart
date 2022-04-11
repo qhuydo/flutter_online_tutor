@@ -41,6 +41,7 @@ class AppState with _$AppState {
     required Language language,
     required ColourScheme colourScheme,
     required AppThemeMode themeMode,
+    @Default(true) hasInternetConnection,
   }) = _AppState;
 
   factory AppState.initial() => const AppState(

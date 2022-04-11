@@ -21,11 +21,13 @@ class _$AppStateTearOff {
   _AppState call(
       {required Language language,
       required ColourScheme colourScheme,
-      required AppThemeMode themeMode}) {
+      required AppThemeMode themeMode,
+      dynamic hasInternetConnection = true}) {
     return _AppState(
       language: language,
       colourScheme: colourScheme,
       themeMode: themeMode,
+      hasInternetConnection: hasInternetConnection,
     );
   }
 }
@@ -38,6 +40,7 @@ mixin _$AppState {
   Language get language => throw _privateConstructorUsedError;
   ColourScheme get colourScheme => throw _privateConstructorUsedError;
   AppThemeMode get themeMode => throw _privateConstructorUsedError;
+  dynamic get hasInternetConnection => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -49,7 +52,10 @@ abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res>;
   $Res call(
-      {Language language, ColourScheme colourScheme, AppThemeMode themeMode});
+      {Language language,
+      ColourScheme colourScheme,
+      AppThemeMode themeMode,
+      dynamic hasInternetConnection});
 }
 
 /// @nodoc
@@ -65,6 +71,7 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
     Object? language = freezed,
     Object? colourScheme = freezed,
     Object? themeMode = freezed,
+    Object? hasInternetConnection = freezed,
   }) {
     return _then(_value.copyWith(
       language: language == freezed
@@ -79,6 +86,10 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
               as AppThemeMode,
+      hasInternetConnection: hasInternetConnection == freezed
+          ? _value.hasInternetConnection
+          : hasInternetConnection // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ));
   }
 }
@@ -89,7 +100,10 @@ abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
       __$AppStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Language language, ColourScheme colourScheme, AppThemeMode themeMode});
+      {Language language,
+      ColourScheme colourScheme,
+      AppThemeMode themeMode,
+      dynamic hasInternetConnection});
 }
 
 /// @nodoc
@@ -106,6 +120,7 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
     Object? language = freezed,
     Object? colourScheme = freezed,
     Object? themeMode = freezed,
+    Object? hasInternetConnection = freezed,
   }) {
     return _then(_AppState(
       language: language == freezed
@@ -120,6 +135,9 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
               as AppThemeMode,
+      hasInternetConnection: hasInternetConnection == freezed
+          ? _value.hasInternetConnection
+          : hasInternetConnection,
     ));
   }
 }
@@ -130,7 +148,8 @@ class _$_AppState extends _AppState {
   const _$_AppState(
       {required this.language,
       required this.colourScheme,
-      required this.themeMode})
+      required this.themeMode,
+      this.hasInternetConnection = true})
       : super._();
 
   @override
@@ -139,10 +158,13 @@ class _$_AppState extends _AppState {
   final ColourScheme colourScheme;
   @override
   final AppThemeMode themeMode;
+  @JsonKey()
+  @override
+  final dynamic hasInternetConnection;
 
   @override
   String toString() {
-    return 'AppState(language: $language, colourScheme: $colourScheme, themeMode: $themeMode)';
+    return 'AppState(language: $language, colourScheme: $colourScheme, themeMode: $themeMode, hasInternetConnection: $hasInternetConnection)';
   }
 
   @override
@@ -153,7 +175,9 @@ class _$_AppState extends _AppState {
             const DeepCollectionEquality().equals(other.language, language) &&
             const DeepCollectionEquality()
                 .equals(other.colourScheme, colourScheme) &&
-            const DeepCollectionEquality().equals(other.themeMode, themeMode));
+            const DeepCollectionEquality().equals(other.themeMode, themeMode) &&
+            const DeepCollectionEquality()
+                .equals(other.hasInternetConnection, hasInternetConnection));
   }
 
   @override
@@ -161,7 +185,8 @@ class _$_AppState extends _AppState {
       runtimeType,
       const DeepCollectionEquality().hash(language),
       const DeepCollectionEquality().hash(colourScheme),
-      const DeepCollectionEquality().hash(themeMode));
+      const DeepCollectionEquality().hash(themeMode),
+      const DeepCollectionEquality().hash(hasInternetConnection));
 
   @JsonKey(ignore: true)
   @override
@@ -173,7 +198,8 @@ abstract class _AppState extends AppState {
   const factory _AppState(
       {required Language language,
       required ColourScheme colourScheme,
-      required AppThemeMode themeMode}) = _$_AppState;
+      required AppThemeMode themeMode,
+      dynamic hasInternetConnection}) = _$_AppState;
   const _AppState._() : super._();
 
   @override
@@ -182,6 +208,8 @@ abstract class _AppState extends AppState {
   ColourScheme get colourScheme;
   @override
   AppThemeMode get themeMode;
+  @override
+  dynamic get hasInternetConnection;
   @override
   @JsonKey(ignore: true)
   _$AppStateCopyWith<_AppState> get copyWith =>

@@ -148,6 +148,11 @@ dependencies:
   # (c) BSD 3-Clause License. By German Saprykin.
   flutter_secure_storage: ^5.0.2
 
+  # A pure Dart library that checks for internet by opening a socket to a list of specified addresses, each with
+  # individual port and timeout. Defaults are provided for convenience.
+  # (c) MIT License. By Kristiyan Mitev and Spirit Navigator
+  internet_connection_checker: ^0.0.1+3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

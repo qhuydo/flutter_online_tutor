@@ -9,6 +9,7 @@ import '../../../domain/common/app/colour_scheme.dart';
 import '../../../domain/common/app/i_app_repository.dart';
 import '../../../domain/common/app/language.dart';
 import '../../../domain/common/app/theme_mode.dart';
+import '../../../domain/common/interfaces/i_internet_connection_service.dart';
 import 'flex_scheme_mapper.dart';
 
 part 'app_cubit.freezed.dart';
@@ -18,10 +19,12 @@ part 'app_state.dart';
 @injectable
 class AppCubit extends Cubit<AppState> {
   final AppRepository _appRepository;
+  final InternetConnectionService _connectionService;
 
-  AppCubit({required AppRepository appRepository})
-      : _appRepository = appRepository,
-        super(AppState.initial());
+  AppCubit(
+    this._appRepository,
+    this._connectionService,
+  ) : super(AppState.initial());
 
   Future<void> initialize() async {
     emit(state.copyWith(
@@ -29,6 +32,10 @@ class AppCubit extends Cubit<AppState> {
       colourScheme: await _appRepository.getColourScheme(),
       themeMode: await _appRepository.getAppThemeMode(),
     ));
+
+    _connectionService.subscribe().listen((isConnected) {
+      emit(state.copyWith(hasInternetConnection: isConnected));
+    });
   }
 
   Future<void> changeAppLanguage(Language language) async {
