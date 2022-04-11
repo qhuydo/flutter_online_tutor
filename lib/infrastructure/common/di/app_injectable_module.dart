@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
@@ -12,6 +13,9 @@ abstract class AppInjectableModule {
 
   @singleton
   FlutterSecureStorage get secureStorage => const FlutterSecureStorage();
+
+  @lazySingleton
+  Dio get dio => Dio();
 
   @preResolve
   @named
