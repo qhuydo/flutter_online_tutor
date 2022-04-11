@@ -1,7 +1,7 @@
 name: flutter_online_tutor
 description: A new Flutter project.
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -135,6 +135,19 @@ dependencies:
   # (c) MIT License. By Rody Davis.
   breakpoint: ^1.2.0
 
+  # A powerful Http client for Dart, which supports Interceptors, Global configuration, FormData, Request Cancellation,
+  # File downloading, Timeout etc.
+  # (c) MIT License.
+  dio: ^4.0.6
+
+  # Pretty Dio logger is a Dio interceptor that logs network calls in a pretty, easy to read format.
+  # (c) MIT License. By Milad Akarie.
+  pretty_dio_logger: ^1.1.1
+
+  # A Flutter plugin to store data in secure storage
+  # (c) BSD 3-Clause License. By German Saprykin.
+  flutter_secure_storage: ^5.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -151,12 +164,10 @@ dev_dependencies:
   # (c) Apache-2.0 License.
   mockito: ^5.1.0
 
-# The following section is specific to Flutter.
 flutter:
   uses-material-design: true
   generate: true
 
-  # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
     - assets/images/

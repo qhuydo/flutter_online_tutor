@@ -11,6 +11,8 @@
     </queries>
 
     <application
+        android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_rules"
         android:label="flutter_online_tutor"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">

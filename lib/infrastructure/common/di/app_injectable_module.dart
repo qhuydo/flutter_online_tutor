@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -8,6 +9,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 abstract class AppInjectableModule {
   @preResolve
   Future<SharedPreferences> get prefs => SharedPreferences.getInstance();
+
+  @singleton
+  FlutterSecureStorage get secureStorage => const FlutterSecureStorage();
 
   @preResolve
   @named
