@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-
-import '../../../l10n/l10n.dart';
 import '../../common.dart';
 import '../../common/utils/constants.dart';
 import '../../common/widgets/text_divider.dart';

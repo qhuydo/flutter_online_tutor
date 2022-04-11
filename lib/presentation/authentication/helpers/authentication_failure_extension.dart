@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../domain/authentication/failures/authentication_failure.dart';
-import '../../../l10n/l10n.dart';
+import '../../common.dart';
 import '../../common/utils/flushbar_utils.dart';
 
 extension AuthenticationFailureX on AuthenticationFailure {

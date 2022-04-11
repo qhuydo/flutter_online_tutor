@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import '../../../l10n/l10n.dart';
+import '../../common.dart';
 import '../../common/widgets/text_divider.dart';
 import 'forgot_password_button.dart';
 
