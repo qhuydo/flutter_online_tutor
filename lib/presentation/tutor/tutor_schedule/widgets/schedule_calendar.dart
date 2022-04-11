@@ -47,7 +47,7 @@ class ScheduleCalendar extends StatelessWidget {
             onPageChanged: (focusedDay) {
               context.read<TutorScheduleBloc>().add(
                     TutorScheduleEvent.dateSelected(
-                      selectedDay: state.selectedDay!,
+                      selectedDay: state.selectedDay ?? DateTime.now(),
                       focusedDay: focusedDay,
                     ),
                   );

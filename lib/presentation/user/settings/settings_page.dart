@@ -23,16 +23,21 @@ class SettingsPage extends StatelessWidget {
         shouldShowDefaultActions: false,
       ),
       extendBodyBehindAppBar: true,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: smallItemSpacing),
-        child: AlignedGridView.extent(
-          maxCrossAxisExtent: 600,
-          crossAxisSpacing: smallItemSpacing,
-          mainAxisSpacing: smallItemSpacing,
-          itemCount: _items.length,
-          itemBuilder: (BuildContext context, int index) {
-            return _items[index];
-          },
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(smallItemSpacing),
+        child: SafeArea(
+          child: AlignedGridView.extent(
+            shrinkWrap: true,
+            primary: false,
+            physics: const NeverScrollableScrollPhysics(),
+            maxCrossAxisExtent: 600,
+            crossAxisSpacing: smallItemSpacing,
+            mainAxisSpacing: smallItemSpacing,
+            itemCount: _items.length,
+            itemBuilder: (BuildContext context, int index) {
+              return _items[index];
+            },
+          ),
         ),
       ),
     );

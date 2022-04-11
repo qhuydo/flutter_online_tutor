@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -64,14 +66,26 @@ class TutorDetailsHeader extends StatelessWidget {
             Center(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: CircleAvatar(
-                  minRadius: 40,
-                  maxRadius: 60,
-                  backgroundImage:
-                      tutor.avatar != null ? NetworkImage(tutor.avatar!) : null,
-                  backgroundColor: tutor.avatar == null
-                      ? Colors.grey.withOpacity(0.2)
-                      : null,
+                child: LayoutBuilder(
+                  builder: (_, constraints) {
+                    final radius = min(
+                            max(
+                                constraints.hasBoundedWidth
+                                    ? constraints.maxWidth / 6
+                                    : 0,
+                                60),
+                            150)
+                        .toDouble();
+                    return CircleAvatar(
+                      maxRadius: radius,
+                      backgroundImage: tutor.avatar != null
+                          ? NetworkImage(tutor.avatar!)
+                          : null,
+                      backgroundColor: tutor.avatar == null
+                          ? Colors.grey.withOpacity(0.2)
+                          : null,
+                    );
+                  },
                 ),
               ),
             ),

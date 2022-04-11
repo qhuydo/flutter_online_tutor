@@ -107,21 +107,22 @@ class TutorDetailsButtonGroup extends StatelessWidget {
             ],
           ),
         ),
-        if (showBookButton) Container(
-          padding: const EdgeInsets.all(16),
-          child: ElevatedButton.icon(
-            onPressed: () {
-              context.router.push(
-                TutorScheduleRoute(tutorId: tutorId),
-              );
-            },
-            icon: const Icon(Icons.calendar_today),
-            label: Text(context.l10n.bookButtonText),
-            style: ElevatedButton.styleFrom(
-              minimumSize: const Size(600, 44),
+        if (showBookButton)
+          Container(
+            padding: const EdgeInsets.all(16),
+            child: ElevatedButton.icon(
+              onPressed: () {
+                context.router.push(
+                  TutorScheduleRoute(tutorId: tutorId),
+                );
+              },
+              icon: const Icon(Icons.calendar_today),
+              label: Text(context.l10n.bookButtonText),
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size(600, 44),
+              ),
             ),
           ),
-        ),
       ],
     );
   }

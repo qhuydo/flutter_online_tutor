@@ -22,6 +22,7 @@ class TutorDetailsPageBodyDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: buildAppBar(
         context,
         title: context.l10n.tutorDetailsPageTitle,
@@ -42,7 +43,6 @@ class TutorDetailsPageBodyDesktop extends StatelessWidget {
           return SingleChildScrollView(
             padding: const EdgeInsets.all(itemSpacing),
             child: SafeArea(
-              top: false,
               child: Column(
                 children: [
                   Row(
