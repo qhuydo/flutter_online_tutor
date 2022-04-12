@@ -1,10 +1,12 @@
+import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/user/profile/profile_bloc.dart';
 import '../../common.dart';
 import '../../common/utils/default_app_bar.dart';
 import '../../common/widgets/loading_widget.dart';
-import 'widgets/widgets.dart';
+import 'widgets/profile_body.dart';
+import 'widgets/profile_body_desktop.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -39,23 +41,12 @@ class _ProfilePage extends StatelessWidget {
           previous.isInitializing != current.isInitializing,
       builder: (context, state) {
         if (state.isInitializing) return const LoadingWidget();
+        final breakpoint = Breakpoint.fromMediaQuery(context);
         return SingleChildScrollView(
           child: SafeArea(
-            child: Center(
-              child: ConstrainedBox(
-                constraints: BoxConstraints.loose(
-                  // TODO re-organise size constraints
-                  const Size(800, double.infinity),
-                ),
-                child: Column(
-                  children: const [
-                    ProfileAvatar(),
-                    SizedBox(height: 16),
-                    EditProfileForm(),
-                  ],
-                ),
-              ),
-            ),
+            child: breakpoint.window >= WindowSize.medium
+                ? const ProfileBodyDesktop()
+                : const ProfileBody(),
           ),
         );
       },

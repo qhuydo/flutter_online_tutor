@@ -1,12 +1,24 @@
+import 'dart:math';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/user/profile/profile_bloc.dart';
 import '../../../common.dart';
 
 class ProfileAvatar extends StatelessWidget {
-  const ProfileAvatar({Key? key}) : super(key: key);
+  final double? avatarRadius;
+
+  const ProfileAvatar({
+    Key? key,
+    this.avatarRadius,
+  }) : super(key: key);
 
   static const foregroundColorOpacity = 0.8;
+
+  double avatarRadiusFromConstraints(BoxConstraints constraints) => min(
+          max(constraints.hasBoundedWidth ? constraints.maxWidth / 2.5 : 0, 60),
+          160)
+      .toDouble();
 
   @override
   Widget build(BuildContext context) {
@@ -20,17 +32,19 @@ class ProfileAvatar extends StatelessWidget {
           child: Stack(
             children: [
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: BlocBuilder<ProfileBloc, ProfileState>(
                   buildWhen: (previous, current) =>
                       previous.user.avatar != current.user.avatar,
                   builder: (context, state) {
                     final avatar = state.user.avatar;
-                    return CircleAvatar(
-                      minRadius: 40,
-                      maxRadius: 60,
-                      backgroundImage:
-                          avatar == null ? null : NetworkImage(avatar),
+                    return LayoutBuilder(
+                      builder: (_, constraints) => CircleAvatar(
+                        radius: avatarRadius ??
+                            avatarRadiusFromConstraints(constraints),
+                        backgroundImage:
+                            avatar == null ? null : NetworkImage(avatar),
+                      ),
                     );
                   },
                 ),

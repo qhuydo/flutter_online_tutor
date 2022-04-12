@@ -112,6 +112,7 @@ class _TutorPageState extends State<_TutorPage> {
           right: smallItemSpacing,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
               child: SpecialitiesFilterRow(

@@ -1,3 +1,5 @@
+import 'package:breakpoint/breakpoint.dart';
+
 import '../common.dart';
 import '../common/utils/default_app_bar.dart';
 import 'widgets/widgets.dart';
@@ -62,55 +64,70 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
 
   @override
   Widget build(BuildContext context) {
+    final breakpoint = Breakpoint.fromMediaQuery(context);
     return Scaffold(
       appBar: buildAppBar(
         context,
         title: context.l10n.becomeTeacherLabel,
         shouldShowDefaultActions: false,
       ),
+      extendBodyBehindAppBar: true,
       body: SafeArea(
-        child: Stepper(
-          physics: const ClampingScrollPhysics(),
-          controlsBuilder: (BuildContext context, ControlsDetails details) {
-            final isNotFirstStep = details.stepIndex != 0;
-            final isNotLastStep = details.stepIndex != _totalSteps - 1;
-            return StepButtonGroup(
-              isNotFirstStep: isNotFirstStep,
-              isNotLastStep: isNotLastStep,
-              isCompleted: _isCompleted,
-              showLastStep: false,
-              onStepCancel: details.onStepCancel,
-              onStepContinue: details.onStepContinue,
-            );
-          },
-          type: StepperType.horizontal,
-          currentStep: _index,
-          onStepCancel: () {
-            if (_index > 0) {
-              setState(() {
-                _index -= 1;
-                _completedSteps.remove(_index);
-              });
-            }
-          },
-          onStepContinue: () {
-            if (_index >= 0 && _index < _totalSteps - 1) {
-              setState(() {
-                _completedSteps.add(_index);
-                _index += 1;
-              });
-            }
-          },
-          // onStepTapped: (int index) {
-          //   setState(() {
-          //     _index = index;
-          //   });
-          // },
-          steps: [
-            buildStep1(context),
-            buildStep2(context),
-            buildStep3(context),
-          ],
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: ConstrainedBox(
+            constraints: breakpoint.window >= WindowSize.medium
+                ? const BoxConstraints(maxWidth: 800)
+                : const BoxConstraints(),
+            child: Stepper(
+              // physics: const NeverScrollableScrollPhysics(),
+              controlsBuilder: (BuildContext context, ControlsDetails details) {
+                final isNotFirstStep = details.stepIndex != 0;
+                final isNotLastStep = details.stepIndex != _totalSteps - 1;
+                return StepButtonGroup(
+                  isNotFirstStep: isNotFirstStep,
+                  isNotLastStep: isNotLastStep,
+                  isCompleted: _isCompleted,
+                  showLastStep: false,
+                  onStepCancel: details.onStepCancel,
+                  onStepContinue: details.onStepContinue,
+                );
+              },
+              // type: breakpoint.window >= WindowSize.medium
+              //     ? StepperType.vertical
+              //     : StepperType.horizontal,
+              type: breakpoint.window >= WindowSize.medium
+                  ? StepperType.vertical
+                  : StepperType.horizontal,
+              currentStep: _index,
+              onStepCancel: () {
+                if (_index > 0) {
+                  setState(() {
+                    _index -= 1;
+                    _completedSteps.remove(_index);
+                  });
+                }
+              },
+              onStepContinue: () {
+                if (_index >= 0 && _index < _totalSteps - 1) {
+                  setState(() {
+                    _completedSteps.add(_index);
+                    _index += 1;
+                  });
+                }
+              },
+              // onStepTapped: (int index) {
+              //   setState(() {
+              //     _index = index;
+              //   });
+              // },
+              steps: [
+                buildStep1(context),
+                buildStep2(context),
+                buildStep3(context),
+              ],
+            ),
+          ),
         ),
       ),
     );
