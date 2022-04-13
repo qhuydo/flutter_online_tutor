@@ -194,8 +194,8 @@ class __$WrongEmailOrPasswordCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WrongEmailOrPassword implements _WrongEmailOrPassword {
-  const _$_WrongEmailOrPassword();
+class _$_WrongEmailOrPassword extends _WrongEmailOrPassword {
+  const _$_WrongEmailOrPassword() : super._();
 
   @override
   String toString() {
@@ -326,8 +326,9 @@ class _$_WrongEmailOrPassword implements _WrongEmailOrPassword {
   }
 }
 
-abstract class _WrongEmailOrPassword implements AuthenticationFailure {
+abstract class _WrongEmailOrPassword extends AuthenticationFailure {
   const factory _WrongEmailOrPassword() = _$_WrongEmailOrPassword;
+  const _WrongEmailOrPassword._() : super._();
 }
 
 /// @nodoc
@@ -353,8 +354,8 @@ class __$WrongPhoneNumberOrPasswordCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WrongPhoneNumberOrPassword implements _WrongPhoneNumberOrPassword {
-  const _$_WrongPhoneNumberOrPassword();
+class _$_WrongPhoneNumberOrPassword extends _WrongPhoneNumberOrPassword {
+  const _$_WrongPhoneNumberOrPassword() : super._();
 
   @override
   String toString() {
@@ -486,8 +487,9 @@ class _$_WrongPhoneNumberOrPassword implements _WrongPhoneNumberOrPassword {
   }
 }
 
-abstract class _WrongPhoneNumberOrPassword implements AuthenticationFailure {
+abstract class _WrongPhoneNumberOrPassword extends AuthenticationFailure {
   const factory _WrongPhoneNumberOrPassword() = _$_WrongPhoneNumberOrPassword;
+  const _WrongPhoneNumberOrPassword._() : super._();
 }
 
 /// @nodoc
@@ -511,8 +513,8 @@ class __$NoConnectionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NoConnection implements _NoConnection {
-  const _$_NoConnection();
+class _$_NoConnection extends _NoConnection {
+  const _$_NoConnection() : super._();
 
   @override
   String toString() {
@@ -643,8 +645,9 @@ class _$_NoConnection implements _NoConnection {
   }
 }
 
-abstract class _NoConnection implements AuthenticationFailure {
+abstract class _NoConnection extends AuthenticationFailure {
   const factory _NoConnection() = _$_NoConnection;
+  const _NoConnection._() : super._();
 }
 
 /// @nodoc
@@ -668,8 +671,8 @@ class __$ServerErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ServerError implements _ServerError {
-  const _$_ServerError();
+class _$_ServerError extends _ServerError {
+  const _$_ServerError() : super._();
 
   @override
   String toString() {
@@ -800,8 +803,9 @@ class _$_ServerError implements _ServerError {
   }
 }
 
-abstract class _ServerError implements AuthenticationFailure {
+abstract class _ServerError extends AuthenticationFailure {
   const factory _ServerError() = _$_ServerError;
+  const _ServerError._() : super._();
 }
 
 /// @nodoc
@@ -825,8 +829,8 @@ class __$AlreadySignedOutCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AlreadySignedOut implements _AlreadySignedOut {
-  const _$_AlreadySignedOut();
+class _$_AlreadySignedOut extends _AlreadySignedOut {
+  const _$_AlreadySignedOut() : super._();
 
   @override
   String toString() {
@@ -957,8 +961,9 @@ class _$_AlreadySignedOut implements _AlreadySignedOut {
   }
 }
 
-abstract class _AlreadySignedOut implements AuthenticationFailure {
+abstract class _AlreadySignedOut extends AuthenticationFailure {
   const factory _AlreadySignedOut() = _$_AlreadySignedOut;
+  const _AlreadySignedOut._() : super._();
 }
 
 /// @nodoc
@@ -982,8 +987,8 @@ class __$EmailAlreadyTakenCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EmailAlreadyTaken implements _EmailAlreadyTaken {
-  const _$_EmailAlreadyTaken();
+class _$_EmailAlreadyTaken extends _EmailAlreadyTaken {
+  const _$_EmailAlreadyTaken() : super._();
 
   @override
   String toString() {
@@ -1114,8 +1119,9 @@ class _$_EmailAlreadyTaken implements _EmailAlreadyTaken {
   }
 }
 
-abstract class _EmailAlreadyTaken implements AuthenticationFailure {
+abstract class _EmailAlreadyTaken extends AuthenticationFailure {
   const factory _EmailAlreadyTaken() = _$_EmailAlreadyTaken;
+  const _EmailAlreadyTaken._() : super._();
 }
 
 /// @nodoc
@@ -1140,8 +1146,8 @@ class __$PhoneNumberAlreadyTakenCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PhoneNumberAlreadyTaken implements _PhoneNumberAlreadyTaken {
-  const _$_PhoneNumberAlreadyTaken();
+class _$_PhoneNumberAlreadyTaken extends _PhoneNumberAlreadyTaken {
+  const _$_PhoneNumberAlreadyTaken() : super._();
 
   @override
   String toString() {
@@ -1272,8 +1278,9 @@ class _$_PhoneNumberAlreadyTaken implements _PhoneNumberAlreadyTaken {
   }
 }
 
-abstract class _PhoneNumberAlreadyTaken implements AuthenticationFailure {
+abstract class _PhoneNumberAlreadyTaken extends AuthenticationFailure {
   const factory _PhoneNumberAlreadyTaken() = _$_PhoneNumberAlreadyTaken;
+  const _PhoneNumberAlreadyTaken._() : super._();
 }
 
 /// @nodoc
@@ -1297,8 +1304,8 @@ class __$EmailNotExistCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EmailNotExist implements _EmailNotExist {
-  const _$_EmailNotExist();
+class _$_EmailNotExist extends _EmailNotExist {
+  const _$_EmailNotExist() : super._();
 
   @override
   String toString() {
@@ -1429,8 +1436,9 @@ class _$_EmailNotExist implements _EmailNotExist {
   }
 }
 
-abstract class _EmailNotExist implements AuthenticationFailure {
+abstract class _EmailNotExist extends AuthenticationFailure {
   const factory _EmailNotExist() = _$_EmailNotExist;
+  const _EmailNotExist._() : super._();
 }
 
 /// @nodoc
@@ -1454,8 +1462,8 @@ class __$WrongCurrentPasswordCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WrongCurrentPassword implements _WrongCurrentPassword {
-  const _$_WrongCurrentPassword();
+class _$_WrongCurrentPassword extends _WrongCurrentPassword {
+  const _$_WrongCurrentPassword() : super._();
 
   @override
   String toString() {
@@ -1586,8 +1594,9 @@ class _$_WrongCurrentPassword implements _WrongCurrentPassword {
   }
 }
 
-abstract class _WrongCurrentPassword implements AuthenticationFailure {
+abstract class _WrongCurrentPassword extends AuthenticationFailure {
   const factory _WrongCurrentPassword() = _$_WrongCurrentPassword;
+  const _WrongCurrentPassword._() : super._();
 }
 
 /// @nodoc
@@ -1611,8 +1620,8 @@ class __$UnauthorziedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Unauthorzied implements _Unauthorzied {
-  const _$_Unauthorzied();
+class _$_Unauthorzied extends _Unauthorzied {
+  const _$_Unauthorzied() : super._();
 
   @override
   String toString() {
@@ -1743,6 +1752,7 @@ class _$_Unauthorzied implements _Unauthorzied {
   }
 }
 
-abstract class _Unauthorzied implements AuthenticationFailure {
+abstract class _Unauthorzied extends AuthenticationFailure {
   const factory _Unauthorzied() = _$_Unauthorzied;
+  const _Unauthorzied._() : super._();
 }

@@ -17,8 +17,6 @@ class AuthenticationEndpoints {
 
   String get _verifyPath => 'verify';
 
-  String get registerAccount => '$_authPath/register';
-
   String get login => '$_authPath/login';
 
   String get loginByPhone => '$_authPath/phone-login';

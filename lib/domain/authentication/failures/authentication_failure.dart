@@ -1,9 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../common/failures/failure.dart';
+
 part 'authentication_failure.freezed.dart';
 
 @freezed
 class AuthenticationFailure with _$AuthenticationFailure {
+  const AuthenticationFailure._();
+
   const factory AuthenticationFailure.wrongEmailOrPassword() =
       _WrongEmailOrPassword;
 
@@ -27,4 +31,37 @@ class AuthenticationFailure with _$AuthenticationFailure {
       _WrongCurrentPassword;
 
   const factory AuthenticationFailure.unauthorized() = _Unauthorzied;
+
+  factory AuthenticationFailure.fromErrorCode(int errorCode) {
+    switch (errorCode) {
+      case 1:
+        return const AuthenticationFailure.unauthorized();
+      case 4:
+        return const AuthenticationFailure.emailAlreadyTaken();
+      case 5:
+        return const AuthenticationFailure.emailNotExist();
+      case 7:
+        return const AuthenticationFailure.wrongEmailOrPassword();
+      case 32:
+        return const AuthenticationFailure.wrongCurrentPassword();
+      case 36:
+        return const AuthenticationFailure.phoneNumberAlreadyTaken();
+      default:
+        return const AuthenticationFailure.serverError();
+    }
+  }
+
+  factory AuthenticationFailure.fromFailure(Failure failure) {
+    return failure.maybeWhen(
+      unauthenticated: () => const AuthenticationFailure.unauthorized(),
+      emailExisted: () => const AuthenticationFailure.emailAlreadyTaken(),
+      emailNotExist: () => const AuthenticationFailure.emailNotExist(),
+      incorrectEmailOrPassword: () =>
+          const AuthenticationFailure.wrongEmailOrPassword(),
+      incorrectPassword: () =>
+          const AuthenticationFailure.wrongCurrentPassword(),
+      phoneExisted: () => const AuthenticationFailure.phoneNumberAlreadyTaken(),
+      orElse: () => const AuthenticationFailure.serverError(),
+    );
+  }
 }

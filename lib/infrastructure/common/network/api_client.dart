@@ -19,10 +19,20 @@ class ApiClient {
       final response = await callback();
       return right(response);
     } on DioError catch (e) {
-      final message = e.response?.data['message'];
+      final res = e.response?.data is Map<String, dynamic>
+          ? e.response?.data as Map<String, dynamic>
+          : {};
+      // http status code
       final statusCode = e.response?.statusCode;
+      // error code from response
+      final errorCode = res['statusCode'];
+      if (errorCode != null && errorCode is int) {
+        return left(Failure.fromErrorCode(errorCode));
+      }
+
+      final message = res['message'];
       if ((message != null && message is String) || statusCode != null) {
-        return left(Failure.apiError(errorCode: statusCode, message: message));
+        return left(Failure.apiError(statusCode: statusCode, message: message));
       }
       return left(const Failure.serverError());
     }

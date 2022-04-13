@@ -26,9 +26,9 @@ class _$FailureTearOff {
     return const _ServerError();
   }
 
-  _ApiError apiError({int? errorCode, String? message}) {
+  _ApiError apiError({int? statusCode, String? message}) {
     return _ApiError(
-      errorCode: errorCode,
+      statusCode: statusCode,
       message: message,
     );
   }
@@ -189,7 +189,7 @@ mixin _$Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -232,7 +232,7 @@ mixin _$Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -275,7 +275,7 @@ mixin _$Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -521,7 +521,7 @@ class _$_NoConnection extends _NoConnection {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -567,7 +567,7 @@ class _$_NoConnection extends _NoConnection {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -613,7 +613,7 @@ class _$_NoConnection extends _NoConnection {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -865,7 +865,7 @@ class _$_ServerError extends _ServerError {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -911,7 +911,7 @@ class _$_ServerError extends _ServerError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -957,7 +957,7 @@ class _$_ServerError extends _ServerError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -1171,7 +1171,7 @@ abstract class _ServerError extends Failure {
 abstract class _$ApiErrorCopyWith<$Res> {
   factory _$ApiErrorCopyWith(_ApiError value, $Res Function(_ApiError) then) =
       __$ApiErrorCopyWithImpl<$Res>;
-  $Res call({int? errorCode, String? message});
+  $Res call({int? statusCode, String? message});
 }
 
 /// @nodoc
@@ -1185,13 +1185,13 @@ class __$ApiErrorCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? errorCode = freezed,
+    Object? statusCode = freezed,
     Object? message = freezed,
   }) {
     return _then(_ApiError(
-      errorCode: errorCode == freezed
-          ? _value.errorCode
-          : errorCode // ignore: cast_nullable_to_non_nullable
+      statusCode: statusCode == freezed
+          ? _value.statusCode
+          : statusCode // ignore: cast_nullable_to_non_nullable
               as int?,
       message: message == freezed
           ? _value.message
@@ -1204,16 +1204,16 @@ class __$ApiErrorCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ApiError extends _ApiError {
-  const _$_ApiError({this.errorCode, this.message}) : super._();
+  const _$_ApiError({this.statusCode, this.message}) : super._();
 
   @override
-  final int? errorCode;
+  final int? statusCode;
   @override
   final String? message;
 
   @override
   String toString() {
-    return 'Failure.apiError(errorCode: $errorCode, message: $message)';
+    return 'Failure.apiError(statusCode: $statusCode, message: $message)';
   }
 
   @override
@@ -1221,14 +1221,15 @@ class _$_ApiError extends _ApiError {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ApiError &&
-            const DeepCollectionEquality().equals(other.errorCode, errorCode) &&
+            const DeepCollectionEquality()
+                .equals(other.statusCode, statusCode) &&
             const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(errorCode),
+      const DeepCollectionEquality().hash(statusCode),
       const DeepCollectionEquality().hash(message));
 
   @JsonKey(ignore: true)
@@ -1241,7 +1242,7 @@ class _$_ApiError extends _ApiError {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -1279,7 +1280,7 @@ class _$_ApiError extends _ApiError {
     required TResult Function() invalidPromotionCode,
     required TResult Function() promotionCodeUsed,
   }) {
-    return apiError(errorCode, message);
+    return apiError(statusCode, message);
   }
 
   @override
@@ -1287,7 +1288,7 @@ class _$_ApiError extends _ApiError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -1325,7 +1326,7 @@ class _$_ApiError extends _ApiError {
     TResult Function()? invalidPromotionCode,
     TResult Function()? promotionCodeUsed,
   }) {
-    return apiError?.call(errorCode, message);
+    return apiError?.call(statusCode, message);
   }
 
   @override
@@ -1333,7 +1334,7 @@ class _$_ApiError extends _ApiError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -1373,7 +1374,7 @@ class _$_ApiError extends _ApiError {
     required TResult orElse(),
   }) {
     if (apiError != null) {
-      return apiError(errorCode, message);
+      return apiError(statusCode, message);
     }
     return orElse();
   }
@@ -1539,10 +1540,10 @@ class _$_ApiError extends _ApiError {
 }
 
 abstract class _ApiError extends Failure {
-  const factory _ApiError({int? errorCode, String? message}) = _$_ApiError;
+  const factory _ApiError({int? statusCode, String? message}) = _$_ApiError;
   const _ApiError._() : super._();
 
-  int? get errorCode;
+  int? get statusCode;
   String? get message;
   @JsonKey(ignore: true)
   _$ApiErrorCopyWith<_ApiError> get copyWith =>
@@ -1591,7 +1592,7 @@ class _$_InternalError extends _InternalError {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -1637,7 +1638,7 @@ class _$_InternalError extends _InternalError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -1683,7 +1684,7 @@ class _$_InternalError extends _InternalError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -1933,7 +1934,7 @@ class _$_NotFound extends _NotFound {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -1979,7 +1980,7 @@ class _$_NotFound extends _NotFound {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -2025,7 +2026,7 @@ class _$_NotFound extends _NotFound {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -2299,7 +2300,7 @@ class _$_Wtf extends _Wtf {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -2345,7 +2346,7 @@ class _$_Wtf extends _Wtf {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -2391,7 +2392,7 @@ class _$_Wtf extends _Wtf {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -2647,7 +2648,7 @@ class _$_InvalidTokenType extends _InvalidTokenType {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -2693,7 +2694,7 @@ class _$_InvalidTokenType extends _InvalidTokenType {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -2739,7 +2740,7 @@ class _$_InvalidTokenType extends _InvalidTokenType {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -2991,7 +2992,7 @@ class _$_Unauthenticated extends _Unauthenticated {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -3037,7 +3038,7 @@ class _$_Unauthenticated extends _Unauthenticated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -3083,7 +3084,7 @@ class _$_Unauthenticated extends _Unauthenticated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -3336,7 +3337,7 @@ class _$_AccountNotActivated extends _AccountNotActivated {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -3382,7 +3383,7 @@ class _$_AccountNotActivated extends _AccountNotActivated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -3428,7 +3429,7 @@ class _$_AccountNotActivated extends _AccountNotActivated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -3680,7 +3681,7 @@ class _$_PermissionDenied extends _PermissionDenied {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -3726,7 +3727,7 @@ class _$_PermissionDenied extends _PermissionDenied {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -3772,7 +3773,7 @@ class _$_PermissionDenied extends _PermissionDenied {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -4024,7 +4025,7 @@ class _$_EmailExisted extends _EmailExisted {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -4070,7 +4071,7 @@ class _$_EmailExisted extends _EmailExisted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -4116,7 +4117,7 @@ class _$_EmailExisted extends _EmailExisted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -4368,7 +4369,7 @@ class _$_EmailNotExist extends _EmailNotExist {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -4414,7 +4415,7 @@ class _$_EmailNotExist extends _EmailNotExist {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -4460,7 +4461,7 @@ class _$_EmailNotExist extends _EmailNotExist {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -4717,7 +4718,7 @@ class _$_UserNotRequestChangePassword extends _UserNotRequestChangePassword {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -4763,7 +4764,7 @@ class _$_UserNotRequestChangePassword extends _UserNotRequestChangePassword {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -4809,7 +4810,7 @@ class _$_UserNotRequestChangePassword extends _UserNotRequestChangePassword {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -5065,7 +5066,7 @@ class _$_IncorrectEmailOrPassword extends _IncorrectEmailOrPassword {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -5111,7 +5112,7 @@ class _$_IncorrectEmailOrPassword extends _IncorrectEmailOrPassword {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -5157,7 +5158,7 @@ class _$_IncorrectEmailOrPassword extends _IncorrectEmailOrPassword {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -5414,7 +5415,7 @@ class _$_AlreadyUpgradedToTutorAccount extends _AlreadyUpgradedToTutorAccount {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -5460,7 +5461,7 @@ class _$_AlreadyUpgradedToTutorAccount extends _AlreadyUpgradedToTutorAccount {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -5506,7 +5507,7 @@ class _$_AlreadyUpgradedToTutorAccount extends _AlreadyUpgradedToTutorAccount {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -5760,7 +5761,7 @@ class _$_FileTypeNotSupported extends _FileTypeNotSupported {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -5806,7 +5807,7 @@ class _$_FileTypeNotSupported extends _FileTypeNotSupported {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -5852,7 +5853,7 @@ class _$_FileTypeNotSupported extends _FileTypeNotSupported {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -6107,7 +6108,7 @@ class _$_BookingCanceledBefore1Day extends _BookingCanceledBefore1Day {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -6153,7 +6154,7 @@ class _$_BookingCanceledBefore1Day extends _BookingCanceledBefore1Day {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -6199,7 +6200,7 @@ class _$_BookingCanceledBefore1Day extends _BookingCanceledBefore1Day {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -6451,7 +6452,7 @@ class _$_BookingExisted extends _BookingExisted {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -6497,7 +6498,7 @@ class _$_BookingExisted extends _BookingExisted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -6543,7 +6544,7 @@ class _$_BookingExisted extends _BookingExisted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -6795,7 +6796,7 @@ class _$_BookingNotExist extends _BookingNotExist {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -6841,7 +6842,7 @@ class _$_BookingNotExist extends _BookingNotExist {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -6887,7 +6888,7 @@ class _$_BookingNotExist extends _BookingNotExist {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -7139,7 +7140,7 @@ class _$_PaymentSystem extends _PaymentSystem {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -7185,7 +7186,7 @@ class _$_PaymentSystem extends _PaymentSystem {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -7231,7 +7232,7 @@ class _$_PaymentSystem extends _PaymentSystem {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -7483,7 +7484,7 @@ class _$_WalletBlocked extends _WalletBlocked {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -7529,7 +7530,7 @@ class _$_WalletBlocked extends _WalletBlocked {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -7575,7 +7576,7 @@ class _$_WalletBlocked extends _WalletBlocked {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -7827,7 +7828,7 @@ class _$_SellerNotEnough extends _SellerNotEnough {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -7873,7 +7874,7 @@ class _$_SellerNotEnough extends _SellerNotEnough {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -7919,7 +7920,7 @@ class _$_SellerNotEnough extends _SellerNotEnough {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -8176,7 +8177,7 @@ class _$_EndDateGreadterThanStartDate extends _EndDateGreadterThanStartDate {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -8222,7 +8223,7 @@ class _$_EndDateGreadterThanStartDate extends _EndDateGreadterThanStartDate {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -8268,7 +8269,7 @@ class _$_EndDateGreadterThanStartDate extends _EndDateGreadterThanStartDate {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -8521,7 +8522,7 @@ class _$_PeriodDivisible30 extends _PeriodDivisible30 {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -8567,7 +8568,7 @@ class _$_PeriodDivisible30 extends _PeriodDivisible30 {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -8613,7 +8614,7 @@ class _$_PeriodDivisible30 extends _PeriodDivisible30 {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -8865,7 +8866,7 @@ class _$_ScheduleDuplicate extends _ScheduleDuplicate {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -8911,7 +8912,7 @@ class _$_ScheduleDuplicate extends _ScheduleDuplicate {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -8957,7 +8958,7 @@ class _$_ScheduleDuplicate extends _ScheduleDuplicate {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -9210,7 +9211,7 @@ class _$_ScheduleInvalidDate extends _ScheduleInvalidDate {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -9256,7 +9257,7 @@ class _$_ScheduleInvalidDate extends _ScheduleInvalidDate {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -9302,7 +9303,7 @@ class _$_ScheduleInvalidDate extends _ScheduleInvalidDate {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -9555,7 +9556,7 @@ class _$_InvalidRefreshToken extends _InvalidRefreshToken {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -9601,7 +9602,7 @@ class _$_InvalidRefreshToken extends _InvalidRefreshToken {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -9647,7 +9648,7 @@ class _$_InvalidRefreshToken extends _InvalidRefreshToken {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -9902,7 +9903,7 @@ class _$_AvatarFileSizeExceedLimit extends _AvatarFileSizeExceedLimit {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -9948,7 +9949,7 @@ class _$_AvatarFileSizeExceedLimit extends _AvatarFileSizeExceedLimit {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -9994,7 +9995,7 @@ class _$_AvatarFileSizeExceedLimit extends _AvatarFileSizeExceedLimit {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -10249,7 +10250,7 @@ class _$_VideoFileSizeExceedLimit extends _VideoFileSizeExceedLimit {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -10295,7 +10296,7 @@ class _$_VideoFileSizeExceedLimit extends _VideoFileSizeExceedLimit {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -10341,7 +10342,7 @@ class _$_VideoFileSizeExceedLimit extends _VideoFileSizeExceedLimit {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -10594,7 +10595,7 @@ class _$_SecretCodeNotFound extends _SecretCodeNotFound {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -10640,7 +10641,7 @@ class _$_SecretCodeNotFound extends _SecretCodeNotFound {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -10686,7 +10687,7 @@ class _$_SecretCodeNotFound extends _SecretCodeNotFound {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -10938,7 +10939,7 @@ class _$_SecretCodeExpired extends _SecretCodeExpired {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -10984,7 +10985,7 @@ class _$_SecretCodeExpired extends _SecretCodeExpired {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -11030,7 +11031,7 @@ class _$_SecretCodeExpired extends _SecretCodeExpired {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -11282,7 +11283,7 @@ class _$_SecretCodeUsed extends _SecretCodeUsed {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -11328,7 +11329,7 @@ class _$_SecretCodeUsed extends _SecretCodeUsed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -11374,7 +11375,7 @@ class _$_SecretCodeUsed extends _SecretCodeUsed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -11627,7 +11628,7 @@ class _$_InvalidPhoneNumber extends _InvalidPhoneNumber {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -11673,7 +11674,7 @@ class _$_InvalidPhoneNumber extends _InvalidPhoneNumber {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -11719,7 +11720,7 @@ class _$_InvalidPhoneNumber extends _InvalidPhoneNumber {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -11971,7 +11972,7 @@ class _$_IncorrectPassword extends _IncorrectPassword {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -12017,7 +12018,7 @@ class _$_IncorrectPassword extends _IncorrectPassword {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -12063,7 +12064,7 @@ class _$_IncorrectPassword extends _IncorrectPassword {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -12315,7 +12316,7 @@ class _$_PhoneActivated extends _PhoneActivated {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -12361,7 +12362,7 @@ class _$_PhoneActivated extends _PhoneActivated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -12407,7 +12408,7 @@ class _$_PhoneActivated extends _PhoneActivated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -12659,7 +12660,7 @@ class _$_PhoneExisted extends _PhoneExisted {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -12705,7 +12706,7 @@ class _$_PhoneExisted extends _PhoneExisted {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -12751,7 +12752,7 @@ class _$_PhoneExisted extends _PhoneExisted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -13004,7 +13005,7 @@ class _$_PhoneNotRegistered extends _PhoneNotRegistered {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -13050,7 +13051,7 @@ class _$_PhoneNotRegistered extends _PhoneNotRegistered {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -13096,7 +13097,7 @@ class _$_PhoneNotRegistered extends _PhoneNotRegistered {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -13349,7 +13350,7 @@ class _$_InvalidPromotionCode extends _InvalidPromotionCode {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -13395,7 +13396,7 @@ class _$_InvalidPromotionCode extends _InvalidPromotionCode {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -13441,7 +13442,7 @@ class _$_InvalidPromotionCode extends _InvalidPromotionCode {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -13693,7 +13694,7 @@ class _$_PromotionCodeUsed extends _PromotionCodeUsed {
   TResult when<TResult extends Object?>({
     required TResult Function() noConnection,
     required TResult Function() serverError,
-    required TResult Function(int? errorCode, String? message) apiError,
+    required TResult Function(int? statusCode, String? message) apiError,
     required TResult Function() internalError,
     required TResult Function() notFound,
     required TResult Function(String? details) wtf,
@@ -13739,7 +13740,7 @@ class _$_PromotionCodeUsed extends _PromotionCodeUsed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,
@@ -13785,7 +13786,7 @@ class _$_PromotionCodeUsed extends _PromotionCodeUsed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? noConnection,
     TResult Function()? serverError,
-    TResult Function(int? errorCode, String? message)? apiError,
+    TResult Function(int? statusCode, String? message)? apiError,
     TResult Function()? internalError,
     TResult Function()? notFound,
     TResult Function(String? details)? wtf,

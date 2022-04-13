@@ -1,17 +1,22 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive/hive.dart';
-import 'package:injectable/injectable.dart';
 
-@singleton
 class SecureHiveStorage {
   late Uint8List _encryptionKey;
 
-  SecureHiveStorage(FlutterSecureStorage storage) {
-    _initPrivateKey(storage).then((value) => _encryptionKey = value);
+  static Future<SecureHiveStorage> create(FlutterSecureStorage storage) async {
+    final object = SecureHiveStorage._()
+      .._setPrivateKey(await _initPrivateKey(storage));
+    return object;
+  }
+
+  SecureHiveStorage._();
+
+  void _setPrivateKey(Uint8List encryptionKey) {
+    _encryptionKey = encryptionKey;
   }
 
   static Future<Uint8List> _initPrivateKey(FlutterSecureStorage storage) async {
@@ -26,7 +31,7 @@ class SecureHiveStorage {
     }
     final key = await storage.read(key: 'key');
     final encryptionKey = base64Url.decode(key!);
-    log('Encryption key: $encryptionKey');
+    // log('Encryption key: $encryptionKey');
     return encryptionKey;
   }
 

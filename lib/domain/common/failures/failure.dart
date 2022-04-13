@@ -11,7 +11,7 @@ class Failure with _$Failure {
   const factory Failure.serverError() = _ServerError;
 
   const factory Failure.apiError({
-    int? errorCode,
+    int? statusCode,
     String? message,
   }) = _ApiError;
 
