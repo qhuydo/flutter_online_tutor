@@ -18,7 +18,7 @@ import '../../common/db/fixture_loader.dart';
 import '../../user/dto/user_dto.dart';
 import '../dto/authentication_dto.dart';
 
-@LazySingleton(as: AuthenticationService)
+@LazySingleton(as: AuthenticationService, env: ['mock'])
 class MockAuthenticationService implements AuthenticationService {
   final Box<String> _box;
   late final Box<String> _cacheBox;

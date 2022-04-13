@@ -6,6 +6,8 @@ import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../db/secure_hive_storage.dart';
+
 @module
 abstract class AppInjectableModule {
   @preResolve
@@ -18,8 +20,13 @@ abstract class AppInjectableModule {
   Dio get dio => Dio();
 
   @preResolve
-  @named
-  Future<Box<String>> get secretBox => Hive.openBox('secret');
+  @singleton
+  Future<SecureHiveStorage> secureHiveStorage(FlutterSecureStorage storage) =>
+      SecureHiveStorage.create(storage);
+
+  @preResolve
+  @Named('secret')
+  Future<Box<String>> secretBox(SecureHiveStorage storage) => storage.secretBox;
 
   @preResolve
   @Named('mockSecret')
@@ -31,4 +38,5 @@ abstract class AppInjectableModule {
         'cache',
         bytes: Uint8List(0),
       );
+
 }
