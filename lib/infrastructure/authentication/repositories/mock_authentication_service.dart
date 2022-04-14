@@ -17,6 +17,7 @@ import '../../../presentation/common.dart';
 import '../../common/db/fixture_loader.dart';
 import '../../user/dto/user_dto.dart';
 import '../dto/authentication_dto.dart';
+import '../dto/token.dart';
 
 @LazySingleton(as: AuthenticationService, env: ['mock'])
 class MockAuthenticationService implements AuthenticationService {
@@ -275,5 +276,17 @@ class MockAuthenticationService implements AuthenticationService {
       log(e.toString());
       return left(const AuthenticationFailure.unauthorized());
     }
+  }
+
+  @override
+  Future<Option<Tokens>> getTokens() async {
+    final tokenJson = _box.get(_keyToken);
+    if (tokenJson == null) return none();
+    return some(Tokens.fromJson(jsonDecode(tokenJson)));
+  }
+
+  @override
+  Future<Either<AuthenticationFailure, Unit>> refreshToken() async {
+    return right(unit);
   }
 }

@@ -15,6 +15,7 @@ import '../../common/network/api_client.dart';
 import '../../common/network/request_url.dart';
 import '../../user/dto/user_dto.dart';
 import '../dto/authentication_dto.dart';
+import '../dto/token.dart';
 
 @Singleton(
   as: AuthenticationService,
@@ -234,8 +235,8 @@ class AuthenticationServiceImpl implements AuthenticationService {
       );
 
       return result.fold(
-            (l) => left(AuthenticationFailure.fromFailure(l)),
-            (authDto) async {
+        (l) => left(AuthenticationFailure.fromFailure(l)),
+        (authDto) async {
           await _saveAuthData(authDto);
           return right(unit);
         },
@@ -255,5 +256,38 @@ class AuthenticationServiceImpl implements AuthenticationService {
       _keyUser,
       jsonEncode(authDto.user),
     );
+  }
+
+  @override
+  Future<Option<Tokens>> getTokens() async {
+    final tokenJson = _box.get(_keyToken);
+    if (tokenJson == null) return none();
+    return some(Tokens.fromJson(jsonDecode(tokenJson)));
+  }
+
+  @override
+  Future<Either<AuthenticationFailure, Unit>> refreshToken() async {
+    final tokens = (await getTokens()).fold(() => null, (a) => a);
+    if (tokens == null) return left(const AuthenticationFailure.unauthorized());
+
+    final data = {
+      'refreshToken': tokens.refresh.token,
+      // todo change timezone based on device's timezone
+      'timezone': 7,
+    };
+
+    final result = await _apiClient.post(
+      RequestUrl.auth.refreshToken,
+      data: data,
+      onResponded: (response) {
+        return AuthenticationDto.fromJson(response as Map<String, dynamic>);
+      },
+    );
+
+    return await result.fold((l) => left(AuthenticationFailure.fromFailure(l)),
+        (r) async {
+      await _saveAuthData(r);
+      return right(unit);
+    });
   }
 }

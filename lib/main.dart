@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -8,11 +9,19 @@ import 'package:window_size/window_size.dart';
 
 import 'bootstrap.dart';
 import 'di/dependency_injection.dart';
+import 'infrastructure/common/network/dio_interceptors.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   await configureInjection(Environment.dev);
+
+  getIt<Dio>()
+    ..options = BaseOptions(
+      connectTimeout: 5000,
+      receiveTimeout: 15000,
+    )
+    ..interceptors.add(getIt<DioInterceptor>());
 
   if (Platform.isLinux || Platform.isMacOS || Platform.isWindows) {
     setWindowMinSize(const Size(600, 750));

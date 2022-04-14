@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 
+import '../../../infrastructure/authentication/dto/token.dart';
 import '../../user/models/user.dart';
 import '../failures/authentication_failure.dart';
 import '../value_objects/email_address.dart';
@@ -23,6 +24,8 @@ abstract class AuthenticationService {
 
   Future<Option<User>> getSignedInUser();
 
+  Future<Option<Tokens>> getTokens();
+
   Future<Either<AuthenticationFailure, Unit>> signUp({
     required EmailAddress emailAddress,
     required Password password,
@@ -41,4 +44,6 @@ abstract class AuthenticationService {
     required Password oldPassword,
     required Password newPassword,
   });
+
+  Future<Either<AuthenticationFailure, Unit>> refreshToken();
 }
