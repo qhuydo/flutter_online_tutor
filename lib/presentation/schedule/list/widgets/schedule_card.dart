@@ -22,6 +22,7 @@ class ScheduleCard extends StatelessWidget {
       childInsideInkwell: true,
       onTap: () {},
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           ScheduleCardHeader(appointment: appointment),

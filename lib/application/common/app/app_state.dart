@@ -4,7 +4,7 @@ part of 'app_cubit.dart';
 class AppState with _$AppState {
   static const _surfaceMode = FlexSurfaceMode.highScaffoldLevelSurface;
   static const _blendLevel = 18;
-  static const _defaultAppBarStyleLight = FlexAppBarStyle.primary;
+  static const _defaultAppBarStyleLight = FlexAppBarStyle.surface;
   static const _defaultAppBarStyleDark = FlexAppBarStyle.background;
   static const _appBarOpacity = 0.95;
   static const _appBarElevation = 0.0;

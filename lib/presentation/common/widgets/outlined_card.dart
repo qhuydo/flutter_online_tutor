@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 import '../../common.dart';
 
 class OutlinedCard extends StatefulWidget {
@@ -56,37 +58,67 @@ class _OutlinedCardState extends State<OutlinedCard> {
   @override
   Widget build(BuildContext context) {
     final primaryColour = Theme.of(context).primaryColor;
+    final secondaryColour = Theme.of(context).colorScheme.secondary;
     final unHoveredColour = primaryColour.withOpacity(0.25);
     final hoveredColour = primaryColour;
+    const borderRadius = BorderRadius.all(Radius.circular(12));
+    final decoration = BoxDecoration(
+      gradient: isHovered
+          ? LinearGradient(
+              colors: [primaryColour, secondaryColour],
+            )
+          : null,
+      color: isHovered ? null : unHoveredColour,
+      borderRadius: borderRadius,
+    );
+    const borderMaxWidth = 2.25;
+    const borderMinWidth = 1.25;
+    const defaultInset = 4.0;
 
-    return Card(
-      key: widget.key,
-      color: widget.color,
-      shadowColor: widget.shadowColor,
-      elevation: isHovered ? 3 : 0.5,
-      shape: widget.shape ??
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-            side: BorderSide(
-              color: isHovered ? hoveredColour : unHoveredColour,
-              width: isHovered ? 2 : 1.25,
-            ),
+    return Padding(
+      padding: widget.margin ??
+          EdgeInsets.all(
+            isHovered
+                ? defaultInset - (borderMaxWidth - borderMinWidth)
+                : defaultInset,
           ),
-      borderOnForeground: widget.borderOnForeground,
-      margin: widget.margin,
-      clipBehavior: widget.clipBehavior,
-      child: widget.childInsideInkwell
-          ? buildInkWell()
-          : Stack(
-              children: widget.child != null
-                  ? [
-                      widget.child!,
-                      if (widget.useOnTappedCallback)
-                        Positioned.fill(child: buildInkWell()),
-                    ]
-                  : [],
-            ),
-      semanticContainer: widget.semanticContainer,
+      child: Material(
+        elevation: isHovered ? 4 : 0.5,
+        borderRadius: borderRadius,
+        child: Container(
+          padding: EdgeInsets.all(isHovered ? borderMaxWidth : borderMinWidth),
+          decoration: decoration,
+          child: Card(
+            key: widget.key,
+            color: widget.color,
+            shadowColor: widget.shadowColor,
+            elevation: 0,
+            shape: widget.shape ??
+                RoundedRectangleBorder(
+                  borderRadius: borderRadius,
+                  side: BorderSide(
+                    color: isHovered ? hoveredColour : unHoveredColour,
+                    width: 0,
+                  ),
+                ),
+            borderOnForeground: widget.borderOnForeground,
+            clipBehavior: widget.clipBehavior,
+            margin: EdgeInsets.zero,
+            child: widget.childInsideInkwell
+                ? buildInkWell()
+                : Stack(
+                    children: widget.child != null
+                        ? [
+                            widget.child!,
+                            if (widget.useOnTappedCallback)
+                              Positioned.fill(child: buildInkWell()),
+                          ]
+                        : [],
+                  ),
+            semanticContainer: widget.semanticContainer,
+          ),
+        ),
+      ),
     );
   }
 }

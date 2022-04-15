@@ -9,62 +9,86 @@ class DashboardCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return OutlinedCard(
       // color: Colors.blueGrey,
-      child: Padding(
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              theme.primaryColor,
+              theme.colorScheme.secondary,
+            ],
+          ),
+        ),
         padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Theme(
+          data: theme.copyWith(
+            textTheme: theme.textTheme.apply(
+              bodyColor: theme.colorScheme.onPrimary,
+              displayColor: theme.colorScheme.onPrimary,
+            ),
+            textButtonTheme: TextButtonThemeData(
+              style: TextButton.styleFrom(
+                primary: theme.colorScheme.onPrimary,
+              ),
+            ),
+          ),
+          child: const DashboardCardContent(),
+        ),
+      ),
+    );
+  }
+}
+
+class DashboardCardContent extends StatelessWidget {
+  const DashboardCardContent({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          context.l10n.totalHourLearnt('82 hours'),
+          style: Theme.of(context).textTheme.headline6,
+        ),
+        const SizedBox(
+          height: 4,
+        ),
+        Wrap(
           children: [
             Text(
-              context.l10n.totalHourLearnt('82 hours'),
-              style: Theme.of(context).textTheme.headline6,
+              context.l10n.upComingLesson,
+              style: textTheme.bodyText2,
             ),
-            const SizedBox(
-              height: 4,
-            ),
-            Wrap(
-              children: [
-                Text(
-                  context.l10n.upComingLesson,
-                  style: Theme.of(context).textTheme.bodyText2,
-                ),
-                const SizedBox(width: 8),
-                Text(
-                  'Tue, 22 Feb 22 20:00 - 20:30',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText1
-                      ?.copyWith(fontWeight: FontWeight.bold),
-                )
-              ],
-            ),
-            // TODO add translation
-            const Text('10 hours until the next lesson'),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                TextButton(
-                  onPressed: () {
-                    context.router.push(MeetingRoute());
-                  },
-                  child: Row(
-                    children: [
-                      Text(
-                        context.l10n.enterLessonRoom,
-                      ),
-                      const SizedBox(
-                        width: 4,
-                      ),
-                      const Icon(Icons.login),
-                    ],
-                  ),
-                ),
-              ],
+            const SizedBox(width: 8),
+            Text(
+              'Tue, 22 Feb 22 20:00 - 20:30',
+              style: textTheme.bodyText1?.copyWith(fontWeight: FontWeight.bold),
             )
           ],
         ),
-      ),
+        // TODO add translation
+        Text(
+          '10 hours until the next lesson',
+          style: textTheme.bodyText2,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            TextButton.icon(
+              onPressed: () {
+                context.router.push(MeetingRoute());
+              },
+              icon: const Icon(Icons.login),
+              label: Text(context.l10n.enterLessonRoom),
+            ),
+          ],
+        )
+      ],
     );
   }
 }
