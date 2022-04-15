@@ -361,7 +361,7 @@ class __$TutorCopyWithImpl<$Res> extends _$TutorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Tutor implements _Tutor {
+class _$_Tutor extends _Tutor {
   const _$_Tutor(
       {required this.id,
       this.avatar,
@@ -379,7 +379,8 @@ class _$_Tutor implements _Tutor {
       required this.profession,
       this.specialities = const [],
       required this.targetStudent,
-      required this.video});
+      required this.video})
+      : super._();
 
   factory _$_Tutor.fromJson(Map<String, dynamic> json) =>
       _$$_TutorFromJson(json);
@@ -488,7 +489,7 @@ class _$_Tutor implements _Tutor {
   }
 }
 
-abstract class _Tutor implements Tutor {
+abstract class _Tutor extends Tutor {
   const factory _Tutor(
       {required String id,
       String? avatar,
@@ -507,6 +508,7 @@ abstract class _Tutor implements Tutor {
       List<Speciality> specialities,
       required Level targetStudent,
       required String video}) = _$_Tutor;
+  const _Tutor._() : super._();
 
   factory _Tutor.fromJson(Map<String, dynamic> json) = _$_Tutor.fromJson;
 

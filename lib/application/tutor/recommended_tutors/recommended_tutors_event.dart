@@ -7,5 +7,4 @@ class RecommendedTutorsEvent with _$RecommendedTutorsEvent {
   const factory RecommendedTutorsEvent.toggleFavourite(
     String tutorId,
   ) = _ToggleFavourite;
-
 }

@@ -24,11 +24,11 @@ class _$FeedbackDtoTearOff {
 
   _Feedback call(
       {required String id,
-      required String bookingId,
+      String? bookingId,
       required String firstId,
       required String secondId,
       required int rating,
-      required String content,
+      required String? content,
       required DateTime createdAt,
       required DateTime updatedAt,
       required FirstInfo firstInfo}) {
@@ -56,11 +56,11 @@ const $FeedbackDto = _$FeedbackDtoTearOff();
 /// @nodoc
 mixin _$FeedbackDto {
   String get id => throw _privateConstructorUsedError;
-  String get bookingId => throw _privateConstructorUsedError;
+  String? get bookingId => throw _privateConstructorUsedError;
   String get firstId => throw _privateConstructorUsedError;
   String get secondId => throw _privateConstructorUsedError;
   int get rating => throw _privateConstructorUsedError;
-  String get content => throw _privateConstructorUsedError;
+  String? get content => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
   FirstInfo get firstInfo => throw _privateConstructorUsedError;
@@ -78,11 +78,11 @@ abstract class $FeedbackDtoCopyWith<$Res> {
       _$FeedbackDtoCopyWithImpl<$Res>;
   $Res call(
       {String id,
-      String bookingId,
+      String? bookingId,
       String firstId,
       String secondId,
       int rating,
-      String content,
+      String? content,
       DateTime createdAt,
       DateTime updatedAt,
       FirstInfo firstInfo});
@@ -118,7 +118,7 @@ class _$FeedbackDtoCopyWithImpl<$Res> implements $FeedbackDtoCopyWith<$Res> {
       bookingId: bookingId == freezed
           ? _value.bookingId
           : bookingId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       firstId: firstId == freezed
           ? _value.firstId
           : firstId // ignore: cast_nullable_to_non_nullable
@@ -134,7 +134,7 @@ class _$FeedbackDtoCopyWithImpl<$Res> implements $FeedbackDtoCopyWith<$Res> {
       content: content == freezed
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -165,11 +165,11 @@ abstract class _$FeedbackCopyWith<$Res> implements $FeedbackDtoCopyWith<$Res> {
   @override
   $Res call(
       {String id,
-      String bookingId,
+      String? bookingId,
       String firstId,
       String secondId,
       int rating,
-      String content,
+      String? content,
       DateTime createdAt,
       DateTime updatedAt,
       FirstInfo firstInfo});
@@ -207,7 +207,7 @@ class __$FeedbackCopyWithImpl<$Res> extends _$FeedbackDtoCopyWithImpl<$Res>
       bookingId: bookingId == freezed
           ? _value.bookingId
           : bookingId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       firstId: firstId == freezed
           ? _value.firstId
           : firstId // ignore: cast_nullable_to_non_nullable
@@ -223,7 +223,7 @@ class __$FeedbackCopyWithImpl<$Res> extends _$FeedbackDtoCopyWithImpl<$Res>
       content: content == freezed
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -245,7 +245,7 @@ class __$FeedbackCopyWithImpl<$Res> extends _$FeedbackDtoCopyWithImpl<$Res>
 class _$_Feedback extends _Feedback {
   const _$_Feedback(
       {required this.id,
-      required this.bookingId,
+      this.bookingId,
       required this.firstId,
       required this.secondId,
       required this.rating,
@@ -261,7 +261,7 @@ class _$_Feedback extends _Feedback {
   @override
   final String id;
   @override
-  final String bookingId;
+  final String? bookingId;
   @override
   final String firstId;
   @override
@@ -269,7 +269,7 @@ class _$_Feedback extends _Feedback {
   @override
   final int rating;
   @override
-  final String content;
+  final String? content;
   @override
   final DateTime createdAt;
   @override
@@ -325,11 +325,11 @@ class _$_Feedback extends _Feedback {
 abstract class _Feedback extends FeedbackDto {
   const factory _Feedback(
       {required String id,
-      required String bookingId,
+      String? bookingId,
       required String firstId,
       required String secondId,
       required int rating,
-      required String content,
+      required String? content,
       required DateTime createdAt,
       required DateTime updatedAt,
       required FirstInfo firstInfo}) = _$_Feedback;
@@ -340,7 +340,7 @@ abstract class _Feedback extends FeedbackDto {
   @override
   String get id;
   @override
-  String get bookingId;
+  String? get bookingId;
   @override
   String get firstId;
   @override
@@ -348,7 +348,7 @@ abstract class _Feedback extends FeedbackDto {
   @override
   int get rating;
   @override
-  String get content;
+  String? get content;
   @override
   DateTime get createdAt;
   @override

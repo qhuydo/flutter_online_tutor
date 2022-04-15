@@ -97,11 +97,7 @@ class _RecommendedTutors extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return TutorCard(
               tutor: tutors[index],
-              isLoading: context
-                  .watch<RecommendedTutorsBloc>()
-                  .state
-                  .loadingTutors
-                  .contains(tutors[index].id),
+              isLoading: state.loadingTutors.contains(tutors[index].id),
               onFavouriteButtonPressed: () {
                 context.read<RecommendedTutorsBloc>().add(
                       RecommendedTutorsEvent.toggleFavourite(tutors[index].id),

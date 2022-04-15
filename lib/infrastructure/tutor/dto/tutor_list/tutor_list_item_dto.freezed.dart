@@ -43,7 +43,7 @@ class _$TutorListItemDtoTearOff {
       required String languages,
       required String specialties,
       required int price,
-      required bool isOnline}) {
+      bool? isOnline}) {
     return _TutorListItemDto(
       level: level,
       email: email,
@@ -115,7 +115,7 @@ mixin _$TutorListItemDto {
       throw _privateConstructorUsedError; // dynamic resume,
 // dynamic isNative,
   int get price => throw _privateConstructorUsedError;
-  bool get isOnline => throw _privateConstructorUsedError;
+  bool? get isOnline => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -149,7 +149,7 @@ abstract class $TutorListItemDtoCopyWith<$Res> {
       String languages,
       String specialties,
       int price,
-      bool isOnline});
+      bool? isOnline});
 }
 
 /// @nodoc
@@ -269,7 +269,7 @@ class _$TutorListItemDtoCopyWithImpl<$Res>
       isOnline: isOnline == freezed
           ? _value.isOnline
           : isOnline // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ));
   }
 }
@@ -302,7 +302,7 @@ abstract class _$TutorListItemDtoCopyWith<$Res>
       String languages,
       String specialties,
       int price,
-      bool isOnline});
+      bool? isOnline});
 }
 
 /// @nodoc
@@ -424,7 +424,7 @@ class __$TutorListItemDtoCopyWithImpl<$Res>
       isOnline: isOnline == freezed
           ? _value.isOnline
           : isOnline // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ));
   }
 }
@@ -453,7 +453,7 @@ class _$_TutorListItemDto extends _TutorListItemDto {
       required this.languages,
       required this.specialties,
       required this.price,
-      required this.isOnline})
+      this.isOnline})
       : super._();
 
   factory _$_TutorListItemDto.fromJson(Map<String, dynamic> json) =>
@@ -512,7 +512,7 @@ class _$_TutorListItemDto extends _TutorListItemDto {
 // dynamic isNative,
   final int price;
   @override
-  final bool isOnline;
+  final bool? isOnline;
 
   @override
   String toString() {
@@ -610,7 +610,7 @@ abstract class _TutorListItemDto extends TutorListItemDto {
       required String languages,
       required String specialties,
       required int price,
-      required bool isOnline}) = _$_TutorListItemDto;
+      bool? isOnline}) = _$_TutorListItemDto;
   const _TutorListItemDto._() : super._();
 
   factory _TutorListItemDto.fromJson(Map<String, dynamic> json) =
@@ -669,7 +669,7 @@ abstract class _TutorListItemDto extends TutorListItemDto {
 // dynamic isNative,
   int get price;
   @override
-  bool get isOnline;
+  bool? get isOnline;
   @override
   @JsonKey(ignore: true)
   _$TutorListItemDtoCopyWith<_TutorListItemDto> get copyWith =>

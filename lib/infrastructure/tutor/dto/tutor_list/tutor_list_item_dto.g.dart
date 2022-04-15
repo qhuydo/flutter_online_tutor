@@ -30,7 +30,7 @@ _$_TutorListItemDto _$$_TutorListItemDtoFromJson(Map<String, dynamic> json) =>
       languages: json['languages'] as String,
       specialties: json['specialties'] as String,
       price: json['price'] as int,
-      isOnline: json['isOnline'] as bool,
+      isOnline: json['isOnline'] as bool?,
     );
 
 Map<String, dynamic> _$$_TutorListItemDtoToJson(_$_TutorListItemDto instance) =>

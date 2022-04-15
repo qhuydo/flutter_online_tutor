@@ -73,7 +73,7 @@ class TutorListItemDto with _$TutorListItemDto {
     // dynamic resume,
     // dynamic isNative,
     required int price,
-    required bool isOnline,
+    bool? isOnline,
   }) = _TutorListItemDto;
 
   factory TutorListItemDto.fromJson(Map<String, dynamic> json) =>

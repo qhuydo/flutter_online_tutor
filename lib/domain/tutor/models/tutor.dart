@@ -12,6 +12,8 @@ part 'tutor.g.dart';
 
 @freezed
 class Tutor with _$Tutor {
+  const Tutor._();
+
   const factory Tutor({
     required String id,
     String? avatar,
@@ -50,4 +52,17 @@ class Tutor with _$Tutor {
         targetStudent: Level.none,
         video: '',
       );
+
+  bool match({
+    required List<Speciality> specialities,
+    required String keyword,
+    Country? country,
+  }) {
+    return (specialities.isEmpty ||
+        this
+            .specialities
+            .any((element) => specialities.contains(element))) &&
+        name.toLowerCase().contains(keyword.toLowerCase()) &&
+        (country == null || this.country == country);
+  }
 }

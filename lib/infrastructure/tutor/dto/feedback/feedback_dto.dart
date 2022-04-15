@@ -12,11 +12,11 @@ class FeedbackDto with _$FeedbackDto {
 
   const factory FeedbackDto({
     required String id,
-    required String bookingId,
+    String? bookingId,
     required String firstId,
     required String secondId,
     required int rating,
-    required String content,
+    required String? content,
     required DateTime createdAt,
     required DateTime updatedAt,
     required FirstInfo firstInfo,
@@ -28,7 +28,7 @@ class FeedbackDto with _$FeedbackDto {
   Feedback toDomain() => Feedback(
         avatar: firstInfo.avatar,
         createdAt: createdAt,
-        content: content,
+        content: content ?? '',
         id: id,
         name: firstInfo.name,
         rating: rating,

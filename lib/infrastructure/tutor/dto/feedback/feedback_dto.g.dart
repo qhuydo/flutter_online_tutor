@@ -8,11 +8,11 @@ part of 'feedback_dto.dart';
 
 _$_Feedback _$$_FeedbackFromJson(Map<String, dynamic> json) => _$_Feedback(
       id: json['id'] as String,
-      bookingId: json['bookingId'] as String,
+      bookingId: json['bookingId'] as String?,
       firstId: json['firstId'] as String,
       secondId: json['secondId'] as String,
       rating: json['rating'] as int,
-      content: json['content'] as String,
+      content: json['content'] as String?,
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),
       firstInfo: FirstInfo.fromJson(json['firstInfo'] as Map<String, dynamic>),

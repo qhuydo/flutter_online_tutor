@@ -6,6 +6,7 @@ import '../../../application/tutor/search_tutors/search_tutors_bloc.dart';
 import '../../common.dart';
 import '../../common/utils/constants.dart';
 import '../../common/widgets/empty_page.dart';
+import '../../common/widgets/loading_widget.dart';
 import '../../common/widgets/scaffold_with_search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';
 import 'widgets/specialities_filter_row.dart';
@@ -91,6 +92,13 @@ class _TutorPageState extends State<_TutorPage> {
   }
 
   Widget buildBody(SearchTutorsState state, BuildContext context) {
+    if (state.isLoading) {
+      return const SizedBox(
+        height: 80,
+        child: LoadingWidget(),
+      );
+    }
+
     final resultList = state.result.fold((l) => null, (r) => r);
 
     if (resultList == null) {
