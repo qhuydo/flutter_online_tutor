@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 
 import '../../../infrastructure/authentication/dto/token.dart';
 import '../../user/models/user.dart';
+import '../events/authentication_service_event.dart';
 import '../failures/authentication_failure.dart';
 import '../value_objects/email_address.dart';
 import '../value_objects/password.dart';
@@ -46,4 +47,8 @@ abstract class AuthenticationService {
   });
 
   Future<Either<AuthenticationFailure, Unit>> refreshToken();
+
+  Stream<AuthenticationServiceEvent> subscribe();
+
+  Future dispose();
 }

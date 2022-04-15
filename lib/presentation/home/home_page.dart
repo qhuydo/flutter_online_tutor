@@ -4,6 +4,7 @@ import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../application/authentication/authentication_bloc.dart';
 import '../../application/common/app/app_cubit.dart';
 import '../common.dart';
 import '../common/routes/app_routes.gr.dart';
@@ -22,21 +23,37 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AppCubit, AppState>(
-      listenWhen: (previous, current) =>
-          current.hasInternetConnection == false ||
-          previous.hasInternetConnection == false,
-      listener: (_, state) {
-        if (state.hasInternetConnection) {
-          _flushbar?.dismiss();
-          return;
-        } else {
-          _flushbar = FlushBarUtils.createError(
-            message: context.l10n.authenticationFailureNoInternet,
-            duration: const Duration(seconds: 15),
-          )..show(context);
-        }
-      },
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<AppCubit, AppState>(
+          listenWhen: (previous, current) =>
+              current.hasInternetConnection == false ||
+              previous.hasInternetConnection == false,
+          listener: (_, state) {
+            if (state.hasInternetConnection) {
+              _flushbar?.dismiss();
+              return;
+            } else {
+              _flushbar = FlushBarUtils.createError(
+                message: context.l10n.authenticationFailureNoInternet,
+                duration: const Duration(seconds: 15),
+              )..show(context);
+            }
+          },
+        ),
+        BlocListener<AuthenticationBloc, AuthenticationState>(
+          listenWhen: (previous, current) => current.map(
+            initial: (_) => false,
+            authenticated: (_) => false,
+            unauthenticated: (_) => true,
+          ),
+          listener: (_, state) {
+            context.router
+              ..popUntilRoot()
+              ..replace(const LoginRoute());
+          },
+        ),
+      ],
       child: AnnotatedRegion<SystemUiOverlayStyle>(
         value: FlexColorScheme.themedSystemNavigationBar(
           context,

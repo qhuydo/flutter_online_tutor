@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../domain/authentication/events/authentication_service_event.dart';
 import '../../domain/authentication/interfaces/i_authentication_service.dart';
 import '../../domain/user/models/user.dart';
 
@@ -21,6 +22,7 @@ class AuthenticationBloc
   ) : super(const AuthenticationState.initial()) {
     on<AuthenticationEvent>((event, emit) async {
       await event.when(
+        initialise: () => _onInitialise(emit),
         authCheckRequested: () => _onAuthCheckRequested(emit),
         signedOut: () => _onSignedOut(emit),
       );
@@ -29,7 +31,7 @@ class AuthenticationBloc
 
   Future _onAuthCheckRequested(Emitter<AuthenticationState> emit) async {
     final userOption = await authService.getSignedInUser();
-    await Future.delayed(const Duration(seconds: 1));
+    // await Future.delayed(const Duration(seconds: 1));
     userOption.fold(
       () => emit(const AuthenticationState.unauthenticated()),
       (user) => emit(AuthenticationState.authenticated(user)),
@@ -38,6 +40,17 @@ class AuthenticationBloc
 
   Future _onSignedOut(Emitter<AuthenticationState> emit) async {
     await authService.signOut();
-    emit(const AuthenticationState.unauthenticated());
+    // emit(const AuthenticationState.unauthenticated());
+  }
+
+  _onInitialise(Emitter<AuthenticationState> emit) async {
+    await emit.forEach<AuthenticationServiceEvent>(
+      authService.subscribe(),
+      onData: (data) {
+        return data.when(signedOut: () {
+          return const AuthenticationState.unauthenticated();
+        });
+      },
+    );
   }
 }

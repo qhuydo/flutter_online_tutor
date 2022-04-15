@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/authentication/interfaces/i_authentication_service.dart';
+import '../../../domain/common/failures/failure.dart';
 
 @LazySingleton()
 class DioInterceptor extends Interceptor {
@@ -33,7 +34,14 @@ class DioInterceptor extends Interceptor {
   Future<void> onError(DioError err, ErrorInterceptorHandler handler) async {
     final response = err.response;
 
-    if (response != null && response.statusCode == 401) {
+    final isUnauthorised = response != null &&
+        (response.statusCode == 401 ||
+            (response.data != null &&
+                response.data is Map<String, dynamic> &&
+                (response.data as Map<String, dynamic>)['statusCode'] ==
+                    Failure.unauthorisedStatusCode));
+
+    if (isUnauthorised) {
       final token =
           (await _authenticationService.getTokens()).fold(() => null, (a) => a);
 

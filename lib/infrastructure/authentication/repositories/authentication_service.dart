@@ -3,7 +3,9 @@ import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
+import 'package:rxdart/rxdart.dart';
 
+import '../../../domain/authentication/events/authentication_service_event.dart';
 import '../../../domain/authentication/failures/authentication_failure.dart';
 import '../../../domain/authentication/interfaces/i_authentication_service.dart';
 import '../../../domain/authentication/value_objects/email_address.dart';
@@ -24,11 +26,18 @@ import '../dto/token.dart';
 class AuthenticationServiceImpl implements AuthenticationService {
   late final Box<String> _box;
   final ApiClient _apiClient;
+  final _eventStreamController = BehaviorSubject<AuthenticationServiceEvent>();
 
   static const _keyToken = 'tokens';
   static const _keyUser = 'user';
 
   AuthenticationServiceImpl(@Named('secret') this._box, this._apiClient);
+
+  @override
+  @disposeMethod
+  Future dispose() async {
+    await _eventStreamController.close();
+  }
 
   @override
   Future<Either<AuthenticationFailure, Unit>> changePassword({
@@ -169,6 +178,7 @@ class AuthenticationServiceImpl implements AuthenticationService {
   @override
   Future<Either<AuthenticationFailure, Unit>> signOut() async {
     await _box.clear();
+    _eventStreamController.add(const AuthenticationServiceEvent.signedOut());
     return right(unit);
   }
 
@@ -259,6 +269,10 @@ class AuthenticationServiceImpl implements AuthenticationService {
   }
 
   @override
+  Stream<AuthenticationServiceEvent> subscribe() =>
+      _eventStreamController.asBroadcastStream();
+
+  @override
   Future<Option<Tokens>> getTokens() async {
     final tokenJson = _box.get(_keyToken);
     if (tokenJson == null) return none();
@@ -280,12 +294,15 @@ class AuthenticationServiceImpl implements AuthenticationService {
       RequestUrl.auth.refreshToken,
       data: data,
       onResponded: (response) {
-        return AuthenticationDto.fromJson(response as Map<String, dynamic>);
+        return AuthenticationDto.fromJson(
+            response.data as Map<String, dynamic>);
       },
     );
 
-    return await result.fold((l) => left(AuthenticationFailure.fromFailure(l)),
-        (r) async {
+    return await result.fold((l) async {
+      await signOut();
+      return left(AuthenticationFailure.fromFailure(l));
+    }, (r) async {
       await _saveAuthData(r);
       return right(unit);
     });

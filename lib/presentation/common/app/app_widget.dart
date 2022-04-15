@@ -17,6 +17,7 @@ class OnlySenpaiApp extends StatelessWidget {
         BlocProvider(create: (_) => getIt<AppCubit>()..initialize()),
         BlocProvider(
             create: (_) => getIt<AuthenticationBloc>()
+              ..add(const AuthenticationEvent.initialise())
               ..add(
                 const AuthenticationEvent.authCheckRequested(),
               )),

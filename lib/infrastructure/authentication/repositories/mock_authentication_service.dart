@@ -5,7 +5,9 @@ import 'dart:typed_data';
 import 'package:dartz/dartz.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
+import 'package:rxdart/rxdart.dart';
 
+import '../../../domain/authentication/events/authentication_service_event.dart';
 import '../../../domain/authentication/failures/authentication_failure.dart';
 import '../../../domain/authentication/interfaces/i_authentication_service.dart';
 import '../../../domain/authentication/value_objects/email_address.dart';
@@ -24,6 +26,7 @@ class MockAuthenticationService implements AuthenticationService {
   final Box<String> _box;
   late final Box<String> _cacheBox;
   bool shouldDelay = true;
+  final _eventStreamController = BehaviorSubject<AuthenticationServiceEvent>();
 
   // static const _boxName = 'mockSecret';
   static const _keyToken = 'tokens';
@@ -41,6 +44,12 @@ class MockAuthenticationService implements AuthenticationService {
     } else {
       _cacheBox = cacheBox;
     }
+  }
+
+  @override
+  @disposeMethod
+  Future dispose() async {
+    await _eventStreamController.close();
   }
 
   @override
@@ -289,4 +298,8 @@ class MockAuthenticationService implements AuthenticationService {
   Future<Either<AuthenticationFailure, Unit>> refreshToken() async {
     return right(unit);
   }
+
+  @override
+  Stream<AuthenticationServiceEvent> subscribe() =>
+      _eventStreamController.asBroadcastStream();
 }

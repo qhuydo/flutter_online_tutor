@@ -4,6 +4,7 @@ part 'failure.freezed.dart';
 
 @freezed
 class Failure with _$Failure {
+  static const int unauthorisedStatusCode = 1;
   const Failure._();
 
   const factory Failure.noConnection() = _NoConnection;
@@ -97,7 +98,7 @@ class Failure with _$Failure {
     switch (errorCode) {
       case 0:
         return const Failure.invalidTokenType();
-      case 1:
+      case unauthorisedStatusCode:
         return const Failure.unauthenticated();
       case 2:
         return const Failure.accountNotActivated();

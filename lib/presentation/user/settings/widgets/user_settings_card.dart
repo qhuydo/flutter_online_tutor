@@ -68,10 +68,9 @@ class UserSettingsCard extends StatelessWidget {
           context.read<AuthenticationBloc>()
             ..add(const AuthenticationEvent.signedOut())
             ..add(const AuthenticationEvent.authCheckRequested());
-
-          context.router
-            ..popUntilRoot()
-            ..replace(const LoginRoute());
+          // context.router
+          //   ..popUntilRoot()
+          //   ..replace(const LoginRoute());
         },
         color: Colors.red,
       ),
