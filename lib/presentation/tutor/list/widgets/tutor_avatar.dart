@@ -29,6 +29,7 @@ class TutorAvatar extends StatelessWidget {
           //   color: Theme.of(context).colorScheme.onSurface,
           // ),
           backgroundImage: avatar != null ? NetworkImage(avatar) : null,
+          onBackgroundImageError: (exception, stackTrace) {},
         ),
         if (tutor?.isOnline == true)
           Positioned(

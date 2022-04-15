@@ -5,6 +5,7 @@ import '../../../../domain/course_ebook/models/course.dart';
 import '../../../common.dart';
 import '../../../common/utils/constants.dart';
 import '../../../common/utils/default_app_bar.dart';
+import '../../../common/utils/image_utils.dart';
 import '../../../common/widgets/empty_page.dart';
 import '../../../common/widgets/outlined_card.dart';
 import 'course_details_content.dart';
@@ -91,6 +92,8 @@ class CourseDetailsBodyDesktop extends StatelessWidget {
                     Image.network(
                       course.imageUrl,
                       fit: BoxFit.fitHeight,
+                      errorBuilder: getDefaultImageErrorBuilder,
+                      loadingBuilder: getDefaultImageLoadingBuilder,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(smallItemSpacing),

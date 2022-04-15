@@ -84,6 +84,7 @@ class TutorDetailsHeader extends StatelessWidget {
                       backgroundColor: tutor.avatar == null
                           ? Colors.grey.withOpacity(0.2)
                           : null,
+                      onBackgroundImageError: (exception, stackTrace) {},
                     );
                   },
                 ),

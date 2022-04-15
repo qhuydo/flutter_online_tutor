@@ -6,6 +6,7 @@ import '../../../../application/course_ebook/ebook_details/ebook_details_bloc.da
 import '../../../common.dart';
 import '../../../common/utils/constants.dart';
 import '../../../common/utils/default_app_bar.dart';
+import '../../../common/utils/image_utils.dart';
 import '../../../common/widgets/outlined_card.dart';
 
 class EbookDetailsBodyDesktop extends StatelessWidget {
@@ -74,6 +75,8 @@ class EbookDetailsBodyDesktop extends StatelessWidget {
                   Image.network(
                     ebook.imageUrl!,
                     fit: BoxFit.fitHeight,
+                    errorBuilder: getDefaultImageErrorBuilder,
+                    loadingBuilder: getDefaultImageLoadingBuilder,
                   ),
                 // OpenEbookButton(url: ebook.fileUrl),
               ],

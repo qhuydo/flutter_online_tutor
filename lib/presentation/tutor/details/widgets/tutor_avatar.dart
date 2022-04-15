@@ -7,12 +7,13 @@ class TutorAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Stack(
-        children: const [
+        children: [
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: CircleAvatar(
               minRadius: 40,
               maxRadius: 60,
+              onBackgroundImageError: (exception, stackTrace) {},
             ),
           ),
         ],

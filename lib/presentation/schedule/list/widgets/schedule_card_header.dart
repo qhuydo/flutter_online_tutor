@@ -46,6 +46,7 @@ class ScheduleCardHeader extends StatelessWidget {
             backgroundImage: appointment.tutorAvatar != null
                 ? NetworkImage(appointment.tutorAvatar!)
                 : null,
+            onBackgroundImageError: (exception, stackTrace) {},
           ),
           title: Text(
             appointment.tutorName,

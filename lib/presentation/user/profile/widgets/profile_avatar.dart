@@ -40,6 +40,7 @@ class ProfileAvatar extends StatelessWidget {
                     final avatar = state.user.avatar;
                     return LayoutBuilder(
                       builder: (_, constraints) => CircleAvatar(
+                        onBackgroundImageError: (exception, stackTrace) {},
                         radius: avatarRadius ??
                             avatarRadiusFromConstraints(constraints),
                         backgroundImage:

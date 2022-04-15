@@ -9,6 +9,7 @@ import '../../../../domain/course_ebook/models/course.dart';
 import '../../../common.dart';
 import '../../../common/utils/constants.dart';
 import '../../../common/utils/default_app_bar.dart';
+import '../../../common/utils/image_utils.dart';
 import '../../../common/widgets/empty_page.dart';
 import '../../utils/constants.dart';
 import 'course_details_content.dart';
@@ -27,7 +28,12 @@ class CourseDetailsBody extends StatelessWidget {
         color: Theme.of(context).colorScheme.surface,
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 600),
-          child: Image.network(course.imageUrl, fit: BoxFit.fitHeight),
+          child: Image.network(
+            course.imageUrl,
+            fit: BoxFit.fitHeight,
+            errorBuilder: getDefaultImageErrorBuilder,
+            loadingBuilder: getDefaultImageLoadingBuilder,
+          ),
         ),
       ),
     );

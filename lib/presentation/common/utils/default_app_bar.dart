@@ -35,6 +35,7 @@ PreferredSizeWidget buildAppBar(
                     return CircleAvatar(
                       backgroundImage:
                           avatar == null ? null : NetworkImage(avatar),
+                      onBackgroundImageError: (exception, stackTrace) {},
                     );
                   },
                 ),

@@ -24,7 +24,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return BlocListener<AppCubit, AppState>(
       listenWhen: (previous, current) =>
-          previous.hasInternetConnection != current.hasInternetConnection,
+          current.hasInternetConnection == false ||
+          previous.hasInternetConnection == false,
       listener: (_, state) {
         if (state.hasInternetConnection) {
           _flushbar?.dismiss();

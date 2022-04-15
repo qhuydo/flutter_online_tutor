@@ -40,6 +40,7 @@ class ReviewList extends StatelessWidget {
                 backgroundImage: feedbackList[index].avatar != null
                     ? NetworkImage(feedbackList[index].avatar!)
                     : null,
+                onBackgroundImageError: (exception, stackTrace) {},
               ),
               const SizedBox(width: itemSpacing),
               Expanded(

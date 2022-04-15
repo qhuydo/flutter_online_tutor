@@ -5,6 +5,7 @@ import '../../../../domain/course_ebook/models/ebook.dart';
 import '../../../common.dart';
 import '../../../common/utils/constants.dart';
 import '../../../common/utils/default_app_bar.dart';
+import '../../../common/utils/image_utils.dart';
 import 'ebook_details_content.dart';
 
 class EbookDetailsBody extends StatelessWidget {
@@ -21,6 +22,8 @@ class EbookDetailsBody extends StatelessWidget {
         fit: BoxFit.cover,
         height: double.infinity,
         width: double.infinity,
+        errorBuilder: getDefaultImageErrorBuilder,
+        loadingBuilder: getDefaultImageLoadingBuilder,
       ),
     );
   }
