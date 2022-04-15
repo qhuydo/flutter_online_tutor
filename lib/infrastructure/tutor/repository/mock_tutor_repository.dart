@@ -16,7 +16,7 @@ import '../../user/dto/speciality_dto.dart';
 import '../dto/tutor_details/tutor_details_dto.dart';
 import '../dto/tutor_list/tutor_list_item_dto.dart';
 
-@LazySingleton(as: TutorRepository)
+@LazySingleton(as: TutorRepository, env: ['mock'])
 class MockTutorRepository implements TutorRepository {
   final _eventStreamController = BehaviorSubject<TutorRepositoryEvent>();
   final TutorDataSource _dataSource;
@@ -155,20 +155,5 @@ class MockTutorRepository implements TutorRepository {
       }
     }
     return right(tutor);
-  }
-}
-
-extension TutorX on Tutor {
-  bool match({
-    required List<Speciality> specialities,
-    required String keyword,
-    Country? country,
-  }) {
-    return (specialities.isEmpty ||
-            this
-                .specialities
-                .any((element) => specialities.contains(element))) &&
-        name.toLowerCase().contains(keyword.toLowerCase()) &&
-        (country == null || this.country == country);
   }
 }

@@ -18,7 +18,7 @@ Future<void> main() async {
 
   getIt<Dio>()
     ..options = BaseOptions(
-      connectTimeout: 5000,
+      connectTimeout: 15000,
       receiveTimeout: 15000,
     )
     ..interceptors.add(getIt<DioInterceptor>());

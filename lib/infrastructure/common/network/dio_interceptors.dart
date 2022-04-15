@@ -3,6 +3,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../domain/authentication/interfaces/i_authentication_service.dart';
 import '../../../domain/common/failures/failure.dart';
+import 'server_url.dart';
 
 @LazySingleton()
 class DioInterceptor extends Interceptor {
@@ -12,7 +13,9 @@ class DioInterceptor extends Interceptor {
   /// Dio client.
   final Dio _dio;
 
-  DioInterceptor(this._dio, this._authenticationService);
+  final ServerUrl _serverUrl;
+
+  DioInterceptor(this._dio, this._authenticationService, this._serverUrl);
 
   @override
   Future<void> onRequest(
@@ -22,10 +25,15 @@ class DioInterceptor extends Interceptor {
     final token =
         (await _authenticationService.getTokens()).fold(() => null, (a) => a);
 
-    final modifiedOptions = options
-      ..headers.addAll(
-        token == null ? {} : {'Authorization': 'Bearer ${token.access.token}'},
-      );
+    var modifiedOptions = options;
+    if (options.path.contains(_serverUrl.url)) {
+      modifiedOptions = options
+        ..headers.addAll(
+          token == null
+              ? {}
+              : {'Authorization': 'Bearer ${token.access.token}'},
+        );
+    }
 
     handler.next(modifiedOptions);
   }
