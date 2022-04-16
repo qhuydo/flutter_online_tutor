@@ -30,7 +30,7 @@ class SettingsPage extends StatelessWidget {
             shrinkWrap: true,
             primary: false,
             physics: const NeverScrollableScrollPhysics(),
-            maxCrossAxisExtent: 600,
+            maxCrossAxisExtent: 750,
             crossAxisSpacing: smallItemSpacing,
             mainAxisSpacing: smallItemSpacing,
             itemCount: _items.length,

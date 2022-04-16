@@ -14,6 +14,7 @@ class SchedulePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: SafeArea(
+        left: false,
         child: BlocProvider(
           create: (_) => getIt<UpcomingClassBloc>()
             ..add(const UpcomingClassEvent.initialise()),

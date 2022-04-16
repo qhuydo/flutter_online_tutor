@@ -12,6 +12,7 @@ class DashboardPage extends StatelessWidget {
       controller: ScrollController(),
       physics: const BouncingScrollPhysics(),
       child: SafeArea(
+        left: false,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: const [

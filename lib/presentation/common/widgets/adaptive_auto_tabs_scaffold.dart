@@ -120,27 +120,37 @@ class _AdaptiveScaffoldState extends State<AdaptiveAutoTabsScaffold> {
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SafeArea(
-            child: NavigationRail(
-              labelType: NavigationRailLabelType.none,
-              destinations: [
-                ...widget.navigationItems.mapIndexed(
-                  (idx, item) => NavigationRailDestination(
-                    icon: Icon(
-                      idx == tabsRouter.activeIndex
-                          ? item.selectedIcon
-                          : item.icon,
-                    ),
-                    label: Text(
-                      item.title,
-                      style: Theme.of(context).textTheme.caption,
+          LayoutBuilder(
+            builder: (context, constraints) => SingleChildScrollView(
+              child: SafeArea(
+                right: false,
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                  child: IntrinsicHeight(
+                    child: NavigationRail(
+                      labelType: NavigationRailLabelType.none,
+                      destinations: [
+                        ...widget.navigationItems.mapIndexed(
+                          (idx, item) => NavigationRailDestination(
+                            icon: Icon(
+                              idx == tabsRouter.activeIndex
+                                  ? item.selectedIcon
+                                  : item.icon,
+                            ),
+                            label: Text(
+                              item.title,
+                              style: Theme.of(context).textTheme.caption,
+                            ),
+                          ),
+                        ),
+                      ],
+                      selectedIndex: tabsRouter.activeIndex,
+                      onDestinationSelected: (idx) =>
+                          _onDestinationChanged(idx, tabsRouter),
                     ),
                   ),
                 ),
-              ],
-              selectedIndex: tabsRouter.activeIndex,
-              onDestinationSelected: (idx) =>
-                  _onDestinationChanged(idx, tabsRouter),
+              ),
             ),
           ),
           VerticalDivider(

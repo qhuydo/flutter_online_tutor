@@ -61,74 +61,6 @@ class _HomePageState extends State<HomePage> {
           systemNavBarStyle: FlexSystemNavBarStyle.transparent,
           useDivider: true,
         ),
-        // child: AutoTabsScaffold(
-        //   extendBodyBehindAppBar: true,
-        //   extendBody: true,
-        //   routes: const [
-        //     DashboardRoute(),
-        //     TutorRoute(),
-        //     CourseRoute(),
-        //     ScheduleRoute(),
-        //     MessageRoute(),
-        //   ],
-        //   appBarBuilder: (BuildContext context, TabsRouter tabsRouter) {
-        //     return buildAppBar(
-        //       context,
-        //       shouldShowDefaultActions: true,
-        //       elevation: tabsRouter.current.name == CourseRoute.name ? 0 : null,
-        //     );
-        //   },
-        //   bottomNavigationBuilder: (BuildContext context, tabsRouter) {
-        //     return NavigationBar(
-        //       labelBehavior:
-        //           NavigationDestinationLabelBehavior.onlyShowSelected,
-        //       selectedIndex: tabsRouter.activeIndex,
-        //       onDestinationSelected: tabsRouter.setActiveIndex,
-        //       destinations: [
-        //         NavigationDestination(
-        //           icon: Icon(tabsRouter.activeIndex == 0
-        //               ? Icons.home
-        //               : Icons.home_outlined),
-        //           label: context.l10n.homeBottomNavItem,
-        //         ),
-        //         NavigationDestination(
-        //           icon: Icon(
-        //             tabsRouter.activeIndex == 1
-        //                 ? Icons.people
-        //                 : Icons.people_outlined,
-        //           ),
-        //           label: context.l10n.tutorBottomNavBarItem,
-        //         ),
-        //         NavigationDestination(
-        //           icon: Icon(
-        //             tabsRouter.activeIndex == 2
-        //                 ? Icons.book
-        //                 : Icons.book_outlined,
-        //           ),
-        //           label: context.l10n.courseBottomNavItem,
-        //         ),
-        //         NavigationDestination(
-        //           icon: Icon(
-        //             tabsRouter.activeIndex == 3
-        //                 ? Icons.event
-        //                 : Icons.event_outlined,
-        //           ),
-        //           label: context.l10n.scheduleBottomNavItem,
-        //         ),
-        //         NavigationDestination(
-        //           icon: Icon(
-        //             tabsRouter.activeIndex == 4
-        //                 ? Icons.message
-        //                 : Icons.message_outlined,
-        //           ),
-        //           label: context.l10n.messagesBottomNavItem,
-        //         ),
-        //       ],
-        //     );
-        //   },
-        //   // body: const SafeArea(child: DashboardPage()),
-        // ),
-
         child: AdaptiveAutoTabsScaffold(
           extendBodyBehindAppBar: true,
           extendBody: true,
@@ -142,6 +74,7 @@ class _HomePageState extends State<HomePage> {
           appBar: buildAppBar(
             context,
             shouldShowDefaultActions: true,
+            elevation: 0,
           ),
           navigationItems: [
             NavigationItem(

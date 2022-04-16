@@ -69,6 +69,7 @@ class _TutorPageState extends State<_TutorPage> {
         ];
 
         return SafeArea(
+          left: false,
           bottom: false,
           child: SearchBar(
             builder: (context, _) =>

@@ -7,15 +7,21 @@ class MessagePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      shrinkWrap: true,
-      itemBuilder: (context, index) {
-        return const MessageRow();
-      },
-      separatorBuilder: (context, index) {
-        return const SizedBox(height: 8,);
-      },
-      itemCount: 5,
+    return SingleChildScrollView(
+      child: SafeArea(
+        left: false,
+        child: ListView.separated(
+          primary: false,
+          shrinkWrap: true,
+          itemBuilder: (context, index) {
+            return const MessageRow();
+          },
+          separatorBuilder: (context, index) {
+            return const SizedBox(height: 8,);
+          },
+          itemCount: 5,
+        ),
+      ),
     );
   }
 }

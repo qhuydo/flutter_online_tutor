@@ -7,6 +7,7 @@ class CoursePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      left: false,
       child: DefaultTabController(
         length: 2,
         child: NestedScrollView(

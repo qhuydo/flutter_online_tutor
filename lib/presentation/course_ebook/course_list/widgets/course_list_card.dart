@@ -43,18 +43,20 @@ class _CourseListCardState extends State<CourseListCard> {
       },
       child: Column(
         children: [
-          AnimatedScale(
-            scale: _scale,
-            duration: const Duration(milliseconds: 200),
-            child: AspectRatio(
-              aspectRatio: courseThumbnailRatio,
-              child: Image.network(
-                widget.course.imageUrl,
-                fit: BoxFit.fitWidth,
-                height: double.infinity,
-                width: double.infinity,
-                errorBuilder: getDefaultImageErrorBuilder,
-                loadingBuilder: getDefaultImageLoadingBuilder,
+          AspectRatio(
+            aspectRatio: courseThumbnailRatio,
+            child: ClipRect(
+              child: AnimatedScale(
+                scale: _scale,
+                duration: const Duration(milliseconds: 200),
+                child: Image.network(
+                  widget.course.imageUrl,
+                  fit: BoxFit.fitWidth,
+                  height: double.infinity,
+                  width: double.infinity,
+                  errorBuilder: getDefaultImageErrorBuilder,
+                  loadingBuilder: getDefaultImageLoadingBuilder,
+                ),
               ),
             ),
           ),
