@@ -10,6 +10,7 @@ import '../common.dart';
 import '../common/routes/app_routes.gr.dart';
 import '../common/utils/default_app_bar.dart';
 import '../common/utils/flushbar_utils.dart';
+import '../common/widgets/adaptive_auto_tabs_scaffold.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -60,7 +61,75 @@ class _HomePageState extends State<HomePage> {
           systemNavBarStyle: FlexSystemNavBarStyle.transparent,
           useDivider: true,
         ),
-        child: AutoTabsScaffold(
+        // child: AutoTabsScaffold(
+        //   extendBodyBehindAppBar: true,
+        //   extendBody: true,
+        //   routes: const [
+        //     DashboardRoute(),
+        //     TutorRoute(),
+        //     CourseRoute(),
+        //     ScheduleRoute(),
+        //     MessageRoute(),
+        //   ],
+        //   appBarBuilder: (BuildContext context, TabsRouter tabsRouter) {
+        //     return buildAppBar(
+        //       context,
+        //       shouldShowDefaultActions: true,
+        //       elevation: tabsRouter.current.name == CourseRoute.name ? 0 : null,
+        //     );
+        //   },
+        //   bottomNavigationBuilder: (BuildContext context, tabsRouter) {
+        //     return NavigationBar(
+        //       labelBehavior:
+        //           NavigationDestinationLabelBehavior.onlyShowSelected,
+        //       selectedIndex: tabsRouter.activeIndex,
+        //       onDestinationSelected: tabsRouter.setActiveIndex,
+        //       destinations: [
+        //         NavigationDestination(
+        //           icon: Icon(tabsRouter.activeIndex == 0
+        //               ? Icons.home
+        //               : Icons.home_outlined),
+        //           label: context.l10n.homeBottomNavItem,
+        //         ),
+        //         NavigationDestination(
+        //           icon: Icon(
+        //             tabsRouter.activeIndex == 1
+        //                 ? Icons.people
+        //                 : Icons.people_outlined,
+        //           ),
+        //           label: context.l10n.tutorBottomNavBarItem,
+        //         ),
+        //         NavigationDestination(
+        //           icon: Icon(
+        //             tabsRouter.activeIndex == 2
+        //                 ? Icons.book
+        //                 : Icons.book_outlined,
+        //           ),
+        //           label: context.l10n.courseBottomNavItem,
+        //         ),
+        //         NavigationDestination(
+        //           icon: Icon(
+        //             tabsRouter.activeIndex == 3
+        //                 ? Icons.event
+        //                 : Icons.event_outlined,
+        //           ),
+        //           label: context.l10n.scheduleBottomNavItem,
+        //         ),
+        //         NavigationDestination(
+        //           icon: Icon(
+        //             tabsRouter.activeIndex == 4
+        //                 ? Icons.message
+        //                 : Icons.message_outlined,
+        //           ),
+        //           label: context.l10n.messagesBottomNavItem,
+        //         ),
+        //       ],
+        //     );
+        //   },
+        //   // body: const SafeArea(child: DashboardPage()),
+        // ),
+
+        child: AdaptiveAutoTabsScaffold(
           extendBodyBehindAppBar: true,
           extendBody: true,
           routes: const [
@@ -70,62 +139,37 @@ class _HomePageState extends State<HomePage> {
             ScheduleRoute(),
             MessageRoute(),
           ],
-          appBarBuilder: (BuildContext context, TabsRouter tabsRouter) {
-            return buildAppBar(
-              context,
-              shouldShowDefaultActions: true,
-              elevation: tabsRouter.current.name == CourseRoute.name ? 0 : null,
-            );
-          },
-          bottomNavigationBuilder: (BuildContext context, tabsRouter) {
-            return NavigationBar(
-              labelBehavior:
-                  NavigationDestinationLabelBehavior.onlyShowSelected,
-              selectedIndex: tabsRouter.activeIndex,
-              onDestinationSelected: tabsRouter.setActiveIndex,
-              destinations: [
-                NavigationDestination(
-                  icon: Icon(tabsRouter.activeIndex == 0
-                      ? Icons.home
-                      : Icons.home_outlined),
-                  label: context.l10n.homeBottomNavItem,
-                ),
-                NavigationDestination(
-                  icon: Icon(
-                    tabsRouter.activeIndex == 1
-                        ? Icons.people
-                        : Icons.people_outlined,
-                  ),
-                  label: context.l10n.tutorBottomNavBarItem,
-                ),
-                NavigationDestination(
-                  icon: Icon(
-                    tabsRouter.activeIndex == 2
-                        ? Icons.book
-                        : Icons.book_outlined,
-                  ),
-                  label: context.l10n.courseBottomNavItem,
-                ),
-                NavigationDestination(
-                  icon: Icon(
-                    tabsRouter.activeIndex == 3
-                        ? Icons.event
-                        : Icons.event_outlined,
-                  ),
-                  label: context.l10n.scheduleBottomNavItem,
-                ),
-                NavigationDestination(
-                  icon: Icon(
-                    tabsRouter.activeIndex == 4
-                        ? Icons.message
-                        : Icons.message_outlined,
-                  ),
-                  label: context.l10n.messagesBottomNavItem,
-                ),
-              ],
-            );
-          },
-          // body: const SafeArea(child: DashboardPage()),
+          appBar: buildAppBar(
+            context,
+            shouldShowDefaultActions: true,
+          ),
+          navigationItems: [
+            NavigationItem(
+              selectedIcon: Icons.home,
+              icon: Icons.home_outlined,
+              title: context.l10n.homeBottomNavItem,
+            ),
+            NavigationItem(
+              selectedIcon: Icons.people,
+              icon: Icons.people_outlined,
+              title: context.l10n.tutorBottomNavBarItem,
+            ),
+            NavigationItem(
+              selectedIcon: Icons.book,
+              icon: Icons.book_outlined,
+              title: context.l10n.courseBottomNavItem,
+            ),
+            NavigationItem(
+              selectedIcon: Icons.event,
+              icon: Icons.event_outlined,
+              title: context.l10n.scheduleBottomNavItem,
+            ),
+            NavigationItem(
+              selectedIcon: Icons.message,
+              icon: Icons.message_outlined,
+              title: context.l10n.messagesBottomNavItem,
+            ),
+          ],
         ),
       ),
     );
