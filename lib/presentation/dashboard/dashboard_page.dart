@@ -11,21 +11,23 @@ class DashboardPage extends StatelessWidget {
     return SingleChildScrollView(
       controller: ScrollController(),
       physics: const BouncingScrollPhysics(),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: const [
-          Padding(
-            padding: EdgeInsets.all(smallItemSpacing),
-            child: DashboardCard(),
-          ),
-          SizedBox(height: smallItemSpacing),
-          RecommendedCourses(),
-          SizedBox(height: itemSpacing),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: smallItemSpacing),
-            child: RecommendedTutors(),
-          ),
-        ],
+      child: SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: const [
+            Padding(
+              padding: EdgeInsets.all(smallItemSpacing),
+              child: DashboardCard(),
+            ),
+            SizedBox(height: smallItemSpacing),
+            RecommendedCourses(),
+            SizedBox(height: itemSpacing),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: smallItemSpacing),
+              child: RecommendedTutors(),
+            ),
+          ],
+        ),
       ),
     );
   }

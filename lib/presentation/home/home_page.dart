@@ -61,6 +61,8 @@ class _HomePageState extends State<HomePage> {
           useDivider: true,
         ),
         child: AutoTabsScaffold(
+          extendBodyBehindAppBar: true,
+          extendBody: true,
           routes: const [
             DashboardRoute(),
             TutorRoute(),

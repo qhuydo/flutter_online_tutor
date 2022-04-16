@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 import '../../common.dart';
 
 class OutlinedCard extends StatefulWidget {
@@ -15,6 +13,7 @@ class OutlinedCard extends StatefulWidget {
   final VoidCallback? onTap;
   final bool useOnTappedCallback;
   final bool childInsideInkwell;
+  final ValueChanged<bool>? onCardHovered;
 
   const OutlinedCard({
     Key? key,
@@ -30,6 +29,7 @@ class OutlinedCard extends StatefulWidget {
     this.onTap,
     this.useOnTappedCallback = true,
     this.childInsideInkwell = true,
+    this.onCardHovered,
   }) : super(key: key);
 
   @override
@@ -44,12 +44,18 @@ class _OutlinedCardState extends State<OutlinedCard> {
       color: Colors.transparent,
       child: InkWell(
         onTap: widget.onTap,
-        onHover: (value) => setState(() {
-          isHovered = value;
-        }),
-        onHighlightChanged: (value) => setState(() {
-          isHovered = value;
-        }),
+        // onHover: (value) {
+        //   setState(() {
+        //     isHovered = value;
+        //   });
+        //   widget.onCardHovered?.call(value);
+        // },
+        onHighlightChanged: (value) {
+          setState(() {
+            isHovered = value;
+          });
+          widget.onCardHovered?.call(value);
+        },
         child: widget.childInsideInkwell ? widget.child! : null,
       ),
     );
@@ -60,8 +66,8 @@ class _OutlinedCardState extends State<OutlinedCard> {
     final primaryColour = Theme.of(context).primaryColor;
     final secondaryColour = Theme.of(context).colorScheme.secondary;
     final unHoveredColour = primaryColour.withOpacity(0.25);
-    final hoveredColour = primaryColour;
-    const borderRadius = BorderRadius.all(Radius.circular(12));
+    // final hoveredColour = primaryColour;
+    const borderRadius = 12.0;
     final decoration = BoxDecoration(
       gradient: isHovered
           ? LinearGradient(
@@ -69,7 +75,7 @@ class _OutlinedCardState extends State<OutlinedCard> {
             )
           : null,
       color: isHovered ? null : unHoveredColour,
-      borderRadius: borderRadius,
+      borderRadius: const BorderRadius.all(Radius.circular(borderRadius)),
     );
     const borderMaxWidth = 2.25;
     const borderMinWidth = 1.25;
@@ -83,9 +89,10 @@ class _OutlinedCardState extends State<OutlinedCard> {
                 : defaultInset,
           ),
       child: Material(
-        elevation: isHovered ? 4 : 0.5,
-        borderRadius: borderRadius,
+        elevation: isHovered ? 4 : 0,
+        borderRadius: const BorderRadius.all(Radius.circular(borderRadius)),
         child: Container(
+          // margin: const EdgeInsets.all(0),
           padding: EdgeInsets.all(isHovered ? borderMaxWidth : borderMinWidth),
           decoration: decoration,
           child: Card(
@@ -94,10 +101,12 @@ class _OutlinedCardState extends State<OutlinedCard> {
             shadowColor: widget.shadowColor,
             elevation: 0,
             shape: widget.shape ??
-                RoundedRectangleBorder(
-                  borderRadius: borderRadius,
+                const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(borderRadius - 2),
+                  ),
                   side: BorderSide(
-                    color: isHovered ? hoveredColour : unHoveredColour,
+                    color: Colors.transparent,
                     width: 0,
                   ),
                 ),

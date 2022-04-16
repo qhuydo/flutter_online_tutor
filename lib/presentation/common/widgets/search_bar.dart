@@ -3,7 +3,7 @@ import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 const searchBarHeight = 64.0;
 
-class ScaffoldWithSearchBar extends StatelessWidget {
+class SearchBar extends StatelessWidget {
   final FloatingSearchBarBuilder builder;
   final List<Widget>? actions;
   final List<Widget>? leadingActions;
@@ -16,7 +16,7 @@ class ScaffoldWithSearchBar extends StatelessWidget {
   final FloatingSearchBarController? controller;
   final Key? searchBarKey;
 
-  const ScaffoldWithSearchBar({
+  const SearchBar({
     Key? key,
     required this.builder,
     this.actions,
@@ -74,8 +74,6 @@ class ScaffoldWithSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: buildSearchBar(context),
-    );
+    return buildSearchBar(context);
   }
 }

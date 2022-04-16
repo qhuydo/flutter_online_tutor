@@ -6,7 +6,7 @@ import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 import '../../../application/course_ebook/course_list/course_list_bloc.dart';
 import '../../common.dart';
-import '../../common/widgets/scaffold_with_search_bar.dart';
+import '../../common/widgets/search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';
 import 'widgets/course_list_card.dart';
 
@@ -48,7 +48,7 @@ class _CourseTabPage extends StatelessWidget {
       FloatingSearchBarAction.back(),
     ];
 
-    return ScaffoldWithSearchBar(
+    return SearchBar(
       builder: (context, _) => SearchItemRowPlaceholder.buildExpandableBody(),
       hint: AppLocalizations.of(context)!.findCourseHint,
       actions: actions,

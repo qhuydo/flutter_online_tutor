@@ -7,7 +7,7 @@ import '../../common.dart';
 import '../../common/utils/constants.dart';
 import '../../common/widgets/empty_page.dart';
 import '../../common/widgets/loading_widget.dart';
-import '../../common/widgets/scaffold_with_search_bar.dart';
+import '../../common/widgets/search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';
 import 'widgets/specialities_filter_row.dart';
 import 'widgets/tutor_card.dart';
@@ -68,24 +68,27 @@ class _TutorPageState extends State<_TutorPage> {
           ),
         ];
 
-        return ScaffoldWithSearchBar(
-          builder: (context, _) =>
-              SearchItemRowPlaceholder.buildExpandableBody(),
-          hint: context.l10n.findTutorHint,
-          actions: actions,
-          controller: controller,
-          title: Text(
-            state.keyword.isNotEmpty
-                ? state.keyword
-                : context.l10n.findTutorHint,
+        return SafeArea(
+          bottom: false,
+          child: SearchBar(
+            builder: (context, _) =>
+                SearchItemRowPlaceholder.buildExpandableBody(),
+            hint: context.l10n.findTutorHint,
+            actions: actions,
+            controller: controller,
+            title: Text(
+              state.keyword.isNotEmpty
+                  ? state.keyword
+                  : context.l10n.findTutorHint,
+            ),
+            onSubmitted: (keyword) {
+              bloc
+                ..add(SearchTutorsEvent.keywordChanged(keyword))
+                ..add(const SearchTutorsEvent.submitted());
+              controller.close();
+            },
+            body: buildBody(state, context),
           ),
-          onSubmitted: (keyword) {
-            bloc
-              ..add(SearchTutorsEvent.keywordChanged(keyword))
-              ..add(const SearchTutorsEvent.submitted());
-            controller.close();
-          },
-          body: buildBody(state, context),
         );
       },
     );
@@ -111,32 +114,32 @@ class _TutorPageState extends State<_TutorPage> {
 
     final bloc = context.read<SearchTutorsBloc>();
 
-    return SingleChildScrollView(
-      primary: false,
-      child: Padding(
-        padding: const EdgeInsets.only(
-          top: searchBarHeight + 12,
-          left: smallItemSpacing,
-          right: smallItemSpacing,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              child: SpecialitiesFilterRow(
-                specialities: state.allSpecialities,
-                selectedSpecialities: state.specialities,
-                onSelectionChanged: (value) {
-                  bloc
-                    ..add(SearchTutorsEvent.specialitiesChanged(value))
-                    ..add(const SearchTutorsEvent.submitted());
-                },
+    return FloatingSearchBarScrollNotifier(
+      child: SingleChildScrollView(
+        primary: false,
+        child: Padding(
+          padding: const EdgeInsets.only(
+            top: searchBarHeight + 12,
+            left: smallItemSpacing,
+            right: smallItemSpacing,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                child: SpecialitiesFilterRow(
+                  specialities: state.allSpecialities,
+                  selectedSpecialities: state.specialities,
+                  onSelectionChanged: (value) {
+                    bloc
+                      ..add(SearchTutorsEvent.specialitiesChanged(value))
+                      ..add(const SearchTutorsEvent.submitted());
+                  },
+                ),
+                height: 40,
               ),
-              height: 40,
-            ),
-            state.isInitial || resultList.isNotEmpty
-                ? FloatingSearchBarScrollNotifier(
-                    child: AlignedGridView.extent(
+              state.isInitial || resultList.isNotEmpty
+                  ? AlignedGridView.extent(
                       maxCrossAxisExtent: 600,
                       crossAxisSpacing: smallItemSpacing,
                       mainAxisSpacing: smallItemSpacing,
@@ -154,13 +157,13 @@ class _TutorPageState extends State<_TutorPage> {
                           ),
                         );
                       },
+                    )
+                  : SizedBox(
+                      height: 400,
+                      child: EmptyPage(text: context.l10n.emptyResult),
                     ),
-                  )
-                : SizedBox(
-                    height: 400,
-                    child: EmptyPage(text: context.l10n.emptyResult),
-                  ),
-          ],
+            ],
+          ),
         ),
       ),
     );

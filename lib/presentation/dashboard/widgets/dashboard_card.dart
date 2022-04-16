@@ -30,7 +30,7 @@ class DashboardCard extends StatelessWidget {
             ),
             textButtonTheme: TextButtonThemeData(
               style: TextButton.styleFrom(
-                primary: theme.colorScheme.onPrimary,
+                primary: theme.colorScheme.onSecondary,
               ),
             ),
           ),
