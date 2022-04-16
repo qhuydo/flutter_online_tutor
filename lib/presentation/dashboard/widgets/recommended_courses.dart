@@ -7,6 +7,7 @@ import '../../../application/course_ebook/course_list/course_list_bloc.dart';
 import '../../common.dart';
 import '../../common/routes/app_routes.gr.dart';
 import '../../common/utils/constants.dart';
+import '../../common/widgets/loading_widget.dart';
 import '../../course_ebook/course_list/widgets/course_list_card.dart';
 
 class RecommendedCourses extends StatelessWidget {
@@ -116,24 +117,26 @@ class _RecommendedCoursesState extends State<_RecommendedCourses> {
                     padding: const EdgeInsets.only(
                       bottom: itemSpacing,
                     ),
-                    child: ListView.builder(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: itemSpacing,
-                      ),
-                      controller: scrollController,
-                      primary: false,
-                      scrollDirection: Axis.horizontal,
-                      shrinkWrap: true,
-                      itemCount: list.length,
-                      itemBuilder: (context, index) {
-                        return LimitedBox(
-                          maxWidth: 300,
-                          child: CourseListCard(
-                            course: list[index],
+                    child: state.isLoading
+                        ? const LoadingWidget()
+                        : ListView.builder(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: itemSpacing,
+                            ),
+                            controller: scrollController,
+                            primary: false,
+                            scrollDirection: Axis.horizontal,
+                            shrinkWrap: true,
+                            itemCount: list.length,
+                            itemBuilder: (context, index) {
+                              return LimitedBox(
+                                maxWidth: 300,
+                                child: CourseListCard(
+                                  course: list[index],
+                                ),
+                              );
+                            },
                           ),
-                        );
-                      },
-                    ),
                   ),
                 ),
               ),

@@ -108,5 +108,8 @@ class CourseEbookEndpoints {
   String courses({required int page, required int size}) =>
       '$_path?page=$page&size=$size';
 
+  String ebooks({required int page, required int size}) =>
+        'e-book?page=$page&size=$size';
+
   String details(String id) => '$_path/$id';
 }

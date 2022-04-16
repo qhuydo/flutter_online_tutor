@@ -36,6 +36,7 @@ class TutorRepositoryImpl implements TutorRepository {
   @override
   Future dispose() async {
     await _eventStreamController.close();
+    await _dataSource.clear();
   }
 
   @override

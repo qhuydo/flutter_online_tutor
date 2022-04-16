@@ -5,7 +5,7 @@ abstract class ServerUrl {
   String get url;
 }
 
-@Singleton(as: ServerUrl, env: [Environment.dev, Environment.test])
+@Singleton(as: ServerUrl, env: [Environment.dev, Environment.test, 'mock'])
 class ServerUrlDev extends ServerUrl {
   @override
   String get url => 'https://sandbox.api.lettutor.com';

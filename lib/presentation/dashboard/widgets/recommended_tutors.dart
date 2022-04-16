@@ -72,7 +72,7 @@ class _RecommendedTutors extends StatelessWidget {
       builder: (context, state) {
         if (state.isLoading) {
           return const SizedBox(
-            height: 50,
+            height: 400,
             child: Center(
               child: LinearProgressIndicator(),
             ),

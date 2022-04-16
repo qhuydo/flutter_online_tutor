@@ -6,14 +6,23 @@ import '../../../domain/course_ebook/interfaces/i_course_repository.dart';
 import '../../../domain/course_ebook/models/course.dart';
 import '../../../domain/course_ebook/models/ebook.dart';
 import '../../../presentation/common.dart';
-import '../../common/db/fixture_loader.dart';
+import '../../common/network/api_client.dart';
+import '../../common/network/request_url.dart';
 import '../dto/course_dto.dart';
 import '../dto/ebook_dto.dart';
 
-@LazySingleton(as: CourseRepository, env: ['mock'])
-class MockCourseRepository implements CourseRepository {
+@LazySingleton(
+  as: CourseRepository,
+  env: [Environment.dev, Environment.prod, Environment.prod],
+)
+class CourseRepositoryImpl implements CourseRepository {
+  final ApiClient _apiClient;
+
+  const CourseRepositoryImpl(this._apiClient);
+
   @override
   Future<Either<Failure, Course>> getCourseById(String courseId) async {
+    // TODO
     final list = (await getRecommendedCourses(page: 1, limit: 100)).fold(
       (l) => null,
       (r) => r,
@@ -36,12 +45,17 @@ class MockCourseRepository implements CourseRepository {
     }
 
     try {
-      final res = await FixtureLoader.courseList;
-      final courses = (res['data']['rows'] as List)
-          .map((e) => CourseDto.fromJson(e).toDomain())
-          .toList(growable: false);
-
-      return right(courses);
+      final result = await _apiClient.get(
+        RequestUrl.courseEbook.courses(page: page, size: limit),
+        onResponded: (response) {
+          final data = response.data as Map<String, dynamic>;
+          final courses = (data['data']['rows'] as List)
+              .map((e) => CourseDto.fromJson(e).toDomain())
+              .toList(growable: false);
+          return courses;
+        },
+      );
+      return result;
     } on NullThrownError {
       return left(const Failure.apiError());
     } on FlutterError {
@@ -51,6 +65,7 @@ class MockCourseRepository implements CourseRepository {
 
   @override
   Future<Either<Failure, Ebook>> getEbookById(String ebookId) async {
+    // TODO
     final list = (await getRecommendedEbooks(page: 1, limit: 100)).fold(
       (l) => null,
       (r) => r,
@@ -73,12 +88,18 @@ class MockCourseRepository implements CourseRepository {
     }
 
     try {
-      final res = await FixtureLoader.ebookList;
-      final ebooks = (res['data']['rows'] as List)
-          .map((e) => EbookDto.fromJson(e).toDomain())
-          .toList(growable: false);
+      final result = await _apiClient.get(
+        RequestUrl.courseEbook.ebooks(page: page, size: limit),
+        onResponded: (response) {
+          final data = response.data as Map<String, dynamic>;
+          final ebooks = (data['data']['rows'] as List)
+              .map((e) => EbookDto.fromJson(e).toDomain())
+              .toList(growable: false);
+          return ebooks;
+        },
+      );
 
-      return right(ebooks);
+      return result;
     } on NullThrownError {
       return left(const Failure.apiError());
     } on FlutterError {
