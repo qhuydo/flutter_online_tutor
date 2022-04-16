@@ -36,7 +36,7 @@ class TutorDetailsContent extends StatelessWidget {
               Text(tutor.bio),
               const SizedBox(height: itemSpacing),
               if (showVideo) ...[
-                const VideoPreview(),
+                if (tutor.video.isNotEmpty) VideoPreview(videoUrl: tutor.video),
                 const SizedBox(height: itemSpacing),
               ],
               // language

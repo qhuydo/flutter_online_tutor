@@ -31,6 +31,11 @@ class TutorDetailsPageBodyDesktop extends StatelessWidget {
         buildWhen: (previous, current) =>
             previous.isLoading != current.isLoading,
         builder: (context, state) {
+          final tutor = state.tutorOrFailure.fold((l) => null, (r) => r);
+          if (tutor == null) {
+            return const SizedBox();
+          }
+
           if (state.isLoading) {
             return const Center(
               child: Padding(
@@ -66,7 +71,8 @@ class TutorDetailsPageBodyDesktop extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const VideoPreview(),
+                            if (tutor.video.isNotEmpty)
+                              VideoPreview(videoUrl: tutor.video),
                             BlocProvider(
                               create: (_) => getIt<TutorScheduleBloc>()
                                 ..add(TutorScheduleEvent.initialise(tutorId)),
