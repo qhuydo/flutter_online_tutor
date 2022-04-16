@@ -44,12 +44,12 @@ class _OutlinedCardState extends State<OutlinedCard> {
       color: Colors.transparent,
       child: InkWell(
         onTap: widget.onTap,
-        // onHover: (value) {
-        //   setState(() {
-        //     isHovered = value;
-        //   });
-        //   widget.onCardHovered?.call(value);
-        // },
+        onHover: (value) {
+          setState(() {
+            isHovered = value;
+          });
+          widget.onCardHovered?.call(value);
+        },
         onHighlightChanged: (value) {
           setState(() {
             isHovered = value;

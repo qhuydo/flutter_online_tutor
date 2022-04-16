@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../../../../domain/course_ebook/models/course.dart';
 import '../../../common.dart';
@@ -8,7 +9,7 @@ import '../../../common/widgets/outlined_card.dart';
 import '../../utils/constants.dart';
 import 'course_carousel_card_content.dart';
 
-class CourseListCard extends StatelessWidget {
+class CourseListCard extends StatefulWidget {
   final Course course;
 
   const CourseListCard({
@@ -17,26 +18,47 @@ class CourseListCard extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<CourseListCard> createState() => _CourseListCardState();
+}
+
+class _CourseListCardState extends State<CourseListCard> {
+  static const hoveredScale = 1.125;
+  static const unHoveredScale = 1.0;
+  var _scale = unHoveredScale;
+
+  @override
   Widget build(BuildContext context) {
     return OutlinedCard(
       childInsideInkwell: false,
       onTap: () => context.router.push(
-        CourseDetailsRoute(courseId: course.id, thumbnail: ''),
+        CourseDetailsRoute(courseId: widget.course.id, thumbnail: ''),
       ),
+      onCardHovered: (isHovered) {
+        if (isHovered) {
+          _scale = hoveredScale;
+        } else {
+          _scale = unHoveredScale;
+        }
+        setState(() {});
+      },
       child: Column(
         children: [
-          AspectRatio(
-            aspectRatio: courseThumbnailRatio,
-            child: Image.network(
-              course.imageUrl,
-              fit: BoxFit.fitWidth,
-              height: double.infinity,
-              width: double.infinity,
-              errorBuilder: getDefaultImageErrorBuilder,
-              loadingBuilder: getDefaultImageLoadingBuilder,
+          AnimatedScale(
+            scale: _scale,
+            duration: const Duration(milliseconds: 200),
+            child: AspectRatio(
+              aspectRatio: courseThumbnailRatio,
+              child: Image.network(
+                widget.course.imageUrl,
+                fit: BoxFit.fitWidth,
+                height: double.infinity,
+                width: double.infinity,
+                errorBuilder: getDefaultImageErrorBuilder,
+                loadingBuilder: getDefaultImageLoadingBuilder,
+              ),
             ),
           ),
-          CourseCarouselCardContent(course: course),
+          CourseCarouselCardContent(course: widget.course),
         ],
       ),
     );

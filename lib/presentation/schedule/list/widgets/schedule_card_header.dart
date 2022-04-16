@@ -20,22 +20,21 @@ class ScheduleCardHeader extends StatelessWidget {
     final dateFormatter = DateFormat.yMMMMEEEEd(locale);
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16,
-                vertical: 8,
-              ),
-              child: Text(
-                dateFormatter.format(appointment.meetingTime.start),
-                style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-              ),
+        Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 8,
+          ),
+          child: FittedBox(
+            child: Text(
+              dateFormatter.format(appointment.meetingTime.start),
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
             ),
-          ],
+          ),
         ),
         ListTile(
           leading: CircleAvatar(

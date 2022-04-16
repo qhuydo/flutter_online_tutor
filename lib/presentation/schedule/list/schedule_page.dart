@@ -12,10 +12,14 @@ class SchedulePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => getIt<UpcomingClassBloc>()
-        ..add(const UpcomingClassEvent.initialise()),
-      child: const _SchedulePage(),
+    return SingleChildScrollView(
+      child: SafeArea(
+        child: BlocProvider(
+          create: (_) => getIt<UpcomingClassBloc>()
+            ..add(const UpcomingClassEvent.initialise()),
+          child: const _SchedulePage(),
+        ),
+      ),
     );
   }
 }
@@ -41,6 +45,7 @@ class _SchedulePage extends StatelessWidget {
 
         return MasonryGridView.extent(
           controller: ScrollController(),
+          shrinkWrap: true,
           padding: const EdgeInsets.all(smallItemSpacing),
           itemCount: upcomingClasses.length,
           crossAxisSpacing: 4,
