@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dart_vlc/dart_vlc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +12,10 @@ import 'bootstrap.dart';
 import 'di/dependency_injection.dart';
 import 'infrastructure/common/network/dio_interceptors.dart';
 
-Future<void> main() async {
+Future<void> mainCommon(String environment) async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
-  await configureInjection(Environment.dev);
+  await configureInjection(environment);
 
   getIt<Dio>()
     ..options = BaseOptions(
@@ -25,11 +26,14 @@ Future<void> main() async {
 
   if (Platform.isLinux || Platform.isMacOS || Platform.isWindows) {
     setWindowMinSize(const Size(600, 750));
+    DartVLC.initialize();
   }
   if (!kIsWeb) _setTargetPlatformForDesktop();
 
   bootstrap();
 }
+
+main() => mainCommon(Environment.dev);
 
 /// If the current platform is desktop, override the default platform to
 /// a supported platform (iOS for macOS, Android for Linux and Windows).

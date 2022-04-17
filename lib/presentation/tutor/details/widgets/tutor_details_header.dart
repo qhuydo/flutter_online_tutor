@@ -78,9 +78,7 @@ class TutorDetailsHeader extends StatelessWidget {
                         .toDouble();
                     return CircleAvatar(
                       maxRadius: radius,
-                      backgroundImage: tutor.avatar != null
-                          ? NetworkImage(tutor.avatar!)
-                          : null,
+                      backgroundImage: NetworkImage(tutor.avatar ?? ''),
                       backgroundColor: tutor.avatar == null
                           ? Colors.grey.withOpacity(0.2)
                           : null,

@@ -42,9 +42,7 @@ class ScheduleCardHeader extends StatelessWidget {
                 ? Colors.grey.withOpacity(0.2)
                 : null,
             radius: 32,
-            backgroundImage: appointment.tutorAvatar != null
-                ? NetworkImage(appointment.tutorAvatar!)
-                : null,
+            backgroundImage: NetworkImage(appointment.tutorAvatar ?? ''),
             onBackgroundImageError: (exception, stackTrace) {},
           ),
           title: Text(

@@ -33,8 +33,7 @@ PreferredSizeWidget buildAppBar(
                       unauthenticated: () => null,
                     );
                     return CircleAvatar(
-                      backgroundImage:
-                          avatar == null ? null : NetworkImage(avatar),
+                      backgroundImage: NetworkImage(avatar ?? ''),
                       onBackgroundImageError: (exception, stackTrace) {},
                     );
                   },

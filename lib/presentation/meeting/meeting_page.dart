@@ -1,6 +1,6 @@
-import '../common.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../common.dart';
 import 'widgets/meeting_button_row.dart';
 
 class MeetingPage extends StatelessWidget {
@@ -44,9 +44,7 @@ class MeetingBody extends StatelessWidget {
         actions: const [
           Padding(
             padding: EdgeInsets.all(8.0),
-            child: CircleAvatar(
-              backgroundColor: Colors.blue,
-            ),
+            child: CircleAvatar(),
           ),
         ],
       ),

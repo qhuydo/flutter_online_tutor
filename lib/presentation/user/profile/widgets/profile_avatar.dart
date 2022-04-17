@@ -43,8 +43,7 @@ class ProfileAvatar extends StatelessWidget {
                         onBackgroundImageError: (exception, stackTrace) {},
                         radius: avatarRadius ??
                             avatarRadiusFromConstraints(constraints),
-                        backgroundImage:
-                            avatar == null ? null : NetworkImage(avatar),
+                        backgroundImage: NetworkImage(avatar ?? ''),
                       ),
                     );
                   },

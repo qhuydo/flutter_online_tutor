@@ -161,6 +161,10 @@ dependencies:
   # (c) MIT License. By Brian Egan.
   chewie: ^1.3.2
 
+  # Flutter media playback, broadcast, recording & chromecast library. Based on libVLC & libVLC++.
+  # (c) GNU Lesser General Public License v2.1. By Hitesh Kumar Saini.
+  dart_vlc: ^0.1.9
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

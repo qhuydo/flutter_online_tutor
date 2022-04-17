@@ -72,7 +72,7 @@ class TutorDetailsPageBodyDesktop extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             if (tutor.video.isNotEmpty)
-                              VideoPreview(videoUrl: tutor.video),
+                              VideoPreview(videoUrl: tutor.video, id: 69),
                             BlocProvider(
                               create: (_) => getIt<TutorScheduleBloc>()
                                 ..add(TutorScheduleEvent.initialise(tutorId)),

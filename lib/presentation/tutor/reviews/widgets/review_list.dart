@@ -37,9 +37,7 @@ class ReviewList extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 24,
-                backgroundImage: feedbackList[index].avatar != null
-                    ? NetworkImage(feedbackList[index].avatar!)
-                    : null,
+                backgroundImage: NetworkImage(feedbackList[index].avatar ?? ''),
                 onBackgroundImageError: (exception, stackTrace) {},
               ),
               const SizedBox(width: itemSpacing),

@@ -1,4 +1,3 @@
-
 import '../../../../domain/tutor/models/tutor.dart';
 import '../../../common.dart';
 
@@ -28,7 +27,7 @@ class TutorAvatar extends StatelessWidget {
           //   size: 40,
           //   color: Theme.of(context).colorScheme.onSurface,
           // ),
-          backgroundImage: avatar != null ? NetworkImage(avatar) : null,
+          backgroundImage: NetworkImage(avatar ?? ''),
           onBackgroundImageError: (exception, stackTrace) {},
         ),
         if (tutor?.isOnline == true)
