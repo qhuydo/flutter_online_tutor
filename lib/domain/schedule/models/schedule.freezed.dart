@@ -160,13 +160,14 @@ class __$ScheduleCopyWithImpl<$Res> extends _$ScheduleCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Schedule implements _Schedule {
+class _$_Schedule extends _Schedule {
   const _$_Schedule(
       {required this.scheduleId,
       required this.tutorId,
       required this.meetingTime,
       required this.isBooked,
-      required this.isReserved});
+      required this.isReserved})
+      : super._();
 
   @override
   final String scheduleId;
@@ -214,13 +215,14 @@ class _$_Schedule implements _Schedule {
       __$ScheduleCopyWithImpl<_Schedule>(this, _$identity);
 }
 
-abstract class _Schedule implements Schedule {
+abstract class _Schedule extends Schedule {
   const factory _Schedule(
       {required String scheduleId,
       required String tutorId,
       required DateTimeRange meetingTime,
       required bool isBooked,
       required bool isReserved}) = _$_Schedule;
+  const _Schedule._() : super._();
 
   @override
   String get scheduleId;

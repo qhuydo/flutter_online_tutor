@@ -12,13 +12,14 @@ class ScheduleRow extends StatelessWidget {
   }) : super(key: key);
 
   Widget buildTrailingWidget(BuildContext context) {
+    final italicTextStyle = Theme.of(context).textTheme.button?.copyWith(
+          fontStyle: FontStyle.italic,
+        );
     if (schedule.isBooked) {
       return TextButton(
         child: Text(
           context.l10n.bookedLabel,
-          style: Theme.of(context).textTheme.button?.copyWith(
-                fontStyle: FontStyle.italic,
-              ),
+          style: italicTextStyle,
         ),
         onPressed: null,
       );
@@ -27,9 +28,16 @@ class ScheduleRow extends StatelessWidget {
       return TextButton(
         child: Text(
           context.l10n.reservedLabel,
-          style: Theme.of(context).textTheme.button?.copyWith(
-                fontStyle: FontStyle.italic,
-              ),
+          style: italicTextStyle,
+        ),
+        onPressed: null,
+      );
+    }
+    if (schedule.isPastSchedule) {
+      return TextButton(
+        child: Text(
+          context.l10n.pastScheduleLabel,
+          style: italicTextStyle,
         ),
         onPressed: null,
       );

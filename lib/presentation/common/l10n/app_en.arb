@@ -1,6 +1,6 @@
 {
     "@@locale": "en",
-    "@@last_modified": "2022-04-07T05:03:31+00:00",
+    "@@last_modified": "2022-04-17T19:19:44+00:00",
     "appTitle": "Online tutor",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -246,5 +246,6 @@
     "emptyResult": "No result display",
     "noteLabel": "Note",
     "bookedLabel": "Booked",
-    "reservedLabel": "Reserved"
+    "reservedLabel": "Reserved",
+    "pastScheduleLabel": "Cannot be booked"
 }

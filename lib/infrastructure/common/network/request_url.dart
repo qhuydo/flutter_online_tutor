@@ -94,6 +94,16 @@ class ScheduleEndpoints {
       '$_bookingPath/list/student?page=$page&perPage=$perPage'
       '&dateTimeLte=$dateTimeLte&orderBy=$orderedBy&sortBy=$sortedBy';
 
+  String upComingClasses({
+    required int page,
+    required int perPage,
+    required int dateTimeGte,
+    required String orderedBy,
+    required String sortedBy,
+  }) =>
+      '$_bookingPath/list/student?page=$page&perPage=$perPage'
+      '&dateTimeGte=$dateTimeGte&orderBy=$orderedBy&sortBy=$sortedBy';
+
   String get book => _bookingPath;
 
   String get cancelBookedClass => _bookingPath;

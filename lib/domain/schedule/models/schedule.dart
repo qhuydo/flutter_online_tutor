@@ -8,6 +8,8 @@ typedef EventMap = Map<DateTime, List<Schedule>>;
 
 @freezed
 class Schedule with _$Schedule {
+  const Schedule._();
+
   const factory Schedule({
     required String scheduleId,
     required String tutorId,
@@ -15,4 +17,6 @@ class Schedule with _$Schedule {
     required bool isBooked,
     required bool isReserved,
   }) = _Schedule;
+
+  bool get isPastSchedule => meetingTime.start.isBefore(DateTime.now());
 }

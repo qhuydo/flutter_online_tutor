@@ -1,6 +1,6 @@
 {
     "@@locale": "vi",
-    "@@last_modified": "2022-04-07T05:03:27+00:00",
+    "@@last_modified": "2022-04-17T19:19:25+00:00",
     "appTitle": "Gia sư trực tuyến",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -198,5 +198,6 @@
     "emptyResult": "Không tìm thấy kết quả để hiển thị",
     "noteLabel": "Ghi chú",
     "bookedLabel": "Đã đặt lịch",
-    "reservedLabel": "Đã được đặt"
+    "reservedLabel": "Đã được đặt",
+    "pastScheduleLabel": "Không thể đặt"
 }

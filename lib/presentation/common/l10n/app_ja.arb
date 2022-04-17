@@ -1,6 +1,6 @@
 {
     "@@locale": "ja",
-    "@@last_modified": "2022-04-07T05:02:41+00:00",
+    "@@last_modified": "2022-04-17T19:19:20+00:00",
     "appTitle": "オンライン　チューター",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -198,5 +198,6 @@
     "emptyResult": "表示する結果がありません。",
     "noteLabel": "ノート",
     "bookedLabel": "予約済み",
-    "reservedLabel": "予約されています"
+    "reservedLabel": "予約されています",
+    "pastScheduleLabel": "予約不可"
 }
