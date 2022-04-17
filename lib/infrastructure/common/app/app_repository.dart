@@ -35,7 +35,7 @@ class AppRepositoryImpl extends AppRepository {
   @override
   Future<ColourScheme> getColourScheme() async => ((storage.get(
         keyColourScheme,
-        defaultValue: ColourScheme.bahamaBlue.toString(),
+        defaultValue: ColourScheme.flutterDash.toString(),
       ) as String?))
           .toColourScheme();
 

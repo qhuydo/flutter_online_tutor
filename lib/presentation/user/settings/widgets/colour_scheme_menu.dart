@@ -4,12 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/common/app/app_cubit.dart';
 import '../../../../application/common/app/flex_scheme_mapper.dart';
+import '../../../../domain/common/app/colour_scheme.dart';
 
 Widget buildColourSchemeMenu(
   BuildContext context,
   Key? popupMenuKey,
 ) {
-
   return BlocBuilder<AppCubit, AppState>(
     buildWhen: (previous, current) =>
         previous.colourScheme != current.colourScheme,
@@ -23,10 +23,30 @@ Widget buildColourSchemeMenu(
       return PopupMenuButton<int>(
         key: popupMenuKey,
         padding: EdgeInsets.zero,
-        onSelected: (value) => context.read<AppCubit>().changeColourScheme(
-              FlexScheme.values[value].toColourScheme(),
-            ),
+        onSelected: (value) {
+          final ColourScheme colourScheme;
+          if (value == -1) {
+            colourScheme = ColourScheme.random;
+          } else {
+            colourScheme = FlexScheme.values[value].toColourScheme();
+          }
+          context.read<AppCubit>().changeColourScheme(colourScheme);
+        },
         itemBuilder: (BuildContext context) => [
+          PopupMenuItem<int>(
+            value: -1,
+            child: ListTile(
+              leading: Icon(
+                Icons.question_mark,
+                color: isLight
+                    ? FlexColor.schemesList[currentIndex].light.primary
+                    : FlexColor.schemesList[currentIndex].dark.primary,
+                size: 36,
+              ),
+              title: const Text('I\'m feeling lucky'),
+              selected: state.colourScheme == ColourScheme.random,
+            ),
+          ),
           for (int i = 0; i < FlexColor.schemesList.length; i++)
             PopupMenuItem<int>(
               value: i,
@@ -39,12 +59,15 @@ Widget buildColourSchemeMenu(
                   size: 36,
                 ),
                 title: Text(FlexColor.schemesList[i].name),
-                selected: i == currentIndex,
+                selected: state.colourScheme != ColourScheme.random &&
+                    i == currentIndex,
               ),
             )
         ],
         child: Icon(
-          Icons.lens,
+          state.colourScheme == ColourScheme.random
+              ? Icons.question_mark
+              : Icons.lens,
           color: isLight
               ? FlexColor.schemesList[currentIndex].light.primary
               : FlexColor.schemesList[currentIndex].dark.primary,

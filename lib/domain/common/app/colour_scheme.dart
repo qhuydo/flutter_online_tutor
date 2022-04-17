@@ -120,6 +120,7 @@ enum ColourScheme {
   materialBaseline,
   verdunHemlock,
   dellGenoa,
+  random,
 }
 
 extension ColourSchemeX on String? {
