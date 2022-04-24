@@ -15,20 +15,6 @@ class CourseTabPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) {
-        return getIt<CourseListBloc>()..add(const CourseListEvent.initialise());
-      },
-      child: const _CourseTabPage(),
-    );
-  }
-}
-
-class _CourseTabPage extends StatelessWidget {
-  const _CourseTabPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
     final isDesktop = Platform.isLinux || Platform.isMacOS || Platform.isWindows;
 
     final actions = [

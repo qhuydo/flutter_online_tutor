@@ -10,28 +10,14 @@ import '../../common/utils/constants.dart';
 import '../../common/widgets/loading_widget.dart';
 import '../../course_ebook/course_list/widgets/course_list_card.dart';
 
-class RecommendedCourses extends StatelessWidget {
+class RecommendedCourses extends StatefulWidget {
   const RecommendedCourses({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) {
-        return getIt<CourseListBloc>()..add(const CourseListEvent.initialise());
-      },
-      child: const _RecommendedCourses(),
-    );
-  }
+  State<RecommendedCourses> createState() => RecommendedCoursesState();
 }
 
-class _RecommendedCourses extends StatefulWidget {
-  const _RecommendedCourses({Key? key}) : super(key: key);
-
-  @override
-  State<_RecommendedCourses> createState() => _RecommendedCoursesState();
-}
-
-class _RecommendedCoursesState extends State<_RecommendedCourses> {
+class RecommendedCoursesState extends State<RecommendedCourses> {
   final scrollController = ScrollController();
 
   @override

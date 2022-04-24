@@ -7,9 +7,9 @@ import '../../../common.dart';
 import '../../helpers/setting_card_item.dart';
 import '../helpers/language_extension.dart';
 import 'change_language_modal.dart';
-import 'theme_mode_menu.dart';
 import 'colour_scheme_menu.dart';
 import 'settings_card.dart';
+import 'theme_mode_menu.dart';
 
 class AppSettingsCard extends StatefulWidget {
   const AppSettingsCard({Key? key}) : super(key: key);
@@ -60,10 +60,15 @@ class _AppSettingsCardState extends State<AppSettingsCard> {
           showDialog(
               context: context,
               builder: (context) {
-                return const Dialog(
+                return Dialog(
                   child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: ChangeLanguageModal(),
+                    padding: const EdgeInsets.all(8.0),
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(
+                        maxWidth: 800,
+                      ),
+                      child: const ChangeLanguageModal(),
+                    ),
                   ),
                 );
               });

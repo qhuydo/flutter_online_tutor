@@ -19,7 +19,9 @@ class InfoCard extends StatelessWidget {
       SettingCardItem(
         iconData: Icons.copyright_outlined,
         title: context.l10n.licenseLabel,
-        onTap: () {},
+        onTap: () {
+          showLicensePage(context: context);
+        },
         trailingWidget: const Icon(
           Icons.navigate_next,
         ),

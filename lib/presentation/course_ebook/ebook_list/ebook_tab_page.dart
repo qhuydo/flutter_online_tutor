@@ -14,20 +14,6 @@ class EbookTabPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) {
-        return getIt<EbookListBloc>()..add(const EbookListEvent.initialise());
-      },
-      child: const _EbookTabPage(),
-    );
-  }
-}
-
-class _EbookTabPage extends StatelessWidget {
-  const _EbookTabPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
     final actions = [
       FloatingSearchBarAction.searchToClear(
         showIfClosed: true,

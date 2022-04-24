@@ -5,6 +5,7 @@ import '../../../application/authentication/change_password/change_password_bloc
 import '../../authentication/helpers/authentication_failure_extension.dart';
 import '../../common.dart';
 import '../../common/routes/app_routes.gr.dart';
+import '../../common/utils/constants.dart';
 import '../../common/utils/default_app_bar.dart';
 import 'widgets/change_password_form.dart';
 
@@ -21,7 +22,12 @@ class ChangePasswordPage extends StatelessWidget {
           shouldShowDefaultActions: false,
           title: context.l10n.changePasswordLabel,
         ),
-        body: const SafeArea(child: _ChangePasswordPage()),
+        body: const SafeArea(
+          child: Padding(
+            padding: EdgeInsets.only(top: itemSpacing),
+            child: _ChangePasswordPage(),
+          ),
+        ),
       ),
     );
   }

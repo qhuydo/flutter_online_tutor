@@ -53,11 +53,7 @@ class RecommendedTutors extends StatelessWidget {
             ],
           ),
         ),
-        BlocProvider<RecommendedTutorsBloc>(
-          create: (context) => getIt<RecommendedTutorsBloc>()
-            ..add(const RecommendedTutorsEvent.initialise()),
-          child: const _RecommendedTutors(),
-        ),
+        const _RecommendedTutors(),
       ],
     );
   }

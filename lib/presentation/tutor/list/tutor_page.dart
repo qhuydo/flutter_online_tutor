@@ -13,29 +13,14 @@ import 'widgets/specialities_filter_row.dart';
 import 'widgets/tutor_card.dart';
 import 'widgets/tutor_filter_dialog.dart';
 
-class TutorPage extends StatelessWidget {
+class TutorPage extends StatefulWidget {
   const TutorPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<SearchTutorsBloc>()
-        ..add(
-          const SearchTutorsEvent.initialise(),
-        ),
-      child: const _TutorPage(),
-    );
-  }
+  State<TutorPage> createState() => TutorPageState();
 }
 
-class _TutorPage extends StatefulWidget {
-  const _TutorPage({Key? key}) : super(key: key);
-
-  @override
-  State<_TutorPage> createState() => _TutorPageState();
-}
-
-class _TutorPageState extends State<_TutorPage> {
+class TutorPageState extends State<TutorPage> {
   final controller = FloatingSearchBarController();
 
   @override
