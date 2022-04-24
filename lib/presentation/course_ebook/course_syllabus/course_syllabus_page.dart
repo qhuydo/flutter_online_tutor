@@ -25,15 +25,18 @@ class CourseSyllabusPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            BlocProvider(
-              create: (_) => CourseSyllabusItemCubit(
-                getIt<CourseRepository>(),
-                item: item,
+            if (item.fileName != null)
+              BlocProvider(
+                create: (_) => CourseSyllabusItemCubit(
+                  getIt<CourseRepository>(),
+                  item: item,
+                ),
+                child: const LessonSlides(),
               ),
-              child: const LessonSlides(),
-            ),
-            const SizedBox(height: itemSpacing),
-            const ReviewVideo(),
+            if (item.videoUrl != null) ...[
+              const SizedBox(height: itemSpacing),
+              const ReviewVideo(),
+            ]
           ],
         ),
       ),

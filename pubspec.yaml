@@ -171,6 +171,10 @@ dependencies:
   # TODO setup IOS project
   printing: ^5.8.0
 
+  # Flutter plugin to render & show PDF pages as images on Web, MacOS, Windows, Android and iOS.
+  # MIT License. Copyright (c) 2019 RBC, Serge Shkurko
+  pdfx: ^2.0.1+2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,9 +1,12 @@
-import '../../../common/utils/constants.dart';
 import '../../../common.dart';
+import '../../../common/utils/constants.dart';
+import '../../../tutor/details/widgets/video_preview.dart';
 import '../helpers/helpers.dart';
 
 class ReviewVideo extends StatelessWidget {
-  const ReviewVideo({Key? key}) : super(key: key);
+  final String? videoUrl;
+
+  const ReviewVideo({Key? key, this.videoUrl}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,31 +14,16 @@ class ReviewVideo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          AppLocalizations.of(context)!.syllabusLessonVideoTitle,
+          context.l10n.syllabusLessonVideoTitle,
           style: getTitleTextStyle(context),
         ),
         const SizedBox(height: smallItemSpacing),
         Text(
-          AppLocalizations.of(context)!.syllabusReviewVideoSubtitle,
+          context.l10n.syllabusReviewVideoSubtitle,
           style: getSubTitleTextStyle(context),
         ),
         const SizedBox(height: smallItemSpacing),
-        InkWell(
-          onTap: () {},
-          borderRadius: BorderRadius.circular(8),
-          child: Container(
-            width: 180,
-            height: 120,
-            // color: Colors.blue,
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.grey[600]?.withOpacity(0.8) ?? Colors.grey,
-                width: 2,
-              ),
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-        ),
+        VideoPreview(videoUrl: videoUrl ?? '', id: 210),
       ],
     );
   }

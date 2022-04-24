@@ -13,8 +13,8 @@
 import 'dart:typed_data' as _i7;
 
 import 'package:auto_route/auto_route.dart' as _i2;
-import 'package:flutter/cupertino.dart' as _i4;
 import 'package:flutter/material.dart' as _i3;
+import 'package:flutter/widgets.dart' as _i4;
 
 import '../../../domain/course_ebook/models/course_topic.dart' as _i5;
 import '../../../domain/tutor/models/tutor.dart' as _i6;
@@ -140,7 +140,10 @@ class AppRouter extends _i2.RootStackRouter {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData,
           child: _i1.CourseSyllabusPreviewPage(
-              key: args.key, item: args.item, pdf: args.pdf));
+              key: args.key,
+              item: args.item,
+              pdf: args.pdf,
+              initialPage: args.initialPage));
     },
     DashboardRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
@@ -535,18 +538,21 @@ class SettingsUnauthorizedRoute extends _i2.PageRouteInfo<void> {
 class CourseSyllabusPreviewRoute
     extends _i2.PageRouteInfo<CourseSyllabusPreviewRouteArgs> {
   CourseSyllabusPreviewRoute(
-      {_i4.Key? key, required _i5.CourseTopic item, required _i7.Uint8List pdf})
+      {_i4.Key? key,
+      required _i5.CourseTopic item,
+      required _i7.Uint8List pdf,
+      int initialPage = 0})
       : super(CourseSyllabusPreviewRoute.name,
             path: '/course-syllabus-preview-page',
-            args:
-                CourseSyllabusPreviewRouteArgs(key: key, item: item, pdf: pdf));
+            args: CourseSyllabusPreviewRouteArgs(
+                key: key, item: item, pdf: pdf, initialPage: initialPage));
 
   static const String name = 'CourseSyllabusPreviewRoute';
 }
 
 class CourseSyllabusPreviewRouteArgs {
   const CourseSyllabusPreviewRouteArgs(
-      {this.key, required this.item, required this.pdf});
+      {this.key, required this.item, required this.pdf, this.initialPage = 0});
 
   final _i4.Key? key;
 
@@ -554,9 +560,11 @@ class CourseSyllabusPreviewRouteArgs {
 
   final _i7.Uint8List pdf;
 
+  final int initialPage;
+
   @override
   String toString() {
-    return 'CourseSyllabusPreviewRouteArgs{key: $key, item: $item, pdf: $pdf}';
+    return 'CourseSyllabusPreviewRouteArgs{key: $key, item: $item, pdf: $pdf, initialPage: $initialPage}';
   }
 }
 

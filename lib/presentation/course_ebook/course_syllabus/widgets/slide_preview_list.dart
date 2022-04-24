@@ -50,63 +50,69 @@ class _SlidePreviewListState extends State<SlidePreviewList> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: init(),
-      builder: (context, snapshot) {
-        if (snapshot.hasError) {
-          return const SizedBox();
-        } else if (!snapshot.hasData || snapshot.data == null) {
-          return const SizedBox();
-        }
+    return AnimatedSize(
+      duration: const Duration(seconds: 2),
+      child: FutureBuilder(
+        future: init(),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return const SizedBox(height: 200);
+          } else if (!snapshot.hasData || snapshot.data == null) {
+            return const SizedBox(height: 200);
+          }
 
-        final images = snapshot.data as ImagePairList;
-        if (images.isEmpty) {
-          return const SizedBox();
-        }
-        final ratio = images[0].left.width / images[0].left.height;
+          final images = snapshot.data as ImagePairList;
+          if (images.isEmpty) {
+            return const SizedBox(height: 200);
+          }
+          final ratio = images[0].left.width / images[0].left.height;
 
-        return Scrollbar(
-          controller: _controller,
-          showTrackOnHover: true,
-          interactive: true,
-          child: ScrollConfiguration(
-            behavior: ScrollConfiguration.of(context).copyWith(
-              dragDevices: {
-                PointerDeviceKind.touch,
-                PointerDeviceKind.mouse,
-              },
-            ),
-            child: LimitedBox(
-              maxHeight: ratio < 1 ? 400 : 200,
-              child: ListView.separated(
-                padding: const EdgeInsets.symmetric(vertical: itemSpacing),
-                primary: false,
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                controller: _controller,
-                itemCount: images.length,
-                itemBuilder: (context, index) {
-                  return OutlinedCard(
-                    childInsideInkwell: false,
-                    onTap: () => context.pushRoute(
-                      CourseSyllabusPreviewRoute(
-                        item: widget.item,
-                        pdf: widget.pdf!,
-                      ),
-                    ),
-                    child: Image.memory(
-                      images[index].right,
-                    ),
-                  );
+          return Scrollbar(
+            controller: _controller,
+            showTrackOnHover: true,
+            interactive: true,
+            child: ScrollConfiguration(
+              behavior: ScrollConfiguration.of(context).copyWith(
+                dragDevices: {
+                  PointerDeviceKind.touch,
+                  PointerDeviceKind.mouse,
                 },
-                separatorBuilder: (context, index) => const SizedBox(
-                  width: smallItemSpacing,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: itemSpacing),
+                child: LimitedBox(
+                  maxHeight: ratio < 1 ? 400 : 200,
+                  child: ListView.separated(
+                    primary: false,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    controller: _controller,
+                    itemCount: images.length,
+                    itemBuilder: (context, index) {
+                      return OutlinedCard(
+                        childInsideInkwell: false,
+                        onTap: () => context.pushRoute(
+                          CourseSyllabusPreviewRoute(
+                            item: widget.item,
+                            pdf: widget.pdf!,
+                            initialPage: index + 1,
+                          ),
+                        ),
+                        child: Image.memory(
+                          images[index].right,
+                        ),
+                      );
+                    },
+                    separatorBuilder: (context, index) => const SizedBox(
+                      width: smallItemSpacing,
+                    ),
+                  ),
                 ),
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
