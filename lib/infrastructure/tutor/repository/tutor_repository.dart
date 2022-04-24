@@ -191,13 +191,13 @@ class TutorRepositoryImpl implements TutorRepository {
     switch (sortBy) {
       case TutorSortBy.favourite:
         result.sort((a, b) {
-          if (a.isFavourite && !b.isFavourite) return 1;
-          if (!a.isFavourite && b.isFavourite) return -1;
+          if (a.isFavourite && !b.isFavourite) return -1;
+          if (!a.isFavourite && b.isFavourite) return 1;
           return a.name.compareTo(b.name);
         });
         break;
       case TutorSortBy.rating:
-        result.sort((a, b) => a.averageRating.compareTo(b.averageRating));
+        result.sort((a, b) => -a.averageRating.compareTo(b.averageRating));
         break;
       default:
         break;

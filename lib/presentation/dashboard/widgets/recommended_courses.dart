@@ -98,32 +98,32 @@ class RecommendedCoursesState extends State<RecommendedCourses> {
                   },
                 ),
                 child: LimitedBox(
-                  maxHeight: 400,
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                      bottom: itemSpacing,
-                    ),
-                    child: state.isLoading
-                        ? const LoadingWidget()
-                        : ListView.builder(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: itemSpacing,
-                            ),
-                            controller: scrollController,
-                            primary: false,
-                            scrollDirection: Axis.horizontal,
-                            shrinkWrap: true,
-                            itemCount: list.length,
-                            itemBuilder: (context, index) {
-                              return LimitedBox(
-                                maxWidth: 300,
+                  maxHeight: 400 + itemSpacing * 2,
+                  child: state.isLoading
+                      ? const LoadingWidget()
+                      : ListView.builder(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: itemSpacing,
+                          ),
+                          controller: scrollController,
+                          primary: false,
+                          scrollDirection: Axis.horizontal,
+                          shrinkWrap: true,
+                          itemCount: list.length,
+                          itemBuilder: (context, index) {
+                            return LimitedBox(
+                              maxWidth: 300 + itemSpacing,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: itemSpacing,
+                                ),
                                 child: CourseListCard(
                                   course: list[index],
                                 ),
-                              );
-                            },
-                          ),
-                  ),
+                              ),
+                            );
+                          },
+                        ),
                 ),
               ),
             ),

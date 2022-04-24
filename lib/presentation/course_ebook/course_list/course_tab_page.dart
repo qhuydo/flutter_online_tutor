@@ -6,6 +6,7 @@ import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 import '../../../application/course_ebook/course_list/course_list_bloc.dart';
 import '../../common.dart';
+import '../../common/utils/constants.dart';
 import '../../common/widgets/search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';
 import 'widgets/course_list_card.dart';
@@ -15,7 +16,8 @@ class CourseTabPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDesktop = Platform.isLinux || Platform.isMacOS || Platform.isWindows;
+    final isDesktop =
+        Platform.isLinux || Platform.isMacOS || Platform.isWindows;
 
     final actions = [
       FloatingSearchBarAction.searchToClear(
@@ -42,6 +44,15 @@ class CourseTabPage extends StatelessWidget {
       body: BlocBuilder<CourseListBloc, CourseListState>(
         builder: (context, state) {
           final list = state.courseList;
+
+          if (state.isLoading) {
+            return const Center(
+              child: Padding(
+                padding: EdgeInsets.all(itemSpacing),
+                child: LinearProgressIndicator(),
+              ),
+            );
+          }
 
           if (list == null) {
             // TODO change to error widget

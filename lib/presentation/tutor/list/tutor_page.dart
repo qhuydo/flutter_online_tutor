@@ -56,24 +56,27 @@ class TutorPageState extends State<TutorPage> {
         return SafeArea(
           left: false,
           bottom: false,
-          child: SearchBar(
-            builder: (context, _) =>
-                SearchItemRowPlaceholder.buildExpandableBody(),
-            hint: context.l10n.findTutorHint,
-            actions: actions,
-            controller: controller,
-            title: Text(
-              state.keyword.isNotEmpty
-                  ? state.keyword
-                  : context.l10n.findTutorHint,
+          child: IgnorePointer(
+            ignoring: state.isLoading,
+            child: SearchBar(
+              builder: (context, _) =>
+                  SearchItemRowPlaceholder.buildExpandableBody(),
+              hint: context.l10n.findTutorHint,
+              actions: actions,
+              controller: controller,
+              title: Text(
+                state.keyword.isNotEmpty
+                    ? state.keyword
+                    : context.l10n.findTutorHint,
+              ),
+              onSubmitted: (keyword) {
+                bloc
+                  ..add(SearchTutorsEvent.keywordChanged(keyword))
+                  ..add(const SearchTutorsEvent.submitted());
+                controller.close();
+              },
+              body: buildBody(state, context),
             ),
-            onSubmitted: (keyword) {
-              bloc
-                ..add(SearchTutorsEvent.keywordChanged(keyword))
-                ..add(const SearchTutorsEvent.submitted());
-              controller.close();
-            },
-            body: buildBody(state, context),
           ),
         );
       },
@@ -81,12 +84,6 @@ class TutorPageState extends State<TutorPage> {
   }
 
   Widget buildBody(SearchTutorsState state, BuildContext context) {
-    if (state.isLoading) {
-      return const SizedBox(
-        height: 80,
-        child: LoadingWidget(),
-      );
-    }
 
     final resultList = state.result.fold((l) => null, (r) => r);
 
@@ -124,30 +121,38 @@ class TutorPageState extends State<TutorPage> {
                 ),
                 height: 40,
               ),
-              state.isInitial || resultList.isNotEmpty
-                  ? AlignedGridView.extent(
-                      maxCrossAxisExtent: 600,
-                      crossAxisSpacing: smallItemSpacing,
-                      mainAxisSpacing: smallItemSpacing,
-                      primary: false,
-                      shrinkWrap: true,
-                      itemCount: resultList.length,
-                      // separatorBuilder: (context, index) => const Divider(),
-                      itemBuilder: (context, index) {
-                        return TutorCard(
-                          tutor: resultList[index],
-                          onFavouriteButtonPressed: () => bloc.add(
-                            SearchTutorsEvent.toggleFavourite(
-                              resultList[index].id,
+              if (state.isLoading)
+                const SizedBox(
+                  height: 400,
+                  child: LoadingWidget(),
+                )
+              else
+                state.isInitial || resultList.isNotEmpty
+                    ? AlignedGridView.extent(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: smallItemSpacing,
+                        ),
+                        maxCrossAxisExtent: 600,
+                        crossAxisSpacing: smallItemSpacing,
+                        mainAxisSpacing: smallItemSpacing,
+                        primary: false,
+                        shrinkWrap: true,
+                        itemCount: resultList.length,
+                        itemBuilder: (context, index) {
+                          return TutorCard(
+                            tutor: resultList[index],
+                            onFavouriteButtonPressed: () => bloc.add(
+                              SearchTutorsEvent.toggleFavourite(
+                                resultList[index].id,
+                              ),
                             ),
-                          ),
-                        );
-                      },
-                    )
-                  : SizedBox(
-                      height: 400,
-                      child: EmptyPage(text: context.l10n.emptyResult),
-                    ),
+                          );
+                        },
+                      )
+                    : SizedBox(
+                        height: 400,
+                        child: EmptyPage(text: context.l10n.emptyResult),
+                      ),
             ],
           ),
         ),
