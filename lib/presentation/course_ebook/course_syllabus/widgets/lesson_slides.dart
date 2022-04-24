@@ -3,13 +3,20 @@ import 'dart:typed_data';
 
 import 'package:flutter/services.dart';
 
+import '../../../../domain/course_ebook/models/course_topic.dart';
 import '../../../common.dart';
 import '../../../common/utils/constants.dart';
 import '../helpers/helpers.dart';
 import 'slide_preview_list.dart';
 
 class LessonSlides extends StatelessWidget {
-  const LessonSlides({Key? key}) : super(key: key);
+  final CourseTopic item;
+
+  const LessonSlides({
+    Key? key,
+    required this.item,
+  }) : super(key: key);
+
   static const _assets = [
     'assets/pdf/preview.pdf',
     'assets/pdf/preview2.pdf',
@@ -52,7 +59,7 @@ class LessonSlides extends StatelessWidget {
               style: getSubTitleTextStyle(context),
             ),
             const SizedBox(height: smallItemSpacing),
-            SlidePreviewList(pdf: pdf),
+            SlidePreviewList(pdf: pdf, item: item),
           ],
         );
       },

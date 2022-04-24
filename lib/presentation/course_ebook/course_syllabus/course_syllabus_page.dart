@@ -17,16 +17,14 @@ class CourseSyllabusPage extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(context, title: item.name),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(smallItemSpacing),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              LessonSlides(),
-              SizedBox(height: itemSpacing),
-              ReviewVideo(),
-            ],
-          ),
+        padding: const EdgeInsets.all(smallItemSpacing),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            LessonSlides(item: item),
+            const SizedBox(height: itemSpacing),
+            const ReviewVideo(),
+          ],
         ),
       ),
     );

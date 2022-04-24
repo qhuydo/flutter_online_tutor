@@ -1,13 +1,15 @@
-import 'dart:math';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:printing/printing.dart';
 
+import '../../../../domain/course_ebook/models/course_topic.dart';
 import '../../../../infrastructure/common/utils/pair.dart';
 import '../../../common.dart';
+import '../../../common/routes/app_routes.gr.dart';
 import '../../../common/utils/constants.dart';
 import '../../../common/widgets/outlined_card.dart';
 
@@ -15,10 +17,12 @@ typedef ImagePairList = List<Pair<ui.Image, Uint8List>>;
 
 class SlidePreviewList extends StatefulWidget {
   final Uint8List? pdf;
+  final CourseTopic item;
 
   const SlidePreviewList({
     Key? key,
     this.pdf,
+    required this.item,
   }) : super(key: key);
 
   @override
@@ -82,10 +86,14 @@ class _SlidePreviewListState extends State<SlidePreviewList> {
                 controller: _controller,
                 itemCount: images.length,
                 itemBuilder: (context, index) {
-
                   return OutlinedCard(
                     childInsideInkwell: false,
-                    onTap: () {},
+                    onTap: () => context.pushRoute(
+                      CourseSyllabusPreviewRoute(
+                        item: widget.item,
+                        pdf: widget.pdf!,
+                      ),
+                    ),
                     child: Image.memory(
                       images[index].right,
                     ),

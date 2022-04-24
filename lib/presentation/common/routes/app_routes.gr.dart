@@ -10,6 +10,8 @@
 //
 // ignore_for_file: type=lint
 
+import 'dart:typed_data' as _i7;
+
 import 'package:auto_route/auto_route.dart' as _i2;
 import 'package:flutter/material.dart' as _i3;
 
@@ -133,6 +135,13 @@ class AppRouter extends _i2.RootStackRouter {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.SettingsUnauthorizedPage());
     },
+    CourseSyllabusPreviewRoute.name: (routeData) {
+      final args = routeData.argsAs<CourseSyllabusPreviewRouteArgs>();
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: _i1.CourseSyllabusPreviewPage(
+              key: args.key, item: args.item, pdf: args.pdf));
+    },
     DashboardRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.DashboardPage());
@@ -195,7 +204,9 @@ class AppRouter extends _i2.RootStackRouter {
             path: '/tutors/:tutorId/schedule'),
         _i2.RouteConfig(MeetingRoute.name, path: '/meeting/:meetingId'),
         _i2.RouteConfig(SettingsUnauthorizedRoute.name,
-            path: '/settings-unauthorized-page')
+            path: '/settings-unauthorized-page'),
+        _i2.RouteConfig(CourseSyllabusPreviewRoute.name,
+            path: '/course-syllabus-preview-page')
       ];
 }
 
@@ -517,6 +528,36 @@ class SettingsUnauthorizedRoute extends _i2.PageRouteInfo<void> {
             path: '/settings-unauthorized-page');
 
   static const String name = 'SettingsUnauthorizedRoute';
+}
+
+/// generated route for
+/// [_i1.CourseSyllabusPreviewPage]
+class CourseSyllabusPreviewRoute
+    extends _i2.PageRouteInfo<CourseSyllabusPreviewRouteArgs> {
+  CourseSyllabusPreviewRoute(
+      {_i4.Key? key, required _i5.CourseTopic item, required _i7.Uint8List pdf})
+      : super(CourseSyllabusPreviewRoute.name,
+            path: '/course-syllabus-preview-page',
+            args:
+                CourseSyllabusPreviewRouteArgs(key: key, item: item, pdf: pdf));
+
+  static const String name = 'CourseSyllabusPreviewRoute';
+}
+
+class CourseSyllabusPreviewRouteArgs {
+  const CourseSyllabusPreviewRouteArgs(
+      {this.key, required this.item, required this.pdf});
+
+  final _i4.Key? key;
+
+  final _i5.CourseTopic item;
+
+  final _i7.Uint8List pdf;
+
+  @override
+  String toString() {
+    return 'CourseSyllabusPreviewRouteArgs{key: $key, item: $item, pdf: $pdf}';
+  }
 }
 
 /// generated route for
