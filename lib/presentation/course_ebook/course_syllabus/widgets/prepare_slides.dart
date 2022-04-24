@@ -12,16 +12,16 @@ class PrepareSlides extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          AppLocalizations.of(context)!.syllabusBeforeLessonTitle,
+          context.l10n.syllabusBeforeLessonTitle,
           style: getTitleTextStyle(context),
         ),
         const SizedBox(height: smallItemSpacing),
         Text(
-          AppLocalizations.of(context)!.syllabusBeforeLessonSubtitle,
+          context.l10n.syllabusBeforeLessonSubtitle,
           style: getSubTitleTextStyle(context),
         ),
         const SizedBox(height: smallItemSpacing),
-        const SlidePreviewList(),
+        const SlidePreviewList(pdf: null),
       ],
     );
   }

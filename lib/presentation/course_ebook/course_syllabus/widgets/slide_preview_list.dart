@@ -1,42 +1,104 @@
+import 'dart:math';
+import 'dart:typed_data';
+import 'dart:ui' as ui;
+
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:printing/printing.dart';
 
-import '../../../common/utils/constants.dart';
+import '../../../../infrastructure/common/utils/pair.dart';
 import '../../../common.dart';
+import '../../../common/utils/constants.dart';
+import '../../../common/widgets/outlined_card.dart';
 
-class SlidePreviewList extends StatelessWidget {
-  const SlidePreviewList({Key? key}) : super(key: key);
+typedef ImagePairList = List<Pair<ui.Image, Uint8List>>;
+
+class SlidePreviewList extends StatefulWidget {
+  final Uint8List? pdf;
+
+  const SlidePreviewList({
+    Key? key,
+    this.pdf,
+  }) : super(key: key);
+
+  @override
+  State<SlidePreviewList> createState() => _SlidePreviewListState();
+}
+
+class _SlidePreviewListState extends State<SlidePreviewList> {
+  final _controller = ScrollController();
+
+  Future<ImagePairList?> init() async {
+    if (widget.pdf == null) return null;
+
+    final images = <Pair<ui.Image, Uint8List>>[];
+    await for (final page in Printing.raster(widget.pdf!, dpi: 32)) {
+      final image = await page.toImage();
+      // images.add(image);
+      final buffer =
+          (await image.toByteData(format: ui.ImageByteFormat.png))?.buffer;
+      if (buffer != null) {
+        images.add(Pair(image, Uint8List.view(buffer)));
+      }
+    }
+    return images;
+  }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 120,
-      child: ListView.separated(
-        primary: false,
-        scrollDirection: Axis.horizontal,
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          return InkWell(
-            onTap: () {},
-            borderRadius: BorderRadius.circular(8),
-            child: Container(
-              width: 180,
-              // height: 120,
-              // color: Colors.blue,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  // color: Colors.grey[600]?.withOpacity(0.8) ?? Colors.grey,
-                  color: Theme.of(context).colorScheme.secondary,
-                  width: 2,
+    return FutureBuilder(
+      future: init(),
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          return const SizedBox();
+        } else if (!snapshot.hasData || snapshot.data == null) {
+          return const SizedBox();
+        }
+
+        final images = snapshot.data as ImagePairList;
+        if (images.isEmpty) {
+          return const SizedBox();
+        }
+        final ratio = images[0].left.width / images[0].left.height;
+
+        return Scrollbar(
+          controller: _controller,
+          showTrackOnHover: true,
+          interactive: true,
+          child: ScrollConfiguration(
+            behavior: ScrollConfiguration.of(context).copyWith(
+              dragDevices: {
+                PointerDeviceKind.touch,
+                PointerDeviceKind.mouse,
+              },
+            ),
+            child: LimitedBox(
+              maxHeight: ratio < 1 ? 400 : 200,
+              child: ListView.separated(
+                padding: const EdgeInsets.symmetric(vertical: itemSpacing),
+                primary: false,
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                controller: _controller,
+                itemCount: images.length,
+                itemBuilder: (context, index) {
+
+                  return OutlinedCard(
+                    childInsideInkwell: false,
+                    onTap: () {},
+                    child: Image.memory(
+                      images[index].right,
+                    ),
+                  );
+                },
+                separatorBuilder: (context, index) => const SizedBox(
+                  width: smallItemSpacing,
                 ),
-                borderRadius: BorderRadius.circular(8),
               ),
             ),
-          );
-        },
-        separatorBuilder: (context, index) =>
-            const SizedBox(width: smallItemSpacing),
-        itemCount: 10,
-      ),
+          ),
+        );
+      },
     );
   }
 }

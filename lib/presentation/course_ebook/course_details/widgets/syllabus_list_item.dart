@@ -19,10 +19,7 @@ class SyllabusListItem extends StatelessWidget {
     return ListTile(
       onTap: item.canPreview
           ? () {
-              context.router.push(CourseSyllabusRoute(
-                courseId: '',
-                chapterId: item.order,
-              ));
+              context.router.push(CourseSyllabusRoute(item: item));
             }
           : null,
       leading: Text(

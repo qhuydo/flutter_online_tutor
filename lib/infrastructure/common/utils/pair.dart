@@ -3,11 +3,11 @@
 // found in the LICENSE file.
 
 /// A pair of values. Used for testing custom codecs.
-class Pair {
+class Pair<T, U> {
   Pair(this.left, this.right);
 
-  final dynamic left;
-  final dynamic right;
+  final T left;
+  final U right;
 
   @override
   String toString() => 'Pair[$left, $right]';

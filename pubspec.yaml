@@ -165,6 +165,12 @@ dependencies:
   # (c) GNU Lesser General Public License v2.1. By Hitesh Kumar Saini.
   dart_vlc: ^0.1.9
 
+  # Plugin that allows Flutter apps to generate and print documents to compatible printers on Android, iOS, macOS,
+  # Windows, and Linux, as well as web print.
+  # (c) Apache-2.0 License. By David PHAM-VAN.
+  # TODO setup IOS project
+  printing: ^5.8.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -204,3 +210,4 @@ flutter:
     - assets/fixtures/tutor/tutor_schedule/
     - assets/fixtures/user/level/
     - assets/json/
+    - assets/pdf/

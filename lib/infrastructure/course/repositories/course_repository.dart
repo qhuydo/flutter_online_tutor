@@ -22,7 +22,7 @@ class CourseRepositoryImpl implements CourseRepository {
 
   @override
   Future<Either<Failure, Course>> getCourseById(String courseId) async {
-    // TODO
+    // TODO add pagination
     final list = (await getRecommendedCourses(page: 1, limit: 100)).fold(
       (l) => null,
       (r) => r,
@@ -65,7 +65,7 @@ class CourseRepositoryImpl implements CourseRepository {
 
   @override
   Future<Either<Failure, Ebook>> getEbookById(String ebookId) async {
-    // TODO
+    // TODO add pagination
     final list = (await getRecommendedEbooks(page: 1, limit: 100)).fold(
       (l) => null,
       (r) => r,
