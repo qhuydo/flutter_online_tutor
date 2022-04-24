@@ -1,9 +1,13 @@
+import 'dart:typed_data';
+
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/common/failures/failure.dart';
 import '../../../domain/course_ebook/interfaces/i_course_repository.dart';
 import '../../../domain/course_ebook/models/course.dart';
+import '../../../domain/course_ebook/models/course_topic.dart';
 import '../../../domain/course_ebook/models/ebook.dart';
 import '../../../presentation/common.dart';
 import '../../common/network/api_client.dart';
@@ -99,6 +103,29 @@ class CourseRepositoryImpl implements CourseRepository {
         },
       );
 
+      return result;
+    } on NullThrownError {
+      return left(const Failure.apiError());
+    } on FlutterError {
+      return left(const Failure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<Failure, Uint8List?>> getSyllabusPreviewPdf(
+    CourseTopic courseTopic,
+  ) async {
+    if (courseTopic.fileName == null) {
+      return right(null);
+    }
+    try {
+      final result = await _apiClient.getFromUrl(
+        courseTopic.fileName!,
+        options: Options(responseType: ResponseType.bytes),
+        onResponded: (response) {
+          return Uint8List.fromList(response.data as List<int>);
+        },
+      );
       return result;
     } on NullThrownError {
       return left(const Failure.apiError());

@@ -1,9 +1,14 @@
+import 'dart:math';
+import 'dart:typed_data';
+
 import 'package:dartz/dartz.dart';
+import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/common/failures/failure.dart';
 import '../../../domain/course_ebook/interfaces/i_course_repository.dart';
 import '../../../domain/course_ebook/models/course.dart';
+import '../../../domain/course_ebook/models/course_topic.dart';
 import '../../../domain/course_ebook/models/ebook.dart';
 import '../../../presentation/common.dart';
 import '../../common/db/fixture_loader.dart';
@@ -12,6 +17,11 @@ import '../dto/ebook_dto.dart';
 
 @LazySingleton(as: CourseRepository, env: ['mock'])
 class MockCourseRepository implements CourseRepository {
+  static const _assets = [
+    'assets/pdf/preview.pdf',
+    'assets/pdf/preview2.pdf',
+  ];
+
   @override
   Future<Either<Failure, Course>> getCourseById(String courseId) async {
     final list = (await getRecommendedCourses(page: 1, limit: 100)).fold(
@@ -83,6 +93,19 @@ class MockCourseRepository implements CourseRepository {
       return left(const Failure.apiError());
     } on FlutterError {
       return left(const Failure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<Failure, Uint8List?>> getSyllabusPreviewPdf(
+    CourseTopic courseTopic,
+  ) async {
+    try {
+      final asset = _assets[Random().nextInt(_assets.length)];
+      final bundle = await rootBundle.load(asset);
+      return right(bundle.buffer.asUint8List());
+    } on FlutterError {
+      return left(const Failure.internalError());
     }
   }
 }

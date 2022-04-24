@@ -1,41 +1,23 @@
-import 'dart:math';
 import 'dart:typed_data';
 
-import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../domain/course_ebook/models/course_topic.dart';
+import '../../../../application/course_ebook/course_syllabus/course_syllabus_item_cubit.dart';
 import '../../../common.dart';
 import '../../../common/utils/constants.dart';
 import '../helpers/helpers.dart';
 import 'slide_preview_list.dart';
 
 class LessonSlides extends StatelessWidget {
-  final CourseTopic item;
-
   const LessonSlides({
     Key? key,
-    required this.item,
   }) : super(key: key);
-
-  static const _assets = [
-    'assets/pdf/preview.pdf',
-    'assets/pdf/preview2.pdf',
-  ];
-
-  Future<Uint8List> init() async {
-    final asset = _assets[Random().nextInt(_assets.length)];
-    final bundle = await rootBundle.load(asset);
-    return bundle.buffer.asUint8List();
-  }
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      // future: rootBundle.load('assets/pdf/preview.pdf'),
-      future: init(),
-      builder: (context, snapshot) {
-        if (snapshot.hasError) return const SizedBox(width: 0, height: 0);
-        if (!snapshot.hasData) {
+    return BlocBuilder<CourseSyllabusItemCubit, CourseSyllabusItemState>(
+      builder: (context, state) {
+        if (state.isLoading) {
           return const Center(
             child: Padding(
               padding: EdgeInsets.all(40.0),
@@ -44,7 +26,7 @@ class LessonSlides extends StatelessWidget {
           );
         }
 
-        final pdf = snapshot.data as Uint8List;
+        final pdf = state.pdf as Uint8List;
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,7 +41,7 @@ class LessonSlides extends StatelessWidget {
               style: getSubTitleTextStyle(context),
             ),
             const SizedBox(height: smallItemSpacing),
-            SlidePreviewList(pdf: pdf, item: item),
+            SlidePreviewList(pdf: pdf, item: state.item),
           ],
         );
       },

@@ -1,3 +1,7 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../application/course_ebook/course_syllabus/course_syllabus_item_cubit.dart';
+import '../../../domain/course_ebook/interfaces/i_course_repository.dart';
 import '../../../domain/course_ebook/models/course_topic.dart';
 import '../../common.dart';
 import '../../common/utils/constants.dart';
@@ -21,7 +25,13 @@ class CourseSyllabusPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            LessonSlides(item: item),
+            BlocProvider(
+              create: (_) => CourseSyllabusItemCubit(
+                getIt<CourseRepository>(),
+                item: item,
+              ),
+              child: const LessonSlides(),
+            ),
             const SizedBox(height: itemSpacing),
             const ReviewVideo(),
           ],

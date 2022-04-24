@@ -1,7 +1,10 @@
+import 'dart:typed_data';
+
 import 'package:dartz/dartz.dart';
 
 import '../../common/failures/failure.dart';
 import '../models/course.dart';
+import '../models/course_topic.dart';
 import '../models/ebook.dart';
 
 abstract class CourseRepository {
@@ -18,4 +21,8 @@ abstract class CourseRepository {
   });
 
   Future<Either<Failure, Ebook>> getEbookById(String ebookId);
+
+  Future<Either<Failure, Uint8List?>> getSyllabusPreviewPdf(
+    CourseTopic courseTopic,
+  );
 }
