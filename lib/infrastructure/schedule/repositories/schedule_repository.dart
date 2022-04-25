@@ -30,8 +30,22 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
   Future<Either<Failure, Unit>> bookClass({
     required String scheduleDetailsId,
     required String note,
-  }) async =>
-      right(unit);
+  }) async {
+    try {
+      final data = {
+        'scheduleDetailIds': [scheduleDetailsId],
+        'note': note,
+      };
+      final result = await _apiClient.post(
+        RequestUrl.schedule.book,
+        data: data,
+        onResponded: (response) => unit,
+      );
+      return result;
+    } on FlutterError {
+      return left(const Failure.internalError());
+    }
+  }
 
   @override
   Future<Either<Failure, Unit>> cancelClass({
