@@ -14,7 +14,7 @@ class ProfileState with _$ProfileState {
     @Default(Level.none) Level level,
     @Default([]) List<Speciality> learnTopics,
     @Default([]) List<Speciality> testPreparations,
-    @Default(true) bool isInitializing,
+    @Default(true) bool isInitialising,
     @Default(false) bool isLoading,
     @Default(false) bool badState,
     @Default(false) bool showError,

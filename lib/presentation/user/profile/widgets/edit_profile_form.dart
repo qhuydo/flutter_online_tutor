@@ -152,10 +152,12 @@ class _EditProfileFormState extends State<EditProfileForm> {
                         );
                   },
                 ),
-                if (state.isLoading) ...[
-                  defaultRowSizeBox,
-                  const LinearProgressIndicator(),
-                ],
+                defaultRowSizeBox,
+                Visibility(
+                  visible: state.isLoading,
+                  child: const LinearProgressIndicator(),
+                ),
+                defaultRowSizeBox,
               ],
             ),
           );

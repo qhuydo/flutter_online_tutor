@@ -18,8 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ProfileEventTearOff {
   const _$ProfileEventTearOff();
 
-  _Initialize initialize() {
-    return const _Initialize();
+  _Initialise initialise() {
+    return const _Initialise();
   }
 
   _NameChanged nameChanged(String name) {
@@ -77,7 +77,7 @@ const $ProfileEvent = _$ProfileEventTearOff();
 mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function() initialise,
     required TResult Function(String name) nameChanged,
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
@@ -91,7 +91,7 @@ mixin _$ProfileEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -105,7 +105,7 @@ mixin _$ProfileEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -120,7 +120,7 @@ mixin _$ProfileEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_Initialise value) initialise,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_BirthDayChanged value) birthDayChanged,
     required TResult Function(_CountryChanged value) countryChanged,
@@ -135,7 +135,7 @@ mixin _$ProfileEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -149,7 +149,7 @@ mixin _$ProfileEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -181,37 +181,37 @@ class _$ProfileEventCopyWithImpl<$Res> implements $ProfileEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$InitializeCopyWith<$Res> {
-  factory _$InitializeCopyWith(
-          _Initialize value, $Res Function(_Initialize) then) =
-      __$InitializeCopyWithImpl<$Res>;
+abstract class _$InitialiseCopyWith<$Res> {
+  factory _$InitialiseCopyWith(
+          _Initialise value, $Res Function(_Initialise) then) =
+      __$InitialiseCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$InitializeCopyWithImpl<$Res> extends _$ProfileEventCopyWithImpl<$Res>
-    implements _$InitializeCopyWith<$Res> {
-  __$InitializeCopyWithImpl(
-      _Initialize _value, $Res Function(_Initialize) _then)
-      : super(_value, (v) => _then(v as _Initialize));
+class __$InitialiseCopyWithImpl<$Res> extends _$ProfileEventCopyWithImpl<$Res>
+    implements _$InitialiseCopyWith<$Res> {
+  __$InitialiseCopyWithImpl(
+      _Initialise _value, $Res Function(_Initialise) _then)
+      : super(_value, (v) => _then(v as _Initialise));
 
   @override
-  _Initialize get _value => super._value as _Initialize;
+  _Initialise get _value => super._value as _Initialise;
 }
 
 /// @nodoc
 
-class _$_Initialize implements _Initialize {
-  const _$_Initialize();
+class _$_Initialise implements _Initialise {
+  const _$_Initialise();
 
   @override
   String toString() {
-    return 'ProfileEvent.initialize()';
+    return 'ProfileEvent.initialise()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initialize);
+        (other.runtimeType == runtimeType && other is _Initialise);
   }
 
   @override
@@ -220,7 +220,7 @@ class _$_Initialize implements _Initialize {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function() initialise,
     required TResult Function(String name) nameChanged,
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
@@ -231,13 +231,13 @@ class _$_Initialize implements _Initialize {
     required TResult Function() updateButtonPressed,
     required TResult Function(File file) newProfileImageSelected,
   }) {
-    return initialize();
+    return initialise();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -248,13 +248,13 @@ class _$_Initialize implements _Initialize {
     TResult Function()? updateButtonPressed,
     TResult Function(File file)? newProfileImageSelected,
   }) {
-    return initialize?.call();
+    return initialise?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -266,8 +266,8 @@ class _$_Initialize implements _Initialize {
     TResult Function(File file)? newProfileImageSelected,
     required TResult orElse(),
   }) {
-    if (initialize != null) {
-      return initialize();
+    if (initialise != null) {
+      return initialise();
     }
     return orElse();
   }
@@ -275,7 +275,7 @@ class _$_Initialize implements _Initialize {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_Initialise value) initialise,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_BirthDayChanged value) birthDayChanged,
     required TResult Function(_CountryChanged value) countryChanged,
@@ -287,13 +287,13 @@ class _$_Initialize implements _Initialize {
     required TResult Function(_NewProfileImageSelected value)
         newProfileImageSelected,
   }) {
-    return initialize(this);
+    return initialise(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -304,13 +304,13 @@ class _$_Initialize implements _Initialize {
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
     TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
   }) {
-    return initialize?.call(this);
+    return initialise?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -322,15 +322,15 @@ class _$_Initialize implements _Initialize {
     TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
     required TResult orElse(),
   }) {
-    if (initialize != null) {
-      return initialize(this);
+    if (initialise != null) {
+      return initialise(this);
     }
     return orElse();
   }
 }
 
-abstract class _Initialize implements ProfileEvent {
-  const factory _Initialize() = _$_Initialize;
+abstract class _Initialise implements ProfileEvent {
+  const factory _Initialise() = _$_Initialise;
 }
 
 /// @nodoc
@@ -397,7 +397,7 @@ class _$_NameChanged implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function() initialise,
     required TResult Function(String name) nameChanged,
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
@@ -414,7 +414,7 @@ class _$_NameChanged implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -431,7 +431,7 @@ class _$_NameChanged implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -452,7 +452,7 @@ class _$_NameChanged implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_Initialise value) initialise,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_BirthDayChanged value) birthDayChanged,
     required TResult Function(_CountryChanged value) countryChanged,
@@ -470,7 +470,7 @@ class _$_NameChanged implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -487,7 +487,7 @@ class _$_NameChanged implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -580,7 +580,7 @@ class _$_BirthDayChanged implements _BirthDayChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function() initialise,
     required TResult Function(String name) nameChanged,
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
@@ -597,7 +597,7 @@ class _$_BirthDayChanged implements _BirthDayChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -614,7 +614,7 @@ class _$_BirthDayChanged implements _BirthDayChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -635,7 +635,7 @@ class _$_BirthDayChanged implements _BirthDayChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_Initialise value) initialise,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_BirthDayChanged value) birthDayChanged,
     required TResult Function(_CountryChanged value) countryChanged,
@@ -653,7 +653,7 @@ class _$_BirthDayChanged implements _BirthDayChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -670,7 +670,7 @@ class _$_BirthDayChanged implements _BirthDayChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -772,7 +772,7 @@ class _$_CountryChanged implements _CountryChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function() initialise,
     required TResult Function(String name) nameChanged,
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
@@ -789,7 +789,7 @@ class _$_CountryChanged implements _CountryChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -806,7 +806,7 @@ class _$_CountryChanged implements _CountryChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -827,7 +827,7 @@ class _$_CountryChanged implements _CountryChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_Initialise value) initialise,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_BirthDayChanged value) birthDayChanged,
     required TResult Function(_CountryChanged value) countryChanged,
@@ -845,7 +845,7 @@ class _$_CountryChanged implements _CountryChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -862,7 +862,7 @@ class _$_CountryChanged implements _CountryChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -954,7 +954,7 @@ class _$_LevelChanged implements _LevelChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function() initialise,
     required TResult Function(String name) nameChanged,
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
@@ -971,7 +971,7 @@ class _$_LevelChanged implements _LevelChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -988,7 +988,7 @@ class _$_LevelChanged implements _LevelChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -1009,7 +1009,7 @@ class _$_LevelChanged implements _LevelChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_Initialise value) initialise,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_BirthDayChanged value) birthDayChanged,
     required TResult Function(_CountryChanged value) countryChanged,
@@ -1027,7 +1027,7 @@ class _$_LevelChanged implements _LevelChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -1044,7 +1044,7 @@ class _$_LevelChanged implements _LevelChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -1138,7 +1138,7 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function() initialise,
     required TResult Function(String name) nameChanged,
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
@@ -1155,7 +1155,7 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -1172,7 +1172,7 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -1193,7 +1193,7 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_Initialise value) initialise,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_BirthDayChanged value) birthDayChanged,
     required TResult Function(_CountryChanged value) countryChanged,
@@ -1211,7 +1211,7 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -1228,7 +1228,7 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -1327,7 +1327,7 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function() initialise,
     required TResult Function(String name) nameChanged,
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
@@ -1344,7 +1344,7 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -1361,7 +1361,7 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -1382,7 +1382,7 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_Initialise value) initialise,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_BirthDayChanged value) birthDayChanged,
     required TResult Function(_CountryChanged value) countryChanged,
@@ -1400,7 +1400,7 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -1417,7 +1417,7 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -1487,7 +1487,7 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function() initialise,
     required TResult Function(String name) nameChanged,
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
@@ -1504,7 +1504,7 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -1521,7 +1521,7 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -1542,7 +1542,7 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_Initialise value) initialise,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_BirthDayChanged value) birthDayChanged,
     required TResult Function(_CountryChanged value) countryChanged,
@@ -1560,7 +1560,7 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -1577,7 +1577,7 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -1667,7 +1667,7 @@ class _$_NewProfileImageSelected implements _NewProfileImageSelected {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initialize,
+    required TResult Function() initialise,
     required TResult Function(String name) nameChanged,
     required TResult Function(String birthDay) birthDayChanged,
     required TResult Function(Country country) countryChanged,
@@ -1684,7 +1684,7 @@ class _$_NewProfileImageSelected implements _NewProfileImageSelected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -1701,7 +1701,7 @@ class _$_NewProfileImageSelected implements _NewProfileImageSelected {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initialize,
+    TResult Function()? initialise,
     TResult Function(String name)? nameChanged,
     TResult Function(String birthDay)? birthDayChanged,
     TResult Function(Country country)? countryChanged,
@@ -1722,7 +1722,7 @@ class _$_NewProfileImageSelected implements _NewProfileImageSelected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_Initialise value) initialise,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_BirthDayChanged value) birthDayChanged,
     required TResult Function(_CountryChanged value) countryChanged,
@@ -1740,7 +1740,7 @@ class _$_NewProfileImageSelected implements _NewProfileImageSelected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -1757,7 +1757,7 @@ class _$_NewProfileImageSelected implements _NewProfileImageSelected {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initialize value)? initialize,
+    TResult Function(_Initialise value)? initialise,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_BirthDayChanged value)? birthDayChanged,
     TResult Function(_CountryChanged value)? countryChanged,
@@ -1799,7 +1799,7 @@ class _$ProfileStateTearOff {
       Level level = Level.none,
       List<Speciality> learnTopics = const [],
       List<Speciality> testPreparations = const [],
-      bool isInitializing = true,
+      bool isInitialising = true,
       bool isLoading = false,
       bool badState = false,
       bool showError = false,
@@ -1815,7 +1815,7 @@ class _$ProfileStateTearOff {
       level: level,
       learnTopics: learnTopics,
       testPreparations: testPreparations,
-      isInitializing: isInitializing,
+      isInitialising: isInitialising,
       isLoading: isLoading,
       badState: badState,
       showError: showError,
@@ -1840,7 +1840,7 @@ mixin _$ProfileState {
   Level get level => throw _privateConstructorUsedError;
   List<Speciality> get learnTopics => throw _privateConstructorUsedError;
   List<Speciality> get testPreparations => throw _privateConstructorUsedError;
-  bool get isInitializing => throw _privateConstructorUsedError;
+  bool get isInitialising => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get badState => throw _privateConstructorUsedError;
   bool get showError => throw _privateConstructorUsedError;
@@ -1869,7 +1869,7 @@ abstract class $ProfileStateCopyWith<$Res> {
       Level level,
       List<Speciality> learnTopics,
       List<Speciality> testPreparations,
-      bool isInitializing,
+      bool isInitialising,
       bool isLoading,
       bool badState,
       bool showError,
@@ -1899,7 +1899,7 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
     Object? level = freezed,
     Object? learnTopics = freezed,
     Object? testPreparations = freezed,
-    Object? isInitializing = freezed,
+    Object? isInitialising = freezed,
     Object? isLoading = freezed,
     Object? badState = freezed,
     Object? showError = freezed,
@@ -1940,9 +1940,9 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
           ? _value.testPreparations
           : testPreparations // ignore: cast_nullable_to_non_nullable
               as List<Speciality>,
-      isInitializing: isInitializing == freezed
-          ? _value.isInitializing
-          : isInitializing // ignore: cast_nullable_to_non_nullable
+      isInitialising: isInitialising == freezed
+          ? _value.isInitialising
+          : isInitialising // ignore: cast_nullable_to_non_nullable
               as bool,
       isLoading: isLoading == freezed
           ? _value.isLoading
@@ -2006,7 +2006,7 @@ abstract class _$ProfileStateCopyWith<$Res>
       Level level,
       List<Speciality> learnTopics,
       List<Speciality> testPreparations,
-      bool isInitializing,
+      bool isInitialising,
       bool isLoading,
       bool badState,
       bool showError,
@@ -2040,7 +2040,7 @@ class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
     Object? level = freezed,
     Object? learnTopics = freezed,
     Object? testPreparations = freezed,
-    Object? isInitializing = freezed,
+    Object? isInitialising = freezed,
     Object? isLoading = freezed,
     Object? badState = freezed,
     Object? showError = freezed,
@@ -2081,9 +2081,9 @@ class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
           ? _value.testPreparations
           : testPreparations // ignore: cast_nullable_to_non_nullable
               as List<Speciality>,
-      isInitializing: isInitializing == freezed
-          ? _value.isInitializing
-          : isInitializing // ignore: cast_nullable_to_non_nullable
+      isInitialising: isInitialising == freezed
+          ? _value.isInitialising
+          : isInitialising // ignore: cast_nullable_to_non_nullable
               as bool,
       isLoading: isLoading == freezed
           ? _value.isLoading
@@ -2125,7 +2125,7 @@ class _$_ProfileState extends _ProfileState {
       this.level = Level.none,
       this.learnTopics = const [],
       this.testPreparations = const [],
-      this.isInitializing = true,
+      this.isInitialising = true,
       this.isLoading = false,
       this.badState = false,
       this.showError = false,
@@ -2155,7 +2155,7 @@ class _$_ProfileState extends _ProfileState {
   final List<Speciality> testPreparations;
   @JsonKey()
   @override
-  final bool isInitializing;
+  final bool isInitialising;
   @JsonKey()
   @override
   final bool isLoading;
@@ -2177,7 +2177,7 @@ class _$_ProfileState extends _ProfileState {
 
   @override
   String toString() {
-    return 'ProfileState(user: $user, name: $name, birthDay: $birthDay, country: $country, selectedProfileImage: $selectedProfileImage, level: $level, learnTopics: $learnTopics, testPreparations: $testPreparations, isInitializing: $isInitializing, isLoading: $isLoading, badState: $badState, showError: $showError, updateFailureOrSuccessOption: $updateFailureOrSuccessOption, allLearnTopics: $allLearnTopics, allTestPreparations: $allTestPreparations)';
+    return 'ProfileState(user: $user, name: $name, birthDay: $birthDay, country: $country, selectedProfileImage: $selectedProfileImage, level: $level, learnTopics: $learnTopics, testPreparations: $testPreparations, isInitialising: $isInitialising, isLoading: $isLoading, badState: $badState, showError: $showError, updateFailureOrSuccessOption: $updateFailureOrSuccessOption, allLearnTopics: $allLearnTopics, allTestPreparations: $allTestPreparations)';
   }
 
   @override
@@ -2197,7 +2197,7 @@ class _$_ProfileState extends _ProfileState {
             const DeepCollectionEquality()
                 .equals(other.testPreparations, testPreparations) &&
             const DeepCollectionEquality()
-                .equals(other.isInitializing, isInitializing) &&
+                .equals(other.isInitialising, isInitialising) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality().equals(other.badState, badState) &&
             const DeepCollectionEquality().equals(other.showError, showError) &&
@@ -2221,7 +2221,7 @@ class _$_ProfileState extends _ProfileState {
       const DeepCollectionEquality().hash(level),
       const DeepCollectionEquality().hash(learnTopics),
       const DeepCollectionEquality().hash(testPreparations),
-      const DeepCollectionEquality().hash(isInitializing),
+      const DeepCollectionEquality().hash(isInitialising),
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(badState),
       const DeepCollectionEquality().hash(showError),
@@ -2245,7 +2245,7 @@ abstract class _ProfileState extends ProfileState {
       Level level,
       List<Speciality> learnTopics,
       List<Speciality> testPreparations,
-      bool isInitializing,
+      bool isInitialising,
       bool isLoading,
       bool badState,
       bool showError,
@@ -2271,7 +2271,7 @@ abstract class _ProfileState extends ProfileState {
   @override
   List<Speciality> get testPreparations;
   @override
-  bool get isInitializing;
+  bool get isInitialising;
   @override
   bool get isLoading;
   @override

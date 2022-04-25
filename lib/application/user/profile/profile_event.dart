@@ -2,7 +2,7 @@ part of 'profile_bloc.dart';
 
 @freezed
 class ProfileEvent with _$ProfileEvent {
-  const factory ProfileEvent.initialize() = _Initialize;
+  const factory ProfileEvent.initialise() = _Initialise;
 
   const factory ProfileEvent.nameChanged(String name) = _NameChanged;
 

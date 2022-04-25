@@ -6,7 +6,6 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../domain/authentication/interfaces/i_authentication_service.dart';
 import '../../../domain/common/failures/failure.dart';
 import '../../../domain/common/models/country.dart';
 import '../../../domain/user/constants/levels.dart';
@@ -24,14 +23,13 @@ part 'profile_state.dart';
 
 @injectable
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
-  final AuthenticationService _authenticationService;
   final UserRepository _repository;
 
-  ProfileBloc(this._authenticationService, this._repository)
+  ProfileBloc(this._repository)
       : super(ProfileState.initial()) {
     on<ProfileEvent>((event, emit) async {
       await event.when(
-        initialize: () => _onInitialize(emit),
+        initialise: () => _onInitialise(emit),
         nameChanged: (value) => _onNameChanged(value, emit),
         birthDayChanged: (value) => _onBirthDayChanged(value, emit),
         countryChanged: (value) => _onCountryChanged(value, emit),
@@ -46,25 +44,29 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     });
   }
 
-  Future _onInitialize(
+  Future _onInitialise(
     Emitter<ProfileState> emit, {
+    bool fetchUserInfoFromServer = true,
     bool reloadTopics = true,
   }) async {
     emit(state.copyWith(
-      isInitializing: true,
+      isInitialising: true,
       badState: false,
     ));
 
-    // await Future.delayed(const Duration(seconds: 2));
-
-    final user = (await _authenticationService.getSignedInUser()).fold(
-      () => null,
-      (a) => a,
-    );
+    final User? user;
+    if (fetchUserInfoFromServer) {
+      user = (await _repository.fetchUserInfo()).fold((l) => null, (r) => r);
+    } else {
+      user = (await _repository.getSignedInUser()).fold(
+        () => null,
+        (a) => a,
+      );
+    }
 
     if (user == null) {
       emit(state.copyWith(
-        isInitializing: false,
+        isInitialising: false,
         badState: true,
       ));
       return;
@@ -77,7 +79,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       final isValid = learnTopics.isRight() && testPreparations.isRight();
       if (!isValid) {
         emit(state.copyWith(
-          isInitializing: false,
+          isInitialising: false,
           badState: true,
           updateFailureOrSuccessOption: const None(),
         ));
@@ -91,7 +93,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     }
 
     emit(state.copyWith(
-      isInitializing: false,
+      isInitialising: false,
       badState: false,
       user: user,
       name: user.name,
@@ -152,9 +154,14 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         level: state.level,
         learnTopics: state.learnTopics,
         testPreparations: state.testPreparations,
+        profileImage: state.selectedProfileImage,
       );
     }
-    await _onInitialize(emit, reloadTopics: false);
+    await _onInitialise(
+      emit,
+      reloadTopics: false,
+      fetchUserInfoFromServer: false,
+    );
 
     emit(state.copyWith(
       isLoading: false,

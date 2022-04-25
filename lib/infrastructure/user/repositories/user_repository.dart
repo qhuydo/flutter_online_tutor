@@ -114,7 +114,7 @@ class UserRepositoryImpl extends UserRepository {
         data: data,
         onResponded: (response) {
           final data = response.data as Map<String, dynamic>;
-          return UserDto.fromJson(data);
+          return UserDto.fromJson(data['user']);
         },
       );
 
@@ -123,8 +123,9 @@ class UserRepositoryImpl extends UserRepository {
           result.fold((l) => l, (r) => const Failure.internalError()),
         );
       }
+      final dto = result.getOrElse(() => throw NoValueError(result));
 
-      await _box.put(_keyUser, jsonEncode(result));
+      await _box.put(_keyUser, jsonEncode(dto));
       return right(unit);
     } on NoValueError {
       return left(const Failure.internalError());
@@ -168,12 +169,22 @@ class UserRepositoryImpl extends UserRepository {
         RequestUrl.user.info,
         onResponded: (response) {
           final data = response.data as Map<String, dynamic>;
-          return UserDto.fromJson(data);
+          return UserDto.fromJson(data['user']);
         },
       );
-      await _box.put(_keyUser, jsonEncode(fetchResult));
+      if (fetchResult.isLeft()) {
+        return left(fetchResult.fold(
+          (l) => l,
+          (r) => const Failure.internalError(),
+        ));
+      }
+      final dto = fetchResult.getOrElse(() => throw NoValueError(fetchResult));
+
+      await _box.put(_keyUser, jsonEncode(dto));
       return fetchResult.map((r) => r.toDomain());
     } on FlutterError {
+      return left(const Failure.internalError());
+    } on NoValueError {
       return left(const Failure.internalError());
     }
   }

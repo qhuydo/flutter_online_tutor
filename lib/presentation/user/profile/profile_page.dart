@@ -1,9 +1,11 @@
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/user/profile/profile_bloc.dart';
 import '../../common.dart';
 import '../../common/utils/default_app_bar.dart';
+import '../../common/utils/failure_messages.dart';
 import '../../common/widgets/loading_widget.dart';
 import 'widgets/profile_body.dart';
 import 'widgets/profile_body_desktop.dart';
@@ -21,26 +23,40 @@ class ProfilePage extends StatelessWidget {
       extendBodyBehindAppBar: true,
       body: BlocProvider(
         create: (context) =>
-            getIt<ProfileBloc>()..add(const ProfileEvent.initialize()),
-        child: const _ProfilePage(),
+            getIt<ProfileBloc>()..add(const ProfileEvent.initialise()),
+        child: const ProfilePageBody(),
       ),
     );
   }
 }
 
-class _ProfilePage extends StatelessWidget {
-  const _ProfilePage({Key? key}) : super(key: key);
+class ProfilePageBody extends StatelessWidget {
+  const ProfilePageBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ProfileBloc, ProfileState>(
+      listenWhen: (previous, current) =>
+          previous.updateFailureOrSuccessOption !=
+          current.updateFailureOrSuccessOption,
       listener: (context, state) {
-        // TODO: implement listener
+        state.updateFailureOrSuccessOption.fold(
+          () {},
+          (either) => either.fold(
+            (failure) => FlushbarHelper.createSuccess(
+              message: failure.toText(context),
+            ).show(context),
+            (_) => FlushbarHelper.createSuccess(
+              // TODO update translation
+              message: 'Update profile successfully',
+            ).show(context),
+          ),
+        );
       },
       buildWhen: (previous, current) =>
-          previous.isInitializing != current.isInitializing,
+          previous.isInitialising != current.isInitialising,
       builder: (context, state) {
-        if (state.isInitializing) return const LoadingWidget();
+        if (state.isInitialising) return const LoadingWidget();
         final breakpoint = Breakpoint.fromMediaQuery(context);
         return SingleChildScrollView(
           child: SafeArea(

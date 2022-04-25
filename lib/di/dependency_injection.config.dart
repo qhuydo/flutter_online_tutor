@@ -165,8 +165,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => _i38.HistoryBloc(get<_i14.ScheduleRepository>()));
   gh.factory<_i39.LoginBloc>(
       () => _i39.LoginBloc(get<_i30.AuthenticationService>()));
-  gh.factory<_i40.ProfileBloc>(() => _i40.ProfileBloc(
-      get<_i30.AuthenticationService>(), get<_i26.UserRepository>()));
+  gh.factory<_i40.ProfileBloc>(
+      () => _i40.ProfileBloc(get<_i26.UserRepository>()));
   gh.factory<_i41.RecommendedTutorsBloc>(
       () => _i41.RecommendedTutorsBloc(get<_i22.TutorRepository>()));
   gh.factory<_i42.ResetPasswordBloc>(
