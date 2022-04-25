@@ -1,7 +1,6 @@
 import '../../../common.dart';
 
 class TutorRecommendedCourseList extends StatelessWidget {
-  static const itemSpacing = 16.0;
 
   const TutorRecommendedCourseList({Key? key}) : super(key: key);
 

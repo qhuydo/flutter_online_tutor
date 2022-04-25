@@ -22,6 +22,15 @@ class UserSettingsCard extends StatelessWidget {
         trailingWidget: const Icon(
           Icons.navigate_next,
         ),
+      ), SettingCardItem(
+        iconData: Icons.favorite_outline,
+        title: context.l10n.favouriteTutorsTitle,
+        onTap: () {
+          context.router.push(const FavouriteTutorsRoute());
+        },
+        trailingWidget: const Icon(
+          Icons.navigate_next,
+        ),
       ),
       SettingCardItem(
         iconData: Icons.manage_accounts_outlined,

@@ -34,8 +34,9 @@ class LocalTutorDataSource implements TutorDataSource {
   }
 
   @override
-  Future clear() {
-    return _box.clear();
+  Future clear() async {
+    await _boxFavouriteTutorIds.clear();
+    await _box.clear();
   }
 
   Tutor? decode(String? tutor) {
@@ -93,20 +94,27 @@ class LocalTutorDataSource implements TutorDataSource {
     }
 
     await _box.putAll(tutorsMap);
+    await _boxFavouriteTutorIds.clear();
     await _boxFavouriteTutorIds.putAll({for (final v in favouriteTutors) v: v});
     return tutors;
   }
 
   @override
   Future saveTutor(Tutor tutor) async {
+    if (tutor.isFavourite) {
+      await _boxFavouriteTutorIds.put(tutor.id, tutor.id);
+    } else {
+      await _boxFavouriteTutorIds.delete(tutor.id);
+    }
     await _box.put(tutor.id, jsonEncode(tutor));
   }
 
   @override
   Future<List<Tutor>> getFavouriteTutors() async {
-    final ids = _box.values;
+    final ids = _boxFavouriteTutorIds.values;
     return [for (final id in ids) await getTutor(id)]
-        .whereType<Tutor>()
+        .where((element) => element != null)
+        .cast<Tutor>()
         .toList();
   }
 }

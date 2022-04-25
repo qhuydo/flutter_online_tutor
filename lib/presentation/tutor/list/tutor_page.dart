@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 import '../../../application/tutor/search_tutors/search_tutors_bloc.dart';
@@ -10,8 +9,8 @@ import '../../common/widgets/loading_widget.dart';
 import '../../common/widgets/search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';
 import 'widgets/specialities_filter_row.dart';
-import 'widgets/tutor_card.dart';
 import 'widgets/tutor_filter_dialog.dart';
+import 'widgets/tutor_list.dart';
 
 class TutorPage extends StatefulWidget {
   const TutorPage({Key? key}) : super(key: key);
@@ -84,7 +83,6 @@ class TutorPageState extends State<TutorPage> {
   }
 
   Widget buildBody(SearchTutorsState state, BuildContext context) {
-
     final resultList = state.result.fold((l) => null, (r) => r);
 
     if (resultList == null) {
@@ -128,26 +126,14 @@ class TutorPageState extends State<TutorPage> {
                 )
               else
                 state.isInitial || resultList.isNotEmpty
-                    ? AlignedGridView.extent(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: smallItemSpacing,
+                    ? TutorList(
+                        list: resultList,
+                        loadingTutors: {},
+                        onFavouriteButtonPressed: (index) => bloc.add(
+                          SearchTutorsEvent.toggleFavourite(
+                            resultList[index].id,
+                          ),
                         ),
-                        maxCrossAxisExtent: 600,
-                        crossAxisSpacing: smallItemSpacing,
-                        mainAxisSpacing: smallItemSpacing,
-                        primary: false,
-                        shrinkWrap: true,
-                        itemCount: resultList.length,
-                        itemBuilder: (context, index) {
-                          return TutorCard(
-                            tutor: resultList[index],
-                            onFavouriteButtonPressed: () => bloc.add(
-                              SearchTutorsEvent.toggleFavourite(
-                                resultList[index].id,
-                              ),
-                            ),
-                          );
-                        },
                       )
                     : SizedBox(
                         height: 400,

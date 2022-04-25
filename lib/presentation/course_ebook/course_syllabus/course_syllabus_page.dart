@@ -21,7 +21,7 @@ class CourseSyllabusPage extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(context, title: item.name),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(smallItemSpacing),
+        padding: const EdgeInsets.symmetric(vertical: itemSpacing),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -33,10 +33,11 @@ class CourseSyllabusPage extends StatelessWidget {
                 ),
                 child: const LessonSlides(),
               ),
-            if (item.videoUrl != null) ...[
-              const SizedBox(height: itemSpacing),
-              const ReviewVideo(),
-            ]
+            if (item.videoUrl != null)
+              const Padding(
+                padding: EdgeInsets.all(smallItemSpacing),
+                child: ReviewVideo(),
+              ),
           ],
         ),
       ),

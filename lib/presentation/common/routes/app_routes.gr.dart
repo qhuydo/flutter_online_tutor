@@ -145,6 +145,10 @@ class AppRouter extends _i2.RootStackRouter {
               pdf: args.pdf,
               initialPage: args.initialPage));
     },
+    FavouriteTutorsRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.FavouriteTutorsPage());
+    },
     DashboardRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.DashboardPage());
@@ -209,7 +213,9 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(SettingsUnauthorizedRoute.name,
             path: '/settings-unauthorized-page'),
         _i2.RouteConfig(CourseSyllabusPreviewRoute.name,
-            path: '/course-syllabus-preview-page')
+            path: '/course-syllabus-preview-page'),
+        _i2.RouteConfig(FavouriteTutorsRoute.name,
+            path: '/favourite-tutors-page')
       ];
 }
 
@@ -566,6 +572,15 @@ class CourseSyllabusPreviewRouteArgs {
   String toString() {
     return 'CourseSyllabusPreviewRouteArgs{key: $key, item: $item, pdf: $pdf, initialPage: $initialPage}';
   }
+}
+
+/// generated route for
+/// [_i1.FavouriteTutorsPage]
+class FavouriteTutorsRoute extends _i2.PageRouteInfo<void> {
+  const FavouriteTutorsRoute()
+      : super(FavouriteTutorsRoute.name, path: '/favourite-tutors-page');
+
+  static const String name = 'FavouriteTutorsRoute';
 }
 
 /// generated route for

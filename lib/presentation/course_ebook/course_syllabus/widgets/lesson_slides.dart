@@ -16,16 +16,28 @@ class LessonSlides extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          context.l10n.syllabusLessonSlideTitle,
-          style: getTitleTextStyle(context),
+        Padding(
+          padding: const EdgeInsets.only(
+            top: smallItemSpacing,
+            left: smallItemSpacing,
+            right: smallItemSpacing,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                context.l10n.syllabusLessonSlideTitle,
+                style: getTitleTextStyle(context),
+              ),
+              const SizedBox(height: smallItemSpacing),
+              Text(
+                context.l10n.syllabusLessonSlideSubtitle,
+                style: getSubTitleTextStyle(context),
+              ),
+            ],
+          ),
         ),
-        const SizedBox(height: smallItemSpacing),
-        Text(
-          context.l10n.syllabusLessonSlideSubtitle,
-          style: getSubTitleTextStyle(context),
-        ),
-        const SizedBox(height: smallItemSpacing),
         BlocBuilder<CourseSyllabusItemCubit, CourseSyllabusItemState>(
           builder: (_, state) {
             return Container(

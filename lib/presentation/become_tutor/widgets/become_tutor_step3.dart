@@ -2,10 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:twemoji/twemoji.dart';
 
 import '../../common.dart';
+import '../../common/utils/constants.dart';
 
 class BecomeTutorStep3 extends StatelessWidget {
   const BecomeTutorStep3({Key? key}) : super(key: key);
-  static const itemSpacing = 16.0;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,8 @@ class BecomeTutorStep3 extends StatelessWidget {
           ),
           const SizedBox(height: itemSpacing),
           Center(
-            child: Text(context.l10n.approvalStepDescriptionTitle,
+            child: Text(
+              context.l10n.approvalStepDescriptionTitle,
               textAlign: TextAlign.center,
             ),
           ),

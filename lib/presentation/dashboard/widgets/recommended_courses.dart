@@ -45,7 +45,7 @@ class RecommendedCoursesState extends State<RecommendedCourses> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(smallItemSpacing),
+              padding: const EdgeInsets.symmetric(horizontal: smallItemSpacing),
               child: ConstrainedBox(
                 constraints: BoxConstraints(
                   minWidth: MediaQuery.of(context).size.width,
@@ -112,10 +112,11 @@ class RecommendedCoursesState extends State<RecommendedCourses> {
                           itemCount: list.length,
                           itemBuilder: (context, index) {
                             return LimitedBox(
-                              maxWidth: 300 + itemSpacing,
+                              maxWidth: 300 + itemSpacing + smallItemSpacing,
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: itemSpacing,
+                                padding: const EdgeInsets.only(
+                                  top: smallItemSpacing,
+                                  bottom: itemSpacing,
                                 ),
                                 child: CourseListCard(
                                   course: list[index],

@@ -18,7 +18,7 @@ class TutorSchedulePage extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(
         context,
-        title: AppLocalizations.of(context)!.bookButtonText,
+        title: context.l10n.bookButtonText,
       ),
       body: BlocProvider(
         create: (_) => getIt<TutorScheduleBloc>()

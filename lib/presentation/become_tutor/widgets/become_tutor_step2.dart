@@ -1,10 +1,10 @@
 import '../../common.dart';
 
+import '../../common/utils/constants.dart';
 import '../../common/widgets/info_container.dart';
 
 class BecomeTutorStep2 extends StatelessWidget {
   const BecomeTutorStep2({Key? key}) : super(key: key);
-  static const itemSpacing = 16.0;
 
   @override
   Widget build(BuildContext context) {

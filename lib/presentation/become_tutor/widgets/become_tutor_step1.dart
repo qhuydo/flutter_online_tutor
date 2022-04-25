@@ -1,15 +1,14 @@
 import '../../../domain/tutor/models/language.dart';
 import '../../common.dart';
+import '../../common/utils/constants.dart';
 import '../../common/widgets/info_container.dart';
 import '../../common/widgets/language_multi_select_bottom_field.dart';
 import '../../user/profile/widgets/country_form_dropdown.dart';
 import '../../user/profile/widgets/date_of_birth_form_field.dart';
-import 'specialities_dropdown.dart';
 import 'target_student_radio_button_group.dart';
 
 class BecomeTutorStep1 extends StatelessWidget {
   const BecomeTutorStep1({Key? key}) : super(key: key);
-  static const itemSpacing = 16.0;
   static const defaultSpacingSizedBox = SizedBox(height: itemSpacing);
 
   @override

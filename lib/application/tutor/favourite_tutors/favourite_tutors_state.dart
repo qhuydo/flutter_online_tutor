@@ -5,6 +5,9 @@ class FavouriteTutorsState with _$FavouriteTutorsState {
   const factory FavouriteTutorsState({
     @Default(false) bool isLoading,
     @Default(Right([])) Either<Failure, List<Tutor>> tutorsOrFailure,
-    @Default(<String>{}) Set<String> loadingTutors,
+    required Set<String> loadingTutors,
   }) = _FavouriteTutorsState;
+
+  factory FavouriteTutorsState.initial() =>
+      FavouriteTutorsState(loadingTutors: <String>{});
 }

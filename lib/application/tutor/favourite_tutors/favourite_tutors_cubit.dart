@@ -1,9 +1,13 @@
+import 'dart:async';
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/common/failures/failure.dart';
+import '../../../domain/tutor/events/tutor_repository_event.dart';
 import '../../../domain/tutor/interfaces/i_tutor_repository.dart';
 import '../../../domain/tutor/models/tutor.dart';
 
@@ -14,8 +18,10 @@ part 'favourite_tutors_state.dart';
 @injectable
 class FavouriteTutorsCubit extends Cubit<FavouriteTutorsState> {
   final TutorRepository _repository;
+  StreamSubscription<TutorRepositoryEvent>? _eventStream;
 
-  FavouriteTutorsCubit(this._repository) : super(const FavouriteTutorsState()) {
+  FavouriteTutorsCubit(this._repository)
+      : super(FavouriteTutorsState.initial()) {
     init();
   }
 
@@ -25,24 +31,37 @@ class FavouriteTutorsCubit extends Cubit<FavouriteTutorsState> {
     final result = await _repository.getFavouriteTutors();
     emit(state.copyWith(tutorsOrFailure: result, isLoading: false));
 
-    _repository.subscribe().listen((event) {
-      final tutor = event.tutor;
-      final tutors = state.tutorsOrFailure.fold((l) => null, (r) => r);
-      if (tutors == null) return;
+    if (_eventStream != null) {
+      _eventStream?.cancel();
+    } else {
+      _eventStream = _repository.subscribe().listen((event) {
+        final tutor = event.tutor;
+        final tutors = state.tutorsOrFailure.fold((l) => null, (r) => r);
+        if (tutors == null) return;
 
-      final idx = tutors.indexWhere((element) => element.id == tutor.id);
-      if (idx == -1) return;
+        final idx = tutors.indexWhere((element) => element.id == tutor.id);
+        if (idx == -1) return;
 
-      state.copyWith(
-        tutorsOrFailure: right(tutors.toList()
-          ..[idx] = tutor
-          ..where((element) => element.isFavourite)),
-        loadingTutors: state.loadingTutors..remove(tutor.id),
-      );
-    });
+        final list = (tutors.toList()..[idx] = tutor)
+            .where((element) => element.isFavourite)
+            .toList();
+
+        emit(state.copyWith(
+          tutorsOrFailure: right(list),
+          loadingTutors: state.loadingTutors..remove(tutor.id),
+        ));
+      });
+    }
+  }
+
+  @override
+  Future<void> close() async {
+    await super.close();
+    _eventStream?.cancel();
   }
 
   void toggleFavourite(String tutorId) async {
+    log('toggleFavourite($tutorId)');
     emit(state.copyWith(isLoading: true));
     emit(state.copyWith(
       isLoading: false,

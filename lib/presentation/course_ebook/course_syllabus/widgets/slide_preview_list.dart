@@ -51,7 +51,7 @@ class _SlidePreviewListState extends State<SlidePreviewList> {
   @override
   Widget build(BuildContext context) {
     return AnimatedSize(
-      duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 1),
       child: FutureBuilder(
         future: init(),
         builder: (context, snapshot) {
@@ -67,46 +67,42 @@ class _SlidePreviewListState extends State<SlidePreviewList> {
           }
           final ratio = images[0].left.width / images[0].left.height;
 
-          return Scrollbar(
-            controller: _controller,
-            showTrackOnHover: true,
-            interactive: true,
-            child: ScrollConfiguration(
-              behavior: ScrollConfiguration.of(context).copyWith(
-                dragDevices: {
-                  PointerDeviceKind.touch,
-                  PointerDeviceKind.mouse,
-                },
-              ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: itemSpacing),
-                child: LimitedBox(
-                  maxHeight: ratio < 1 ? 400 : 200,
-                  child: ListView.separated(
-                    primary: false,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    controller: _controller,
-                    itemCount: images.length,
-                    itemBuilder: (context, index) {
-                      return OutlinedCard(
-                        childInsideInkwell: false,
-                        onTap: () => context.pushRoute(
-                          CourseSyllabusPreviewRoute(
-                            item: widget.item,
-                            pdf: widget.pdf!,
-                            initialPage: index + 1,
-                          ),
+          return ScrollConfiguration(
+            behavior: ScrollConfiguration.of(context).copyWith(
+              dragDevices: {
+                PointerDeviceKind.touch,
+                PointerDeviceKind.mouse,
+              },
+            ),
+            child: LimitedBox(
+              maxHeight: ratio < 1 ? 400 : 200,
+              child: ListView.separated(
+                padding: EdgeInsets.zero,
+                primary: false,
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                controller: _controller,
+                itemCount: images.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: itemSpacing),
+                    child: OutlinedCard(
+                      childInsideInkwell: false,
+                      onTap: () => context.pushRoute(
+                        CourseSyllabusPreviewRoute(
+                          item: widget.item,
+                          pdf: widget.pdf!,
+                          initialPage: index + 1,
                         ),
-                        child: Image.memory(
-                          images[index].right,
-                        ),
-                      );
-                    },
-                    separatorBuilder: (context, index) => const SizedBox(
-                      width: smallItemSpacing,
+                      ),
+                      child: Image.memory(
+                        images[index].right,
+                      ),
                     ),
-                  ),
+                  );
+                },
+                separatorBuilder: (context, index) => const SizedBox(
+                  width: smallItemSpacing,
                 ),
               ),
             ),

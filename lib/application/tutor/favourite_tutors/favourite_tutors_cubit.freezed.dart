@@ -21,7 +21,7 @@ class _$FavouriteTutorsStateTearOff {
   _FavouriteTutorsState call(
       {bool isLoading = false,
       Either<Failure, List<Tutor>> tutorsOrFailure = const Right([]),
-      Set<String> loadingTutors = const <String>{}}) {
+      required Set<String> loadingTutors}) {
     return _FavouriteTutorsState(
       isLoading: isLoading,
       tutorsOrFailure: tutorsOrFailure,
@@ -141,7 +141,7 @@ class _$_FavouriteTutorsState implements _FavouriteTutorsState {
   const _$_FavouriteTutorsState(
       {this.isLoading = false,
       this.tutorsOrFailure = const Right([]),
-      this.loadingTutors = const <String>{}});
+      required this.loadingTutors});
 
   @JsonKey()
   @override
@@ -149,7 +149,6 @@ class _$_FavouriteTutorsState implements _FavouriteTutorsState {
   @JsonKey()
   @override
   final Either<Failure, List<Tutor>> tutorsOrFailure;
-  @JsonKey()
   @override
   final Set<String> loadingTutors;
 
@@ -188,7 +187,7 @@ abstract class _FavouriteTutorsState implements FavouriteTutorsState {
   const factory _FavouriteTutorsState(
       {bool isLoading,
       Either<Failure, List<Tutor>> tutorsOrFailure,
-      Set<String> loadingTutors}) = _$_FavouriteTutorsState;
+      required Set<String> loadingTutors}) = _$_FavouriteTutorsState;
 
   @override
   bool get isLoading;
