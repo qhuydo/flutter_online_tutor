@@ -156,4 +156,18 @@ class MockTutorRepository implements TutorRepository {
     }
     return right(tutor);
   }
+
+  @override
+  Future<Either<Failure, List<Tutor>>> getFavouriteTutors() async {
+    final result = await getRecommendedTutors(page: 1, limit: 100);
+
+    if (result.isLeft()) {
+      return result.fold(
+        (l) => left(l),
+        (r) => left(const Failure.internalError()),
+      );
+    }
+    final tutorList = result.fold((l) => <Tutor>[], (r) => r);
+    return right(tutorList.where((element) => element.isFavourite).toList());
+  }
 }

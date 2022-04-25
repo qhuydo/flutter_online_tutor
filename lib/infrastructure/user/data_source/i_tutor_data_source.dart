@@ -21,6 +21,8 @@ abstract class TutorDataSource {
 
   Future saveTutor(Tutor tutor);
 
+  Future<List<Tutor>> getFavouriteTutors();
+
   Future clear();
 
   Future dispose();

@@ -32,5 +32,7 @@ abstract class TutorRepository {
 
   Future<Either<Failure, Tutor>> getTutorById(String tutorId);
 
+  Future<Either<Failure, List<Tutor>>> getFavouriteTutors();
+
   Future dispose();
 }

@@ -30,6 +30,7 @@ class TutorRepositoryImpl implements TutorRepository {
   final TutorDataSource _dataSource;
   List<Speciality>? _specialities;
   final ApiClient _apiClient;
+  var _isFavouriteTutorListInitialised = false;
 
   TutorRepositoryImpl(this._dataSource, this._apiClient);
 
@@ -77,7 +78,7 @@ class TutorRepositoryImpl implements TutorRepository {
       final favouriteTutorsDto = (res['favoriteTutor'] as List)
           .map((e) => e['secondId'] as String)
           .toList(growable: false);
-
+      _isFavouriteTutorListInitialised = true;
       return right(Pair(tutorsDto, favouriteTutorsDto));
     } on NullThrownError {
       return left(const Failure.serverError());
@@ -286,5 +287,16 @@ class TutorRepositoryImpl implements TutorRepository {
     } on TypeError {
       return left(const Failure.serverError());
     }
+  }
+
+  @override
+  Future<Either<Failure, List<Tutor>>> getFavouriteTutors() async {
+    if (!_isFavouriteTutorListInitialised) {
+      final fetchTutorResult = await getRecommendedTutors(page: 1, limit: 1);
+      if (fetchTutorResult.isLeft()) {
+        return fetchTutorResult.leftMap((l) => l);
+      }
+    }
+    return right(await _dataSource.getFavouriteTutors());
   }
 }
