@@ -186,7 +186,7 @@
     "authenticationErrorWrongPassword": "入力されたパスワードが正しくありません。",
     "authenticationFailureUnauthorized": "エラー：不正アクセス",
     "resetPasswordDialogTitle": "パスワードはリセットされました。",
-    "resetPasswordContent": "パスワードは {password} にリセットされました。",
+    "resetPasswordContent": "確認リンクのメールをチェックしてください。",
     "emailFailureInvalidEmail": "メールアドレスが無効です。",
     "emailFailureEmptyValue": "メールアドレスを入力してください。",
     "passwordFailureShortPassword": "入力したパスワードが短すぎます。",

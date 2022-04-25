@@ -227,7 +227,7 @@
     "authenticationErrorWrongPassword": "The entered password is incorrect.",
     "authenticationFailureUnauthorized": "Error: unauthorized",
     "resetPasswordDialogTitle": "Your password has been reset",
-    "resetPasswordContent": "Your password has been reset to {password}.",
+    "resetPasswordContent": "Please check your email for the confirmation link",
     "@resetPasswordContent": {
       "placeholders": {
         "password": {

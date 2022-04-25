@@ -1,3 +1,8 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../application/schedule/schedule_details/schedule_details_cubit.dart';
+import '../../../../application/schedule/tutor_schedule/tutor_schedule_bloc.dart';
+import '../../../../domain/schedule/interfaces/i_schedule_repository.dart';
 import '../../../../domain/schedule/models/schedule.dart';
 import '../../../common.dart';
 import '../utils/schedule_extension.dart';
@@ -42,14 +47,25 @@ class ScheduleRow extends StatelessWidget {
         onPressed: null,
       );
     }
+    final scheduleBloc = context.read<TutorScheduleBloc>();
     return TextButton(
       child: Text(context.l10n.bookButtonText),
       onPressed: () {
         showDialog(
             context: context,
+            barrierDismissible: false,
             builder: (context) {
-              return BookDialog(
-                schedule: schedule,
+              return MultiBlocProvider(
+                providers: [
+                  BlocProvider.value(value: scheduleBloc),
+                  BlocProvider(
+                    create: (_) => ScheduleDetailsCubit(
+                      getIt<ScheduleRepository>(),
+                      schedule: schedule,
+                    ),
+                  ),
+                ],
+                child: const BookDialog(),
               );
             });
       },

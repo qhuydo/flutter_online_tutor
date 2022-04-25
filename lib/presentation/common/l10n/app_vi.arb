@@ -186,7 +186,7 @@
     "authenticationErrorWrongPassword": "Mật khẩu không đúng.",
     "authenticationFailureUnauthorized": "Lỗi: không có quyền truy cập",
     "resetPasswordDialogTitle": "Mật khẩu của bạn đã được đặt lại",
-    "resetPasswordContent": "Mật khẩu của bạn đã được đổi lại thành {password}.",
+    "resetPasswordContent": "Vui lòng kiểm tra lại email của bạn để nhận đường link đổi mật khẩu.",
     "emailFailureInvalidEmail": "Email không hợp lệ",
     "emailFailureEmptyValue": "Xin hãy nhập email",
     "passwordFailureShortPassword": "Mật khẩu bạn nhập vào quá ngắn, xin hãy nhập mật khẩu dài hơn",
