@@ -62,6 +62,12 @@ class _$ProfileEventTearOff {
   _UpdateButtonPressed updateButtonPressed() {
     return const _UpdateButtonPressed();
   }
+
+  _NewProfileImageSelected newProfileImageSelected(File file) {
+    return _NewProfileImageSelected(
+      file,
+    );
+  }
 }
 
 /// @nodoc
@@ -80,6 +86,7 @@ mixin _$ProfileEvent {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
+    required TResult Function(File file) newProfileImageSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,6 +100,7 @@ mixin _$ProfileEvent {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -106,6 +114,7 @@ mixin _$ProfileEvent {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +129,8 @@ mixin _$ProfileEvent {
     required TResult Function(_TestPreparationTopicsChanged value)
         testPreparationTopicsChanged,
     required TResult Function(_UpdateButtonPressed value) updateButtonPressed,
+    required TResult Function(_NewProfileImageSelected value)
+        newProfileImageSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -133,6 +144,7 @@ mixin _$ProfileEvent {
     TResult Function(_TestPreparationTopicsChanged value)?
         testPreparationTopicsChanged,
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -146,6 +158,7 @@ mixin _$ProfileEvent {
     TResult Function(_TestPreparationTopicsChanged value)?
         testPreparationTopicsChanged,
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -216,6 +229,7 @@ class _$_Initialize implements _Initialize {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
+    required TResult Function(File file) newProfileImageSelected,
   }) {
     return initialize();
   }
@@ -232,6 +246,7 @@ class _$_Initialize implements _Initialize {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
   }) {
     return initialize?.call();
   }
@@ -248,6 +263,7 @@ class _$_Initialize implements _Initialize {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -268,6 +284,8 @@ class _$_Initialize implements _Initialize {
     required TResult Function(_TestPreparationTopicsChanged value)
         testPreparationTopicsChanged,
     required TResult Function(_UpdateButtonPressed value) updateButtonPressed,
+    required TResult Function(_NewProfileImageSelected value)
+        newProfileImageSelected,
   }) {
     return initialize(this);
   }
@@ -284,6 +302,7 @@ class _$_Initialize implements _Initialize {
     TResult Function(_TestPreparationTopicsChanged value)?
         testPreparationTopicsChanged,
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
   }) {
     return initialize?.call(this);
   }
@@ -300,6 +319,7 @@ class _$_Initialize implements _Initialize {
     TResult Function(_TestPreparationTopicsChanged value)?
         testPreparationTopicsChanged,
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -386,6 +406,7 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
+    required TResult Function(File file) newProfileImageSelected,
   }) {
     return nameChanged(name);
   }
@@ -402,6 +423,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
   }) {
     return nameChanged?.call(name);
   }
@@ -418,6 +440,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -438,6 +461,8 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(_TestPreparationTopicsChanged value)
         testPreparationTopicsChanged,
     required TResult Function(_UpdateButtonPressed value) updateButtonPressed,
+    required TResult Function(_NewProfileImageSelected value)
+        newProfileImageSelected,
   }) {
     return nameChanged(this);
   }
@@ -454,6 +479,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(_TestPreparationTopicsChanged value)?
         testPreparationTopicsChanged,
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
   }) {
     return nameChanged?.call(this);
   }
@@ -470,6 +496,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(_TestPreparationTopicsChanged value)?
         testPreparationTopicsChanged,
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -562,6 +589,7 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
+    required TResult Function(File file) newProfileImageSelected,
   }) {
     return birthDayChanged(birthDay);
   }
@@ -578,6 +606,7 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
   }) {
     return birthDayChanged?.call(birthDay);
   }
@@ -594,6 +623,7 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (birthDayChanged != null) {
@@ -614,6 +644,8 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     required TResult Function(_TestPreparationTopicsChanged value)
         testPreparationTopicsChanged,
     required TResult Function(_UpdateButtonPressed value) updateButtonPressed,
+    required TResult Function(_NewProfileImageSelected value)
+        newProfileImageSelected,
   }) {
     return birthDayChanged(this);
   }
@@ -630,6 +662,7 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     TResult Function(_TestPreparationTopicsChanged value)?
         testPreparationTopicsChanged,
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
   }) {
     return birthDayChanged?.call(this);
   }
@@ -646,6 +679,7 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     TResult Function(_TestPreparationTopicsChanged value)?
         testPreparationTopicsChanged,
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (birthDayChanged != null) {
@@ -747,6 +781,7 @@ class _$_CountryChanged implements _CountryChanged {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
+    required TResult Function(File file) newProfileImageSelected,
   }) {
     return countryChanged(country);
   }
@@ -763,6 +798,7 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
   }) {
     return countryChanged?.call(country);
   }
@@ -779,6 +815,7 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (countryChanged != null) {
@@ -799,6 +836,8 @@ class _$_CountryChanged implements _CountryChanged {
     required TResult Function(_TestPreparationTopicsChanged value)
         testPreparationTopicsChanged,
     required TResult Function(_UpdateButtonPressed value) updateButtonPressed,
+    required TResult Function(_NewProfileImageSelected value)
+        newProfileImageSelected,
   }) {
     return countryChanged(this);
   }
@@ -815,6 +854,7 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(_TestPreparationTopicsChanged value)?
         testPreparationTopicsChanged,
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
   }) {
     return countryChanged?.call(this);
   }
@@ -831,6 +871,7 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(_TestPreparationTopicsChanged value)?
         testPreparationTopicsChanged,
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (countryChanged != null) {
@@ -922,6 +963,7 @@ class _$_LevelChanged implements _LevelChanged {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
+    required TResult Function(File file) newProfileImageSelected,
   }) {
     return levelChanged(level);
   }
@@ -938,6 +980,7 @@ class _$_LevelChanged implements _LevelChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
   }) {
     return levelChanged?.call(level);
   }
@@ -954,6 +997,7 @@ class _$_LevelChanged implements _LevelChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (levelChanged != null) {
@@ -974,6 +1018,8 @@ class _$_LevelChanged implements _LevelChanged {
     required TResult Function(_TestPreparationTopicsChanged value)
         testPreparationTopicsChanged,
     required TResult Function(_UpdateButtonPressed value) updateButtonPressed,
+    required TResult Function(_NewProfileImageSelected value)
+        newProfileImageSelected,
   }) {
     return levelChanged(this);
   }
@@ -990,6 +1036,7 @@ class _$_LevelChanged implements _LevelChanged {
     TResult Function(_TestPreparationTopicsChanged value)?
         testPreparationTopicsChanged,
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
   }) {
     return levelChanged?.call(this);
   }
@@ -1006,6 +1053,7 @@ class _$_LevelChanged implements _LevelChanged {
     TResult Function(_TestPreparationTopicsChanged value)?
         testPreparationTopicsChanged,
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (levelChanged != null) {
@@ -1099,6 +1147,7 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
+    required TResult Function(File file) newProfileImageSelected,
   }) {
     return learnTopicsChanged(learnTopics);
   }
@@ -1115,6 +1164,7 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
   }) {
     return learnTopicsChanged?.call(learnTopics);
   }
@@ -1131,6 +1181,7 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (learnTopicsChanged != null) {
@@ -1151,6 +1202,8 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
     required TResult Function(_TestPreparationTopicsChanged value)
         testPreparationTopicsChanged,
     required TResult Function(_UpdateButtonPressed value) updateButtonPressed,
+    required TResult Function(_NewProfileImageSelected value)
+        newProfileImageSelected,
   }) {
     return learnTopicsChanged(this);
   }
@@ -1167,6 +1220,7 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
     TResult Function(_TestPreparationTopicsChanged value)?
         testPreparationTopicsChanged,
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
   }) {
     return learnTopicsChanged?.call(this);
   }
@@ -1183,6 +1237,7 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
     TResult Function(_TestPreparationTopicsChanged value)?
         testPreparationTopicsChanged,
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (learnTopicsChanged != null) {
@@ -1281,6 +1336,7 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
+    required TResult Function(File file) newProfileImageSelected,
   }) {
     return testPreparationTopicsChanged(testPreparationTopics);
   }
@@ -1297,6 +1353,7 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
   }) {
     return testPreparationTopicsChanged?.call(testPreparationTopics);
   }
@@ -1313,6 +1370,7 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (testPreparationTopicsChanged != null) {
@@ -1333,6 +1391,8 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
     required TResult Function(_TestPreparationTopicsChanged value)
         testPreparationTopicsChanged,
     required TResult Function(_UpdateButtonPressed value) updateButtonPressed,
+    required TResult Function(_NewProfileImageSelected value)
+        newProfileImageSelected,
   }) {
     return testPreparationTopicsChanged(this);
   }
@@ -1349,6 +1409,7 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
     TResult Function(_TestPreparationTopicsChanged value)?
         testPreparationTopicsChanged,
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
   }) {
     return testPreparationTopicsChanged?.call(this);
   }
@@ -1365,6 +1426,7 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
     TResult Function(_TestPreparationTopicsChanged value)?
         testPreparationTopicsChanged,
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (testPreparationTopicsChanged != null) {
@@ -1434,6 +1496,7 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
+    required TResult Function(File file) newProfileImageSelected,
   }) {
     return updateButtonPressed();
   }
@@ -1450,6 +1513,7 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
   }) {
     return updateButtonPressed?.call();
   }
@@ -1466,6 +1530,7 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (updateButtonPressed != null) {
@@ -1486,6 +1551,8 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
     required TResult Function(_TestPreparationTopicsChanged value)
         testPreparationTopicsChanged,
     required TResult Function(_UpdateButtonPressed value) updateButtonPressed,
+    required TResult Function(_NewProfileImageSelected value)
+        newProfileImageSelected,
   }) {
     return updateButtonPressed(this);
   }
@@ -1502,6 +1569,7 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
     TResult Function(_TestPreparationTopicsChanged value)?
         testPreparationTopicsChanged,
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
   }) {
     return updateButtonPressed?.call(this);
   }
@@ -1518,6 +1586,7 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
     TResult Function(_TestPreparationTopicsChanged value)?
         testPreparationTopicsChanged,
     TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (updateButtonPressed != null) {
@@ -1532,6 +1601,192 @@ abstract class _UpdateButtonPressed implements ProfileEvent {
 }
 
 /// @nodoc
+abstract class _$NewProfileImageSelectedCopyWith<$Res> {
+  factory _$NewProfileImageSelectedCopyWith(_NewProfileImageSelected value,
+          $Res Function(_NewProfileImageSelected) then) =
+      __$NewProfileImageSelectedCopyWithImpl<$Res>;
+  $Res call({File file});
+}
+
+/// @nodoc
+class __$NewProfileImageSelectedCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res>
+    implements _$NewProfileImageSelectedCopyWith<$Res> {
+  __$NewProfileImageSelectedCopyWithImpl(_NewProfileImageSelected _value,
+      $Res Function(_NewProfileImageSelected) _then)
+      : super(_value, (v) => _then(v as _NewProfileImageSelected));
+
+  @override
+  _NewProfileImageSelected get _value =>
+      super._value as _NewProfileImageSelected;
+
+  @override
+  $Res call({
+    Object? file = freezed,
+  }) {
+    return _then(_NewProfileImageSelected(
+      file == freezed
+          ? _value.file
+          : file // ignore: cast_nullable_to_non_nullable
+              as File,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_NewProfileImageSelected implements _NewProfileImageSelected {
+  const _$_NewProfileImageSelected(this.file);
+
+  @override
+  final File file;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.newProfileImageSelected(file: $file)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _NewProfileImageSelected &&
+            const DeepCollectionEquality().equals(other.file, file));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(file));
+
+  @JsonKey(ignore: true)
+  @override
+  _$NewProfileImageSelectedCopyWith<_NewProfileImageSelected> get copyWith =>
+      __$NewProfileImageSelectedCopyWithImpl<_NewProfileImageSelected>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(String name) nameChanged,
+    required TResult Function(String birthDay) birthDayChanged,
+    required TResult Function(Country country) countryChanged,
+    required TResult Function(Level level) levelChanged,
+    required TResult Function(List<Speciality> learnTopics) learnTopicsChanged,
+    required TResult Function(List<Speciality> testPreparationTopics)
+        testPreparationTopicsChanged,
+    required TResult Function() updateButtonPressed,
+    required TResult Function(File file) newProfileImageSelected,
+  }) {
+    return newProfileImageSelected(file);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
+    TResult Function(Country country)? countryChanged,
+    TResult Function(Level level)? levelChanged,
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
+        testPreparationTopicsChanged,
+    TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
+  }) {
+    return newProfileImageSelected?.call(file);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(String name)? nameChanged,
+    TResult Function(String birthDay)? birthDayChanged,
+    TResult Function(Country country)? countryChanged,
+    TResult Function(Level level)? levelChanged,
+    TResult Function(List<Speciality> learnTopics)? learnTopicsChanged,
+    TResult Function(List<Speciality> testPreparationTopics)?
+        testPreparationTopicsChanged,
+    TResult Function()? updateButtonPressed,
+    TResult Function(File file)? newProfileImageSelected,
+    required TResult orElse(),
+  }) {
+    if (newProfileImageSelected != null) {
+      return newProfileImageSelected(file);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_BirthDayChanged value) birthDayChanged,
+    required TResult Function(_CountryChanged value) countryChanged,
+    required TResult Function(_LevelChanged value) levelChanged,
+    required TResult Function(_LearnTopicsChanged value) learnTopicsChanged,
+    required TResult Function(_TestPreparationTopicsChanged value)
+        testPreparationTopicsChanged,
+    required TResult Function(_UpdateButtonPressed value) updateButtonPressed,
+    required TResult Function(_NewProfileImageSelected value)
+        newProfileImageSelected,
+  }) {
+    return newProfileImageSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_BirthDayChanged value)? birthDayChanged,
+    TResult Function(_CountryChanged value)? countryChanged,
+    TResult Function(_LevelChanged value)? levelChanged,
+    TResult Function(_LearnTopicsChanged value)? learnTopicsChanged,
+    TResult Function(_TestPreparationTopicsChanged value)?
+        testPreparationTopicsChanged,
+    TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
+  }) {
+    return newProfileImageSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_BirthDayChanged value)? birthDayChanged,
+    TResult Function(_CountryChanged value)? countryChanged,
+    TResult Function(_LevelChanged value)? levelChanged,
+    TResult Function(_LearnTopicsChanged value)? learnTopicsChanged,
+    TResult Function(_TestPreparationTopicsChanged value)?
+        testPreparationTopicsChanged,
+    TResult Function(_UpdateButtonPressed value)? updateButtonPressed,
+    TResult Function(_NewProfileImageSelected value)? newProfileImageSelected,
+    required TResult orElse(),
+  }) {
+    if (newProfileImageSelected != null) {
+      return newProfileImageSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NewProfileImageSelected implements ProfileEvent {
+  const factory _NewProfileImageSelected(File file) =
+      _$_NewProfileImageSelected;
+
+  File get file;
+  @JsonKey(ignore: true)
+  _$NewProfileImageSelectedCopyWith<_NewProfileImageSelected> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 class _$ProfileStateTearOff {
   const _$ProfileStateTearOff();
 
@@ -1540,6 +1795,7 @@ class _$ProfileStateTearOff {
       required Name name,
       BirthDay? birthDay,
       Country? country,
+      File? selectedProfileImage,
       Level level = Level.none,
       List<Speciality> learnTopics = const [],
       List<Speciality> testPreparations = const [],
@@ -1555,6 +1811,7 @@ class _$ProfileStateTearOff {
       name: name,
       birthDay: birthDay,
       country: country,
+      selectedProfileImage: selectedProfileImage,
       level: level,
       learnTopics: learnTopics,
       testPreparations: testPreparations,
@@ -1579,6 +1836,7 @@ mixin _$ProfileState {
   BirthDay? get birthDay =>
       throw _privateConstructorUsedError; // PhoneNumber? phoneNumber,
   Country? get country => throw _privateConstructorUsedError;
+  File? get selectedProfileImage => throw _privateConstructorUsedError;
   Level get level => throw _privateConstructorUsedError;
   List<Speciality> get learnTopics => throw _privateConstructorUsedError;
   List<Speciality> get testPreparations => throw _privateConstructorUsedError;
@@ -1607,6 +1865,7 @@ abstract class $ProfileStateCopyWith<$Res> {
       Name name,
       BirthDay? birthDay,
       Country? country,
+      File? selectedProfileImage,
       Level level,
       List<Speciality> learnTopics,
       List<Speciality> testPreparations,
@@ -1636,6 +1895,7 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
     Object? name = freezed,
     Object? birthDay = freezed,
     Object? country = freezed,
+    Object? selectedProfileImage = freezed,
     Object? level = freezed,
     Object? learnTopics = freezed,
     Object? testPreparations = freezed,
@@ -1664,6 +1924,10 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as Country?,
+      selectedProfileImage: selectedProfileImage == freezed
+          ? _value.selectedProfileImage
+          : selectedProfileImage // ignore: cast_nullable_to_non_nullable
+              as File?,
       level: level == freezed
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
@@ -1738,6 +2002,7 @@ abstract class _$ProfileStateCopyWith<$Res>
       Name name,
       BirthDay? birthDay,
       Country? country,
+      File? selectedProfileImage,
       Level level,
       List<Speciality> learnTopics,
       List<Speciality> testPreparations,
@@ -1771,6 +2036,7 @@ class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
     Object? name = freezed,
     Object? birthDay = freezed,
     Object? country = freezed,
+    Object? selectedProfileImage = freezed,
     Object? level = freezed,
     Object? learnTopics = freezed,
     Object? testPreparations = freezed,
@@ -1799,6 +2065,10 @@ class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as Country?,
+      selectedProfileImage: selectedProfileImage == freezed
+          ? _value.selectedProfileImage
+          : selectedProfileImage // ignore: cast_nullable_to_non_nullable
+              as File?,
       level: level == freezed
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
@@ -1851,6 +2121,7 @@ class _$_ProfileState extends _ProfileState {
       required this.name,
       this.birthDay,
       this.country,
+      this.selectedProfileImage,
       this.level = Level.none,
       this.learnTopics = const [],
       this.testPreparations = const [],
@@ -1871,6 +2142,8 @@ class _$_ProfileState extends _ProfileState {
   final BirthDay? birthDay;
   @override // PhoneNumber? phoneNumber,
   final Country? country;
+  @override
+  final File? selectedProfileImage;
   @JsonKey()
   @override
   final Level level;
@@ -1904,7 +2177,7 @@ class _$_ProfileState extends _ProfileState {
 
   @override
   String toString() {
-    return 'ProfileState(user: $user, name: $name, birthDay: $birthDay, country: $country, level: $level, learnTopics: $learnTopics, testPreparations: $testPreparations, isInitializing: $isInitializing, isLoading: $isLoading, badState: $badState, showError: $showError, updateFailureOrSuccessOption: $updateFailureOrSuccessOption, allLearnTopics: $allLearnTopics, allTestPreparations: $allTestPreparations)';
+    return 'ProfileState(user: $user, name: $name, birthDay: $birthDay, country: $country, selectedProfileImage: $selectedProfileImage, level: $level, learnTopics: $learnTopics, testPreparations: $testPreparations, isInitializing: $isInitializing, isLoading: $isLoading, badState: $badState, showError: $showError, updateFailureOrSuccessOption: $updateFailureOrSuccessOption, allLearnTopics: $allLearnTopics, allTestPreparations: $allTestPreparations)';
   }
 
   @override
@@ -1916,6 +2189,8 @@ class _$_ProfileState extends _ProfileState {
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.birthDay, birthDay) &&
             const DeepCollectionEquality().equals(other.country, country) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedProfileImage, selectedProfileImage) &&
             const DeepCollectionEquality().equals(other.level, level) &&
             const DeepCollectionEquality()
                 .equals(other.learnTopics, learnTopics) &&
@@ -1942,6 +2217,7 @@ class _$_ProfileState extends _ProfileState {
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(birthDay),
       const DeepCollectionEquality().hash(country),
+      const DeepCollectionEquality().hash(selectedProfileImage),
       const DeepCollectionEquality().hash(level),
       const DeepCollectionEquality().hash(learnTopics),
       const DeepCollectionEquality().hash(testPreparations),
@@ -1965,6 +2241,7 @@ abstract class _ProfileState extends ProfileState {
       required Name name,
       BirthDay? birthDay,
       Country? country,
+      File? selectedProfileImage,
       Level level,
       List<Speciality> learnTopics,
       List<Speciality> testPreparations,
@@ -1985,6 +2262,8 @@ abstract class _ProfileState extends ProfileState {
   BirthDay? get birthDay;
   @override // PhoneNumber? phoneNumber,
   Country? get country;
+  @override
+  File? get selectedProfileImage;
   @override
   Level get level;
   @override

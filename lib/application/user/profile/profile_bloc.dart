@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
@@ -39,6 +40,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         testPreparationTopicsChanged: (value) =>
             _onTestPreparationTopicsChanged(value, emit),
         updateButtonPressed: () => _onUpdateButtonPressed(emit),
+        newProfileImageSelected: (value) =>
+            _onNewProfileImageSelected(value, emit),
       );
     });
   }
@@ -158,5 +161,10 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       showError: true,
       updateFailureOrSuccessOption: optionOf(result),
     ));
+  }
+
+  Future _onNewProfileImageSelected(
+      File file, Emitter<ProfileState> emit) async {
+    emit(state.copyWith(selectedProfileImage: file));
   }
 }

@@ -21,4 +21,7 @@ class ProfileEvent with _$ProfileEvent {
   ) = _TestPreparationTopicsChanged;
 
   const factory ProfileEvent.updateButtonPressed() = _UpdateButtonPressed;
+
+  const factory ProfileEvent.newProfileImageSelected(File file) =
+      _NewProfileImageSelected;
 }

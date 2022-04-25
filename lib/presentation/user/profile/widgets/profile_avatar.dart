@@ -1,5 +1,7 @@
+import 'dart:io';
 import 'dart:math';
 
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/user/profile/profile_bloc.dart';
@@ -31,24 +33,7 @@ class ProfileAvatar extends StatelessWidget {
         Center(
           child: Stack(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: BlocBuilder<ProfileBloc, ProfileState>(
-                  buildWhen: (previous, current) =>
-                      previous.user.avatar != current.user.avatar,
-                  builder: (context, state) {
-                    final avatar = state.user.avatar;
-                    return LayoutBuilder(
-                      builder: (_, constraints) => CircleAvatar(
-                        onBackgroundImageError: (exception, stackTrace) {},
-                        radius: avatarRadius ??
-                            avatarRadiusFromConstraints(constraints),
-                        backgroundImage: NetworkImage(avatar ?? ''),
-                      ),
-                    );
-                  },
-                ),
-              ),
+              buildProfileImage(),
               Positioned(
                 bottom: 0,
                 right: 0,
@@ -64,7 +49,19 @@ class ProfileAvatar extends StatelessWidget {
                     icon: const Icon(
                       Icons.photo_camera,
                     ),
-                    onPressed: () {},
+                    onPressed: () async {
+                      final result = await FilePicker.platform.pickFiles(
+                        type: FileType.image,
+                        allowedExtensions: ['jpg', 'jpeg', 'png'],
+                      );
+
+                      if (result != null && result.files.single.path != null) {
+                        final file = File(result.files.single.path!);
+                        context
+                            .read<ProfileBloc>()
+                            .add(ProfileEvent.newProfileImageSelected(file));
+                      }
+                    },
                     tooltip: context.l10n.changeAvatarButtonTooltip,
                   ),
                 ),
@@ -99,6 +96,29 @@ class ProfileAvatar extends StatelessWidget {
           },
         ),
       ],
+    );
+  }
+
+  Widget buildProfileImage() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: BlocBuilder<ProfileBloc, ProfileState>(
+        buildWhen: (previous, current) =>
+            previous.user.avatar != current.user.avatar ||
+            previous.selectedProfileImage != current.selectedProfileImage,
+        builder: (context, state) {
+          final avatar = state.user.avatar;
+          return LayoutBuilder(
+            builder: (_, constraints) => CircleAvatar(
+              onBackgroundImageError: (exception, stackTrace) {},
+              radius: avatarRadius ?? avatarRadiusFromConstraints(constraints),
+              backgroundImage: state.selectedProfileImage != null
+                  ? FileImage(state.selectedProfileImage!)
+                  : NetworkImage(avatar ?? '') as dynamic,
+            ),
+          );
+        },
+      ),
     );
   }
 }

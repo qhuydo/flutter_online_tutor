@@ -175,6 +175,12 @@ dependencies:
   # MIT License. Copyright (c) 2019 RBC, Serge Shkurko
   pdfx: ^2.0.1+2
 
+  # A package that allows you to use a native file explorer to pick single or multiple absolute file paths,
+  # with extension filtering support.
+  # TODO setup IOS project
+  # (c) MIT License. By Miguel Ruivo.
+  file_picker: ^4.5.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

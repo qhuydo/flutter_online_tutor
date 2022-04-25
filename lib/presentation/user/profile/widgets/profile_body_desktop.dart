@@ -21,7 +21,7 @@ class ProfileBodyDesktop extends StatelessWidget {
               flex: 2,
               fit: FlexFit.loose,
               child: ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 800),
+                constraints: const BoxConstraints(maxWidth: 800),
                 child: Column(
                   children: const [
                     EditProfileForm(),
