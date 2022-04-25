@@ -11,8 +11,8 @@ import '../../../domain/tutor/models/tutor_search_options.dart';
 import '../../../domain/user/models/speciality.dart';
 import '../../../presentation/common.dart';
 import '../../common/db/fixture_loader.dart';
-import '../../user/data_source/i_tutor_data_source.dart';
 import '../../user/dto/speciality_dto.dart';
+import '../data_source/i_tutor_data_source.dart';
 import '../dto/tutor_details/tutor_details_dto.dart';
 import '../dto/tutor_list/tutor_list_item_dto.dart';
 

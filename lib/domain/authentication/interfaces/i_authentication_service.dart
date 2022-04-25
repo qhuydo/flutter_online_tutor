@@ -23,6 +23,7 @@ abstract class AuthenticationService {
 
   Future<Either<AuthenticationFailure, Unit>> signOut();
 
+  @Deprecated('Use UserRepository.getSignedInUser')
   Future<Option<User>> getSignedInUser();
 
   Future<Option<Tokens>> getTokens();

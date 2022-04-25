@@ -51,6 +51,8 @@ class UserEndpoints {
   String get feedbackTutor => '$_userPath/feedbackTutor';
 
   String get addTutorToFavourites => '$_userPath/manageFavoriteTutor';
+
+  String get uploadAvatar => '$_userPath/uploadAvatar';
 }
 
 class PaymentEndpoints {

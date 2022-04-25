@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dartz/dartz.dart';
 
 import '../../authentication/value_objects/phone_number.dart';
@@ -5,6 +7,7 @@ import '../../common/failures/failure.dart';
 import '../../common/models/country.dart';
 import '../constants/levels.dart';
 import '../models/speciality.dart';
+import '../models/user.dart';
 import '../value_objects/birthday.dart';
 import '../value_objects/name.dart';
 
@@ -21,5 +24,10 @@ abstract class UserRepository {
     required Level level,
     required List<Speciality> learnTopics,
     required List<Speciality> testPreparations,
+    File? profileImage,
   });
+
+  Future<Option<User>> getSignedInUser();
+
+  Future<Either<Failure, User>> fetchUserInfo();
 }

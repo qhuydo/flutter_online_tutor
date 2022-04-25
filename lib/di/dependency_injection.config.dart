@@ -11,7 +11,7 @@ import 'package:hive/hive.dart' as _i5;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:shared_preferences/shared_preferences.dart' as _i19;
 
-import '../application/authentication/authentication_bloc.dart' as _i48;
+import '../application/authentication/authentication_bloc.dart' as _i49;
 import '../application/authentication/change_password/change_password_bloc.dart'
     as _i32;
 import '../application/authentication/login/login_bloc.dart' as _i39;
@@ -46,13 +46,13 @@ import '../domain/schedule/interfaces/i_schedule_repository.dart' as _i14;
 import '../domain/tutor/interfaces/i_tutor_repository.dart' as _i22;
 import '../domain/user/interfaces/i_user_repository.dart' as _i26;
 import '../infrastructure/authentication/repositories/authentication_service.dart'
-    as _i49;
+    as _i50;
 import '../infrastructure/authentication/repositories/mock_authentication_service.dart'
     as _i31;
 import '../infrastructure/common/app/app_repository.dart' as _i4;
 import '../infrastructure/common/db/secure_hive_storage.dart' as _i16;
 import '../infrastructure/common/db/shared_preference_storage.dart' as _i18;
-import '../infrastructure/common/di/app_injectable_module.dart' as _i50;
+import '../infrastructure/common/di/app_injectable_module.dart' as _i51;
 import '../infrastructure/common/network/api_client.dart' as _i28;
 import '../infrastructure/common/network/dio_interceptors.dart' as _i36;
 import '../infrastructure/common/network/internet_connection_service.dart'
@@ -65,12 +65,13 @@ import '../infrastructure/schedule/repositories/mock_schedule_repository.dart'
     as _i15;
 import '../infrastructure/schedule/repositories/schedule_repository.dart'
     as _i43;
+import '../infrastructure/tutor/data_source/i_tutor_data_source.dart' as _i20;
+import '../infrastructure/tutor/data_source/local_tutor_data_source.dart'
+    as _i21;
 import '../infrastructure/tutor/repository/mock_tutor_repository.dart' as _i23;
 import '../infrastructure/tutor/repository/tutor_repository.dart' as _i47;
-import '../infrastructure/user/data_source/i_tutor_data_source.dart' as _i20;
-import '../infrastructure/user/data_source/local_tutor_data_source.dart'
-    as _i21;
 import '../infrastructure/user/repositories/mock_user_repository.dart' as _i27;
+import '../infrastructure/user/repositories/user_repository.dart' as _i48;
 
 const String _mock = 'mock';
 const String _prod = 'prod';
@@ -85,12 +86,12 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   final appInjectableModule = _$AppInjectableModule();
   gh.lazySingleton<_i3.AppRepository>(() => _i4.AppRepositoryImpl());
   await gh.factoryAsync<_i5.Box<String>>(
-      () => appInjectableModule.mockSecretBox,
-      instanceName: 'mockSecret',
-      preResolve: true);
-  await gh.factoryAsync<_i5.Box<String>>(
       () => appInjectableModule.mockCacheSecretBox,
       instanceName: 'mockCacheSecret',
+      preResolve: true);
+  await gh.factoryAsync<_i5.Box<String>>(
+      () => appInjectableModule.mockSecretBox,
+      instanceName: 'mockSecret',
       preResolve: true);
   gh.lazySingleton<_i6.CourseRepository>(() => _i7.MockCourseRepository(),
       registerFor: {_mock});
@@ -127,8 +128,10 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => _i24.TutorScheduleBloc(get<_i14.ScheduleRepository>()));
   gh.factory<_i25.UpcomingClassBloc>(
       () => _i25.UpcomingClassBloc(get<_i14.ScheduleRepository>()));
-  gh.lazySingleton<_i26.UserRepository>(() => _i27.MockUserRepository(
-      get<_i5.Box<String>>(instanceName: 'mockSecret')));
+  gh.lazySingleton<_i26.UserRepository>(
+      () => _i27.MockUserRepository(
+          get<_i5.Box<String>>(instanceName: 'mockSecret')),
+      registerFor: {_mock});
   gh.lazySingleton<_i28.ApiClient>(
       () => _i28.ApiClient(get<_i8.Dio>(), get<_i17.ServerUrl>()));
   gh.factory<_i29.AppCubit>(() => _i29.AppCubit(
@@ -182,14 +185,18 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => _i47.TutorRepositoryImpl(
           get<_i20.TutorDataSource>(), get<_i28.ApiClient>()),
       registerFor: {_dev, _test, _prod});
-  gh.factory<_i48.AuthenticationBloc>(
-      () => _i48.AuthenticationBloc(get<_i30.AuthenticationService>()));
+  gh.lazySingleton<_i26.UserRepository>(
+      () => _i48.UserRepositoryImpl(
+          get<_i5.Box<String>>(instanceName: 'secret'), get<_i28.ApiClient>()),
+      registerFor: {_dev, _prod, _test});
+  gh.factory<_i49.AuthenticationBloc>(
+      () => _i49.AuthenticationBloc(get<_i30.AuthenticationService>()));
   gh.singleton<_i30.AuthenticationService>(
-      _i49.AuthenticationServiceImpl(
+      _i50.AuthenticationServiceImpl(
           get<_i5.Box<String>>(instanceName: 'secret'), get<_i28.ApiClient>()),
       registerFor: {_dev, _prod, _test},
       dispose: (i) => i.dispose());
   return get;
 }
 
-class _$AppInjectableModule extends _i50.AppInjectableModule {}
+class _$AppInjectableModule extends _i51.AppInjectableModule {}

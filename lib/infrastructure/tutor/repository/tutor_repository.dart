@@ -16,8 +16,8 @@ import '../../common/db/fixture_loader.dart';
 import '../../common/network/api_client.dart';
 import '../../common/network/request_url.dart';
 import '../../common/utils/pair.dart';
-import '../../user/data_source/i_tutor_data_source.dart';
 import '../../user/dto/speciality_dto.dart';
+import '../data_source/i_tutor_data_source.dart';
 import '../dto/tutor_details/tutor_details_dto.dart';
 import '../dto/tutor_list/tutor_list_item_dto.dart';
 
