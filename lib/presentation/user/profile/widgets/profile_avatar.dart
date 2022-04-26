@@ -1,6 +1,7 @@
-import 'dart:io';
 import 'dart:math';
+import 'dart:typed_data';
 
+import 'package:cross_file/cross_file.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -51,12 +52,25 @@ class ProfileAvatar extends StatelessWidget {
                     ),
                     onPressed: () async {
                       final result = await FilePicker.platform.pickFiles(
-                        type: FileType.image,
+                        type: FileType.custom,
                         allowedExtensions: ['jpg', 'jpeg', 'png'],
+                        withReadStream: true,
                       );
 
-                      if (result != null && result.files.single.path != null) {
-                        final file = File(result.files.single.path!);
+                      if (result != null) {
+                        final XFile file;
+                        if (result.files.single.bytes != null) {
+                          file = XFile.fromData(
+                            result.files.single.bytes!,
+                            name: result.files.single.name,
+                          );
+                        } else {
+                          file = XFile(
+                            result.files.single.path!,
+                            name: result.files.single.name,
+                          );
+                        }
+
                         context
                             .read<ProfileBloc>()
                             .add(ProfileEvent.newProfileImageSelected(file));
@@ -109,16 +123,39 @@ class ProfileAvatar extends StatelessWidget {
         builder: (context, state) {
           final avatar = state.user.avatar;
           return LayoutBuilder(
-            builder: (_, constraints) => CircleAvatar(
-              onBackgroundImageError: (exception, stackTrace) {},
-              radius: avatarRadius ?? avatarRadiusFromConstraints(constraints),
-              backgroundImage: state.selectedProfileImage != null
-                  ? FileImage(state.selectedProfileImage!)
-                  : NetworkImage(avatar ?? '') as dynamic,
-            ),
+            builder: (_, constraints) {
+              if (state.selectedProfileImage != null) {
+                return FutureBuilder(
+                  future: state.selectedProfileImage!.readAsBytes(),
+                  builder: (_, snapshot) {
+                    if (snapshot.hasError || !snapshot.hasData) {
+                      return buildCircleAvatar(
+                          constraints, NetworkImage(avatar ?? ''));
+                    }
+                    return buildCircleAvatar(
+                      constraints,
+                      snapshot.data != null
+                          ? MemoryImage(snapshot.data as Uint8List)
+                          : null,
+                    );
+                  },
+                );
+              }
+              return buildCircleAvatar(constraints, NetworkImage(avatar ?? ''));
+            },
           );
         },
       ),
     );
   }
+
+  Widget buildCircleAvatar(
+    BoxConstraints constraints,
+    ImageProvider? backgroundImage,
+  ) =>
+      CircleAvatar(
+        onBackgroundImageError: (exception, stackTrace) {},
+        radius: avatarRadius ?? avatarRadiusFromConstraints(constraints),
+        backgroundImage: backgroundImage,
+      );
 }

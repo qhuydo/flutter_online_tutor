@@ -73,9 +73,9 @@ import '../infrastructure/user/repositories/mock_user_repository.dart' as _i26;
 import '../infrastructure/user/repositories/user_repository.dart' as _i47;
 
 const String _mock = 'mock';
-const String _prod = 'prod';
 const String _dev = 'dev';
 const String _test = 'test';
+const String _prod = 'prod';
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -85,12 +85,12 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   final appInjectableModule = _$AppInjectableModule();
   gh.lazySingleton<_i3.AppRepository>(() => _i4.AppRepositoryImpl());
   await gh.factoryAsync<_i5.Box<String>>(
-      () => appInjectableModule.mockSecretBox,
-      instanceName: 'mockSecret',
-      preResolve: true);
-  await gh.factoryAsync<_i5.Box<String>>(
       () => appInjectableModule.mockCacheSecretBox,
       instanceName: 'mockCacheSecret',
+      preResolve: true);
+  await gh.factoryAsync<_i5.Box<String>>(
+      () => appInjectableModule.mockSecretBox,
+      instanceName: 'mockSecret',
       preResolve: true);
   gh.lazySingleton<_i6.CourseRepository>(() => _i7.MockCourseRepository(),
       registerFor: {_mock});
@@ -109,9 +109,9 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => appInjectableModule
           .secureHiveStorage(get<_i10.FlutterSecureStorage>()),
       preResolve: true);
-  gh.singleton<_i16.ServerUrl>(_i16.ServerUrlProd(), registerFor: {_prod});
   gh.singleton<_i16.ServerUrl>(_i16.ServerUrlDev(),
       registerFor: {_dev, _test, _mock});
+  gh.singleton<_i16.ServerUrl>(_i16.ServerUrlProd(), registerFor: {_prod});
   gh.lazySingleton<_i17.SharedPreferenceStorage>(
       () => _i17.SharedPreferenceStorageImpl());
   await gh.factoryAsync<_i18.SharedPreferences>(() => appInjectableModule.prefs,

@@ -1,5 +1,4 @@
-import 'dart:io';
-
+import 'package:cross_file/cross_file.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../authentication/value_objects/phone_number.dart';
@@ -24,7 +23,7 @@ abstract class UserRepository {
     required Level level,
     required List<Speciality> learnTopics,
     required List<Speciality> testPreparations,
-    File? profileImage,
+    XFile? profileImage,
   });
 
   Future<Option<User>> getSignedInUser();

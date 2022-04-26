@@ -22,6 +22,6 @@ class ProfileEvent with _$ProfileEvent {
 
   const factory ProfileEvent.updateButtonPressed() = _UpdateButtonPressed;
 
-  const factory ProfileEvent.newProfileImageSelected(File file) =
+  const factory ProfileEvent.newProfileImageSelected(XFile file) =
       _NewProfileImageSelected;
 }

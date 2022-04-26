@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'dart:io';
 
+import 'package:cross_file/cross_file.dart';
 import 'package:dartz/dartz.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
@@ -68,7 +68,7 @@ class MockUserRepository extends UserRepository {
     required Level level,
     required List<Speciality> learnTopics,
     required List<Speciality> testPreparations,
-    File? profileImage,
+    XFile? profileImage,
   }) async {
     try {
       if (!_box.containsKey(_keyUser)) {

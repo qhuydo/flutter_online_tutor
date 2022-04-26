@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:bloc/bloc.dart';
+import 'package:cross_file/cross_file.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -25,8 +25,7 @@ part 'profile_state.dart';
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final UserRepository _repository;
 
-  ProfileBloc(this._repository)
-      : super(ProfileState.initial()) {
+  ProfileBloc(this._repository) : super(ProfileState.initial()) {
     on<ProfileEvent>((event, emit) async {
       await event.when(
         initialise: () => _onInitialise(emit),
@@ -171,7 +170,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   }
 
   Future _onNewProfileImageSelected(
-      File file, Emitter<ProfileState> emit) async {
+    XFile file,
+    Emitter<ProfileState> emit,
+  ) async {
     emit(state.copyWith(selectedProfileImage: file));
   }
 }

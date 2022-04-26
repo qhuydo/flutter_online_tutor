@@ -63,7 +63,7 @@ class _$ProfileEventTearOff {
     return const _UpdateButtonPressed();
   }
 
-  _NewProfileImageSelected newProfileImageSelected(File file) {
+  _NewProfileImageSelected newProfileImageSelected(XFile file) {
     return _NewProfileImageSelected(
       file,
     );
@@ -86,7 +86,7 @@ mixin _$ProfileEvent {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
-    required TResult Function(File file) newProfileImageSelected,
+    required TResult Function(XFile file) newProfileImageSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -100,7 +100,7 @@ mixin _$ProfileEvent {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -114,7 +114,7 @@ mixin _$ProfileEvent {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -229,7 +229,7 @@ class _$_Initialise implements _Initialise {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
-    required TResult Function(File file) newProfileImageSelected,
+    required TResult Function(XFile file) newProfileImageSelected,
   }) {
     return initialise();
   }
@@ -246,7 +246,7 @@ class _$_Initialise implements _Initialise {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
   }) {
     return initialise?.call();
   }
@@ -263,7 +263,7 @@ class _$_Initialise implements _Initialise {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (initialise != null) {
@@ -406,7 +406,7 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
-    required TResult Function(File file) newProfileImageSelected,
+    required TResult Function(XFile file) newProfileImageSelected,
   }) {
     return nameChanged(name);
   }
@@ -423,7 +423,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
   }) {
     return nameChanged?.call(name);
   }
@@ -440,7 +440,7 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -589,7 +589,7 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
-    required TResult Function(File file) newProfileImageSelected,
+    required TResult Function(XFile file) newProfileImageSelected,
   }) {
     return birthDayChanged(birthDay);
   }
@@ -606,7 +606,7 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
   }) {
     return birthDayChanged?.call(birthDay);
   }
@@ -623,7 +623,7 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (birthDayChanged != null) {
@@ -781,7 +781,7 @@ class _$_CountryChanged implements _CountryChanged {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
-    required TResult Function(File file) newProfileImageSelected,
+    required TResult Function(XFile file) newProfileImageSelected,
   }) {
     return countryChanged(country);
   }
@@ -798,7 +798,7 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
   }) {
     return countryChanged?.call(country);
   }
@@ -815,7 +815,7 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (countryChanged != null) {
@@ -963,7 +963,7 @@ class _$_LevelChanged implements _LevelChanged {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
-    required TResult Function(File file) newProfileImageSelected,
+    required TResult Function(XFile file) newProfileImageSelected,
   }) {
     return levelChanged(level);
   }
@@ -980,7 +980,7 @@ class _$_LevelChanged implements _LevelChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
   }) {
     return levelChanged?.call(level);
   }
@@ -997,7 +997,7 @@ class _$_LevelChanged implements _LevelChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (levelChanged != null) {
@@ -1147,7 +1147,7 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
-    required TResult Function(File file) newProfileImageSelected,
+    required TResult Function(XFile file) newProfileImageSelected,
   }) {
     return learnTopicsChanged(learnTopics);
   }
@@ -1164,7 +1164,7 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
   }) {
     return learnTopicsChanged?.call(learnTopics);
   }
@@ -1181,7 +1181,7 @@ class _$_LearnTopicsChanged implements _LearnTopicsChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (learnTopicsChanged != null) {
@@ -1336,7 +1336,7 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
-    required TResult Function(File file) newProfileImageSelected,
+    required TResult Function(XFile file) newProfileImageSelected,
   }) {
     return testPreparationTopicsChanged(testPreparationTopics);
   }
@@ -1353,7 +1353,7 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
   }) {
     return testPreparationTopicsChanged?.call(testPreparationTopics);
   }
@@ -1370,7 +1370,7 @@ class _$_TestPreparationTopicsChanged implements _TestPreparationTopicsChanged {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (testPreparationTopicsChanged != null) {
@@ -1496,7 +1496,7 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
-    required TResult Function(File file) newProfileImageSelected,
+    required TResult Function(XFile file) newProfileImageSelected,
   }) {
     return updateButtonPressed();
   }
@@ -1513,7 +1513,7 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
   }) {
     return updateButtonPressed?.call();
   }
@@ -1530,7 +1530,7 @@ class _$_UpdateButtonPressed implements _UpdateButtonPressed {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (updateButtonPressed != null) {
@@ -1605,7 +1605,7 @@ abstract class _$NewProfileImageSelectedCopyWith<$Res> {
   factory _$NewProfileImageSelectedCopyWith(_NewProfileImageSelected value,
           $Res Function(_NewProfileImageSelected) then) =
       __$NewProfileImageSelectedCopyWithImpl<$Res>;
-  $Res call({File file});
+  $Res call({XFile file});
 }
 
 /// @nodoc
@@ -1628,7 +1628,7 @@ class __$NewProfileImageSelectedCopyWithImpl<$Res>
       file == freezed
           ? _value.file
           : file // ignore: cast_nullable_to_non_nullable
-              as File,
+              as XFile,
     ));
   }
 }
@@ -1639,7 +1639,7 @@ class _$_NewProfileImageSelected implements _NewProfileImageSelected {
   const _$_NewProfileImageSelected(this.file);
 
   @override
-  final File file;
+  final XFile file;
 
   @override
   String toString() {
@@ -1676,7 +1676,7 @@ class _$_NewProfileImageSelected implements _NewProfileImageSelected {
     required TResult Function(List<Speciality> testPreparationTopics)
         testPreparationTopicsChanged,
     required TResult Function() updateButtonPressed,
-    required TResult Function(File file) newProfileImageSelected,
+    required TResult Function(XFile file) newProfileImageSelected,
   }) {
     return newProfileImageSelected(file);
   }
@@ -1693,7 +1693,7 @@ class _$_NewProfileImageSelected implements _NewProfileImageSelected {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
   }) {
     return newProfileImageSelected?.call(file);
   }
@@ -1710,7 +1710,7 @@ class _$_NewProfileImageSelected implements _NewProfileImageSelected {
     TResult Function(List<Speciality> testPreparationTopics)?
         testPreparationTopicsChanged,
     TResult Function()? updateButtonPressed,
-    TResult Function(File file)? newProfileImageSelected,
+    TResult Function(XFile file)? newProfileImageSelected,
     required TResult orElse(),
   }) {
     if (newProfileImageSelected != null) {
@@ -1777,10 +1777,10 @@ class _$_NewProfileImageSelected implements _NewProfileImageSelected {
 }
 
 abstract class _NewProfileImageSelected implements ProfileEvent {
-  const factory _NewProfileImageSelected(File file) =
+  const factory _NewProfileImageSelected(XFile file) =
       _$_NewProfileImageSelected;
 
-  File get file;
+  XFile get file;
   @JsonKey(ignore: true)
   _$NewProfileImageSelectedCopyWith<_NewProfileImageSelected> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1795,7 +1795,7 @@ class _$ProfileStateTearOff {
       required Name name,
       BirthDay? birthDay,
       Country? country,
-      File? selectedProfileImage,
+      XFile? selectedProfileImage,
       Level level = Level.none,
       List<Speciality> learnTopics = const [],
       List<Speciality> testPreparations = const [],
@@ -1836,7 +1836,7 @@ mixin _$ProfileState {
   BirthDay? get birthDay =>
       throw _privateConstructorUsedError; // PhoneNumber? phoneNumber,
   Country? get country => throw _privateConstructorUsedError;
-  File? get selectedProfileImage => throw _privateConstructorUsedError;
+  XFile? get selectedProfileImage => throw _privateConstructorUsedError;
   Level get level => throw _privateConstructorUsedError;
   List<Speciality> get learnTopics => throw _privateConstructorUsedError;
   List<Speciality> get testPreparations => throw _privateConstructorUsedError;
@@ -1865,7 +1865,7 @@ abstract class $ProfileStateCopyWith<$Res> {
       Name name,
       BirthDay? birthDay,
       Country? country,
-      File? selectedProfileImage,
+      XFile? selectedProfileImage,
       Level level,
       List<Speciality> learnTopics,
       List<Speciality> testPreparations,
@@ -1927,7 +1927,7 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
       selectedProfileImage: selectedProfileImage == freezed
           ? _value.selectedProfileImage
           : selectedProfileImage // ignore: cast_nullable_to_non_nullable
-              as File?,
+              as XFile?,
       level: level == freezed
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
@@ -2002,7 +2002,7 @@ abstract class _$ProfileStateCopyWith<$Res>
       Name name,
       BirthDay? birthDay,
       Country? country,
-      File? selectedProfileImage,
+      XFile? selectedProfileImage,
       Level level,
       List<Speciality> learnTopics,
       List<Speciality> testPreparations,
@@ -2068,7 +2068,7 @@ class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
       selectedProfileImage: selectedProfileImage == freezed
           ? _value.selectedProfileImage
           : selectedProfileImage // ignore: cast_nullable_to_non_nullable
-              as File?,
+              as XFile?,
       level: level == freezed
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
@@ -2143,7 +2143,7 @@ class _$_ProfileState extends _ProfileState {
   @override // PhoneNumber? phoneNumber,
   final Country? country;
   @override
-  final File? selectedProfileImage;
+  final XFile? selectedProfileImage;
   @JsonKey()
   @override
   final Level level;
@@ -2241,7 +2241,7 @@ abstract class _ProfileState extends ProfileState {
       required Name name,
       BirthDay? birthDay,
       Country? country,
-      File? selectedProfileImage,
+      XFile? selectedProfileImage,
       Level level,
       List<Speciality> learnTopics,
       List<Speciality> testPreparations,
@@ -2263,7 +2263,7 @@ abstract class _ProfileState extends ProfileState {
   @override // PhoneNumber? phoneNumber,
   Country? get country;
   @override
-  File? get selectedProfileImage;
+  XFile? get selectedProfileImage;
   @override
   Level get level;
   @override

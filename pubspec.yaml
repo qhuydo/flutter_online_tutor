@@ -185,6 +185,10 @@ dependencies:
   # (c) MIT License. By Gunjan Vijayvergia, Tuan Vu
   jitsi_meet: ^4.0.0
 
+  # An abstraction to allow working with files across multiple platforms.
+  # (c) BSD 3-Clause License. By The Flutter Authors.
+  cross_file: ^0.3.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

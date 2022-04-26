@@ -10,7 +10,7 @@ class ProfileState with _$ProfileState {
     BirthDay? birthDay,
     // PhoneNumber? phoneNumber,
     Country? country,
-    File? selectedProfileImage,
+    XFile? selectedProfileImage,
     @Default(Level.none) Level level,
     @Default([]) List<Speciality> learnTopics,
     @Default([]) List<Speciality> testPreparations,

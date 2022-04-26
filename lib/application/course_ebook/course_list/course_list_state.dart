@@ -21,7 +21,7 @@ class CourseListState with _$CourseListState {
   List<Course>? get courseList => listOrFailure.fold((l) => null, (r) => r);
 
   List<Course>? get recommendedCourseList =>
-      listOrFailure.fold((l) => null, (r) => r);
+      recommendedListOrFailure.fold((l) => null, (r) => r);
 
   bool get isFilterApplied =>
       levels.isNotEmpty || sortBy != null || categories.isNotEmpty;

@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'dart:io';
 
+import 'package:cross_file/cross_file.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:hive/hive.dart';
@@ -76,7 +76,7 @@ class UserRepositoryImpl extends UserRepository {
     required Level level,
     required List<Speciality> learnTopics,
     required List<Speciality> testPreparations,
-    File? profileImage,
+    XFile? profileImage,
   }) async {
     try {
       if (!_box.containsKey(_keyUser)) {
@@ -132,13 +132,12 @@ class UserRepositoryImpl extends UserRepository {
     }
   }
 
-  Future<Either<Failure, Unit>> uploadAvatar(File profileImage) async {
+  Future<Either<Failure, Unit>> uploadAvatar(XFile profileImage) async {
     try {
-      String fileName = profileImage.path.split('/').last;
       final data = FormData.fromMap({
-        'avatar': await MultipartFile.fromFile(
-          profileImage.path,
-          filename: fileName,
+        'avatar': MultipartFile.fromBytes(
+          await profileImage.readAsBytes(),
+          filename: profileImage.name,
         ),
       });
 

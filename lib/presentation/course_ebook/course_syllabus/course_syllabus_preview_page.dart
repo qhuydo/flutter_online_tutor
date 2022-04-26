@@ -1,9 +1,9 @@
-import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:pdfx/pdfx.dart';
 import 'package:printing/printing.dart';
 
+import '../../../application/common/platform/platform_delegate.dart';
 import '../../../domain/course_ebook/models/course_topic.dart';
 import '../../common.dart';
 import '../../common/utils/default_app_bar.dart';
@@ -24,7 +24,7 @@ class CourseSyllabusPreviewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context, title: item.name),
-      body: Platform.isLinux
+      body: Target().isLinux
           ? PdfPreview(
               build: (format) => pdf,
               allowPrinting: false,

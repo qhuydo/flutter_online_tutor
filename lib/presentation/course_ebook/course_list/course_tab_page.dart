@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
@@ -84,8 +82,6 @@ class _CourseTabPageState extends State<CourseTabPage> {
   }
 
   Widget buildBody() {
-    final isDesktop =
-        Platform.isLinux || Platform.isMacOS || Platform.isWindows;
 
     return BlocBuilder<CourseListBloc, CourseListState>(
       builder: (context, state) {
@@ -125,7 +121,7 @@ class _CourseTabPageState extends State<CourseTabPage> {
             padding: const EdgeInsets.only(top: searchBarHeight + 12),
             itemCount: list.length,
             itemBuilder: (context, index) => LimitedBox(
-              maxHeight: isDesktop ? 360 : 300,
+              maxHeight: 400,
               child: CourseListCard(course: list[index]),
             ),
             maxCrossAxisExtent: 360,
