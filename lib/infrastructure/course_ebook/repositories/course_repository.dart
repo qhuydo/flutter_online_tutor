@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:dartz/dartz.dart';
@@ -64,16 +65,19 @@ class CourseRepositoryImpl implements CourseRepository {
     }
 
     try {
+      final params = _encodeQueryParams2(
+        page: page,
+        limit: limit,
+        levels: levels,
+        keyword: keyword,
+        sortBy: sortBy,
+        categories: categories,
+      );
+
+      final url = '${RequestUrl.courseEbook.courses}?$params';
+      log(url);
       final result = await _apiClient.get(
-        RequestUrl.courseEbook.courses,
-        queryParams: _encodeQueryParams(
-          page: page,
-          limit: limit,
-          levels: levels,
-          keyword: keyword,
-          sortBy: sortBy,
-          categories: categories,
-        ),
+        url,
         onResponded: (response) {
           final data = response.data as Map<String, dynamic>;
           final courses = (data['data']['rows'] as List)
@@ -82,6 +86,7 @@ class CourseRepositoryImpl implements CourseRepository {
           return courses;
         },
       );
+
       return result;
     } on NullThrownError {
       return left(const Failure.apiError());
@@ -91,8 +96,11 @@ class CourseRepositoryImpl implements CourseRepository {
   }
 
   @override
+  @Deprecated(
+    'The server does not implement this API.\n'
+    'Use getEbooks() then get the ebook from the returned list instead.'
+  )
   Future<Either<Failure, Ebook>> getEbookById(String ebookId) async {
-    // TODO add pagination
     final list = (await getEbooks(page: 1, limit: 100)).fold(
       (l) => null,
       (r) => r,
@@ -119,16 +127,20 @@ class CourseRepositoryImpl implements CourseRepository {
     }
 
     try {
+      final params = _encodeQueryParams2(
+        page: page,
+        limit: limit,
+        levels: levels,
+        keyword: keyword,
+        sortBy: sortBy,
+        categories: categories,
+      );
+
+      final url = '${RequestUrl.courseEbook.ebooks}?$params';
+      log(url);
+
       final result = await _apiClient.get(
-        RequestUrl.courseEbook.ebooks,
-        queryParams: _encodeQueryParams(
-          page: page,
-          limit: limit,
-          levels: levels,
-          keyword: keyword,
-          sortBy: sortBy,
-          categories: categories,
-        ),
+        url,
         onResponded: (response) {
           final data = response.data as Map<String, dynamic>;
           final ebooks = (data['data']['rows'] as List)
@@ -207,13 +219,27 @@ class CourseRepositoryImpl implements CourseRepository {
         'page': page,
         'size': limit,
         if (levels != null)
-          'level': levels.map((e) => e.toEncodeNumber()).toList(),
+          'level': levels.map((e) => e.toEncodeNumber().toString()),
         if (sortBy != null) ...{
           'order': ['level'],
           'orderBy': [sortBy.toQueryString()],
         },
-        if (categories != null)
-          'categoryId': categories.map((e) => e.id).toList(),
+        if (categories != null) 'categoryId': categories.map((e) => e.id),
         if (keyword != null) 'q': keyword,
       };
+
+  String _encodeQueryParams2({
+    required int page,
+    required int limit,
+    List<Level>? levels,
+    String? keyword,
+    SortLevelOption? sortBy,
+    List<CourseCategory>? categories,
+  }) =>
+      'page=$page'
+      '&limit=$limit'
+      '${levels != null ? levels.map((e) => '&level[]=${e.toEncodeNumber()}').join('') : ''}'
+      '${sortBy != null ? '&order[]=level&orderBy[]=${sortBy.toQueryString()}' : ''}'
+      '${categories != null ? categories.map((e) => '&categoryId[]=${e.id}').join('') : ''}'
+      '${keyword?.isNotEmpty == true ? '&q=$keyword' : ''}';
 }
