@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/common/app/app_cubit.dart';
 import '../../../common.dart';
-import '../helpers/theme_mode_extension.dart';
+import '../../../common/l10n/theme_mode_display_text.dart';
 
 Widget changeLanguagePopupMenuButton(
   BuildContext context, {

@@ -2,7 +2,7 @@ import 'dart:math';
 
 import '../../../../domain/course_ebook/models/course.dart';
 import '../../../common.dart';
-import '../../../common/utils/level_extension.dart';
+import '../../../common/l10n/level_display_text.dart';
 
 class CourseCarouselCardContent extends StatelessWidget {
   final Course course;

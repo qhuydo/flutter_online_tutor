@@ -7,9 +7,9 @@ import '../../../../application/schedule/schedule_details/schedule_details_cubit
 import '../../../../application/schedule/tutor_schedule/tutor_schedule_bloc.dart';
 import '../../../../domain/schedule/models/schedule.dart';
 import '../../../common.dart';
+import '../../../common/l10n/schedule_display_text.dart';
 import '../../../common/utils/constants.dart';
-import '../../../common/utils/failure_messages.dart';
-import '../utils/schedule_extension.dart';
+import '../../../common/l10n/failure_display_texts.dart';
 
 class BookDialog extends StatelessWidget {
   const BookDialog({

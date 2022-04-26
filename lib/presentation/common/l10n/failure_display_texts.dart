@@ -1,5 +1,11 @@
+import '../../../domain/authentication/failures/authentication_failure.dart';
+import '../../../domain/authentication/failures/email_failure.dart';
+import '../../../domain/authentication/failures/password_failure.dart';
+import '../../../domain/authentication/failures/phone_number_failure.dart';
+import '../../../domain/authentication/failures/value_failure.dart';
 import '../../../domain/common/failures/failure.dart';
 import '../../common.dart';
+import '../utils/flushbar_utils.dart';
 
 extension FailureX on Failure {
   String toText(BuildContext context) {
@@ -53,6 +59,74 @@ extension FailureX on Failure {
       phoneNotRegistered: () => l10n.authenticationFailureWrongPhoneOrPassword,
       invalidPromotionCode: () => 'Invalid promotion code',
       promotionCodeUsed: () => 'This promotion code was used',
+    );
+  }
+}
+
+extension AuthenticationFailureX on AuthenticationFailure {
+  Future showError(BuildContext context) {
+    final l10n = context.l10n;
+    return FlushBarUtils.createError(
+      message: map(
+        wrongEmailOrPassword: (_) => l10n.authenticationErrorWrongPassword,
+        wrongPhoneNumberOrPassword: (_) =>
+        l10n.authenticationFailureWrongPhoneOrPassword,
+        noConnection: (_) => l10n.authenticationFailureNoInternet,
+        serverError: (_) => l10n.authenticationFailureServerError,
+        alreadySignedOut: (_) => l10n.authenticationFailureAlreadySignedOut,
+        emailAlreadyTaken: (_) => l10n.authenticationFailureEmailTaken,
+        phoneNumberAlreadyTaken: (_) => l10n.authenticationFailurePhoneTaken,
+        emailNotExist: (_) => l10n.authenticationFailureEmailNotExist,
+        wrongCurrentPassword: (_) => l10n.authenticationErrorWrongPassword,
+        unauthorized: (_) => l10n.authenticationFailureUnauthorized,
+      ),
+      duration: const Duration(
+        seconds: 15,
+      ),
+    ).show(context);
+  }
+}
+
+
+extension EmailFailureX on EmailFailure {
+  String toText(BuildContext context) => map(
+        invalidEmail: (_) => context.l10n.emailFailureInvalidEmail,
+        empty: (_) => context.l10n.emailFailureEmptyValue,
+      );
+}
+
+extension PasswordFailureX on PasswordFailure {
+  String toText(BuildContext context) {
+    final l10n = context.l10n;
+    return map(
+      shortPassword: (_) => l10n.passwordFailureShortPassword,
+      emptyPassword: (_) => l10n.passwordFailureEmptyPassword,
+      wrongCurrentPassword: (_) => l10n.passwordFailureWrongCurrentPassword,
+      wrongNewPassword: (_) => l10n.passwordValueWrongNewPassword,
+    );
+  }
+}
+
+
+extension PhoneNumberFailureX on PhoneNumberFailure {
+  String toText(BuildContext context) {
+    final l10n = context.l10n;
+    return map(
+      emptyValue: (_) => l10n.phoneNumberFailureInvalidPhoneNumber,
+      invalidPhoneNumber: (_) => l10n.phoneNumberFailureInvalidPhoneNumber,
+      invalidCountryCode: (_) => l10n.phoneNumberFailureInvalidPhoneNumber,
+    );
+  }
+}
+
+extension ValueFailureX on ValueFailure {
+  String toErrorText(BuildContext context) {
+    final l10n = context.l10n;
+    return when(
+      () => l10n.valueFalureUnknownError,
+      valueIsRequired: () => l10n.valueFailureEmptyValue,
+      emptyValue: () => l10n.valueFailureEmptyValue,
+      invalidValue: () => l10n.valueFailureValueInvalid,
     );
   }
 }

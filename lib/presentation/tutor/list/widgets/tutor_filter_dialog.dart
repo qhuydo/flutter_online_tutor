@@ -5,6 +5,7 @@ import '../../../../application/tutor/search_tutors/search_tutors_bloc.dart';
 import '../../../../domain/tutor/models/tutor_search_options.dart';
 import '../../../become_tutor/widgets/specialities_dropdown.dart';
 import '../../../common.dart';
+import '../../../common/l10n/tutor_sort_by_display_text.dart';
 import '../../../common/utils/constants.dart';
 import '../../../user/profile/widgets/country_form_dropdown.dart';
 
@@ -87,18 +88,5 @@ class TutorFilterDialog extends StatelessWidget {
         );
       },
     );
-  }
-}
-
-extension TutorSortByX on TutorSortBy {
-  String toText(BuildContext context) {
-    switch (this) {
-      case TutorSortBy.defaultSort:
-        return context.l10n.tutorSortByDefaultSort;
-      case TutorSortBy.favourite:
-        return context.l10n.tutorSortByFavourite;
-      case TutorSortBy.rating:
-        return context.l10n.tutorSortByRating;
-    }
   }
 }

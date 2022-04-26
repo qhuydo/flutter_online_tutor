@@ -3,13 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../application/authentication/change_password/change_password_bloc.dart';
 import '../../../authentication/widgets/password_input.dart';
 import '../../../common.dart';
+import '../../../common/l10n/failure_display_texts.dart';
+import '../../../common/utils/constants.dart';
 
 class ChangePasswordForm extends StatelessWidget {
   const ChangePasswordForm({
     Key? key,
   }) : super(key: key);
-
-  static const rowSpacing = 16.0;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class ChangePasswordForm extends StatelessWidget {
               ? AutovalidateMode.always
               : AutovalidateMode.disabled,
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(smallItemSpacing),
             child: Column(
               children: [
                 // old password
@@ -39,11 +39,11 @@ class ChangePasswordForm extends StatelessWidget {
                       .oldPassword
                       .value
                       .fold(
-                        (f) => f.toMsg(context),
+                        (f) => f.toText(context),
                         (_) => null,
                       ),
                 ),
-                const SizedBox(height: rowSpacing),
+                const SizedBox(height: itemSpacing),
 
                 // new password
                 PasswordInput(
@@ -58,11 +58,11 @@ class ChangePasswordForm extends StatelessWidget {
                       .newPassword
                       .value
                       .fold(
-                        (f) => f.toMsg(context),
+                        (f) => f.toText(context),
                         (_) => null,
                       ),
                 ),
-                const SizedBox(height: rowSpacing),
+                const SizedBox(height: itemSpacing),
 
                 // confirm password
                 PasswordInput(
@@ -78,11 +78,11 @@ class ChangePasswordForm extends StatelessWidget {
                       .confirmPassword
                       .value
                       .fold(
-                        (f) => f.toMsg(context),
+                        (f) => f.toText(context),
                         (_) => null,
                       ),
                 ),
-                const SizedBox(height: rowSpacing),
+                const SizedBox(height: itemSpacing),
 
                 // submit button
                 ElevatedButton.icon(

@@ -5,8 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/authentication/authentication_bloc.dart';
 import '../../../di/dependency_injection.dart';
 import '../../../domain/authentication/failures/authentication_failure.dart';
+import '../../common/l10n/failure_display_texts.dart';
 import '../../common/routes/app_routes.gr.dart';
-import '../helpers/authentication_failure_extension.dart';
 
 class AuthenFormBlocWrapper<B extends Bloc> extends StatelessWidget {
   final Widget child;

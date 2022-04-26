@@ -2,7 +2,7 @@ import 'package:multi_select_flutter/multi_select_flutter.dart';
 
 import '../../../domain/user/constants/levels.dart';
 import '../../common.dart';
-import '../../common/utils/level_extension.dart';
+import '../../common/l10n/level_display_text.dart';
 
 class LevelsDropdown extends StatelessWidget {
   final void Function(List<Level?>) onItemsSelected;

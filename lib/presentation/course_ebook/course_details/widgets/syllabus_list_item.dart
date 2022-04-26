@@ -18,9 +18,7 @@ class SyllabusListItem extends StatelessWidget {
     final textColour = item.canPreview ? null : Theme.of(context).disabledColor;
     return ListTile(
       onTap: item.canPreview && (item.videoUrl != null || item.fileName != null)
-          ? () {
-              context.router.push(CourseSyllabusRoute(item: item));
-            }
+          ? () => context.router.push(CourseSyllabusRoute(item: item))
           : null,
       leading: Text(
         '${item.order + 1}',

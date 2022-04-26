@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/user/profile/profile_bloc.dart';
 import '../../common.dart';
 import '../../common/utils/default_app_bar.dart';
-import '../../common/utils/failure_messages.dart';
+import '../../common/l10n/failure_display_texts.dart';
 import '../../common/widgets/loading_widget.dart';
 import 'widgets/profile_body.dart';
 import 'widgets/profile_body_desktop.dart';

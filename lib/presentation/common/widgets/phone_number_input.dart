@@ -3,10 +3,10 @@ import 'package:twemoji/twemoji.dart';
 
 import '../../../application/authentication/login/login_bloc.dart';
 import '../../../application/authentication/sign_up/sign_up_bloc.dart';
-import '../../../domain/authentication/failures/phone_number_failure.dart';
 import '../../../domain/common/constants/countries.dart';
 import '../../../domain/common/models/country.dart';
 import '../../common.dart';
+import '../l10n/failure_display_texts.dart';
 import '../utils/string_utils.dart';
 
 typedef PhoneNumberInputOnSelected = void Function(
@@ -40,7 +40,7 @@ class PhoneNumberInput extends StatefulWidget {
             .add(LoginEvent.phoneNumberChanged(country, number)),
         validator: (_) =>
             context.watch<LoginBloc>().state.phoneNumber.value.fold(
-                  (f) => f.toMsg(context),
+                  (f) => f.toText(context),
                   (_) => null,
                 ),
       );
@@ -56,7 +56,7 @@ class PhoneNumberInput extends StatefulWidget {
             .add(SignUpEvent.phoneNumberChanged(country, number)),
         validator: (_) =>
             context.watch<SignUpBloc>().state.phoneNumber.value.fold(
-                  (f) => f.toMsg(context),
+                  (f) => f.toText(context),
                   (_) => null,
                 ),
       );
@@ -146,16 +146,5 @@ class _PhoneNumberInputState extends State<PhoneNumberInput> {
         ),
       ],
     );
-  }
-}
-
-extension PhoneNumberFailureX on PhoneNumberFailure {
-  String toMsg(BuildContext context) {
-    final l10n = context.l10n;
-    return map(
-        emptyValue: (_) => l10n.phoneNumberFailureInvalidPhoneNumber,
-        invalidPhoneNumber: (_) => l10n.phoneNumberFailureInvalidPhoneNumber,
-        invalidCountryCode: (_) => l10n.phoneNumberFailureInvalidPhoneNumber,
-      );
   }
 }

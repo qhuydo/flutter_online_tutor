@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/authentication/reset_password/reset_password_bloc.dart';
 import '../../common.dart';
-import '../helpers/authentication_failure_extension.dart';
+import '../../common/l10n/failure_display_texts.dart';
 import '../widgets/authen_scaffold.dart';
 import '../widgets/email_input.dart';
 import 'widgets/reset_password_button.dart';

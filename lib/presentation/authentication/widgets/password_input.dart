@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/authentication/login/login_bloc.dart';
 import '../../../application/authentication/sign_up/sign_up_bloc.dart';
-import '../../../domain/authentication/failures/password_failure.dart';
 import '../../common.dart';
+import '../../common/l10n/failure_display_texts.dart';
 
 class PasswordInput extends StatefulWidget {
   final String? labelText;
@@ -34,7 +34,7 @@ class PasswordInput extends StatefulWidget {
         onChanged: (value) =>
             context.read<LoginBloc>().add(LoginEvent.passwordChanged(value)),
         validator: (_) => context.watch<LoginBloc>().state.password.value.fold(
-              (f) => f.toMsg(context),
+              (f) => f.toText(context),
               (_) => null,
             ),
       );
@@ -49,7 +49,7 @@ class PasswordInput extends StatefulWidget {
               SignUpEvent.passwordChanged(value),
             ),
         validator: (_) => context.watch<SignUpBloc>().state.password.value.fold(
-              (f) => f.toMsg(context),
+              (f) => f.toText(context),
               (_) => null,
             ),
       );
@@ -86,18 +86,6 @@ class _PasswordInputState extends State<PasswordInput> {
       onChanged: widget.onChanged,
       validator: widget.validator,
       enabled: widget.isEnabled,
-    );
-  }
-}
-
-extension PasswordFailureX on PasswordFailure {
-  String toMsg(BuildContext context) {
-    final l10n = context.l10n;
-    return map(
-      shortPassword: (_) => l10n.passwordFailureShortPassword,
-      emptyPassword: (_) => l10n.passwordFailureEmptyPassword,
-      wrongCurrentPassword: (_) => l10n.passwordFailureWrongCurrentPassword,
-      wrongNewPassword: (_) => l10n.passwordValueWrongNewPassword,
     );
   }
 }

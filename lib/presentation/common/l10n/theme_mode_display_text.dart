@@ -1,6 +1,6 @@
-import '../../../../domain/common/app/theme_mode.dart';
-import '../../../common.dart';
-export '../../../../domain/common/app/theme_mode.dart';
+import '../../../domain/common/app/theme_mode.dart';
+import '../../common.dart';
+export '../../../domain/common/app/theme_mode.dart';
 
 extension AppThemeModeExtension on AppThemeMode {
   String toOptionString(BuildContext context) {

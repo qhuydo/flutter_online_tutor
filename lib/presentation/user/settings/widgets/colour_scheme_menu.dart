@@ -43,6 +43,7 @@ Widget buildColourSchemeMenu(
                     : FlexColor.schemesList[currentIndex].dark.primary,
                 size: 36,
               ),
+              // TODO update translation
               title: const Text('I\'m feeling lucky'),
               selected: state.colourScheme == ColourScheme.random,
             ),

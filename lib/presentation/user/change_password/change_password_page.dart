@@ -2,8 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/authentication/change_password/change_password_bloc.dart';
-import '../../authentication/helpers/authentication_failure_extension.dart';
 import '../../common.dart';
+import '../../common/l10n/failure_display_texts.dart';
 import '../../common/routes/app_routes.gr.dart';
 import '../../common/utils/constants.dart';
 import '../../common/utils/default_app_bar.dart';

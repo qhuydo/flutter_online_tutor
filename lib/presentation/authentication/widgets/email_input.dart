@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/authentication/login/login_bloc.dart';
 import '../../../application/authentication/reset_password/reset_password_bloc.dart';
 import '../../../application/authentication/sign_up/sign_up_bloc.dart';
-import '../../../domain/authentication/failures/email_failure.dart';
 import '../../common.dart';
+import '../../common/l10n/failure_display_texts.dart';
 
 class EmailInput extends StatelessWidget {
   final ValueChanged<String>? onChanged;
@@ -44,7 +44,7 @@ class EmailInput extends StatelessWidget {
             ),
         validator: (_) =>
             context.watch<LoginBloc>().state.emailAddress.value.fold(
-                  (f) => f.toErrorMsg(context),
+                  (f) => f.toText(context),
                   (_) => null,
                 ),
       );
@@ -60,7 +60,7 @@ class EmailInput extends StatelessWidget {
             ),
         validator: (_) =>
             context.watch<SignUpBloc>().state.emailAddress.value.fold(
-                  (f) => f.toErrorMsg(context),
+                  (f) => f.toText(context),
                   (_) => null,
                 ),
       );
@@ -76,15 +76,8 @@ class EmailInput extends StatelessWidget {
             ),
         validator: (_) =>
             context.watch<ResetPasswordBloc>().state.emailAddress.value.fold(
-                  (f) => f.toErrorMsg(context),
+                  (f) => f.toText(context),
                   (_) => null,
                 ),
-      );
-}
-
-extension EmailFailureX on EmailFailure {
-  String toErrorMsg(BuildContext context) => map(
-        invalidEmail: (_) => context.l10n.emailFailureInvalidEmail,
-        empty: (_) => context.l10n.emailFailureEmptyValue,
       );
 }

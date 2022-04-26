@@ -37,8 +37,8 @@ class _DateOfBirthFormFieldState extends State<DateOfBirthFormField> {
       decoration: InputDecoration(
         border: const OutlineInputBorder(),
         icon: const Icon(Icons.calendar_today),
-        labelText: AppLocalizations.of(context)!.dateOfBirthTextBoxLabel,
-        hintText: AppLocalizations.of(context)!.dateOfBirthTextBoxHint,
+        labelText: context.l10n.dateOfBirthTextBoxLabel,
+        hintText: context.l10n.dateOfBirthTextBoxHint,
       ),
       readOnly: true,
       enabled: widget.enabled,

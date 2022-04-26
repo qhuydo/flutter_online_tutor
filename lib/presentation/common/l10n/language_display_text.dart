@@ -1,6 +1,6 @@
-import '../../../../domain/common/app/language.dart';
-import '../../../common.dart';
-import '../../../common/utils/string_utils.dart';
+import '../../../domain/common/app/language.dart';
+import '../../common.dart';
+import '../utils/string_utils.dart';
 
 extension LanguageX on Language {
   String toTitle(BuildContext context) {

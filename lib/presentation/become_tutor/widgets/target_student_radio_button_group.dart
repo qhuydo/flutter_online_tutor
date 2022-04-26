@@ -1,23 +1,6 @@
+import '../../../domain/user/constants/target_student.dart';
 import '../../common.dart';
-
-enum TargetStudent {
-  beginner,
-  intermediate,
-  advanced,
-}
-
-extension TargetStudentX on TargetStudent {
-  String toTitle(BuildContext context) {
-    switch (this) {
-      case TargetStudent.beginner:
-        return context.l10n.targetStudentBeginnerValue;
-      case TargetStudent.intermediate:
-        return context.l10n.targetStudentIntermediateValue;
-      case TargetStudent.advanced:
-        return context.l10n.targetStudentAdvancedValue;
-    }
-  }
-}
+import '../../common/l10n/target_student_display_text.dart';
 
 class TargetStudentRadioButtonGroup extends StatefulWidget {
   const TargetStudentRadioButtonGroup({Key? key}) : super(key: key);
@@ -47,7 +30,7 @@ class _TargetStudentRadioButtonGroupState
               },
               groupValue: _currentValue,
               value: e,
-              title: Text(e.toTitle(context)),
+              title: Text(e.toText(context)),
             ),
           )
           .toList(),

@@ -5,7 +5,7 @@ import '../../../../application/common/app/app_cubit.dart';
 import '../../../../domain/common/app/language.dart';
 import '../../../common.dart';
 import '../../helpers/setting_card_item.dart';
-import '../helpers/language_extension.dart';
+import '../../../common/l10n/language_display_text.dart';
 import 'change_language_modal.dart';
 import 'colour_scheme_menu.dart';
 import 'settings_card.dart';

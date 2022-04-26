@@ -1,6 +1,6 @@
 import '../../../domain/course_ebook/models/sort_level_option.dart';
 import '../../common.dart';
-import '../utils/sort_level_option_extension.dart';
+import '../../common/l10n/sort_level_option_display_text.dart';
 
 class SortByLevelDropdown extends StatelessWidget {
   final SortLevelOption? value;

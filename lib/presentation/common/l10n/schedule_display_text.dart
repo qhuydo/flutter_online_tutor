@@ -1,6 +1,6 @@
 import 'package:intl/intl.dart';
 
-import '../../../common.dart';
+import '../../common.dart';
 
 extension ScheduleX on DateTimeRange {
   String getMeetingTime(BuildContext context) {

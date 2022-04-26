@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../application/user/profile/profile_bloc.dart';
 import '../../../../domain/authentication/failures/value_failure.dart';
 import '../../../common.dart';
+import '../../../common/l10n/failure_display_texts.dart';
 import 'country_form_dropdown.dart';
 import 'date_of_birth_form_field.dart';
 import 'learning_topics_dropdown.dart';
@@ -137,7 +138,8 @@ class _EditProfileFormState extends State<EditProfileForm> {
                       if (item != null) {
                         context.read<ProfileBloc>().add(
                               ProfileEvent.testPreparationTopicsChanged(
-                                  state.testPreparations.toList()..remove(item)),
+                                  state.testPreparations.toList()
+                                    ..remove(item)),
                             );
                       }
                     },
@@ -163,18 +165,6 @@ class _EditProfileFormState extends State<EditProfileForm> {
           );
         },
       ),
-    );
-  }
-}
-
-extension ValueFailureX on ValueFailure {
-  String toErrorText(BuildContext context) {
-    final l10n = context.l10n;
-    return when(
-      () => l10n.valueFalureUnknownError,
-      valueIsRequired: () => l10n.valueFailureEmptyValue,
-      emptyValue: () => l10n.valueFailureEmptyValue,
-      invalidValue: () => l10n.valueFailureValueInvalid,
     );
   }
 }

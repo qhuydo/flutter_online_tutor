@@ -1,6 +1,6 @@
 import '../../../../domain/user/constants/levels.dart';
 import '../../../common.dart';
-import '../../../common/utils/level_extension.dart';
+import '../../../common/l10n/level_display_text.dart';
 
 class LevelFormDropdown extends StatelessWidget {
   final Level initialValue;

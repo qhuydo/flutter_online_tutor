@@ -5,7 +5,7 @@ import '../../../../application/schedule/tutor_schedule/tutor_schedule_bloc.dart
 import '../../../../domain/schedule/interfaces/i_schedule_repository.dart';
 import '../../../../domain/schedule/models/schedule.dart';
 import '../../../common.dart';
-import '../utils/schedule_extension.dart';
+import '../../../common/l10n/schedule_display_text.dart';
 import 'book_dialog.dart';
 
 class ScheduleRow extends StatelessWidget {

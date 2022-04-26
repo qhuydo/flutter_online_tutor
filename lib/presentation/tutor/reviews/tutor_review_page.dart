@@ -18,7 +18,7 @@ class TutorReviewPage extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(
         context,
-        title: AppLocalizations.of(context)!.viewReviewButtonText,
+        title: context.l10n.viewReviewButtonText,
       ),
       body: ReviewList(feedbackList: tutor.feedbacks),
     );

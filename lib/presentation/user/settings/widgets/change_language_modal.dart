@@ -4,7 +4,7 @@ import 'package:twemoji/twemoji.dart';
 import '../../../../application/common/app/app_cubit.dart';
 import '../../../../domain/common/app/language.dart';
 import '../../../common.dart';
-import '../helpers/language_extension.dart';
+import '../../../common/l10n/language_display_text.dart';
 
 class ChangeLanguageModal extends StatelessWidget {
   const ChangeLanguageModal({Key? key}) : super(key: key);
