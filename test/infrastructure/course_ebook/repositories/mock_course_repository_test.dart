@@ -1,4 +1,4 @@
-import 'package:flutter_online_tutor/infrastructure/course/repositories/mock_course_repository.dart';
+import 'package:flutter_online_tutor/infrastructure/course_ebook/repositories/mock_course_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

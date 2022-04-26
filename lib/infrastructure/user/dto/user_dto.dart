@@ -7,7 +7,7 @@ import '../../../domain/common/value_objects/id.dart';
 import '../../../domain/user/models/user.dart';
 import '../../../domain/user/value_objects/birthday.dart';
 import '../../../domain/user/value_objects/name.dart';
-import '../../course/dto/course_dto.dart';
+import '../../course_ebook/dto/course_dto.dart';
 import '../../wallet/dto/wallet_dto.dart';
 import '../utils/level_extension.dart';
 import 'speciality_dto.dart';

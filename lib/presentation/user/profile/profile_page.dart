@@ -43,8 +43,9 @@ class ProfilePageBody extends StatelessWidget {
         state.updateFailureOrSuccessOption.fold(
           () {},
           (either) => either.fold(
-            (failure) => FlushbarHelper.createSuccess(
+            (failure) => FlushbarHelper.createError(
               message: failure.toText(context),
+              duration: const Duration(seconds: 15),
             ).show(context),
             (_) => FlushbarHelper.createSuccess(
               // TODO update translation
@@ -54,15 +55,19 @@ class ProfilePageBody extends StatelessWidget {
         );
       },
       buildWhen: (previous, current) =>
-          previous.isInitialising != current.isInitialising,
+          previous.isInitialising != current.isInitialising ||
+          previous.isLoading != current.isLoading,
       builder: (context, state) {
         if (state.isInitialising) return const LoadingWidget();
         final breakpoint = Breakpoint.fromMediaQuery(context);
         return SingleChildScrollView(
           child: SafeArea(
-            child: breakpoint.window >= WindowSize.medium
-                ? const ProfileBodyDesktop()
-                : const ProfileBody(),
+            child: IgnorePointer(
+              ignoring: state.isLoading,
+              child: breakpoint.window >= WindowSize.medium
+                  ? const ProfileBodyDesktop()
+                  : const ProfileBody(),
+            ),
           ),
         );
       },

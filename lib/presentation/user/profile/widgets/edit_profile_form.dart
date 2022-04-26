@@ -31,59 +31,59 @@ class _EditProfileFormState extends State<EditProfileForm> {
       padding: const EdgeInsets.all(8.0),
       child: BlocBuilder<ProfileBloc, ProfileState>(
         builder: (context, state) {
-          return Form(
-            autovalidateMode: state.showError
-                ? AutovalidateMode.always
-                : AutovalidateMode.disabled,
-            key: _formKey,
-            child: Column(
-              children: [
-                NameFormTextField(
-                  initialValue: state.name.valueOrNull() ?? '',
-                  enabled: !state.isLoading,
-                  onChanged: (value) {
-                    if (value != null) {
-                      context.read<ProfileBloc>().add(
-                            ProfileEvent.nameChanged(value),
-                          );
-                    }
-                  },
-                  validator: (_) => context
-                      .watch<ProfileBloc>()
-                      .state
-                      .name
-                      .value
-                      .fold((l) => l.toErrorText(context), (r) => null),
-                ),
-                defaultRowSizeBox,
-                DateOfBirthFormField(
-                  initialDate: state.birthDay?.valueOrNull(),
-                  enabled: !state.isLoading,
-                  onChanged: (value) {
-                    if (value != null) {
-                      context.read<ProfileBloc>().add(
-                            ProfileEvent.birthDayChanged(value),
-                          );
-                    }
-                  },
-                  validator: (_) {
-                    if (state.birthDay == null) {
-                      return const ValueFailure.valueIsRequired().toErrorText(
-                        context,
-                      );
-                    }
-                    return state.birthDay?.value
-                        .fold((l) => l.toErrorText(context), (r) => null);
-                  },
-                ),
-                defaultRowSizeBox,
-                PhoneFormTextField(
-                  initialValue: state.user.phoneNumber?.valueOrNull() ?? '',
-                ),
-                defaultRowSizeBox,
-                IgnorePointer(
-                  ignoring: state.isLoading,
-                  child: CountryFormDropdown(
+          return IgnorePointer(
+            ignoring: state.isLoading,
+            child: Form(
+              autovalidateMode: state.showError
+                  ? AutovalidateMode.always
+                  : AutovalidateMode.disabled,
+              key: _formKey,
+              child: Column(
+                children: [
+                  NameFormTextField(
+                    initialValue: state.name.valueOrNull() ?? '',
+                    enabled: !state.isLoading,
+                    onChanged: (value) {
+                      if (value != null) {
+                        context.read<ProfileBloc>().add(
+                              ProfileEvent.nameChanged(value),
+                            );
+                      }
+                    },
+                    validator: (_) => context
+                        .watch<ProfileBloc>()
+                        .state
+                        .name
+                        .value
+                        .fold((l) => l.toErrorText(context), (r) => null),
+                  ),
+                  defaultRowSizeBox,
+                  DateOfBirthFormField(
+                    initialDate: state.birthDay?.valueOrNull(),
+                    enabled: !state.isLoading,
+                    onChanged: (value) {
+                      if (value != null) {
+                        context.read<ProfileBloc>().add(
+                              ProfileEvent.birthDayChanged(value),
+                            );
+                      }
+                    },
+                    validator: (_) {
+                      if (state.birthDay == null) {
+                        return const ValueFailure.valueIsRequired().toErrorText(
+                          context,
+                        );
+                      }
+                      return state.birthDay?.value
+                          .fold((l) => l.toErrorText(context), (r) => null);
+                    },
+                  ),
+                  defaultRowSizeBox,
+                  PhoneFormTextField(
+                    initialValue: state.user.phoneNumber?.valueOrNull() ?? '',
+                  ),
+                  defaultRowSizeBox,
+                  CountryFormDropdown(
                     value: state.country,
                     onChanged: (value) {
                       if (value != null) {
@@ -93,72 +93,72 @@ class _EditProfileFormState extends State<EditProfileForm> {
                       }
                     },
                   ),
-                ),
-                defaultRowSizeBox,
-                LevelFormDropdown(
-                  initialValue: state.level,
-                  enabled: !state.isLoading,
-                  onChanged: (value) {
-                    if (value != null) {
+                  defaultRowSizeBox,
+                  LevelFormDropdown(
+                    initialValue: state.level,
+                    enabled: !state.isLoading,
+                    onChanged: (value) {
+                      if (value != null) {
+                        context.read<ProfileBloc>().add(
+                              ProfileEvent.levelChanged(value),
+                            );
+                      }
+                    },
+                  ),
+                  defaultRowSizeBox,
+                  LearningTopicsDropdown(
+                    allTopics: state.allLearnTopics,
+                    selectedLearnTopics: state.learnTopics,
+                    onItemsSelected: (topics) {
                       context.read<ProfileBloc>().add(
-                            ProfileEvent.levelChanged(value),
+                            ProfileEvent.learnTopicsChanged(topics.cast()),
                           );
-                    }
-                  },
-                ),
-                defaultRowSizeBox,
-                LearningTopicsDropdown(
-                  allTopics: state.allLearnTopics,
-                  selectedLearnTopics: state.learnTopics,
-                  onItemsSelected: (topics) {
-                    context.read<ProfileBloc>().add(
-                          ProfileEvent.learnTopicsChanged(topics.cast()),
-                        );
-                  },
-                  onItemRemoved: (item) {
-                    if (item != null) {
-                      context.read<ProfileBloc>().add(
-                            ProfileEvent.learnTopicsChanged(
-                                state.learnTopics.toList()..remove(item)),
-                          );
-                    }
-                  },
-                ),
-                defaultRowSizeBox,
-                TestPreparationDropdown(
-                  allTopics: state.allTestPreparations,
-                  selectedTestPreparations: state.testPreparations,
-                  onItemsSelected: (topics) {
-                    context.read<ProfileBloc>().add(
-                          ProfileEvent.testPreparationTopicsChanged(
-                              topics.cast()),
-                        );
-                  },
-                  onItemRemoved: (item) {
-                    if (item != null) {
+                    },
+                    onItemRemoved: (item) {
+                      if (item != null) {
+                        context.read<ProfileBloc>().add(
+                              ProfileEvent.learnTopicsChanged(
+                                  state.learnTopics.toList()..remove(item)),
+                            );
+                      }
+                    },
+                  ),
+                  defaultRowSizeBox,
+                  TestPreparationDropdown(
+                    allTopics: state.allTestPreparations,
+                    selectedTestPreparations: state.testPreparations,
+                    onItemsSelected: (topics) {
                       context.read<ProfileBloc>().add(
                             ProfileEvent.testPreparationTopicsChanged(
-                                state.testPreparations.toList()..remove(item)),
+                                topics.cast()),
                           );
-                    }
-                  },
-                ),
-                defaultRowSizeBox,
-                SaveButton(
-                  enabled: !state.isLoading,
-                  onPressed: () {
-                    context.read<ProfileBloc>().add(
-                          const ProfileEvent.updateButtonPressed(),
-                        );
-                  },
-                ),
-                defaultRowSizeBox,
-                Visibility(
-                  visible: state.isLoading,
-                  child: const LinearProgressIndicator(),
-                ),
-                defaultRowSizeBox,
-              ],
+                    },
+                    onItemRemoved: (item) {
+                      if (item != null) {
+                        context.read<ProfileBloc>().add(
+                              ProfileEvent.testPreparationTopicsChanged(
+                                  state.testPreparations.toList()..remove(item)),
+                            );
+                      }
+                    },
+                  ),
+                  defaultRowSizeBox,
+                  SaveButton(
+                    enabled: !state.isLoading,
+                    onPressed: () {
+                      context.read<ProfileBloc>().add(
+                            const ProfileEvent.updateButtonPressed(),
+                          );
+                    },
+                  ),
+                  defaultRowSizeBox,
+                  Visibility(
+                    visible: state.isLoading,
+                    child: const LinearProgressIndicator(),
+                  ),
+                  defaultRowSizeBox,
+                ],
+              ),
             ),
           );
         },

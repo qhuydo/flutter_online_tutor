@@ -7,7 +7,7 @@ import '../../../../domain/common/models/country.dart';
 import '../../../../domain/tutor/models/tutor.dart';
 import '../../../../domain/user/helpers/speciality_converter.dart';
 import '../../../../domain/user/models/speciality.dart';
-import '../../../course/dto/course_dto.dart';
+import '../../../course_ebook/dto/course_dto.dart';
 import '../../../user/utils/level_extension.dart';
 import '../feedback/feedback_dto.dart';
 

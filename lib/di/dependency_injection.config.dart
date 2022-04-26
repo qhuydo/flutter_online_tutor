@@ -58,8 +58,8 @@ import '../infrastructure/common/network/dio_interceptors.dart' as _i36;
 import '../infrastructure/common/network/internet_connection_service.dart'
     as _i13;
 import '../infrastructure/common/network/server_url.dart' as _i17;
-import '../infrastructure/course/repositories/course_repository.dart' as _i35;
-import '../infrastructure/course/repositories/mock_course_repository.dart'
+import '../infrastructure/course_ebook/repositories/course_repository.dart' as _i35;
+import '../infrastructure/course_ebook/repositories/mock_course_repository.dart'
     as _i7;
 import '../infrastructure/schedule/repositories/mock_schedule_repository.dart'
     as _i15;
