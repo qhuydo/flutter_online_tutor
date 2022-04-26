@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="vn.hcmus.flutter_online_tutor">
+      package="vn.hcmus.flutter_online_tutor"
+      xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,6 +12,7 @@
     </queries>
 
     <application
+        tools:replace="android:label"
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_rules"
         android:label="flutter_online_tutor"
