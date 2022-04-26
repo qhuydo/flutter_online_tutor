@@ -1,7 +1,7 @@
 import '../../../../domain/course_ebook/models/course.dart';
 import '../../../common.dart';
 import '../../../common/utils/constants.dart';
-import '../../../user/profile/widgets/level_form_dropdown.dart';
+import '../../../common/utils/level_extension.dart';
 
 class CourseDetailsContent extends StatelessWidget {
   final Course course;
@@ -20,15 +20,10 @@ class CourseDetailsContent extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: smallItemSpacing),
       child: Theme(
-        data: Theme.of(context).copyWith(
-          dividerColor: Colors.transparent,
-          // primaryColor: Theme.of(context).textTheme.titleLarge?.color,
-        ),
+        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
         child: ExpansionTile(
           iconColor: Theme.of(context).textTheme.titleLarge?.color,
-          tilePadding: const EdgeInsets.symmetric(
-            horizontal: smallItemSpacing,
-          ),
+          tilePadding: const EdgeInsets.symmetric(horizontal: smallItemSpacing),
           initiallyExpanded: true,
           title: Text(
             context.l10n.overviewTitleText,
@@ -38,9 +33,7 @@ class CourseDetailsContent extends StatelessWidget {
           ),
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: smallItemSpacing,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: smallItemSpacing),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

@@ -2,7 +2,7 @@ import 'dart:math';
 
 import '../../../../domain/course_ebook/models/course.dart';
 import '../../../common.dart';
-import '../../../user/profile/widgets/level_form_dropdown.dart';
+import '../../../common/utils/level_extension.dart';
 
 class CourseCarouselCardContent extends StatelessWidget {
   final Course course;
@@ -77,8 +77,8 @@ class CourseCarouselCardContent extends StatelessWidget {
                     child: Text(
                       course.level.toDisplayString(context),
                       style: Theme.of(context).textTheme.caption?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                            fontWeight: FontWeight.bold,
+                          ),
                       textAlign: TextAlign.start,
                     ),
                   ),

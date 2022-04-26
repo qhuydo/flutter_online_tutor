@@ -1,5 +1,6 @@
 import '../../../../domain/user/constants/levels.dart';
 import '../../../common.dart';
+import '../../../common/utils/level_extension.dart';
 
 class LevelFormDropdown extends StatelessWidget {
   final Level initialValue;
@@ -35,29 +36,5 @@ class LevelFormDropdown extends StatelessWidget {
       ),
       onChanged: enabled ? onChanged : null,
     );
-  }
-}
-
-// TODO move to another file
-extension LevelX on Level {
-  String toDisplayString(BuildContext context) {
-    switch (this) {
-      case Level.none:
-        return context.l10n.courseLevelAny;
-      case Level.beginner:
-        return context.l10n.courseLevelBeginner;
-      case Level.higherBeginner:
-        return context.l10n.courseLevelUpperBeginner;
-      case Level.preIntermediate:
-        return context.l10n.courseLevelPreIntermediate;
-      case Level.intermediate:
-        return context.l10n.courseLevelIntermediate;
-      case Level.upperIntermediate:
-        return context.l10n.courseLevelUpperIntermediate;
-      case Level.advanced:
-        return context.l10n.courseLevelAdvanced;
-      case Level.proficiency:
-        return context.l10n.courseLevelVeryAdvanced;
-    }
   }
 }

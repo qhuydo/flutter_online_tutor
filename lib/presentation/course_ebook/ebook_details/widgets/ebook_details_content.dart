@@ -1,7 +1,7 @@
 import '../../../../domain/course_ebook/models/ebook.dart';
 import '../../../common.dart';
 import '../../../common/utils/constants.dart';
-import '../../../user/profile/widgets/level_form_dropdown.dart';
+import '../../../common/utils/level_extension.dart';
 import 'open_ebook_button.dart';
 
 class EbookDetailsContent extends StatelessWidget {
