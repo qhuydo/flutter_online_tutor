@@ -26,17 +26,21 @@ class CourseRepositoryImpl implements CourseRepository {
 
   @override
   Future<Either<Failure, Course>> getCourseById(String courseId) async {
-    // TODO add pagination
-    final list = (await getRecommendedCourses(page: 1, limit: 100)).fold(
-      (l) => null,
-      (r) => r,
-    );
-
-    if (list == null) return left(const Failure.notFound());
-
-    final idx = list.indexWhere((element) => element.id == courseId);
-    if (idx < 0) return left(const Failure.notFound());
-    return right(list[idx]);
+    try {
+      final result = await _apiClient.get(
+        RequestUrl.courseEbook.details(courseId),
+        onResponded: (response) {
+          final data = response.data as Map<String, dynamic>;
+          final courses = CourseDto.fromJson(data['data']).toDomain();
+          return courses;
+        },
+      );
+      return result;
+    } on NullThrownError {
+      return left(const Failure.apiError());
+    } on FlutterError {
+      return left(const Failure.serverError());
+    }
   }
 
   @override
