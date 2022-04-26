@@ -9,5 +9,6 @@ class FavouriteTutorsState with _$FavouriteTutorsState {
   }) = _FavouriteTutorsState;
 
   factory FavouriteTutorsState.initial() =>
+      // ignore: prefer_const_constructors
       FavouriteTutorsState(loadingTutors: <String>{});
 }

@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../application/course_ebook/ebook_details/ebook_details_bloc.dart';
+import '../../../../application/course_ebook/ebook_details/ebook_details_cubit.dart';
 import '../../../../domain/course_ebook/models/ebook.dart';
 import '../../../common.dart';
 import '../../../common/utils/constants.dart';
@@ -28,16 +28,6 @@ class EbookDetailsBody extends StatelessWidget {
     );
   }
 
-  Widget _buildNotFoundWidget(BuildContext context) {
-    return Scaffold(
-      appBar: buildAppBar(
-        context,
-        title: context.l10n.ebookTabLabel,
-      ),
-      body: Center(child: Text(context.l10n.pageNotFound)),
-    );
-  }
-
   Widget _buildLoadingWidget(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(
@@ -56,12 +46,11 @@ class EbookDetailsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<EbookDetailsBloc, EbookDetailsState>(
+      body: BlocBuilder<EbookDetailsCubit, EbookDetailsState>(
         builder: (context, state) {
           if (state.isLoading) return _buildLoadingWidget(context);
 
           final ebook = state.ebook;
-          if (ebook == null) return _buildNotFoundWidget(context);
 
           return CustomScrollView(
             physics: const BouncingScrollPhysics(),

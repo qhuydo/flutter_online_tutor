@@ -128,7 +128,7 @@ class TutorPageState extends State<TutorPage> {
                 state.isInitial || resultList.isNotEmpty
                     ? TutorList(
                         list: resultList,
-                        loadingTutors: {},
+                        loadingTutors: const {},
                         onFavouriteButtonPressed: (index) => bloc.add(
                           SearchTutorsEvent.toggleFavourite(
                             resultList[index].id,

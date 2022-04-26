@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 import '../../../domain/authentication/failures/authentication_failure.dart';
 import '../../common.dart';
 import '../../common/utils/flushbar_utils.dart';

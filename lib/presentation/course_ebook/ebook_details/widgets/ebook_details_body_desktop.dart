@@ -1,20 +1,16 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_online_tutor/domain/course_ebook/models/ebook.dart';
-import 'package:flutter_online_tutor/presentation/course_ebook/ebook_details/widgets/ebook_details_content.dart';
 
-import '../../../../application/course_ebook/ebook_details/ebook_details_bloc.dart';
+import '../../../../application/course_ebook/ebook_details/ebook_details_cubit.dart';
+import '../../../../domain/course_ebook/models/ebook.dart';
 import '../../../common.dart';
 import '../../../common/utils/constants.dart';
 import '../../../common/utils/default_app_bar.dart';
 import '../../../common/utils/image_utils.dart';
 import '../../../common/widgets/outlined_card.dart';
+import 'ebook_details_content.dart';
 
 class EbookDetailsBodyDesktop extends StatelessWidget {
   const EbookDetailsBodyDesktop({Key? key}) : super(key: key);
-
-  Widget _buildNotFoundWidget(BuildContext context) {
-    return Center(child: Text(context.l10n.pageNotFound));
-  }
 
   Widget _buildLoadingWidget(BuildContext context) {
     return const Center(
@@ -29,12 +25,11 @@ class EbookDetailsBodyDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context, title: context.l10n.ebookTabLabel),
-      body: BlocBuilder<EbookDetailsBloc, EbookDetailsState>(
+      body: BlocBuilder<EbookDetailsCubit, EbookDetailsState>(
         builder: (context, state) {
           if (state.isLoading) return _buildLoadingWidget(context);
 
           final ebook = state.ebook;
-          if (ebook == null) return _buildNotFoundWidget(context);
 
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,

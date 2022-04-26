@@ -119,7 +119,7 @@ class ScheduleEndpoints {
 class CourseEbookEndpoints {
   static const _path = 'course';
 
-  String get courses => '$_path';
+  String get courses => _path;
 
   String get ebooks => 'e-book';
 

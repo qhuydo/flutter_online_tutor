@@ -1,8 +1,7 @@
 import 'dart:math';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_online_tutor/presentation/course_ebook/course_details/widgets/syllabus.dart';
+import 'syllabus.dart';
 
 import '../../../../application/course_ebook/course_details/course_details_bloc.dart';
 import '../../../../domain/course_ebook/models/course.dart';

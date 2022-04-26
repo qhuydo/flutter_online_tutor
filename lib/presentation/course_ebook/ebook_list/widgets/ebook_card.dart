@@ -18,10 +18,7 @@ class EbookCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedCard(
       childInsideInkwell: false,
-      onTap: () => context.router.push(EbookDetailsRoute(
-        ebookId: ebook.id,
-        thumbnail: '',
-      )),
+      onTap: () => context.router.push(EbookDetailsRoute(ebook: ebook)),
       child: Column(
         children: [
           Image.network(

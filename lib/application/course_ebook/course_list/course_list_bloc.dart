@@ -41,6 +41,7 @@ class CourseListBloc extends Bloc<CourseListEvent, CourseListState> {
     emit(state.copyWith(
       isLoading: false,
       listOrFailure: result,
+      recommendedListOrFailure: result,
     ));
   }
 }

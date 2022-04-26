@@ -184,10 +184,13 @@ class _$CourseListStateTearOff {
 
   _CourseListState call(
       {dynamic isLoading = false,
-      Either<Failure, List<Course>> listOrFailure = const Right([])}) {
+      Either<Failure, List<Course>> listOrFailure = const Right([]),
+      Either<Failure, List<Course>> recommendedListOrFailure =
+          const Right([])}) {
     return _CourseListState(
       isLoading: isLoading,
       listOrFailure: listOrFailure,
+      recommendedListOrFailure: recommendedListOrFailure,
     );
   }
 }
@@ -200,6 +203,8 @@ mixin _$CourseListState {
   dynamic get isLoading => throw _privateConstructorUsedError;
   Either<Failure, List<Course>> get listOrFailure =>
       throw _privateConstructorUsedError;
+  Either<Failure, List<Course>> get recommendedListOrFailure =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CourseListStateCopyWith<CourseListState> get copyWith =>
@@ -211,7 +216,10 @@ abstract class $CourseListStateCopyWith<$Res> {
   factory $CourseListStateCopyWith(
           CourseListState value, $Res Function(CourseListState) then) =
       _$CourseListStateCopyWithImpl<$Res>;
-  $Res call({dynamic isLoading, Either<Failure, List<Course>> listOrFailure});
+  $Res call(
+      {dynamic isLoading,
+      Either<Failure, List<Course>> listOrFailure,
+      Either<Failure, List<Course>> recommendedListOrFailure});
 }
 
 /// @nodoc
@@ -227,6 +235,7 @@ class _$CourseListStateCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = freezed,
     Object? listOrFailure = freezed,
+    Object? recommendedListOrFailure = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -236,6 +245,10 @@ class _$CourseListStateCopyWithImpl<$Res>
       listOrFailure: listOrFailure == freezed
           ? _value.listOrFailure
           : listOrFailure // ignore: cast_nullable_to_non_nullable
+              as Either<Failure, List<Course>>,
+      recommendedListOrFailure: recommendedListOrFailure == freezed
+          ? _value.recommendedListOrFailure
+          : recommendedListOrFailure // ignore: cast_nullable_to_non_nullable
               as Either<Failure, List<Course>>,
     ));
   }
@@ -248,7 +261,10 @@ abstract class _$CourseListStateCopyWith<$Res>
           _CourseListState value, $Res Function(_CourseListState) then) =
       __$CourseListStateCopyWithImpl<$Res>;
   @override
-  $Res call({dynamic isLoading, Either<Failure, List<Course>> listOrFailure});
+  $Res call(
+      {dynamic isLoading,
+      Either<Failure, List<Course>> listOrFailure,
+      Either<Failure, List<Course>> recommendedListOrFailure});
 }
 
 /// @nodoc
@@ -266,12 +282,17 @@ class __$CourseListStateCopyWithImpl<$Res>
   $Res call({
     Object? isLoading = freezed,
     Object? listOrFailure = freezed,
+    Object? recommendedListOrFailure = freezed,
   }) {
     return _then(_CourseListState(
       isLoading: isLoading == freezed ? _value.isLoading : isLoading,
       listOrFailure: listOrFailure == freezed
           ? _value.listOrFailure
           : listOrFailure // ignore: cast_nullable_to_non_nullable
+              as Either<Failure, List<Course>>,
+      recommendedListOrFailure: recommendedListOrFailure == freezed
+          ? _value.recommendedListOrFailure
+          : recommendedListOrFailure // ignore: cast_nullable_to_non_nullable
               as Either<Failure, List<Course>>,
     ));
   }
@@ -281,7 +302,9 @@ class __$CourseListStateCopyWithImpl<$Res>
 
 class _$_CourseListState extends _CourseListState {
   const _$_CourseListState(
-      {this.isLoading = false, this.listOrFailure = const Right([])})
+      {this.isLoading = false,
+      this.listOrFailure = const Right([]),
+      this.recommendedListOrFailure = const Right([])})
       : super._();
 
   @JsonKey()
@@ -290,10 +313,13 @@ class _$_CourseListState extends _CourseListState {
   @JsonKey()
   @override
   final Either<Failure, List<Course>> listOrFailure;
+  @JsonKey()
+  @override
+  final Either<Failure, List<Course>> recommendedListOrFailure;
 
   @override
   String toString() {
-    return 'CourseListState(isLoading: $isLoading, listOrFailure: $listOrFailure)';
+    return 'CourseListState(isLoading: $isLoading, listOrFailure: $listOrFailure, recommendedListOrFailure: $recommendedListOrFailure)';
   }
 
   @override
@@ -303,14 +329,17 @@ class _$_CourseListState extends _CourseListState {
             other is _CourseListState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
-                .equals(other.listOrFailure, listOrFailure));
+                .equals(other.listOrFailure, listOrFailure) &&
+            const DeepCollectionEquality().equals(
+                other.recommendedListOrFailure, recommendedListOrFailure));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(listOrFailure));
+      const DeepCollectionEquality().hash(listOrFailure),
+      const DeepCollectionEquality().hash(recommendedListOrFailure));
 
   @JsonKey(ignore: true)
   @override
@@ -320,14 +349,18 @@ class _$_CourseListState extends _CourseListState {
 
 abstract class _CourseListState extends CourseListState {
   const factory _CourseListState(
-      {dynamic isLoading,
-      Either<Failure, List<Course>> listOrFailure}) = _$_CourseListState;
+          {dynamic isLoading,
+          Either<Failure, List<Course>> listOrFailure,
+          Either<Failure, List<Course>> recommendedListOrFailure}) =
+      _$_CourseListState;
   const _CourseListState._() : super._();
 
   @override
   dynamic get isLoading;
   @override
   Either<Failure, List<Course>> get listOrFailure;
+  @override
+  Either<Failure, List<Course>> get recommendedListOrFailure;
   @override
   @JsonKey(ignore: true)
   _$CourseListStateCopyWith<_CourseListState> get copyWith =>

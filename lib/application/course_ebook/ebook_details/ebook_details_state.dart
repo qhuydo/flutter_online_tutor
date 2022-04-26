@@ -1,4 +1,4 @@
-part of 'ebook_details_bloc.dart';
+part of 'ebook_details_cubit.dart';
 
 @freezed
 class EbookDetailsState with _$EbookDetailsState {
@@ -6,12 +6,6 @@ class EbookDetailsState with _$EbookDetailsState {
 
   const factory EbookDetailsState({
     @Default(false) isLoading,
-    required Either<Failure, Ebook> ebookOrFailure,
+    required Ebook ebook,
   }) = _EbookDetailsState;
-
-  factory EbookDetailsState.initial() => EbookDetailsState(
-    ebookOrFailure: Right(Ebook.empty()),
-  );
-
-  Ebook? get ebook => ebookOrFailure.fold((l) => null, (r) => r);
 }

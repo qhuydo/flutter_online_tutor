@@ -30,7 +30,7 @@ class RecommendedCoursesState extends State<RecommendedCourses> {
   Widget build(BuildContext context) {
     return BlocBuilder<CourseListBloc, CourseListState>(
       builder: (context, state) {
-        final list = state.courseList;
+        final list = state.recommendedCourseList;
 
         if (list == null) {
           // TODO add error widget
