@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:dart_vlc/dart_vlc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +5,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:window_size/window_size.dart';
 
+import 'application/common/platform/platform_delegate.dart';
+import 'application/common/utils/video_player.dart';
 import 'bootstrap.dart';
 import 'di/dependency_injection.dart';
 import 'infrastructure/common/network/dio_interceptors.dart';
@@ -24,7 +23,7 @@ Future<void> mainCommon(String environment) async {
     )
     ..interceptors.add(getIt<DioInterceptor>());
 
-  if (Platform.isLinux || Platform.isMacOS || Platform.isWindows) {
+  if (Target().isDesktop) {
     setWindowMinSize(const Size(600, 750));
     DartVLC.initialize();
   }
@@ -40,9 +39,9 @@ main() => mainCommon(Environment.dev);
 /// Otherwise, do nothing.
 void _setTargetPlatformForDesktop() {
   TargetPlatform? targetPlatform;
-  if (Platform.isMacOS) {
+  if (Target().isMacOS) {
     targetPlatform = TargetPlatform.iOS;
-  } else if (Platform.isLinux || Platform.isWindows) {
+  } else if (Target().isLinux || Target().isWindows) {
     targetPlatform = TargetPlatform.android;
   }
   if (targetPlatform != null) {

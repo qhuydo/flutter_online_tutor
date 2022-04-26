@@ -1,7 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
+import '../../../../application/common/platform/platform_delegate.dart';
 import 'video_preview_desktop.dart';
 import 'video_preview_mobile.dart';
 
@@ -17,8 +16,7 @@ class VideoPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDesktop =
-        Platform.isLinux || Platform.isMacOS || Platform.isWindows;
+    final isDesktop = Target().isDesktop;
     return isDesktop
         ? VideoPreviewDesktop(videoUrl: videoUrl, id: id)
         : VideoPreviewMobile(videoUrl: videoUrl);

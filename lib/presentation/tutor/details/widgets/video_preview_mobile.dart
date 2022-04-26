@@ -1,9 +1,8 @@
-import 'dart:io';
-
 import 'package:chewie/chewie.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+
+import '../../../../application/common/platform/platform_delegate.dart';
 
 class VideoPreviewMobile extends StatefulWidget {
   final String videoUrl;
@@ -24,7 +23,7 @@ class _VideoPreviewMobileState extends State<VideoPreviewMobile> {
   @override
   void initState() {
     super.initState();
-    if (Platform.isAndroid || Platform.isIOS || kIsWeb) {
+    if (Target().isSupportedChewiePlatforms) {
       initializePlayer();
     }
   }
@@ -32,7 +31,7 @@ class _VideoPreviewMobileState extends State<VideoPreviewMobile> {
   @override
   void dispose() {
     super.dispose();
-    if (Platform.isAndroid || Platform.isIOS || kIsWeb) {
+    if (Target().isSupportedChewiePlatforms) {
       _videoPlayerController.dispose();
       _chewieController?.dispose();
     }

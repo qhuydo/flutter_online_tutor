@@ -1,9 +1,9 @@
 import 'dart:developer';
-import 'dart:io';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:table_calendar/table_calendar.dart';
 
+import '../../../../application/common/platform/platform_delegate.dart';
 import '../../../../application/schedule/tutor_schedule/tutor_schedule_bloc.dart';
 import '../../../../domain/schedule/models/schedule.dart';
 import '../../../../domain/schedule/utils/schedule_utils.dart';
@@ -28,7 +28,7 @@ class ScheduleCalendar extends StatelessWidget {
           ignoring: state.isLoading,
           child: TableCalendar(
             headerVisible: true,
-            daysOfWeekHeight: Platform.isLinux ? 16 + 16 : 20,
+            daysOfWeekHeight: Target().isDesktop ? 16 + 16 : 20,
             locale: locale,
             calendarFormat: state.format,
             focusedDay: state.focusedDay,

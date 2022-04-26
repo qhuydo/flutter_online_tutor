@@ -1,5 +1,6 @@
-import 'package:dart_vlc/dart_vlc.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../application/common/utils/video_player.dart';
 
 class VideoPreviewDesktop extends StatefulWidget {
   final int id;
