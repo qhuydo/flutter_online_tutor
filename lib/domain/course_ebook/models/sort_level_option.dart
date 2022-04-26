@@ -1,0 +1,4 @@
+enum SortLevelOption {
+  ascending,
+  descending,
+}

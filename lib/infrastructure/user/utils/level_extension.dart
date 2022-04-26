@@ -28,6 +28,34 @@ extension LevelX on Level {
         return 'PROFICIENCY';
     }
   }
+
+  int toEncodeNumber() {
+    switch (this) {
+      case Level.beginner:
+        return 1;
+
+      case Level.higherBeginner:
+        return 2;
+
+      case Level.preIntermediate:
+        return 3;
+
+      case Level.intermediate:
+        return 4;
+
+      case Level.upperIntermediate:
+        return 5;
+
+      case Level.advanced:
+        return 6;
+
+      case Level.proficiency:
+        return 7;
+
+      default:
+        return 0;
+    }
+  }
 }
 
 extension LevelFromStringX on String? {
@@ -88,7 +116,7 @@ extension LevelFromStringX on String? {
   }
 
   Level toLevelFromTargetStudent() {
-    switch(this) {
+    switch (this) {
       case 'Intermediate':
         return Level.beginner;
 
@@ -97,7 +125,6 @@ extension LevelFromStringX on String? {
 
       default:
         return Level.beginner;
-
     }
   }
 }

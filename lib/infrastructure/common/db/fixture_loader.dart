@@ -69,4 +69,9 @@ class FixtureLoader {
   static Future<Map<String, dynamic>> get ebookList async =>
       await _loadJson('$_fixturePath/course_ebook/ebook_list/res_ebook.json')
           as Map<String, dynamic>;
+
+  static Future<Map<String, dynamic>>
+      get courseCategories async => await _loadJson(
+              '$_fixturePath/common/content_category/res_content_category.json')
+          as Map<String, dynamic>;
 }

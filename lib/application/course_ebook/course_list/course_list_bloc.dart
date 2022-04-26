@@ -34,7 +34,7 @@ class CourseListBloc extends Bloc<CourseListEvent, CourseListState> {
 
     // await Future.delayed(const Duration(seconds: 2));
 
-    final result = await _repository.getRecommendedCourses(
+    final result = await _repository.getCourses(
       page: 1,
       limit: 20,
     );

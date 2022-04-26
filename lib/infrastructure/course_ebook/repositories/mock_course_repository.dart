@@ -8,10 +8,14 @@ import 'package:injectable/injectable.dart';
 import '../../../domain/common/failures/failure.dart';
 import '../../../domain/course_ebook/interfaces/i_course_repository.dart';
 import '../../../domain/course_ebook/models/course.dart';
+import '../../../domain/course_ebook/models/course_category.dart';
 import '../../../domain/course_ebook/models/course_topic.dart';
 import '../../../domain/course_ebook/models/ebook.dart';
+import '../../../domain/course_ebook/models/sort_level_option.dart';
+import '../../../domain/user/constants/levels.dart';
 import '../../../presentation/common.dart';
 import '../../common/db/fixture_loader.dart';
+import '../dto/course_category_dto.dart';
 import '../dto/course_dto.dart';
 import '../dto/ebook_dto.dart';
 
@@ -24,7 +28,7 @@ class MockCourseRepository implements CourseRepository {
 
   @override
   Future<Either<Failure, Course>> getCourseById(String courseId) async {
-    final list = (await getRecommendedCourses(page: 1, limit: 100)).fold(
+    final list = (await getCourses(page: 1, limit: 100)).fold(
       (l) => null,
       (r) => r,
     );
@@ -37,9 +41,13 @@ class MockCourseRepository implements CourseRepository {
   }
 
   @override
-  Future<Either<Failure, List<Course>>> getRecommendedCourses({
+  Future<Either<Failure, List<Course>>> getCourses({
     required int page,
     required int limit,
+    List<Level>? levels,
+    String? keyword,
+    SortLevelOption? sortBy,
+    List<CourseCategory>? categories,
   }) async {
     if (page < 1 || limit <= 0) {
       return left(const Failure.internalError());
@@ -61,7 +69,7 @@ class MockCourseRepository implements CourseRepository {
 
   @override
   Future<Either<Failure, Ebook>> getEbookById(String ebookId) async {
-    final list = (await getRecommendedEbooks(page: 1, limit: 100)).fold(
+    final list = (await getEbooks(page: 1, limit: 100)).fold(
       (l) => null,
       (r) => r,
     );
@@ -74,9 +82,13 @@ class MockCourseRepository implements CourseRepository {
   }
 
   @override
-  Future<Either<Failure, List<Ebook>>> getRecommendedEbooks({
+  Future<Either<Failure, List<Ebook>>> getEbooks({
     required int page,
     required int limit,
+    List<Level>? levels,
+    String? keyword,
+    SortLevelOption? sortBy,
+    List<CourseCategory>? categories,
   }) async {
     if (page < 1 || limit <= 0) {
       return left(const Failure.internalError());
@@ -106,6 +118,22 @@ class MockCourseRepository implements CourseRepository {
       return right(bundle.buffer.asUint8List());
     } on FlutterError {
       return left(const Failure.internalError());
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<CourseCategory>>> getCourseCategories() async {
+    try {
+      final res = await FixtureLoader.courseCategories;
+      final categories = (res['rows'] as List)
+          .map((e) => CourseCategoryDto.fromJson(e).toDomain())
+          .toList(growable: false);
+
+      return right(categories);
+    } on NullThrownError {
+      return left(const Failure.apiError());
+    } on FlutterError {
+      return left(const Failure.serverError());
     }
   }
 }

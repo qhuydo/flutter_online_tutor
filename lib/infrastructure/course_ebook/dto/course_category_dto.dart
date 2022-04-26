@@ -19,6 +19,8 @@ class CourseCategoryDto with _$CourseCategoryDto {
 
   factory CourseCategoryDto.fromJson(Map<String, dynamic> json) =>
       _$CourseCategoryDtoFromJson(json);
+}
 
+extension CourseCategoryDtoX on CourseCategoryDto {
   CourseCategory toDomain() => CourseCategory(id: id, title: title);
 }

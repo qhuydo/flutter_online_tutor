@@ -12,7 +12,7 @@ void main() {
 
   group('course list', () {
     test('get course list', () async {
-      final result = await repository.getRecommendedCourses(
+      final result = await repository.getCourses(
         page: 1,
         limit: 100,
       );
@@ -26,7 +26,7 @@ void main() {
 
   group('ebook list', () {
     test('get ebook list', () async {
-      final result = await repository.getRecommendedEbooks(
+      final result = await repository.getEbooks(
         page: 1,
         limit: 100,
       );

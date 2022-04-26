@@ -10,6 +10,8 @@ abstract class RequestUrl {
   static ScheduleEndpoints get schedule => ScheduleEndpoints();
 
   static CourseEbookEndpoints get courseEbook => CourseEbookEndpoints();
+
+  static String get contentCategory => 'content-category';
 }
 
 class AuthenticationEndpoints {
@@ -117,11 +119,9 @@ class ScheduleEndpoints {
 class CourseEbookEndpoints {
   static const _path = 'course';
 
-  String courses({required int page, required int size}) =>
-      '$_path?page=$page&size=$size';
+  String get courses => '$_path';
 
-  String ebooks({required int page, required int size}) =>
-        'e-book?page=$page&size=$size';
+  String get ebooks => 'e-book';
 
   String details(String id) => '$_path/$id';
 }
