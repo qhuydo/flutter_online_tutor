@@ -22,14 +22,14 @@ class UserDto with _$UserDto {
     required String id,
     required String email,
     required String name,
-    required String avatar,
+    String? avatar,
     String? country,
     String? phone,
     String? language,
     String? birthday,
-    required bool isActivated,
-    required WalletDto walletInfo,
-    required List<CourseDto> courses,
+    bool? isActivated,
+    WalletDto? walletInfo,
+    List<CourseDto>? courses,
     String? level,
     @Default([]) List<SpecialityDto> learnTopics,
     @Default([]) List<SpecialityDto> testPreparations,
@@ -43,9 +43,18 @@ class UserDto with _$UserDto {
 
 extension UserDtoX on UserDto {
   User toDomain() {
+    // log('$birthday');
+    BirthDay birthDayObject;
+    try {
+      birthDayObject = BirthDay(
+        birthday != null ? DateTime.parse(birthday!) : null,
+      );
+    } on FormatException {
+      birthDayObject = BirthDay(null);
+    }
     return User(
       id: Id.fromString(id),
-      birthday: BirthDay(birthday != null ? DateTime.parse(birthday!) : null),
+      birthday: birthDayObject,
       emailAddress: EmailAddress(email),
       name: Name(name),
       country: countryMap[country],

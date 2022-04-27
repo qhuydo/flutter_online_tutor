@@ -26,14 +26,14 @@ class _$UserDtoTearOff {
       {required String id,
       required String email,
       required String name,
-      required String avatar,
+      String? avatar,
       String? country,
       String? phone,
       String? language,
       String? birthday,
-      required bool isActivated,
-      required WalletDto walletInfo,
-      required List<CourseDto> courses,
+      bool? isActivated,
+      WalletDto? walletInfo,
+      List<CourseDto>? courses,
       String? level,
       List<SpecialityDto> learnTopics = const [],
       List<SpecialityDto> testPreparations = const []}) {
@@ -68,14 +68,14 @@ mixin _$UserDto {
   String get id => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get avatar => throw _privateConstructorUsedError;
+  String? get avatar => throw _privateConstructorUsedError;
   String? get country => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   String? get language => throw _privateConstructorUsedError;
   String? get birthday => throw _privateConstructorUsedError;
-  bool get isActivated => throw _privateConstructorUsedError;
-  WalletDto get walletInfo => throw _privateConstructorUsedError;
-  List<CourseDto> get courses => throw _privateConstructorUsedError;
+  bool? get isActivated => throw _privateConstructorUsedError;
+  WalletDto? get walletInfo => throw _privateConstructorUsedError;
+  List<CourseDto>? get courses => throw _privateConstructorUsedError;
   String? get level => throw _privateConstructorUsedError;
   List<SpecialityDto> get learnTopics => throw _privateConstructorUsedError;
   List<SpecialityDto> get testPreparations =>
@@ -94,19 +94,19 @@ abstract class $UserDtoCopyWith<$Res> {
       {String id,
       String email,
       String name,
-      String avatar,
+      String? avatar,
       String? country,
       String? phone,
       String? language,
       String? birthday,
-      bool isActivated,
-      WalletDto walletInfo,
-      List<CourseDto> courses,
+      bool? isActivated,
+      WalletDto? walletInfo,
+      List<CourseDto>? courses,
       String? level,
       List<SpecialityDto> learnTopics,
       List<SpecialityDto> testPreparations});
 
-  $WalletDtoCopyWith<$Res> get walletInfo;
+  $WalletDtoCopyWith<$Res>? get walletInfo;
 }
 
 /// @nodoc
@@ -150,7 +150,7 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
       avatar: avatar == freezed
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       country: country == freezed
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
@@ -170,15 +170,15 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
       isActivated: isActivated == freezed
           ? _value.isActivated
           : isActivated // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       walletInfo: walletInfo == freezed
           ? _value.walletInfo
           : walletInfo // ignore: cast_nullable_to_non_nullable
-              as WalletDto,
+              as WalletDto?,
       courses: courses == freezed
           ? _value.courses
           : courses // ignore: cast_nullable_to_non_nullable
-              as List<CourseDto>,
+              as List<CourseDto>?,
       level: level == freezed
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
@@ -195,8 +195,12 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
   }
 
   @override
-  $WalletDtoCopyWith<$Res> get walletInfo {
-    return $WalletDtoCopyWith<$Res>(_value.walletInfo, (value) {
+  $WalletDtoCopyWith<$Res>? get walletInfo {
+    if (_value.walletInfo == null) {
+      return null;
+    }
+
+    return $WalletDtoCopyWith<$Res>(_value.walletInfo!, (value) {
       return _then(_value.copyWith(walletInfo: value));
     });
   }
@@ -211,20 +215,20 @@ abstract class _$UserDtoCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
       {String id,
       String email,
       String name,
-      String avatar,
+      String? avatar,
       String? country,
       String? phone,
       String? language,
       String? birthday,
-      bool isActivated,
-      WalletDto walletInfo,
-      List<CourseDto> courses,
+      bool? isActivated,
+      WalletDto? walletInfo,
+      List<CourseDto>? courses,
       String? level,
       List<SpecialityDto> learnTopics,
       List<SpecialityDto> testPreparations});
 
   @override
-  $WalletDtoCopyWith<$Res> get walletInfo;
+  $WalletDtoCopyWith<$Res>? get walletInfo;
 }
 
 /// @nodoc
@@ -269,7 +273,7 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
       avatar: avatar == freezed
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       country: country == freezed
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
@@ -289,15 +293,15 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
       isActivated: isActivated == freezed
           ? _value.isActivated
           : isActivated // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       walletInfo: walletInfo == freezed
           ? _value.walletInfo
           : walletInfo // ignore: cast_nullable_to_non_nullable
-              as WalletDto,
+              as WalletDto?,
       courses: courses == freezed
           ? _value.courses
           : courses // ignore: cast_nullable_to_non_nullable
-              as List<CourseDto>,
+              as List<CourseDto>?,
       level: level == freezed
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
@@ -321,14 +325,14 @@ class _$_UserDto implements _UserDto {
       {required this.id,
       required this.email,
       required this.name,
-      required this.avatar,
+      this.avatar,
       this.country,
       this.phone,
       this.language,
       this.birthday,
-      required this.isActivated,
-      required this.walletInfo,
-      required this.courses,
+      this.isActivated,
+      this.walletInfo,
+      this.courses,
       this.level,
       this.learnTopics = const [],
       this.testPreparations = const []});
@@ -343,7 +347,7 @@ class _$_UserDto implements _UserDto {
   @override
   final String name;
   @override
-  final String avatar;
+  final String? avatar;
   @override
   final String? country;
   @override
@@ -353,11 +357,11 @@ class _$_UserDto implements _UserDto {
   @override
   final String? birthday;
   @override
-  final bool isActivated;
+  final bool? isActivated;
   @override
-  final WalletDto walletInfo;
+  final WalletDto? walletInfo;
   @override
-  final List<CourseDto> courses;
+  final List<CourseDto>? courses;
   @override
   final String? level;
   @JsonKey()
@@ -431,14 +435,14 @@ abstract class _UserDto implements UserDto {
       {required String id,
       required String email,
       required String name,
-      required String avatar,
+      String? avatar,
       String? country,
       String? phone,
       String? language,
       String? birthday,
-      required bool isActivated,
-      required WalletDto walletInfo,
-      required List<CourseDto> courses,
+      bool? isActivated,
+      WalletDto? walletInfo,
+      List<CourseDto>? courses,
       String? level,
       List<SpecialityDto> learnTopics,
       List<SpecialityDto> testPreparations}) = _$_UserDto;
@@ -452,7 +456,7 @@ abstract class _UserDto implements UserDto {
   @override
   String get name;
   @override
-  String get avatar;
+  String? get avatar;
   @override
   String? get country;
   @override
@@ -462,11 +466,11 @@ abstract class _UserDto implements UserDto {
   @override
   String? get birthday;
   @override
-  bool get isActivated;
+  bool? get isActivated;
   @override
-  WalletDto get walletInfo;
+  WalletDto? get walletInfo;
   @override
-  List<CourseDto> get courses;
+  List<CourseDto>? get courses;
   @override
   String? get level;
   @override

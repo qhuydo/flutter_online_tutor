@@ -10,16 +10,17 @@ _$_UserDto _$$_UserDtoFromJson(Map<String, dynamic> json) => _$_UserDto(
       id: json['id'] as String,
       email: json['email'] as String,
       name: json['name'] as String,
-      avatar: json['avatar'] as String,
+      avatar: json['avatar'] as String?,
       country: json['country'] as String?,
       phone: json['phone'] as String?,
       language: json['language'] as String?,
       birthday: json['birthday'] as String?,
-      isActivated: json['isActivated'] as bool,
-      walletInfo:
-          WalletDto.fromJson(json['walletInfo'] as Map<String, dynamic>),
-      courses: (json['courses'] as List<dynamic>)
-          .map((e) => CourseDto.fromJson(e as Map<String, dynamic>))
+      isActivated: json['isActivated'] as bool?,
+      walletInfo: json['walletInfo'] == null
+          ? null
+          : WalletDto.fromJson(json['walletInfo'] as Map<String, dynamic>),
+      courses: (json['courses'] as List<dynamic>?)
+          ?.map((e) => CourseDto.fromJson(e as Map<String, dynamic>))
           .toList(),
       level: json['level'] as String?,
       learnTopics: (json['learnTopics'] as List<dynamic>?)
