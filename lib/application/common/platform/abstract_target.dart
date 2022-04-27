@@ -7,6 +7,8 @@ abstract class AbstractTarget {
 
   bool get isSupportedChewiePlatforms;
 
+  bool get isSupportedJitsiPlatforms;
+
   bool get isAndroid;
 
   bool get isFuchsia;

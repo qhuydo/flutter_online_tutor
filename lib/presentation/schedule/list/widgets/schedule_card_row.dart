@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:twemoji/twemoji.dart';
 
 import '../../../../domain/schedule/models/appointment.dart';
 import '../../../common/l10n/schedule_display_text.dart';
+import '../../../common/routes/app_routes.gr.dart';
 import '../../../common/utils/constants.dart';
 import '../../../common/utils/string_utils.dart';
 import '../../../common/widgets/outlined_card.dart';
@@ -19,7 +21,9 @@ class ScheduleCardRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedCard(
       childInsideInkwell: true,
-      onTap: () {},
+      onTap: () {
+        context.pushRoute(MeetingRoute(appointment: appointment));
+      },
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,

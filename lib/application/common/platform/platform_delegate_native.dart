@@ -29,6 +29,9 @@ class Target extends AbstractTarget {
   bool get isSupportedChewiePlatforms => Platform.isAndroid || Platform.isIOS;
 
   @override
+  bool get isSupportedJitsiPlatforms => isMobile;
+
+  @override
   bool get isWeb => false;
 
   @override

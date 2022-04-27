@@ -1,72 +1,22 @@
-import 'package:google_fonts/google_fonts.dart';
-
+import '../../application/common/platform/platform_delegate.dart';
+import '../../domain/schedule/models/appointment.dart';
 import '../common.dart';
-import 'widgets/meeting_button_row.dart';
+import 'jitsi_meeting_page.dart';
+import 'mock_meeting_page.dart';
 
 class MeetingPage extends StatelessWidget {
-  final String meetingId;
+  final Appointment? appointment;
 
   const MeetingPage({
     Key? key,
-    this.meetingId = '',
+    this.appointment,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: ThemeData.dark().copyWith(
-        textTheme: GoogleFonts.sawarabiGothicTextTheme(
-          ThemeData.dark().textTheme,
-        ),
-      ),
-      child: const MeetingBody(),
-    );
-  }
-}
+    final target = Target();
+    if (!target.isSupportedJitsiPlatforms) return const MockMeetingPage();
 
-class MeetingBody extends StatelessWidget {
-  const MeetingBody({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        foregroundColor: Theme.of(context).colorScheme.onSurface,
-        title: Text(
-          context.l10n.meetingRoomTitle,
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.onSurface,
-          ),
-        ),
-        elevation: 0.75,
-        shadowColor: Colors.grey[500]?.withOpacity(0.5),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: CircleAvatar(),
-          ),
-        ],
-      ),
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Container(
-              color: Colors.black,
-            ),
-          ),
-          Positioned(
-            bottom: 0,
-            child: ConstrainedBox(
-              constraints: BoxConstraints(
-                minWidth: MediaQuery.of(context).size.width,
-                minHeight: 80,
-              ),
-              child: const MeetingButtonRow(),
-            ),
-          )
-        ],
-      ),
-    );
+    return JitsiMeetingPage(appointment: appointment);
   }
 }

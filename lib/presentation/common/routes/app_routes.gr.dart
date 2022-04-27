@@ -10,16 +10,17 @@
 //
 // ignore_for_file: type=lint
 
-import 'dart:typed_data' as _i8;
+import 'dart:typed_data' as _i9;
 
 import 'package:auto_route/auto_route.dart' as _i2;
 import 'package:flutter/material.dart' as _i3;
+import 'package:flutter/widgets.dart' as _i4;
 
 import '../../../domain/course_ebook/models/course_topic.dart' as _i5;
 import '../../../domain/course_ebook/models/ebook.dart' as _i7;
+import '../../../domain/schedule/models/appointment.dart' as _i8;
 import '../../../domain/tutor/models/tutor.dart' as _i6;
 import '../../all_pages.dart' as _i1;
-import '../../common.dart' as _i4;
 
 class AppRouter extends _i2.RootStackRouter {
   AppRouter([_i3.GlobalKey<_i3.NavigatorState>? navigatorKey])
@@ -129,7 +130,7 @@ class AppRouter extends _i2.RootStackRouter {
           orElse: () => const MeetingRouteArgs());
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i1.MeetingPage(key: args.key, meetingId: args.meetingId));
+          child: _i1.MeetingPage(key: args.key, appointment: args.appointment));
     },
     SettingsUnauthorizedRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
@@ -503,24 +504,24 @@ class TutorScheduleRouteArgs {
 /// generated route for
 /// [_i1.MeetingPage]
 class MeetingRoute extends _i2.PageRouteInfo<MeetingRouteArgs> {
-  MeetingRoute({_i4.Key? key, String meetingId = ''})
+  MeetingRoute({_i4.Key? key, _i8.Appointment? appointment})
       : super(MeetingRoute.name,
             path: '/meeting/:meetingId',
-            args: MeetingRouteArgs(key: key, meetingId: meetingId));
+            args: MeetingRouteArgs(key: key, appointment: appointment));
 
   static const String name = 'MeetingRoute';
 }
 
 class MeetingRouteArgs {
-  const MeetingRouteArgs({this.key, this.meetingId = ''});
+  const MeetingRouteArgs({this.key, this.appointment});
 
   final _i4.Key? key;
 
-  final String meetingId;
+  final _i8.Appointment? appointment;
 
   @override
   String toString() {
-    return 'MeetingRouteArgs{key: $key, meetingId: $meetingId}';
+    return 'MeetingRouteArgs{key: $key, appointment: $appointment}';
   }
 }
 
@@ -541,7 +542,7 @@ class CourseSyllabusPreviewRoute
   CourseSyllabusPreviewRoute(
       {_i4.Key? key,
       required _i5.CourseTopic item,
-      required _i8.Uint8List pdf,
+      required _i9.Uint8List pdf,
       int initialPage = 0})
       : super(CourseSyllabusPreviewRoute.name,
             path: '/course-syllabus-preview-page',
@@ -559,7 +560,7 @@ class CourseSyllabusPreviewRouteArgs {
 
   final _i5.CourseTopic item;
 
-  final _i8.Uint8List pdf;
+  final _i9.Uint8List pdf;
 
   final int initialPage;
 

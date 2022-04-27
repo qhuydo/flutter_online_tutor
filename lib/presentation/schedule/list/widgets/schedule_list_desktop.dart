@@ -61,6 +61,7 @@ class ScheduleListDesktop extends StatelessWidget {
             ),
             itemCount: map.length,
             itemBuilder: (_, index) => Row(
+              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
@@ -97,7 +98,10 @@ class ScheduleListDesktop extends StatelessWidget {
                         ConstrainedBox(
                           constraints: const BoxConstraints(maxWidth: 800),
                           child: ScheduleCard(
-                              appointment: appointment, showMeetingDate: false),
+                            appointment: appointment,
+                            showMeetingDate: false,
+                            openMeetingRoomWhenCardTapped: true,
+                          ),
                         ),
                     ],
                   ),
