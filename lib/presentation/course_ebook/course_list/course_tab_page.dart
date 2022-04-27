@@ -2,12 +2,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
+import '../../../application/common/platform/platform_delegate.dart';
 import '../../../application/course_ebook/course_list/course_list_bloc.dart';
 import '../../common.dart';
 import '../../common/utils/constants.dart';
 import '../../common/widgets/empty_page.dart';
 import '../../common/widgets/search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';
+import '../utils/constants.dart';
 import 'widgets/course_filter_dialog.dart';
 import 'widgets/course_list_card.dart';
 
@@ -82,7 +84,6 @@ class _CourseTabPageState extends State<CourseTabPage> {
   }
 
   Widget buildBody() {
-
     return BlocBuilder<CourseListBloc, CourseListState>(
       builder: (context, state) {
         final list = state.courseList;
@@ -114,15 +115,22 @@ class _CourseTabPageState extends State<CourseTabPage> {
           );
         }
 
+        final target = Target();
+
         return FloatingSearchBarScrollNotifier(
           child: AlignedGridView.extent(
+            controller: ScrollController(),
             primary: false,
             shrinkWrap: true,
             padding: const EdgeInsets.only(top: searchBarHeight + 12),
             itemCount: list.length,
-            itemBuilder: (context, index) => LimitedBox(
-              maxHeight: 400,
-              child: CourseListCard(course: list[index]),
+            itemBuilder: (context, index) => LayoutBuilder(
+              builder: (context, constraints) => LimitedBox(
+                maxHeight:
+                    constraints.maxWidth * courseThumbnailRatioInverse
+                        + (target.isLinux ? 180 : 120),
+                child: CourseListCard(course: list[index]),
+              ),
             ),
             maxCrossAxisExtent: 360,
           ),

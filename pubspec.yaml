@@ -189,6 +189,10 @@ dependencies:
   # (c) BSD 3-Clause License. By The Flutter Authors.
   cross_file: ^0.3.2
 
+  # A Flutter ListView where the list items can be grouped into sections.
+  # (c) MIT License. By Dimitrios Begnis
+  grouped_list: ^4.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -29,26 +29,22 @@ class SettingCardItem {
         shape: isLast
             ? const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(16),
-                  bottomRight: Radius.circular(16),
+                  bottomLeft: Radius.circular(11),
+                  bottomRight: Radius.circular(11),
                 ),
               )
             : null,
-        contentPadding: EdgeInsets.fromLTRB(
-          24,
-          0,
-          16,
-          isLast ? 8 : 0,
-        ),
+        contentPadding: EdgeInsets.fromLTRB(24, 0, 16, isLast ? 8 : 0),
         leading: Icon(
           listItem.iconData,
           color: listItem.color,
         ),
         title: Text(
           listItem.title,
-          style: Theme.of(context).textTheme.button?.copyWith(
-            color: listItem.color,
-          ),
+          style: Theme.of(context)
+              .textTheme
+              .button
+              ?.copyWith(color: listItem.color),
         ),
         onTap: listItem.onTap,
         trailing: listItem.trailingWidget,
