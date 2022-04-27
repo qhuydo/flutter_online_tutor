@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../presentation/common.dart';
 import '../../common/models/country.dart';
+import 'meeting_room.dart';
 
 part 'appointment.freezed.dart';
 
@@ -15,6 +16,7 @@ class Appointment with _$Appointment {
     required String studentRequest,
     required String tutorName,
     required Country tutorCountry,
+    required MeetingRoom meetingRoom,
     String? tutorAvatar,
   }) = _Appointment;
 }

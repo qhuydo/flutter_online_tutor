@@ -1,10 +1,13 @@
 // To parse this JSON data, do
+import 'dart:convert';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../domain/common/models/country.dart';
 import '../../../../domain/schedule/models/appointment.dart';
 import '../../../../presentation/common.dart';
 import 'appointment_details/appointment_details_dto.dart';
+import 'meeting_room/meeting_room_dto.dart';
 
 part 'appointment_dto.freezed.dart';
 
@@ -57,25 +60,37 @@ class Row with _$Row {
 }
 
 extension RowX on Row {
-  Appointment toDomain() => Appointment(
-        scheduleId: scheduleDetailInfo.scheduleId,
-        bookId: scheduleDetailInfo.id,
-        tutorId: scheduleDetailInfo.scheduleInfo.tutorId,
-        meetingTime: DateTimeRange(
-          start: DateTime.fromMillisecondsSinceEpoch(
-            scheduleDetailInfo.startPeriodTimestamp,
-          ),
-          end: DateTime.fromMillisecondsSinceEpoch(
-            scheduleDetailInfo.endPeriodTimestamp,
-          ),
+  Appointment toDomain() {
+    final token = studentMeetingLink.replaceFirst('/call/?token=', '');
+    final tokenData = token.split('.')[1];
+    final String encodedMeetingJson = utf8.decode(
+      base64Decode(base64.normalize(tokenData)),
+    );
+    final meetingRoomDto =
+        MeetingRoomDto.fromJson(jsonDecode(encodedMeetingJson));
+    final meetingRoomDomain = meetingRoomDto.toDomain(token);
+
+    return Appointment(
+      scheduleId: scheduleDetailInfo.scheduleId,
+      bookId: scheduleDetailInfo.id,
+      tutorId: scheduleDetailInfo.scheduleInfo.tutorId,
+      meetingTime: DateTimeRange(
+        start: DateTime.fromMillisecondsSinceEpoch(
+          scheduleDetailInfo.startPeriodTimestamp,
         ),
-        studentRequest: studentRequest ?? '',
-        tutorCountry: Country.fromIsoCodeOrAntarctica(
-          scheduleDetailInfo.scheduleInfo.tutorInfo.country,
+        end: DateTime.fromMillisecondsSinceEpoch(
+          scheduleDetailInfo.endPeriodTimestamp,
         ),
-        tutorAvatar: scheduleDetailInfo.scheduleInfo.tutorInfo.avatar,
-        tutorName: scheduleDetailInfo.scheduleInfo.tutorInfo.name,
-      );
+      ),
+      studentRequest: studentRequest ?? '',
+      tutorCountry: Country.fromIsoCodeOrAntarctica(
+        scheduleDetailInfo.scheduleInfo.tutorInfo.country,
+      ),
+      tutorAvatar: scheduleDetailInfo.scheduleInfo.tutorInfo.avatar,
+      tutorName: scheduleDetailInfo.scheduleInfo.tutorInfo.name,
+      meetingRoom: meetingRoomDomain,
+    );
+  }
 }
 
 extension AppointmentDtoX on AppointmentDto {
