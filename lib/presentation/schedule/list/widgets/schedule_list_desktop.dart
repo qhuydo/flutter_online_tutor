@@ -11,10 +11,12 @@ import 'schedule_card.dart';
 
 class ScheduleListDesktop extends StatelessWidget {
   final List<Appointment> appointments;
+  final Widget? paginator;
 
   const ScheduleListDesktop({
     Key? key,
     required this.appointments,
+    this.paginator,
   }) : super(key: key);
 
   Widget buildLoadingWidget() {
@@ -53,64 +55,80 @@ class ScheduleListDesktop extends StatelessWidget {
         final locale = context.l10n.localeName;
         final dateFormatter = DateFormat.yMMMMEEEEd(locale);
 
-        return Center(
-          child: ListView.separated(
-            padding: const EdgeInsets.symmetric(
-              vertical: itemSpacing,
-              horizontal: smallItemSpacing,
-            ),
-            itemCount: map.length,
-            itemBuilder: (_, index) => Row(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: itemSpacing,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          dateFormatter.format(map.keys.elementAt(index)),
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleLarge
-                              ?.copyWith(fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(height: smallItemSpacing),
-                        Text(
-                            // TODO update translation
-                            '${map.values.elementAt(index).length} appointments',
-                            style: Theme.of(context).textTheme.titleMedium),
-                      ],
-                    ),
+        return SingleChildScrollView(
+          child: Column(
+            children: [
+              Center(
+                child: ListView.separated(
+                  primary: false,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: itemSpacing,
+                    horizontal: smallItemSpacing,
                   ),
-                ),
-                Flexible(
-                  flex: 2,
-                  child: Column(
+                  itemCount: map.length,
+                  separatorBuilder: (_, index) => const SizedBox(
+                    height: smallItemSpacing,
+                  ),
+                  itemBuilder: (_, index) => Row(
                     mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      for (final appointment in map.values.elementAt(index))
-                        ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 800),
-                          child: ScheduleCard(
-                            appointment: appointment,
-                            showMeetingDate: false,
-                            openMeetingRoomWhenCardTapped: true,
+                      Expanded(
+                        flex: 1,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: itemSpacing,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                dateFormatter.format(map.keys.elementAt(index)),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleLarge
+                                    ?.copyWith(fontWeight: FontWeight.bold),
+                              ),
+                              const SizedBox(height: smallItemSpacing),
+                              Text(
+                                // TODO update translation
+                                '${map.values.elementAt(index).length} appointments',
+                                style: Theme.of(context).textTheme.titleMedium,
+                              ),
+                            ],
                           ),
                         ),
+                      ),
+                      Flexible(
+                        flex: 2,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            for (final appointment
+                                in map.values.elementAt(index))
+                              ConstrainedBox(
+                                constraints:
+                                    const BoxConstraints(maxWidth: 800),
+                                child: ScheduleCard(
+                                  appointment: appointment,
+                                  showMeetingDate: false,
+                                  openMeetingRoomWhenCardTapped: true,
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
+              ),
+              if (paginator != null) ...[
+                paginator!,
+                const SizedBox(height: smallItemSpacing),
               ],
-            ),
-            separatorBuilder: (_, index) => const SizedBox(
-              height: smallItemSpacing,
-            ),
+            ],
           ),
         );
       },

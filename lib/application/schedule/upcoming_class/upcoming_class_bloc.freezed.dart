@@ -503,7 +503,7 @@ class _$UpcomingClassStateTearOff {
       int currentPage = 1,
       int limit = 20,
       Either<Failure, PaginationListDto<Appointment>> classOrFailure =
-          const Right([])}) {
+          const Right(PaginationListDto(list: [], totalItems: 0, limit: 20))}) {
     return _UpcomingClassState(
       isLoading: isLoading,
       currentPage: currentPage,
@@ -635,7 +635,8 @@ class _$_UpcomingClassState extends _UpcomingClassState {
       {this.isLoading = false,
       this.currentPage = 1,
       this.limit = 20,
-      this.classOrFailure = const Right([])})
+      this.classOrFailure =
+          const Right(PaginationListDto(list: [], totalItems: 0, limit: 20))})
       : super._();
 
   @JsonKey()

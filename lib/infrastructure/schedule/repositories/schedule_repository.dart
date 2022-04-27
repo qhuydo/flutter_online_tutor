@@ -189,9 +189,9 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
         ),
         onResponded: (response) {
           final data = response.data as Map<String, dynamic>;
-          final totalItems = data['data']['rows'] as int;
+          final totalItems = data['data']['count'] as int;
           final dto = AppointmentDto.fromJson(data).toDomain();
-          return PaginationListDto(
+          return PaginationListDto<Appointment>(
             list: dto,
             totalItems: totalItems,
             limit: limit,

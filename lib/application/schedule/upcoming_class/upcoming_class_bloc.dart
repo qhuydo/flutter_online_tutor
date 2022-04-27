@@ -37,7 +37,7 @@ class UpcomingClassBloc extends Bloc<UpcomingClassEvent, UpcomingClassState> {
 
     final result = await _repository.getUpcomingClasses(
       page: state.currentPage,
-      limit: state.limit,
+      limit: 20,
     );
 
     emit(state.copyWith(

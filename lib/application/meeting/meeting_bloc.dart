@@ -25,7 +25,10 @@ class MeetingBloc extends Bloc<MeetingEvent, MeetingState> {
         join: () => _onMeetingJoined(emit),
       );
     });
+  }
 
+  Future _onInitialised(Emitter<MeetingState> emit, Appointment? value) async {
+    emit(state.copyWith(appointment: value));
     JitsiMeet.addListener(
       JitsiMeetingListener(
         onConferenceWillJoin: _onConferenceWillJoin,
@@ -34,10 +37,6 @@ class MeetingBloc extends Bloc<MeetingEvent, MeetingState> {
         onError: _onError,
       ),
     );
-  }
-
-  Future _onInitialised(Emitter<MeetingState> emit, Appointment? value) async {
-    emit(state.copyWith(appointment: value));
   }
 
   Future _onMeetingJoined(Emitter<MeetingState> emit) async {
