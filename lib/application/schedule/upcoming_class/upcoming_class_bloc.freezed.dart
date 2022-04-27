@@ -21,6 +21,18 @@ class _$UpcomingClassEventTearOff {
   _Initialise initialise() {
     return const _Initialise();
   }
+
+  _PageChanged pageChanged(int page) {
+    return _PageChanged(
+      page,
+    );
+  }
+
+  _PageLimitChanged pageLimitChanged(int pageLimit) {
+    return _PageLimitChanged(
+      pageLimit,
+    );
+  }
 }
 
 /// @nodoc
@@ -31,32 +43,44 @@ mixin _$UpcomingClassEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialise,
+    required TResult Function(int page) pageChanged,
+    required TResult Function(int pageLimit) pageLimitChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialise value) initialise,
+    required TResult Function(_PageChanged value) pageChanged,
+    required TResult Function(_PageLimitChanged value) pageLimitChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +145,8 @@ class _$_Initialise implements _Initialise {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialise,
+    required TResult Function(int page) pageChanged,
+    required TResult Function(int pageLimit) pageLimitChanged,
   }) {
     return initialise();
   }
@@ -129,6 +155,8 @@ class _$_Initialise implements _Initialise {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
   }) {
     return initialise?.call();
   }
@@ -137,6 +165,8 @@ class _$_Initialise implements _Initialise {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
     required TResult orElse(),
   }) {
     if (initialise != null) {
@@ -149,6 +179,8 @@ class _$_Initialise implements _Initialise {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialise value) initialise,
+    required TResult Function(_PageChanged value) pageChanged,
+    required TResult Function(_PageLimitChanged value) pageLimitChanged,
   }) {
     return initialise(this);
   }
@@ -157,6 +189,8 @@ class _$_Initialise implements _Initialise {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
   }) {
     return initialise?.call(this);
   }
@@ -165,6 +199,8 @@ class _$_Initialise implements _Initialise {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
     required TResult orElse(),
   }) {
     if (initialise != null) {
@@ -179,14 +215,299 @@ abstract class _Initialise implements UpcomingClassEvent {
 }
 
 /// @nodoc
+abstract class _$PageChangedCopyWith<$Res> {
+  factory _$PageChangedCopyWith(
+          _PageChanged value, $Res Function(_PageChanged) then) =
+      __$PageChangedCopyWithImpl<$Res>;
+  $Res call({int page});
+}
+
+/// @nodoc
+class __$PageChangedCopyWithImpl<$Res>
+    extends _$UpcomingClassEventCopyWithImpl<$Res>
+    implements _$PageChangedCopyWith<$Res> {
+  __$PageChangedCopyWithImpl(
+      _PageChanged _value, $Res Function(_PageChanged) _then)
+      : super(_value, (v) => _then(v as _PageChanged));
+
+  @override
+  _PageChanged get _value => super._value as _PageChanged;
+
+  @override
+  $Res call({
+    Object? page = freezed,
+  }) {
+    return _then(_PageChanged(
+      page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_PageChanged implements _PageChanged {
+  const _$_PageChanged(this.page);
+
+  @override
+  final int page;
+
+  @override
+  String toString() {
+    return 'UpcomingClassEvent.pageChanged(page: $page)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _PageChanged &&
+            const DeepCollectionEquality().equals(other.page, page));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(page));
+
+  @JsonKey(ignore: true)
+  @override
+  _$PageChangedCopyWith<_PageChanged> get copyWith =>
+      __$PageChangedCopyWithImpl<_PageChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialise,
+    required TResult Function(int page) pageChanged,
+    required TResult Function(int pageLimit) pageLimitChanged,
+  }) {
+    return pageChanged(page);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
+  }) {
+    return pageChanged?.call(page);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
+    required TResult orElse(),
+  }) {
+    if (pageChanged != null) {
+      return pageChanged(page);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialise value) initialise,
+    required TResult Function(_PageChanged value) pageChanged,
+    required TResult Function(_PageLimitChanged value) pageLimitChanged,
+  }) {
+    return pageChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
+  }) {
+    return pageChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    required TResult orElse(),
+  }) {
+    if (pageChanged != null) {
+      return pageChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PageChanged implements UpcomingClassEvent {
+  const factory _PageChanged(int page) = _$_PageChanged;
+
+  int get page;
+  @JsonKey(ignore: true)
+  _$PageChangedCopyWith<_PageChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$PageLimitChangedCopyWith<$Res> {
+  factory _$PageLimitChangedCopyWith(
+          _PageLimitChanged value, $Res Function(_PageLimitChanged) then) =
+      __$PageLimitChangedCopyWithImpl<$Res>;
+  $Res call({int pageLimit});
+}
+
+/// @nodoc
+class __$PageLimitChangedCopyWithImpl<$Res>
+    extends _$UpcomingClassEventCopyWithImpl<$Res>
+    implements _$PageLimitChangedCopyWith<$Res> {
+  __$PageLimitChangedCopyWithImpl(
+      _PageLimitChanged _value, $Res Function(_PageLimitChanged) _then)
+      : super(_value, (v) => _then(v as _PageLimitChanged));
+
+  @override
+  _PageLimitChanged get _value => super._value as _PageLimitChanged;
+
+  @override
+  $Res call({
+    Object? pageLimit = freezed,
+  }) {
+    return _then(_PageLimitChanged(
+      pageLimit == freezed
+          ? _value.pageLimit
+          : pageLimit // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_PageLimitChanged implements _PageLimitChanged {
+  const _$_PageLimitChanged(this.pageLimit);
+
+  @override
+  final int pageLimit;
+
+  @override
+  String toString() {
+    return 'UpcomingClassEvent.pageLimitChanged(pageLimit: $pageLimit)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _PageLimitChanged &&
+            const DeepCollectionEquality().equals(other.pageLimit, pageLimit));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(pageLimit));
+
+  @JsonKey(ignore: true)
+  @override
+  _$PageLimitChangedCopyWith<_PageLimitChanged> get copyWith =>
+      __$PageLimitChangedCopyWithImpl<_PageLimitChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialise,
+    required TResult Function(int page) pageChanged,
+    required TResult Function(int pageLimit) pageLimitChanged,
+  }) {
+    return pageLimitChanged(pageLimit);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
+  }) {
+    return pageLimitChanged?.call(pageLimit);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
+    required TResult orElse(),
+  }) {
+    if (pageLimitChanged != null) {
+      return pageLimitChanged(pageLimit);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialise value) initialise,
+    required TResult Function(_PageChanged value) pageChanged,
+    required TResult Function(_PageLimitChanged value) pageLimitChanged,
+  }) {
+    return pageLimitChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
+  }) {
+    return pageLimitChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    required TResult orElse(),
+  }) {
+    if (pageLimitChanged != null) {
+      return pageLimitChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PageLimitChanged implements UpcomingClassEvent {
+  const factory _PageLimitChanged(int pageLimit) = _$_PageLimitChanged;
+
+  int get pageLimit;
+  @JsonKey(ignore: true)
+  _$PageLimitChangedCopyWith<_PageLimitChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 class _$UpcomingClassStateTearOff {
   const _$UpcomingClassStateTearOff();
 
   _UpcomingClassState call(
       {dynamic isLoading = false,
-      Either<Failure, List<Appointment>> classOrFailure = const Right([])}) {
+      int currentPage = 1,
+      int limit = 20,
+      Either<Failure, PaginationListDto<Appointment>> classOrFailure =
+          const Right([])}) {
     return _UpcomingClassState(
       isLoading: isLoading,
+      currentPage: currentPage,
+      limit: limit,
       classOrFailure: classOrFailure,
     );
   }
@@ -198,7 +519,9 @@ const $UpcomingClassState = _$UpcomingClassStateTearOff();
 /// @nodoc
 mixin _$UpcomingClassState {
   dynamic get isLoading => throw _privateConstructorUsedError;
-  Either<Failure, List<Appointment>> get classOrFailure =>
+  int get currentPage => throw _privateConstructorUsedError;
+  int get limit => throw _privateConstructorUsedError;
+  Either<Failure, PaginationListDto<Appointment>> get classOrFailure =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -212,7 +535,10 @@ abstract class $UpcomingClassStateCopyWith<$Res> {
           UpcomingClassState value, $Res Function(UpcomingClassState) then) =
       _$UpcomingClassStateCopyWithImpl<$Res>;
   $Res call(
-      {dynamic isLoading, Either<Failure, List<Appointment>> classOrFailure});
+      {dynamic isLoading,
+      int currentPage,
+      int limit,
+      Either<Failure, PaginationListDto<Appointment>> classOrFailure});
 }
 
 /// @nodoc
@@ -227,6 +553,8 @@ class _$UpcomingClassStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? currentPage = freezed,
+    Object? limit = freezed,
     Object? classOrFailure = freezed,
   }) {
     return _then(_value.copyWith(
@@ -234,10 +562,18 @@ class _$UpcomingClassStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      currentPage: currentPage == freezed
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      limit: limit == freezed
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int,
       classOrFailure: classOrFailure == freezed
           ? _value.classOrFailure
           : classOrFailure // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, List<Appointment>>,
+              as Either<Failure, PaginationListDto<Appointment>>,
     ));
   }
 }
@@ -250,7 +586,10 @@ abstract class _$UpcomingClassStateCopyWith<$Res>
       __$UpcomingClassStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {dynamic isLoading, Either<Failure, List<Appointment>> classOrFailure});
+      {dynamic isLoading,
+      int currentPage,
+      int limit,
+      Either<Failure, PaginationListDto<Appointment>> classOrFailure});
 }
 
 /// @nodoc
@@ -267,14 +606,24 @@ class __$UpcomingClassStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? currentPage = freezed,
+    Object? limit = freezed,
     Object? classOrFailure = freezed,
   }) {
     return _then(_UpcomingClassState(
       isLoading: isLoading == freezed ? _value.isLoading : isLoading,
+      currentPage: currentPage == freezed
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      limit: limit == freezed
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
+              as int,
       classOrFailure: classOrFailure == freezed
           ? _value.classOrFailure
           : classOrFailure // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, List<Appointment>>,
+              as Either<Failure, PaginationListDto<Appointment>>,
     ));
   }
 }
@@ -283,7 +632,10 @@ class __$UpcomingClassStateCopyWithImpl<$Res>
 
 class _$_UpcomingClassState extends _UpcomingClassState {
   const _$_UpcomingClassState(
-      {this.isLoading = false, this.classOrFailure = const Right([])})
+      {this.isLoading = false,
+      this.currentPage = 1,
+      this.limit = 20,
+      this.classOrFailure = const Right([])})
       : super._();
 
   @JsonKey()
@@ -291,11 +643,17 @@ class _$_UpcomingClassState extends _UpcomingClassState {
   final dynamic isLoading;
   @JsonKey()
   @override
-  final Either<Failure, List<Appointment>> classOrFailure;
+  final int currentPage;
+  @JsonKey()
+  @override
+  final int limit;
+  @JsonKey()
+  @override
+  final Either<Failure, PaginationListDto<Appointment>> classOrFailure;
 
   @override
   String toString() {
-    return 'UpcomingClassState(isLoading: $isLoading, classOrFailure: $classOrFailure)';
+    return 'UpcomingClassState(isLoading: $isLoading, currentPage: $currentPage, limit: $limit, classOrFailure: $classOrFailure)';
   }
 
   @override
@@ -305,6 +663,9 @@ class _$_UpcomingClassState extends _UpcomingClassState {
             other is _UpcomingClassState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
+                .equals(other.currentPage, currentPage) &&
+            const DeepCollectionEquality().equals(other.limit, limit) &&
+            const DeepCollectionEquality()
                 .equals(other.classOrFailure, classOrFailure));
   }
 
@@ -312,6 +673,8 @@ class _$_UpcomingClassState extends _UpcomingClassState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(currentPage),
+      const DeepCollectionEquality().hash(limit),
       const DeepCollectionEquality().hash(classOrFailure));
 
   @JsonKey(ignore: true)
@@ -323,14 +686,20 @@ class _$_UpcomingClassState extends _UpcomingClassState {
 abstract class _UpcomingClassState extends UpcomingClassState {
   const factory _UpcomingClassState(
           {dynamic isLoading,
-          Either<Failure, List<Appointment>> classOrFailure}) =
+          int currentPage,
+          int limit,
+          Either<Failure, PaginationListDto<Appointment>> classOrFailure}) =
       _$_UpcomingClassState;
   const _UpcomingClassState._() : super._();
 
   @override
   dynamic get isLoading;
   @override
-  Either<Failure, List<Appointment>> get classOrFailure;
+  int get currentPage;
+  @override
+  int get limit;
+  @override
+  Either<Failure, PaginationListDto<Appointment>> get classOrFailure;
   @override
   @JsonKey(ignore: true)
   _$UpcomingClassStateCopyWith<_UpcomingClassState> get copyWith =>

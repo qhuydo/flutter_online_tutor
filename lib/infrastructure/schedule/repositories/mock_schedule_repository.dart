@@ -9,6 +9,7 @@ import '../../../domain/schedule/models/appointment.dart';
 import '../../../domain/schedule/models/schedule.dart';
 import '../../../presentation/common.dart';
 import '../../common/db/fixture_loader.dart';
+import '../../common/dto/pagination_list_dto.dart';
 import '../dto/appointment/appointment_dto.dart';
 import '../dto/tutor_schedule/tutor_schedule_dto.dart';
 
@@ -111,7 +112,10 @@ class MockScheduleRepository extends ScheduleRepository {
   }
 
   @override
-  Future<Either<Failure, List<Appointment>>> getUpcomingClasses() async {
+  Future<Either<Failure, PaginationListDto<Appointment>>> getUpcomingClasses({
+    required int page,
+    required int limit,
+  }) async {
     try {
       final userId = _box.get(_keyUser);
       if (userId == null) {
@@ -122,8 +126,13 @@ class MockScheduleRepository extends ScheduleRepository {
 
       final res = AppointmentDto.fromJson(await FixtureLoader.upcomingClasses);
       final upcomingClasses = res.toDomain();
+      final result = PaginationListDto(
+        list: upcomingClasses,
+        totalItems: upcomingClasses.length,
+        limit: limit,
+      );
 
-      return right(upcomingClasses);
+      return right(result);
     } on FlutterError {
       return left(const Failure.notFound());
     }

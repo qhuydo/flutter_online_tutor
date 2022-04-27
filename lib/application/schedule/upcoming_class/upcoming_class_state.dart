@@ -6,11 +6,18 @@ class UpcomingClassState with _$UpcomingClassState {
 
   const factory UpcomingClassState({
     @Default(false) isLoading,
-    @Default(Right([])) Either<Failure, List<Appointment>> classOrFailure,
+    @Default(1) int currentPage,
+    @Default(20) int limit,
+    @Default(Right([]))
+        Either<Failure, PaginationListDto<Appointment>> classOrFailure,
   }) = _UpcomingClassState;
 
   List<Appointment>? get upcomingClasses => classOrFailure.fold(
         (l) => null,
-        (r) => r,
+        (r) => r.list
       );
+
+  int get totalResults => classOrFailure.fold((l) => 0, (r) => r.totalItems);
+
+  int get totalPages => classOrFailure.fold((l) => 0, (r) => r.totalPages);
 }

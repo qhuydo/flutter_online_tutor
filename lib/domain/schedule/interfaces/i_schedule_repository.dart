@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 
+import '../../../infrastructure/common/dto/pagination_list_dto.dart';
 import '../../../presentation/common.dart';
 import '../../common/failures/failure.dart';
 import '../models/appointment.dart';
@@ -25,7 +26,10 @@ abstract class ScheduleRepository {
     required String note,
   });
 
-  Future<Either<Failure, List<Appointment>>> getUpcomingClasses();
+  Future<Either<Failure, PaginationListDto<Appointment>>> getUpcomingClasses({
+    required int page,
+    required int limit,
+  });
 
   Future<Either<Failure, List<Appointment>>> getHistory();
 }

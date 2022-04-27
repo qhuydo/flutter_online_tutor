@@ -9,6 +9,7 @@ import '../../../domain/schedule/interfaces/i_schedule_repository.dart';
 import '../../../domain/schedule/models/appointment.dart';
 import '../../../domain/schedule/models/schedule.dart';
 import '../../../presentation/common.dart';
+import '../../common/dto/pagination_list_dto.dart';
 import '../../common/network/api_client.dart';
 import '../../common/network/request_url.dart';
 import '../dto/appointment/appointment_dto.dart';
@@ -164,7 +165,10 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
   }
 
   @override
-  Future<Either<Failure, List<Appointment>>> getUpcomingClasses() async {
+  Future<Either<Failure, PaginationListDto<Appointment>>> getUpcomingClasses({
+    required int page,
+    required int limit,
+  }) async {
     try {
       final userId = _box.get(_keyUser);
       if (userId == null) {
@@ -175,8 +179,8 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
 
       final res = _apiClient.get(
         RequestUrl.schedule.upComingClasses(
-          page: 1,
-          perPage: 20,
+          page: page,
+          perPage: limit,
           dateTimeGte: DateTime.now()
               .subtract(const Duration(minutes: 5))
               .millisecondsSinceEpoch,
@@ -185,8 +189,13 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
         ),
         onResponded: (response) {
           final data = response.data as Map<String, dynamic>;
-
-          return AppointmentDto.fromJson(data).toDomain();
+          final totalItems = data['data']['rows'] as int;
+          final dto = AppointmentDto.fromJson(data).toDomain();
+          return PaginationListDto(
+            list: dto,
+            totalItems: totalItems,
+            limit: limit,
+          );
         },
       );
 

@@ -62,13 +62,13 @@ void main() {
   group('get upcoming classes', () {
     test('should get upcoming classes', () async {
       // act
-      final result = await repository.getUpcomingClasses();
+      final result = await repository.getUpcomingClasses(page: 1, limit: 20);
 
       final list = result.fold((l) => null, (r) => r);
 
       // assert
       expect(result.isRight(), isTrue);
-      expect(list?.isNotEmpty, isTrue);
+      expect(list?.list.isNotEmpty, isTrue);
     });
   });
 
