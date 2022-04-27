@@ -52,6 +52,7 @@ class CourseDetailsBodyDesktop extends StatelessWidget {
               Expanded(
                 flex: 3,
                 child: SingleChildScrollView(
+                  controller: ScrollController(),
                   child: SafeArea(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,

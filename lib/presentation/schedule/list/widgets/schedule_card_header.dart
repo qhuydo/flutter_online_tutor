@@ -3,14 +3,17 @@ import 'package:twemoji/twemoji.dart';
 
 import '../../../../domain/schedule/models/appointment.dart';
 import '../../../common.dart';
+import '../../../common/utils/constants.dart';
 import '../../../common/utils/string_utils.dart';
 
 class ScheduleCardHeader extends StatelessWidget {
   final Appointment appointment;
+  final bool showMeetingDate;
 
   const ScheduleCardHeader({
     Key? key,
     required this.appointment,
+    this.showMeetingDate = true,
   }) : super(key: key);
 
   @override
@@ -22,20 +25,22 @@ class ScheduleCardHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 8,
-          ),
-          child: FittedBox(
-            child: Text(
-              dateFormatter.format(appointment.meetingTime.start),
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
+        showMeetingDate
+            ? Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
+                child: FittedBox(
+                  child: Text(
+                    dateFormatter.format(appointment.meetingTime.start),
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
-            ),
-          ),
-        ),
+                ),
+              )
+            : const SizedBox(height: smallItemSpacing),
         ListTile(
           leading: CircleAvatar(
             backgroundColor: appointment.tutorAvatar == null

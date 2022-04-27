@@ -17,7 +17,7 @@ class Target extends AbstractTarget {
   bool get isIOS => Platform.isIOS;
 
   @override
-  bool get isLinux => Platform.isIOS;
+  bool get isLinux => Platform.isLinux;
 
   @override
   bool get isMacOS => Platform.isMacOS;

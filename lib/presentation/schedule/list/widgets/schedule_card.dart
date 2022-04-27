@@ -9,11 +9,13 @@ import 'schedule_card_header.dart';
 class ScheduleCard extends StatelessWidget {
   final Appointment appointment;
   final bool showActionButtons;
+  final bool showMeetingDate;
 
   const ScheduleCard({
     Key? key,
     required this.appointment,
     this.showActionButtons = true,
+    this.showMeetingDate = true,
   }) : super(key: key);
 
   @override
@@ -25,12 +27,16 @@ class ScheduleCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          ScheduleCardHeader(appointment: appointment),
-          ScheduleCardContent(appointment: appointment),
-          if (showActionButtons) const Padding(
-            padding: EdgeInsets.only(bottom: smallItemSpacing),
-            child: ScheduleCardButtonGroup(),
+          ScheduleCardHeader(
+            appointment: appointment,
+            showMeetingDate: showMeetingDate,
           ),
+          ScheduleCardContent(appointment: appointment),
+          if (showActionButtons)
+            const Padding(
+              padding: EdgeInsets.only(bottom: smallItemSpacing),
+              child: ScheduleCardButtonGroup(),
+            ),
         ],
       ),
     );
