@@ -93,7 +93,10 @@ class MockScheduleRepository extends ScheduleRepository {
       right(unit);
 
   @override
-  Future<Either<Failure, List<Appointment>>> getHistory() async {
+  Future<Either<Failure, PaginationListDto<Appointment>>> getHistory({
+    required int page,
+    required int limit,
+  }) async {
     try {
       final userId = _box.get(_keyUser);
       if (userId == null) {
@@ -105,7 +108,13 @@ class MockScheduleRepository extends ScheduleRepository {
       final res = AppointmentDto.fromJson(await FixtureLoader.classHistory);
       final history = res.toDomain();
 
-      return right(history);
+      final result = PaginationListDto(
+        list: history,
+        totalItems: history.length,
+        limit: limit,
+      );
+
+      return right(result);
     } on FlutterError {
       return left(const Failure.notFound());
     }

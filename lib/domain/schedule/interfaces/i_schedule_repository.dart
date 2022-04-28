@@ -31,5 +31,8 @@ abstract class ScheduleRepository {
     required int limit,
   });
 
-  Future<Either<Failure, List<Appointment>>> getHistory();
+  Future<Either<Failure, PaginationListDto<Appointment>>> getHistory({
+    required int page,
+    required int limit,
+  });
 }

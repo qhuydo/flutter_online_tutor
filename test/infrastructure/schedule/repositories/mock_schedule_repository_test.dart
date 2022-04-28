@@ -75,13 +75,13 @@ void main() {
   group('get meeting history', () {
     test('should get meeting histories', () async {
       // act
-      final result = await repository.getHistory();
+      final result = await repository.getHistory(page: 1, limit: 1);
 
       final list = result.fold((l) => null, (r) => r);
 
       // assert
       expect(result.isRight(), isTrue);
-      expect(list?.isNotEmpty, isTrue);
+      expect(list?.list.isNotEmpty, isTrue);
     });
   });
 }

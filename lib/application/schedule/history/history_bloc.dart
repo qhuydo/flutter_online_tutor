@@ -8,9 +8,12 @@ import 'package:injectable/injectable.dart';
 import '../../../domain/common/failures/failure.dart';
 import '../../../domain/schedule/interfaces/i_schedule_repository.dart';
 import '../../../domain/schedule/models/appointment.dart';
+import '../../../infrastructure/common/dto/pagination_list_dto.dart';
 
 part 'history_bloc.freezed.dart';
+
 part 'history_event.dart';
+
 part 'history_state.dart';
 
 @injectable
@@ -19,19 +22,45 @@ class HistoryBloc extends Bloc<HistoryEvent, HistoryState> {
 
   HistoryBloc(this._repository) : super(const HistoryState()) {
     on<HistoryEvent>((event, emit) async {
-      await event.when(initialise: () => _initialise(emit));
+      await event.when(
+        initialise: () => _initialise(emit),
+        pageChanged: (value) => _pageChanged(value, emit),
+        pageLimitChanged: (value) => _pageLimitChanged(value, emit),
+      );
     });
   }
 
   Future _initialise(Emitter<HistoryState> emit) async {
+    await _loadStudiedClasses(emit);
+  }
+
+  Future _loadStudiedClasses(Emitter<HistoryState> emit) async {
     emit(state.copyWith(isLoading: true));
 
-    // await Future.delayed(const Duration(seconds: 2));
-    final result = await _repository.getHistory();
+    final result = await _repository.getHistory(
+      page: state.currentPage,
+      limit: 20,
+    );
 
     emit(state.copyWith(
       isLoading: false,
       classOrFailure: result,
     ));
+  }
+
+  Future _pageChanged(int value, Emitter<HistoryState> emit) async {
+    emit(state.copyWith(
+      currentPage: value,
+    ));
+
+    await _loadStudiedClasses(emit);
+  }
+
+  Future _pageLimitChanged(int value, Emitter<HistoryState> emit) async {
+    emit(state.copyWith(
+      limit: value,
+    ));
+
+    await _loadStudiedClasses(emit);
   }
 }
