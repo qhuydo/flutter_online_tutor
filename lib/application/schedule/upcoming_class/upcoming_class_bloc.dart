@@ -24,6 +24,10 @@ class UpcomingClassBloc extends Bloc<UpcomingClassEvent, UpcomingClassState> {
         initialise: () => _initialise(emit),
         pageChanged: (value) => _pageChanged(value, emit),
         pageLimitChanged: (value) => _pageLimitChanged(value, emit),
+        cancelClass: (value) => _classCanceled(value, emit),
+        classCancellationMessageDisplayed: () =>
+            _classCancellationMessageDisplayed(emit),
+        appointmentSelected: (value) => _appointmentSelected(value, emit),
       );
     });
   }
@@ -61,4 +65,35 @@ class UpcomingClassBloc extends Bloc<UpcomingClassEvent, UpcomingClassState> {
 
     await _loadUpcomingClasses(emit);
   }
+
+  Future _classCanceled(
+    Appointment value,
+    Emitter<UpcomingClassState> emit,
+  ) async {
+    final result = await _repository.cancelClass(
+      scheduleDetailsId: value.scheduleId,
+    );
+
+    final status = result.fold(
+      (l) => ClassCancellationStatus.failed(l),
+      (r) => const ClassCancellationStatus.succeed(),
+    );
+
+    emit(state.copyWith(classCancellationStatus: status));
+  }
+
+  Future _classCancellationMessageDisplayed(
+    Emitter<UpcomingClassState> emit,
+  ) async =>
+      emit(state.copyWith(
+        classCancellationStatus: const ClassCancellationStatus.initial(),
+      ));
+
+  Future _appointmentSelected(
+    value,
+    Emitter<UpcomingClassState> emit,
+  ) async =>
+      emit(state.copyWith(
+        selectedAppointment: value,
+      ));
 }

@@ -51,8 +51,21 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
   @override
   Future<Either<Failure, Unit>> cancelClass({
     required String scheduleDetailsId,
-  }) async =>
-      right(unit);
+  }) async {
+    try {
+      final data = {
+        'scheduleDetailIds': [scheduleDetailsId],
+      };
+      final result = await _apiClient.delete(
+        RequestUrl.schedule.book,
+        data: data,
+        onResponded: (response) => unit,
+      );
+      return result;
+    } on FlutterError {
+      return left(const Failure.internalError());
+    }
+  }
 
   @override
   Future<Either<Failure, EventMap>> getScheduleEvents({
@@ -127,8 +140,21 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
   Future<Either<Failure, Unit>> updateRequest({
     required String bookedId,
     required String note,
-  }) async =>
-      right(unit);
+  }) async {
+    try {
+      final data = {
+        'studentRequest': note,
+      };
+      final result = await _apiClient.post(
+        RequestUrl.schedule.updateStudentRequest(bookedId),
+        data: data,
+        onResponded: (response) => unit,
+      );
+      return result;
+    } on FlutterError {
+      return left(const Failure.internalError());
+    }
+  }
 
   @override
   Future<Either<Failure, PaginationListDto<Appointment>>> getHistory({

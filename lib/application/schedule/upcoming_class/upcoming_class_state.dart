@@ -1,6 +1,15 @@
 part of 'upcoming_class_bloc.dart';
 
 @freezed
+class ClassCancellationStatus with _$ClassCancellationStatus {
+  const factory ClassCancellationStatus.initial() = _Initial;
+
+  const factory ClassCancellationStatus.succeed() = _Succeed;
+
+  const factory ClassCancellationStatus.failed(Failure failure) = _Failed;
+}
+
+@freezed
 class UpcomingClassState with _$UpcomingClassState {
   const UpcomingClassState._();
 
@@ -10,6 +19,9 @@ class UpcomingClassState with _$UpcomingClassState {
     @Default(20) int limit,
     @Default(Right(PaginationListDto(list: [], totalItems: 0, limit: 20)))
         Either<Failure, PaginationListDto<Appointment>> classOrFailure,
+    @Default(ClassCancellationStatus.initial())
+        ClassCancellationStatus classCancellationStatus,
+    Appointment? selectedAppointment,
   }) = _UpcomingClassState;
 
   List<Appointment>? get upcomingClasses =>

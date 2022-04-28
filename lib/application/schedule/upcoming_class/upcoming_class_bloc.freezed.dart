@@ -33,6 +33,22 @@ class _$UpcomingClassEventTearOff {
       pageLimit,
     );
   }
+
+  _CancelClass cancelClass(Appointment appointment) {
+    return _CancelClass(
+      appointment,
+    );
+  }
+
+  _ClassCancellationMessageDisplayed classCancellationMessageDisplayed() {
+    return const _ClassCancellationMessageDisplayed();
+  }
+
+  _AppointmentSelected appointmentSelected(Appointment appointment) {
+    return _AppointmentSelected(
+      appointment,
+    );
+  }
 }
 
 /// @nodoc
@@ -45,6 +61,9 @@ mixin _$UpcomingClassEvent {
     required TResult Function() initialise,
     required TResult Function(int page) pageChanged,
     required TResult Function(int pageLimit) pageLimitChanged,
+    required TResult Function(Appointment appointment) cancelClass,
+    required TResult Function() classCancellationMessageDisplayed,
+    required TResult Function(Appointment appointment) appointmentSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,6 +71,9 @@ mixin _$UpcomingClassEvent {
     TResult Function()? initialise,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
+    TResult Function(Appointment appointment)? cancelClass,
+    TResult Function()? classCancellationMessageDisplayed,
+    TResult Function(Appointment appointment)? appointmentSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,6 +81,9 @@ mixin _$UpcomingClassEvent {
     TResult Function()? initialise,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
+    TResult Function(Appointment appointment)? cancelClass,
+    TResult Function()? classCancellationMessageDisplayed,
+    TResult Function(Appointment appointment)? appointmentSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,6 +92,10 @@ mixin _$UpcomingClassEvent {
     required TResult Function(_Initialise value) initialise,
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PageLimitChanged value) pageLimitChanged,
+    required TResult Function(_CancelClass value) cancelClass,
+    required TResult Function(_ClassCancellationMessageDisplayed value)
+        classCancellationMessageDisplayed,
+    required TResult Function(_AppointmentSelected value) appointmentSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,6 +103,10 @@ mixin _$UpcomingClassEvent {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_CancelClass value)? cancelClass,
+    TResult Function(_ClassCancellationMessageDisplayed value)?
+        classCancellationMessageDisplayed,
+    TResult Function(_AppointmentSelected value)? appointmentSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +114,10 @@ mixin _$UpcomingClassEvent {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_CancelClass value)? cancelClass,
+    TResult Function(_ClassCancellationMessageDisplayed value)?
+        classCancellationMessageDisplayed,
+    TResult Function(_AppointmentSelected value)? appointmentSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,6 +184,9 @@ class _$_Initialise implements _Initialise {
     required TResult Function() initialise,
     required TResult Function(int page) pageChanged,
     required TResult Function(int pageLimit) pageLimitChanged,
+    required TResult Function(Appointment appointment) cancelClass,
+    required TResult Function() classCancellationMessageDisplayed,
+    required TResult Function(Appointment appointment) appointmentSelected,
   }) {
     return initialise();
   }
@@ -157,6 +197,9 @@ class _$_Initialise implements _Initialise {
     TResult Function()? initialise,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
+    TResult Function(Appointment appointment)? cancelClass,
+    TResult Function()? classCancellationMessageDisplayed,
+    TResult Function(Appointment appointment)? appointmentSelected,
   }) {
     return initialise?.call();
   }
@@ -167,6 +210,9 @@ class _$_Initialise implements _Initialise {
     TResult Function()? initialise,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
+    TResult Function(Appointment appointment)? cancelClass,
+    TResult Function()? classCancellationMessageDisplayed,
+    TResult Function(Appointment appointment)? appointmentSelected,
     required TResult orElse(),
   }) {
     if (initialise != null) {
@@ -181,6 +227,10 @@ class _$_Initialise implements _Initialise {
     required TResult Function(_Initialise value) initialise,
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PageLimitChanged value) pageLimitChanged,
+    required TResult Function(_CancelClass value) cancelClass,
+    required TResult Function(_ClassCancellationMessageDisplayed value)
+        classCancellationMessageDisplayed,
+    required TResult Function(_AppointmentSelected value) appointmentSelected,
   }) {
     return initialise(this);
   }
@@ -191,6 +241,10 @@ class _$_Initialise implements _Initialise {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_CancelClass value)? cancelClass,
+    TResult Function(_ClassCancellationMessageDisplayed value)?
+        classCancellationMessageDisplayed,
+    TResult Function(_AppointmentSelected value)? appointmentSelected,
   }) {
     return initialise?.call(this);
   }
@@ -201,6 +255,10 @@ class _$_Initialise implements _Initialise {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_CancelClass value)? cancelClass,
+    TResult Function(_ClassCancellationMessageDisplayed value)?
+        classCancellationMessageDisplayed,
+    TResult Function(_AppointmentSelected value)? appointmentSelected,
     required TResult orElse(),
   }) {
     if (initialise != null) {
@@ -282,6 +340,9 @@ class _$_PageChanged implements _PageChanged {
     required TResult Function() initialise,
     required TResult Function(int page) pageChanged,
     required TResult Function(int pageLimit) pageLimitChanged,
+    required TResult Function(Appointment appointment) cancelClass,
+    required TResult Function() classCancellationMessageDisplayed,
+    required TResult Function(Appointment appointment) appointmentSelected,
   }) {
     return pageChanged(page);
   }
@@ -292,6 +353,9 @@ class _$_PageChanged implements _PageChanged {
     TResult Function()? initialise,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
+    TResult Function(Appointment appointment)? cancelClass,
+    TResult Function()? classCancellationMessageDisplayed,
+    TResult Function(Appointment appointment)? appointmentSelected,
   }) {
     return pageChanged?.call(page);
   }
@@ -302,6 +366,9 @@ class _$_PageChanged implements _PageChanged {
     TResult Function()? initialise,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
+    TResult Function(Appointment appointment)? cancelClass,
+    TResult Function()? classCancellationMessageDisplayed,
+    TResult Function(Appointment appointment)? appointmentSelected,
     required TResult orElse(),
   }) {
     if (pageChanged != null) {
@@ -316,6 +383,10 @@ class _$_PageChanged implements _PageChanged {
     required TResult Function(_Initialise value) initialise,
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PageLimitChanged value) pageLimitChanged,
+    required TResult Function(_CancelClass value) cancelClass,
+    required TResult Function(_ClassCancellationMessageDisplayed value)
+        classCancellationMessageDisplayed,
+    required TResult Function(_AppointmentSelected value) appointmentSelected,
   }) {
     return pageChanged(this);
   }
@@ -326,6 +397,10 @@ class _$_PageChanged implements _PageChanged {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_CancelClass value)? cancelClass,
+    TResult Function(_ClassCancellationMessageDisplayed value)?
+        classCancellationMessageDisplayed,
+    TResult Function(_AppointmentSelected value)? appointmentSelected,
   }) {
     return pageChanged?.call(this);
   }
@@ -336,6 +411,10 @@ class _$_PageChanged implements _PageChanged {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_CancelClass value)? cancelClass,
+    TResult Function(_ClassCancellationMessageDisplayed value)?
+        classCancellationMessageDisplayed,
+    TResult Function(_AppointmentSelected value)? appointmentSelected,
     required TResult orElse(),
   }) {
     if (pageChanged != null) {
@@ -422,6 +501,9 @@ class _$_PageLimitChanged implements _PageLimitChanged {
     required TResult Function() initialise,
     required TResult Function(int page) pageChanged,
     required TResult Function(int pageLimit) pageLimitChanged,
+    required TResult Function(Appointment appointment) cancelClass,
+    required TResult Function() classCancellationMessageDisplayed,
+    required TResult Function(Appointment appointment) appointmentSelected,
   }) {
     return pageLimitChanged(pageLimit);
   }
@@ -432,6 +514,9 @@ class _$_PageLimitChanged implements _PageLimitChanged {
     TResult Function()? initialise,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
+    TResult Function(Appointment appointment)? cancelClass,
+    TResult Function()? classCancellationMessageDisplayed,
+    TResult Function(Appointment appointment)? appointmentSelected,
   }) {
     return pageLimitChanged?.call(pageLimit);
   }
@@ -442,6 +527,9 @@ class _$_PageLimitChanged implements _PageLimitChanged {
     TResult Function()? initialise,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
+    TResult Function(Appointment appointment)? cancelClass,
+    TResult Function()? classCancellationMessageDisplayed,
+    TResult Function(Appointment appointment)? appointmentSelected,
     required TResult orElse(),
   }) {
     if (pageLimitChanged != null) {
@@ -456,6 +544,10 @@ class _$_PageLimitChanged implements _PageLimitChanged {
     required TResult Function(_Initialise value) initialise,
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PageLimitChanged value) pageLimitChanged,
+    required TResult Function(_CancelClass value) cancelClass,
+    required TResult Function(_ClassCancellationMessageDisplayed value)
+        classCancellationMessageDisplayed,
+    required TResult Function(_AppointmentSelected value) appointmentSelected,
   }) {
     return pageLimitChanged(this);
   }
@@ -466,6 +558,10 @@ class _$_PageLimitChanged implements _PageLimitChanged {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_CancelClass value)? cancelClass,
+    TResult Function(_ClassCancellationMessageDisplayed value)?
+        classCancellationMessageDisplayed,
+    TResult Function(_AppointmentSelected value)? appointmentSelected,
   }) {
     return pageLimitChanged?.call(this);
   }
@@ -476,6 +572,10 @@ class _$_PageLimitChanged implements _PageLimitChanged {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_CancelClass value)? cancelClass,
+    TResult Function(_ClassCancellationMessageDisplayed value)?
+        classCancellationMessageDisplayed,
+    TResult Function(_AppointmentSelected value)? appointmentSelected,
     required TResult orElse(),
   }) {
     if (pageLimitChanged != null) {
@@ -495,6 +595,940 @@ abstract class _PageLimitChanged implements UpcomingClassEvent {
 }
 
 /// @nodoc
+abstract class _$CancelClassCopyWith<$Res> {
+  factory _$CancelClassCopyWith(
+          _CancelClass value, $Res Function(_CancelClass) then) =
+      __$CancelClassCopyWithImpl<$Res>;
+  $Res call({Appointment appointment});
+
+  $AppointmentCopyWith<$Res> get appointment;
+}
+
+/// @nodoc
+class __$CancelClassCopyWithImpl<$Res>
+    extends _$UpcomingClassEventCopyWithImpl<$Res>
+    implements _$CancelClassCopyWith<$Res> {
+  __$CancelClassCopyWithImpl(
+      _CancelClass _value, $Res Function(_CancelClass) _then)
+      : super(_value, (v) => _then(v as _CancelClass));
+
+  @override
+  _CancelClass get _value => super._value as _CancelClass;
+
+  @override
+  $Res call({
+    Object? appointment = freezed,
+  }) {
+    return _then(_CancelClass(
+      appointment == freezed
+          ? _value.appointment
+          : appointment // ignore: cast_nullable_to_non_nullable
+              as Appointment,
+    ));
+  }
+
+  @override
+  $AppointmentCopyWith<$Res> get appointment {
+    return $AppointmentCopyWith<$Res>(_value.appointment, (value) {
+      return _then(_value.copyWith(appointment: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_CancelClass implements _CancelClass {
+  const _$_CancelClass(this.appointment);
+
+  @override
+  final Appointment appointment;
+
+  @override
+  String toString() {
+    return 'UpcomingClassEvent.cancelClass(appointment: $appointment)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _CancelClass &&
+            const DeepCollectionEquality()
+                .equals(other.appointment, appointment));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(appointment));
+
+  @JsonKey(ignore: true)
+  @override
+  _$CancelClassCopyWith<_CancelClass> get copyWith =>
+      __$CancelClassCopyWithImpl<_CancelClass>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialise,
+    required TResult Function(int page) pageChanged,
+    required TResult Function(int pageLimit) pageLimitChanged,
+    required TResult Function(Appointment appointment) cancelClass,
+    required TResult Function() classCancellationMessageDisplayed,
+    required TResult Function(Appointment appointment) appointmentSelected,
+  }) {
+    return cancelClass(appointment);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
+    TResult Function(Appointment appointment)? cancelClass,
+    TResult Function()? classCancellationMessageDisplayed,
+    TResult Function(Appointment appointment)? appointmentSelected,
+  }) {
+    return cancelClass?.call(appointment);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
+    TResult Function(Appointment appointment)? cancelClass,
+    TResult Function()? classCancellationMessageDisplayed,
+    TResult Function(Appointment appointment)? appointmentSelected,
+    required TResult orElse(),
+  }) {
+    if (cancelClass != null) {
+      return cancelClass(appointment);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialise value) initialise,
+    required TResult Function(_PageChanged value) pageChanged,
+    required TResult Function(_PageLimitChanged value) pageLimitChanged,
+    required TResult Function(_CancelClass value) cancelClass,
+    required TResult Function(_ClassCancellationMessageDisplayed value)
+        classCancellationMessageDisplayed,
+    required TResult Function(_AppointmentSelected value) appointmentSelected,
+  }) {
+    return cancelClass(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_CancelClass value)? cancelClass,
+    TResult Function(_ClassCancellationMessageDisplayed value)?
+        classCancellationMessageDisplayed,
+    TResult Function(_AppointmentSelected value)? appointmentSelected,
+  }) {
+    return cancelClass?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_CancelClass value)? cancelClass,
+    TResult Function(_ClassCancellationMessageDisplayed value)?
+        classCancellationMessageDisplayed,
+    TResult Function(_AppointmentSelected value)? appointmentSelected,
+    required TResult orElse(),
+  }) {
+    if (cancelClass != null) {
+      return cancelClass(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CancelClass implements UpcomingClassEvent {
+  const factory _CancelClass(Appointment appointment) = _$_CancelClass;
+
+  Appointment get appointment;
+  @JsonKey(ignore: true)
+  _$CancelClassCopyWith<_CancelClass> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ClassCancellationMessageDisplayedCopyWith<$Res> {
+  factory _$ClassCancellationMessageDisplayedCopyWith(
+          _ClassCancellationMessageDisplayed value,
+          $Res Function(_ClassCancellationMessageDisplayed) then) =
+      __$ClassCancellationMessageDisplayedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ClassCancellationMessageDisplayedCopyWithImpl<$Res>
+    extends _$UpcomingClassEventCopyWithImpl<$Res>
+    implements _$ClassCancellationMessageDisplayedCopyWith<$Res> {
+  __$ClassCancellationMessageDisplayedCopyWithImpl(
+      _ClassCancellationMessageDisplayed _value,
+      $Res Function(_ClassCancellationMessageDisplayed) _then)
+      : super(_value, (v) => _then(v as _ClassCancellationMessageDisplayed));
+
+  @override
+  _ClassCancellationMessageDisplayed get _value =>
+      super._value as _ClassCancellationMessageDisplayed;
+}
+
+/// @nodoc
+
+class _$_ClassCancellationMessageDisplayed
+    implements _ClassCancellationMessageDisplayed {
+  const _$_ClassCancellationMessageDisplayed();
+
+  @override
+  String toString() {
+    return 'UpcomingClassEvent.classCancellationMessageDisplayed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ClassCancellationMessageDisplayed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialise,
+    required TResult Function(int page) pageChanged,
+    required TResult Function(int pageLimit) pageLimitChanged,
+    required TResult Function(Appointment appointment) cancelClass,
+    required TResult Function() classCancellationMessageDisplayed,
+    required TResult Function(Appointment appointment) appointmentSelected,
+  }) {
+    return classCancellationMessageDisplayed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
+    TResult Function(Appointment appointment)? cancelClass,
+    TResult Function()? classCancellationMessageDisplayed,
+    TResult Function(Appointment appointment)? appointmentSelected,
+  }) {
+    return classCancellationMessageDisplayed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
+    TResult Function(Appointment appointment)? cancelClass,
+    TResult Function()? classCancellationMessageDisplayed,
+    TResult Function(Appointment appointment)? appointmentSelected,
+    required TResult orElse(),
+  }) {
+    if (classCancellationMessageDisplayed != null) {
+      return classCancellationMessageDisplayed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialise value) initialise,
+    required TResult Function(_PageChanged value) pageChanged,
+    required TResult Function(_PageLimitChanged value) pageLimitChanged,
+    required TResult Function(_CancelClass value) cancelClass,
+    required TResult Function(_ClassCancellationMessageDisplayed value)
+        classCancellationMessageDisplayed,
+    required TResult Function(_AppointmentSelected value) appointmentSelected,
+  }) {
+    return classCancellationMessageDisplayed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_CancelClass value)? cancelClass,
+    TResult Function(_ClassCancellationMessageDisplayed value)?
+        classCancellationMessageDisplayed,
+    TResult Function(_AppointmentSelected value)? appointmentSelected,
+  }) {
+    return classCancellationMessageDisplayed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_CancelClass value)? cancelClass,
+    TResult Function(_ClassCancellationMessageDisplayed value)?
+        classCancellationMessageDisplayed,
+    TResult Function(_AppointmentSelected value)? appointmentSelected,
+    required TResult orElse(),
+  }) {
+    if (classCancellationMessageDisplayed != null) {
+      return classCancellationMessageDisplayed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ClassCancellationMessageDisplayed
+    implements UpcomingClassEvent {
+  const factory _ClassCancellationMessageDisplayed() =
+      _$_ClassCancellationMessageDisplayed;
+}
+
+/// @nodoc
+abstract class _$AppointmentSelectedCopyWith<$Res> {
+  factory _$AppointmentSelectedCopyWith(_AppointmentSelected value,
+          $Res Function(_AppointmentSelected) then) =
+      __$AppointmentSelectedCopyWithImpl<$Res>;
+  $Res call({Appointment appointment});
+
+  $AppointmentCopyWith<$Res> get appointment;
+}
+
+/// @nodoc
+class __$AppointmentSelectedCopyWithImpl<$Res>
+    extends _$UpcomingClassEventCopyWithImpl<$Res>
+    implements _$AppointmentSelectedCopyWith<$Res> {
+  __$AppointmentSelectedCopyWithImpl(
+      _AppointmentSelected _value, $Res Function(_AppointmentSelected) _then)
+      : super(_value, (v) => _then(v as _AppointmentSelected));
+
+  @override
+  _AppointmentSelected get _value => super._value as _AppointmentSelected;
+
+  @override
+  $Res call({
+    Object? appointment = freezed,
+  }) {
+    return _then(_AppointmentSelected(
+      appointment == freezed
+          ? _value.appointment
+          : appointment // ignore: cast_nullable_to_non_nullable
+              as Appointment,
+    ));
+  }
+
+  @override
+  $AppointmentCopyWith<$Res> get appointment {
+    return $AppointmentCopyWith<$Res>(_value.appointment, (value) {
+      return _then(_value.copyWith(appointment: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_AppointmentSelected implements _AppointmentSelected {
+  const _$_AppointmentSelected(this.appointment);
+
+  @override
+  final Appointment appointment;
+
+  @override
+  String toString() {
+    return 'UpcomingClassEvent.appointmentSelected(appointment: $appointment)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _AppointmentSelected &&
+            const DeepCollectionEquality()
+                .equals(other.appointment, appointment));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(appointment));
+
+  @JsonKey(ignore: true)
+  @override
+  _$AppointmentSelectedCopyWith<_AppointmentSelected> get copyWith =>
+      __$AppointmentSelectedCopyWithImpl<_AppointmentSelected>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialise,
+    required TResult Function(int page) pageChanged,
+    required TResult Function(int pageLimit) pageLimitChanged,
+    required TResult Function(Appointment appointment) cancelClass,
+    required TResult Function() classCancellationMessageDisplayed,
+    required TResult Function(Appointment appointment) appointmentSelected,
+  }) {
+    return appointmentSelected(appointment);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
+    TResult Function(Appointment appointment)? cancelClass,
+    TResult Function()? classCancellationMessageDisplayed,
+    TResult Function(Appointment appointment)? appointmentSelected,
+  }) {
+    return appointmentSelected?.call(appointment);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
+    TResult Function(Appointment appointment)? cancelClass,
+    TResult Function()? classCancellationMessageDisplayed,
+    TResult Function(Appointment appointment)? appointmentSelected,
+    required TResult orElse(),
+  }) {
+    if (appointmentSelected != null) {
+      return appointmentSelected(appointment);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialise value) initialise,
+    required TResult Function(_PageChanged value) pageChanged,
+    required TResult Function(_PageLimitChanged value) pageLimitChanged,
+    required TResult Function(_CancelClass value) cancelClass,
+    required TResult Function(_ClassCancellationMessageDisplayed value)
+        classCancellationMessageDisplayed,
+    required TResult Function(_AppointmentSelected value) appointmentSelected,
+  }) {
+    return appointmentSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_CancelClass value)? cancelClass,
+    TResult Function(_ClassCancellationMessageDisplayed value)?
+        classCancellationMessageDisplayed,
+    TResult Function(_AppointmentSelected value)? appointmentSelected,
+  }) {
+    return appointmentSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_CancelClass value)? cancelClass,
+    TResult Function(_ClassCancellationMessageDisplayed value)?
+        classCancellationMessageDisplayed,
+    TResult Function(_AppointmentSelected value)? appointmentSelected,
+    required TResult orElse(),
+  }) {
+    if (appointmentSelected != null) {
+      return appointmentSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AppointmentSelected implements UpcomingClassEvent {
+  const factory _AppointmentSelected(Appointment appointment) =
+      _$_AppointmentSelected;
+
+  Appointment get appointment;
+  @JsonKey(ignore: true)
+  _$AppointmentSelectedCopyWith<_AppointmentSelected> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+class _$ClassCancellationStatusTearOff {
+  const _$ClassCancellationStatusTearOff();
+
+  _Initial initial() {
+    return const _Initial();
+  }
+
+  _Succeed succeed() {
+    return const _Succeed();
+  }
+
+  _Failed failed(Failure failure) {
+    return _Failed(
+      failure,
+    );
+  }
+}
+
+/// @nodoc
+const $ClassCancellationStatus = _$ClassCancellationStatusTearOff();
+
+/// @nodoc
+mixin _$ClassCancellationStatus {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() succeed,
+    required TResult Function(Failure failure) failed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? succeed,
+    TResult Function(Failure failure)? failed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? succeed,
+    TResult Function(Failure failure)? failed,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Succeed value) succeed,
+    required TResult Function(_Failed value) failed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Succeed value)? succeed,
+    TResult Function(_Failed value)? failed,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Succeed value)? succeed,
+    TResult Function(_Failed value)? failed,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ClassCancellationStatusCopyWith<$Res> {
+  factory $ClassCancellationStatusCopyWith(ClassCancellationStatus value,
+          $Res Function(ClassCancellationStatus) then) =
+      _$ClassCancellationStatusCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ClassCancellationStatusCopyWithImpl<$Res>
+    implements $ClassCancellationStatusCopyWith<$Res> {
+  _$ClassCancellationStatusCopyWithImpl(this._value, this._then);
+
+  final ClassCancellationStatus _value;
+  // ignore: unused_field
+  final $Res Function(ClassCancellationStatus) _then;
+}
+
+/// @nodoc
+abstract class _$InitialCopyWith<$Res> {
+  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
+      __$InitialCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$InitialCopyWithImpl<$Res>
+    extends _$ClassCancellationStatusCopyWithImpl<$Res>
+    implements _$InitialCopyWith<$Res> {
+  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
+      : super(_value, (v) => _then(v as _Initial));
+
+  @override
+  _Initial get _value => super._value as _Initial;
+}
+
+/// @nodoc
+
+class _$_Initial implements _Initial {
+  const _$_Initial();
+
+  @override
+  String toString() {
+    return 'ClassCancellationStatus.initial()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Initial);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() succeed,
+    required TResult Function(Failure failure) failed,
+  }) {
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? succeed,
+    TResult Function(Failure failure)? failed,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? succeed,
+    TResult Function(Failure failure)? failed,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Succeed value) succeed,
+    required TResult Function(_Failed value) failed,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Succeed value)? succeed,
+    TResult Function(_Failed value)? failed,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Succeed value)? succeed,
+    TResult Function(_Failed value)? failed,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initial implements ClassCancellationStatus {
+  const factory _Initial() = _$_Initial;
+}
+
+/// @nodoc
+abstract class _$SucceedCopyWith<$Res> {
+  factory _$SucceedCopyWith(_Succeed value, $Res Function(_Succeed) then) =
+      __$SucceedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$SucceedCopyWithImpl<$Res>
+    extends _$ClassCancellationStatusCopyWithImpl<$Res>
+    implements _$SucceedCopyWith<$Res> {
+  __$SucceedCopyWithImpl(_Succeed _value, $Res Function(_Succeed) _then)
+      : super(_value, (v) => _then(v as _Succeed));
+
+  @override
+  _Succeed get _value => super._value as _Succeed;
+}
+
+/// @nodoc
+
+class _$_Succeed implements _Succeed {
+  const _$_Succeed();
+
+  @override
+  String toString() {
+    return 'ClassCancellationStatus.succeed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Succeed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() succeed,
+    required TResult Function(Failure failure) failed,
+  }) {
+    return succeed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? succeed,
+    TResult Function(Failure failure)? failed,
+  }) {
+    return succeed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? succeed,
+    TResult Function(Failure failure)? failed,
+    required TResult orElse(),
+  }) {
+    if (succeed != null) {
+      return succeed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Succeed value) succeed,
+    required TResult Function(_Failed value) failed,
+  }) {
+    return succeed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Succeed value)? succeed,
+    TResult Function(_Failed value)? failed,
+  }) {
+    return succeed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Succeed value)? succeed,
+    TResult Function(_Failed value)? failed,
+    required TResult orElse(),
+  }) {
+    if (succeed != null) {
+      return succeed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Succeed implements ClassCancellationStatus {
+  const factory _Succeed() = _$_Succeed;
+}
+
+/// @nodoc
+abstract class _$FailedCopyWith<$Res> {
+  factory _$FailedCopyWith(_Failed value, $Res Function(_Failed) then) =
+      __$FailedCopyWithImpl<$Res>;
+  $Res call({Failure failure});
+
+  $FailureCopyWith<$Res> get failure;
+}
+
+/// @nodoc
+class __$FailedCopyWithImpl<$Res>
+    extends _$ClassCancellationStatusCopyWithImpl<$Res>
+    implements _$FailedCopyWith<$Res> {
+  __$FailedCopyWithImpl(_Failed _value, $Res Function(_Failed) _then)
+      : super(_value, (v) => _then(v as _Failed));
+
+  @override
+  _Failed get _value => super._value as _Failed;
+
+  @override
+  $Res call({
+    Object? failure = freezed,
+  }) {
+    return _then(_Failed(
+      failure == freezed
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Failure,
+    ));
+  }
+
+  @override
+  $FailureCopyWith<$Res> get failure {
+    return $FailureCopyWith<$Res>(_value.failure, (value) {
+      return _then(_value.copyWith(failure: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_Failed implements _Failed {
+  const _$_Failed(this.failure);
+
+  @override
+  final Failure failure;
+
+  @override
+  String toString() {
+    return 'ClassCancellationStatus.failed(failure: $failure)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Failed &&
+            const DeepCollectionEquality().equals(other.failure, failure));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(failure));
+
+  @JsonKey(ignore: true)
+  @override
+  _$FailedCopyWith<_Failed> get copyWith =>
+      __$FailedCopyWithImpl<_Failed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() succeed,
+    required TResult Function(Failure failure) failed,
+  }) {
+    return failed(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? succeed,
+    TResult Function(Failure failure)? failed,
+  }) {
+    return failed?.call(failure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? succeed,
+    TResult Function(Failure failure)? failed,
+    required TResult orElse(),
+  }) {
+    if (failed != null) {
+      return failed(failure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Succeed value) succeed,
+    required TResult Function(_Failed value) failed,
+  }) {
+    return failed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Succeed value)? succeed,
+    TResult Function(_Failed value)? failed,
+  }) {
+    return failed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Succeed value)? succeed,
+    TResult Function(_Failed value)? failed,
+    required TResult orElse(),
+  }) {
+    if (failed != null) {
+      return failed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Failed implements ClassCancellationStatus {
+  const factory _Failed(Failure failure) = _$_Failed;
+
+  Failure get failure;
+  @JsonKey(ignore: true)
+  _$FailedCopyWith<_Failed> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 class _$UpcomingClassStateTearOff {
   const _$UpcomingClassStateTearOff();
 
@@ -503,12 +1537,17 @@ class _$UpcomingClassStateTearOff {
       int currentPage = 1,
       int limit = 20,
       Either<Failure, PaginationListDto<Appointment>> classOrFailure =
-          const Right(PaginationListDto(list: [], totalItems: 0, limit: 20))}) {
+          const Right(PaginationListDto(list: [], totalItems: 0, limit: 20)),
+      ClassCancellationStatus classCancellationStatus =
+          const ClassCancellationStatus.initial(),
+      Appointment? selectedAppointment}) {
     return _UpcomingClassState(
       isLoading: isLoading,
       currentPage: currentPage,
       limit: limit,
       classOrFailure: classOrFailure,
+      classCancellationStatus: classCancellationStatus,
+      selectedAppointment: selectedAppointment,
     );
   }
 }
@@ -523,6 +1562,9 @@ mixin _$UpcomingClassState {
   int get limit => throw _privateConstructorUsedError;
   Either<Failure, PaginationListDto<Appointment>> get classOrFailure =>
       throw _privateConstructorUsedError;
+  ClassCancellationStatus get classCancellationStatus =>
+      throw _privateConstructorUsedError;
+  Appointment? get selectedAppointment => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UpcomingClassStateCopyWith<UpcomingClassState> get copyWith =>
@@ -538,7 +1580,12 @@ abstract class $UpcomingClassStateCopyWith<$Res> {
       {dynamic isLoading,
       int currentPage,
       int limit,
-      Either<Failure, PaginationListDto<Appointment>> classOrFailure});
+      Either<Failure, PaginationListDto<Appointment>> classOrFailure,
+      ClassCancellationStatus classCancellationStatus,
+      Appointment? selectedAppointment});
+
+  $ClassCancellationStatusCopyWith<$Res> get classCancellationStatus;
+  $AppointmentCopyWith<$Res>? get selectedAppointment;
 }
 
 /// @nodoc
@@ -556,6 +1603,8 @@ class _$UpcomingClassStateCopyWithImpl<$Res>
     Object? currentPage = freezed,
     Object? limit = freezed,
     Object? classOrFailure = freezed,
+    Object? classCancellationStatus = freezed,
+    Object? selectedAppointment = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -574,7 +1623,34 @@ class _$UpcomingClassStateCopyWithImpl<$Res>
           ? _value.classOrFailure
           : classOrFailure // ignore: cast_nullable_to_non_nullable
               as Either<Failure, PaginationListDto<Appointment>>,
+      classCancellationStatus: classCancellationStatus == freezed
+          ? _value.classCancellationStatus
+          : classCancellationStatus // ignore: cast_nullable_to_non_nullable
+              as ClassCancellationStatus,
+      selectedAppointment: selectedAppointment == freezed
+          ? _value.selectedAppointment
+          : selectedAppointment // ignore: cast_nullable_to_non_nullable
+              as Appointment?,
     ));
+  }
+
+  @override
+  $ClassCancellationStatusCopyWith<$Res> get classCancellationStatus {
+    return $ClassCancellationStatusCopyWith<$Res>(
+        _value.classCancellationStatus, (value) {
+      return _then(_value.copyWith(classCancellationStatus: value));
+    });
+  }
+
+  @override
+  $AppointmentCopyWith<$Res>? get selectedAppointment {
+    if (_value.selectedAppointment == null) {
+      return null;
+    }
+
+    return $AppointmentCopyWith<$Res>(_value.selectedAppointment!, (value) {
+      return _then(_value.copyWith(selectedAppointment: value));
+    });
   }
 }
 
@@ -589,7 +1665,14 @@ abstract class _$UpcomingClassStateCopyWith<$Res>
       {dynamic isLoading,
       int currentPage,
       int limit,
-      Either<Failure, PaginationListDto<Appointment>> classOrFailure});
+      Either<Failure, PaginationListDto<Appointment>> classOrFailure,
+      ClassCancellationStatus classCancellationStatus,
+      Appointment? selectedAppointment});
+
+  @override
+  $ClassCancellationStatusCopyWith<$Res> get classCancellationStatus;
+  @override
+  $AppointmentCopyWith<$Res>? get selectedAppointment;
 }
 
 /// @nodoc
@@ -609,6 +1692,8 @@ class __$UpcomingClassStateCopyWithImpl<$Res>
     Object? currentPage = freezed,
     Object? limit = freezed,
     Object? classOrFailure = freezed,
+    Object? classCancellationStatus = freezed,
+    Object? selectedAppointment = freezed,
   }) {
     return _then(_UpcomingClassState(
       isLoading: isLoading == freezed ? _value.isLoading : isLoading,
@@ -624,6 +1709,14 @@ class __$UpcomingClassStateCopyWithImpl<$Res>
           ? _value.classOrFailure
           : classOrFailure // ignore: cast_nullable_to_non_nullable
               as Either<Failure, PaginationListDto<Appointment>>,
+      classCancellationStatus: classCancellationStatus == freezed
+          ? _value.classCancellationStatus
+          : classCancellationStatus // ignore: cast_nullable_to_non_nullable
+              as ClassCancellationStatus,
+      selectedAppointment: selectedAppointment == freezed
+          ? _value.selectedAppointment
+          : selectedAppointment // ignore: cast_nullable_to_non_nullable
+              as Appointment?,
     ));
   }
 }
@@ -636,7 +1729,9 @@ class _$_UpcomingClassState extends _UpcomingClassState {
       this.currentPage = 1,
       this.limit = 20,
       this.classOrFailure =
-          const Right(PaginationListDto(list: [], totalItems: 0, limit: 20))})
+          const Right(PaginationListDto(list: [], totalItems: 0, limit: 20)),
+      this.classCancellationStatus = const ClassCancellationStatus.initial(),
+      this.selectedAppointment})
       : super._();
 
   @JsonKey()
@@ -651,10 +1746,15 @@ class _$_UpcomingClassState extends _UpcomingClassState {
   @JsonKey()
   @override
   final Either<Failure, PaginationListDto<Appointment>> classOrFailure;
+  @JsonKey()
+  @override
+  final ClassCancellationStatus classCancellationStatus;
+  @override
+  final Appointment? selectedAppointment;
 
   @override
   String toString() {
-    return 'UpcomingClassState(isLoading: $isLoading, currentPage: $currentPage, limit: $limit, classOrFailure: $classOrFailure)';
+    return 'UpcomingClassState(isLoading: $isLoading, currentPage: $currentPage, limit: $limit, classOrFailure: $classOrFailure, classCancellationStatus: $classCancellationStatus, selectedAppointment: $selectedAppointment)';
   }
 
   @override
@@ -667,7 +1767,11 @@ class _$_UpcomingClassState extends _UpcomingClassState {
                 .equals(other.currentPage, currentPage) &&
             const DeepCollectionEquality().equals(other.limit, limit) &&
             const DeepCollectionEquality()
-                .equals(other.classOrFailure, classOrFailure));
+                .equals(other.classOrFailure, classOrFailure) &&
+            const DeepCollectionEquality().equals(
+                other.classCancellationStatus, classCancellationStatus) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedAppointment, selectedAppointment));
   }
 
   @override
@@ -676,7 +1780,9 @@ class _$_UpcomingClassState extends _UpcomingClassState {
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(currentPage),
       const DeepCollectionEquality().hash(limit),
-      const DeepCollectionEquality().hash(classOrFailure));
+      const DeepCollectionEquality().hash(classOrFailure),
+      const DeepCollectionEquality().hash(classCancellationStatus),
+      const DeepCollectionEquality().hash(selectedAppointment));
 
   @JsonKey(ignore: true)
   @override
@@ -686,11 +1792,12 @@ class _$_UpcomingClassState extends _UpcomingClassState {
 
 abstract class _UpcomingClassState extends UpcomingClassState {
   const factory _UpcomingClassState(
-          {dynamic isLoading,
-          int currentPage,
-          int limit,
-          Either<Failure, PaginationListDto<Appointment>> classOrFailure}) =
-      _$_UpcomingClassState;
+      {dynamic isLoading,
+      int currentPage,
+      int limit,
+      Either<Failure, PaginationListDto<Appointment>> classOrFailure,
+      ClassCancellationStatus classCancellationStatus,
+      Appointment? selectedAppointment}) = _$_UpcomingClassState;
   const _UpcomingClassState._() : super._();
 
   @override
@@ -701,6 +1808,10 @@ abstract class _UpcomingClassState extends UpcomingClassState {
   int get limit;
   @override
   Either<Failure, PaginationListDto<Appointment>> get classOrFailure;
+  @override
+  ClassCancellationStatus get classCancellationStatus;
+  @override
+  Appointment? get selectedAppointment;
   @override
   @JsonKey(ignore: true)
   _$UpcomingClassStateCopyWith<_UpcomingClassState> get copyWith =>

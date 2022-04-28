@@ -246,7 +246,7 @@ class __$AppointmentCopyWithImpl<$Res> extends _$AppointmentCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Appointment implements _Appointment {
+class _$_Appointment extends _Appointment {
   const _$_Appointment(
       {required this.scheduleId,
       required this.bookId,
@@ -256,7 +256,8 @@ class _$_Appointment implements _Appointment {
       required this.tutorName,
       required this.tutorCountry,
       required this.meetingRoom,
-      this.tutorAvatar});
+      this.tutorAvatar})
+      : super._();
 
   @override
   final String scheduleId;
@@ -323,7 +324,7 @@ class _$_Appointment implements _Appointment {
       __$AppointmentCopyWithImpl<_Appointment>(this, _$identity);
 }
 
-abstract class _Appointment implements Appointment {
+abstract class _Appointment extends Appointment {
   const factory _Appointment(
       {required String scheduleId,
       required String bookId,
@@ -334,6 +335,7 @@ abstract class _Appointment implements Appointment {
       required Country tutorCountry,
       required MeetingRoom meetingRoom,
       String? tutorAvatar}) = _$_Appointment;
+  const _Appointment._() : super._();
 
   @override
   String get scheduleId;

@@ -8,6 +8,8 @@ part 'appointment.freezed.dart';
 
 @freezed
 class Appointment with _$Appointment {
+  const Appointment._();
+
   const factory Appointment({
     required String scheduleId,
     required String bookId,
@@ -19,4 +21,8 @@ class Appointment with _$Appointment {
     required MeetingRoom meetingRoom,
     String? tutorAvatar,
   }) = _Appointment;
+
+  bool get isCancelable => meetingTime.start
+      .subtract(const Duration(hours: 2))
+      .isBefore(DateTime.now());
 }
