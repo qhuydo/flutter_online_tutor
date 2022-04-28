@@ -13,6 +13,8 @@ class ScheduleCardContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       // padding: const EdgeInsets.all(8),
@@ -20,22 +22,25 @@ class ScheduleCardContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            padding: const EdgeInsets.symmetric(
+              horizontal: itemSpacing,
+              vertical: smallItemSpacing,
+            ),
             child: Wrap(
-              spacing: 8,
-              runSpacing: 8,
+              spacing: smallItemSpacing,
+              runSpacing: smallItemSpacing,
               crossAxisAlignment: WrapCrossAlignment.start,
               alignment: WrapAlignment.start,
               children: [
                 Text(
                   context.l10n.lessonTimeDescription,
-                  style: Theme.of(context).textTheme.titleMedium,
+                  style: textTheme.titleMedium,
                 ),
                 Text(
                   appointment.meetingTime.getMeetingTime(context),
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                      ),
+                  style: textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ],
             ),

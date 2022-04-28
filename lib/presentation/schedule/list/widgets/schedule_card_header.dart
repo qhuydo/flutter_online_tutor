@@ -21,6 +21,7 @@ class ScheduleCardHeader extends StatelessWidget {
     final locale = context.l10n.localeName;
     // final weekdayFormatter = DateFormat('EEEE', locale);
     final dateFormatter = DateFormat.yMMMMEEEEd(locale);
+    final textTheme = Theme.of(context).textTheme;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,15 +29,15 @@ class ScheduleCardHeader extends StatelessWidget {
         showMeetingDate
             ? Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 8,
+                  horizontal: itemSpacing,
+                  vertical: smallItemSpacing,
                 ),
                 child: FittedBox(
                   child: Text(
                     dateFormatter.format(appointment.meetingTime.start),
-                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
+                    style: textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold
+                    ),
                   ),
                 ),
               )
@@ -52,13 +53,11 @@ class ScheduleCardHeader extends StatelessWidget {
           ),
           title: Text(
             appointment.tutorName,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+            style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
           ),
           subtitle: Text(
             appointment.tutorCountry.name,
-            style: Theme.of(context).textTheme.caption,
+            style: textTheme.caption,
           ),
           trailing: Twemoji(
             emoji:

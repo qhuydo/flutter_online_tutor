@@ -193,6 +193,11 @@ dependencies:
   # (c) MIT License. By Dimitrios Begnis
   grouped_list: ^4.2.0
 
+  # Utilities to make working with 'Duration's easier. Formats duration in human readable form and also parses duration
+  # in human readable form to Dart's Duration.
+  # (c) BSD-Clause 3 License. By Ravi Teja Gudapati <tejainece@gmail.com>.
+  duration: ^3.0.11
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
