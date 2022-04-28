@@ -130,9 +130,11 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
   }) async =>
       right(unit);
 
-  // TODO add pagination
   @override
-  Future<Either<Failure, List<Appointment>>> getHistory() async {
+  Future<Either<Failure, PaginationListDto<Appointment>>> getHistory({
+    required int page,
+    required int limit,
+  }) async {
     try {
       final userId = _box.get(_keyUser);
       if (userId == null) {
@@ -143,8 +145,8 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
 
       final res = _apiClient.get(
         RequestUrl.schedule.bookedClasses(
-          page: 1,
-          perPage: 20,
+          page: page,
+          perPage: limit,
           dateTimeLte: DateTime.now()
               .subtract(const Duration(minutes: 35))
               .millisecondsSinceEpoch,
@@ -154,7 +156,13 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
         onResponded: (response) {
           final data = response.data as Map<String, dynamic>;
 
-          return AppointmentDto.fromJson(data).toDomain();
+          final totalItems = data['data']['count'] as int;
+          final dto = AppointmentDto.fromJson(data).toDomain();
+          return PaginationListDto<Appointment>(
+            list: dto,
+            totalItems: totalItems,
+            limit: limit,
+          );
         },
       );
 

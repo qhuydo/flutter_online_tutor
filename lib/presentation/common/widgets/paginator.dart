@@ -28,7 +28,7 @@ class Paginator extends StatefulWidget {
 
 class _PaginatorState extends State<Paginator> {
   late int _currentPage;
-  int _maximumPosibleButtons = 0;
+  int _maximumPossibleButtons = 0;
 
   @override
   void initState() {
@@ -66,6 +66,7 @@ class _PaginatorState extends State<Paginator> {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         PaginatorButton(
+          size: widget.height,
           shape: widget.buttonShape,
           child: const Icon(Icons.navigate_before),
           onPressed: _currentPage > 0 ? _navigateToPrevious : null,
@@ -73,7 +74,7 @@ class _PaginatorState extends State<Paginator> {
         Flexible(
           child: LayoutBuilder(
             builder: (context, constraints) {
-              _maximumPosibleButtons =
+              _maximumPossibleButtons =
                   (constraints.maxWidth / widget.height).floor();
               return Row(
                 mainAxisSize: MainAxisSize.min,
@@ -87,6 +88,7 @@ class _PaginatorState extends State<Paginator> {
           ),
         ),
         PaginatorButton(
+          size: widget.height,
           shape: widget.buttonShape,
           child: const Icon(Icons.navigate_next),
           onPressed:
@@ -97,13 +99,15 @@ class _PaginatorState extends State<Paginator> {
   }
 
   bool get _shouldShowDotsButton =>
-      _maximumPosibleButtons < widget.totalPages &&
-      _currentPage < widget.totalPages - _maximumPosibleButtons ~/ 2 - 1;
+      _maximumPossibleButtons < widget.totalPages &&
+      _currentPage < widget.totalPages - _maximumPossibleButtons ~/ 2 - 1;
 
   List<Widget> _generateButtonList() {
-    var shownPages = _shouldShowDotsButton
-        ? _maximumPosibleButtons - 2
-        : _maximumPosibleButtons - 1;
+    if (widget.totalPages < 1) return [];
+
+    final shownPages = _shouldShowDotsButton
+        ? _maximumPossibleButtons - 2
+        : _maximumPossibleButtons - 1;
 
     var minValue = max(0, _currentPage - shownPages ~/ 2);
     var maxValue = min(minValue + shownPages, widget.totalPages - 1);
@@ -118,6 +122,7 @@ class _PaginatorState extends State<Paginator> {
   }
 
   Widget _buildPaginatorButton(int index) => PaginatorButton(
+        size: widget.height,
         onPressed: () => _navigateToPage(index),
         isSelected: index == _currentPage,
         child: Text('${index + 1}'),

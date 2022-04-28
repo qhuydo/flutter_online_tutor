@@ -1,11 +1,13 @@
+import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../../../application/schedule/history/history_bloc.dart';
 import '../../common.dart';
 import '../../common/utils/constants.dart';
 import '../../common/utils/default_app_bar.dart';
-import '../list/widgets/schedule_card.dart';
+import '../../common/widgets/paginator.dart';
+import '../list/widgets/schedule_list_desktop.dart';
+import 'widgets/history_list_mobile.dart';
 
 class HistoryPage extends StatelessWidget {
   const HistoryPage({Key? key}) : super(key: key);
@@ -43,18 +45,25 @@ class _HistoryPage extends StatelessWidget {
           final history = state.history;
           if (history == null) return const SizedBox();
 
-          return MasonryGridView.extent(
-            physics: const BouncingScrollPhysics(),
-            padding: const EdgeInsets.all(smallItemSpacing),
-            itemCount: history.length,
-            crossAxisSpacing: 4,
-            mainAxisSpacing: 4,
-            maxCrossAxisExtent: 600,
-            itemBuilder: (context, index) => ScheduleCard(
-              appointment: history[index],
-              showActionButtons: false,
-            ),
+          final paginator = Paginator(
+            totalPages: state.totalPages,
+            initialPage: state.currentPage - 1,
+            onPageChanged: (value) {
+              context
+                  .read<HistoryBloc>()
+                  .add(HistoryEvent.pageChanged(value + 1));
+            },
           );
+
+          final breakpoint = Breakpoint.fromMediaQuery(context);
+
+          return breakpoint.window <= WindowSize.small
+              ? HistoryListMobile(history: history, paginator: paginator)
+              : ScheduleListDesktop(
+                  appointments: history,
+                  paginator: paginator,
+                  showActionButtons: false,
+                );
         },
       ),
     );
