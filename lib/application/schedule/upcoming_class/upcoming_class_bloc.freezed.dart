@@ -1683,6 +1683,8 @@ class _$UpcomingClassStateTearOff {
           const Right(PaginationListDto(list: [], totalItems: 0, limit: 20)),
       ClassCancellationStatus classCancellationStatus =
           const ClassCancellationStatus.initial(),
+      Duration totalLearningTime = const Duration(),
+      Appointment? nextClass,
       Appointment? selectedAppointment}) {
     return _UpcomingClassState(
       isLoading: isLoading,
@@ -1690,6 +1692,8 @@ class _$UpcomingClassStateTearOff {
       limit: limit,
       classOrFailure: classOrFailure,
       classCancellationStatus: classCancellationStatus,
+      totalLearningTime: totalLearningTime,
+      nextClass: nextClass,
       selectedAppointment: selectedAppointment,
     );
   }
@@ -1707,6 +1711,8 @@ mixin _$UpcomingClassState {
       throw _privateConstructorUsedError;
   ClassCancellationStatus get classCancellationStatus =>
       throw _privateConstructorUsedError;
+  Duration get totalLearningTime => throw _privateConstructorUsedError;
+  Appointment? get nextClass => throw _privateConstructorUsedError;
   Appointment? get selectedAppointment => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1725,9 +1731,12 @@ abstract class $UpcomingClassStateCopyWith<$Res> {
       int limit,
       Either<Failure, PaginationListDto<Appointment>> classOrFailure,
       ClassCancellationStatus classCancellationStatus,
+      Duration totalLearningTime,
+      Appointment? nextClass,
       Appointment? selectedAppointment});
 
   $ClassCancellationStatusCopyWith<$Res> get classCancellationStatus;
+  $AppointmentCopyWith<$Res>? get nextClass;
   $AppointmentCopyWith<$Res>? get selectedAppointment;
 }
 
@@ -1747,6 +1756,8 @@ class _$UpcomingClassStateCopyWithImpl<$Res>
     Object? limit = freezed,
     Object? classOrFailure = freezed,
     Object? classCancellationStatus = freezed,
+    Object? totalLearningTime = freezed,
+    Object? nextClass = freezed,
     Object? selectedAppointment = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1770,6 +1781,14 @@ class _$UpcomingClassStateCopyWithImpl<$Res>
           ? _value.classCancellationStatus
           : classCancellationStatus // ignore: cast_nullable_to_non_nullable
               as ClassCancellationStatus,
+      totalLearningTime: totalLearningTime == freezed
+          ? _value.totalLearningTime
+          : totalLearningTime // ignore: cast_nullable_to_non_nullable
+              as Duration,
+      nextClass: nextClass == freezed
+          ? _value.nextClass
+          : nextClass // ignore: cast_nullable_to_non_nullable
+              as Appointment?,
       selectedAppointment: selectedAppointment == freezed
           ? _value.selectedAppointment
           : selectedAppointment // ignore: cast_nullable_to_non_nullable
@@ -1782,6 +1801,17 @@ class _$UpcomingClassStateCopyWithImpl<$Res>
     return $ClassCancellationStatusCopyWith<$Res>(
         _value.classCancellationStatus, (value) {
       return _then(_value.copyWith(classCancellationStatus: value));
+    });
+  }
+
+  @override
+  $AppointmentCopyWith<$Res>? get nextClass {
+    if (_value.nextClass == null) {
+      return null;
+    }
+
+    return $AppointmentCopyWith<$Res>(_value.nextClass!, (value) {
+      return _then(_value.copyWith(nextClass: value));
     });
   }
 
@@ -1810,10 +1840,14 @@ abstract class _$UpcomingClassStateCopyWith<$Res>
       int limit,
       Either<Failure, PaginationListDto<Appointment>> classOrFailure,
       ClassCancellationStatus classCancellationStatus,
+      Duration totalLearningTime,
+      Appointment? nextClass,
       Appointment? selectedAppointment});
 
   @override
   $ClassCancellationStatusCopyWith<$Res> get classCancellationStatus;
+  @override
+  $AppointmentCopyWith<$Res>? get nextClass;
   @override
   $AppointmentCopyWith<$Res>? get selectedAppointment;
 }
@@ -1836,6 +1870,8 @@ class __$UpcomingClassStateCopyWithImpl<$Res>
     Object? limit = freezed,
     Object? classOrFailure = freezed,
     Object? classCancellationStatus = freezed,
+    Object? totalLearningTime = freezed,
+    Object? nextClass = freezed,
     Object? selectedAppointment = freezed,
   }) {
     return _then(_UpcomingClassState(
@@ -1856,6 +1892,14 @@ class __$UpcomingClassStateCopyWithImpl<$Res>
           ? _value.classCancellationStatus
           : classCancellationStatus // ignore: cast_nullable_to_non_nullable
               as ClassCancellationStatus,
+      totalLearningTime: totalLearningTime == freezed
+          ? _value.totalLearningTime
+          : totalLearningTime // ignore: cast_nullable_to_non_nullable
+              as Duration,
+      nextClass: nextClass == freezed
+          ? _value.nextClass
+          : nextClass // ignore: cast_nullable_to_non_nullable
+              as Appointment?,
       selectedAppointment: selectedAppointment == freezed
           ? _value.selectedAppointment
           : selectedAppointment // ignore: cast_nullable_to_non_nullable
@@ -1874,6 +1918,8 @@ class _$_UpcomingClassState extends _UpcomingClassState {
       this.classOrFailure =
           const Right(PaginationListDto(list: [], totalItems: 0, limit: 20)),
       this.classCancellationStatus = const ClassCancellationStatus.initial(),
+      this.totalLearningTime = const Duration(),
+      this.nextClass,
       this.selectedAppointment})
       : super._();
 
@@ -1892,12 +1938,17 @@ class _$_UpcomingClassState extends _UpcomingClassState {
   @JsonKey()
   @override
   final ClassCancellationStatus classCancellationStatus;
+  @JsonKey()
+  @override
+  final Duration totalLearningTime;
+  @override
+  final Appointment? nextClass;
   @override
   final Appointment? selectedAppointment;
 
   @override
   String toString() {
-    return 'UpcomingClassState(isLoading: $isLoading, currentPage: $currentPage, limit: $limit, classOrFailure: $classOrFailure, classCancellationStatus: $classCancellationStatus, selectedAppointment: $selectedAppointment)';
+    return 'UpcomingClassState(isLoading: $isLoading, currentPage: $currentPage, limit: $limit, classOrFailure: $classOrFailure, classCancellationStatus: $classCancellationStatus, totalLearningTime: $totalLearningTime, nextClass: $nextClass, selectedAppointment: $selectedAppointment)';
   }
 
   @override
@@ -1914,6 +1965,9 @@ class _$_UpcomingClassState extends _UpcomingClassState {
             const DeepCollectionEquality().equals(
                 other.classCancellationStatus, classCancellationStatus) &&
             const DeepCollectionEquality()
+                .equals(other.totalLearningTime, totalLearningTime) &&
+            const DeepCollectionEquality().equals(other.nextClass, nextClass) &&
+            const DeepCollectionEquality()
                 .equals(other.selectedAppointment, selectedAppointment));
   }
 
@@ -1925,6 +1979,8 @@ class _$_UpcomingClassState extends _UpcomingClassState {
       const DeepCollectionEquality().hash(limit),
       const DeepCollectionEquality().hash(classOrFailure),
       const DeepCollectionEquality().hash(classCancellationStatus),
+      const DeepCollectionEquality().hash(totalLearningTime),
+      const DeepCollectionEquality().hash(nextClass),
       const DeepCollectionEquality().hash(selectedAppointment));
 
   @JsonKey(ignore: true)
@@ -1940,6 +1996,8 @@ abstract class _UpcomingClassState extends UpcomingClassState {
       int limit,
       Either<Failure, PaginationListDto<Appointment>> classOrFailure,
       ClassCancellationStatus classCancellationStatus,
+      Duration totalLearningTime,
+      Appointment? nextClass,
       Appointment? selectedAppointment}) = _$_UpcomingClassState;
   const _UpcomingClassState._() : super._();
 
@@ -1953,6 +2011,10 @@ abstract class _UpcomingClassState extends UpcomingClassState {
   Either<Failure, PaginationListDto<Appointment>> get classOrFailure;
   @override
   ClassCancellationStatus get classCancellationStatus;
+  @override
+  Duration get totalLearningTime;
+  @override
+  Appointment? get nextClass;
   @override
   Appointment? get selectedAppointment;
   @override

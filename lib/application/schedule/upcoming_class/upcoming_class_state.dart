@@ -23,6 +23,8 @@ class UpcomingClassState with _$UpcomingClassState {
         Either<Failure, PaginationListDto<Appointment>> classOrFailure,
     @Default(ClassCancellationStatus.initial())
         ClassCancellationStatus classCancellationStatus,
+    @Default(Duration()) Duration totalLearningTime,
+    Appointment? nextClass,
     Appointment? selectedAppointment,
   }) = _UpcomingClassState;
 

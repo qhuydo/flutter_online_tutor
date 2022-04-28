@@ -146,4 +146,15 @@ class MockScheduleRepository extends ScheduleRepository {
       return left(const Failure.notFound());
     }
   }
+
+  @override
+  Future<Either<Failure, Appointment?>> getNextClass() async {
+    final upcomingClasses = await getUpcomingClasses(page: 1, limit: 1);
+    return upcomingClasses.map((r) => r.list.firstOrNull);
+  }
+
+  @override
+  Future<Either<Failure, Duration>> getTotalLearningTime() async {
+    return right(const Duration(minutes: 6969));
+  }
 }

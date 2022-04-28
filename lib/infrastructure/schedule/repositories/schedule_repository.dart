@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:collection/collection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:hive/hive.dart';
@@ -160,28 +162,66 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
   Future<Either<Failure, PaginationListDto<Appointment>>> getHistory({
     required int page,
     required int limit,
-  }) async {
-    try {
-      final userId = _box.get(_keyUser);
-      if (userId == null) {
-        return left(const Failure.wtf(
-          'Local storage does not contains user id',
-        ));
-      }
+  }) {
+    return _getClasses(limit: limit, queryParams: {
+      'page': page.toString(),
+      'perPage': limit.toString(),
+      'dateTimeGte': DateTime.now()
+          .subtract(const Duration(minutes: 35))
+          .millisecondsSinceEpoch
+          .toString(),
+      'orderBy': 'meeting',
+      'sortBy': 'desc',
+    });
+  }
 
+  @override
+  Future<Either<Failure, PaginationListDto<Appointment>>> getUpcomingClasses({
+    required int page,
+    required int limit,
+  }) {
+    return _getClasses(limit: limit, queryParams: {
+      'page': page.toString(),
+      'perPage': limit.toString(),
+      'dateTimeGte': DateTime.now()
+          .subtract(const Duration(minutes: 5))
+          .millisecondsSinceEpoch
+          .toString(),
+      'orderBy': 'meeting',
+      'sortBy': 'asc',
+    });
+  }
+
+  @override
+  Future<Either<Failure, Appointment?>> getNextClass() async {
+    final classes = await _getClasses(limit: 1, queryParams: {
+      'page': '1',
+      'perPage': '1',
+      'dateTimeGte': DateTime.now().millisecondsSinceEpoch.toString(),
+      'orderBy': 'meeting',
+      'sortBy': 'asc',
+    });
+
+    return classes.map((r) => r.list.firstOrNull);
+  }
+
+  Future<Either<Failure, PaginationListDto<Appointment>>> _getClasses({
+    required int limit,
+    required Map<String, dynamic> queryParams,
+  }) async {
+    final userId = _box.get(_keyUser);
+    if (userId == null) {
+      return left(const Failure.wtf(
+        'Local storage does not contains user id',
+      ));
+    }
+
+    try {
       final res = _apiClient.get(
-        RequestUrl.schedule.bookedClasses(
-          page: page,
-          perPage: limit,
-          dateTimeLte: DateTime.now()
-              .subtract(const Duration(minutes: 35))
-              .millisecondsSinceEpoch,
-          orderedBy: 'meeting',
-          sortedBy: 'desc',
-        ),
+        RequestUrl.schedule.list,
+        queryParams: queryParams,
         onResponded: (response) {
           final data = response.data as Map<String, dynamic>;
-
           final totalItems = data['data']['count'] as int;
           final dto = AppointmentDto.fromJson(data).toDomain();
           return PaginationListDto<Appointment>(
@@ -199,41 +239,18 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
   }
 
   @override
-  Future<Either<Failure, PaginationListDto<Appointment>>> getUpcomingClasses({
-    required int page,
-    required int limit,
-  }) async {
+  Future<Either<Failure, Duration>> getTotalLearningTime() async {
     try {
-      final userId = _box.get(_keyUser);
-      if (userId == null) {
-        return left(const Failure.wtf(
-          'Local storage does not contains user id',
-        ));
-      }
-
-      final res = _apiClient.get(
-        RequestUrl.schedule.upComingClasses(
-          page: page,
-          perPage: limit,
-          dateTimeGte: DateTime.now()
-              .subtract(const Duration(minutes: 5))
-              .millisecondsSinceEpoch,
-          orderedBy: 'meeting',
-          sortedBy: 'desc',
-        ),
+      final res = await _apiClient.get(
+        RequestUrl.schedule.total,
         onResponded: (response) {
           final data = response.data as Map<String, dynamic>;
-          final totalItems = data['data']['count'] as int;
-          final dto = AppointmentDto.fromJson(data).toDomain();
-          return PaginationListDto<Appointment>(
-            list: dto.sorted(
-              (a, b) => a.meetingTime.start.compareTo(b.meetingTime.start),
-            ),
-            totalItems: totalItems,
-            limit: limit,
-          );
+          final totalMinutes = data['total'] as int;
+          return Duration(minutes: totalMinutes);
         },
       );
+
+      log('${res.fold((l) => l, (r) => r)}');
 
       return res;
     } on FlutterError {

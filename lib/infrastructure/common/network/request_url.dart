@@ -108,12 +108,19 @@ class ScheduleEndpoints {
       '$_bookingPath/list/student?page=$page&perPage=$perPage'
       '&dateTimeGte=$dateTimeGte&orderBy=$orderedBy&sortBy=$sortedBy';
 
+  String get list => '$_bookingPath/list/student';
+
   String get book => _bookingPath;
 
   String get cancelBookedClass => _bookingPath;
 
+  String get next =>
+      '$_bookingPath/next?dateTime=${DateTime.now().millisecondsSinceEpoch}';
+
   String updateStudentRequest(String bookedId) =>
       '_$_bookingPath/student-request/$bookedId';
+
+  String get total => 'call/total';
 }
 
 class CourseEbookEndpoints {

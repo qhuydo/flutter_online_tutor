@@ -35,4 +35,8 @@ abstract class ScheduleRepository {
     required int page,
     required int limit,
   });
+
+  Future<Either<Failure, Appointment?>> getNextClass();
+
+  Future<Either<Failure, Duration>> getTotalLearningTime();
 }
