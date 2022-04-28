@@ -13,12 +13,14 @@ class ScheduleListDesktop extends StatelessWidget {
   final List<Appointment> appointments;
   final Widget? paginator;
   final bool showActionButtons;
+  final ValueChanged<Appointment>? onCancelButtonTapped;
 
   const ScheduleListDesktop({
     Key? key,
     required this.appointments,
     this.paginator,
     this.showActionButtons = false,
+    this.onCancelButtonTapped,
   }) : super(key: key);
 
   Widget buildLoadingWidget() {
@@ -137,6 +139,7 @@ class ScheduleListDesktop extends StatelessWidget {
                       showMeetingDate: false,
                       openMeetingRoomWhenCardTapped: true,
                       showActionButtons: showActionButtons,
+                      onCancelButtonTapped: onCancelButtonTapped,
                     ),
                   ),
               ],

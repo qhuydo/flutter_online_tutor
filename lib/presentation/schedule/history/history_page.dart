@@ -45,14 +45,17 @@ class _HistoryPage extends StatelessWidget {
           final history = state.history;
           if (history == null) return const SizedBox();
 
-          final paginator = Paginator(
-            totalPages: state.totalPages,
-            initialPage: state.currentPage - 1,
-            onPageChanged: (value) {
-              context
-                  .read<HistoryBloc>()
-                  .add(HistoryEvent.pageChanged(value + 1));
-            },
+          final paginator = Visibility(
+            visible: state.totalPages > 1,
+            child: Paginator(
+              totalPages: state.totalPages,
+              initialPage: state.currentPage - 1,
+              onPageChanged: (value) {
+                context
+                    .read<HistoryBloc>()
+                    .add(HistoryEvent.pageChanged(value + 1));
+              },
+            ),
           );
 
           final breakpoint = Breakpoint.fromMediaQuery(context);

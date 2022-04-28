@@ -70,8 +70,12 @@ class UpcomingClassBloc extends Bloc<UpcomingClassEvent, UpcomingClassState> {
     Appointment value,
     Emitter<UpcomingClassState> emit,
   ) async {
+    emit(state.copyWith(
+      classCancellationStatus: const ClassCancellationStatus.loading(),
+    ));
+
     final result = await _repository.cancelClass(
-      scheduleDetailsId: value.scheduleId,
+      scheduleDetailsId: value.bookId,
     );
 
     final status = result.fold(
@@ -84,10 +88,12 @@ class UpcomingClassBloc extends Bloc<UpcomingClassEvent, UpcomingClassState> {
 
   Future _classCancellationMessageDisplayed(
     Emitter<UpcomingClassState> emit,
-  ) async =>
-      emit(state.copyWith(
-        classCancellationStatus: const ClassCancellationStatus.initial(),
-      ));
+  ) async {
+    emit(state.copyWith(
+      classCancellationStatus: const ClassCancellationStatus.initial(),
+    ));
+    await _loadUpcomingClasses(emit);
+  }
 
   Future _appointmentSelected(
     value,

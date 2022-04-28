@@ -4,6 +4,8 @@ part of 'upcoming_class_bloc.dart';
 class ClassCancellationStatus with _$ClassCancellationStatus {
   const factory ClassCancellationStatus.initial() = _Initial;
 
+  const factory ClassCancellationStatus.loading() = _Loading;
+
   const factory ClassCancellationStatus.succeed() = _Succeed;
 
   const factory ClassCancellationStatus.failed(Failure failure) = _Failed;
@@ -24,8 +26,10 @@ class UpcomingClassState with _$UpcomingClassState {
     Appointment? selectedAppointment,
   }) = _UpcomingClassState;
 
-  List<Appointment>? get upcomingClasses =>
-      classOrFailure.fold((l) => null, (r) => r.list);
+  List<Appointment>? get upcomingClasses => classOrFailure.fold(
+        (l) => null,
+        (r) => r.list,
+      );
 
   int get totalResults => classOrFailure.fold((l) => 0, (r) => r.totalItems);
 

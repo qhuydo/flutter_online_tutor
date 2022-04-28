@@ -1085,6 +1085,10 @@ class _$ClassCancellationStatusTearOff {
     return const _Initial();
   }
 
+  _Loading loading() {
+    return const _Loading();
+  }
+
   _Succeed succeed() {
     return const _Succeed();
   }
@@ -1104,6 +1108,7 @@ mixin _$ClassCancellationStatus {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function() succeed,
     required TResult Function(Failure failure) failed,
   }) =>
@@ -1111,6 +1116,7 @@ mixin _$ClassCancellationStatus {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function()? succeed,
     TResult Function(Failure failure)? failed,
   }) =>
@@ -1118,6 +1124,7 @@ mixin _$ClassCancellationStatus {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function()? succeed,
     TResult Function(Failure failure)? failed,
     required TResult orElse(),
@@ -1126,6 +1133,7 @@ mixin _$ClassCancellationStatus {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_Succeed value) succeed,
     required TResult Function(_Failed value) failed,
   }) =>
@@ -1133,6 +1141,7 @@ mixin _$ClassCancellationStatus {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
     TResult Function(_Succeed value)? succeed,
     TResult Function(_Failed value)? failed,
   }) =>
@@ -1140,6 +1149,7 @@ mixin _$ClassCancellationStatus {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
     TResult Function(_Succeed value)? succeed,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
@@ -1204,6 +1214,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function() succeed,
     required TResult Function(Failure failure) failed,
   }) {
@@ -1214,6 +1225,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function()? succeed,
     TResult Function(Failure failure)? failed,
   }) {
@@ -1224,6 +1236,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function()? succeed,
     TResult Function(Failure failure)? failed,
     required TResult orElse(),
@@ -1238,6 +1251,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_Succeed value) succeed,
     required TResult Function(_Failed value) failed,
   }) {
@@ -1248,6 +1262,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
     TResult Function(_Succeed value)? succeed,
     TResult Function(_Failed value)? failed,
   }) {
@@ -1258,6 +1273,7 @@ class _$_Initial implements _Initial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
     TResult Function(_Succeed value)? succeed,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
@@ -1271,6 +1287,121 @@ class _$_Initial implements _Initial {
 
 abstract class _Initial implements ClassCancellationStatus {
   const factory _Initial() = _$_Initial;
+}
+
+/// @nodoc
+abstract class _$LoadingCopyWith<$Res> {
+  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
+      __$LoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LoadingCopyWithImpl<$Res>
+    extends _$ClassCancellationStatusCopyWithImpl<$Res>
+    implements _$LoadingCopyWith<$Res> {
+  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
+      : super(_value, (v) => _then(v as _Loading));
+
+  @override
+  _Loading get _value => super._value as _Loading;
+}
+
+/// @nodoc
+
+class _$_Loading implements _Loading {
+  const _$_Loading();
+
+  @override
+  String toString() {
+    return 'ClassCancellationStatus.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Loading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() succeed,
+    required TResult Function(Failure failure) failed,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? succeed,
+    TResult Function(Failure failure)? failed,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? succeed,
+    TResult Function(Failure failure)? failed,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Succeed value) succeed,
+    required TResult Function(_Failed value) failed,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Succeed value)? succeed,
+    TResult Function(_Failed value)? failed,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Succeed value)? succeed,
+    TResult Function(_Failed value)? failed,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Loading implements ClassCancellationStatus {
+  const factory _Loading() = _$_Loading;
 }
 
 /// @nodoc
@@ -1313,6 +1444,7 @@ class _$_Succeed implements _Succeed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function() succeed,
     required TResult Function(Failure failure) failed,
   }) {
@@ -1323,6 +1455,7 @@ class _$_Succeed implements _Succeed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function()? succeed,
     TResult Function(Failure failure)? failed,
   }) {
@@ -1333,6 +1466,7 @@ class _$_Succeed implements _Succeed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function()? succeed,
     TResult Function(Failure failure)? failed,
     required TResult orElse(),
@@ -1347,6 +1481,7 @@ class _$_Succeed implements _Succeed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_Succeed value) succeed,
     required TResult Function(_Failed value) failed,
   }) {
@@ -1357,6 +1492,7 @@ class _$_Succeed implements _Succeed {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
     TResult Function(_Succeed value)? succeed,
     TResult Function(_Failed value)? failed,
   }) {
@@ -1367,6 +1503,7 @@ class _$_Succeed implements _Succeed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
     TResult Function(_Succeed value)? succeed,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
@@ -1455,6 +1592,7 @@ class _$_Failed implements _Failed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function() succeed,
     required TResult Function(Failure failure) failed,
   }) {
@@ -1465,6 +1603,7 @@ class _$_Failed implements _Failed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function()? succeed,
     TResult Function(Failure failure)? failed,
   }) {
@@ -1475,6 +1614,7 @@ class _$_Failed implements _Failed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function()? succeed,
     TResult Function(Failure failure)? failed,
     required TResult orElse(),
@@ -1489,6 +1629,7 @@ class _$_Failed implements _Failed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
     required TResult Function(_Succeed value) succeed,
     required TResult Function(_Failed value) failed,
   }) {
@@ -1499,6 +1640,7 @@ class _$_Failed implements _Failed {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
     TResult Function(_Succeed value)? succeed,
     TResult Function(_Failed value)? failed,
   }) {
@@ -1509,6 +1651,7 @@ class _$_Failed implements _Failed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
     TResult Function(_Succeed value)? succeed,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),

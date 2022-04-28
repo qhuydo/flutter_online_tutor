@@ -226,7 +226,9 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
           final totalItems = data['data']['count'] as int;
           final dto = AppointmentDto.fromJson(data).toDomain();
           return PaginationListDto<Appointment>(
-            list: dto,
+            list: dto.sorted(
+              (a, b) => a.meetingTime.start.compareTo(b.meetingTime.start),
+            ),
             totalItems: totalItems,
             limit: limit,
           );

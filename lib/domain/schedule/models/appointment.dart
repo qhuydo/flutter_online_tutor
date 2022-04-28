@@ -24,5 +24,5 @@ class Appointment with _$Appointment {
 
   bool get isCancelable => meetingTime.start
       .subtract(const Duration(hours: 2))
-      .isBefore(DateTime.now());
+      .isAfter(DateTime.now());
 }

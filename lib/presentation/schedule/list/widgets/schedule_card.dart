@@ -14,6 +14,7 @@ class ScheduleCard extends StatelessWidget {
   final bool showActionButtons;
   final bool showMeetingDate;
   final bool openMeetingRoomWhenCardTapped;
+  final ValueChanged<Appointment>? onCancelButtonTapped;
 
   const ScheduleCard({
     Key? key,
@@ -21,6 +22,7 @@ class ScheduleCard extends StatelessWidget {
     this.showActionButtons = true,
     this.showMeetingDate = true,
     this.openMeetingRoomWhenCardTapped = false,
+    this.onCancelButtonTapped,
   }) : super(key: key);
 
   @override
@@ -42,9 +44,12 @@ class ScheduleCard extends StatelessWidget {
           ),
           ScheduleCardContent(appointment: appointment),
           if (showActionButtons)
-            const Padding(
-              padding: EdgeInsets.only(bottom: smallItemSpacing),
-              child: ScheduleCardButtonGroup(),
+            Padding(
+              padding: const EdgeInsets.only(bottom: smallItemSpacing),
+              child: ScheduleCardButtonGroup(
+                appointment: appointment,
+                onCancelButtonTapped: onCancelButtonTapped,
+              ),
             ),
         ],
       ),
