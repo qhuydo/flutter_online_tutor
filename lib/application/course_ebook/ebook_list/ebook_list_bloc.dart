@@ -11,6 +11,7 @@ import '../../../domain/course_ebook/models/course_category.dart';
 import '../../../domain/course_ebook/models/ebook.dart';
 import '../../../domain/course_ebook/models/sort_level_option.dart';
 import '../../../domain/user/constants/levels.dart';
+import '../../../infrastructure/common/dto/pagination_list_dto.dart';
 
 part 'ebook_list_bloc.freezed.dart';
 
@@ -66,15 +67,17 @@ class EbookListBloc extends Bloc<EbookListEvent, EbookListState> {
     ));
   }
 
-  Future _pageChanged(int value, Emitter<EbookListState> emit) async =>
-      emit(state.copyWith(
-        currentPage: value,
-      ));
+  Future _pageChanged(int value, Emitter<EbookListState> emit) async {
+    emit(state.copyWith(currentPage: value));
 
-  Future _pageLimitChanged(int value, Emitter<EbookListState> emit) async =>
-      emit(state.copyWith(
-        limit: value,
-      ));
+    await _submitted(emit);
+  }
+
+  Future _pageLimitChanged(int value, Emitter<EbookListState> emit) async {
+    emit(state.copyWith(limit: value));
+
+    await _submitted(emit);
+  }
 
   Future _sortOptionChanged(
     SortLevelOption? value,

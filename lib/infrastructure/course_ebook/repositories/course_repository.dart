@@ -105,7 +105,7 @@ class CourseRepositoryImpl implements CourseRepository {
   Future<Either<Failure, Ebook>> getEbookById(String ebookId) async {
     final list = (await getEbooks(page: 1, limit: 100)).fold(
       (l) => null,
-      (r) => r,
+      (r) => r.list,
     );
 
     if (list == null) return left(const Failure.notFound());
@@ -116,7 +116,7 @@ class CourseRepositoryImpl implements CourseRepository {
   }
 
   @override
-  Future<Either<Failure, List<Ebook>>> getEbooks({
+  Future<Either<Failure, PaginationListDto<Ebook>>> getEbooks({
     required int page,
     required int limit,
     List<Level>? levels,
@@ -144,11 +144,17 @@ class CourseRepositoryImpl implements CourseRepository {
       final result = await _apiClient.get(
         url,
         onResponded: (response) {
-          final data = response.data as Map<String, dynamic>;
-          final ebooks = (data['data']['rows'] as List)
+          final Map<String, dynamic> data = response.data['data'];
+          final int count = data['count'];
+          final ebooks = (data['rows'] as List)
               .map((e) => EbookDto.fromJson(e).toDomain())
               .toList(growable: false);
-          return ebooks;
+
+          return PaginationListDto(
+            list: ebooks,
+            totalItems: count,
+            limit: limit,
+          );
         },
       );
 

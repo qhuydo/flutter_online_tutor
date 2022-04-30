@@ -5,6 +5,7 @@ import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import '../../../application/course_ebook/ebook_list/ebook_list_bloc.dart';
 import '../../common.dart';
 import '../../common/utils/constants.dart';
+import '../../common/widgets/paginator.dart';
 import '../../common/widgets/search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';
 import 'widgets/ebook_card.dart';
@@ -97,19 +98,38 @@ class _EbookTabPageState extends State<EbookTabPage> {
         if (list == null) return const SizedBox();
 
         return FloatingSearchBarScrollNotifier(
-          child: MasonryGridView.extent(
-            primary: false,
-            shrinkWrap: true,
-            padding: const EdgeInsets.only(
-              top: searchBarHeight + 12,
-              left: smallItemSpacing,
-              right: smallItemSpacing,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                MasonryGridView.extent(
+                  primary: false,
+                  shrinkWrap: true,
+                  padding: const EdgeInsets.only(
+                    top: searchBarHeight + 12,
+                    left: smallItemSpacing,
+                    right: smallItemSpacing,
+                  ),
+                  itemCount: list.length,
+                  crossAxisSpacing: 4,
+                  mainAxisSpacing: 4,
+                  maxCrossAxisExtent: 360,
+                  itemBuilder: (context, index) =>
+                      EbookCard(ebook: list[index]),
+                ),
+                const SizedBox(height: smallItemSpacing),
+                Paginator.inputPageCountFrom1(
+                  totalPages: state.paginationEbookList!.totalPages,
+                  initialPage: state.currentPage,
+                  onPageChanged: (pageCountFrom0) {
+                    context
+                        .read<EbookListBloc>()
+                        .add(EbookListEvent.pageChanged(pageCountFrom0 + 1));
+                    controller.show();
+                  },
+                )
+              ],
             ),
-            itemCount: list.length,
-            crossAxisSpacing: 4,
-            mainAxisSpacing: 4,
-            maxCrossAxisExtent: 360,
-            itemBuilder: (context, index) => EbookCard(ebook: list[index]),
           ),
         );
       },

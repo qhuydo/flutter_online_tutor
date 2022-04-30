@@ -149,7 +149,7 @@ class _CourseTabPageState extends State<CourseTabPage> {
                         .add(CourseListEvent.pageChanged(pageCountFrom0 + 1));
                     controller.show();
                   },
-                )
+                ),
               ],
             ),
           ),

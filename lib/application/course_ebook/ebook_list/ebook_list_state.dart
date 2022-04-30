@@ -13,13 +13,21 @@ class EbookListState with _$EbookListState {
     @Default([]) List<Level> levels,
     SortLevelOption? sortBy,
     @Default([]) List<CourseCategory> categories,
-    @Default(Right([])) Either<Failure, List<Ebook>> listOrFailure,
     @Default([]) List<CourseCategory> allCategories,
+    @Default(Right(PaginationListDto<Ebook>(list: [], totalItems: 0, limit: 1)))
+        Either<Failure, PaginationListDto<Ebook>> listOrFailure,
   }) = _EbookListState;
 
-  List<Ebook>? get ebookList => listOrFailure.fold((l) => null, (r) => r);
+  List<Ebook>? get ebookList => listOrFailure.fold(
+        (l) => null,
+        (r) => r.list,
+      );
+
+  PaginationListDto? get paginationEbookList => listOrFailure.fold(
+        (l) => null,
+        (r) => r,
+      );
 
   bool get isFilterApplied =>
       levels.isNotEmpty || sortBy != null || categories.isNotEmpty;
-
 }

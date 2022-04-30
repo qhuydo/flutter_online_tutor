@@ -76,7 +76,7 @@ class MockCourseRepository implements CourseRepository {
   Future<Either<Failure, Ebook>> getEbookById(String ebookId) async {
     final list = (await getEbooks(page: 1, limit: 100)).fold(
       (l) => null,
-      (r) => r,
+      (r) => r.list,
     );
 
     if (list == null) return left(const Failure.notFound());
@@ -87,7 +87,7 @@ class MockCourseRepository implements CourseRepository {
   }
 
   @override
-  Future<Either<Failure, List<Ebook>>> getEbooks({
+  Future<Either<Failure, PaginationListDto<Ebook>>> getEbooks({
     required int page,
     required int limit,
     List<Level>? levels,
@@ -105,7 +105,11 @@ class MockCourseRepository implements CourseRepository {
           .map((e) => EbookDto.fromJson(e).toDomain())
           .toList(growable: false);
 
-      return right(ebooks);
+      return right(PaginationListDto(
+        list: ebooks,
+        totalItems: ebooks.length,
+        limit: limit,
+      ));
     } on NullThrownError {
       return left(const Failure.apiError());
     } on FlutterError {

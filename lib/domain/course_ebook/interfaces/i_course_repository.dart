@@ -23,7 +23,7 @@ abstract class CourseRepository {
 
   Future<Either<Failure, Course>> getCourseById(String courseId);
 
-  Future<Either<Failure, List<Ebook>>> getEbooks({
+  Future<Either<Failure, PaginationListDto<Ebook>>> getEbooks({
     required int page,
     required int limit,
     List<Level>? levels,

@@ -1692,8 +1692,9 @@ class _$EbookListStateTearOff {
       List<Level> levels = const [],
       SortLevelOption? sortBy,
       List<CourseCategory> categories = const [],
-      Either<Failure, List<Ebook>> listOrFailure = const Right([]),
-      List<CourseCategory> allCategories = const []}) {
+      List<CourseCategory> allCategories = const [],
+      Either<Failure, PaginationListDto<Ebook>> listOrFailure = const Right(
+          PaginationListDto<Ebook>(list: [], totalItems: 0, limit: 1))}) {
     return _EbookListState(
       isLoading: isLoading,
       isInitial: isInitial,
@@ -1703,8 +1704,8 @@ class _$EbookListStateTearOff {
       levels: levels,
       sortBy: sortBy,
       categories: categories,
-      listOrFailure: listOrFailure,
       allCategories: allCategories,
+      listOrFailure: listOrFailure,
     );
   }
 }
@@ -1722,9 +1723,9 @@ mixin _$EbookListState {
   List<Level> get levels => throw _privateConstructorUsedError;
   SortLevelOption? get sortBy => throw _privateConstructorUsedError;
   List<CourseCategory> get categories => throw _privateConstructorUsedError;
-  Either<Failure, List<Ebook>> get listOrFailure =>
-      throw _privateConstructorUsedError;
   List<CourseCategory> get allCategories => throw _privateConstructorUsedError;
+  Either<Failure, PaginationListDto<Ebook>> get listOrFailure =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EbookListStateCopyWith<EbookListState> get copyWith =>
@@ -1745,8 +1746,8 @@ abstract class $EbookListStateCopyWith<$Res> {
       List<Level> levels,
       SortLevelOption? sortBy,
       List<CourseCategory> categories,
-      Either<Failure, List<Ebook>> listOrFailure,
-      List<CourseCategory> allCategories});
+      List<CourseCategory> allCategories,
+      Either<Failure, PaginationListDto<Ebook>> listOrFailure});
 }
 
 /// @nodoc
@@ -1768,8 +1769,8 @@ class _$EbookListStateCopyWithImpl<$Res>
     Object? levels = freezed,
     Object? sortBy = freezed,
     Object? categories = freezed,
-    Object? listOrFailure = freezed,
     Object? allCategories = freezed,
+    Object? listOrFailure = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -1804,14 +1805,14 @@ class _$EbookListStateCopyWithImpl<$Res>
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
               as List<CourseCategory>,
-      listOrFailure: listOrFailure == freezed
-          ? _value.listOrFailure
-          : listOrFailure // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, List<Ebook>>,
       allCategories: allCategories == freezed
           ? _value.allCategories
           : allCategories // ignore: cast_nullable_to_non_nullable
               as List<CourseCategory>,
+      listOrFailure: listOrFailure == freezed
+          ? _value.listOrFailure
+          : listOrFailure // ignore: cast_nullable_to_non_nullable
+              as Either<Failure, PaginationListDto<Ebook>>,
     ));
   }
 }
@@ -1832,8 +1833,8 @@ abstract class _$EbookListStateCopyWith<$Res>
       List<Level> levels,
       SortLevelOption? sortBy,
       List<CourseCategory> categories,
-      Either<Failure, List<Ebook>> listOrFailure,
-      List<CourseCategory> allCategories});
+      List<CourseCategory> allCategories,
+      Either<Failure, PaginationListDto<Ebook>> listOrFailure});
 }
 
 /// @nodoc
@@ -1857,8 +1858,8 @@ class __$EbookListStateCopyWithImpl<$Res>
     Object? levels = freezed,
     Object? sortBy = freezed,
     Object? categories = freezed,
-    Object? listOrFailure = freezed,
     Object? allCategories = freezed,
+    Object? listOrFailure = freezed,
   }) {
     return _then(_EbookListState(
       isLoading: isLoading == freezed ? _value.isLoading : isLoading,
@@ -1890,14 +1891,14 @@ class __$EbookListStateCopyWithImpl<$Res>
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
               as List<CourseCategory>,
-      listOrFailure: listOrFailure == freezed
-          ? _value.listOrFailure
-          : listOrFailure // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, List<Ebook>>,
       allCategories: allCategories == freezed
           ? _value.allCategories
           : allCategories // ignore: cast_nullable_to_non_nullable
               as List<CourseCategory>,
+      listOrFailure: listOrFailure == freezed
+          ? _value.listOrFailure
+          : listOrFailure // ignore: cast_nullable_to_non_nullable
+              as Either<Failure, PaginationListDto<Ebook>>,
     ));
   }
 }
@@ -1914,8 +1915,9 @@ class _$_EbookListState extends _EbookListState {
       this.levels = const [],
       this.sortBy,
       this.categories = const [],
-      this.listOrFailure = const Right([]),
-      this.allCategories = const []})
+      this.allCategories = const [],
+      this.listOrFailure = const Right(
+          PaginationListDto<Ebook>(list: [], totalItems: 0, limit: 1))})
       : super._();
 
   @JsonKey()
@@ -1943,14 +1945,14 @@ class _$_EbookListState extends _EbookListState {
   final List<CourseCategory> categories;
   @JsonKey()
   @override
-  final Either<Failure, List<Ebook>> listOrFailure;
+  final List<CourseCategory> allCategories;
   @JsonKey()
   @override
-  final List<CourseCategory> allCategories;
+  final Either<Failure, PaginationListDto<Ebook>> listOrFailure;
 
   @override
   String toString() {
-    return 'EbookListState(isLoading: $isLoading, isInitial: $isInitial, keyword: $keyword, currentPage: $currentPage, limit: $limit, levels: $levels, sortBy: $sortBy, categories: $categories, listOrFailure: $listOrFailure, allCategories: $allCategories)';
+    return 'EbookListState(isLoading: $isLoading, isInitial: $isInitial, keyword: $keyword, currentPage: $currentPage, limit: $limit, levels: $levels, sortBy: $sortBy, categories: $categories, allCategories: $allCategories, listOrFailure: $listOrFailure)';
   }
 
   @override
@@ -1969,9 +1971,9 @@ class _$_EbookListState extends _EbookListState {
             const DeepCollectionEquality()
                 .equals(other.categories, categories) &&
             const DeepCollectionEquality()
-                .equals(other.listOrFailure, listOrFailure) &&
+                .equals(other.allCategories, allCategories) &&
             const DeepCollectionEquality()
-                .equals(other.allCategories, allCategories));
+                .equals(other.listOrFailure, listOrFailure));
   }
 
   @override
@@ -1985,8 +1987,8 @@ class _$_EbookListState extends _EbookListState {
       const DeepCollectionEquality().hash(levels),
       const DeepCollectionEquality().hash(sortBy),
       const DeepCollectionEquality().hash(categories),
-      const DeepCollectionEquality().hash(listOrFailure),
-      const DeepCollectionEquality().hash(allCategories));
+      const DeepCollectionEquality().hash(allCategories),
+      const DeepCollectionEquality().hash(listOrFailure));
 
   @JsonKey(ignore: true)
   @override
@@ -1996,16 +1998,17 @@ class _$_EbookListState extends _EbookListState {
 
 abstract class _EbookListState extends EbookListState {
   const factory _EbookListState(
-      {dynamic isLoading,
-      bool isInitial,
-      String keyword,
-      int currentPage,
-      int limit,
-      List<Level> levels,
-      SortLevelOption? sortBy,
-      List<CourseCategory> categories,
-      Either<Failure, List<Ebook>> listOrFailure,
-      List<CourseCategory> allCategories}) = _$_EbookListState;
+          {dynamic isLoading,
+          bool isInitial,
+          String keyword,
+          int currentPage,
+          int limit,
+          List<Level> levels,
+          SortLevelOption? sortBy,
+          List<CourseCategory> categories,
+          List<CourseCategory> allCategories,
+          Either<Failure, PaginationListDto<Ebook>> listOrFailure}) =
+      _$_EbookListState;
   const _EbookListState._() : super._();
 
   @override
@@ -2025,9 +2028,9 @@ abstract class _EbookListState extends EbookListState {
   @override
   List<CourseCategory> get categories;
   @override
-  Either<Failure, List<Ebook>> get listOrFailure;
-  @override
   List<CourseCategory> get allCategories;
+  @override
+  Either<Failure, PaginationListDto<Ebook>> get listOrFailure;
   @override
   @JsonKey(ignore: true)
   _$EbookListStateCopyWith<_EbookListState> get copyWith =>
