@@ -38,6 +38,7 @@ class SchedulePage extends StatelessWidget {
                 barrierDismissible: false,
                 context: context,
                 builder: (context) => const AlertDialog(
+                  // TODO update translation
                   title: Text('Loading'),
                   content: SizedBox(
                     height: 50,
@@ -91,17 +92,14 @@ class SchedulePage extends StatelessWidget {
           if (upcomingClasses == null) return const SizedBox();
           final breakpoint = Breakpoint.fromMediaQuery(context);
 
-          final paginator = Visibility(
-            visible: state.totalPages > 1,
-            child: Paginator(
-              totalPages: state.totalPages,
-              initialPage: state.currentPage - 1,
-              onPageChanged: (value) {
-                context
-                    .read<UpcomingClassBloc>()
-                    .add(UpcomingClassEvent.pageChanged(value + 1));
-              },
-            ),
+          final paginator = Paginator(
+            totalPages: state.totalPages,
+            initialPage: state.currentPage - 1,
+            onPageChanged: (value) {
+              context
+                  .read<UpcomingClassBloc>()
+                  .add(UpcomingClassEvent.pageChanged(value + 1));
+            },
           );
 
           return breakpoint.window <= WindowSize.small

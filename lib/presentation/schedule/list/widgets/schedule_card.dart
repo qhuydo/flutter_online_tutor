@@ -12,6 +12,7 @@ import 'schedule_card_header.dart';
 class ScheduleCard extends StatelessWidget {
   final Appointment appointment;
   final bool showActionButtons;
+  final bool showCancelButton;
   final bool showMeetingDate;
   final bool openMeetingRoomWhenCardTapped;
   final ValueChanged<Appointment>? onCancelButtonTapped;
@@ -20,6 +21,7 @@ class ScheduleCard extends StatelessWidget {
     Key? key,
     required this.appointment,
     this.showActionButtons = true,
+    this.showCancelButton = true,
     this.showMeetingDate = true,
     this.openMeetingRoomWhenCardTapped = false,
     this.onCancelButtonTapped,

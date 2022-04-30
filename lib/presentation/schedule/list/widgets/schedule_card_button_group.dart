@@ -7,11 +7,13 @@ import '../../../common/routes/app_routes.gr.dart';
 class ScheduleCardButtonGroup extends StatelessWidget {
   final ValueChanged<Appointment>? onCancelButtonTapped;
   final Appointment appointment;
+  final bool showCancelButton;
 
   const ScheduleCardButtonGroup({
     Key? key,
     required this.appointment,
     this.onCancelButtonTapped,
+    this.showCancelButton = true,
   }) : super(key: key);
 
   @override
@@ -24,20 +26,21 @@ class ScheduleCardButtonGroup extends StatelessWidget {
         crossAxisAlignment: WrapCrossAlignment.end,
         alignment: WrapAlignment.end,
         children: [
-          Visibility(
-            visible: appointment.isCancelable,
-            child: OutlinedButton.icon(
-              onPressed: () => onCancelButtonTapped?.call(appointment),
-              icon: const Icon(Icons.cancel_outlined),
-              label: Text(
-                AppLocalizations.of(context)!.cancelButtonLabel,
-              ),
-              style: OutlinedButton.styleFrom(
-                backgroundColor: Theme.of(context).cardColor,
-                primary: Colors.red,
+          if (showCancelButton)
+            Visibility(
+              visible: appointment.isCancelable,
+              child: OutlinedButton.icon(
+                onPressed: () => onCancelButtonTapped?.call(appointment),
+                icon: const Icon(Icons.cancel_outlined),
+                label: Text(
+                  AppLocalizations.of(context)!.cancelButtonLabel,
+                ),
+                style: OutlinedButton.styleFrom(
+                  backgroundColor: Theme.of(context).cardColor,
+                  primary: Colors.red,
+                ),
               ),
             ),
-          ),
           OutlinedButton.icon(
             onPressed: () {
               context.router.push(MessageDetailsRoute(tutorId: ''));

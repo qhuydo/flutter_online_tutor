@@ -38,7 +38,7 @@ class _VideoPreviewState extends State<VideoPreviewDesktop> {
 
     _player = Player(id: widget.id);
     final media = Media.network(widget.videoUrl);
-    _player?.open(media);
+    _player?.open(media, autoStart: false);
   }
 
   @override

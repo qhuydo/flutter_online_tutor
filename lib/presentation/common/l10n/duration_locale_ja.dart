@@ -28,7 +28,7 @@ class DurationLocaleJa extends DurationLocale {
     if (abbreviated) {
       return '時';
     } else {
-      return '時間';
+      return '時';
     }
   }
 

@@ -9,8 +9,8 @@ import '../../common.dart';
 import '../../common/l10n/schedule_display_text.dart';
 import '../../common/routes/app_routes.gr.dart';
 import '../../common/utils/constants.dart';
-import '../../common/utils/duration_locale_ja.dart';
-import '../../common/utils/duration_locale_vi.dart';
+import '../../common/l10n/duration_locale_ja.dart';
+import '../../common/l10n/duration_locale_vi.dart';
 import '../../common/widgets/outlined_card.dart';
 
 class DashboardCard extends StatelessWidget {

@@ -53,7 +53,7 @@ class _VideoPreviewMobileState extends State<VideoPreviewMobile> {
   void _createChewieController() {
     _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController,
-      autoPlay: true,
+      autoPlay: false,
       looping: false,
       hideControlsTimer: const Duration(seconds: 1),
       // showControls: false,

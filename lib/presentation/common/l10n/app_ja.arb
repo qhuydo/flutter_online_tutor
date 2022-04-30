@@ -15,7 +15,7 @@
     "passwordTextBoxHint": "パスワードを入力してください",
     "upComingLesson": "次のレッスン",
     "enterLessonRoom": "ルームに入る",
-    "totalHourLearnt": "合計 {totalHours} 時間を学びました。",
+    "totalHourLearnt": "合計{totalHours}を学びました。",
     "resetPasswordButtonText": "パスワードリセットリンクのリクエストを送信",
     "resetPasswordDescription": "あなたのアカウントを検索するために、メールアドレスを提供してください。",
     "resetPassword": "パスワードをリセット",
