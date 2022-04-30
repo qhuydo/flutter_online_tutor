@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../application/schedule/schedule_details/schedule_details_cubit.dart';
+import '../../../../application/schedule/tutor_schedule_details/tutor_schedule_details_cubit.dart';
 import '../../../../application/schedule/tutor_schedule/tutor_schedule_bloc.dart';
 import '../../../../domain/schedule/interfaces/i_schedule_repository.dart';
 import '../../../../domain/schedule/models/schedule.dart';
@@ -59,7 +59,7 @@ class ScheduleRow extends StatelessWidget {
                 providers: [
                   BlocProvider.value(value: scheduleBloc),
                   BlocProvider(
-                    create: (_) => ScheduleDetailsCubit(
+                    create: (_) => TutorScheduleDetailsCubit(
                       getIt<ScheduleRepository>(),
                       schedule: schedule,
                     ),

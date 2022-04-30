@@ -32,7 +32,8 @@ class DashboardPage extends StatelessWidget {
                   return previous.nextClass != current.nextClass;
                 },
                 builder: (context, state) {
-                  if (state.nextClass == null) {
+                  if (state.nextClass == null ||
+                      state.nextClass?.isCancelable == true) {
                     return const SizedBox();
                   }
                   return Padding(

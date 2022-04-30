@@ -29,7 +29,7 @@ class _HistoryPage extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(
         context,
-        title: AppLocalizations.of(context)!.historyTitle,
+        title: context.l10n.historyTitle,
       ),
       body: BlocBuilder<HistoryBloc, HistoryState>(
         builder: (context, state) {

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'schedule_details_cubit.dart';
+part of 'tutor_schedule_details_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,15 +15,15 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$ScheduleDetailsStateTearOff {
-  const _$ScheduleDetailsStateTearOff();
+class _$TutorScheduleDetailsStateTearOff {
+  const _$TutorScheduleDetailsStateTearOff();
 
-  _ScheduleDetailsState call(
+  _TutorScheduleDetailsState call(
       {dynamic isLoading = false,
       Either<Failure, Unit>? scheduleFailureOrSuccess = null,
       dynamic note = '',
       required Schedule schedule}) {
-    return _ScheduleDetailsState(
+    return _TutorScheduleDetailsState(
       isLoading: isLoading,
       scheduleFailureOrSuccess: scheduleFailureOrSuccess,
       note: note,
@@ -33,10 +33,10 @@ class _$ScheduleDetailsStateTearOff {
 }
 
 /// @nodoc
-const $ScheduleDetailsState = _$ScheduleDetailsStateTearOff();
+const $TutorScheduleDetailsState = _$TutorScheduleDetailsStateTearOff();
 
 /// @nodoc
-mixin _$ScheduleDetailsState {
+mixin _$TutorScheduleDetailsState {
   dynamic get isLoading => throw _privateConstructorUsedError;
   Either<Failure, Unit>? get scheduleFailureOrSuccess =>
       throw _privateConstructorUsedError;
@@ -44,15 +44,15 @@ mixin _$ScheduleDetailsState {
   Schedule get schedule => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ScheduleDetailsStateCopyWith<ScheduleDetailsState> get copyWith =>
+  $TutorScheduleDetailsStateCopyWith<TutorScheduleDetailsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ScheduleDetailsStateCopyWith<$Res> {
-  factory $ScheduleDetailsStateCopyWith(ScheduleDetailsState value,
-          $Res Function(ScheduleDetailsState) then) =
-      _$ScheduleDetailsStateCopyWithImpl<$Res>;
+abstract class $TutorScheduleDetailsStateCopyWith<$Res> {
+  factory $TutorScheduleDetailsStateCopyWith(TutorScheduleDetailsState value,
+          $Res Function(TutorScheduleDetailsState) then) =
+      _$TutorScheduleDetailsStateCopyWithImpl<$Res>;
   $Res call(
       {dynamic isLoading,
       Either<Failure, Unit>? scheduleFailureOrSuccess,
@@ -63,13 +63,13 @@ abstract class $ScheduleDetailsStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ScheduleDetailsStateCopyWithImpl<$Res>
-    implements $ScheduleDetailsStateCopyWith<$Res> {
-  _$ScheduleDetailsStateCopyWithImpl(this._value, this._then);
+class _$TutorScheduleDetailsStateCopyWithImpl<$Res>
+    implements $TutorScheduleDetailsStateCopyWith<$Res> {
+  _$TutorScheduleDetailsStateCopyWithImpl(this._value, this._then);
 
-  final ScheduleDetailsState _value;
+  final TutorScheduleDetailsState _value;
   // ignore: unused_field
-  final $Res Function(ScheduleDetailsState) _then;
+  final $Res Function(TutorScheduleDetailsState) _then;
 
   @override
   $Res call({
@@ -107,11 +107,11 @@ class _$ScheduleDetailsStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ScheduleDetailsStateCopyWith<$Res>
-    implements $ScheduleDetailsStateCopyWith<$Res> {
-  factory _$ScheduleDetailsStateCopyWith(_ScheduleDetailsState value,
-          $Res Function(_ScheduleDetailsState) then) =
-      __$ScheduleDetailsStateCopyWithImpl<$Res>;
+abstract class _$TutorScheduleDetailsStateCopyWith<$Res>
+    implements $TutorScheduleDetailsStateCopyWith<$Res> {
+  factory _$TutorScheduleDetailsStateCopyWith(_TutorScheduleDetailsState value,
+          $Res Function(_TutorScheduleDetailsState) then) =
+      __$TutorScheduleDetailsStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {dynamic isLoading,
@@ -124,15 +124,16 @@ abstract class _$ScheduleDetailsStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ScheduleDetailsStateCopyWithImpl<$Res>
-    extends _$ScheduleDetailsStateCopyWithImpl<$Res>
-    implements _$ScheduleDetailsStateCopyWith<$Res> {
-  __$ScheduleDetailsStateCopyWithImpl(
-      _ScheduleDetailsState _value, $Res Function(_ScheduleDetailsState) _then)
-      : super(_value, (v) => _then(v as _ScheduleDetailsState));
+class __$TutorScheduleDetailsStateCopyWithImpl<$Res>
+    extends _$TutorScheduleDetailsStateCopyWithImpl<$Res>
+    implements _$TutorScheduleDetailsStateCopyWith<$Res> {
+  __$TutorScheduleDetailsStateCopyWithImpl(_TutorScheduleDetailsState _value,
+      $Res Function(_TutorScheduleDetailsState) _then)
+      : super(_value, (v) => _then(v as _TutorScheduleDetailsState));
 
   @override
-  _ScheduleDetailsState get _value => super._value as _ScheduleDetailsState;
+  _TutorScheduleDetailsState get _value =>
+      super._value as _TutorScheduleDetailsState;
 
   @override
   $Res call({
@@ -141,7 +142,7 @@ class __$ScheduleDetailsStateCopyWithImpl<$Res>
     Object? note = freezed,
     Object? schedule = freezed,
   }) {
-    return _then(_ScheduleDetailsState(
+    return _then(_TutorScheduleDetailsState(
       isLoading: isLoading == freezed ? _value.isLoading : isLoading,
       scheduleFailureOrSuccess: scheduleFailureOrSuccess == freezed
           ? _value.scheduleFailureOrSuccess
@@ -158,8 +159,8 @@ class __$ScheduleDetailsStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ScheduleDetailsState implements _ScheduleDetailsState {
-  const _$_ScheduleDetailsState(
+class _$_TutorScheduleDetailsState implements _TutorScheduleDetailsState {
+  const _$_TutorScheduleDetailsState(
       {this.isLoading = false,
       this.scheduleFailureOrSuccess = null,
       this.note = '',
@@ -179,14 +180,14 @@ class _$_ScheduleDetailsState implements _ScheduleDetailsState {
 
   @override
   String toString() {
-    return 'ScheduleDetailsState(isLoading: $isLoading, scheduleFailureOrSuccess: $scheduleFailureOrSuccess, note: $note, schedule: $schedule)';
+    return 'TutorScheduleDetailsState(isLoading: $isLoading, scheduleFailureOrSuccess: $scheduleFailureOrSuccess, note: $note, schedule: $schedule)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ScheduleDetailsState &&
+            other is _TutorScheduleDetailsState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality().equals(
                 other.scheduleFailureOrSuccess, scheduleFailureOrSuccess) &&
@@ -204,17 +205,18 @@ class _$_ScheduleDetailsState implements _ScheduleDetailsState {
 
   @JsonKey(ignore: true)
   @override
-  _$ScheduleDetailsStateCopyWith<_ScheduleDetailsState> get copyWith =>
-      __$ScheduleDetailsStateCopyWithImpl<_ScheduleDetailsState>(
-          this, _$identity);
+  _$TutorScheduleDetailsStateCopyWith<_TutorScheduleDetailsState>
+      get copyWith =>
+          __$TutorScheduleDetailsStateCopyWithImpl<_TutorScheduleDetailsState>(
+              this, _$identity);
 }
 
-abstract class _ScheduleDetailsState implements ScheduleDetailsState {
-  const factory _ScheduleDetailsState(
+abstract class _TutorScheduleDetailsState implements TutorScheduleDetailsState {
+  const factory _TutorScheduleDetailsState(
       {dynamic isLoading,
       Either<Failure, Unit>? scheduleFailureOrSuccess,
       dynamic note,
-      required Schedule schedule}) = _$_ScheduleDetailsState;
+      required Schedule schedule}) = _$_TutorScheduleDetailsState;
 
   @override
   dynamic get isLoading;
@@ -226,6 +228,6 @@ abstract class _ScheduleDetailsState implements ScheduleDetailsState {
   Schedule get schedule;
   @override
   @JsonKey(ignore: true)
-  _$ScheduleDetailsStateCopyWith<_ScheduleDetailsState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$TutorScheduleDetailsStateCopyWith<_TutorScheduleDetailsState>
+      get copyWith => throw _privateConstructorUsedError;
 }

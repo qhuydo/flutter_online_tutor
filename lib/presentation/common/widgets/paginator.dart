@@ -9,7 +9,7 @@ class Paginator extends StatefulWidget {
   final int totalPages;
   final int initialPage;
   final double height;
-  final bool showWhenHavingMultiplePages;
+  final bool showWhenHavingOnlyOnePage;
 
   final ValueChanged<int>? onPageChanged;
   final OutlinedBorder? buttonShape;
@@ -21,7 +21,7 @@ class Paginator extends StatefulWidget {
     this.height = 48,
     this.onPageChanged,
     this.buttonShape,
-    this.showWhenHavingMultiplePages = false,
+    this.showWhenHavingOnlyOnePage = false,
   }) : super(key: key);
 
   factory Paginator.inputPageCountFrom1({
@@ -40,7 +40,7 @@ class Paginator extends StatefulWidget {
         height: height,
         buttonShape: buttonShape,
         onPageChanged: onPageChanged,
-        showWhenHavingMultiplePages: showWhenHavingOnlyOnePage,
+        showWhenHavingOnlyOnePage: showWhenHavingOnlyOnePage,
       );
 
   @override
@@ -82,7 +82,8 @@ class _PaginatorState extends State<Paginator> {
   @override
   Widget build(BuildContext context) {
     return Visibility(
-      visible: widget.showWhenHavingMultiplePages || widget.totalPages > 1,
+      visible: widget.totalPages > 1 ||
+          (widget.totalPages <= 1 && widget.showWhenHavingOnlyOnePage),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.end,

@@ -91,14 +91,13 @@ class SchedulePage extends StatelessWidget {
           final upcomingClasses = state.upcomingClasses;
           if (upcomingClasses == null) return const SizedBox();
           final breakpoint = Breakpoint.fromMediaQuery(context);
-
-          final paginator = Paginator(
+          final paginator = Paginator.inputPageCountFrom1(
             totalPages: state.totalPages,
-            initialPage: state.currentPage - 1,
-            onPageChanged: (value) {
+            initialPage: state.currentPage,
+            onPageChanged: (pageValueCountFrom0) {
               context
                   .read<UpcomingClassBloc>()
-                  .add(UpcomingClassEvent.pageChanged(value + 1));
+                  .add(UpcomingClassEvent.pageChanged(pageValueCountFrom0 + 1));
             },
           );
 

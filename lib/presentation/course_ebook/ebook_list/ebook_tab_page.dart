@@ -114,8 +114,9 @@ class _EbookTabPageState extends State<EbookTabPage> {
                   crossAxisSpacing: 4,
                   mainAxisSpacing: 4,
                   maxCrossAxisExtent: 360,
-                  itemBuilder: (context, index) =>
-                      EbookCard(ebook: list[index]),
+                  itemBuilder: (context, index) => EbookCard(
+                    ebook: list[index],
+                  ),
                 ),
                 const SizedBox(height: smallItemSpacing),
                 Paginator.inputPageCountFrom1(

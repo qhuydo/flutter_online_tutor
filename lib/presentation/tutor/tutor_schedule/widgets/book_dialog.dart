@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:twemoji/twemoji.dart';
 
-import '../../../../application/schedule/schedule_details/schedule_details_cubit.dart';
+import '../../../../application/schedule/tutor_schedule_details/tutor_schedule_details_cubit.dart';
 import '../../../../application/schedule/tutor_schedule/tutor_schedule_bloc.dart';
 import '../../../../domain/schedule/models/schedule.dart';
 import '../../../common.dart';
@@ -18,7 +18,7 @@ class BookDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ScheduleDetailsCubit, ScheduleDetailsState>(
+    return BlocConsumer<TutorScheduleDetailsCubit, TutorScheduleDetailsState>(
       listenWhen: (previous, current) =>
           previous.scheduleFailureOrSuccess != current.scheduleFailureOrSuccess,
       listener: (context, state) => state.scheduleFailureOrSuccess?.fold(
@@ -91,7 +91,7 @@ class BookDialog extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  context.read<ScheduleDetailsCubit>().onSubmitted();
+                  context.read<TutorScheduleDetailsCubit>().onSubmitted();
                 },
                 child: Text(context.l10n.bookButtonText),
               ),
@@ -149,7 +149,7 @@ class BookDialog extends StatelessWidget {
                 minLines: 5,
                 maxLines: 20,
                 onChanged: (value) {
-                  context.read<ScheduleDetailsCubit>().onNoteChanged(value);
+                  context.read<TutorScheduleDetailsCubit>().onNoteChanged(value);
                 },
               ),
             ),

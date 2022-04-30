@@ -6,15 +6,15 @@ import '../../../domain/common/failures/failure.dart';
 import '../../../domain/schedule/interfaces/i_schedule_repository.dart';
 import '../../../domain/schedule/models/schedule.dart';
 
-part 'schedule_details_cubit.freezed.dart';
+part 'tutor_schedule_details_cubit.freezed.dart';
 
-part 'schedule_details_state.dart';
+part 'tutor_schedule_details_state.dart';
 
-class ScheduleDetailsCubit extends Cubit<ScheduleDetailsState> {
+class TutorScheduleDetailsCubit extends Cubit<TutorScheduleDetailsState> {
   final ScheduleRepository _repository;
 
-  ScheduleDetailsCubit(this._repository, {required Schedule schedule})
-      : super(ScheduleDetailsState(schedule: schedule));
+  TutorScheduleDetailsCubit(this._repository, {required Schedule schedule})
+      : super(TutorScheduleDetailsState(schedule: schedule));
 
   void onNoteChanged(String value) {
     emit(state.copyWith(note: value));

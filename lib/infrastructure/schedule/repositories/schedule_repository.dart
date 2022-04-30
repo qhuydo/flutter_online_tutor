@@ -124,7 +124,7 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
                     (element) => element.userId == userId,
                   ),
             ),
-      ];
+      ]..sort((a, b) => a.meetingTime.start.compareTo(b.meetingTime.start));
 
       final eventMap = schedule.groupListsBy((element) => DateTime(
             element.meetingTime.start.year,
@@ -166,7 +166,7 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
     return _getClasses(limit: limit, queryParams: {
       'page': page.toString(),
       'perPage': limit.toString(),
-      'dateTimeGte': DateTime.now()
+      'dateTimeLte': DateTime.now()
           .subtract(const Duration(minutes: 35))
           .millisecondsSinceEpoch
           .toString(),
