@@ -14,6 +14,7 @@ import '../../../domain/course_ebook/models/ebook.dart';
 import '../../../domain/course_ebook/models/sort_level_option.dart';
 import '../../../domain/user/constants/levels.dart';
 import '../../../presentation/common.dart';
+import '../../common/dto/pagination_list_dto.dart';
 import '../../common/network/api_client.dart';
 import '../../common/network/request_url.dart';
 import '../../user/utils/level_extension.dart';
@@ -52,7 +53,7 @@ class CourseRepositoryImpl implements CourseRepository {
   }
 
   @override
-  Future<Either<Failure, List<Course>>> getCourses({
+  Future<Either<Failure, PaginationListDto<Course>>> getCourses({
     required int page,
     required int limit,
     List<Level>? levels,
@@ -79,11 +80,16 @@ class CourseRepositoryImpl implements CourseRepository {
       final result = await _apiClient.get(
         url,
         onResponded: (response) {
-          final data = response.data as Map<String, dynamic>;
-          final courses = (data['data']['rows'] as List)
+          final Map<String, dynamic> data = response.data['data'];
+          final int count = data['count'];
+          final courses = (data['rows'] as List)
               .map((e) => CourseDto.fromJson(e).toDomain())
               .toList(growable: false);
-          return courses;
+          return PaginationListDto(
+            list: courses,
+            totalItems: count,
+            limit: limit,
+          );
         },
       );
 
@@ -96,10 +102,6 @@ class CourseRepositoryImpl implements CourseRepository {
   }
 
   @override
-  @Deprecated(
-    'The server does not implement this API.\n'
-    'Use getEbooks() then get the ebook from the returned list instead.'
-  )
   Future<Either<Failure, Ebook>> getEbookById(String ebookId) async {
     final list = (await getEbooks(page: 1, limit: 100)).fold(
       (l) => null,
@@ -206,27 +208,6 @@ class CourseRepositoryImpl implements CourseRepository {
       return left(const Failure.serverError());
     }
   }
-
-  Map<String, dynamic> _encodeQueryParams({
-    required int page,
-    required int limit,
-    List<Level>? levels,
-    String? keyword,
-    SortLevelOption? sortBy,
-    List<CourseCategory>? categories,
-  }) =>
-      {
-        'page': page,
-        'size': limit,
-        if (levels != null)
-          'level': levels.map((e) => e.toEncodeNumber().toString()),
-        if (sortBy != null) ...{
-          'order': ['level'],
-          'orderBy': [sortBy.toQueryString()],
-        },
-        if (categories != null) 'categoryId': categories.map((e) => e.id),
-        if (keyword != null) 'q': keyword,
-      };
 
   String _encodeQueryParams2({
     required int page,

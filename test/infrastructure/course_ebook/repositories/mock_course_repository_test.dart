@@ -20,7 +20,7 @@ void main() {
 
       // assert
       expect(result.isRight(), isTrue);
-      expect(list?.isNotEmpty, isTrue);
+      expect(list?.list.isNotEmpty, isTrue);
     });
   });
 

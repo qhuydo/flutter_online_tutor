@@ -7,6 +7,7 @@ import '../../../application/course_ebook/course_list/course_list_bloc.dart';
 import '../../common.dart';
 import '../../common/utils/constants.dart';
 import '../../common/widgets/empty_page.dart';
+import '../../common/widgets/paginator.dart';
 import '../../common/widgets/search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';
 import '../utils/constants.dart';
@@ -118,21 +119,39 @@ class _CourseTabPageState extends State<CourseTabPage> {
         final target = Target();
 
         return FloatingSearchBarScrollNotifier(
-          child: AlignedGridView.extent(
-            controller: ScrollController(),
-            primary: false,
-            shrinkWrap: true,
-            padding: const EdgeInsets.only(top: searchBarHeight + 12),
-            itemCount: list.length,
-            itemBuilder: (context, index) => LayoutBuilder(
-              builder: (context, constraints) => LimitedBox(
-                maxHeight:
-                    constraints.maxWidth * courseThumbnailRatioInverse
-                        + (target.isLinux ? 180 : 120),
-                child: CourseListCard(course: list[index]),
-              ),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                AlignedGridView.extent(
+                  controller: ScrollController(),
+                  primary: false,
+                  shrinkWrap: true,
+                  padding: const EdgeInsets.only(top: searchBarHeight + 12),
+                  itemCount: list.length,
+                  itemBuilder: (context, index) => LayoutBuilder(
+                    builder: (context, constraints) => LimitedBox(
+                      maxHeight:
+                          constraints.maxWidth * courseThumbnailRatioInverse +
+                              (target.isLinux ? 180 : 120),
+                      child: CourseListCard(course: list[index]),
+                    ),
+                  ),
+                  maxCrossAxisExtent: 360,
+                ),
+                const SizedBox(height: smallItemSpacing),
+                Paginator.inputPageCountFrom1(
+                  totalPages: state.paginationCourseList!.totalPages,
+                  initialPage: state.currentPage,
+                  onPageChanged: (pageCountFrom0) {
+                    context
+                        .read<CourseListBloc>()
+                        .add(CourseListEvent.pageChanged(pageCountFrom0 + 1));
+                    controller.show();
+                  },
+                )
+              ],
             ),
-            maxCrossAxisExtent: 360,
           ),
         );
       },

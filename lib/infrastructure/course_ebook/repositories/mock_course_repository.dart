@@ -15,6 +15,7 @@ import '../../../domain/course_ebook/models/sort_level_option.dart';
 import '../../../domain/user/constants/levels.dart';
 import '../../../presentation/common.dart';
 import '../../common/db/fixture_loader.dart';
+import '../../common/dto/pagination_list_dto.dart';
 import '../dto/course_category_dto.dart';
 import '../dto/course_dto.dart';
 import '../dto/ebook_dto.dart';
@@ -30,7 +31,7 @@ class MockCourseRepository implements CourseRepository {
   Future<Either<Failure, Course>> getCourseById(String courseId) async {
     final list = (await getCourses(page: 1, limit: 100)).fold(
       (l) => null,
-      (r) => r,
+      (r) => r.list,
     );
 
     if (list == null) return left(const Failure.notFound());
@@ -41,7 +42,7 @@ class MockCourseRepository implements CourseRepository {
   }
 
   @override
-  Future<Either<Failure, List<Course>>> getCourses({
+  Future<Either<Failure, PaginationListDto<Course>>> getCourses({
     required int page,
     required int limit,
     List<Level>? levels,
@@ -59,7 +60,11 @@ class MockCourseRepository implements CourseRepository {
           .map((e) => CourseDto.fromJson(e).toDomain())
           .toList(growable: false);
 
-      return right(courses);
+      return right(PaginationListDto(
+        list: courses,
+        totalItems: courses.length,
+        limit: limit,
+      ));
     } on NullThrownError {
       return left(const Failure.apiError());
     } on FlutterError {

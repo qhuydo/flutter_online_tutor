@@ -9,6 +9,7 @@ import '../../../domain/course_ebook/models/course.dart';
 import '../../../domain/course_ebook/models/course_category.dart';
 import '../../../domain/course_ebook/models/sort_level_option.dart';
 import '../../../domain/user/constants/levels.dart';
+import '../../../infrastructure/common/dto/pagination_list_dto.dart';
 
 part 'course_list_bloc.freezed.dart';
 
@@ -45,6 +46,7 @@ class CourseListBloc extends Bloc<CourseListEvent, CourseListState> {
       page: 1,
       limit: 20,
     );
+
     final categories = (await _repository.getCourseCategories()).fold(
       (l) => <CourseCategory>[],
       (r) => r,
@@ -53,7 +55,7 @@ class CourseListBloc extends Bloc<CourseListEvent, CourseListState> {
     emit(state.copyWith(
       isLoading: false,
       listOrFailure: result,
-      recommendedListOrFailure: result,
+      recommendedListOrFailure: result.map((r) => r.list),
       allCategories: categories,
     ));
   }
@@ -64,15 +66,16 @@ class CourseListBloc extends Bloc<CourseListEvent, CourseListState> {
     ));
   }
 
-  Future _pageChanged(int value, Emitter<CourseListState> emit) async =>
-      emit(state.copyWith(
-        currentPage: value,
-      ));
+  Future _pageChanged(int value, Emitter<CourseListState> emit) async {
+    emit(state.copyWith(currentPage: value));
+    await _submitted(emit);
+  }
 
-  Future _pageLimitChanged(int value, Emitter<CourseListState> emit) async =>
-      emit(state.copyWith(
-        limit: value,
-      ));
+  Future _pageLimitChanged(int value, Emitter<CourseListState> emit) async {
+    emit(state.copyWith(limit: value));
+
+    await _submitted(emit);
+  }
 
   Future _sortOptionChanged(
     SortLevelOption? value,

@@ -24,6 +24,25 @@ class Paginator extends StatefulWidget {
     this.showWhenHavingMultiplePages = false,
   }) : super(key: key);
 
+  factory Paginator.inputPageCountFrom1({
+    Key? key,
+    int totalPages = 0,
+    int initialPage = 1,
+    double height = 48,
+    showWhenHavingOnlyOnePage = false,
+    ValueChanged<int>? onPageChanged,
+    OutlinedBorder? buttonShape,
+  }) =>
+      Paginator(
+        key: key,
+        totalPages: totalPages,
+        initialPage: initialPage - 1,
+        height: height,
+        buttonShape: buttonShape,
+        onPageChanged: onPageChanged,
+        showWhenHavingMultiplePages: showWhenHavingOnlyOnePage,
+      );
+
   @override
   _PaginatorState createState() => _PaginatorState();
 }

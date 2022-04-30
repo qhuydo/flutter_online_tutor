@@ -1693,8 +1693,9 @@ class _$CourseListStateTearOff {
       List<Level> levels = const [],
       SortLevelOption? sortBy,
       List<CourseCategory> categories = const [],
-      Either<Failure, List<Course>> listOrFailure = const Right([]),
       Either<Failure, List<Course>> recommendedListOrFailure = const Right([]),
+      Either<Failure, PaginationListDto<Course>> listOrFailure = const Right(
+          PaginationListDto<Course>(list: [], totalItems: 0, limit: 1)),
       List<CourseCategory> allCategories = const []}) {
     return _CourseListState(
       isLoading: isLoading,
@@ -1705,8 +1706,8 @@ class _$CourseListStateTearOff {
       levels: levels,
       sortBy: sortBy,
       categories: categories,
-      listOrFailure: listOrFailure,
       recommendedListOrFailure: recommendedListOrFailure,
+      listOrFailure: listOrFailure,
       allCategories: allCategories,
     );
   }
@@ -1725,9 +1726,9 @@ mixin _$CourseListState {
   List<Level> get levels => throw _privateConstructorUsedError;
   SortLevelOption? get sortBy => throw _privateConstructorUsedError;
   List<CourseCategory> get categories => throw _privateConstructorUsedError;
-  Either<Failure, List<Course>> get listOrFailure =>
-      throw _privateConstructorUsedError;
   Either<Failure, List<Course>> get recommendedListOrFailure =>
+      throw _privateConstructorUsedError;
+  Either<Failure, PaginationListDto<Course>> get listOrFailure =>
       throw _privateConstructorUsedError;
   List<CourseCategory> get allCategories => throw _privateConstructorUsedError;
 
@@ -1750,8 +1751,8 @@ abstract class $CourseListStateCopyWith<$Res> {
       List<Level> levels,
       SortLevelOption? sortBy,
       List<CourseCategory> categories,
-      Either<Failure, List<Course>> listOrFailure,
       Either<Failure, List<Course>> recommendedListOrFailure,
+      Either<Failure, PaginationListDto<Course>> listOrFailure,
       List<CourseCategory> allCategories});
 }
 
@@ -1774,8 +1775,8 @@ class _$CourseListStateCopyWithImpl<$Res>
     Object? levels = freezed,
     Object? sortBy = freezed,
     Object? categories = freezed,
-    Object? listOrFailure = freezed,
     Object? recommendedListOrFailure = freezed,
+    Object? listOrFailure = freezed,
     Object? allCategories = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1811,14 +1812,14 @@ class _$CourseListStateCopyWithImpl<$Res>
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
               as List<CourseCategory>,
-      listOrFailure: listOrFailure == freezed
-          ? _value.listOrFailure
-          : listOrFailure // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, List<Course>>,
       recommendedListOrFailure: recommendedListOrFailure == freezed
           ? _value.recommendedListOrFailure
           : recommendedListOrFailure // ignore: cast_nullable_to_non_nullable
               as Either<Failure, List<Course>>,
+      listOrFailure: listOrFailure == freezed
+          ? _value.listOrFailure
+          : listOrFailure // ignore: cast_nullable_to_non_nullable
+              as Either<Failure, PaginationListDto<Course>>,
       allCategories: allCategories == freezed
           ? _value.allCategories
           : allCategories // ignore: cast_nullable_to_non_nullable
@@ -1843,8 +1844,8 @@ abstract class _$CourseListStateCopyWith<$Res>
       List<Level> levels,
       SortLevelOption? sortBy,
       List<CourseCategory> categories,
-      Either<Failure, List<Course>> listOrFailure,
       Either<Failure, List<Course>> recommendedListOrFailure,
+      Either<Failure, PaginationListDto<Course>> listOrFailure,
       List<CourseCategory> allCategories});
 }
 
@@ -1869,8 +1870,8 @@ class __$CourseListStateCopyWithImpl<$Res>
     Object? levels = freezed,
     Object? sortBy = freezed,
     Object? categories = freezed,
-    Object? listOrFailure = freezed,
     Object? recommendedListOrFailure = freezed,
+    Object? listOrFailure = freezed,
     Object? allCategories = freezed,
   }) {
     return _then(_CourseListState(
@@ -1903,14 +1904,14 @@ class __$CourseListStateCopyWithImpl<$Res>
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
               as List<CourseCategory>,
-      listOrFailure: listOrFailure == freezed
-          ? _value.listOrFailure
-          : listOrFailure // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, List<Course>>,
       recommendedListOrFailure: recommendedListOrFailure == freezed
           ? _value.recommendedListOrFailure
           : recommendedListOrFailure // ignore: cast_nullable_to_non_nullable
               as Either<Failure, List<Course>>,
+      listOrFailure: listOrFailure == freezed
+          ? _value.listOrFailure
+          : listOrFailure // ignore: cast_nullable_to_non_nullable
+              as Either<Failure, PaginationListDto<Course>>,
       allCategories: allCategories == freezed
           ? _value.allCategories
           : allCategories // ignore: cast_nullable_to_non_nullable
@@ -1931,8 +1932,9 @@ class _$_CourseListState extends _CourseListState {
       this.levels = const [],
       this.sortBy,
       this.categories = const [],
-      this.listOrFailure = const Right([]),
       this.recommendedListOrFailure = const Right([]),
+      this.listOrFailure = const Right(
+          PaginationListDto<Course>(list: [], totalItems: 0, limit: 1)),
       this.allCategories = const []})
       : super._();
 
@@ -1961,17 +1963,17 @@ class _$_CourseListState extends _CourseListState {
   final List<CourseCategory> categories;
   @JsonKey()
   @override
-  final Either<Failure, List<Course>> listOrFailure;
+  final Either<Failure, List<Course>> recommendedListOrFailure;
   @JsonKey()
   @override
-  final Either<Failure, List<Course>> recommendedListOrFailure;
+  final Either<Failure, PaginationListDto<Course>> listOrFailure;
   @JsonKey()
   @override
   final List<CourseCategory> allCategories;
 
   @override
   String toString() {
-    return 'CourseListState(isLoading: $isLoading, isInitial: $isInitial, keyword: $keyword, currentPage: $currentPage, limit: $limit, levels: $levels, sortBy: $sortBy, categories: $categories, listOrFailure: $listOrFailure, recommendedListOrFailure: $recommendedListOrFailure, allCategories: $allCategories)';
+    return 'CourseListState(isLoading: $isLoading, isInitial: $isInitial, keyword: $keyword, currentPage: $currentPage, limit: $limit, levels: $levels, sortBy: $sortBy, categories: $categories, recommendedListOrFailure: $recommendedListOrFailure, listOrFailure: $listOrFailure, allCategories: $allCategories)';
   }
 
   @override
@@ -1989,10 +1991,10 @@ class _$_CourseListState extends _CourseListState {
             const DeepCollectionEquality().equals(other.sortBy, sortBy) &&
             const DeepCollectionEquality()
                 .equals(other.categories, categories) &&
-            const DeepCollectionEquality()
-                .equals(other.listOrFailure, listOrFailure) &&
             const DeepCollectionEquality().equals(
                 other.recommendedListOrFailure, recommendedListOrFailure) &&
+            const DeepCollectionEquality()
+                .equals(other.listOrFailure, listOrFailure) &&
             const DeepCollectionEquality()
                 .equals(other.allCategories, allCategories));
   }
@@ -2008,8 +2010,8 @@ class _$_CourseListState extends _CourseListState {
       const DeepCollectionEquality().hash(levels),
       const DeepCollectionEquality().hash(sortBy),
       const DeepCollectionEquality().hash(categories),
-      const DeepCollectionEquality().hash(listOrFailure),
       const DeepCollectionEquality().hash(recommendedListOrFailure),
+      const DeepCollectionEquality().hash(listOrFailure),
       const DeepCollectionEquality().hash(allCategories));
 
   @JsonKey(ignore: true)
@@ -2028,8 +2030,8 @@ abstract class _CourseListState extends CourseListState {
       List<Level> levels,
       SortLevelOption? sortBy,
       List<CourseCategory> categories,
-      Either<Failure, List<Course>> listOrFailure,
       Either<Failure, List<Course>> recommendedListOrFailure,
+      Either<Failure, PaginationListDto<Course>> listOrFailure,
       List<CourseCategory> allCategories}) = _$_CourseListState;
   const _CourseListState._() : super._();
 
@@ -2050,9 +2052,9 @@ abstract class _CourseListState extends CourseListState {
   @override
   List<CourseCategory> get categories;
   @override
-  Either<Failure, List<Course>> get listOrFailure;
-  @override
   Either<Failure, List<Course>> get recommendedListOrFailure;
+  @override
+  Either<Failure, PaginationListDto<Course>> get listOrFailure;
   @override
   List<CourseCategory> get allCategories;
   @override
