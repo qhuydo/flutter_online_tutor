@@ -9,6 +9,7 @@ class Paginator extends StatefulWidget {
   final int totalPages;
   final int initialPage;
   final double height;
+  final bool showWhenHavingMultiplePages;
 
   final ValueChanged<int>? onPageChanged;
   final OutlinedBorder? buttonShape;
@@ -20,6 +21,7 @@ class Paginator extends StatefulWidget {
     this.height = 48,
     this.onPageChanged,
     this.buttonShape,
+    this.showWhenHavingMultiplePages = false,
   }) : super(key: key);
 
   @override
@@ -60,41 +62,44 @@ class _PaginatorState extends State<Paginator> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.end,
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        PaginatorButton(
-          size: widget.height,
-          shape: widget.buttonShape,
-          child: const Icon(Icons.navigate_before),
-          onPressed: _currentPage > 0 ? _navigateToPrevious : null,
-        ),
-        Flexible(
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              _maximumPossibleButtons =
-                  (constraints.maxWidth / widget.height).floor();
-              return Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ..._generateButtonList(),
-                  if (_shouldShowDotsButton) _buildDotsButton(context),
-                  _buildPaginatorButton(widget.totalPages - 1),
-                ],
-              );
-            },
+    return Visibility(
+      visible: widget.showWhenHavingMultiplePages || widget.totalPages > 1,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          PaginatorButton(
+            size: widget.height,
+            shape: widget.buttonShape,
+            child: const Icon(Icons.navigate_before),
+            onPressed: _currentPage > 0 ? _navigateToPrevious : null,
           ),
-        ),
-        PaginatorButton(
-          size: widget.height,
-          shape: widget.buttonShape,
-          child: const Icon(Icons.navigate_next),
-          onPressed:
-              _currentPage < widget.totalPages - 1 ? _navigateToNext : null,
-        ),
-      ],
+          Flexible(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                _maximumPossibleButtons =
+                    (constraints.maxWidth / widget.height).floor();
+                return Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    ..._generateButtonList(),
+                    if (_shouldShowDotsButton) _buildDotsButton(context),
+                    _buildPaginatorButton(widget.totalPages - 1),
+                  ],
+                );
+              },
+            ),
+          ),
+          PaginatorButton(
+            size: widget.height,
+            shape: widget.buttonShape,
+            child: const Icon(Icons.navigate_next),
+            onPressed:
+                _currentPage < widget.totalPages - 1 ? _navigateToNext : null,
+          ),
+        ],
+      ),
     );
   }
 

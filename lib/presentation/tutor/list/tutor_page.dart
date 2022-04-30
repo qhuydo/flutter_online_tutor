@@ -6,6 +6,7 @@ import '../../common.dart';
 import '../../common/utils/constants.dart';
 import '../../common/widgets/empty_page.dart';
 import '../../common/widgets/loading_widget.dart';
+import '../../common/widgets/paginator.dart';
 import '../../common/widgets/search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';
 import 'widgets/specialities_filter_row.dart';
@@ -83,9 +84,7 @@ class TutorPageState extends State<TutorPage> {
   }
 
   Widget buildBody(SearchTutorsState state, BuildContext context) {
-    final resultList = state.result.fold((l) => null, (r) => r);
-
-    if (resultList == null) {
+    if (state.resultList == null) {
       // TODO add error widget
       return SizedBox(
         height: 60,
@@ -103,6 +102,7 @@ class TutorPageState extends State<TutorPage> {
             top: searchBarHeight + 12,
             left: smallItemSpacing,
             right: smallItemSpacing,
+            bottom: 40,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -120,20 +120,32 @@ class TutorPageState extends State<TutorPage> {
                 height: 40,
               ),
               if (state.isLoading)
-                const SizedBox(
-                  height: 400,
-                  child: LoadingWidget(),
-                )
+                const SizedBox(height: 400, child: LoadingWidget())
               else
-                state.isInitial || resultList.isNotEmpty
-                    ? TutorList(
-                        list: resultList,
-                        loadingTutors: const {},
-                        onFavouriteButtonPressed: (index) => bloc.add(
-                          SearchTutorsEvent.toggleFavourite(
-                            resultList[index].id,
+                state.isInitial || state.resultList!.isNotEmpty
+                    ? Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          TutorList(
+                            list: state.resultList!,
+                            loadingTutors: const {},
+                            onFavouriteButtonPressed: (index) => bloc.add(
+                              SearchTutorsEvent.toggleFavourite(
+                                state.resultList![index].id,
+                              ),
+                            ),
                           ),
-                        ),
+                          const SizedBox(height: itemSpacing),
+                          Paginator(
+                            totalPages: state.paginationList!.totalPages,
+                            initialPage: state.currentPage - 1,
+                            onPageChanged: (value) {
+                              context
+                                  .read<SearchTutorsBloc>()
+                                  .add(SearchTutorsEvent.pageChanged(value + 1));
+                            },
+                          )
+                        ],
                       )
                     : SizedBox(
                         height: 400,

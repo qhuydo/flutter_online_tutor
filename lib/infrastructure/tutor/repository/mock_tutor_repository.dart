@@ -11,6 +11,7 @@ import '../../../domain/tutor/models/tutor_search_options.dart';
 import '../../../domain/user/models/speciality.dart';
 import '../../../presentation/common.dart';
 import '../../common/db/fixture_loader.dart';
+import '../../common/dto/pagination_list_dto.dart';
 import '../../user/dto/speciality_dto.dart';
 import '../data_source/i_tutor_data_source.dart';
 import '../dto/tutor_details/tutor_details_dto.dart';
@@ -77,7 +78,7 @@ class MockTutorRepository implements TutorRepository {
   }
 
   @override
-  Future<Either<Failure, List<Tutor>>> searchTutor({
+  Future<Either<Failure, PaginationListDto<Tutor>>> searchTutor({
     required List<Speciality> specialities,
     required String keyword,
     Country? country,
@@ -109,7 +110,11 @@ class MockTutorRepository implements TutorRepository {
         break;
     }
 
-    return right(tutors);
+    return right(PaginationListDto(
+      list: tutors,
+      totalItems: tutors.length,
+      limit: limit,
+    ));
   }
 
   @override

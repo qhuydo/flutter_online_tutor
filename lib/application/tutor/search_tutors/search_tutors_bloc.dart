@@ -12,6 +12,7 @@ import '../../../domain/tutor/interfaces/i_tutor_repository.dart';
 import '../../../domain/tutor/models/tutor.dart';
 import '../../../domain/tutor/models/tutor_search_options.dart';
 import '../../../domain/user/models/speciality.dart';
+import '../../../infrastructure/common/dto/pagination_list_dto.dart';
 
 part 'search_tutors_bloc.freezed.dart';
 
@@ -54,7 +55,11 @@ class SearchTutorsBloc extends Bloc<SearchTutorsEvent, SearchTutorsState> {
 
     emit(state.copyWith(
       isLoading: false,
-      result: result,
+      result: result.map((r) => PaginationListDto(
+            list: r,
+            totalItems: r.length,
+            limit: state.limit,
+          )),
       allSpecialities: allSpecialities,
     ));
 
@@ -65,11 +70,15 @@ class SearchTutorsBloc extends Bloc<SearchTutorsEvent, SearchTutorsState> {
         final tutors = state.result.fold((l) => null, (r) => r);
         if (tutors == null) return state;
 
-        final idx = tutors.indexWhere((element) => element.id == tutor.id);
+        final idx = tutors.list.indexWhere((element) => element.id == tutor.id);
         if (idx == -1) return state;
 
         return state.copyWith(
-          result: right(tutors.toList()..[idx] = tutor),
+          result: right(PaginationListDto(
+            list: tutors.list.toList()..[idx] = tutor,
+            totalItems: tutors.list.length,
+            limit: state.limit,
+          )),
         );
       },
     );
@@ -85,12 +94,17 @@ class SearchTutorsBloc extends Bloc<SearchTutorsEvent, SearchTutorsState> {
     emit(state.copyWith(
       currentPage: value,
     ));
+
+    await _submitted(emit);
   }
 
   Future _pageLimitChanged(int value, Emitter<SearchTutorsState> emit) async {
     emit(state.copyWith(
       limit: value,
     ));
+
+    await _submitted(emit);
+
   }
 
   Future _countryChanged(
@@ -152,5 +166,6 @@ class SearchTutorsBloc extends Bloc<SearchTutorsEvent, SearchTutorsState> {
   Future _toggleFavourite(
     String tutorId,
     Emitter<SearchTutorsState> emit,
-  ) => _repository.toggleFavourite(tutorId);
+  ) =>
+      _repository.toggleFavourite(tutorId);
 }

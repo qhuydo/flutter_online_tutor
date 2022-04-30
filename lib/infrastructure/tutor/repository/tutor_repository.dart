@@ -13,6 +13,7 @@ import '../../../domain/tutor/models/tutor_search_options.dart';
 import '../../../domain/user/models/speciality.dart';
 import '../../../presentation/common.dart';
 import '../../common/db/fixture_loader.dart';
+import '../../common/dto/pagination_list_dto.dart';
 import '../../common/network/api_client.dart';
 import '../../common/network/request_url.dart';
 import '../../common/utils/pair.dart';
@@ -121,7 +122,7 @@ class TutorRepositoryImpl implements TutorRepository {
   }
 
   @override
-  Future<Either<Failure, List<Tutor>>> searchTutor({
+  Future<Either<Failure, PaginationListDto<Tutor>>> searchTutor({
     required List<Speciality> specialities,
     required String keyword,
     Country? country,
@@ -131,7 +132,7 @@ class TutorRepositoryImpl implements TutorRepository {
   }) async {
     final data = {
       'page': page,
-      'perpage': limit,
+      'perPage': limit,
       'filter': {
         'specialities': specialities.map((e) => e.key).toList(growable: false),
       },
@@ -154,19 +155,29 @@ class TutorRepositoryImpl implements TutorRepository {
       data: data,
       onResponded: (res) async {
         try {
-          final list = ((res.data as Map<String, dynamic>)['rows'] as List)
+          final Map<String, dynamic> data = res.data;
+          final list = (data['rows'] as List)
               .map((e) => TutorListItemDto.fromJson(e))
               .toList(growable: false);
+          final int totalItems = data['count'];
 
           final tutors = await _dataSource.saveTutorsFromTutorListItemDto(
             await getSpecialities(),
             list,
             favouriteTutors,
           );
-          return tutors;
+          return PaginationListDto<Tutor>(
+            list: tutors ?? [],
+            totalItems: totalItems,
+            limit: limit,
+          );
         } on TypeError catch (e) {
           log(e.stackTrace?.toString() ?? '');
-          return <Tutor>[];
+          return PaginationListDto<Tutor>(
+            list: [],
+            totalItems: 0,
+            limit: limit,
+          );
         }
       },
     );
@@ -176,12 +187,17 @@ class TutorRepositoryImpl implements TutorRepository {
           (l) => left(l), (r) => left(const Failure.serverError()));
     }
 
-    final tutors = await response.getOrElse(() => Future.value([]));
-    if (tutors == null) {
-      return left(const Failure.internalError());
-    }
+    final tutors = await response.getOrElse(
+      () => Future.value(
+        PaginationListDto<Tutor>(
+          list: [],
+          totalItems: 0,
+          limit: limit,
+        ),
+      ),
+    );
 
-    final result = tutors
+    final result = tutors.list
         .where((element) => element.match(
               specialities: specialities,
               keyword: keyword,
@@ -204,7 +220,13 @@ class TutorRepositoryImpl implements TutorRepository {
         break;
     }
 
-    return right(result);
+    return right(
+      PaginationListDto<Tutor>(
+        list: result,
+        totalItems: tutors.totalItems,
+        limit: limit,
+      ),
+    );
   }
 
   @override

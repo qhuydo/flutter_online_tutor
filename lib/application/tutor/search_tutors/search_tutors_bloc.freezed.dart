@@ -1957,8 +1957,9 @@ class _$SearchTutorsStateTearOff {
       Country? country,
       List<Speciality> specialities = const [],
       TutorSortBy sortOption = TutorSortBy.defaultSort,
-      Either<Failure, List<Tutor>> result = const Right([]),
-      List<Speciality> allSpecialities = const []}) {
+      List<Speciality> allSpecialities = const [],
+      Either<Failure, PaginationListDto<Tutor>> result = const Right(
+          PaginationListDto<Tutor>(list: [], totalItems: 0, limit: 1))}) {
     return _SearchTutorsState(
       isLoading: isLoading,
       isInitial: isInitial,
@@ -1968,8 +1969,8 @@ class _$SearchTutorsStateTearOff {
       country: country,
       specialities: specialities,
       sortOption: sortOption,
-      result: result,
       allSpecialities: allSpecialities,
+      result: result,
     );
   }
 }
@@ -1987,8 +1988,9 @@ mixin _$SearchTutorsState {
   Country? get country => throw _privateConstructorUsedError;
   List<Speciality> get specialities => throw _privateConstructorUsedError;
   TutorSortBy get sortOption => throw _privateConstructorUsedError;
-  Either<Failure, List<Tutor>> get result => throw _privateConstructorUsedError;
   List<Speciality> get allSpecialities => throw _privateConstructorUsedError;
+  Either<Failure, PaginationListDto<Tutor>> get result =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SearchTutorsStateCopyWith<SearchTutorsState> get copyWith =>
@@ -2009,8 +2011,8 @@ abstract class $SearchTutorsStateCopyWith<$Res> {
       Country? country,
       List<Speciality> specialities,
       TutorSortBy sortOption,
-      Either<Failure, List<Tutor>> result,
-      List<Speciality> allSpecialities});
+      List<Speciality> allSpecialities,
+      Either<Failure, PaginationListDto<Tutor>> result});
 
   $CountryCopyWith<$Res>? get country;
 }
@@ -2034,8 +2036,8 @@ class _$SearchTutorsStateCopyWithImpl<$Res>
     Object? country = freezed,
     Object? specialities = freezed,
     Object? sortOption = freezed,
-    Object? result = freezed,
     Object? allSpecialities = freezed,
+    Object? result = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -2070,14 +2072,14 @@ class _$SearchTutorsStateCopyWithImpl<$Res>
           ? _value.sortOption
           : sortOption // ignore: cast_nullable_to_non_nullable
               as TutorSortBy,
-      result: result == freezed
-          ? _value.result
-          : result // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, List<Tutor>>,
       allSpecialities: allSpecialities == freezed
           ? _value.allSpecialities
           : allSpecialities // ignore: cast_nullable_to_non_nullable
               as List<Speciality>,
+      result: result == freezed
+          ? _value.result
+          : result // ignore: cast_nullable_to_non_nullable
+              as Either<Failure, PaginationListDto<Tutor>>,
     ));
   }
 
@@ -2109,8 +2111,8 @@ abstract class _$SearchTutorsStateCopyWith<$Res>
       Country? country,
       List<Speciality> specialities,
       TutorSortBy sortOption,
-      Either<Failure, List<Tutor>> result,
-      List<Speciality> allSpecialities});
+      List<Speciality> allSpecialities,
+      Either<Failure, PaginationListDto<Tutor>> result});
 
   @override
   $CountryCopyWith<$Res>? get country;
@@ -2137,8 +2139,8 @@ class __$SearchTutorsStateCopyWithImpl<$Res>
     Object? country = freezed,
     Object? specialities = freezed,
     Object? sortOption = freezed,
-    Object? result = freezed,
     Object? allSpecialities = freezed,
+    Object? result = freezed,
   }) {
     return _then(_SearchTutorsState(
       isLoading: isLoading == freezed
@@ -2173,14 +2175,14 @@ class __$SearchTutorsStateCopyWithImpl<$Res>
           ? _value.sortOption
           : sortOption // ignore: cast_nullable_to_non_nullable
               as TutorSortBy,
-      result: result == freezed
-          ? _value.result
-          : result // ignore: cast_nullable_to_non_nullable
-              as Either<Failure, List<Tutor>>,
       allSpecialities: allSpecialities == freezed
           ? _value.allSpecialities
           : allSpecialities // ignore: cast_nullable_to_non_nullable
               as List<Speciality>,
+      result: result == freezed
+          ? _value.result
+          : result // ignore: cast_nullable_to_non_nullable
+              as Either<Failure, PaginationListDto<Tutor>>,
     ));
   }
 }
@@ -2197,8 +2199,9 @@ class _$_SearchTutorsState extends _SearchTutorsState {
       this.country,
       this.specialities = const [],
       this.sortOption = TutorSortBy.defaultSort,
-      this.result = const Right([]),
-      this.allSpecialities = const []})
+      this.allSpecialities = const [],
+      this.result = const Right(
+          PaginationListDto<Tutor>(list: [], totalItems: 0, limit: 1))})
       : super._();
 
   @JsonKey()
@@ -2226,14 +2229,14 @@ class _$_SearchTutorsState extends _SearchTutorsState {
   final TutorSortBy sortOption;
   @JsonKey()
   @override
-  final Either<Failure, List<Tutor>> result;
+  final List<Speciality> allSpecialities;
   @JsonKey()
   @override
-  final List<Speciality> allSpecialities;
+  final Either<Failure, PaginationListDto<Tutor>> result;
 
   @override
   String toString() {
-    return 'SearchTutorsState(isLoading: $isLoading, isInitial: $isInitial, keyword: $keyword, currentPage: $currentPage, limit: $limit, country: $country, specialities: $specialities, sortOption: $sortOption, result: $result, allSpecialities: $allSpecialities)';
+    return 'SearchTutorsState(isLoading: $isLoading, isInitial: $isInitial, keyword: $keyword, currentPage: $currentPage, limit: $limit, country: $country, specialities: $specialities, sortOption: $sortOption, allSpecialities: $allSpecialities, result: $result)';
   }
 
   @override
@@ -2252,9 +2255,9 @@ class _$_SearchTutorsState extends _SearchTutorsState {
                 .equals(other.specialities, specialities) &&
             const DeepCollectionEquality()
                 .equals(other.sortOption, sortOption) &&
-            const DeepCollectionEquality().equals(other.result, result) &&
             const DeepCollectionEquality()
-                .equals(other.allSpecialities, allSpecialities));
+                .equals(other.allSpecialities, allSpecialities) &&
+            const DeepCollectionEquality().equals(other.result, result));
   }
 
   @override
@@ -2268,8 +2271,8 @@ class _$_SearchTutorsState extends _SearchTutorsState {
       const DeepCollectionEquality().hash(country),
       const DeepCollectionEquality().hash(specialities),
       const DeepCollectionEquality().hash(sortOption),
-      const DeepCollectionEquality().hash(result),
-      const DeepCollectionEquality().hash(allSpecialities));
+      const DeepCollectionEquality().hash(allSpecialities),
+      const DeepCollectionEquality().hash(result));
 
   @JsonKey(ignore: true)
   @override
@@ -2287,8 +2290,8 @@ abstract class _SearchTutorsState extends SearchTutorsState {
       Country? country,
       List<Speciality> specialities,
       TutorSortBy sortOption,
-      Either<Failure, List<Tutor>> result,
-      List<Speciality> allSpecialities}) = _$_SearchTutorsState;
+      List<Speciality> allSpecialities,
+      Either<Failure, PaginationListDto<Tutor>> result}) = _$_SearchTutorsState;
   const _SearchTutorsState._() : super._();
 
   @override
@@ -2308,9 +2311,9 @@ abstract class _SearchTutorsState extends SearchTutorsState {
   @override
   TutorSortBy get sortOption;
   @override
-  Either<Failure, List<Tutor>> get result;
-  @override
   List<Speciality> get allSpecialities;
+  @override
+  Either<Failure, PaginationListDto<Tutor>> get result;
   @override
   @JsonKey(ignore: true)
   _$SearchTutorsStateCopyWith<_SearchTutorsState> get copyWith =>

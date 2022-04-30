@@ -62,8 +62,8 @@ main() {
 
       // assert
       expect(result.isRight(), isTrue);
-      expect(tutors?.isNotEmpty, isTrue);
-      expect(tutors![0].name.contains('Sam'), isTrue);
+      expect(tutors?.list.isNotEmpty, isTrue);
+      expect(tutors!.list[0].name.contains('Sam'), isTrue);
     });
   });
   group('get tutor details', () {

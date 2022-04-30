@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 
+import '../../../infrastructure/common/dto/pagination_list_dto.dart';
 import '../../common/failures/failure.dart';
 import '../../common/models/country.dart';
 import '../../user/models/speciality.dart';
@@ -10,7 +11,7 @@ import '../models/tutor_search_options.dart';
 abstract class TutorRepository {
   // Either<Failure, List<Tutor>> getAllTutors();
 
-  Future<Either<Failure, List<Tutor>>> searchTutor({
+  Future<Either<Failure, PaginationListDto<Tutor>>> searchTutor({
     required List<Speciality> specialities,
     required String keyword,
     Country? country,
