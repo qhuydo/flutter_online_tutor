@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:duration/duration.dart';
-import 'package:duration/locale.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
@@ -9,8 +8,7 @@ import '../../common.dart';
 import '../../common/l10n/schedule_display_text.dart';
 import '../../common/routes/app_routes.gr.dart';
 import '../../common/utils/constants.dart';
-import '../../common/l10n/duration_locale_ja.dart';
-import '../../common/l10n/duration_locale_vi.dart';
+import '../../common/utils/duration_utils.dart';
 import '../../common/widgets/outlined_card.dart';
 
 class DashboardCard extends StatelessWidget {
@@ -60,13 +58,7 @@ class DashboardCardContent extends StatelessWidget {
 
     final locale = context.l10n.localeName;
     final dateFormatter = DateFormat.yMEd(locale);
-
-    DurationLocale durationLocale = const EnglishDurationLocale();
-    if (locale == 'ja') {
-      durationLocale = const DurationLocaleJa();
-    } else if (locale == 'vi') {
-      durationLocale = const DurationLocaleVi();
-    }
+    final durationLocale = context.durationLocale;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

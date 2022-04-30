@@ -16,6 +16,7 @@ class ScheduleCard extends StatelessWidget {
   final bool showMeetingDate;
   final bool openMeetingRoomWhenCardTapped;
   final ValueChanged<Appointment>? onCancelButtonTapped;
+  final VoidCallback? onTap;
 
   const ScheduleCard({
     Key? key,
@@ -25,17 +26,19 @@ class ScheduleCard extends StatelessWidget {
     this.showMeetingDate = true,
     this.openMeetingRoomWhenCardTapped = false,
     this.onCancelButtonTapped,
+    this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return OutlinedCard(
       childInsideInkwell: true,
-      onTap: () {
-        if (openMeetingRoomWhenCardTapped) {
-          context.pushRoute(MeetingRoute(appointment: appointment));
-        }
-      },
+      onTap: onTap ??
+          () {
+            if (openMeetingRoomWhenCardTapped) {
+              context.pushRoute(MeetingRoute(appointment: appointment));
+            }
+          },
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.end,

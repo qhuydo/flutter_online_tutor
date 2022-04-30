@@ -11,17 +11,18 @@ import '../../../common/widgets/outlined_card.dart';
 
 class ScheduleCardRow extends StatelessWidget {
   final Appointment appointment;
-
+  final VoidCallback? onTap;
   const ScheduleCardRow({
     Key? key,
     required this.appointment,
+    this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return OutlinedCard(
       childInsideInkwell: true,
-      onTap: () {
+      onTap: onTap ?? () {
         context.pushRoute(MeetingRoute(appointment: appointment));
       },
       child: Column(
