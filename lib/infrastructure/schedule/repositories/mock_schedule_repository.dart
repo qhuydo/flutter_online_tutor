@@ -1,9 +1,12 @@
+import 'dart:async';
+
 import 'package:collection/collection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/common/failures/failure.dart';
+import '../../../domain/schedule/events/schedule_repository_event.dart';
 import '../../../domain/schedule/interfaces/i_schedule_repository.dart';
 import '../../../domain/schedule/models/appointment.dart';
 import '../../../domain/schedule/models/schedule.dart';
@@ -16,6 +19,8 @@ import '../dto/tutor_schedule/tutor_schedule_dto.dart';
 @LazySingleton(as: ScheduleRepository, env: ['mock'])
 class MockScheduleRepository extends ScheduleRepository {
   final Box<String> _box;
+  final _eventStreamController =
+      StreamController<ScheduleRepositoryEvent>.broadcast();
 
   static const _keyUser = 'user';
 
@@ -156,5 +161,21 @@ class MockScheduleRepository extends ScheduleRepository {
   @override
   Future<Either<Failure, Duration>> getTotalLearningTime() async {
     return right(const Duration(minutes: 6969));
+  }
+
+  @override
+  @disposeMethod
+  Future dispose() {
+    return _eventStreamController.close();
+  }
+
+  @override
+  Stream<ScheduleRepositoryEvent> subscribe() {
+    return _eventStreamController.stream;
+  }
+
+  @override
+  void notifyChanged() {
+    _eventStreamController.add(const ScheduleRepositoryEvent.dataChanged());
   }
 }

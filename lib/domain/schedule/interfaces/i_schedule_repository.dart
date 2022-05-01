@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import '../../../infrastructure/common/dto/pagination_list_dto.dart';
 import '../../../presentation/common.dart';
 import '../../common/failures/failure.dart';
+import '../events/schedule_repository_event.dart';
 import '../models/appointment.dart';
 import '../models/schedule.dart';
 
@@ -39,4 +40,10 @@ abstract class ScheduleRepository {
   Future<Either<Failure, Appointment?>> getNextClass();
 
   Future<Either<Failure, Duration>> getTotalLearningTime();
+
+  Stream<ScheduleRepositoryEvent> subscribe();
+
+  Future dispose();
+
+  void notifyChanged();
 }

@@ -40,7 +40,10 @@ class ScheduleDetailsBloc
 
     final status = result.fold(
       (l) => ClassCancellationStatus.failed(l),
-      (r) => const ClassCancellationStatus.succeed(),
+      (r) {
+        _repository.notifyChanged();
+        return const ClassCancellationStatus.succeed();
+      },
     );
 
     emit(state.copyWith(classCancellationStatus: status));
@@ -53,5 +56,30 @@ class ScheduleDetailsBloc
   Future _onStudentRequestEdited(
     String value,
     Emitter<ScheduleDetailsState> emit,
-  ) async {}
+  ) async {
+    emit(state.copyWith(
+      editStudentRequestStatus: const EditStudentRequestStatus.loading(),
+    ));
+
+    final result = await _repository.updateRequest(
+      bookedId: state.appointment.bookId,
+      note: value,
+    );
+
+    final status = result.fold(
+      (l) => EditStudentRequestStatus.failed(l),
+      (r) {
+        emit(
+          state.copyWith(
+            appointment: state.appointment.copyWith(studentRequest: value),
+          ),
+        );
+        _repository.notifyChanged();
+        return const EditStudentRequestStatus.succeed();
+      },
+    );
+
+    emit(state.copyWith(editStudentRequestStatus: status));
+
+  }
 }

@@ -106,7 +106,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i14.ScheduleRepository>(
       () => _i15.MockScheduleRepository(
           get<_i5.Box<String>>(instanceName: 'mockSecret')),
-      registerFor: {_mock});
+      registerFor: {_mock},
+      dispose: (i) => i.dispose());
   await gh.singletonAsync<_i16.SecureHiveStorage>(
       () => appInjectableModule
           .secureHiveStorage(get<_i10.FlutterSecureStorage>()),
@@ -173,7 +174,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i14.ScheduleRepository>(
       () => _i43.ScheduleRepositoryImpl(
           get<_i5.Box<String>>(instanceName: 'secret'), get<_i28.ApiClient>()),
-      registerFor: {_dev, _prod, _test});
+      registerFor: {_dev, _prod, _test},
+      dispose: (i) => i.dispose());
   gh.factory<_i44.SearchTutorsBloc>(
       () => _i44.SearchTutorsBloc(get<_i22.TutorRepository>()));
   gh.factory<_i45.SignUpBloc>(

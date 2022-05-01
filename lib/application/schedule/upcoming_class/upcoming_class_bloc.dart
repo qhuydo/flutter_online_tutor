@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
@@ -25,6 +26,7 @@ class UpcomingClassBloc extends Bloc<UpcomingClassEvent, UpcomingClassState> {
     on<UpcomingClassEvent>((event, emit) async {
       await event.when(
         initialise: () => _initialise(emit),
+        reload: () => _loadUpcomingClasses(emit),
         pageChanged: (value) => _pageChanged(value, emit),
         pageLimitChanged: (value) => _pageLimitChanged(value, emit),
         cancelClass: (value) => _classCanceled(value, emit),
@@ -43,6 +45,12 @@ class UpcomingClassBloc extends Bloc<UpcomingClassEvent, UpcomingClassState> {
 
   Future _initialise(Emitter<UpcomingClassState> emit) async {
     await _loadUpcomingClasses(emit);
+
+    await emit.forEach(_repository.subscribe(), onData: (event) {
+       log('UpcomingClassBloc - reload event listened');
+       add(const UpcomingClassEvent.reload());
+       return state;
+    });
   }
 
   Future _loadUpcomingClasses(Emitter<UpcomingClassState> emit) async {
@@ -71,7 +79,7 @@ class UpcomingClassBloc extends Bloc<UpcomingClassEvent, UpcomingClassState> {
         nextClassStartingTime.isAfter(DateTime.now())) {
       _timer = Timer(
         nextClassStartingTime.difference(DateTime.now()),
-        () => add(const UpcomingClassEvent.initialise()),
+        () => add(const UpcomingClassEvent.reload()),
       );
     }
   }
@@ -118,7 +126,7 @@ class UpcomingClassBloc extends Bloc<UpcomingClassEvent, UpcomingClassState> {
     emit(state.copyWith(
       classCancellationStatus: const ClassCancellationStatus.initial(),
     ));
-    await _loadUpcomingClasses(emit);
+    _repository.notifyChanged();
   }
 
   Future _appointmentSelected(

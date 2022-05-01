@@ -22,6 +22,10 @@ class _$UpcomingClassEventTearOff {
     return const _Initialise();
   }
 
+  _Reload reload() {
+    return const _Reload();
+  }
+
   _PageChanged pageChanged(int page) {
     return _PageChanged(
       page,
@@ -59,6 +63,7 @@ mixin _$UpcomingClassEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialise,
+    required TResult Function() reload,
     required TResult Function(int page) pageChanged,
     required TResult Function(int pageLimit) pageLimitChanged,
     required TResult Function(Appointment appointment) cancelClass,
@@ -69,6 +74,7 @@ mixin _$UpcomingClassEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
     TResult Function(Appointment appointment)? cancelClass,
@@ -79,6 +85,7 @@ mixin _$UpcomingClassEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
     TResult Function(Appointment appointment)? cancelClass,
@@ -90,6 +97,7 @@ mixin _$UpcomingClassEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialise value) initialise,
+    required TResult Function(_Reload value) reload,
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PageLimitChanged value) pageLimitChanged,
     required TResult Function(_CancelClass value) cancelClass,
@@ -101,6 +109,7 @@ mixin _$UpcomingClassEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
     TResult Function(_CancelClass value)? cancelClass,
@@ -112,6 +121,7 @@ mixin _$UpcomingClassEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
     TResult Function(_CancelClass value)? cancelClass,
@@ -182,6 +192,7 @@ class _$_Initialise implements _Initialise {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialise,
+    required TResult Function() reload,
     required TResult Function(int page) pageChanged,
     required TResult Function(int pageLimit) pageLimitChanged,
     required TResult Function(Appointment appointment) cancelClass,
@@ -195,6 +206,7 @@ class _$_Initialise implements _Initialise {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
     TResult Function(Appointment appointment)? cancelClass,
@@ -208,6 +220,7 @@ class _$_Initialise implements _Initialise {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
     TResult Function(Appointment appointment)? cancelClass,
@@ -225,6 +238,7 @@ class _$_Initialise implements _Initialise {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialise value) initialise,
+    required TResult Function(_Reload value) reload,
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PageLimitChanged value) pageLimitChanged,
     required TResult Function(_CancelClass value) cancelClass,
@@ -239,6 +253,7 @@ class _$_Initialise implements _Initialise {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
     TResult Function(_CancelClass value)? cancelClass,
@@ -253,6 +268,7 @@ class _$_Initialise implements _Initialise {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
     TResult Function(_CancelClass value)? cancelClass,
@@ -270,6 +286,141 @@ class _$_Initialise implements _Initialise {
 
 abstract class _Initialise implements UpcomingClassEvent {
   const factory _Initialise() = _$_Initialise;
+}
+
+/// @nodoc
+abstract class _$ReloadCopyWith<$Res> {
+  factory _$ReloadCopyWith(_Reload value, $Res Function(_Reload) then) =
+      __$ReloadCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ReloadCopyWithImpl<$Res> extends _$UpcomingClassEventCopyWithImpl<$Res>
+    implements _$ReloadCopyWith<$Res> {
+  __$ReloadCopyWithImpl(_Reload _value, $Res Function(_Reload) _then)
+      : super(_value, (v) => _then(v as _Reload));
+
+  @override
+  _Reload get _value => super._value as _Reload;
+}
+
+/// @nodoc
+
+class _$_Reload implements _Reload {
+  const _$_Reload();
+
+  @override
+  String toString() {
+    return 'UpcomingClassEvent.reload()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Reload);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialise,
+    required TResult Function() reload,
+    required TResult Function(int page) pageChanged,
+    required TResult Function(int pageLimit) pageLimitChanged,
+    required TResult Function(Appointment appointment) cancelClass,
+    required TResult Function() classCancellationMessageDisplayed,
+    required TResult Function(Appointment appointment) appointmentSelected,
+  }) {
+    return reload();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function()? reload,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
+    TResult Function(Appointment appointment)? cancelClass,
+    TResult Function()? classCancellationMessageDisplayed,
+    TResult Function(Appointment appointment)? appointmentSelected,
+  }) {
+    return reload?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function()? reload,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
+    TResult Function(Appointment appointment)? cancelClass,
+    TResult Function()? classCancellationMessageDisplayed,
+    TResult Function(Appointment appointment)? appointmentSelected,
+    required TResult orElse(),
+  }) {
+    if (reload != null) {
+      return reload();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialise value) initialise,
+    required TResult Function(_Reload value) reload,
+    required TResult Function(_PageChanged value) pageChanged,
+    required TResult Function(_PageLimitChanged value) pageLimitChanged,
+    required TResult Function(_CancelClass value) cancelClass,
+    required TResult Function(_ClassCancellationMessageDisplayed value)
+        classCancellationMessageDisplayed,
+    required TResult Function(_AppointmentSelected value) appointmentSelected,
+  }) {
+    return reload(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_CancelClass value)? cancelClass,
+    TResult Function(_ClassCancellationMessageDisplayed value)?
+        classCancellationMessageDisplayed,
+    TResult Function(_AppointmentSelected value)? appointmentSelected,
+  }) {
+    return reload?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_CancelClass value)? cancelClass,
+    TResult Function(_ClassCancellationMessageDisplayed value)?
+        classCancellationMessageDisplayed,
+    TResult Function(_AppointmentSelected value)? appointmentSelected,
+    required TResult orElse(),
+  }) {
+    if (reload != null) {
+      return reload(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reload implements UpcomingClassEvent {
+  const factory _Reload() = _$_Reload;
 }
 
 /// @nodoc
@@ -338,6 +489,7 @@ class _$_PageChanged implements _PageChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialise,
+    required TResult Function() reload,
     required TResult Function(int page) pageChanged,
     required TResult Function(int pageLimit) pageLimitChanged,
     required TResult Function(Appointment appointment) cancelClass,
@@ -351,6 +503,7 @@ class _$_PageChanged implements _PageChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
     TResult Function(Appointment appointment)? cancelClass,
@@ -364,6 +517,7 @@ class _$_PageChanged implements _PageChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
     TResult Function(Appointment appointment)? cancelClass,
@@ -381,6 +535,7 @@ class _$_PageChanged implements _PageChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialise value) initialise,
+    required TResult Function(_Reload value) reload,
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PageLimitChanged value) pageLimitChanged,
     required TResult Function(_CancelClass value) cancelClass,
@@ -395,6 +550,7 @@ class _$_PageChanged implements _PageChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
     TResult Function(_CancelClass value)? cancelClass,
@@ -409,6 +565,7 @@ class _$_PageChanged implements _PageChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
     TResult Function(_CancelClass value)? cancelClass,
@@ -499,6 +656,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialise,
+    required TResult Function() reload,
     required TResult Function(int page) pageChanged,
     required TResult Function(int pageLimit) pageLimitChanged,
     required TResult Function(Appointment appointment) cancelClass,
@@ -512,6 +670,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
     TResult Function(Appointment appointment)? cancelClass,
@@ -525,6 +684,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
     TResult Function(Appointment appointment)? cancelClass,
@@ -542,6 +702,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialise value) initialise,
+    required TResult Function(_Reload value) reload,
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PageLimitChanged value) pageLimitChanged,
     required TResult Function(_CancelClass value) cancelClass,
@@ -556,6 +717,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
     TResult Function(_CancelClass value)? cancelClass,
@@ -570,6 +732,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
     TResult Function(_CancelClass value)? cancelClass,
@@ -670,6 +833,7 @@ class _$_CancelClass implements _CancelClass {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialise,
+    required TResult Function() reload,
     required TResult Function(int page) pageChanged,
     required TResult Function(int pageLimit) pageLimitChanged,
     required TResult Function(Appointment appointment) cancelClass,
@@ -683,6 +847,7 @@ class _$_CancelClass implements _CancelClass {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
     TResult Function(Appointment appointment)? cancelClass,
@@ -696,6 +861,7 @@ class _$_CancelClass implements _CancelClass {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
     TResult Function(Appointment appointment)? cancelClass,
@@ -713,6 +879,7 @@ class _$_CancelClass implements _CancelClass {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialise value) initialise,
+    required TResult Function(_Reload value) reload,
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PageLimitChanged value) pageLimitChanged,
     required TResult Function(_CancelClass value) cancelClass,
@@ -727,6 +894,7 @@ class _$_CancelClass implements _CancelClass {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
     TResult Function(_CancelClass value)? cancelClass,
@@ -741,6 +909,7 @@ class _$_CancelClass implements _CancelClass {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
     TResult Function(_CancelClass value)? cancelClass,
@@ -812,6 +981,7 @@ class _$_ClassCancellationMessageDisplayed
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialise,
+    required TResult Function() reload,
     required TResult Function(int page) pageChanged,
     required TResult Function(int pageLimit) pageLimitChanged,
     required TResult Function(Appointment appointment) cancelClass,
@@ -825,6 +995,7 @@ class _$_ClassCancellationMessageDisplayed
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
     TResult Function(Appointment appointment)? cancelClass,
@@ -838,6 +1009,7 @@ class _$_ClassCancellationMessageDisplayed
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
     TResult Function(Appointment appointment)? cancelClass,
@@ -855,6 +1027,7 @@ class _$_ClassCancellationMessageDisplayed
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialise value) initialise,
+    required TResult Function(_Reload value) reload,
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PageLimitChanged value) pageLimitChanged,
     required TResult Function(_CancelClass value) cancelClass,
@@ -869,6 +1042,7 @@ class _$_ClassCancellationMessageDisplayed
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
     TResult Function(_CancelClass value)? cancelClass,
@@ -883,6 +1057,7 @@ class _$_ClassCancellationMessageDisplayed
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
     TResult Function(_CancelClass value)? cancelClass,
@@ -981,6 +1156,7 @@ class _$_AppointmentSelected implements _AppointmentSelected {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialise,
+    required TResult Function() reload,
     required TResult Function(int page) pageChanged,
     required TResult Function(int pageLimit) pageLimitChanged,
     required TResult Function(Appointment appointment) cancelClass,
@@ -994,6 +1170,7 @@ class _$_AppointmentSelected implements _AppointmentSelected {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
     TResult Function(Appointment appointment)? cancelClass,
@@ -1007,6 +1184,7 @@ class _$_AppointmentSelected implements _AppointmentSelected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
     TResult Function(Appointment appointment)? cancelClass,
@@ -1024,6 +1202,7 @@ class _$_AppointmentSelected implements _AppointmentSelected {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialise value) initialise,
+    required TResult Function(_Reload value) reload,
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PageLimitChanged value) pageLimitChanged,
     required TResult Function(_CancelClass value) cancelClass,
@@ -1038,6 +1217,7 @@ class _$_AppointmentSelected implements _AppointmentSelected {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
     TResult Function(_CancelClass value)? cancelClass,
@@ -1052,6 +1232,7 @@ class _$_AppointmentSelected implements _AppointmentSelected {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
     TResult Function(_CancelClass value)? cancelClass,

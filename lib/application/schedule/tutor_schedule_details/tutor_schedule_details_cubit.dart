@@ -31,5 +31,7 @@ class TutorScheduleDetailsCubit extends Cubit<TutorScheduleDetailsState> {
       isLoading: false,
       scheduleFailureOrSuccess: result,
     ));
+
+    _repository.notifyChanged();
   }
 }
