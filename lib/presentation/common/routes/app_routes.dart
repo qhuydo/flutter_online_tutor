@@ -40,5 +40,6 @@ import '../../all_pages.dart';
       AutoRoute(page: SettingsUnauthorizedPage),
       AutoRoute(page: CourseSyllabusPreviewPage),
       AutoRoute(page: FavouriteTutorsPage),
+      AutoRoute(page: ScheduleDetailsPage),
     ])
 class $AppRouter {}

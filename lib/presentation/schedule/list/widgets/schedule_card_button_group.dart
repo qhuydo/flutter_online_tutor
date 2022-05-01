@@ -33,7 +33,7 @@ class ScheduleCardButtonGroup extends StatelessWidget {
                 onPressed: () => onCancelButtonTapped?.call(appointment),
                 icon: const Icon(Icons.cancel_outlined),
                 label: Text(
-                  AppLocalizations.of(context)!.cancelButtonLabel,
+                  context.l10n.cancelButtonLabel,
                 ),
                 style: OutlinedButton.styleFrom(
                   backgroundColor: Theme.of(context).cardColor,

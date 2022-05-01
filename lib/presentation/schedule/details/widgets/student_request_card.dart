@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../application/schedule/upcoming_class/upcoming_class_bloc.dart';
+import '../../../../application/schedule/schedule_details/schedule_details_bloc.dart';
 import '../../../common/utils/constants.dart';
 import '../../../common/widgets/outlined_card.dart';
 
@@ -10,13 +10,10 @@ class StudentRequestCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpcomingClassBloc, UpcomingClassState>(
+    return BlocBuilder<ScheduleDetailsBloc, ScheduleDetailsState>(
         builder: (_, state) {
-      if (state.selectedAppointment == null) {
-        return const SizedBox();
-      }
       final textTheme = Theme.of(context).textTheme;
-      final appointment = state.selectedAppointment!;
+      final appointment = state.appointment;
 
       return Padding(
         padding: const EdgeInsets.all(smallItemSpacing),

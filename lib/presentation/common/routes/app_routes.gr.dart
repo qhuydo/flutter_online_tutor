@@ -149,6 +149,13 @@ class AppRouter extends _i2.RootStackRouter {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.FavouriteTutorsPage());
     },
+    ScheduleDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<ScheduleDetailsRouteArgs>();
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: _i1.ScheduleDetailsPage(
+              key: args.key, appointment: args.appointment));
+    },
     DashboardRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.DashboardPage());
@@ -215,7 +222,9 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(CourseSyllabusPreviewRoute.name,
             path: '/course-syllabus-preview-page'),
         _i2.RouteConfig(FavouriteTutorsRoute.name,
-            path: '/favourite-tutors-page')
+            path: '/favourite-tutors-page'),
+        _i2.RouteConfig(ScheduleDetailsRoute.name,
+            path: '/schedule-details-page')
       ];
 }
 
@@ -576,6 +585,30 @@ class FavouriteTutorsRoute extends _i2.PageRouteInfo<void> {
       : super(FavouriteTutorsRoute.name, path: '/favourite-tutors-page');
 
   static const String name = 'FavouriteTutorsRoute';
+}
+
+/// generated route for
+/// [_i1.ScheduleDetailsPage]
+class ScheduleDetailsRoute extends _i2.PageRouteInfo<ScheduleDetailsRouteArgs> {
+  ScheduleDetailsRoute({_i3.Key? key, required _i7.Appointment appointment})
+      : super(ScheduleDetailsRoute.name,
+            path: '/schedule-details-page',
+            args: ScheduleDetailsRouteArgs(key: key, appointment: appointment));
+
+  static const String name = 'ScheduleDetailsRoute';
+}
+
+class ScheduleDetailsRouteArgs {
+  const ScheduleDetailsRouteArgs({this.key, required this.appointment});
+
+  final _i3.Key? key;
+
+  final _i7.Appointment appointment;
+
+  @override
+  String toString() {
+    return 'ScheduleDetailsRouteArgs{key: $key, appointment: $appointment}';
+  }
 }
 
 /// generated route for
