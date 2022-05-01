@@ -9,7 +9,7 @@ import '../../../../domain/schedule/utils/schedule_utils.dart';
 import '../../../common.dart';
 import '../../../common/utils/constants.dart';
 import '../../../common/utils/default_app_bar.dart';
-import '../schedule_details_dialog.dart';
+import '../../details/schedule_details_page.dart';
 import 'schedule_card_row.dart';
 
 class ScheduleListMobile extends StatelessWidget {
