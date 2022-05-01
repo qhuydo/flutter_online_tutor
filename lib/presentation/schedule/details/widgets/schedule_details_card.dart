@@ -132,6 +132,7 @@ class ScheduleDetailsCard extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
+              Navigator.of(context).pop();
               context
                   .read<ScheduleDetailsBloc>()
                   .add(const ScheduleDetailsEvent.cancelClass());

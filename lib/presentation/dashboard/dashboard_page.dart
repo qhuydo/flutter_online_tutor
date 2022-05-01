@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/schedule/upcoming_class/upcoming_class_bloc.dart';
 import '../common.dart';
+import '../common/routes/app_routes.gr.dart';
 import '../common/utils/constants.dart';
 import '../schedule/list/widgets/schedule_card.dart';
 import 'widgets/widgets.dart';
@@ -38,13 +40,19 @@ class DashboardPage extends StatelessWidget {
                   }
                   return Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: smallItemSpacing),
+                      horizontal: smallItemSpacing,
+                    ),
                     child: ScheduleCard(
                       appointment: state.nextClass!,
                       showMeetingDate: false,
-                      openMeetingRoomWhenCardTapped: true,
+                      openMeetingRoomWhenCardTapped: false,
                       showActionButtons: true,
                       showCancelButton: false,
+                      onTap: () {
+                        context.pushRoute(
+                          ScheduleDetailsRoute(appointment: state.nextClass!),
+                        );
+                      },
                     ),
                   );
                 },

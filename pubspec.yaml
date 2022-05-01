@@ -57,10 +57,6 @@ dependencies:
       url: https://github.com/google/flutter-desktop-embedding.git
       path: plugins/window_size
 
-  # Utilities for working with English words.
-  # (c) MIT License. By Filip Hracek.
-  english_words: ^4.0.0
-
   # A Flutter implementation of an expandable and animated floating search bar
   # (c) MIT License. By bxqm.
   material_floating_search_bar: ^0.3.7
@@ -139,10 +135,6 @@ dependencies:
   # File downloading, Timeout etc.
   # (c) MIT License.
   dio: ^4.0.6
-
-  # Pretty Dio logger is a Dio interceptor that logs network calls in a pretty, easy to read format.
-  # (c) MIT License. By Milad Akarie.
-  pretty_dio_logger: ^1.1.1
 
   # A Flutter plugin to store data in secure storage
   # (c) BSD 3-Clause License. By German Saprykin.

@@ -24,8 +24,8 @@ class ScheduleListMobile extends StatelessWidget {
     final dateFormatter = DateFormat.yMMMMEEEEd(locale);
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: 16,
-        vertical: 8,
+        horizontal: itemSpacing,
+        vertical: smallItemSpacing,
       ),
       child: Text(
         dateFormatter.format(time),

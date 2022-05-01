@@ -1,10 +1,12 @@
 import 'dart:async';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:collection/collection.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../domain/schedule/models/appointment.dart';
 import '../../../common.dart';
+import '../../../common/routes/app_routes.gr.dart';
 import '../../../common/utils/constants.dart';
 import '../../../common/widgets/empty_page.dart';
 import 'schedule_card.dart';
@@ -137,9 +139,14 @@ class ScheduleListDesktop extends StatelessWidget {
                     child: ScheduleCard(
                       appointment: appointment,
                       showMeetingDate: false,
-                      openMeetingRoomWhenCardTapped: true,
+                      openMeetingRoomWhenCardTapped: false,
                       showActionButtons: showActionButtons,
                       onCancelButtonTapped: onCancelButtonTapped,
+                      onTap: () {
+                        context.pushRoute(
+                          ScheduleDetailsRoute(appointment: appointment),
+                        );
+                      },
                     ),
                   ),
               ],
