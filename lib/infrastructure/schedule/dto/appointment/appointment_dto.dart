@@ -71,6 +71,7 @@ extension RowX on Row {
     final meetingRoomDomain = meetingRoomDto.toDomain(token);
 
     return Appointment(
+      id: id,
       scheduleId: scheduleDetailInfo.scheduleId,
       bookId: scheduleDetailInfo.id,
       tutorId: scheduleDetailInfo.scheduleInfo.tutorId,

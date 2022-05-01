@@ -19,7 +19,8 @@ class _$AppointmentTearOff {
   const _$AppointmentTearOff();
 
   _Appointment call(
-      {required String scheduleId,
+      {required String id,
+      required String scheduleId,
       required String bookId,
       required String tutorId,
       required DateTimeRange meetingTime,
@@ -29,6 +30,7 @@ class _$AppointmentTearOff {
       required MeetingRoom meetingRoom,
       String? tutorAvatar}) {
     return _Appointment(
+      id: id,
       scheduleId: scheduleId,
       bookId: bookId,
       tutorId: tutorId,
@@ -47,6 +49,7 @@ const $Appointment = _$AppointmentTearOff();
 
 /// @nodoc
 mixin _$Appointment {
+  String get id => throw _privateConstructorUsedError;
   String get scheduleId => throw _privateConstructorUsedError;
   String get bookId => throw _privateConstructorUsedError;
   String get tutorId => throw _privateConstructorUsedError;
@@ -68,7 +71,8 @@ abstract class $AppointmentCopyWith<$Res> {
           Appointment value, $Res Function(Appointment) then) =
       _$AppointmentCopyWithImpl<$Res>;
   $Res call(
-      {String scheduleId,
+      {String id,
+      String scheduleId,
       String bookId,
       String tutorId,
       DateTimeRange meetingTime,
@@ -92,6 +96,7 @@ class _$AppointmentCopyWithImpl<$Res> implements $AppointmentCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? scheduleId = freezed,
     Object? bookId = freezed,
     Object? tutorId = freezed,
@@ -103,6 +108,10 @@ class _$AppointmentCopyWithImpl<$Res> implements $AppointmentCopyWith<$Res> {
     Object? tutorAvatar = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       scheduleId: scheduleId == freezed
           ? _value.scheduleId
           : scheduleId // ignore: cast_nullable_to_non_nullable
@@ -165,7 +174,8 @@ abstract class _$AppointmentCopyWith<$Res>
       __$AppointmentCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String scheduleId,
+      {String id,
+      String scheduleId,
       String bookId,
       String tutorId,
       DateTimeRange meetingTime,
@@ -193,6 +203,7 @@ class __$AppointmentCopyWithImpl<$Res> extends _$AppointmentCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? scheduleId = freezed,
     Object? bookId = freezed,
     Object? tutorId = freezed,
@@ -204,6 +215,10 @@ class __$AppointmentCopyWithImpl<$Res> extends _$AppointmentCopyWithImpl<$Res>
     Object? tutorAvatar = freezed,
   }) {
     return _then(_Appointment(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       scheduleId: scheduleId == freezed
           ? _value.scheduleId
           : scheduleId // ignore: cast_nullable_to_non_nullable
@@ -248,7 +263,8 @@ class __$AppointmentCopyWithImpl<$Res> extends _$AppointmentCopyWithImpl<$Res>
 
 class _$_Appointment extends _Appointment {
   const _$_Appointment(
-      {required this.scheduleId,
+      {required this.id,
+      required this.scheduleId,
       required this.bookId,
       required this.tutorId,
       required this.meetingTime,
@@ -259,6 +275,8 @@ class _$_Appointment extends _Appointment {
       this.tutorAvatar})
       : super._();
 
+  @override
+  final String id;
   @override
   final String scheduleId;
   @override
@@ -280,7 +298,7 @@ class _$_Appointment extends _Appointment {
 
   @override
   String toString() {
-    return 'Appointment(scheduleId: $scheduleId, bookId: $bookId, tutorId: $tutorId, meetingTime: $meetingTime, studentRequest: $studentRequest, tutorName: $tutorName, tutorCountry: $tutorCountry, meetingRoom: $meetingRoom, tutorAvatar: $tutorAvatar)';
+    return 'Appointment(id: $id, scheduleId: $scheduleId, bookId: $bookId, tutorId: $tutorId, meetingTime: $meetingTime, studentRequest: $studentRequest, tutorName: $tutorName, tutorCountry: $tutorCountry, meetingRoom: $meetingRoom, tutorAvatar: $tutorAvatar)';
   }
 
   @override
@@ -288,6 +306,7 @@ class _$_Appointment extends _Appointment {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Appointment &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
                 .equals(other.scheduleId, scheduleId) &&
             const DeepCollectionEquality().equals(other.bookId, bookId) &&
@@ -308,6 +327,7 @@ class _$_Appointment extends _Appointment {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(scheduleId),
       const DeepCollectionEquality().hash(bookId),
       const DeepCollectionEquality().hash(tutorId),
@@ -326,7 +346,8 @@ class _$_Appointment extends _Appointment {
 
 abstract class _Appointment extends Appointment {
   const factory _Appointment(
-      {required String scheduleId,
+      {required String id,
+      required String scheduleId,
       required String bookId,
       required String tutorId,
       required DateTimeRange meetingTime,
@@ -337,6 +358,8 @@ abstract class _Appointment extends Appointment {
       String? tutorAvatar}) = _$_Appointment;
   const _Appointment._() : super._();
 
+  @override
+  String get id;
   @override
   String get scheduleId;
   @override

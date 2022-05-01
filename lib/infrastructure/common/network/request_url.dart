@@ -118,7 +118,7 @@ class ScheduleEndpoints {
       '$_bookingPath/next?dateTime=${DateTime.now().millisecondsSinceEpoch}';
 
   String updateStudentRequest(String bookedId) =>
-      '_$_bookingPath/student-request/$bookedId';
+      '$_bookingPath/student-request/$bookedId';
 
   String get total => 'call/total';
 }

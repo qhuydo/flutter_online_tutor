@@ -11,6 +11,7 @@ class Appointment with _$Appointment {
   const Appointment._();
 
   const factory Appointment({
+    required String id,
     required String scheduleId,
     required String bookId,
     required String tutorId,

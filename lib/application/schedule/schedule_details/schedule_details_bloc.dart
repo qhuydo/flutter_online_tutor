@@ -36,7 +36,8 @@ class ScheduleDetailsBloc
     ));
 
     final result = await _repository.cancelClass(
-        scheduleDetailsId: state.appointment.bookId);
+      scheduleDetailsId: state.appointment.bookId,
+    );
 
     final status = result.fold(
       (l) => ClassCancellationStatus.failed(l),
@@ -62,7 +63,7 @@ class ScheduleDetailsBloc
     ));
 
     final result = await _repository.updateRequest(
-      bookedId: state.appointment.bookId,
+      bookedId: state.appointment.id,
       note: value,
     );
 
@@ -80,6 +81,5 @@ class ScheduleDetailsBloc
     );
 
     emit(state.copyWith(editStudentRequestStatus: status));
-
   }
 }
