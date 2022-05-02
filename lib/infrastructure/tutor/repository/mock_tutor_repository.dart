@@ -175,4 +175,10 @@ class MockTutorRepository implements TutorRepository {
     final tutorList = result.fold((l) => <Tutor>[], (r) => r);
     return right(tutorList.where((element) => element.isFavourite).toList());
   }
+
+  @override
+  Future<Either<Failure, Unit>> report(
+    String tutorId,
+    String content,
+  ) async => right(unit);
 }

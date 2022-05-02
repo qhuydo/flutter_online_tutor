@@ -321,4 +321,23 @@ class TutorRepositoryImpl implements TutorRepository {
     }
     return right(await _dataSource.getFavouriteTutors());
   }
+
+  @override
+  Future<Either<Failure, Unit>> report(String tutorId, String content) async {
+    try {
+      final data = {
+        'tutorId': tutorId,
+        'content': content,
+      };
+      final result = await _apiClient.post(
+        RequestUrl.tutor.report,
+        data: data,
+        onResponded: (response) => unit,
+      );
+
+      return result;
+    } on FlutterError {
+      return left(const Failure.internalError());
+    }
+  }
 }

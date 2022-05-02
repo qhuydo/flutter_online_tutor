@@ -78,6 +78,8 @@ class TutorEndpoints {
   String tutor(String tutorId) => '$_path/$tutorId';
 
   String get search => '$_path/search';
+
+  String get report => 'report';
 }
 
 class ScheduleEndpoints {

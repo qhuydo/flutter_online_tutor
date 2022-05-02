@@ -35,5 +35,7 @@ abstract class TutorRepository {
 
   Future<Either<Failure, List<Tutor>>> getFavouriteTutors();
 
+  Future<Either<Failure, Unit>> report(String tutorId, String content);
+
   Future dispose();
 }
