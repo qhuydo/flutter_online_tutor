@@ -38,6 +38,7 @@ _$_Row _$$_RowFromJson(Map<String, dynamic> json) => _$_Row(
       studentRequest: json['studentRequest'] as String?,
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),
+      recordUrl: json['recordUrl'] as String?,
       isDeleted: json['isDeleted'] as bool,
       scheduleDetailInfo: AppointmentDetailsDto.fromJson(
           json['scheduleDetailInfo'] as Map<String, dynamic>),
@@ -53,6 +54,7 @@ Map<String, dynamic> _$$_RowToJson(_$_Row instance) => <String, dynamic>{
       'studentRequest': instance.studentRequest,
       'createdAt': instance.createdAt.toIso8601String(),
       'updatedAt': instance.updatedAt.toIso8601String(),
+      'recordUrl': instance.recordUrl,
       'isDeleted': instance.isDeleted,
       'scheduleDetailInfo': instance.scheduleDetailInfo,
     };

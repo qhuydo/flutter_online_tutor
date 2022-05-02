@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:duration/duration.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -47,9 +48,9 @@ class UpcomingClassBloc extends Bloc<UpcomingClassEvent, UpcomingClassState> {
     await _loadUpcomingClasses(emit);
 
     await emit.forEach(_repository.subscribe(), onData: (event) {
-       log('UpcomingClassBloc - reload event listened');
-       add(const UpcomingClassEvent.reload());
-       return state;
+      log('UpcomingClassBloc - reload event listened');
+      add(const UpcomingClassEvent.reload());
+      return state;
     });
   }
 
@@ -73,12 +74,14 @@ class UpcomingClassBloc extends Bloc<UpcomingClassEvent, UpcomingClassState> {
     ));
 
     _timer?.cancel();
-    final nextClassStartingTime = state.nextClass?.meetingTime.start;
+    final nextClassEndTime = state.nextClass?.meetingTime.end;
 
-    if (nextClassStartingTime != null &&
-        nextClassStartingTime.isAfter(DateTime.now())) {
+    if (nextClassEndTime != null &&
+        nextClassEndTime.isAfter(DateTime.now())) {
+      final duration = nextClassEndTime.difference(DateTime.now());
+      log('schedule reload event, reload in ${prettyDuration(duration)}');
       _timer = Timer(
-        nextClassStartingTime.difference(DateTime.now()),
+        duration,
         () => add(const UpcomingClassEvent.reload()),
       );
     }

@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../../../../domain/schedule/models/appointment.dart';
+import '../../../common/routes/app_routes.gr.dart';
 import '../../../common/utils/constants.dart';
 import '../../list/widgets/schedule_card.dart';
 
@@ -30,11 +32,15 @@ class HistoryListMobile extends StatelessWidget {
               crossAxisSpacing: 4,
               mainAxisSpacing: 4,
               maxCrossAxisExtent: 600,
-              itemBuilder: (context, index) =>
-                  ScheduleCard(
+              itemBuilder: (context, index) => ScheduleCard(
+                appointment: history[index],
+                showActionButtons: false,
+                onTap: () {
+                  context.pushRoute(ScheduleDetailsRoute(
                     appointment: history[index],
-                    showActionButtons: false,
-                  ),
+                  ));
+                },
+              ),
             ),
             if (paginator != null) ...[
               paginator!,

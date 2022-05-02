@@ -7,6 +7,7 @@ import '../../common.dart';
 import '../../common/utils/default_app_bar.dart';
 import '../../common/utils/dialog_utils.dart';
 import '../../common/utils/flushbar_utils.dart';
+import '../../tutor/details/widgets/video_preview.dart';
 import 'widgets/schedule_details_card.dart';
 import 'widgets/student_request_card.dart';
 
@@ -99,9 +100,23 @@ class ScheduleDetailsBody extends StatelessWidget {
         ),
       ],
       child: Column(
-        children: const [
-          ScheduleDetailsCard(),
-          StudentRequestCard(),
+        children: [
+          const ScheduleDetailsCard(),
+          const StudentRequestCard(),
+          BlocBuilder<ScheduleDetailsBloc, ScheduleDetailsState>(
+            builder: (_, state) {
+              if (state.appointment.recordUrl == null) {
+                return const SizedBox();
+              }
+              return ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 800),
+                child: VideoPreview(
+                  videoUrl: state.appointment.recordUrl!,
+                  id: 696969,
+                ),
+              );
+            },
+          ),
         ],
       ),
     );

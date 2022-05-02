@@ -49,7 +49,7 @@ class Row with _$Row {
     // String? scoreByTutor,
     required DateTime createdAt,
     required DateTime updatedAt,
-    // String? recordUrl,
+    String? recordUrl,
     required bool isDeleted,
     required AppointmentDetailsDto scheduleDetailInfo,
     // bool showRecordUrl,
@@ -90,6 +90,7 @@ extension RowX on Row {
       tutorAvatar: scheduleDetailInfo.scheduleInfo.tutorInfo.avatar,
       tutorName: scheduleDetailInfo.scheduleInfo.tutorInfo.name,
       meetingRoom: meetingRoomDomain,
+      recordUrl: recordUrl,
     );
   }
 }

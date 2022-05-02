@@ -352,6 +352,7 @@ class _$RowTearOff {
       required String? studentRequest,
       required DateTime createdAt,
       required DateTime updatedAt,
+      String? recordUrl,
       required bool isDeleted,
       required AppointmentDetailsDto scheduleDetailInfo}) {
     return _Row(
@@ -364,6 +365,7 @@ class _$RowTearOff {
       studentRequest: studentRequest,
       createdAt: createdAt,
       updatedAt: updatedAt,
+      recordUrl: recordUrl,
       isDeleted: isDeleted,
       scheduleDetailInfo: scheduleDetailInfo,
     );
@@ -390,8 +392,8 @@ mixin _$Row {
       throw _privateConstructorUsedError; // String? tutorReview,
 // String? scoreByTutor,
   DateTime get createdAt => throw _privateConstructorUsedError;
-  DateTime get updatedAt =>
-      throw _privateConstructorUsedError; // String? recordUrl,
+  DateTime get updatedAt => throw _privateConstructorUsedError;
+  String? get recordUrl => throw _privateConstructorUsedError;
   bool get isDeleted => throw _privateConstructorUsedError;
   AppointmentDetailsDto get scheduleDetailInfo =>
       throw _privateConstructorUsedError;
@@ -415,6 +417,7 @@ abstract class $RowCopyWith<$Res> {
       String? studentRequest,
       DateTime createdAt,
       DateTime updatedAt,
+      String? recordUrl,
       bool isDeleted,
       AppointmentDetailsDto scheduleDetailInfo});
 
@@ -440,6 +443,7 @@ class _$RowCopyWithImpl<$Res> implements $RowCopyWith<$Res> {
     Object? studentRequest = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? recordUrl = freezed,
     Object? isDeleted = freezed,
     Object? scheduleDetailInfo = freezed,
   }) {
@@ -480,6 +484,10 @@ class _$RowCopyWithImpl<$Res> implements $RowCopyWith<$Res> {
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      recordUrl: recordUrl == freezed
+          ? _value.recordUrl
+          : recordUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       isDeleted: isDeleted == freezed
           ? _value.isDeleted
           : isDeleted // ignore: cast_nullable_to_non_nullable
@@ -515,6 +523,7 @@ abstract class _$RowCopyWith<$Res> implements $RowCopyWith<$Res> {
       String? studentRequest,
       DateTime createdAt,
       DateTime updatedAt,
+      String? recordUrl,
       bool isDeleted,
       AppointmentDetailsDto scheduleDetailInfo});
 
@@ -542,6 +551,7 @@ class __$RowCopyWithImpl<$Res> extends _$RowCopyWithImpl<$Res>
     Object? studentRequest = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
+    Object? recordUrl = freezed,
     Object? isDeleted = freezed,
     Object? scheduleDetailInfo = freezed,
   }) {
@@ -582,6 +592,10 @@ class __$RowCopyWithImpl<$Res> extends _$RowCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      recordUrl: recordUrl == freezed
+          ? _value.recordUrl
+          : recordUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       isDeleted: isDeleted == freezed
           ? _value.isDeleted
           : isDeleted // ignore: cast_nullable_to_non_nullable
@@ -607,6 +621,7 @@ class _$_Row implements _Row {
       required this.studentRequest,
       required this.createdAt,
       required this.updatedAt,
+      this.recordUrl,
       required this.isDeleted,
       required this.scheduleDetailInfo});
 
@@ -631,14 +646,16 @@ class _$_Row implements _Row {
   final DateTime createdAt;
   @override
   final DateTime updatedAt;
-  @override // String? recordUrl,
+  @override
+  final String? recordUrl;
+  @override
   final bool isDeleted;
   @override
   final AppointmentDetailsDto scheduleDetailInfo;
 
   @override
   String toString() {
-    return 'Row(createdAtTimeStamp: $createdAtTimeStamp, updatedAtTimeStamp: $updatedAtTimeStamp, id: $id, userId: $userId, scheduleDetailId: $scheduleDetailId, studentMeetingLink: $studentMeetingLink, studentRequest: $studentRequest, createdAt: $createdAt, updatedAt: $updatedAt, isDeleted: $isDeleted, scheduleDetailInfo: $scheduleDetailInfo)';
+    return 'Row(createdAtTimeStamp: $createdAtTimeStamp, updatedAtTimeStamp: $updatedAtTimeStamp, id: $id, userId: $userId, scheduleDetailId: $scheduleDetailId, studentMeetingLink: $studentMeetingLink, studentRequest: $studentRequest, createdAt: $createdAt, updatedAt: $updatedAt, recordUrl: $recordUrl, isDeleted: $isDeleted, scheduleDetailInfo: $scheduleDetailInfo)';
   }
 
   @override
@@ -660,6 +677,7 @@ class _$_Row implements _Row {
                 .equals(other.studentRequest, studentRequest) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
+            const DeepCollectionEquality().equals(other.recordUrl, recordUrl) &&
             const DeepCollectionEquality().equals(other.isDeleted, isDeleted) &&
             const DeepCollectionEquality()
                 .equals(other.scheduleDetailInfo, scheduleDetailInfo));
@@ -677,6 +695,7 @@ class _$_Row implements _Row {
       const DeepCollectionEquality().hash(studentRequest),
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(updatedAt),
+      const DeepCollectionEquality().hash(recordUrl),
       const DeepCollectionEquality().hash(isDeleted),
       const DeepCollectionEquality().hash(scheduleDetailInfo));
 
@@ -702,6 +721,7 @@ abstract class _Row implements Row {
       required String? studentRequest,
       required DateTime createdAt,
       required DateTime updatedAt,
+      String? recordUrl,
       required bool isDeleted,
       required AppointmentDetailsDto scheduleDetailInfo}) = _$_Row;
 
@@ -726,7 +746,9 @@ abstract class _Row implements Row {
   DateTime get createdAt;
   @override
   DateTime get updatedAt;
-  @override // String? recordUrl,
+  @override
+  String? get recordUrl;
+  @override
   bool get isDeleted;
   @override
   AppointmentDetailsDto get scheduleDetailInfo;

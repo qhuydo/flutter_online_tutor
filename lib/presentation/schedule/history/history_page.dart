@@ -61,7 +61,10 @@ class _HistoryPage extends StatelessWidget {
           final breakpoint = Breakpoint.fromMediaQuery(context);
 
           return breakpoint.window <= WindowSize.small
-              ? HistoryListMobile(history: history, paginator: paginator)
+              ? HistoryListMobile(
+                  history: history,
+                  paginator: paginator,
+                )
               : ScheduleListDesktop(
                   appointments: history,
                   paginator: paginator,
