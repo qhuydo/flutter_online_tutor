@@ -11,6 +11,7 @@ import '../../../domain/common/failures/failure.dart';
 import '../../../domain/schedule/events/schedule_repository_event.dart';
 import '../../../domain/schedule/interfaces/i_schedule_repository.dart';
 import '../../../domain/schedule/models/appointment.dart';
+import '../../../domain/schedule/models/appointment_status.dart';
 import '../../../domain/schedule/models/schedule.dart';
 import '../../../presentation/common.dart';
 import '../../common/dto/pagination_list_dto.dart';
@@ -198,31 +199,42 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
 
   @override
   Future<Either<Failure, Appointment?>> getNextClass() async {
-    final classes = await _getClasses(limit: 1, queryParams: {
-      'page': '1',
-      'perPage': '1',
-      'dateTimeGte': DateTime.now().millisecondsSinceEpoch.toString(),
-      'orderBy': 'meeting',
-      'sortBy': 'asc',
-    });
+    try {
+      log(RequestUrl.schedule.next);
+      final res = _apiClient.get<Appointment?>(
+        RequestUrl.schedule.next,
+        onResponded: (response) {
+          final data = response.data['data'] as List;
+          final list = data.map(
+            (e) => AppointmentRowDto.fromJson(e).toDomain(),
+          ).sortedBy((element) => element.meetingTime.start);
 
-    return classes.map((r) => r.list.firstOrNull);
+          for (final item in list) {
+            log('${item.meetingTime.start} - ${item.status}');
+            if (item.status == AppointmentStatus.ended) {
+              continue;
+            }
+            return item;
+          }
+          return null;
+
+        },
+      );
+
+      return res;
+    } on FlutterError {
+      return left(const Failure.notFound());
+    }
   }
 
   Future<Either<Failure, PaginationListDto<Appointment>>> _getClasses({
     required int limit,
     required Map<String, dynamic> queryParams,
+    String? requestUrl,
   }) async {
-    final userId = _box.get(_keyUser);
-    if (userId == null) {
-      return left(const Failure.wtf(
-        'Local storage does not contains user id',
-      ));
-    }
-
     try {
       final res = _apiClient.get(
-        RequestUrl.schedule.list,
+        requestUrl ?? RequestUrl.schedule.list,
         queryParams: queryParams,
         onResponded: (response) {
           final data = response.data as Map<String, dynamic>;

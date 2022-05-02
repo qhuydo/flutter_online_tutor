@@ -28,15 +28,15 @@ class AppointmentDto with _$AppointmentDto {
 class Data with _$Data {
   const factory Data({
     required int count,
-    required List<Row> rows,
+    required List<AppointmentRowDto> rows,
   }) = _Data;
 
   factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 }
 
 @freezed
-class Row with _$Row {
-  const factory Row({
+class AppointmentRowDto with _$AppointmentRowDto {
+  const factory AppointmentRowDto({
     required int createdAtTimeStamp,
     required int updatedAtTimeStamp,
     required String id,
@@ -54,12 +54,12 @@ class Row with _$Row {
     required AppointmentDetailsDto scheduleDetailInfo,
     // bool showRecordUrl,
     // List<dynamic> studentMaterials,
-  }) = _Row;
+  }) = _AppointmentRowDto;
 
-  factory Row.fromJson(Map<String, dynamic> json) => _$RowFromJson(json);
+  factory AppointmentRowDto.fromJson(Map<String, dynamic> json) => _$AppointmentRowDtoFromJson(json);
 }
 
-extension RowX on Row {
+extension AppointmentRowDtoX on AppointmentRowDto {
   Appointment toDomain() {
     final token = studentMeetingLink.replaceFirst('/call/?token=', '');
     final tokenData = token.split('.')[1];

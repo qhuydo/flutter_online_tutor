@@ -10,6 +10,7 @@ import 'package:injectable/injectable.dart';
 import '../../../domain/common/failures/failure.dart';
 import '../../../domain/schedule/interfaces/i_schedule_repository.dart';
 import '../../../domain/schedule/models/appointment.dart';
+import '../../../domain/schedule/models/appointment_status.dart';
 import '../../../infrastructure/common/dto/pagination_list_dto.dart';
 
 part 'upcoming_class_bloc.freezed.dart';
@@ -74,11 +75,14 @@ class UpcomingClassBloc extends Bloc<UpcomingClassEvent, UpcomingClassState> {
     ));
 
     _timer?.cancel();
-    final nextClassEndTime = state.nextClass?.meetingTime.end;
+    final refreshTime = state.nextClass?.status == AppointmentStatus.ongoing
+        ? state.nextClass?.meetingTime.end
+        : state.nextClass?.meetingTime.start;
 
-    if (nextClassEndTime != null &&
-        nextClassEndTime.isAfter(DateTime.now())) {
-      final duration = nextClassEndTime.difference(DateTime.now());
+    if (refreshTime != null && refreshTime.isAfter(DateTime.now())) {
+      final duration = refreshTime.difference(DateTime.now()).abs();
+
+      log('$duration');
       log('schedule reload event, reload in ${prettyDuration(duration)}');
       _timer = Timer(
         duration,

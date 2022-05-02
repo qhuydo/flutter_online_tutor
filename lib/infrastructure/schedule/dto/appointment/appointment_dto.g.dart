@@ -19,7 +19,7 @@ Map<String, dynamic> _$$_AppointmentDtoToJson(_$_AppointmentDto instance) =>
 _$_Data _$$_DataFromJson(Map<String, dynamic> json) => _$_Data(
       count: json['count'] as int,
       rows: (json['rows'] as List<dynamic>)
-          .map((e) => Row.fromJson(e as Map<String, dynamic>))
+          .map((e) => AppointmentRowDto.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
@@ -28,7 +28,8 @@ Map<String, dynamic> _$$_DataToJson(_$_Data instance) => <String, dynamic>{
       'rows': instance.rows,
     };
 
-_$_Row _$$_RowFromJson(Map<String, dynamic> json) => _$_Row(
+_$_AppointmentRowDto _$$_AppointmentRowDtoFromJson(Map<String, dynamic> json) =>
+    _$_AppointmentRowDto(
       createdAtTimeStamp: json['createdAtTimeStamp'] as int,
       updatedAtTimeStamp: json['updatedAtTimeStamp'] as int,
       id: json['id'] as String,
@@ -44,7 +45,9 @@ _$_Row _$$_RowFromJson(Map<String, dynamic> json) => _$_Row(
           json['scheduleDetailInfo'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_RowToJson(_$_Row instance) => <String, dynamic>{
+Map<String, dynamic> _$$_AppointmentRowDtoToJson(
+        _$_AppointmentRowDto instance) =>
+    <String, dynamic>{
       'createdAtTimeStamp': instance.createdAtTimeStamp,
       'updatedAtTimeStamp': instance.updatedAtTimeStamp,
       'id': instance.id,

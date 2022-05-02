@@ -184,7 +184,7 @@ Data _$DataFromJson(Map<String, dynamic> json) {
 class _$DataTearOff {
   const _$DataTearOff();
 
-  _Data call({required int count, required List<Row> rows}) {
+  _Data call({required int count, required List<AppointmentRowDto> rows}) {
     return _Data(
       count: count,
       rows: rows,
@@ -202,7 +202,7 @@ const $Data = _$DataTearOff();
 /// @nodoc
 mixin _$Data {
   int get count => throw _privateConstructorUsedError;
-  List<Row> get rows => throw _privateConstructorUsedError;
+  List<AppointmentRowDto> get rows => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -213,7 +213,7 @@ mixin _$Data {
 abstract class $DataCopyWith<$Res> {
   factory $DataCopyWith(Data value, $Res Function(Data) then) =
       _$DataCopyWithImpl<$Res>;
-  $Res call({int count, List<Row> rows});
+  $Res call({int count, List<AppointmentRowDto> rows});
 }
 
 /// @nodoc
@@ -237,7 +237,7 @@ class _$DataCopyWithImpl<$Res> implements $DataCopyWith<$Res> {
       rows: rows == freezed
           ? _value.rows
           : rows // ignore: cast_nullable_to_non_nullable
-              as List<Row>,
+              as List<AppointmentRowDto>,
     ));
   }
 }
@@ -247,7 +247,7 @@ abstract class _$DataCopyWith<$Res> implements $DataCopyWith<$Res> {
   factory _$DataCopyWith(_Data value, $Res Function(_Data) then) =
       __$DataCopyWithImpl<$Res>;
   @override
-  $Res call({int count, List<Row> rows});
+  $Res call({int count, List<AppointmentRowDto> rows});
 }
 
 /// @nodoc
@@ -272,7 +272,7 @@ class __$DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res>
       rows: rows == freezed
           ? _value.rows
           : rows // ignore: cast_nullable_to_non_nullable
-              as List<Row>,
+              as List<AppointmentRowDto>,
     ));
   }
 }
@@ -287,7 +287,7 @@ class _$_Data implements _Data {
   @override
   final int count;
   @override
-  final List<Row> rows;
+  final List<AppointmentRowDto> rows;
 
   @override
   String toString() {
@@ -321,28 +321,29 @@ class _$_Data implements _Data {
 }
 
 abstract class _Data implements Data {
-  const factory _Data({required int count, required List<Row> rows}) = _$_Data;
+  const factory _Data(
+      {required int count, required List<AppointmentRowDto> rows}) = _$_Data;
 
   factory _Data.fromJson(Map<String, dynamic> json) = _$_Data.fromJson;
 
   @override
   int get count;
   @override
-  List<Row> get rows;
+  List<AppointmentRowDto> get rows;
   @override
   @JsonKey(ignore: true)
   _$DataCopyWith<_Data> get copyWith => throw _privateConstructorUsedError;
 }
 
-Row _$RowFromJson(Map<String, dynamic> json) {
-  return _Row.fromJson(json);
+AppointmentRowDto _$AppointmentRowDtoFromJson(Map<String, dynamic> json) {
+  return _AppointmentRowDto.fromJson(json);
 }
 
 /// @nodoc
-class _$RowTearOff {
-  const _$RowTearOff();
+class _$AppointmentRowDtoTearOff {
+  const _$AppointmentRowDtoTearOff();
 
-  _Row call(
+  _AppointmentRowDto call(
       {required int createdAtTimeStamp,
       required int updatedAtTimeStamp,
       required String id,
@@ -355,7 +356,7 @@ class _$RowTearOff {
       String? recordUrl,
       required bool isDeleted,
       required AppointmentDetailsDto scheduleDetailInfo}) {
-    return _Row(
+    return _AppointmentRowDto(
       createdAtTimeStamp: createdAtTimeStamp,
       updatedAtTimeStamp: updatedAtTimeStamp,
       id: id,
@@ -371,16 +372,16 @@ class _$RowTearOff {
     );
   }
 
-  Row fromJson(Map<String, Object?> json) {
-    return Row.fromJson(json);
+  AppointmentRowDto fromJson(Map<String, Object?> json) {
+    return AppointmentRowDto.fromJson(json);
   }
 }
 
 /// @nodoc
-const $Row = _$RowTearOff();
+const $AppointmentRowDto = _$AppointmentRowDtoTearOff();
 
 /// @nodoc
-mixin _$Row {
+mixin _$AppointmentRowDto {
   int get createdAtTimeStamp => throw _privateConstructorUsedError;
   int get updatedAtTimeStamp => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
@@ -400,13 +401,15 @@ mixin _$Row {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RowCopyWith<Row> get copyWith => throw _privateConstructorUsedError;
+  $AppointmentRowDtoCopyWith<AppointmentRowDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RowCopyWith<$Res> {
-  factory $RowCopyWith(Row value, $Res Function(Row) then) =
-      _$RowCopyWithImpl<$Res>;
+abstract class $AppointmentRowDtoCopyWith<$Res> {
+  factory $AppointmentRowDtoCopyWith(
+          AppointmentRowDto value, $Res Function(AppointmentRowDto) then) =
+      _$AppointmentRowDtoCopyWithImpl<$Res>;
   $Res call(
       {int createdAtTimeStamp,
       int updatedAtTimeStamp,
@@ -425,12 +428,13 @@ abstract class $RowCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RowCopyWithImpl<$Res> implements $RowCopyWith<$Res> {
-  _$RowCopyWithImpl(this._value, this._then);
+class _$AppointmentRowDtoCopyWithImpl<$Res>
+    implements $AppointmentRowDtoCopyWith<$Res> {
+  _$AppointmentRowDtoCopyWithImpl(this._value, this._then);
 
-  final Row _value;
+  final AppointmentRowDto _value;
   // ignore: unused_field
-  final $Res Function(Row) _then;
+  final $Res Function(AppointmentRowDto) _then;
 
   @override
   $Res call({
@@ -509,9 +513,11 @@ class _$RowCopyWithImpl<$Res> implements $RowCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$RowCopyWith<$Res> implements $RowCopyWith<$Res> {
-  factory _$RowCopyWith(_Row value, $Res Function(_Row) then) =
-      __$RowCopyWithImpl<$Res>;
+abstract class _$AppointmentRowDtoCopyWith<$Res>
+    implements $AppointmentRowDtoCopyWith<$Res> {
+  factory _$AppointmentRowDtoCopyWith(
+          _AppointmentRowDto value, $Res Function(_AppointmentRowDto) then) =
+      __$AppointmentRowDtoCopyWithImpl<$Res>;
   @override
   $Res call(
       {int createdAtTimeStamp,
@@ -532,13 +538,15 @@ abstract class _$RowCopyWith<$Res> implements $RowCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$RowCopyWithImpl<$Res> extends _$RowCopyWithImpl<$Res>
-    implements _$RowCopyWith<$Res> {
-  __$RowCopyWithImpl(_Row _value, $Res Function(_Row) _then)
-      : super(_value, (v) => _then(v as _Row));
+class __$AppointmentRowDtoCopyWithImpl<$Res>
+    extends _$AppointmentRowDtoCopyWithImpl<$Res>
+    implements _$AppointmentRowDtoCopyWith<$Res> {
+  __$AppointmentRowDtoCopyWithImpl(
+      _AppointmentRowDto _value, $Res Function(_AppointmentRowDto) _then)
+      : super(_value, (v) => _then(v as _AppointmentRowDto));
 
   @override
-  _Row get _value => super._value as _Row;
+  _AppointmentRowDto get _value => super._value as _AppointmentRowDto;
 
   @override
   $Res call({
@@ -555,7 +563,7 @@ class __$RowCopyWithImpl<$Res> extends _$RowCopyWithImpl<$Res>
     Object? isDeleted = freezed,
     Object? scheduleDetailInfo = freezed,
   }) {
-    return _then(_Row(
+    return _then(_AppointmentRowDto(
       createdAtTimeStamp: createdAtTimeStamp == freezed
           ? _value.createdAtTimeStamp
           : createdAtTimeStamp // ignore: cast_nullable_to_non_nullable
@@ -610,8 +618,8 @@ class __$RowCopyWithImpl<$Res> extends _$RowCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Row implements _Row {
-  const _$_Row(
+class _$_AppointmentRowDto implements _AppointmentRowDto {
+  const _$_AppointmentRowDto(
       {required this.createdAtTimeStamp,
       required this.updatedAtTimeStamp,
       required this.id,
@@ -625,7 +633,8 @@ class _$_Row implements _Row {
       required this.isDeleted,
       required this.scheduleDetailInfo});
 
-  factory _$_Row.fromJson(Map<String, dynamic> json) => _$$_RowFromJson(json);
+  factory _$_AppointmentRowDto.fromJson(Map<String, dynamic> json) =>
+      _$$_AppointmentRowDtoFromJson(json);
 
   @override
   final int createdAtTimeStamp;
@@ -655,14 +664,14 @@ class _$_Row implements _Row {
 
   @override
   String toString() {
-    return 'Row(createdAtTimeStamp: $createdAtTimeStamp, updatedAtTimeStamp: $updatedAtTimeStamp, id: $id, userId: $userId, scheduleDetailId: $scheduleDetailId, studentMeetingLink: $studentMeetingLink, studentRequest: $studentRequest, createdAt: $createdAt, updatedAt: $updatedAt, recordUrl: $recordUrl, isDeleted: $isDeleted, scheduleDetailInfo: $scheduleDetailInfo)';
+    return 'AppointmentRowDto(createdAtTimeStamp: $createdAtTimeStamp, updatedAtTimeStamp: $updatedAtTimeStamp, id: $id, userId: $userId, scheduleDetailId: $scheduleDetailId, studentMeetingLink: $studentMeetingLink, studentRequest: $studentRequest, createdAt: $createdAt, updatedAt: $updatedAt, recordUrl: $recordUrl, isDeleted: $isDeleted, scheduleDetailInfo: $scheduleDetailInfo)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Row &&
+            other is _AppointmentRowDto &&
             const DeepCollectionEquality()
                 .equals(other.createdAtTimeStamp, createdAtTimeStamp) &&
             const DeepCollectionEquality()
@@ -701,31 +710,33 @@ class _$_Row implements _Row {
 
   @JsonKey(ignore: true)
   @override
-  _$RowCopyWith<_Row> get copyWith =>
-      __$RowCopyWithImpl<_Row>(this, _$identity);
+  _$AppointmentRowDtoCopyWith<_AppointmentRowDto> get copyWith =>
+      __$AppointmentRowDtoCopyWithImpl<_AppointmentRowDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RowToJson(this);
+    return _$$_AppointmentRowDtoToJson(this);
   }
 }
 
-abstract class _Row implements Row {
-  const factory _Row(
-      {required int createdAtTimeStamp,
-      required int updatedAtTimeStamp,
-      required String id,
-      required String userId,
-      required String scheduleDetailId,
-      required String studentMeetingLink,
-      required String? studentRequest,
-      required DateTime createdAt,
-      required DateTime updatedAt,
-      String? recordUrl,
-      required bool isDeleted,
-      required AppointmentDetailsDto scheduleDetailInfo}) = _$_Row;
+abstract class _AppointmentRowDto implements AppointmentRowDto {
+  const factory _AppointmentRowDto(
+          {required int createdAtTimeStamp,
+          required int updatedAtTimeStamp,
+          required String id,
+          required String userId,
+          required String scheduleDetailId,
+          required String studentMeetingLink,
+          required String? studentRequest,
+          required DateTime createdAt,
+          required DateTime updatedAt,
+          String? recordUrl,
+          required bool isDeleted,
+          required AppointmentDetailsDto scheduleDetailInfo}) =
+      _$_AppointmentRowDto;
 
-  factory _Row.fromJson(Map<String, dynamic> json) = _$_Row.fromJson;
+  factory _AppointmentRowDto.fromJson(Map<String, dynamic> json) =
+      _$_AppointmentRowDto.fromJson;
 
   @override
   int get createdAtTimeStamp;
@@ -754,5 +765,6 @@ abstract class _Row implements Row {
   AppointmentDetailsDto get scheduleDetailInfo;
   @override
   @JsonKey(ignore: true)
-  _$RowCopyWith<_Row> get copyWith => throw _privateConstructorUsedError;
+  _$AppointmentRowDtoCopyWith<_AppointmentRowDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
