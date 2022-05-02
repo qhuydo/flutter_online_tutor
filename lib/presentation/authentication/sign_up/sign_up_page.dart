@@ -2,11 +2,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/authentication/sign_up/sign_up_bloc.dart';
 import '../../common.dart';
-import '../widgets/authen_bloc_wrapper.dart';
 import '../widgets/authen_scaffold.dart';
 import '../widgets/authenticate_by_mail_form.dart';
 import '../widgets/email_input.dart';
 import '../widgets/password_input.dart';
+import '../widgets/signup_form_bloc_wrapper.dart';
 import 'widgets/login_hint.dart';
 import 'widgets/sign_up_button.dart';
 import 'widgets/signup_option_button_group.dart';
@@ -16,9 +16,7 @@ class SignUpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AuthenFormBlocWrapper<SignUpBloc>(
-      child: _SignUpPage(),
-    );
+    return const SignUpFormBlocWrapper(child: _SignUpPage());
   }
 }
 

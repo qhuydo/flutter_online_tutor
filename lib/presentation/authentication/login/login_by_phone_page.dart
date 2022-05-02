@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/authentication/login/login_bloc.dart';
 import '../../common.dart';
 import '../../common/widgets/phone_number_input.dart';
-import '../widgets/authen_bloc_wrapper.dart';
+import '../widgets/login_form_bloc_wrapper.dart';
 import '../widgets/authen_scaffold.dart';
 import '../widgets/authenticate_by_phone_form.dart';
 import '../widgets/password_input.dart';
@@ -16,7 +16,7 @@ class LoginByPhonePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AuthenFormBlocWrapper<LoginBloc>(child: _LoginByPhonePage());
+    return const LoginFormBlocWrapper(child: _LoginByPhonePage());
   }
 }
 

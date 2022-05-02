@@ -33,7 +33,9 @@ PreferredSizeWidget buildAppBar(
                       unauthenticated: () => null,
                     );
                     return CircleAvatar(
-                      backgroundImage: NetworkImage(avatar ?? ''),
+                      backgroundImage: NetworkImage(avatar != null
+                          ? '$avatar?${DateTime.now().millisecondsSinceEpoch}'
+                          : ''),
                       onBackgroundImageError: (exception, stackTrace) {},
                     );
                   },

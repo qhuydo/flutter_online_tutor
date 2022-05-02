@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/authentication/authentication_bloc.dart';
+import '../../../application/authentication/login/login_bloc.dart';
 import '../../../di/dependency_injection.dart';
 import '../../../domain/authentication/failures/authentication_failure.dart';
 import '../../common/l10n/failure_display_texts.dart';
 import '../../common/routes/app_routes.gr.dart';
 
-class AuthenFormBlocWrapper<B extends Bloc> extends StatelessWidget {
+class LoginFormBlocWrapper extends StatelessWidget {
   final Widget child;
 
-  const AuthenFormBlocWrapper({
+  const LoginFormBlocWrapper({
     Key? key,
     required this.child,
   }) : super(key: key);
@@ -19,23 +20,23 @@ class AuthenFormBlocWrapper<B extends Bloc> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<B>(),
-      child: _AuthenFormBlocPage<B>(child: child),
+      create: (context) => getIt<LoginBloc>(),
+      child: _LoginFormBlocPage(child: child),
     );
   }
 }
 
-class _AuthenFormBlocPage<B extends Bloc> extends StatelessWidget {
+class _LoginFormBlocPage extends StatelessWidget {
   final Widget child;
 
-  const _AuthenFormBlocPage({
+  const _LoginFormBlocPage({
     Key? key,
     required this.child,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<B, dynamic>(
+    return BlocListener<LoginBloc, LoginState>(
       listener: (context, state) {
         state.authFailureOrSuccessOption.fold(
           () {},
