@@ -20,7 +20,26 @@ class InfoCard extends StatelessWidget {
         iconData: Icons.copyright_outlined,
         title: context.l10n.licenseLabel,
         onTap: () {
-          showLicensePage(context: context);
+          showLicensePage(
+            context: context,
+            applicationIcon: Container(
+              width: 160,
+              height: 160,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.grey[700]!.withOpacity(0.6),
+                  width: 1.25,
+                ),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(
+                  'assets/icons/icon.png',
+                ),
+              ),
+            ),
+          );
         },
         trailingWidget: const Icon(
           Icons.navigate_next,
@@ -50,11 +69,11 @@ class InfoCard extends StatelessWidget {
           Icons.open_in_new,
         ),
       ),
-
     ];
 
-    return SettingsCard(settingList: settingList,
-    headerIcon: Icons.help_outline,
+    return SettingsCard(
+      settingList: settingList,
+      headerIcon: Icons.help_outline,
       title: context.l10n.helpAndInfoLabel,
     );
   }

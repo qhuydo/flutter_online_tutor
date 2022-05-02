@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -38,7 +40,7 @@ class _VideoPreviewMobileState extends State<VideoPreviewMobile> {
   }
 
   Future<void> initializePlayer() async {
-    // log('video ${widget.videoUrl}');
+    log('video ${widget.videoUrl}');
     if (widget.videoUrl.isEmpty) return;
 
     _videoPlayerController = VideoPlayerController.network(widget.videoUrl);

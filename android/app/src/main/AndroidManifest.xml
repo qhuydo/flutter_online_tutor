@@ -18,6 +18,7 @@
         android:label="flutter_online_tutor"
         android:name="${applicationName}"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"

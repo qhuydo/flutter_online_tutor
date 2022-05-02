@@ -4,6 +4,7 @@ import '../../../application/schedule/schedule_details/schedule_details_bloc.dar
 import '../../../domain/schedule/interfaces/i_schedule_repository.dart';
 import '../../../domain/schedule/models/appointment.dart';
 import '../../common.dart';
+import '../../common/utils/constants.dart';
 import '../../common/utils/default_app_bar.dart';
 import '../../common/utils/dialog_utils.dart';
 import '../../common/utils/flushbar_utils.dart';
@@ -30,7 +31,7 @@ class ScheduleDetailsPage extends StatelessWidget {
       child: Scaffold(
         appBar: buildAppBar(context, title: 'Schedule details'),
         body: const SingleChildScrollView(
-          child: ScheduleDetailsBody(),
+          child: SafeArea(child: ScheduleDetailsBody()),
         ),
       ),
     );
@@ -110,9 +111,12 @@ class ScheduleDetailsBody extends StatelessWidget {
               }
               return ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 800),
-                child: VideoPreview(
-                  videoUrl: state.appointment.recordUrl!,
-                  id: 696969,
+                child: Padding(
+                  padding: const EdgeInsets.all(itemSpacing),
+                  child: VideoPreview(
+                    videoUrl: state.appointment.recordUrl!,
+                    id: 696969,
+                  ),
                 ),
               );
             },

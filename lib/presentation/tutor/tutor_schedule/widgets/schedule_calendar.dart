@@ -17,10 +17,13 @@ class ScheduleCalendar extends StatelessWidget {
     final locale = Localizations.localeOf(context).languageCode;
     return BlocBuilder<TutorScheduleBloc, TutorScheduleState>(
       builder: (context, state) {
-        final eventMap = state.scheduleOrFailure.fold((l) {
-          log('$l');
-          return <DateTime, List<Schedule>>{};
-        }, (r) => r);
+        final eventMap = state.scheduleOrFailure.fold(
+          (l) {
+            log('$l');
+            return <DateTime, List<Schedule>>{};
+          },
+          (r) => r,
+        );
 
         final theme = Theme.of(context);
 
@@ -28,14 +31,16 @@ class ScheduleCalendar extends StatelessWidget {
           ignoring: state.isLoading,
           child: TableCalendar(
             headerVisible: true,
+            availableGestures: AvailableGestures.horizontalSwipe,
             daysOfWeekHeight: Target().isDesktop ? 16 + 16 : 20,
             locale: locale,
             calendarFormat: state.format,
             focusedDay: state.focusedDay,
             firstDay: state.firstDay,
             lastDay: state.lastDay,
-            eventLoader: (day) =>
-                eventMap[day.keepDayInfo()] != null ? [1] : [],
+            eventLoader: (day) {
+              return eventMap[day.keepDayInfo()] != null ? [1] : [];
+            },
             selectedDayPredicate: (day) => isSameDay(state.selectedDay, day),
             onDaySelected: (selectedDay, focusedDay) =>
                 context.read<TutorScheduleBloc>().add(
@@ -44,14 +49,6 @@ class ScheduleCalendar extends StatelessWidget {
                         focusedDay: focusedDay,
                       ),
                     ),
-            onPageChanged: (focusedDay) {
-              context.read<TutorScheduleBloc>().add(
-                    TutorScheduleEvent.dateSelected(
-                      selectedDay: state.selectedDay ?? DateTime.now(),
-                      focusedDay: focusedDay,
-                    ),
-                  );
-            },
             onFormatChanged: (format) {
               if (format != state.format) {
                 context

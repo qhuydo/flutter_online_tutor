@@ -171,10 +171,7 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
     return _getClasses(limit: limit, queryParams: {
       'page': page.toString(),
       'perPage': limit.toString(),
-      'dateTimeLte': DateTime.now()
-          .subtract(const Duration(minutes: 35))
-          .millisecondsSinceEpoch
-          .toString(),
+      'dateTimeLte': DateTime.now().millisecondsSinceEpoch.toString(),
       'orderBy': 'meeting',
       'sortBy': 'desc',
     });
@@ -205,9 +202,11 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
         RequestUrl.schedule.next,
         onResponded: (response) {
           final data = response.data['data'] as List;
-          final list = data.map(
-            (e) => AppointmentRowDto.fromJson(e).toDomain(),
-          ).sortedBy((element) => element.meetingTime.start);
+          final list = data
+              .map(
+                (e) => AppointmentRowDto.fromJson(e).toDomain(),
+              )
+              .sortedBy((element) => element.meetingTime.start);
 
           for (final item in list) {
             log('${item.meetingTime.start} - ${item.status}');
@@ -217,7 +216,6 @@ class ScheduleRepositoryImpl extends ScheduleRepository {
             return item;
           }
           return null;
-
         },
       );
 
