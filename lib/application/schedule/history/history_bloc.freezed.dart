@@ -22,6 +22,10 @@ class _$HistoryEventTearOff {
     return const _Initialise();
   }
 
+  _Reload reload() {
+    return const _Reload();
+  }
+
   _PageChanged pageChanged(int page) {
     return _PageChanged(
       page,
@@ -43,6 +47,7 @@ mixin _$HistoryEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialise,
+    required TResult Function() reload,
     required TResult Function(int page) pageChanged,
     required TResult Function(int pageLimit) pageLimitChanged,
   }) =>
@@ -50,6 +55,7 @@ mixin _$HistoryEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
   }) =>
@@ -57,6 +63,7 @@ mixin _$HistoryEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
     required TResult orElse(),
@@ -65,6 +72,7 @@ mixin _$HistoryEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialise value) initialise,
+    required TResult Function(_Reload value) reload,
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PageLimitChanged value) pageLimitChanged,
   }) =>
@@ -72,6 +80,7 @@ mixin _$HistoryEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
   }) =>
@@ -79,6 +88,7 @@ mixin _$HistoryEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
     required TResult orElse(),
@@ -143,6 +153,7 @@ class _$_Initialise implements _Initialise {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialise,
+    required TResult Function() reload,
     required TResult Function(int page) pageChanged,
     required TResult Function(int pageLimit) pageLimitChanged,
   }) {
@@ -153,6 +164,7 @@ class _$_Initialise implements _Initialise {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
   }) {
@@ -163,6 +175,7 @@ class _$_Initialise implements _Initialise {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
     required TResult orElse(),
@@ -177,6 +190,7 @@ class _$_Initialise implements _Initialise {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialise value) initialise,
+    required TResult Function(_Reload value) reload,
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PageLimitChanged value) pageLimitChanged,
   }) {
@@ -187,6 +201,7 @@ class _$_Initialise implements _Initialise {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
   }) {
@@ -197,6 +212,7 @@ class _$_Initialise implements _Initialise {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
     required TResult orElse(),
@@ -210,6 +226,120 @@ class _$_Initialise implements _Initialise {
 
 abstract class _Initialise implements HistoryEvent {
   const factory _Initialise() = _$_Initialise;
+}
+
+/// @nodoc
+abstract class _$ReloadCopyWith<$Res> {
+  factory _$ReloadCopyWith(_Reload value, $Res Function(_Reload) then) =
+      __$ReloadCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ReloadCopyWithImpl<$Res> extends _$HistoryEventCopyWithImpl<$Res>
+    implements _$ReloadCopyWith<$Res> {
+  __$ReloadCopyWithImpl(_Reload _value, $Res Function(_Reload) _then)
+      : super(_value, (v) => _then(v as _Reload));
+
+  @override
+  _Reload get _value => super._value as _Reload;
+}
+
+/// @nodoc
+
+class _$_Reload implements _Reload {
+  const _$_Reload();
+
+  @override
+  String toString() {
+    return 'HistoryEvent.reload()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Reload);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialise,
+    required TResult Function() reload,
+    required TResult Function(int page) pageChanged,
+    required TResult Function(int pageLimit) pageLimitChanged,
+  }) {
+    return reload();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function()? reload,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
+  }) {
+    return reload?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function()? reload,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
+    required TResult orElse(),
+  }) {
+    if (reload != null) {
+      return reload();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialise value) initialise,
+    required TResult Function(_Reload value) reload,
+    required TResult Function(_PageChanged value) pageChanged,
+    required TResult Function(_PageLimitChanged value) pageLimitChanged,
+  }) {
+    return reload(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
+  }) {
+    return reload?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    required TResult orElse(),
+  }) {
+    if (reload != null) {
+      return reload(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reload implements HistoryEvent {
+  const factory _Reload() = _$_Reload;
 }
 
 /// @nodoc
@@ -277,6 +407,7 @@ class _$_PageChanged implements _PageChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialise,
+    required TResult Function() reload,
     required TResult Function(int page) pageChanged,
     required TResult Function(int pageLimit) pageLimitChanged,
   }) {
@@ -287,6 +418,7 @@ class _$_PageChanged implements _PageChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
   }) {
@@ -297,6 +429,7 @@ class _$_PageChanged implements _PageChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
     required TResult orElse(),
@@ -311,6 +444,7 @@ class _$_PageChanged implements _PageChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialise value) initialise,
+    required TResult Function(_Reload value) reload,
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PageLimitChanged value) pageLimitChanged,
   }) {
@@ -321,6 +455,7 @@ class _$_PageChanged implements _PageChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
   }) {
@@ -331,6 +466,7 @@ class _$_PageChanged implements _PageChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
     required TResult orElse(),
@@ -417,6 +553,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialise,
+    required TResult Function() reload,
     required TResult Function(int page) pageChanged,
     required TResult Function(int pageLimit) pageLimitChanged,
   }) {
@@ -427,6 +564,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
   }) {
@@ -437,6 +575,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialise,
+    TResult Function()? reload,
     TResult Function(int page)? pageChanged,
     TResult Function(int pageLimit)? pageLimitChanged,
     required TResult orElse(),
@@ -451,6 +590,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialise value) initialise,
+    required TResult Function(_Reload value) reload,
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PageLimitChanged value) pageLimitChanged,
   }) {
@@ -461,6 +601,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
   }) {
@@ -471,6 +612,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialise value)? initialise,
+    TResult Function(_Reload value)? reload,
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PageLimitChanged value)? pageLimitChanged,
     required TResult orElse(),

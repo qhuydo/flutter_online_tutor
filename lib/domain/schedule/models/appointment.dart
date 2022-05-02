@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../presentation/common.dart';
 import '../../common/models/country.dart';
+import 'appointment_status.dart';
 import 'meeting_room.dart';
 
 part 'appointment.freezed.dart';
@@ -23,7 +24,24 @@ class Appointment with _$Appointment {
     String? tutorAvatar,
   }) = _Appointment;
 
-  bool get isCancelable => meetingTime.start
-      .subtract(const Duration(hours: 2))
-      .isAfter(DateTime.now());
+  bool get isCancelable => cancelDeadline.isAfter(DateTime.now());
+
+  bool get isRoomClosed => roomClosingTime.isBefore(DateTime.now());
+
+  DateTime get cancelDeadline =>
+      meetingTime.start.subtract(const Duration(hours: 2));
+
+  DateTime get roomClosingTime =>
+      meetingTime.end.add(const Duration(minutes: 15));
+
+  AppointmentStatus get status {
+    final now = DateTime.now();
+    if (meetingTime.start.isAfter(now)) {
+      return AppointmentStatus.upcoming;
+    }
+    if (meetingTime.end.isBefore(now)) {
+      return AppointmentStatus.ended;
+    }
+    return AppointmentStatus.ongoing;
+  }
 }

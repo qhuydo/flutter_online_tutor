@@ -21,7 +21,9 @@ class FavouriteTutorsPage extends StatelessWidget {
       ),
       body: BlocProvider(
         create: (_) => getIt<FavouriteTutorsCubit>(),
-        child: const FavouriteTutorsBody(),
+        child: const SingleChildScrollView(
+          child: SafeArea(child: FavouriteTutorsBody()),
+        ),
       ),
     );
   }
@@ -41,8 +43,10 @@ class FavouriteTutorsBody extends StatelessWidget {
         final list = state.tutorsOrFailure.fold((l) => <Tutor>[], (r) => r);
         return list.isNotEmpty
             ? Padding(
-              padding: const EdgeInsets.symmetric(horizontal: itemSpacing),
-              child: TutorList(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: smallItemSpacing,
+                ),
+                child: TutorList(
                   list: list,
                   loadingTutors: state.loadingTutors,
                   onFavouriteButtonPressed: (index) {
@@ -51,7 +55,7 @@ class FavouriteTutorsBody extends StatelessWidget {
                         .toggleFavourite(list[index].id);
                   },
                 ),
-            )
+              )
             : EmptyPage(text: context.l10n.emptyResult);
       },
     );

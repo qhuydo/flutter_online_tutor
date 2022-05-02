@@ -5,11 +5,15 @@ import 'package:flutter/material.dart';
 class CountDownTimer extends StatefulWidget {
   final DateTime endTime;
   final Widget Function(BuildContext context, Duration timeRemaining) builder;
+  final Duration Function()? durationBuilder;
+  final String tag;
 
   const CountDownTimer({
     Key? key,
     required this.endTime,
     required this.builder,
+    this.tag = '',
+    this.durationBuilder,
   }) : super(key: key);
 
   @override
@@ -26,7 +30,11 @@ class _CountDownTimerState extends State<CountDownTimer> {
     _timer = Timer.periodic(
       const Duration(seconds: 1),
       (timer) {
+        if (DateTime.now().isAfter(widget.endTime)) {
+          _timer.cancel();
+        }
         setState(() {});
+        // log('CountDownTimer - tag: {${widget.tag}}');
       },
     );
   }
@@ -39,9 +47,19 @@ class _CountDownTimerState extends State<CountDownTimer> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.builder.call(
-      context,
-      widget.endTime.difference(DateTime.now()),
-    );
+    if (widget.durationBuilder == null) {
+      final now = DateTime.now();
+      return widget.builder.call(
+        context,
+        now.isAfter(widget.endTime)
+            ? Duration.zero
+            : widget.endTime.difference(now),
+      );
+    } else {
+      return widget.builder.call(
+        context,
+        widget.durationBuilder!.call(),
+      );
+    }
   }
 }

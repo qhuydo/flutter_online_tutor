@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../application/schedule/schedule_details/schedule_details_bloc.dart';
+import '../../../../domain/schedule/models/appointment_status.dart';
 import '../../../common.dart';
 import '../../../common/l10n/schedule_display_text.dart';
 import '../../../common/routes/app_routes.gr.dart';
@@ -12,6 +13,8 @@ import '../../../common/utils/constants.dart';
 import '../../../common/utils/duration_utils.dart';
 import '../../../common/widgets/count_down_timer.dart';
 import '../../../common/widgets/outlined_card.dart';
+import '../../utils/appointment_dialogues.dart';
+import 'appointment_status_label.dart';
 import 'schedule_details_card_row.dart';
 
 // TODO update translation
@@ -23,7 +26,6 @@ class ScheduleDetailsCard extends StatelessWidget {
     return BlocBuilder<ScheduleDetailsBloc, ScheduleDetailsState>(
         builder: (_, state) {
       final textTheme = Theme.of(context).textTheme;
-
       final locale = context.l10n.localeName;
       final dateFormatter = DateFormat.yMEd(locale);
       final appointment = state.appointment;
@@ -50,26 +52,44 @@ class ScheduleDetailsCard extends StatelessWidget {
                           ),
                         ),
                         const Expanded(child: SizedBox()),
-                        if (appointment.isCancelable)
-                          TextButton.icon(
-                            icon: const Icon(Icons.cancel_outlined),
-                            label: Text(context.l10n.cancelButtonLabel),
-                            onPressed: () {
-                              showCancelClassConfirmDialog(context);
-                            },
-                            style: OutlinedButton.styleFrom(
-                              primary: Colors.red,
-                            ),
-                          ),
+                        CountDownTimer(
+                          endTime: appointment.cancelDeadline,
+                          builder: (_, __) {
+                            return Visibility(
+                              visible: appointment.isCancelable,
+                              child: TextButton.icon(
+                                icon: const Icon(Icons.cancel_outlined),
+                                label: Text(context.l10n.cancelButtonLabel),
+                                onPressed: () {
+                                  showCancelClassConfirmDialog(context);
+                                },
+                                style: OutlinedButton.styleFrom(
+                                  primary: Colors.red,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
                       ],
                     ),
                     const Divider(),
                     const SizedBox(height: smallItemSpacing),
                     ScheduleDetailsCardRow(
+                      iconData: Icons.info_outlined,
+                      title: 'Status',
+                      stringOrWidgetContent: right(CountDownTimer(
+                        endTime: appointment.meetingTime.end,
+                        builder: (_, __) => AppointmentStatusLabel(
+                          status: appointment.status,
+                        ),
+                      )),
+                    ),
+                    const SizedBox(height: smallItemSpacing),
+                    ScheduleDetailsCardRow(
                       iconData: Icons.hourglass_top,
                       title: 'Time util next lesson',
                       stringOrWidgetContent: right(CountDownTimer(
-                        endTime: appointment.meetingTime.end,
+                        endTime: appointment.meetingTime.start,
                         builder: (_, duration) => Text(
                           prettyDuration(
                             duration,
@@ -81,6 +101,34 @@ class ScheduleDetailsCard extends StatelessWidget {
                           ),
                         ),
                       )),
+                    ),
+                    CountDownTimer(
+                      endTime: appointment.meetingTime.end,
+                      durationBuilder: () {
+                        return DateTime.now().difference(
+                          appointment.meetingTime.start,
+                        );
+                      },
+                      builder: (_, duration) {
+                        return Visibility(
+                          visible:
+                              appointment.status == AppointmentStatus.ongoing,
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              top: smallItemSpacing,
+                            ),
+                            child: ScheduleDetailsCardRow(
+                              iconData: Icons.timer_outlined,
+                              title: 'Meeting Time',
+                              stringOrWidgetContent: left(prettyDuration(
+                                duration,
+                                locale: context.durationLocale,
+                                abbreviated: true,
+                              )),
+                            ),
+                          ),
+                        );
+                      },
                     ),
                     const SizedBox(height: smallItemSpacing),
                     ScheduleDetailsCardRow(
@@ -98,17 +146,25 @@ class ScheduleDetailsCard extends StatelessWidget {
                           left(appointment.meetingTime.getMeetingTime(context)),
                     ),
                     const SizedBox(height: itemSpacing),
-                    ElevatedButton.icon(
-                      onPressed: () {
-                        context.pushRoute(
-                          MeetingRoute(appointment: appointment),
+                    CountDownTimer(
+                      endTime: appointment.roomClosingTime,
+                      builder: (_, __) {
+                        return Visibility(
+                          visible: !appointment.isRoomClosed,
+                          child: ElevatedButton.icon(
+                            onPressed: () {
+                              context.pushRoute(
+                                MeetingRoute(appointment: appointment),
+                              );
+                            },
+                            icon: const Icon(Icons.meeting_room),
+                            label: Text(context.l10n.enterLessonRoom),
+                            style: ElevatedButton.styleFrom(
+                              minimumSize: const Size.fromHeight(56),
+                            ),
+                          ),
                         );
                       },
-                      icon: const Icon(Icons.meeting_room),
-                      label: Text(context.l10n.enterLessonRoom),
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(56),
-                      ),
                     ),
                   ],
                 ),
@@ -120,27 +176,5 @@ class ScheduleDetailsCard extends StatelessWidget {
     });
   }
 
-  void showCancelClassConfirmDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (_) => AlertDialog(
-        title: const Text('Cancel class?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('No'),
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-              context
-                  .read<ScheduleDetailsBloc>()
-                  .add(const ScheduleDetailsEvent.cancelClass());
-            },
-            child: const Text('Yes'),
-          ),
-        ],
-      ),
-    );
-  }
+ 
 }

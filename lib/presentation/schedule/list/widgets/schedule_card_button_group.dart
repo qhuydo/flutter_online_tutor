@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import '../../../../domain/schedule/models/appointment.dart';
 import '../../../common.dart';
 import '../../../common/routes/app_routes.gr.dart';
+import '../../../common/widgets/count_down_timer.dart';
 
 class ScheduleCardButtonGroup extends StatelessWidget {
   final ValueChanged<Appointment>? onCancelButtonTapped;
@@ -27,19 +28,24 @@ class ScheduleCardButtonGroup extends StatelessWidget {
         alignment: WrapAlignment.end,
         children: [
           if (showCancelButton)
-            Visibility(
-              visible: appointment.isCancelable,
-              child: OutlinedButton.icon(
-                onPressed: () => onCancelButtonTapped?.call(appointment),
-                icon: const Icon(Icons.cancel_outlined),
-                label: Text(
-                  context.l10n.cancelButtonLabel,
-                ),
-                style: OutlinedButton.styleFrom(
-                  backgroundColor: Theme.of(context).cardColor,
-                  primary: Colors.red,
-                ),
-              ),
+            CountDownTimer(
+              endTime: appointment.cancelDeadline,
+              builder: (_, __) {
+                return Visibility(
+                  visible: appointment.isCancelable,
+                  child: OutlinedButton.icon(
+                    onPressed: () => onCancelButtonTapped?.call(appointment),
+                    icon: const Icon(Icons.cancel_outlined),
+                    label: Text(
+                      context.l10n.cancelButtonLabel,
+                    ),
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: Theme.of(context).cardColor,
+                      primary: Colors.red,
+                    ),
+                  ),
+                );
+              },
             ),
           OutlinedButton.icon(
             onPressed: () {

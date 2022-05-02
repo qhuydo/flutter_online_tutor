@@ -55,7 +55,6 @@ class TutorPageState extends State<TutorPage> {
 
         return SafeArea(
           left: false,
-          bottom: false,
           child: IgnorePointer(
             ignoring: state.isLoading,
             child: SearchBar(

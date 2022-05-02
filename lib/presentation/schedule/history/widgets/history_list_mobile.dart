@@ -18,28 +18,30 @@ class HistoryListMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          MasonryGridView.extent(
-            primary: false,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            padding: const EdgeInsets.all(smallItemSpacing),
-            itemCount: history.length,
-            crossAxisSpacing: 4,
-            mainAxisSpacing: 4,
-            maxCrossAxisExtent: 600,
-            itemBuilder: (context, index) =>
-                ScheduleCard(
-                  appointment: history[index],
-                  showActionButtons: false,
-                ),
-          ),
-          if (paginator != null) ...[
-            paginator!,
-            const SizedBox(height: smallItemSpacing),
+      child: SafeArea(
+        child: Column(
+          children: [
+            MasonryGridView.extent(
+              primary: false,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              padding: const EdgeInsets.all(smallItemSpacing),
+              itemCount: history.length,
+              crossAxisSpacing: 4,
+              mainAxisSpacing: 4,
+              maxCrossAxisExtent: 600,
+              itemBuilder: (context, index) =>
+                  ScheduleCard(
+                    appointment: history[index],
+                    showActionButtons: false,
+                  ),
+            ),
+            if (paginator != null) ...[
+              paginator!,
+              const SizedBox(height: smallItemSpacing),
+            ],
           ],
-        ],
+        ),
       ),
     );
   }

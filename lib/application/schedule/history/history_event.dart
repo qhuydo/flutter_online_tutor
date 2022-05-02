@@ -5,6 +5,8 @@ class HistoryEvent with _$HistoryEvent {
 
   const factory HistoryEvent.initialise() = _Initialise;
 
+  const factory HistoryEvent.reload() = _Reload;
+
   const factory HistoryEvent.pageChanged(int page) = _PageChanged;
 
   const factory HistoryEvent.pageLimitChanged(int pageLimit) =

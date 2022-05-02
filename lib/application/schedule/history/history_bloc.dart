@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
@@ -24,6 +25,7 @@ class HistoryBloc extends Bloc<HistoryEvent, HistoryState> {
     on<HistoryEvent>((event, emit) async {
       await event.when(
         initialise: () => _initialise(emit),
+        reload: () => _loadStudiedClasses(emit),
         pageChanged: (value) => _pageChanged(value, emit),
         pageLimitChanged: (value) => _pageLimitChanged(value, emit),
       );
@@ -32,6 +34,12 @@ class HistoryBloc extends Bloc<HistoryEvent, HistoryState> {
 
   Future _initialise(Emitter<HistoryState> emit) async {
     await _loadStudiedClasses(emit);
+
+    await emit.forEach(_repository.subscribe(), onData: (event) {
+      log('HistoryBloc - reload event listened');
+      add(const HistoryEvent.reload());
+      return state;
+    });
   }
 
   Future _loadStudiedClasses(Emitter<HistoryState> emit) async {
