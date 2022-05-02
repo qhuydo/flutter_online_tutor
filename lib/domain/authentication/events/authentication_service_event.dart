@@ -5,4 +5,6 @@ part 'authentication_service_event.freezed.dart';
 @freezed
 class AuthenticationServiceEvent with _$AuthenticationServiceEvent {
   const factory AuthenticationServiceEvent.signedOut() = _SignedOut;
+
+  const factory AuthenticationServiceEvent.profileUpdated() = _ProfileUpdated;
 }

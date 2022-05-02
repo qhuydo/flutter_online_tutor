@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
@@ -11,6 +12,7 @@ import '../../../domain/authentication/interfaces/i_authentication_service.dart'
 import '../../../domain/authentication/value_objects/email_address.dart';
 import '../../../domain/authentication/value_objects/password.dart';
 import '../../../domain/authentication/value_objects/phone_number.dart';
+import '../../../domain/common/failures/failure.dart';
 import '../../../domain/user/models/user.dart';
 import '../../../presentation/common.dart';
 import '../../common/network/api_client.dart';
@@ -207,13 +209,7 @@ class AuthenticationServiceImpl implements AuthenticationService {
         },
       );
 
-      return result.fold(
-        (l) => left(AuthenticationFailure.fromFailure(l)),
-        (authDto) async {
-          await _saveAuthData(authDto);
-          return right(unit);
-        },
-      );
+      return await _saveAuthDtoAndReturnResult(result);
     } on FlutterError {
       return left(const AuthenticationFailure.serverError());
     }
@@ -244,16 +240,25 @@ class AuthenticationServiceImpl implements AuthenticationService {
         },
       );
 
-      return result.fold(
-        (l) => left(AuthenticationFailure.fromFailure(l)),
-        (authDto) async {
-          await _saveAuthData(authDto);
-          return right(unit);
-        },
-      );
+      return await _saveAuthDtoAndReturnResult(result);
     } on FlutterError {
       return left(const AuthenticationFailure.serverError());
     }
+  }
+
+  Future<FutureOr<Either<AuthenticationFailure, Unit>>>
+      _saveAuthDtoAndReturnResult(
+    Either<Failure, AuthenticationDto> result,
+  ) async {
+    return result.fold(
+      (l) => left(AuthenticationFailure.fromFailure(l)),
+      (authDto) async {
+        if (authDto.user.isActivated == true) {
+          await _saveAuthData(authDto);
+        }
+        return right(unit);
+      },
+    );
   }
 
   Future _saveAuthData(AuthenticationDto authDto) async {
@@ -306,5 +311,10 @@ class AuthenticationServiceImpl implements AuthenticationService {
       await _saveAuthData(r);
       return right(unit);
     });
+  }
+
+  @override
+  void addEvent(AuthenticationServiceEvent event) {
+    _eventStreamController.add(event);
   }
 }

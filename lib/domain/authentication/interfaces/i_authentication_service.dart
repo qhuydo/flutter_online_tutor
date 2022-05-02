@@ -52,4 +52,6 @@ abstract class AuthenticationService {
   Stream<AuthenticationServiceEvent> subscribe();
 
   Future dispose();
+
+  void addEvent(AuthenticationServiceEvent event);
 }

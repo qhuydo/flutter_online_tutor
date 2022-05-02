@@ -70,7 +70,7 @@ extension AuthenticationFailureX on AuthenticationFailure {
       message: map(
         wrongEmailOrPassword: (_) => l10n.authenticationErrorWrongPassword,
         wrongPhoneNumberOrPassword: (_) =>
-        l10n.authenticationFailureWrongPhoneOrPassword,
+            l10n.authenticationFailureWrongPhoneOrPassword,
         noConnection: (_) => l10n.authenticationFailureNoInternet,
         serverError: (_) => l10n.authenticationFailureServerError,
         alreadySignedOut: (_) => l10n.authenticationFailureAlreadySignedOut,
@@ -79,6 +79,9 @@ extension AuthenticationFailureX on AuthenticationFailure {
         emailNotExist: (_) => l10n.authenticationFailureEmailNotExist,
         wrongCurrentPassword: (_) => l10n.authenticationErrorWrongPassword,
         unauthorized: (_) => l10n.authenticationFailureUnauthorized,
+        // accountNotActivated: (_) => l10n.authenticationFailureAccountNotActivated,
+        accountNotActivated: (_) => 'Your account has not activated. \n'
+            'Please checkout your email to activate the account',
       ),
       duration: const Duration(
         seconds: 15,
@@ -86,7 +89,6 @@ extension AuthenticationFailureX on AuthenticationFailure {
     ).show(context);
   }
 }
-
 
 extension EmailFailureX on EmailFailure {
   String toText(BuildContext context) => map(
@@ -106,7 +108,6 @@ extension PasswordFailureX on PasswordFailure {
     );
   }
 }
-
 
 extension PhoneNumberFailureX on PhoneNumberFailure {
   String toText(BuildContext context) {

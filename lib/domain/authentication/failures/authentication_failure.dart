@@ -32,10 +32,15 @@ class AuthenticationFailure with _$AuthenticationFailure {
 
   const factory AuthenticationFailure.unauthorized() = _Unauthorzied;
 
+  const factory AuthenticationFailure.accountNotActivated() =
+      _AccountNotActivated;
+
   factory AuthenticationFailure.fromErrorCode(int errorCode) {
     switch (errorCode) {
       case 1:
         return const AuthenticationFailure.unauthorized();
+      case 2:
+        return const AuthenticationFailure.accountNotActivated();
       case 4:
         return const AuthenticationFailure.emailAlreadyTaken();
       case 5:
@@ -53,6 +58,8 @@ class AuthenticationFailure with _$AuthenticationFailure {
 
   factory AuthenticationFailure.fromFailure(Failure failure) {
     return failure.maybeWhen(
+      accountNotActivated: () =>
+          const AuthenticationFailure.accountNotActivated(),
       unauthenticated: () => const AuthenticationFailure.unauthorized(),
       emailExisted: () => const AuthenticationFailure.emailAlreadyTaken(),
       emailNotExist: () => const AuthenticationFailure.emailNotExist(),

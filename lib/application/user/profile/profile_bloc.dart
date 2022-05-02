@@ -6,6 +6,8 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../domain/authentication/events/authentication_service_event.dart';
+import '../../../domain/authentication/interfaces/i_authentication_service.dart';
 import '../../../domain/common/failures/failure.dart';
 import '../../../domain/common/models/country.dart';
 import '../../../domain/user/constants/levels.dart';
@@ -24,8 +26,12 @@ part 'profile_state.dart';
 @injectable
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final UserRepository _repository;
+  final AuthenticationService _authenticationService;
 
-  ProfileBloc(this._repository) : super(ProfileState.initial()) {
+  ProfileBloc(
+    this._repository,
+    this._authenticationService,
+  ) : super(ProfileState.initial()) {
     on<ProfileEvent>((event, emit) async {
       await event.when(
         initialise: () => _onInitialise(emit),
@@ -155,6 +161,12 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         testPreparations: state.testPreparations,
         profileImage: state.selectedProfileImage,
       );
+
+      if (result.isRight()) {
+        _authenticationService.addEvent(
+          const AuthenticationServiceEvent.profileUpdated(),
+        );
+      }
     }
     await _onInitialise(
       emit,

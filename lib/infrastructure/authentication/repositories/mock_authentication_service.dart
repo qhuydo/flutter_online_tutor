@@ -302,4 +302,9 @@ class MockAuthenticationService implements AuthenticationService {
   @override
   Stream<AuthenticationServiceEvent> subscribe() =>
       _eventStreamController.asBroadcastStream();
+
+  @override
+  void addEvent(AuthenticationServiceEvent event) {
+    _eventStreamController.add(event);
+  }
 }

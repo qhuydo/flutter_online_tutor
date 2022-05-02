@@ -21,6 +21,10 @@ class _$AuthenticationServiceEventTearOff {
   _SignedOut signedOut() {
     return const _SignedOut();
   }
+
+  _ProfileUpdated profileUpdated() {
+    return const _ProfileUpdated();
+  }
 }
 
 /// @nodoc
@@ -31,32 +35,38 @@ mixin _$AuthenticationServiceEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signedOut,
+    required TResult Function() profileUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? signedOut,
+    TResult Function()? profileUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signedOut,
+    TResult Function()? profileUpdated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SignedOut value) signedOut,
+    required TResult Function(_ProfileUpdated value) profileUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_SignedOut value)? signedOut,
+    TResult Function(_ProfileUpdated value)? profileUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignedOut value)? signedOut,
+    TResult Function(_ProfileUpdated value)? profileUpdated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +130,7 @@ class _$_SignedOut implements _SignedOut {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() signedOut,
+    required TResult Function() profileUpdated,
   }) {
     return signedOut();
   }
@@ -128,6 +139,7 @@ class _$_SignedOut implements _SignedOut {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? signedOut,
+    TResult Function()? profileUpdated,
   }) {
     return signedOut?.call();
   }
@@ -136,6 +148,7 @@ class _$_SignedOut implements _SignedOut {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? signedOut,
+    TResult Function()? profileUpdated,
     required TResult orElse(),
   }) {
     if (signedOut != null) {
@@ -148,6 +161,7 @@ class _$_SignedOut implements _SignedOut {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_SignedOut value) signedOut,
+    required TResult Function(_ProfileUpdated value) profileUpdated,
   }) {
     return signedOut(this);
   }
@@ -156,6 +170,7 @@ class _$_SignedOut implements _SignedOut {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_SignedOut value)? signedOut,
+    TResult Function(_ProfileUpdated value)? profileUpdated,
   }) {
     return signedOut?.call(this);
   }
@@ -164,6 +179,7 @@ class _$_SignedOut implements _SignedOut {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_SignedOut value)? signedOut,
+    TResult Function(_ProfileUpdated value)? profileUpdated,
     required TResult orElse(),
   }) {
     if (signedOut != null) {
@@ -175,4 +191,109 @@ class _$_SignedOut implements _SignedOut {
 
 abstract class _SignedOut implements AuthenticationServiceEvent {
   const factory _SignedOut() = _$_SignedOut;
+}
+
+/// @nodoc
+abstract class _$ProfileUpdatedCopyWith<$Res> {
+  factory _$ProfileUpdatedCopyWith(
+          _ProfileUpdated value, $Res Function(_ProfileUpdated) then) =
+      __$ProfileUpdatedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ProfileUpdatedCopyWithImpl<$Res>
+    extends _$AuthenticationServiceEventCopyWithImpl<$Res>
+    implements _$ProfileUpdatedCopyWith<$Res> {
+  __$ProfileUpdatedCopyWithImpl(
+      _ProfileUpdated _value, $Res Function(_ProfileUpdated) _then)
+      : super(_value, (v) => _then(v as _ProfileUpdated));
+
+  @override
+  _ProfileUpdated get _value => super._value as _ProfileUpdated;
+}
+
+/// @nodoc
+
+class _$_ProfileUpdated implements _ProfileUpdated {
+  const _$_ProfileUpdated();
+
+  @override
+  String toString() {
+    return 'AuthenticationServiceEvent.profileUpdated()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _ProfileUpdated);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() signedOut,
+    required TResult Function() profileUpdated,
+  }) {
+    return profileUpdated();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? signedOut,
+    TResult Function()? profileUpdated,
+  }) {
+    return profileUpdated?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signedOut,
+    TResult Function()? profileUpdated,
+    required TResult orElse(),
+  }) {
+    if (profileUpdated != null) {
+      return profileUpdated();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SignedOut value) signedOut,
+    required TResult Function(_ProfileUpdated value) profileUpdated,
+  }) {
+    return profileUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_SignedOut value)? signedOut,
+    TResult Function(_ProfileUpdated value)? profileUpdated,
+  }) {
+    return profileUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SignedOut value)? signedOut,
+    TResult Function(_ProfileUpdated value)? profileUpdated,
+    required TResult orElse(),
+  }) {
+    if (profileUpdated != null) {
+      return profileUpdated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ProfileUpdated implements AuthenticationServiceEvent {
+  const factory _ProfileUpdated() = _$_ProfileUpdated;
 }
