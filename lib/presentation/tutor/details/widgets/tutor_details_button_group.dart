@@ -101,7 +101,7 @@ class TutorDetailsButtonGroup extends StatelessWidget {
                 title: context.l10n.reportIconButtonText,
                 icon: Icons.report_gmailerrorred,
                 onPressed: () {
-                  ReportDialog.showReportDialog(context);
+                  ReportDialog.showReportDialog(context, tutorId);
                 },
               ),
             ],
