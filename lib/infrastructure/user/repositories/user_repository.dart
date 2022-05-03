@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:cross_file/cross_file.dart';
 import 'package:dartz/dartz.dart';
@@ -10,7 +11,10 @@ import '../../../domain/authentication/value_objects/phone_number.dart';
 import '../../../domain/common/error/error.dart';
 import '../../../domain/common/failures/failure.dart';
 import '../../../domain/common/models/country.dart';
+import '../../../domain/common/value_objects/non_empty_value.dart';
+import '../../../domain/tutor/models/language.dart';
 import '../../../domain/user/constants/levels.dart';
+import '../../../domain/user/constants/target_student.dart';
 import '../../../domain/user/interfaces/i_user_repository.dart';
 import '../../../domain/user/models/speciality.dart';
 import '../../../domain/user/models/user.dart';
@@ -134,9 +138,11 @@ class UserRepositoryImpl extends UserRepository {
 
   Future<Either<Failure, Unit>> uploadAvatar(XFile profileImage) async {
     try {
+      final fileStream = profileImage.openRead().map((event) => event.toList());
       final data = FormData.fromMap({
-        'avatar': MultipartFile.fromBytes(
-          await profileImage.readAsBytes(),
+        'avatar': MultipartFile(
+          fileStream,
+          await profileImage.length(),
           filename: profileImage.name,
         ),
       });
@@ -185,6 +191,101 @@ class UserRepositoryImpl extends UserRepository {
       return left(const Failure.internalError());
     } on NoValueError {
       return left(const Failure.internalError());
+    }
+  }
+
+  @override
+  Future<Either<Failure, Unit>> registerAsTeacher({
+    required Name name,
+    required Country country,
+    required BirthDay birthDay,
+    required NonEmptyValue interest,
+    required NonEmptyValue education,
+    required NonEmptyValue experience,
+    required NonEmptyValue profession,
+    required List<Language> languages,
+    required NonEmptyValue bio,
+    required TargetStudent targetStudent,
+    required List<Speciality> specialities,
+    required XFile avatar,
+    required XFile video,
+    String price = '500000',
+  }) async {
+    try {
+      final avatarSize = await avatar.length();
+      // TODO move constants to domain folder
+      if (avatarSize > 5 * 1024 * 1024) {
+        return left(const Failure.avatarFileSizeExceedLimit());
+      }
+      final videoSize = await video.length();
+      if (videoSize > 50 * 1024 * 1024) {
+        return left(const Failure.videoFileSizeExceedLimit());
+      }
+
+      final nameValue = name.requireValue();
+      final countryValue = country.isoCode;
+      final birthdayValue = birthDay.requireStringValue();
+      final interestsValue = interest.requireValue();
+      final educationValue = education.requireValue();
+      final experienceValue = experience.valueOrNull();
+      final professionValue = profession.valueOrNull();
+      final languagesValue = languages.map((element) => element.key).join(',');
+      final bioValue = bio.requireValue();
+      final targetStudentValue = targetStudent.toEncodedString();
+      final specialitiesValue = specialities.map((e) => e.key).join(',');
+      final avatarFileStream = avatar.openRead().map((event) => event.toList());
+      final videoFileStream = video.openRead().map((event) => event.toList());
+
+      final data = FormData.fromMap({
+        'name': nameValue,
+        'country': countryValue,
+        'birthday': birthdayValue,
+        'interests': interestsValue,
+        'education': educationValue,
+        'experience': experienceValue,
+        'profession': professionValue,
+        'languages': languagesValue,
+        'bio': bioValue,
+        'targetStudent': targetStudentValue,
+        'specialties': specialitiesValue,
+        'avatar': MultipartFile(
+          avatarFileStream,
+          avatarSize,
+          filename: avatar.name,
+        ),
+        'video': MultipartFile(
+          videoFileStream,
+          videoSize,
+          filename: video.name,
+        ),
+        'price': price,
+      });
+
+      final result = await _apiClient.post(
+        RequestUrl.tutor.becomeTeacher,
+        data: data,
+        onResponded: (_) => unit,
+      );
+
+      return result;
+    } on FlutterError {
+      return left(const Failure.internalError());
+    } on NoValueError catch (e) {
+      log(e.toString());
+      return left(const Failure.internalError());
+    }
+  }
+}
+
+extension TargetStudentX on TargetStudent {
+  String toEncodedString() {
+    switch (this) {
+      case TargetStudent.beginner:
+        return 'Beginner';
+      case TargetStudent.intermediate:
+        return 'Intermediate';
+      case TargetStudent.advanced:
+        return 'Advanced';
     }
   }
 }

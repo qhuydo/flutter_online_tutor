@@ -8,7 +8,7 @@ class NonEmptyValue extends ValueObject<ValueFailure, String> {
 
   NonEmptyValue._(this._valueOrFailure);
 
-  factory NonEmptyValue(String? value) => NonEmptyValue._(_validate(value));
+  factory NonEmptyValue([String? value]) => NonEmptyValue._(_validate(value));
 
   @override
   Either<ValueFailure, String> get value => _valueOrFailure;

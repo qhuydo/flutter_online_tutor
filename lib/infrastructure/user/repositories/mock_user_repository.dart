@@ -9,7 +9,10 @@ import '../../../domain/authentication/value_objects/phone_number.dart';
 import '../../../domain/common/error/error.dart';
 import '../../../domain/common/failures/failure.dart';
 import '../../../domain/common/models/country.dart';
+import '../../../domain/common/value_objects/non_empty_value.dart';
+import '../../../domain/tutor/models/language.dart';
 import '../../../domain/user/constants/levels.dart';
+import '../../../domain/user/constants/target_student.dart';
 import '../../../domain/user/interfaces/i_user_repository.dart';
 import '../../../domain/user/models/speciality.dart';
 import '../../../domain/user/models/user.dart';
@@ -125,4 +128,22 @@ class MockUserRepository extends UserRepository {
       () => const Failure.internalError(),
     );
   }
+
+  @override
+  Future<Either<Failure, Unit>> registerAsTeacher({
+    required Name name,
+    required Country country,
+    required BirthDay birthDay,
+    required NonEmptyValue interest,
+    required NonEmptyValue education,
+    required NonEmptyValue experience,
+    required NonEmptyValue profession,
+    required List<Language> languages,
+    required NonEmptyValue bio,
+    required TargetStudent targetStudent,
+    required List<Speciality> specialities,
+    required XFile avatar,
+    required XFile video,
+    String price = '500000',
+  }) async => right(unit);
 }

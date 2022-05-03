@@ -26,6 +26,7 @@ class User with _$User {
     @Default(Level.none) Level level,
     @Default([]) List<Speciality> learningTopics,
     @Default([]) List<Speciality> testPreparationTopics,
+    @Default(false) tutorFormCompleted,
   }) = _User;
 
   factory User.initial() => User(

@@ -28,7 +28,8 @@ class _$UserTearOff {
       Country? country,
       Level level = Level.none,
       List<Speciality> learningTopics = const [],
-      List<Speciality> testPreparationTopics = const []}) {
+      List<Speciality> testPreparationTopics = const [],
+      dynamic tutorFormCompleted = false}) {
     return _User(
       id: id,
       emailAddress: emailAddress,
@@ -40,6 +41,7 @@ class _$UserTearOff {
       level: level,
       learningTopics: learningTopics,
       testPreparationTopics: testPreparationTopics,
+      tutorFormCompleted: tutorFormCompleted,
     );
   }
 }
@@ -60,6 +62,7 @@ mixin _$User {
   List<Speciality> get learningTopics => throw _privateConstructorUsedError;
   List<Speciality> get testPreparationTopics =>
       throw _privateConstructorUsedError;
+  dynamic get tutorFormCompleted => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
@@ -79,7 +82,8 @@ abstract class $UserCopyWith<$Res> {
       Country? country,
       Level level,
       List<Speciality> learningTopics,
-      List<Speciality> testPreparationTopics});
+      List<Speciality> testPreparationTopics,
+      dynamic tutorFormCompleted});
 
   $CountryCopyWith<$Res>? get country;
 }
@@ -104,6 +108,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
     Object? level = freezed,
     Object? learningTopics = freezed,
     Object? testPreparationTopics = freezed,
+    Object? tutorFormCompleted = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -146,6 +151,10 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
           ? _value.testPreparationTopics
           : testPreparationTopics // ignore: cast_nullable_to_non_nullable
               as List<Speciality>,
+      tutorFormCompleted: tutorFormCompleted == freezed
+          ? _value.tutorFormCompleted
+          : tutorFormCompleted // ignore: cast_nullable_to_non_nullable
+              as dynamic,
     ));
   }
 
@@ -176,7 +185,8 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       Country? country,
       Level level,
       List<Speciality> learningTopics,
-      List<Speciality> testPreparationTopics});
+      List<Speciality> testPreparationTopics,
+      dynamic tutorFormCompleted});
 
   @override
   $CountryCopyWith<$Res>? get country;
@@ -203,6 +213,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     Object? level = freezed,
     Object? learningTopics = freezed,
     Object? testPreparationTopics = freezed,
+    Object? tutorFormCompleted = freezed,
   }) {
     return _then(_User(
       id: id == freezed
@@ -245,6 +256,9 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
           ? _value.testPreparationTopics
           : testPreparationTopics // ignore: cast_nullable_to_non_nullable
               as List<Speciality>,
+      tutorFormCompleted: tutorFormCompleted == freezed
+          ? _value.tutorFormCompleted
+          : tutorFormCompleted,
     ));
   }
 }
@@ -262,7 +276,8 @@ class _$_User extends _User {
       this.country,
       this.level = Level.none,
       this.learningTopics = const [],
-      this.testPreparationTopics = const []})
+      this.testPreparationTopics = const [],
+      this.tutorFormCompleted = false})
       : super._();
 
   @override
@@ -288,10 +303,13 @@ class _$_User extends _User {
   @JsonKey()
   @override
   final List<Speciality> testPreparationTopics;
+  @JsonKey()
+  @override
+  final dynamic tutorFormCompleted;
 
   @override
   String toString() {
-    return 'User(id: $id, emailAddress: $emailAddress, name: $name, phoneNumber: $phoneNumber, avatar: $avatar, birthday: $birthday, country: $country, level: $level, learningTopics: $learningTopics, testPreparationTopics: $testPreparationTopics)';
+    return 'User(id: $id, emailAddress: $emailAddress, name: $name, phoneNumber: $phoneNumber, avatar: $avatar, birthday: $birthday, country: $country, level: $level, learningTopics: $learningTopics, testPreparationTopics: $testPreparationTopics, tutorFormCompleted: $tutorFormCompleted)';
   }
 
   @override
@@ -312,7 +330,9 @@ class _$_User extends _User {
             const DeepCollectionEquality()
                 .equals(other.learningTopics, learningTopics) &&
             const DeepCollectionEquality()
-                .equals(other.testPreparationTopics, testPreparationTopics));
+                .equals(other.testPreparationTopics, testPreparationTopics) &&
+            const DeepCollectionEquality()
+                .equals(other.tutorFormCompleted, tutorFormCompleted));
   }
 
   @override
@@ -327,7 +347,8 @@ class _$_User extends _User {
       const DeepCollectionEquality().hash(country),
       const DeepCollectionEquality().hash(level),
       const DeepCollectionEquality().hash(learningTopics),
-      const DeepCollectionEquality().hash(testPreparationTopics));
+      const DeepCollectionEquality().hash(testPreparationTopics),
+      const DeepCollectionEquality().hash(tutorFormCompleted));
 
   @JsonKey(ignore: true)
   @override
@@ -346,7 +367,8 @@ abstract class _User extends User {
       Country? country,
       Level level,
       List<Speciality> learningTopics,
-      List<Speciality> testPreparationTopics}) = _$_User;
+      List<Speciality> testPreparationTopics,
+      dynamic tutorFormCompleted}) = _$_User;
   const _User._() : super._();
 
   @override
@@ -369,6 +391,8 @@ abstract class _User extends User {
   List<Speciality> get learningTopics;
   @override
   List<Speciality> get testPreparationTopics;
+  @override
+  dynamic get tutorFormCompleted;
   @override
   @JsonKey(ignore: true)
   _$UserCopyWith<_User> get copyWith => throw _privateConstructorUsedError;

@@ -72,7 +72,9 @@ class TutorDetailsDto with _$TutorDetailsDto {
         price: price.toDouble(),
         profession: profession,
         specialities: SpecialityConverter.parseFromSpecialityKeyString(
-            specialties, specialityMap),
+          specialties,
+          specialityMap,
+        ),
         targetStudent: targetStudent.toLevelFromTargetStudent(),
         video: video,
       );

@@ -35,6 +35,7 @@ class UserDto with _$UserDto {
     @Default([]) List<SpecialityDto> testPreparations,
     // required bool isPhoneActivated,
     // required int timezone,
+    Object? tutorInfo,
   }) = _UserDto;
 
   factory UserDto.fromJson(Map<String, dynamic> json) =>
@@ -63,6 +64,7 @@ extension UserDtoX on UserDto {
       level: level.toLevel(),
       learningTopics: learnTopics.map((e) => e.toDomain()).toList(),
       testPreparationTopics: testPreparations.map((e) => e.toDomain()).toList(),
+      tutorFormCompleted: tutorInfo != null,
     );
   }
 }
