@@ -1,5 +1,4 @@
 import '../../common.dart';
-
 import '../../common/utils/constants.dart';
 import '../../common/widgets/info_container.dart';
 
@@ -9,6 +8,7 @@ class BecomeTutorStep2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final titleStyle = Theme.of(context).textTheme.titleLarge;
+
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -21,10 +21,7 @@ class BecomeTutorStep2 extends StatelessWidget {
           const SizedBox(height: itemSpacing),
           Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(
-                minWidth: 600,
-                maxWidth: 600,
-              ),
+              constraints: const BoxConstraints(minWidth: 600, maxWidth: 600),
               child: InfoContainer(
                 child: Text(
                   context.l10n.introductionVideoStepTipsLabel,

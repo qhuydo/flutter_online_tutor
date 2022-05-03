@@ -116,11 +116,6 @@ class _BecomeTutorPageState extends State<BecomeTutorPage> {
                   });
                 }
               },
-              // onStepTapped: (int index) {
-              //   setState(() {
-              //     _index = index;
-              //   });
-              // },
               steps: [
                 buildStep1(context),
                 buildStep2(context),

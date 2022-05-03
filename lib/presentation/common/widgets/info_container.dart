@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/constants.dart';
+
 class InfoContainer extends StatelessWidget {
   final Widget? child;
 
@@ -20,14 +22,14 @@ class InfoContainer extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border.all(
             color: Theme.of(context).primaryColorDark,
-            width: 1.25,
+            width: 1.25
           ),
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(smallItemSpacing),
           color: backgroundColour,
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: child,
+          padding: const EdgeInsets.all(smallItemSpacing),
+          child: child
         ),
       ),
       style: TextStyle(color: onBackgroundColour),

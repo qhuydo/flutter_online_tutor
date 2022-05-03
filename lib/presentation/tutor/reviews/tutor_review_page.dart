@@ -1,5 +1,3 @@
-import 'package:auto_route/auto_route.dart';
-
 import '../../../domain/tutor/models/tutor.dart';
 import '../../common.dart';
 import '../../common/utils/default_app_bar.dart';
@@ -11,7 +9,7 @@ class TutorReviewPage extends StatelessWidget {
 
   const TutorReviewPage({
     Key? key,
-    @PathParam('tutorId') required this.tutorId,
+    required this.tutorId,
     required this.tutor,
   }) : super(key: key);
 

@@ -95,7 +95,7 @@ class AppCubit extends Cubit<AppState> {
   /// Handle incoming links - the ones that the app will receive from the OS
   /// while already started.
   void _handleIncomingLinks() {
-    if (!Target().isWeb) {
+    if (!Target().isWeb && Target().isMobile) {
       // It will handle app links while the app is already started - be it in
       // the foreground or in the background.
       _urlSubscription = uriLinkStream.listen((Uri? uri) {
@@ -116,6 +116,8 @@ class AppCubit extends Cubit<AppState> {
   ///
   /// We handle all exceptions, since it is called from initState.
   Future<void> _handleInitialUri() async {
+    if (!Target().isWeb && !Target().isMobile) return;
+
     if (!state.initialUriIsHandled) {
       // _initialUriIsHandled = true;
       try {

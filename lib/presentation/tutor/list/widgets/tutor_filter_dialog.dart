@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/tutor/search_tutors/search_tutors_bloc.dart';
 import '../../../../domain/tutor/models/tutor_search_options.dart';
-import '../../../become_tutor/widgets/specialities_dropdown.dart';
+import '../../../common/widgets/specialities_dropdown.dart';
 import '../../../common.dart';
 import '../../../common/l10n/tutor_sort_by_display_text.dart';
 import '../../../common/utils/constants.dart';

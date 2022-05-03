@@ -3,6 +3,7 @@ import 'package:multi_select_flutter/multi_select_flutter.dart';
 import '../../../domain/common/constants/languages.dart';
 import '../../../domain/tutor/models/language.dart';
 import '../../common.dart';
+import '../utils/constants.dart';
 
 class LanguageMultiSelectBottomField extends StatelessWidget {
   final void Function(List<Language?>) onItemsSelected;
@@ -29,33 +30,40 @@ class LanguageMultiSelectBottomField extends StatelessWidget {
         )
         .toList();
 
+    final theme = Theme.of(context);
+    final textTheme = Theme.of(context).textTheme;
+
     return Column(
-      children: <Widget>[
+      children: [
         MultiSelectDialogField<Language>(
           decoration: const BoxDecoration(
             shape: BoxShape.rectangle,
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(Radius.circular(smallItemSpacing)),
           ),
           listType: MultiSelectListType.LIST,
+          itemsTextStyle: textTheme.bodyText1,
+          unselectedColor: textTheme.bodyText1!.color,
+          checkColor: textTheme.bodyText1!.color,
+          selectedColor: theme.primaryColor,
+          selectedItemsTextStyle: textTheme.bodyText1,
           searchable: true,
           buttonText: Text(
-            AppLocalizations.of(context)!.languageLabel,
-            style: Theme.of(context).textTheme.titleMedium,
+            context.l10n.languageLabel,
+            style: textTheme.titleMedium,
           ),
           title: Text(
-            AppLocalizations.of(context)!.languageLabel,
+            context.l10n.languageLabel,
           ),
           items: _items,
           onConfirm: onItemsSelected,
-          chipDisplay: MultiSelectChipDisplay(),
         ),
         selectedLanguages.isEmpty
             ? Container(
                 padding: const EdgeInsets.all(12),
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  AppLocalizations.of(context)!.noneSelectedOption,
-                  style: Theme.of(context).textTheme.caption,
+                  context.l10n.noneSelectedOption,
+                  style: textTheme.caption,
                 ))
             : Container(),
       ],
