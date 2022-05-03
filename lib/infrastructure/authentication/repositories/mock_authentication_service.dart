@@ -310,7 +310,7 @@ class MockAuthenticationService implements AuthenticationService {
   }
 
   @override
-  Future<Either<Failure, Unit>> verifyAccount(String token) async {
+  Future<Either<Failure, Unit>> verifyAccount(Uri uri) async {
     return right(unit);
   }
 }

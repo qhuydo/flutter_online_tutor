@@ -1,7 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer';
 
+import 'package:collection/collection.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
@@ -319,7 +322,28 @@ class AuthenticationServiceImpl implements AuthenticationService {
   }
 
   @override
-  Future<Either<Failure, Unit>> verifyAccount(String token) async {
+  Future<Either<Failure, Unit>> verifyAccount(Uri uri) async {
+    var token = '';
+    if (uri.host.contains(_apiClient.serverUrl.verifyRedirectHost)) {
+      // get verify links with token from redirect link
+      try {
+        final response = await _apiClient.dio.getUri(uri);
+        final locationUrl = response.redirects.firstOrNull?.location;
+        log('locationUrl: $locationUrl');
+
+        if (locationUrl?.path.contains(RequestUrl.auth.verifyAccountPath) ==
+            true) {
+          token = locationUrl?.queryParameters['token'] ?? '';
+        }
+      } on DioError catch (e) {
+        log('error $e');
+      }
+    } else if (uri.host.contains(_apiClient.serverUrl.url) &&
+        uri.path.contains(RequestUrl.auth.verifyAccountPath)) {
+      token = uri.queryParameters['token'] ?? '';
+    }
+
+    log('token: $token');
     final result = await _apiClient.get(
       RequestUrl.auth.verifyAccount(token),
       onResponded: (_) => unit,

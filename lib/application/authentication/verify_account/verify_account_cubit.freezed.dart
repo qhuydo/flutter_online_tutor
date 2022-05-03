@@ -19,11 +19,11 @@ class _$VerifyAccountStateTearOff {
   const _$VerifyAccountStateTearOff();
 
   _VerifyAccountState call(
-      {required String token,
+      {required Uri uri,
       dynamic isLoading = false,
       Either<Failure, Unit> requestSucceedOrFailed = const Right(unit)}) {
     return _VerifyAccountState(
-      token: token,
+      uri: uri,
       isLoading: isLoading,
       requestSucceedOrFailed: requestSucceedOrFailed,
     );
@@ -35,7 +35,7 @@ const $VerifyAccountState = _$VerifyAccountStateTearOff();
 
 /// @nodoc
 mixin _$VerifyAccountState {
-  String get token => throw _privateConstructorUsedError;
+  Uri get uri => throw _privateConstructorUsedError;
   dynamic get isLoading => throw _privateConstructorUsedError;
   Either<Failure, Unit> get requestSucceedOrFailed =>
       throw _privateConstructorUsedError;
@@ -51,7 +51,7 @@ abstract class $VerifyAccountStateCopyWith<$Res> {
           VerifyAccountState value, $Res Function(VerifyAccountState) then) =
       _$VerifyAccountStateCopyWithImpl<$Res>;
   $Res call(
-      {String token,
+      {Uri uri,
       dynamic isLoading,
       Either<Failure, Unit> requestSucceedOrFailed});
 }
@@ -67,15 +67,15 @@ class _$VerifyAccountStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? token = freezed,
+    Object? uri = freezed,
     Object? isLoading = freezed,
     Object? requestSucceedOrFailed = freezed,
   }) {
     return _then(_value.copyWith(
-      token: token == freezed
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String,
+      uri: uri == freezed
+          ? _value.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as Uri,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -96,7 +96,7 @@ abstract class _$VerifyAccountStateCopyWith<$Res>
       __$VerifyAccountStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String token,
+      {Uri uri,
       dynamic isLoading,
       Either<Failure, Unit> requestSucceedOrFailed});
 }
@@ -114,15 +114,15 @@ class __$VerifyAccountStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? token = freezed,
+    Object? uri = freezed,
     Object? isLoading = freezed,
     Object? requestSucceedOrFailed = freezed,
   }) {
     return _then(_VerifyAccountState(
-      token: token == freezed
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String,
+      uri: uri == freezed
+          ? _value.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as Uri,
       isLoading: isLoading == freezed ? _value.isLoading : isLoading,
       requestSucceedOrFailed: requestSucceedOrFailed == freezed
           ? _value.requestSucceedOrFailed
@@ -136,12 +136,12 @@ class __$VerifyAccountStateCopyWithImpl<$Res>
 
 class _$_VerifyAccountState implements _VerifyAccountState {
   const _$_VerifyAccountState(
-      {required this.token,
+      {required this.uri,
       this.isLoading = false,
       this.requestSucceedOrFailed = const Right(unit)});
 
   @override
-  final String token;
+  final Uri uri;
   @JsonKey()
   @override
   final dynamic isLoading;
@@ -151,7 +151,7 @@ class _$_VerifyAccountState implements _VerifyAccountState {
 
   @override
   String toString() {
-    return 'VerifyAccountState(token: $token, isLoading: $isLoading, requestSucceedOrFailed: $requestSucceedOrFailed)';
+    return 'VerifyAccountState(uri: $uri, isLoading: $isLoading, requestSucceedOrFailed: $requestSucceedOrFailed)';
   }
 
   @override
@@ -159,7 +159,7 @@ class _$_VerifyAccountState implements _VerifyAccountState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _VerifyAccountState &&
-            const DeepCollectionEquality().equals(other.token, token) &&
+            const DeepCollectionEquality().equals(other.uri, uri) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
                 .equals(other.requestSucceedOrFailed, requestSucceedOrFailed));
@@ -168,7 +168,7 @@ class _$_VerifyAccountState implements _VerifyAccountState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(token),
+      const DeepCollectionEquality().hash(uri),
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(requestSucceedOrFailed));
 
@@ -180,12 +180,12 @@ class _$_VerifyAccountState implements _VerifyAccountState {
 
 abstract class _VerifyAccountState implements VerifyAccountState {
   const factory _VerifyAccountState(
-      {required String token,
+      {required Uri uri,
       dynamic isLoading,
       Either<Failure, Unit> requestSucceedOrFailed}) = _$_VerifyAccountState;
 
   @override
-  String get token;
+  Uri get uri;
   @override
   dynamic get isLoading;
   @override

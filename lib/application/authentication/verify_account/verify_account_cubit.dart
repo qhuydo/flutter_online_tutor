@@ -14,13 +14,13 @@ class VerifyAccountCubit extends Cubit<VerifyAccountState> {
 
   VerifyAccountCubit(
     this._authenticationService,
-    String token,
-  ) : super(VerifyAccountState(token: token));
+    Uri uri,
+  ) : super(VerifyAccountState(uri: uri));
 
   void verify() async {
     emit(state.copyWith(isLoading: true));
 
-    final result = await _authenticationService.verifyAccount(state.token);
+    final result = await _authenticationService.verifyAccount(state.uri);
 
     emit(state.copyWith(
       isLoading: false,

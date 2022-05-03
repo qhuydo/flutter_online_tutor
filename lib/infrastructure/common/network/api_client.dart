@@ -7,10 +7,10 @@ import 'server_url.dart';
 
 @lazySingleton
 class ApiClient {
-  final Dio _dio;
-  final ServerUrl _serverUrl;
+  final Dio dio;
+  final ServerUrl serverUrl;
 
-  ApiClient(this._dio, this._serverUrl);
+  ApiClient(this.dio, this.serverUrl);
 
   static Future<Either<Failure, T>> makeRequest<T>(
     Future<T> Function() callback,
@@ -47,7 +47,7 @@ class ApiClient {
     ProgressCallback? onReceiveProgress,
   }) =>
       getFromUrl(
-        '${_serverUrl.url}/$path',
+        '${serverUrl.url}/$path',
         onResponded: onResponded,
         queryParams: queryParams,
         options: options,
@@ -65,7 +65,7 @@ class ApiClient {
   }) =>
       makeRequest(
         () async => onResponded(
-          await _dio.get(
+          await dio.get(
             path,
             queryParameters: queryParams,
             options: options,
@@ -86,7 +86,7 @@ class ApiClient {
     ProgressCallback? onReceiveProgress,
   }) =>
       postFromUrl(
-        '${_serverUrl.url}/$path',
+        '${serverUrl.url}/$path',
         data: data,
         onResponded: onResponded,
         queryParams: queryParams,
@@ -108,7 +108,7 @@ class ApiClient {
   }) =>
       makeRequest(
         () async => onResponded(
-          await _dio.post(
+          await dio.post(
             path,
             data: data,
             queryParameters: queryParams,
@@ -131,7 +131,7 @@ class ApiClient {
     ProgressCallback? onReceiveProgress,
   }) =>
       putFromUrl(
-        '${_serverUrl.url}/$path',
+        '${serverUrl.url}/$path',
         data: data,
         onResponded: onResponded,
         queryParams: queryParams,
@@ -153,7 +153,7 @@ class ApiClient {
   }) =>
       makeRequest(
         () async => onResponded(
-          await _dio.put(
+          await dio.put(
             path,
             data: data,
             queryParameters: queryParams,
@@ -176,7 +176,7 @@ class ApiClient {
     ProgressCallback? onReceiveProgress,
   }) =>
       patchFromUrl(
-        '${_serverUrl.url}/$path',
+        '${serverUrl.url}/$path',
         data: data,
         onResponded: onResponded,
         queryParams: queryParams,
@@ -198,7 +198,7 @@ class ApiClient {
   }) =>
       makeRequest(
         () async => onResponded(
-          await _dio.patch(
+          await dio.patch(
             path,
             data: data,
             queryParameters: queryParams,
@@ -219,7 +219,7 @@ class ApiClient {
     CancelToken? cancelToken,
   }) =>
       deleteFromUrl(
-        '${_serverUrl.url}/$path',
+        '${serverUrl.url}/$path',
         data: data,
         onResponded: onResponded,
         queryParams: queryParams,
@@ -237,7 +237,7 @@ class ApiClient {
   }) =>
       makeRequest(
         () async => onResponded(
-          await _dio.delete(
+          await dio.delete(
             path,
             data: data,
             queryParameters: queryParams,

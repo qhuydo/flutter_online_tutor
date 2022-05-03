@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:twemoji/twemoji.dart';
@@ -11,11 +10,11 @@ import '../../common/widgets/failure_widget.dart';
 import '../../common/widgets/loading_widget.dart';
 
 class VerifyAccountPage extends StatelessWidget {
-  final String token;
+  final Uri uri;
 
   const VerifyAccountPage({
     Key? key,
-    @PathParam('token') required this.token,
+    required this.uri,
   }) : super(key: key);
 
   @override
@@ -26,7 +25,7 @@ class VerifyAccountPage extends StatelessWidget {
         create: (_) {
           return VerifyAccountCubit(
             getIt<AuthenticationService>(),
-            token,
+            uri,
           )..verify();
         },
         child: const VerifyAccountBody(),

@@ -56,5 +56,5 @@ abstract class AuthenticationService {
 
   void addEvent(AuthenticationServiceEvent event);
 
-  Future<Either<Failure, Unit>> verifyAccount(String token);
+  Future<Either<Failure, Unit>> verifyAccount(Uri uri);
 }

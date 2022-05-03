@@ -29,6 +29,8 @@ class AuthenticationEndpoints {
 
   String get refreshToken => '$_authPath/refresh-token';
 
+  String get verifyAccountPath => 'verifyAccount';
+
   String verifyAccount(String token) => '$_authPath/verifyAccount?token=$token';
 
   String get register => '$_authPath/register';
