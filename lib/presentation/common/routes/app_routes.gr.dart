@@ -14,13 +14,13 @@ import 'dart:typed_data' as _i9;
 
 import 'package:auto_route/auto_route.dart' as _i2;
 import 'package:flutter/material.dart' as _i3;
-import 'package:flutter/widgets.dart' as _i4;
 
 import '../../../domain/course_ebook/models/course_topic.dart' as _i5;
 import '../../../domain/course_ebook/models/ebook.dart' as _i7;
 import '../../../domain/schedule/models/appointment.dart' as _i8;
 import '../../../domain/tutor/models/tutor.dart' as _i6;
 import '../../all_pages.dart' as _i1;
+import '../../common.dart' as _i4;
 
 class AppRouter extends _i2.RootStackRouter {
   AppRouter([_i3.GlobalKey<_i3.NavigatorState>? navigatorKey])
@@ -82,7 +82,10 @@ class AppRouter extends _i2.RootStackRouter {
           child: _i1.TutorDetailsPage(key: args.key, tutorId: args.tutorId));
     },
     CourseDetailsRoute.name: (routeData) {
-      final args = routeData.argsAs<CourseDetailsRouteArgs>();
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<CourseDetailsRouteArgs>(
+          orElse: () => CourseDetailsRouteArgs(
+              courseId: pathParams.getString('courseId')));
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData,
           child: _i1.CourseDetailsPage(
@@ -104,7 +107,10 @@ class AppRouter extends _i2.RootStackRouter {
               key: args.key, tutorId: args.tutorId, tutor: args.tutor));
     },
     MessageDetailsRoute.name: (routeData) {
-      final args = routeData.argsAs<MessageDetailsRouteArgs>();
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<MessageDetailsRouteArgs>(
+          orElse: () => MessageDetailsRouteArgs(
+              tutorId: pathParams.getString('tutorId')));
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData,
           child: _i1.MessageDetailsPage(key: args.key, tutorId: args.tutorId));
@@ -120,7 +126,10 @@ class AppRouter extends _i2.RootStackRouter {
           child: _i1.EbookDetailsPage(key: args.key, ebook: args.ebook));
     },
     TutorScheduleRoute.name: (routeData) {
-      final args = routeData.argsAs<TutorScheduleRouteArgs>();
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<TutorScheduleRouteArgs>(
+          orElse: () =>
+              TutorScheduleRouteArgs(tutorId: pathParams.getString('tutorId')));
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData,
           child: _i1.TutorSchedulePage(key: args.key, tutorId: args.tutorId));
@@ -156,6 +165,15 @@ class AppRouter extends _i2.RootStackRouter {
           routeData: routeData,
           child: _i1.ScheduleDetailsPage(
               key: args.key, appointment: args.appointment));
+    },
+    VerifyAccountRoute.name: (routeData) {
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<VerifyAccountRouteArgs>(
+          orElse: () =>
+              VerifyAccountRouteArgs(token: pathParams.getString('token')));
+      return _i2.MaterialPageX<dynamic>(
+          routeData: routeData,
+          child: _i1.VerifyAccountPage(key: args.key, token: args.token));
     },
     DashboardRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
@@ -225,7 +243,8 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(FavouriteTutorsRoute.name,
             path: '/favourite-tutors-page'),
         _i2.RouteConfig(ScheduleDetailsRoute.name,
-            path: '/schedule-details-page')
+            path: '/schedule-details-page'),
+        _i2.RouteConfig(VerifyAccountRoute.name, path: '/verify/:token')
       ];
 }
 
@@ -356,7 +375,8 @@ class CourseDetailsRoute extends _i2.PageRouteInfo<CourseDetailsRouteArgs> {
       : super(CourseDetailsRoute.name,
             path: '/courses/:courseId',
             args: CourseDetailsRouteArgs(
-                key: key, courseId: courseId, thumbnail: thumbnail));
+                key: key, courseId: courseId, thumbnail: thumbnail),
+            rawPathParams: {'courseId': courseId});
 
   static const String name = 'CourseDetailsRoute';
 }
@@ -409,7 +429,8 @@ class TutorReviewRoute extends _i2.PageRouteInfo<TutorReviewRouteArgs> {
       : super(TutorReviewRoute.name,
             path: '/tutors/:tutorId/reviews',
             args:
-                TutorReviewRouteArgs(key: key, tutorId: tutorId, tutor: tutor));
+                TutorReviewRouteArgs(key: key, tutorId: tutorId, tutor: tutor),
+            rawPathParams: {'tutorId': tutorId});
 
   static const String name = 'TutorReviewRoute';
 }
@@ -436,7 +457,8 @@ class MessageDetailsRoute extends _i2.PageRouteInfo<MessageDetailsRouteArgs> {
   MessageDetailsRoute({_i4.Key? key, required String tutorId})
       : super(MessageDetailsRoute.name,
             path: '/tutors/:tutorId/message',
-            args: MessageDetailsRouteArgs(key: key, tutorId: tutorId));
+            args: MessageDetailsRouteArgs(key: key, tutorId: tutorId),
+            rawPathParams: {'tutorId': tutorId});
 
   static const String name = 'MessageDetailsRoute';
 }
@@ -492,7 +514,8 @@ class TutorScheduleRoute extends _i2.PageRouteInfo<TutorScheduleRouteArgs> {
   TutorScheduleRoute({_i4.Key? key, required String tutorId})
       : super(TutorScheduleRoute.name,
             path: '/tutors/:tutorId/schedule',
-            args: TutorScheduleRouteArgs(key: key, tutorId: tutorId));
+            args: TutorScheduleRouteArgs(key: key, tutorId: tutorId),
+            rawPathParams: {'tutorId': tutorId});
 
   static const String name = 'TutorScheduleRoute';
 }
@@ -609,6 +632,31 @@ class ScheduleDetailsRouteArgs {
   @override
   String toString() {
     return 'ScheduleDetailsRouteArgs{key: $key, appointment: $appointment}';
+  }
+}
+
+/// generated route for
+/// [_i1.VerifyAccountPage]
+class VerifyAccountRoute extends _i2.PageRouteInfo<VerifyAccountRouteArgs> {
+  VerifyAccountRoute({_i4.Key? key, required String token})
+      : super(VerifyAccountRoute.name,
+            path: '/verify/:token',
+            args: VerifyAccountRouteArgs(key: key, token: token),
+            rawPathParams: {'token': token});
+
+  static const String name = 'VerifyAccountRoute';
+}
+
+class VerifyAccountRouteArgs {
+  const VerifyAccountRouteArgs({this.key, required this.token});
+
+  final _i4.Key? key;
+
+  final String token;
+
+  @override
+  String toString() {
+    return 'VerifyAccountRouteArgs{key: $key, token: $token}';
   }
 }
 

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,7 +13,7 @@ class CourseDetailsPage extends StatelessWidget {
 
   const CourseDetailsPage({
     Key? key,
-    required this.courseId,
+    @PathParam('courseId') required this.courseId,
     this.thumbnail,
   }) : super(key: key);
 

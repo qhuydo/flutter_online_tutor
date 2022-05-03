@@ -2,10 +2,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/authentication/login/login_bloc.dart';
 import '../../common.dart';
-import '../widgets/login_form_bloc_wrapper.dart';
 import '../widgets/authen_scaffold.dart';
 import '../widgets/authenticate_by_mail_form.dart';
 import '../widgets/email_input.dart';
+import '../widgets/login_form_bloc_wrapper.dart';
 import '../widgets/password_input.dart';
 import 'widgets/login_button.dart';
 import 'widgets/login_option_button_group.dart';

@@ -41,5 +41,6 @@ import '../../all_pages.dart';
       AutoRoute(page: CourseSyllabusPreviewPage),
       AutoRoute(page: FavouriteTutorsPage),
       AutoRoute(page: ScheduleDetailsPage),
+      AutoRoute(path: '/verify/:token', page: VerifyAccountPage),
     ])
 class $AppRouter {}

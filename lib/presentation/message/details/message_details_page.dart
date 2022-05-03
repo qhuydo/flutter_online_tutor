@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+
 import '../../common.dart';
 import '../../common/utils/default_app_bar.dart';
 import 'helpers/message.dart';
@@ -8,7 +10,7 @@ class MessageDetailsPage extends StatefulWidget {
 
   const MessageDetailsPage({
     Key? key,
-    required this.tutorId,
+    @PathParam('tutorId') required this.tutorId,
   }) : super(key: key);
 
   @override

@@ -2,7 +2,6 @@ import '../../../common.dart';
 
 class ResetPasswordForm extends StatelessWidget {
   final bool showError;
-
   final Widget emailInput;
 
   const ResetPasswordForm({
@@ -19,9 +18,7 @@ class ResetPasswordForm extends StatelessWidget {
       child: Column(
         children: [
           Text(context.l10n.resetPasswordDescription),
-          const SizedBox(
-            height: 16,
-          ),
+          const SizedBox(height: 16),
           emailInput,
         ],
       ),

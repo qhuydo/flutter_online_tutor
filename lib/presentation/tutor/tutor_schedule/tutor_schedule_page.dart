@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/schedule/tutor_schedule/tutor_schedule_bloc.dart';
@@ -10,7 +11,7 @@ class TutorSchedulePage extends StatelessWidget {
 
   const TutorSchedulePage({
     Key? key,
-    required this.tutorId,
+    @PathParam('tutorId') required this.tutorId,
   }) : super(key: key);
 
   @override
