@@ -47,15 +47,12 @@ class AuthenticationBloc
     await emit.forEach<AuthenticationServiceEvent>(
       authService.subscribe(),
       onData: (data) {
-        return data.when(
-          signedOut: () {
-            return const AuthenticationState.unauthenticated();
-          },
-          profileUpdated: () {
-            add(const AuthenticationEvent.authCheckRequested());
-            return state;
-          }
-        );
+        return data.when(signedOut: () {
+          return const AuthenticationState.unauthenticated();
+        }, profileUpdated: () {
+          add(const AuthenticationEvent.authCheckRequested());
+          return state;
+        });
       },
     );
   }

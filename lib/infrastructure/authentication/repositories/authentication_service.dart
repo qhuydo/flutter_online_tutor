@@ -317,4 +317,13 @@ class AuthenticationServiceImpl implements AuthenticationService {
   void addEvent(AuthenticationServiceEvent event) {
     _eventStreamController.add(event);
   }
+
+  @override
+  Future<Either<Failure, Unit>> verifyAccount(String token) async {
+    final result = await _apiClient.get(
+      RequestUrl.auth.verifyAccount(token),
+      onResponded: (_) => unit,
+    );
+    return result;
+  }
 }

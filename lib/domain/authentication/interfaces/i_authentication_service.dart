@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 
 import '../../../infrastructure/authentication/dto/token.dart';
+import '../../common/failures/failure.dart';
 import '../../user/models/user.dart';
 import '../events/authentication_service_event.dart';
 import '../failures/authentication_failure.dart';
@@ -54,4 +55,6 @@ abstract class AuthenticationService {
   Future dispose();
 
   void addEvent(AuthenticationServiceEvent event);
+
+  Future<Either<Failure, Unit>> verifyAccount(String token);
 }

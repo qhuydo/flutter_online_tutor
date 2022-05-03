@@ -14,6 +14,7 @@ import '../../../domain/authentication/value_objects/email_address.dart';
 import '../../../domain/authentication/value_objects/password.dart';
 import '../../../domain/authentication/value_objects/phone_number.dart';
 import '../../../domain/common/error/error.dart';
+import '../../../domain/common/failures/failure.dart';
 import '../../../domain/user/models/user.dart';
 import '../../../presentation/common.dart';
 import '../../common/db/fixture_loader.dart';
@@ -306,5 +307,10 @@ class MockAuthenticationService implements AuthenticationService {
   @override
   void addEvent(AuthenticationServiceEvent event) {
     _eventStreamController.add(event);
+  }
+
+  @override
+  Future<Either<Failure, Unit>> verifyAccount(String token) async {
+    return right(unit);
   }
 }
