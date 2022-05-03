@@ -22,12 +22,18 @@ class _$AppStateTearOff {
       {required Language language,
       required ColourScheme colourScheme,
       required AppThemeMode themeMode,
-      dynamic hasInternetConnection = true}) {
+      Uri? initialUri,
+      Uri? latestUri,
+      dynamic hasInternetConnection = true,
+      bool initialUriIsHandled = false}) {
     return _AppState(
       language: language,
       colourScheme: colourScheme,
       themeMode: themeMode,
+      initialUri: initialUri,
+      latestUri: latestUri,
       hasInternetConnection: hasInternetConnection,
+      initialUriIsHandled: initialUriIsHandled,
     );
   }
 }
@@ -40,7 +46,10 @@ mixin _$AppState {
   Language get language => throw _privateConstructorUsedError;
   ColourScheme get colourScheme => throw _privateConstructorUsedError;
   AppThemeMode get themeMode => throw _privateConstructorUsedError;
+  Uri? get initialUri => throw _privateConstructorUsedError;
+  Uri? get latestUri => throw _privateConstructorUsedError;
   dynamic get hasInternetConnection => throw _privateConstructorUsedError;
+  bool get initialUriIsHandled => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -55,7 +64,10 @@ abstract class $AppStateCopyWith<$Res> {
       {Language language,
       ColourScheme colourScheme,
       AppThemeMode themeMode,
-      dynamic hasInternetConnection});
+      Uri? initialUri,
+      Uri? latestUri,
+      dynamic hasInternetConnection,
+      bool initialUriIsHandled});
 }
 
 /// @nodoc
@@ -71,7 +83,10 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
     Object? language = freezed,
     Object? colourScheme = freezed,
     Object? themeMode = freezed,
+    Object? initialUri = freezed,
+    Object? latestUri = freezed,
     Object? hasInternetConnection = freezed,
+    Object? initialUriIsHandled = freezed,
   }) {
     return _then(_value.copyWith(
       language: language == freezed
@@ -86,10 +101,22 @@ class _$AppStateCopyWithImpl<$Res> implements $AppStateCopyWith<$Res> {
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
               as AppThemeMode,
+      initialUri: initialUri == freezed
+          ? _value.initialUri
+          : initialUri // ignore: cast_nullable_to_non_nullable
+              as Uri?,
+      latestUri: latestUri == freezed
+          ? _value.latestUri
+          : latestUri // ignore: cast_nullable_to_non_nullable
+              as Uri?,
       hasInternetConnection: hasInternetConnection == freezed
           ? _value.hasInternetConnection
           : hasInternetConnection // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      initialUriIsHandled: initialUriIsHandled == freezed
+          ? _value.initialUriIsHandled
+          : initialUriIsHandled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -103,7 +130,10 @@ abstract class _$AppStateCopyWith<$Res> implements $AppStateCopyWith<$Res> {
       {Language language,
       ColourScheme colourScheme,
       AppThemeMode themeMode,
-      dynamic hasInternetConnection});
+      Uri? initialUri,
+      Uri? latestUri,
+      dynamic hasInternetConnection,
+      bool initialUriIsHandled});
 }
 
 /// @nodoc
@@ -120,7 +150,10 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
     Object? language = freezed,
     Object? colourScheme = freezed,
     Object? themeMode = freezed,
+    Object? initialUri = freezed,
+    Object? latestUri = freezed,
     Object? hasInternetConnection = freezed,
+    Object? initialUriIsHandled = freezed,
   }) {
     return _then(_AppState(
       language: language == freezed
@@ -135,9 +168,21 @@ class __$AppStateCopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res>
           ? _value.themeMode
           : themeMode // ignore: cast_nullable_to_non_nullable
               as AppThemeMode,
+      initialUri: initialUri == freezed
+          ? _value.initialUri
+          : initialUri // ignore: cast_nullable_to_non_nullable
+              as Uri?,
+      latestUri: latestUri == freezed
+          ? _value.latestUri
+          : latestUri // ignore: cast_nullable_to_non_nullable
+              as Uri?,
       hasInternetConnection: hasInternetConnection == freezed
           ? _value.hasInternetConnection
           : hasInternetConnection,
+      initialUriIsHandled: initialUriIsHandled == freezed
+          ? _value.initialUriIsHandled
+          : initialUriIsHandled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -149,7 +194,10 @@ class _$_AppState extends _AppState {
       {required this.language,
       required this.colourScheme,
       required this.themeMode,
-      this.hasInternetConnection = true})
+      this.initialUri,
+      this.latestUri,
+      this.hasInternetConnection = true,
+      this.initialUriIsHandled = false})
       : super._();
 
   @override
@@ -158,13 +206,20 @@ class _$_AppState extends _AppState {
   final ColourScheme colourScheme;
   @override
   final AppThemeMode themeMode;
+  @override
+  final Uri? initialUri;
+  @override
+  final Uri? latestUri;
   @JsonKey()
   @override
   final dynamic hasInternetConnection;
+  @JsonKey()
+  @override
+  final bool initialUriIsHandled;
 
   @override
   String toString() {
-    return 'AppState(language: $language, colourScheme: $colourScheme, themeMode: $themeMode, hasInternetConnection: $hasInternetConnection)';
+    return 'AppState(language: $language, colourScheme: $colourScheme, themeMode: $themeMode, initialUri: $initialUri, latestUri: $latestUri, hasInternetConnection: $hasInternetConnection, initialUriIsHandled: $initialUriIsHandled)';
   }
 
   @override
@@ -177,7 +232,12 @@ class _$_AppState extends _AppState {
                 .equals(other.colourScheme, colourScheme) &&
             const DeepCollectionEquality().equals(other.themeMode, themeMode) &&
             const DeepCollectionEquality()
-                .equals(other.hasInternetConnection, hasInternetConnection));
+                .equals(other.initialUri, initialUri) &&
+            const DeepCollectionEquality().equals(other.latestUri, latestUri) &&
+            const DeepCollectionEquality()
+                .equals(other.hasInternetConnection, hasInternetConnection) &&
+            const DeepCollectionEquality()
+                .equals(other.initialUriIsHandled, initialUriIsHandled));
   }
 
   @override
@@ -186,7 +246,10 @@ class _$_AppState extends _AppState {
       const DeepCollectionEquality().hash(language),
       const DeepCollectionEquality().hash(colourScheme),
       const DeepCollectionEquality().hash(themeMode),
-      const DeepCollectionEquality().hash(hasInternetConnection));
+      const DeepCollectionEquality().hash(initialUri),
+      const DeepCollectionEquality().hash(latestUri),
+      const DeepCollectionEquality().hash(hasInternetConnection),
+      const DeepCollectionEquality().hash(initialUriIsHandled));
 
   @JsonKey(ignore: true)
   @override
@@ -199,7 +262,10 @@ abstract class _AppState extends AppState {
       {required Language language,
       required ColourScheme colourScheme,
       required AppThemeMode themeMode,
-      dynamic hasInternetConnection}) = _$_AppState;
+      Uri? initialUri,
+      Uri? latestUri,
+      dynamic hasInternetConnection,
+      bool initialUriIsHandled}) = _$_AppState;
   const _AppState._() : super._();
 
   @override
@@ -209,7 +275,13 @@ abstract class _AppState extends AppState {
   @override
   AppThemeMode get themeMode;
   @override
+  Uri? get initialUri;
+  @override
+  Uri? get latestUri;
+  @override
   dynamic get hasInternetConnection;
+  @override
+  bool get initialUriIsHandled;
   @override
   @JsonKey(ignore: true)
   _$AppStateCopyWith<_AppState> get copyWith =>

@@ -35,7 +35,14 @@ class AppView extends StatefulWidget {
 }
 
 class _AppViewState extends State<AppView> {
-  final _appRouter = AppRouter();
+  final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
+  late AppRouter _appRouter;
+
+  @override
+  void initState() {
+    super.initState();
+    _appRouter = AppRouter(_navigatorKey);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +56,9 @@ class _AppViewState extends State<AppView> {
           darkTheme: state.dark,
           themeMode: state.themeMode.toThemeMode(),
           debugShowCheckedModeBanner: false,
-          routerDelegate: _appRouter.delegate(),
+          routerDelegate: _appRouter.delegate(
+            initialDeepLink: '/',
+          ),
           routeInformationParser: _appRouter.defaultRouteParser(),
         );
       },

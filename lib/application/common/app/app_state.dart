@@ -41,14 +41,17 @@ class AppState with _$AppState {
     required Language language,
     required ColourScheme colourScheme,
     required AppThemeMode themeMode,
+    Uri? initialUri,
+    Uri? latestUri,
     @Default(true) hasInternetConnection,
+    @Default(false) bool initialUriIsHandled,
   }) = _AppState;
 
   factory AppState.initial() => const AppState(
         language: Language.followSystem,
         colourScheme: ColourScheme.bahamaBlue,
         themeMode: AppThemeMode.followSystem,
-      );
+  );
 
   ThemeData get light => FlexThemeData.light(
     scheme: colourScheme.toFlexScheme(),

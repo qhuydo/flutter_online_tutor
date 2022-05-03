@@ -8,6 +8,7 @@ import '../../../di/dependency_injection.dart';
 import '../../../domain/authentication/failures/authentication_failure.dart';
 import '../../common/l10n/failure_display_texts.dart';
 import '../../common/routes/app_routes.gr.dart';
+import 'verify_account_url_listener.dart';
 
 class LoginFormBlocWrapper extends StatelessWidget {
   final Widget child;
@@ -19,9 +20,11 @@ class LoginFormBlocWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<LoginBloc>(),
-      child: _LoginFormBlocPage(child: child),
+    return VerifyAccountUrlListener(
+      child: BlocProvider(
+        create: (context) => getIt<LoginBloc>(),
+        child: _LoginFormBlocPage(child: child),
+      ),
     );
   }
 }

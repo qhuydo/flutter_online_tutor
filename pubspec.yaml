@@ -190,6 +190,11 @@ dependencies:
   # (c) BSD-Clause 3 License. By Ravi Teja Gudapati <tejainece@gmail.com>.
   duration: ^3.0.11
 
+  # Flutter plugin for accepting incoming links - App/Deep Links (Android), Universal Links and Custom URL schemes (iOS)
+  # (c) BSD-Clause 2 License. By Evo Stamatov.
+  # TODO setup iOS
+  uni_links: ^0.5.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
