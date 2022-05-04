@@ -52,4 +52,6 @@ class BecomeTutorState with _$BecomeTutorState {
       bio.isValid() &&
       specialities.isNotEmpty &&
       avatar != null;
+
+  bool get isStep2FormValid => video != null;
 }

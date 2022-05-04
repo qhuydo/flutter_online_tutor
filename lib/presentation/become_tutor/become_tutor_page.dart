@@ -90,75 +90,89 @@ class BecomeTutorBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<BecomeTutorBloc, BecomeTutorState>(
-      listenWhen: (previous, current) {
-        return previous.isLoading != current.isLoading ||
-            previous.registerSucceedOrFailed != current.registerSucceedOrFailed;
-      },
-      listener: (context, state) {
-        if (state.isLoading) {
-          showLoadingDialog(context);
-          return;
-        }
-        state.registerSucceedOrFailed?.fold(
-          (failure) {
-            Navigator.of(context).pop();
-            showErrorDialog(context, failure);
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<BecomeTutorBloc, BecomeTutorState>(
+          listenWhen: (previous, current) {
+            return previous.isLoading != current.isLoading;
           },
-          (_) {
-            Navigator.of(context).pop();
+          listener: (_, state) {
+            if (state.isLoading) {
+              showLoadingDialog(context);
+              return;
+            }
           },
-        );
-      },
-      builder: (context, state) {
-        final breakpoint = Breakpoint.fromMediaQuery(context);
-        if (state.isInitialising) {
-          return const LoadingWidget();
-        }
+        ),
+        BlocListener<BecomeTutorBloc, BecomeTutorState>(
+          listenWhen: (previous, current) {
+            return previous.registerSucceedOrFailed !=
+                current.registerSucceedOrFailed;
+          },
+          listener: (context, state) {
+            state.registerSucceedOrFailed?.fold(
+              (failure) {
+                Navigator.of(context).pop();
+                showErrorDialog(context, failure);
+              },
+              (_) {
+                Navigator.of(context).pop();
+              },
+            );
+          },
+        ),
+      ],
+      child: BlocBuilder<BecomeTutorBloc, BecomeTutorState>(
+        builder: (context, state) {
+          final breakpoint = Breakpoint.fromMediaQuery(context);
+          if (state.isInitialising) {
+            return const LoadingWidget();
+          }
 
-        return Align(
-          alignment: Alignment.topCenter,
-          child: ConstrainedBox(
-            constraints: breakpoint.window >= WindowSize.medium
-                ? const BoxConstraints(maxWidth: 800)
-                : const BoxConstraints(),
-            child: Stepper(
-              // physics: const NeverScrollableScrollPhysics(),
-              controlsBuilder: (BuildContext context, ControlsDetails details) {
-                final isNotFirstStep = details.stepIndex != 0;
-                final isNotLastStep = details.stepIndex != _totalSteps - 1;
-                return StepButtonGroup(
-                  isNotFirstStep: isNotFirstStep,
-                  isNotLastStep: isNotLastStep,
-                  isCompleted: false,
-                  showLastStep: false,
-                  onStepCancel: details.onStepCancel,
-                  onStepContinue: details.onStepContinue,
-                );
-              },
-              type: breakpoint.window >= WindowSize.medium
-                  ? StepperType.vertical
-                  : StepperType.horizontal,
-              currentStep: state.currentStepIndex,
-              onStepCancel: () {
-                context.read<BecomeTutorBloc>().add(
-                      const BecomeTutorEvent.previousStepButtonPressed(),
-                    );
-              },
-              onStepContinue: () {
-                context.read<BecomeTutorBloc>().add(
-                      const BecomeTutorEvent.nextStepButtonPressed(),
-                    );
-              },
-              steps: [
-                buildStep1(context, state),
-                buildStep2(context, state),
-                buildStep3(context, state),
-              ],
+          return Align(
+            alignment: Alignment.topCenter,
+            child: ConstrainedBox(
+              constraints: breakpoint.window >= WindowSize.medium
+                  ? const BoxConstraints(maxWidth: 800)
+                  : const BoxConstraints(),
+              child: Stepper(
+                // physics: const NeverScrollableScrollPhysics(),
+                controlsBuilder:
+                    (BuildContext context, ControlsDetails details) {
+                  final isNotFirstStep = details.stepIndex != 0;
+                  final isNotLastStep = details.stepIndex != _totalSteps - 1;
+                  return StepButtonGroup(
+                    isNotFirstStep: isNotFirstStep,
+                    isNotLastStep: isNotLastStep,
+                    isCompleted: false,
+                    showLastStep: false,
+                    onStepCancel: details.onStepCancel,
+                    onStepContinue: details.onStepContinue,
+                  );
+                },
+                type: breakpoint.window >= WindowSize.medium
+                    ? StepperType.vertical
+                    : StepperType.horizontal,
+                currentStep: state.currentStepIndex,
+                onStepCancel: () {
+                  context.read<BecomeTutorBloc>().add(
+                        const BecomeTutorEvent.previousStepButtonPressed(),
+                      );
+                },
+                onStepContinue: () {
+                  context.read<BecomeTutorBloc>().add(
+                        const BecomeTutorEvent.nextStepButtonPressed(),
+                      );
+                },
+                steps: [
+                  buildStep1(context, state),
+                  buildStep2(context, state),
+                  buildStep3(context, state),
+                ],
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }

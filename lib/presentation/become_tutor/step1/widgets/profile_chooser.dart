@@ -95,6 +95,7 @@ class ProfileChooser extends StatelessWidget {
                     },
                     builder: (_, state) {
                       // final watchState = context.watch<BecomeTutorBloc>().state;
+                      // TODO update translation
                       return Visibility(
                         visible: state.showErrorAtStep1 && state.avatar == null,
                         child: Text(

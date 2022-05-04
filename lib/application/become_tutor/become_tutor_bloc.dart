@@ -209,6 +209,46 @@ class BecomeTutorBloc extends Bloc<BecomeTutorEvent, BecomeTutorState> {
       if (!state.isStep1FormValid) {
         return;
       }
+    } else if (index == 1) {
+      emit(state.copyWith(showErrorAtStep2: true));
+      if (!state.isStep2FormValid) {
+        return;
+      }
+
+      emit(state.copyWith(isLoading: true, registerSucceedOrFailed: null));
+
+      try {
+        final result = await _repository.registerAsTeacher(
+          name: state.name,
+          country: state.country!,
+          birthDay: state.birthDay!,
+          interest: state.interests,
+          education: state.education,
+          experience: state.experience,
+          profession: state.profession,
+          languages: state.languages,
+          bio: state.bio,
+          targetStudent: state.targetStudent,
+          specialities: state.specialities,
+          avatar: state.avatar!,
+          video: state.video!,
+        );
+
+        emit(state.copyWith(registerSucceedOrFailed: result));
+      } on NullThrownError {
+        emit(
+          state.copyWith(
+            registerSucceedOrFailed: left(const Failure.internalError()),
+          ),
+        );
+      } finally {
+        emit(state.copyWith(isLoading: false));
+      }
+
+      if (state.registerSucceedOrFailed == null ||
+          state.registerSucceedOrFailed?.isLeft() == true) {
+        return;
+      }
     }
 
     if (index >= 0 && index < BecomeTutorState.totalSteps - 1) {
