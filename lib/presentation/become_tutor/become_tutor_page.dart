@@ -12,7 +12,6 @@ class BecomeTutorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final breakpoint = Breakpoint.fromMediaQuery(context);
     return Scaffold(
       appBar: buildAppBar(
         context,

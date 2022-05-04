@@ -37,9 +37,11 @@ class BecomeTutorEvent with _$BecomeTutorEvent {
     List<Speciality> speciality,
   ) = _SpecialitiesChanged;
 
-  const factory BecomeTutorEvent.avatarChanged(XFile file) = _AvatarChanged;
+  const factory BecomeTutorEvent.avatarChanged(FilePickerResult? result) =
+      _AvatarChanged;
 
-  const factory BecomeTutorEvent.videoChanged(XFile file) = _VideoChanged;
+  const factory BecomeTutorEvent.videoChanged(FilePickerResult? result) =
+      _VideoChanged;
 
   const factory BecomeTutorEvent.priceChanged(String price) = _PriceChanged;
 

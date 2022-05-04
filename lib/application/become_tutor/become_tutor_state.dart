@@ -3,6 +3,7 @@ part of 'become_tutor_bloc.dart';
 @freezed
 class BecomeTutorState with _$BecomeTutorState {
   const BecomeTutorState._();
+
   static const totalSteps = 3;
 
   const factory BecomeTutorState({
@@ -30,8 +31,7 @@ class BecomeTutorState with _$BecomeTutorState {
     @Default({}) Set<int> completedSteps,
   }) = _BecomeTutorState;
 
-  factory BecomeTutorState.initial() =>
-      BecomeTutorState(
+  factory BecomeTutorState.initial() => BecomeTutorState(
         name: Name(''),
         interests: NonEmptyValue(),
         education: NonEmptyValue(),
@@ -39,4 +39,17 @@ class BecomeTutorState with _$BecomeTutorState {
         profession: NonEmptyValue(),
         bio: NonEmptyValue(),
       );
+
+  bool get isStep1FormValid =>
+      name.isValid() &&
+      country != null &&
+      birthDay?.isValid() == true &&
+      interests.isValid() &&
+      education.isValid() &&
+      experience.isValid() &&
+      profession.isValid() &&
+      languages.isNotEmpty &&
+      bio.isValid() &&
+      specialities.isNotEmpty &&
+      avatar != null;
 }

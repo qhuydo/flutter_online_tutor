@@ -88,15 +88,15 @@ class _$BecomeTutorEventTearOff {
     );
   }
 
-  _AvatarChanged avatarChanged(XFile file) {
+  _AvatarChanged avatarChanged(FilePickerResult? result) {
     return _AvatarChanged(
-      file,
+      result,
     );
   }
 
-  _VideoChanged videoChanged(XFile file) {
+  _VideoChanged videoChanged(FilePickerResult? result) {
     return _VideoChanged(
-      file,
+      result,
     );
   }
 
@@ -134,8 +134,8 @@ mixin _$BecomeTutorEvent {
     required TResult Function(String bio) bioChanged,
     required TResult Function(TargetStudent targetStudent) targetStudentChanged,
     required TResult Function(List<Speciality> speciality) specialitiesChanged,
-    required TResult Function(XFile file) avatarChanged,
-    required TResult Function(XFile file) videoChanged,
+    required TResult Function(FilePickerResult? result) avatarChanged,
+    required TResult Function(FilePickerResult? result) videoChanged,
     required TResult Function(String price) priceChanged,
     required TResult Function() nextStepButtonPressed,
     required TResult Function() previousStepButtonPressed,
@@ -155,8 +155,8 @@ mixin _$BecomeTutorEvent {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -176,8 +176,8 @@ mixin _$BecomeTutorEvent {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -324,8 +324,8 @@ class _$_Initialise implements _Initialise {
     required TResult Function(String bio) bioChanged,
     required TResult Function(TargetStudent targetStudent) targetStudentChanged,
     required TResult Function(List<Speciality> speciality) specialitiesChanged,
-    required TResult Function(XFile file) avatarChanged,
-    required TResult Function(XFile file) videoChanged,
+    required TResult Function(FilePickerResult? result) avatarChanged,
+    required TResult Function(FilePickerResult? result) videoChanged,
     required TResult Function(String price) priceChanged,
     required TResult Function() nextStepButtonPressed,
     required TResult Function() previousStepButtonPressed,
@@ -348,8 +348,8 @@ class _$_Initialise implements _Initialise {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -372,8 +372,8 @@ class _$_Initialise implements _Initialise {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -547,8 +547,8 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(String bio) bioChanged,
     required TResult Function(TargetStudent targetStudent) targetStudentChanged,
     required TResult Function(List<Speciality> speciality) specialitiesChanged,
-    required TResult Function(XFile file) avatarChanged,
-    required TResult Function(XFile file) videoChanged,
+    required TResult Function(FilePickerResult? result) avatarChanged,
+    required TResult Function(FilePickerResult? result) videoChanged,
     required TResult Function(String price) priceChanged,
     required TResult Function() nextStepButtonPressed,
     required TResult Function() previousStepButtonPressed,
@@ -571,8 +571,8 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -595,8 +595,8 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -784,8 +784,8 @@ class _$_CountryChanged implements _CountryChanged {
     required TResult Function(String bio) bioChanged,
     required TResult Function(TargetStudent targetStudent) targetStudentChanged,
     required TResult Function(List<Speciality> speciality) specialitiesChanged,
-    required TResult Function(XFile file) avatarChanged,
-    required TResult Function(XFile file) videoChanged,
+    required TResult Function(FilePickerResult? result) avatarChanged,
+    required TResult Function(FilePickerResult? result) videoChanged,
     required TResult Function(String price) priceChanged,
     required TResult Function() nextStepButtonPressed,
     required TResult Function() previousStepButtonPressed,
@@ -808,8 +808,8 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -832,8 +832,8 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -1012,8 +1012,8 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     required TResult Function(String bio) bioChanged,
     required TResult Function(TargetStudent targetStudent) targetStudentChanged,
     required TResult Function(List<Speciality> speciality) specialitiesChanged,
-    required TResult Function(XFile file) avatarChanged,
-    required TResult Function(XFile file) videoChanged,
+    required TResult Function(FilePickerResult? result) avatarChanged,
+    required TResult Function(FilePickerResult? result) videoChanged,
     required TResult Function(String price) priceChanged,
     required TResult Function() nextStepButtonPressed,
     required TResult Function() previousStepButtonPressed,
@@ -1036,8 +1036,8 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -1060,8 +1060,8 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -1240,8 +1240,8 @@ class _$_InterestsChanged implements _InterestsChanged {
     required TResult Function(String bio) bioChanged,
     required TResult Function(TargetStudent targetStudent) targetStudentChanged,
     required TResult Function(List<Speciality> speciality) specialitiesChanged,
-    required TResult Function(XFile file) avatarChanged,
-    required TResult Function(XFile file) videoChanged,
+    required TResult Function(FilePickerResult? result) avatarChanged,
+    required TResult Function(FilePickerResult? result) videoChanged,
     required TResult Function(String price) priceChanged,
     required TResult Function() nextStepButtonPressed,
     required TResult Function() previousStepButtonPressed,
@@ -1264,8 +1264,8 @@ class _$_InterestsChanged implements _InterestsChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -1288,8 +1288,8 @@ class _$_InterestsChanged implements _InterestsChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -1468,8 +1468,8 @@ class _$_EducationChanged implements _EducationChanged {
     required TResult Function(String bio) bioChanged,
     required TResult Function(TargetStudent targetStudent) targetStudentChanged,
     required TResult Function(List<Speciality> speciality) specialitiesChanged,
-    required TResult Function(XFile file) avatarChanged,
-    required TResult Function(XFile file) videoChanged,
+    required TResult Function(FilePickerResult? result) avatarChanged,
+    required TResult Function(FilePickerResult? result) videoChanged,
     required TResult Function(String price) priceChanged,
     required TResult Function() nextStepButtonPressed,
     required TResult Function() previousStepButtonPressed,
@@ -1492,8 +1492,8 @@ class _$_EducationChanged implements _EducationChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -1516,8 +1516,8 @@ class _$_EducationChanged implements _EducationChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -1696,8 +1696,8 @@ class _$_ExperienceChanged implements _ExperienceChanged {
     required TResult Function(String bio) bioChanged,
     required TResult Function(TargetStudent targetStudent) targetStudentChanged,
     required TResult Function(List<Speciality> speciality) specialitiesChanged,
-    required TResult Function(XFile file) avatarChanged,
-    required TResult Function(XFile file) videoChanged,
+    required TResult Function(FilePickerResult? result) avatarChanged,
+    required TResult Function(FilePickerResult? result) videoChanged,
     required TResult Function(String price) priceChanged,
     required TResult Function() nextStepButtonPressed,
     required TResult Function() previousStepButtonPressed,
@@ -1720,8 +1720,8 @@ class _$_ExperienceChanged implements _ExperienceChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -1744,8 +1744,8 @@ class _$_ExperienceChanged implements _ExperienceChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -1924,8 +1924,8 @@ class _$_ProfessionChanged implements _ProfessionChanged {
     required TResult Function(String bio) bioChanged,
     required TResult Function(TargetStudent targetStudent) targetStudentChanged,
     required TResult Function(List<Speciality> speciality) specialitiesChanged,
-    required TResult Function(XFile file) avatarChanged,
-    required TResult Function(XFile file) videoChanged,
+    required TResult Function(FilePickerResult? result) avatarChanged,
+    required TResult Function(FilePickerResult? result) videoChanged,
     required TResult Function(String price) priceChanged,
     required TResult Function() nextStepButtonPressed,
     required TResult Function() previousStepButtonPressed,
@@ -1948,8 +1948,8 @@ class _$_ProfessionChanged implements _ProfessionChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -1972,8 +1972,8 @@ class _$_ProfessionChanged implements _ProfessionChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -2152,8 +2152,8 @@ class _$_LanguagesChanged implements _LanguagesChanged {
     required TResult Function(String bio) bioChanged,
     required TResult Function(TargetStudent targetStudent) targetStudentChanged,
     required TResult Function(List<Speciality> speciality) specialitiesChanged,
-    required TResult Function(XFile file) avatarChanged,
-    required TResult Function(XFile file) videoChanged,
+    required TResult Function(FilePickerResult? result) avatarChanged,
+    required TResult Function(FilePickerResult? result) videoChanged,
     required TResult Function(String price) priceChanged,
     required TResult Function() nextStepButtonPressed,
     required TResult Function() previousStepButtonPressed,
@@ -2176,8 +2176,8 @@ class _$_LanguagesChanged implements _LanguagesChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -2200,8 +2200,8 @@ class _$_LanguagesChanged implements _LanguagesChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -2381,8 +2381,8 @@ class _$_BioChanged implements _BioChanged {
     required TResult Function(String bio) bioChanged,
     required TResult Function(TargetStudent targetStudent) targetStudentChanged,
     required TResult Function(List<Speciality> speciality) specialitiesChanged,
-    required TResult Function(XFile file) avatarChanged,
-    required TResult Function(XFile file) videoChanged,
+    required TResult Function(FilePickerResult? result) avatarChanged,
+    required TResult Function(FilePickerResult? result) videoChanged,
     required TResult Function(String price) priceChanged,
     required TResult Function() nextStepButtonPressed,
     required TResult Function() previousStepButtonPressed,
@@ -2405,8 +2405,8 @@ class _$_BioChanged implements _BioChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -2429,8 +2429,8 @@ class _$_BioChanged implements _BioChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -2611,8 +2611,8 @@ class _$_TargetStudentChanged implements _TargetStudentChanged {
     required TResult Function(String bio) bioChanged,
     required TResult Function(TargetStudent targetStudent) targetStudentChanged,
     required TResult Function(List<Speciality> speciality) specialitiesChanged,
-    required TResult Function(XFile file) avatarChanged,
-    required TResult Function(XFile file) videoChanged,
+    required TResult Function(FilePickerResult? result) avatarChanged,
+    required TResult Function(FilePickerResult? result) videoChanged,
     required TResult Function(String price) priceChanged,
     required TResult Function() nextStepButtonPressed,
     required TResult Function() previousStepButtonPressed,
@@ -2635,8 +2635,8 @@ class _$_TargetStudentChanged implements _TargetStudentChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -2659,8 +2659,8 @@ class _$_TargetStudentChanged implements _TargetStudentChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -2842,8 +2842,8 @@ class _$_SpecialitiesChanged implements _SpecialitiesChanged {
     required TResult Function(String bio) bioChanged,
     required TResult Function(TargetStudent targetStudent) targetStudentChanged,
     required TResult Function(List<Speciality> speciality) specialitiesChanged,
-    required TResult Function(XFile file) avatarChanged,
-    required TResult Function(XFile file) videoChanged,
+    required TResult Function(FilePickerResult? result) avatarChanged,
+    required TResult Function(FilePickerResult? result) videoChanged,
     required TResult Function(String price) priceChanged,
     required TResult Function() nextStepButtonPressed,
     required TResult Function() previousStepButtonPressed,
@@ -2866,8 +2866,8 @@ class _$_SpecialitiesChanged implements _SpecialitiesChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -2890,8 +2890,8 @@ class _$_SpecialitiesChanged implements _SpecialitiesChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -2999,7 +2999,7 @@ abstract class _$AvatarChangedCopyWith<$Res> {
   factory _$AvatarChangedCopyWith(
           _AvatarChanged value, $Res Function(_AvatarChanged) then) =
       __$AvatarChangedCopyWithImpl<$Res>;
-  $Res call({XFile file});
+  $Res call({FilePickerResult? result});
 }
 
 /// @nodoc
@@ -3015,13 +3015,13 @@ class __$AvatarChangedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? file = freezed,
+    Object? result = freezed,
   }) {
     return _then(_AvatarChanged(
-      file == freezed
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as XFile,
+      result == freezed
+          ? _value.result
+          : result // ignore: cast_nullable_to_non_nullable
+              as FilePickerResult?,
     ));
   }
 }
@@ -3029,14 +3029,14 @@ class __$AvatarChangedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_AvatarChanged implements _AvatarChanged {
-  const _$_AvatarChanged(this.file);
+  const _$_AvatarChanged(this.result);
 
   @override
-  final XFile file;
+  final FilePickerResult? result;
 
   @override
   String toString() {
-    return 'BecomeTutorEvent.avatarChanged(file: $file)';
+    return 'BecomeTutorEvent.avatarChanged(result: $result)';
   }
 
   @override
@@ -3044,12 +3044,12 @@ class _$_AvatarChanged implements _AvatarChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AvatarChanged &&
-            const DeepCollectionEquality().equals(other.file, file));
+            const DeepCollectionEquality().equals(other.result, result));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(file));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(result));
 
   @JsonKey(ignore: true)
   @override
@@ -3071,13 +3071,13 @@ class _$_AvatarChanged implements _AvatarChanged {
     required TResult Function(String bio) bioChanged,
     required TResult Function(TargetStudent targetStudent) targetStudentChanged,
     required TResult Function(List<Speciality> speciality) specialitiesChanged,
-    required TResult Function(XFile file) avatarChanged,
-    required TResult Function(XFile file) videoChanged,
+    required TResult Function(FilePickerResult? result) avatarChanged,
+    required TResult Function(FilePickerResult? result) videoChanged,
     required TResult Function(String price) priceChanged,
     required TResult Function() nextStepButtonPressed,
     required TResult Function() previousStepButtonPressed,
   }) {
-    return avatarChanged(file);
+    return avatarChanged(result);
   }
 
   @override
@@ -3095,13 +3095,13 @@ class _$_AvatarChanged implements _AvatarChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
   }) {
-    return avatarChanged?.call(file);
+    return avatarChanged?.call(result);
   }
 
   @override
@@ -3119,15 +3119,15 @@ class _$_AvatarChanged implements _AvatarChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (avatarChanged != null) {
-      return avatarChanged(file);
+      return avatarChanged(result);
     }
     return orElse();
   }
@@ -3214,9 +3214,9 @@ class _$_AvatarChanged implements _AvatarChanged {
 }
 
 abstract class _AvatarChanged implements BecomeTutorEvent {
-  const factory _AvatarChanged(XFile file) = _$_AvatarChanged;
+  const factory _AvatarChanged(FilePickerResult? result) = _$_AvatarChanged;
 
-  XFile get file;
+  FilePickerResult? get result;
   @JsonKey(ignore: true)
   _$AvatarChangedCopyWith<_AvatarChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -3227,7 +3227,7 @@ abstract class _$VideoChangedCopyWith<$Res> {
   factory _$VideoChangedCopyWith(
           _VideoChanged value, $Res Function(_VideoChanged) then) =
       __$VideoChangedCopyWithImpl<$Res>;
-  $Res call({XFile file});
+  $Res call({FilePickerResult? result});
 }
 
 /// @nodoc
@@ -3243,13 +3243,13 @@ class __$VideoChangedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? file = freezed,
+    Object? result = freezed,
   }) {
     return _then(_VideoChanged(
-      file == freezed
-          ? _value.file
-          : file // ignore: cast_nullable_to_non_nullable
-              as XFile,
+      result == freezed
+          ? _value.result
+          : result // ignore: cast_nullable_to_non_nullable
+              as FilePickerResult?,
     ));
   }
 }
@@ -3257,14 +3257,14 @@ class __$VideoChangedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_VideoChanged implements _VideoChanged {
-  const _$_VideoChanged(this.file);
+  const _$_VideoChanged(this.result);
 
   @override
-  final XFile file;
+  final FilePickerResult? result;
 
   @override
   String toString() {
-    return 'BecomeTutorEvent.videoChanged(file: $file)';
+    return 'BecomeTutorEvent.videoChanged(result: $result)';
   }
 
   @override
@@ -3272,12 +3272,12 @@ class _$_VideoChanged implements _VideoChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _VideoChanged &&
-            const DeepCollectionEquality().equals(other.file, file));
+            const DeepCollectionEquality().equals(other.result, result));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(file));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(result));
 
   @JsonKey(ignore: true)
   @override
@@ -3299,13 +3299,13 @@ class _$_VideoChanged implements _VideoChanged {
     required TResult Function(String bio) bioChanged,
     required TResult Function(TargetStudent targetStudent) targetStudentChanged,
     required TResult Function(List<Speciality> speciality) specialitiesChanged,
-    required TResult Function(XFile file) avatarChanged,
-    required TResult Function(XFile file) videoChanged,
+    required TResult Function(FilePickerResult? result) avatarChanged,
+    required TResult Function(FilePickerResult? result) videoChanged,
     required TResult Function(String price) priceChanged,
     required TResult Function() nextStepButtonPressed,
     required TResult Function() previousStepButtonPressed,
   }) {
-    return videoChanged(file);
+    return videoChanged(result);
   }
 
   @override
@@ -3323,13 +3323,13 @@ class _$_VideoChanged implements _VideoChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
   }) {
-    return videoChanged?.call(file);
+    return videoChanged?.call(result);
   }
 
   @override
@@ -3347,15 +3347,15 @@ class _$_VideoChanged implements _VideoChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (videoChanged != null) {
-      return videoChanged(file);
+      return videoChanged(result);
     }
     return orElse();
   }
@@ -3442,9 +3442,9 @@ class _$_VideoChanged implements _VideoChanged {
 }
 
 abstract class _VideoChanged implements BecomeTutorEvent {
-  const factory _VideoChanged(XFile file) = _$_VideoChanged;
+  const factory _VideoChanged(FilePickerResult? result) = _$_VideoChanged;
 
-  XFile get file;
+  FilePickerResult? get result;
   @JsonKey(ignore: true)
   _$VideoChangedCopyWith<_VideoChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -3527,8 +3527,8 @@ class _$_PriceChanged implements _PriceChanged {
     required TResult Function(String bio) bioChanged,
     required TResult Function(TargetStudent targetStudent) targetStudentChanged,
     required TResult Function(List<Speciality> speciality) specialitiesChanged,
-    required TResult Function(XFile file) avatarChanged,
-    required TResult Function(XFile file) videoChanged,
+    required TResult Function(FilePickerResult? result) avatarChanged,
+    required TResult Function(FilePickerResult? result) videoChanged,
     required TResult Function(String price) priceChanged,
     required TResult Function() nextStepButtonPressed,
     required TResult Function() previousStepButtonPressed,
@@ -3551,8 +3551,8 @@ class _$_PriceChanged implements _PriceChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -3575,8 +3575,8 @@ class _$_PriceChanged implements _PriceChanged {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -3731,8 +3731,8 @@ class _$_NextStepButtonPressed implements _NextStepButtonPressed {
     required TResult Function(String bio) bioChanged,
     required TResult Function(TargetStudent targetStudent) targetStudentChanged,
     required TResult Function(List<Speciality> speciality) specialitiesChanged,
-    required TResult Function(XFile file) avatarChanged,
-    required TResult Function(XFile file) videoChanged,
+    required TResult Function(FilePickerResult? result) avatarChanged,
+    required TResult Function(FilePickerResult? result) videoChanged,
     required TResult Function(String price) priceChanged,
     required TResult Function() nextStepButtonPressed,
     required TResult Function() previousStepButtonPressed,
@@ -3755,8 +3755,8 @@ class _$_NextStepButtonPressed implements _NextStepButtonPressed {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -3779,8 +3779,8 @@ class _$_NextStepButtonPressed implements _NextStepButtonPressed {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -3932,8 +3932,8 @@ class _$_PreviousStepButtonPressed implements _PreviousStepButtonPressed {
     required TResult Function(String bio) bioChanged,
     required TResult Function(TargetStudent targetStudent) targetStudentChanged,
     required TResult Function(List<Speciality> speciality) specialitiesChanged,
-    required TResult Function(XFile file) avatarChanged,
-    required TResult Function(XFile file) videoChanged,
+    required TResult Function(FilePickerResult? result) avatarChanged,
+    required TResult Function(FilePickerResult? result) videoChanged,
     required TResult Function(String price) priceChanged,
     required TResult Function() nextStepButtonPressed,
     required TResult Function() previousStepButtonPressed,
@@ -3956,8 +3956,8 @@ class _$_PreviousStepButtonPressed implements _PreviousStepButtonPressed {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,
@@ -3980,8 +3980,8 @@ class _$_PreviousStepButtonPressed implements _PreviousStepButtonPressed {
     TResult Function(String bio)? bioChanged,
     TResult Function(TargetStudent targetStudent)? targetStudentChanged,
     TResult Function(List<Speciality> speciality)? specialitiesChanged,
-    TResult Function(XFile file)? avatarChanged,
-    TResult Function(XFile file)? videoChanged,
+    TResult Function(FilePickerResult? result)? avatarChanged,
+    TResult Function(FilePickerResult? result)? videoChanged,
     TResult Function(String price)? priceChanged,
     TResult Function()? nextStepButtonPressed,
     TResult Function()? previousStepButtonPressed,

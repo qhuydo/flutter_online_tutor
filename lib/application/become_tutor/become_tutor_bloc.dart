@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:dartz/dartz.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -153,18 +154,40 @@ class BecomeTutorBloc extends Bloc<BecomeTutorEvent, BecomeTutorState> {
     emit(state.copyWith(specialities: value));
   }
 
+  void _getFile(FilePickerResult? result, void Function(XFile) callback) {
+    if (result != null) {
+      final XFile file;
+      if (result.files.single.bytes != null) {
+        file = XFile.fromData(
+          result.files.single.bytes!,
+          name: result.files.single.name,
+        );
+      } else {
+        file = XFile(
+          result.files.single.path!,
+          name: result.files.single.name,
+        );
+      }
+      callback.call(file);
+    }
+  }
+
   Future _avatarChanged(
-    XFile value,
+    FilePickerResult? result,
     Emitter<BecomeTutorState> emit,
   ) async {
-    emit(state.copyWith(avatar: value));
+    _getFile(result, (file) {
+      emit(state.copyWith(avatar: file));
+    });
   }
 
   Future _videoChanged(
-    XFile value,
+    FilePickerResult? result,
     Emitter<BecomeTutorState> emit,
   ) async {
-    emit(state.copyWith(video: value));
+    _getFile(result, (file) {
+      emit(state.copyWith(video: file));
+    });
   }
 
   Future _priceChanged(String value, Emitter<BecomeTutorState> emit) async {
@@ -183,6 +206,8 @@ class BecomeTutorBloc extends Bloc<BecomeTutorEvent, BecomeTutorState> {
 
   Future _nextStepButtonPressed(Emitter<BecomeTutorState> emit) async {
     final index = state.currentStepIndex;
+    if (index == 0) {}
+
     if (index >= 0 && index < BecomeTutorState.totalSteps - 1) {
       emit(state.copyWith(
         currentStepIndex: state.currentStepIndex + 1,

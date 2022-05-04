@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:dartz/dartz.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -182,9 +183,24 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   }
 
   Future _onNewProfileImageSelected(
-    XFile file,
+    FilePickerResult? result,
     Emitter<ProfileState> emit,
   ) async {
-    emit(state.copyWith(selectedProfileImage: file));
+    if (result != null) {
+      final XFile file;
+      if (result.files.single.bytes != null) {
+        file = XFile.fromData(
+          result.files.single.bytes!,
+          name: result.files.single.name,
+        );
+      } else {
+        file = XFile(
+          result.files.single.path!,
+          name: result.files.single.name,
+        );
+      }
+
+      emit(state.copyWith(selectedProfileImage: file));
+    }
   }
 }

@@ -1,12 +1,12 @@
 import 'dart:math';
 import 'dart:typed_data';
 
-import 'package:cross_file/cross_file.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/user/profile/profile_bloc.dart';
 import '../../../common.dart';
+import '../../../common/utils/constants.dart';
 
 class ProfileAvatar extends StatelessWidget {
   final double? avatarRadius;
@@ -47,9 +47,7 @@ class ProfileAvatar extends StatelessWidget {
                   ),
                   child: IconButton(
                     padding: const EdgeInsets.all(0),
-                    icon: const Icon(
-                      Icons.photo_camera,
-                    ),
+                    icon: const Icon(Icons.photo_camera),
                     onPressed: () async {
                       final result = await FilePicker.platform.pickFiles(
                         type: FileType.custom,
@@ -57,24 +55,9 @@ class ProfileAvatar extends StatelessWidget {
                         withReadStream: true,
                       );
 
-                      if (result != null) {
-                        final XFile file;
-                        if (result.files.single.bytes != null) {
-                          file = XFile.fromData(
-                            result.files.single.bytes!,
-                            name: result.files.single.name,
-                          );
-                        } else {
-                          file = XFile(
-                            result.files.single.path!,
-                            name: result.files.single.name,
-                          );
-                        }
-
-                        context
-                            .read<ProfileBloc>()
-                            .add(ProfileEvent.newProfileImageSelected(file));
-                      }
+                      context
+                          .read<ProfileBloc>()
+                          .add(ProfileEvent.newProfileImageSelected(result));
                     },
                     tooltip: context.l10n.changeAvatarButtonTooltip,
                   ),
@@ -115,7 +98,7 @@ class ProfileAvatar extends StatelessWidget {
 
   Widget buildProfileImage() {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(smallItemSpacing),
       child: BlocBuilder<ProfileBloc, ProfileState>(
         buildWhen: (previous, current) =>
             previous.user.avatar != current.user.avatar ||
@@ -130,7 +113,9 @@ class ProfileAvatar extends StatelessWidget {
                   builder: (_, snapshot) {
                     if (snapshot.hasError || !snapshot.hasData) {
                       return buildCircleAvatar(
-                          constraints, NetworkImage(avatar ?? ''));
+                        constraints,
+                        NetworkImage(avatar ?? ''),
+                      );
                     }
                     return buildCircleAvatar(
                       constraints,
