@@ -37,7 +37,7 @@ class _$UserDtoTearOff {
       String? level,
       List<SpecialityDto> learnTopics = const [],
       List<SpecialityDto> testPreparations = const [],
-      Object? tutorInfo}) {
+      Map<String, dynamic>? tutorInfo}) {
     return _UserDto(
       id: id,
       email: email,
@@ -83,7 +83,7 @@ mixin _$UserDto {
   List<SpecialityDto> get testPreparations =>
       throw _privateConstructorUsedError; // required bool isPhoneActivated,
 // required int timezone,
-  Object? get tutorInfo => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get tutorInfo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -109,7 +109,7 @@ abstract class $UserDtoCopyWith<$Res> {
       String? level,
       List<SpecialityDto> learnTopics,
       List<SpecialityDto> testPreparations,
-      Object? tutorInfo});
+      Map<String, dynamic>? tutorInfo});
 
   $WalletDtoCopyWith<$Res>? get walletInfo;
 }
@@ -197,7 +197,10 @@ class _$UserDtoCopyWithImpl<$Res> implements $UserDtoCopyWith<$Res> {
           ? _value.testPreparations
           : testPreparations // ignore: cast_nullable_to_non_nullable
               as List<SpecialityDto>,
-      tutorInfo: tutorInfo == freezed ? _value.tutorInfo : tutorInfo,
+      tutorInfo: tutorInfo == freezed
+          ? _value.tutorInfo
+          : tutorInfo // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 
@@ -233,7 +236,7 @@ abstract class _$UserDtoCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
       String? level,
       List<SpecialityDto> learnTopics,
       List<SpecialityDto> testPreparations,
-      Object? tutorInfo});
+      Map<String, dynamic>? tutorInfo});
 
   @override
   $WalletDtoCopyWith<$Res>? get walletInfo;
@@ -323,7 +326,10 @@ class __$UserDtoCopyWithImpl<$Res> extends _$UserDtoCopyWithImpl<$Res>
           ? _value.testPreparations
           : testPreparations // ignore: cast_nullable_to_non_nullable
               as List<SpecialityDto>,
-      tutorInfo: tutorInfo == freezed ? _value.tutorInfo : tutorInfo,
+      tutorInfo: tutorInfo == freezed
+          ? _value.tutorInfo
+          : tutorInfo // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -383,7 +389,7 @@ class _$_UserDto implements _UserDto {
   final List<SpecialityDto> testPreparations;
   @override // required bool isPhoneActivated,
 // required int timezone,
-  final Object? tutorInfo;
+  final Map<String, dynamic>? tutorInfo;
 
   @override
   String toString() {
@@ -462,7 +468,7 @@ abstract class _UserDto implements UserDto {
       String? level,
       List<SpecialityDto> learnTopics,
       List<SpecialityDto> testPreparations,
-      Object? tutorInfo}) = _$_UserDto;
+      Map<String, dynamic>? tutorInfo}) = _$_UserDto;
 
   factory _UserDto.fromJson(Map<String, dynamic> json) = _$_UserDto.fromJson;
 
@@ -496,7 +502,7 @@ abstract class _UserDto implements UserDto {
   List<SpecialityDto> get testPreparations;
   @override // required bool isPhoneActivated,
 // required int timezone,
-  Object? get tutorInfo;
+  Map<String, dynamic>? get tutorInfo;
   @override
   @JsonKey(ignore: true)
   _$UserDtoCopyWith<_UserDto> get copyWith =>

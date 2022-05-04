@@ -10,17 +10,16 @@
 //
 // ignore_for_file: type=lint
 
-import 'dart:typed_data' as _i9;
+import 'dart:typed_data' as _i8;
 
 import 'package:auto_route/auto_route.dart' as _i2;
 import 'package:flutter/material.dart' as _i3;
 
-import '../../../domain/course_ebook/models/course_topic.dart' as _i5;
-import '../../../domain/course_ebook/models/ebook.dart' as _i7;
-import '../../../domain/schedule/models/appointment.dart' as _i8;
-import '../../../domain/tutor/models/tutor.dart' as _i6;
+import '../../../domain/course_ebook/models/course_topic.dart' as _i4;
+import '../../../domain/course_ebook/models/ebook.dart' as _i6;
+import '../../../domain/schedule/models/appointment.dart' as _i7;
+import '../../../domain/tutor/models/tutor.dart' as _i5;
 import '../../all_pages.dart' as _i1;
-import '../../common.dart' as _i4;
 
 class AppRouter extends _i2.RootStackRouter {
   AppRouter([_i3.GlobalKey<_i3.NavigatorState>? navigatorKey])
@@ -343,7 +342,7 @@ class BecomeTutorRoute extends _i2.PageRouteInfo<void> {
 /// generated route for
 /// [_i1.TutorDetailsPage]
 class TutorDetailsRoute extends _i2.PageRouteInfo<TutorDetailsRouteArgs> {
-  TutorDetailsRoute({_i4.Key? key, required String tutorId})
+  TutorDetailsRoute({_i3.Key? key, required String tutorId})
       : super(TutorDetailsRoute.name,
             path: '/tutors/:tutorId',
             args: TutorDetailsRouteArgs(key: key, tutorId: tutorId),
@@ -355,7 +354,7 @@ class TutorDetailsRoute extends _i2.PageRouteInfo<TutorDetailsRouteArgs> {
 class TutorDetailsRouteArgs {
   const TutorDetailsRouteArgs({this.key, required this.tutorId});
 
-  final _i4.Key? key;
+  final _i3.Key? key;
 
   final String tutorId;
 
@@ -369,7 +368,7 @@ class TutorDetailsRouteArgs {
 /// [_i1.CourseDetailsPage]
 class CourseDetailsRoute extends _i2.PageRouteInfo<CourseDetailsRouteArgs> {
   CourseDetailsRoute(
-      {_i4.Key? key, required String courseId, String? thumbnail})
+      {_i3.Key? key, required String courseId, String? thumbnail})
       : super(CourseDetailsRoute.name,
             path: '/courses/:courseId',
             args: CourseDetailsRouteArgs(
@@ -383,7 +382,7 @@ class CourseDetailsRouteArgs {
   const CourseDetailsRouteArgs(
       {this.key, required this.courseId, this.thumbnail});
 
-  final _i4.Key? key;
+  final _i3.Key? key;
 
   final String courseId;
 
@@ -398,7 +397,7 @@ class CourseDetailsRouteArgs {
 /// generated route for
 /// [_i1.CourseSyllabusPage]
 class CourseSyllabusRoute extends _i2.PageRouteInfo<CourseSyllabusRouteArgs> {
-  CourseSyllabusRoute({_i4.Key? key, required _i5.CourseTopic item})
+  CourseSyllabusRoute({_i3.Key? key, required _i4.CourseTopic item})
       : super(CourseSyllabusRoute.name,
             path: '/courses/syllabus/:courseId/:chapterId',
             args: CourseSyllabusRouteArgs(key: key, item: item));
@@ -409,9 +408,9 @@ class CourseSyllabusRoute extends _i2.PageRouteInfo<CourseSyllabusRouteArgs> {
 class CourseSyllabusRouteArgs {
   const CourseSyllabusRouteArgs({this.key, required this.item});
 
-  final _i4.Key? key;
+  final _i3.Key? key;
 
-  final _i5.CourseTopic item;
+  final _i4.CourseTopic item;
 
   @override
   String toString() {
@@ -423,12 +422,11 @@ class CourseSyllabusRouteArgs {
 /// [_i1.TutorReviewPage]
 class TutorReviewRoute extends _i2.PageRouteInfo<TutorReviewRouteArgs> {
   TutorReviewRoute(
-      {_i4.Key? key, required String tutorId, required _i6.Tutor tutor})
+      {_i3.Key? key, required String tutorId, required _i5.Tutor tutor})
       : super(TutorReviewRoute.name,
             path: '/tutors/:tutorId/reviews',
             args:
-                TutorReviewRouteArgs(key: key, tutorId: tutorId, tutor: tutor),
-            rawPathParams: {'tutorId': tutorId});
+                TutorReviewRouteArgs(key: key, tutorId: tutorId, tutor: tutor));
 
   static const String name = 'TutorReviewRoute';
 }
@@ -437,11 +435,11 @@ class TutorReviewRouteArgs {
   const TutorReviewRouteArgs(
       {this.key, required this.tutorId, required this.tutor});
 
-  final _i4.Key? key;
+  final _i3.Key? key;
 
   final String tutorId;
 
-  final _i6.Tutor tutor;
+  final _i5.Tutor tutor;
 
   @override
   String toString() {
@@ -452,7 +450,7 @@ class TutorReviewRouteArgs {
 /// generated route for
 /// [_i1.MessageDetailsPage]
 class MessageDetailsRoute extends _i2.PageRouteInfo<MessageDetailsRouteArgs> {
-  MessageDetailsRoute({_i4.Key? key, required String tutorId})
+  MessageDetailsRoute({_i3.Key? key, required String tutorId})
       : super(MessageDetailsRoute.name,
             path: '/tutors/:tutorId/message',
             args: MessageDetailsRouteArgs(key: key, tutorId: tutorId),
@@ -464,7 +462,7 @@ class MessageDetailsRoute extends _i2.PageRouteInfo<MessageDetailsRouteArgs> {
 class MessageDetailsRouteArgs {
   const MessageDetailsRouteArgs({this.key, required this.tutorId});
 
-  final _i4.Key? key;
+  final _i3.Key? key;
 
   final String tutorId;
 
@@ -485,7 +483,7 @@ class HistoryRoute extends _i2.PageRouteInfo<void> {
 /// generated route for
 /// [_i1.EbookDetailsPage]
 class EbookDetailsRoute extends _i2.PageRouteInfo<EbookDetailsRouteArgs> {
-  EbookDetailsRoute({_i4.Key? key, required _i7.Ebook ebook})
+  EbookDetailsRoute({_i3.Key? key, required _i6.Ebook ebook})
       : super(EbookDetailsRoute.name,
             path: '/ebooks/:ebookId',
             args: EbookDetailsRouteArgs(key: key, ebook: ebook));
@@ -496,9 +494,9 @@ class EbookDetailsRoute extends _i2.PageRouteInfo<EbookDetailsRouteArgs> {
 class EbookDetailsRouteArgs {
   const EbookDetailsRouteArgs({this.key, required this.ebook});
 
-  final _i4.Key? key;
+  final _i3.Key? key;
 
-  final _i7.Ebook ebook;
+  final _i6.Ebook ebook;
 
   @override
   String toString() {
@@ -509,7 +507,7 @@ class EbookDetailsRouteArgs {
 /// generated route for
 /// [_i1.TutorSchedulePage]
 class TutorScheduleRoute extends _i2.PageRouteInfo<TutorScheduleRouteArgs> {
-  TutorScheduleRoute({_i4.Key? key, required String tutorId})
+  TutorScheduleRoute({_i3.Key? key, required String tutorId})
       : super(TutorScheduleRoute.name,
             path: '/tutors/:tutorId/schedule',
             args: TutorScheduleRouteArgs(key: key, tutorId: tutorId),
@@ -521,7 +519,7 @@ class TutorScheduleRoute extends _i2.PageRouteInfo<TutorScheduleRouteArgs> {
 class TutorScheduleRouteArgs {
   const TutorScheduleRouteArgs({this.key, required this.tutorId});
 
-  final _i4.Key? key;
+  final _i3.Key? key;
 
   final String tutorId;
 
@@ -534,7 +532,7 @@ class TutorScheduleRouteArgs {
 /// generated route for
 /// [_i1.MeetingPage]
 class MeetingRoute extends _i2.PageRouteInfo<MeetingRouteArgs> {
-  MeetingRoute({_i4.Key? key, _i8.Appointment? appointment})
+  MeetingRoute({_i3.Key? key, _i7.Appointment? appointment})
       : super(MeetingRoute.name,
             path: '/meeting/:meetingId',
             args: MeetingRouteArgs(key: key, appointment: appointment));
@@ -545,9 +543,9 @@ class MeetingRoute extends _i2.PageRouteInfo<MeetingRouteArgs> {
 class MeetingRouteArgs {
   const MeetingRouteArgs({this.key, this.appointment});
 
-  final _i4.Key? key;
+  final _i3.Key? key;
 
-  final _i8.Appointment? appointment;
+  final _i7.Appointment? appointment;
 
   @override
   String toString() {
@@ -570,9 +568,9 @@ class SettingsUnauthorizedRoute extends _i2.PageRouteInfo<void> {
 class CourseSyllabusPreviewRoute
     extends _i2.PageRouteInfo<CourseSyllabusPreviewRouteArgs> {
   CourseSyllabusPreviewRoute(
-      {_i4.Key? key,
-      required _i5.CourseTopic item,
-      required _i9.Uint8List pdf,
+      {_i3.Key? key,
+      required _i4.CourseTopic item,
+      required _i8.Uint8List pdf,
       int initialPage = 0})
       : super(CourseSyllabusPreviewRoute.name,
             path: '/course-syllabus-preview-page',
@@ -586,11 +584,11 @@ class CourseSyllabusPreviewRouteArgs {
   const CourseSyllabusPreviewRouteArgs(
       {this.key, required this.item, required this.pdf, this.initialPage = 0});
 
-  final _i4.Key? key;
+  final _i3.Key? key;
 
-  final _i5.CourseTopic item;
+  final _i4.CourseTopic item;
 
-  final _i9.Uint8List pdf;
+  final _i8.Uint8List pdf;
 
   final int initialPage;
 
@@ -612,7 +610,7 @@ class FavouriteTutorsRoute extends _i2.PageRouteInfo<void> {
 /// generated route for
 /// [_i1.ScheduleDetailsPage]
 class ScheduleDetailsRoute extends _i2.PageRouteInfo<ScheduleDetailsRouteArgs> {
-  ScheduleDetailsRoute({_i4.Key? key, required _i8.Appointment appointment})
+  ScheduleDetailsRoute({_i3.Key? key, required _i7.Appointment appointment})
       : super(ScheduleDetailsRoute.name,
             path: '/schedule-details-page',
             args: ScheduleDetailsRouteArgs(key: key, appointment: appointment));
@@ -623,9 +621,9 @@ class ScheduleDetailsRoute extends _i2.PageRouteInfo<ScheduleDetailsRouteArgs> {
 class ScheduleDetailsRouteArgs {
   const ScheduleDetailsRouteArgs({this.key, required this.appointment});
 
-  final _i4.Key? key;
+  final _i3.Key? key;
 
-  final _i8.Appointment appointment;
+  final _i7.Appointment appointment;
 
   @override
   String toString() {
@@ -636,7 +634,7 @@ class ScheduleDetailsRouteArgs {
 /// generated route for
 /// [_i1.VerifyAccountPage]
 class VerifyAccountRoute extends _i2.PageRouteInfo<VerifyAccountRouteArgs> {
-  VerifyAccountRoute({_i4.Key? key, required Uri uri})
+  VerifyAccountRoute({_i3.Key? key, required Uri uri})
       : super(VerifyAccountRoute.name,
             path: '/verify', args: VerifyAccountRouteArgs(key: key, uri: uri));
 
@@ -646,7 +644,7 @@ class VerifyAccountRoute extends _i2.PageRouteInfo<VerifyAccountRouteArgs> {
 class VerifyAccountRouteArgs {
   const VerifyAccountRouteArgs({this.key, required this.uri});
 
-  final _i4.Key? key;
+  final _i3.Key? key;
 
   final Uri uri;
 

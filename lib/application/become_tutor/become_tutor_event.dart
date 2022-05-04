@@ -2,7 +2,6 @@ part of 'become_tutor_bloc.dart';
 
 @freezed
 class BecomeTutorEvent with _$BecomeTutorEvent {
-
   const factory BecomeTutorEvent.initialise() = _Initialise;
 
   const factory BecomeTutorEvent.nameChanged(String name) = _NameChanged;
@@ -44,8 +43,9 @@ class BecomeTutorEvent with _$BecomeTutorEvent {
 
   const factory BecomeTutorEvent.priceChanged(String price) = _PriceChanged;
 
-  const factory BecomeTutorEvent.step1ButtonPressed() = _Step1ButtonPressed;
+  const factory BecomeTutorEvent.nextStepButtonPressed() =
+      _NextStepButtonPressed;
 
-  const factory BecomeTutorEvent.step2ButtonPressed() = _Step2ButtonPressed;
-
+  const factory BecomeTutorEvent.previousStepButtonPressed() =
+      _PreviousStepButtonPressed;
 }

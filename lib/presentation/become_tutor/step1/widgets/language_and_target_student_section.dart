@@ -13,6 +13,8 @@ class LanguageAndTargetStudentSection extends StatelessWidget {
     final titleStyle = Theme.of(context).textTheme.titleLarge;
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
         Text(
           context.l10n.aboutLanguageTitle,

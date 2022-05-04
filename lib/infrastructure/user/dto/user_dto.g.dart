@@ -31,7 +31,7 @@ _$_UserDto _$$_UserDtoFromJson(Map<String, dynamic> json) => _$_UserDto(
               ?.map((e) => SpecialityDto.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
-      tutorInfo: json['tutorInfo'],
+      tutorInfo: json['tutorInfo'] as Map<String, dynamic>?,
     );
 
 Map<String, dynamic> _$$_UserDtoToJson(_$_UserDto instance) =>

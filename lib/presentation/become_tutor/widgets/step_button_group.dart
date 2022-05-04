@@ -32,18 +32,14 @@ class StepButtonGroup extends StatelessWidget {
             OutlinedButton.icon(
               onPressed: onStepCancel,
               icon: const Icon(Icons.navigate_before),
-              label: Text(
-                context.l10n.previousStepButtonText,
-              ),
+              label: Text(context.l10n.previousStepButtonText),
             ),
           const Expanded(child: SizedBox()),
           if (isNotLastStep && !isCompleted)
             ElevatedButton.icon(
               onPressed: onStepContinue,
               icon: const Icon(Icons.navigate_next),
-              label: Text(
-                context.l10n.nextStepButtonLabel,
-              ),
+              label: Text(context.l10n.nextStepButtonLabel),
             ),
         ],
       ),

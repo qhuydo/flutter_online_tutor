@@ -106,12 +106,12 @@ class _$BecomeTutorEventTearOff {
     );
   }
 
-  _Step1ButtonPressed step1ButtonPressed() {
-    return const _Step1ButtonPressed();
+  _NextStepButtonPressed nextStepButtonPressed() {
+    return const _NextStepButtonPressed();
   }
 
-  _Step2ButtonPressed step2ButtonPressed() {
-    return const _Step2ButtonPressed();
+  _PreviousStepButtonPressed previousStepButtonPressed() {
+    return const _PreviousStepButtonPressed();
   }
 }
 
@@ -137,8 +137,8 @@ mixin _$BecomeTutorEvent {
     required TResult Function(XFile file) avatarChanged,
     required TResult Function(XFile file) videoChanged,
     required TResult Function(String price) priceChanged,
-    required TResult Function() step1ButtonPressed,
-    required TResult Function() step2ButtonPressed,
+    required TResult Function() nextStepButtonPressed,
+    required TResult Function() previousStepButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -158,8 +158,8 @@ mixin _$BecomeTutorEvent {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -179,8 +179,8 @@ mixin _$BecomeTutorEvent {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -201,8 +201,10 @@ mixin _$BecomeTutorEvent {
     required TResult Function(_AvatarChanged value) avatarChanged,
     required TResult Function(_VideoChanged value) videoChanged,
     required TResult Function(_PriceChanged value) priceChanged,
-    required TResult Function(_Step1ButtonPressed value) step1ButtonPressed,
-    required TResult Function(_Step2ButtonPressed value) step2ButtonPressed,
+    required TResult Function(_NextStepButtonPressed value)
+        nextStepButtonPressed,
+    required TResult Function(_PreviousStepButtonPressed value)
+        previousStepButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -222,8 +224,9 @@ mixin _$BecomeTutorEvent {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -243,8 +246,9 @@ mixin _$BecomeTutorEvent {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -323,8 +327,8 @@ class _$_Initialise implements _Initialise {
     required TResult Function(XFile file) avatarChanged,
     required TResult Function(XFile file) videoChanged,
     required TResult Function(String price) priceChanged,
-    required TResult Function() step1ButtonPressed,
-    required TResult Function() step2ButtonPressed,
+    required TResult Function() nextStepButtonPressed,
+    required TResult Function() previousStepButtonPressed,
   }) {
     return initialise();
   }
@@ -347,8 +351,8 @@ class _$_Initialise implements _Initialise {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
   }) {
     return initialise?.call();
   }
@@ -371,8 +375,8 @@ class _$_Initialise implements _Initialise {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (initialise != null) {
@@ -399,8 +403,10 @@ class _$_Initialise implements _Initialise {
     required TResult Function(_AvatarChanged value) avatarChanged,
     required TResult Function(_VideoChanged value) videoChanged,
     required TResult Function(_PriceChanged value) priceChanged,
-    required TResult Function(_Step1ButtonPressed value) step1ButtonPressed,
-    required TResult Function(_Step2ButtonPressed value) step2ButtonPressed,
+    required TResult Function(_NextStepButtonPressed value)
+        nextStepButtonPressed,
+    required TResult Function(_PreviousStepButtonPressed value)
+        previousStepButtonPressed,
   }) {
     return initialise(this);
   }
@@ -423,8 +429,9 @@ class _$_Initialise implements _Initialise {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
   }) {
     return initialise?.call(this);
   }
@@ -447,8 +454,9 @@ class _$_Initialise implements _Initialise {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (initialise != null) {
@@ -542,8 +550,8 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(XFile file) avatarChanged,
     required TResult Function(XFile file) videoChanged,
     required TResult Function(String price) priceChanged,
-    required TResult Function() step1ButtonPressed,
-    required TResult Function() step2ButtonPressed,
+    required TResult Function() nextStepButtonPressed,
+    required TResult Function() previousStepButtonPressed,
   }) {
     return nameChanged(name);
   }
@@ -566,8 +574,8 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
   }) {
     return nameChanged?.call(name);
   }
@@ -590,8 +598,8 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -618,8 +626,10 @@ class _$_NameChanged implements _NameChanged {
     required TResult Function(_AvatarChanged value) avatarChanged,
     required TResult Function(_VideoChanged value) videoChanged,
     required TResult Function(_PriceChanged value) priceChanged,
-    required TResult Function(_Step1ButtonPressed value) step1ButtonPressed,
-    required TResult Function(_Step2ButtonPressed value) step2ButtonPressed,
+    required TResult Function(_NextStepButtonPressed value)
+        nextStepButtonPressed,
+    required TResult Function(_PreviousStepButtonPressed value)
+        previousStepButtonPressed,
   }) {
     return nameChanged(this);
   }
@@ -642,8 +652,9 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
   }) {
     return nameChanged?.call(this);
   }
@@ -666,8 +677,9 @@ class _$_NameChanged implements _NameChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -775,8 +787,8 @@ class _$_CountryChanged implements _CountryChanged {
     required TResult Function(XFile file) avatarChanged,
     required TResult Function(XFile file) videoChanged,
     required TResult Function(String price) priceChanged,
-    required TResult Function() step1ButtonPressed,
-    required TResult Function() step2ButtonPressed,
+    required TResult Function() nextStepButtonPressed,
+    required TResult Function() previousStepButtonPressed,
   }) {
     return countryChanged(country);
   }
@@ -799,8 +811,8 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
   }) {
     return countryChanged?.call(country);
   }
@@ -823,8 +835,8 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (countryChanged != null) {
@@ -851,8 +863,10 @@ class _$_CountryChanged implements _CountryChanged {
     required TResult Function(_AvatarChanged value) avatarChanged,
     required TResult Function(_VideoChanged value) videoChanged,
     required TResult Function(_PriceChanged value) priceChanged,
-    required TResult Function(_Step1ButtonPressed value) step1ButtonPressed,
-    required TResult Function(_Step2ButtonPressed value) step2ButtonPressed,
+    required TResult Function(_NextStepButtonPressed value)
+        nextStepButtonPressed,
+    required TResult Function(_PreviousStepButtonPressed value)
+        previousStepButtonPressed,
   }) {
     return countryChanged(this);
   }
@@ -875,8 +889,9 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
   }) {
     return countryChanged?.call(this);
   }
@@ -899,8 +914,9 @@ class _$_CountryChanged implements _CountryChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (countryChanged != null) {
@@ -999,8 +1015,8 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     required TResult Function(XFile file) avatarChanged,
     required TResult Function(XFile file) videoChanged,
     required TResult Function(String price) priceChanged,
-    required TResult Function() step1ButtonPressed,
-    required TResult Function() step2ButtonPressed,
+    required TResult Function() nextStepButtonPressed,
+    required TResult Function() previousStepButtonPressed,
   }) {
     return birthDayChanged(birthDay);
   }
@@ -1023,8 +1039,8 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
   }) {
     return birthDayChanged?.call(birthDay);
   }
@@ -1047,8 +1063,8 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (birthDayChanged != null) {
@@ -1075,8 +1091,10 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     required TResult Function(_AvatarChanged value) avatarChanged,
     required TResult Function(_VideoChanged value) videoChanged,
     required TResult Function(_PriceChanged value) priceChanged,
-    required TResult Function(_Step1ButtonPressed value) step1ButtonPressed,
-    required TResult Function(_Step2ButtonPressed value) step2ButtonPressed,
+    required TResult Function(_NextStepButtonPressed value)
+        nextStepButtonPressed,
+    required TResult Function(_PreviousStepButtonPressed value)
+        previousStepButtonPressed,
   }) {
     return birthDayChanged(this);
   }
@@ -1099,8 +1117,9 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
   }) {
     return birthDayChanged?.call(this);
   }
@@ -1123,8 +1142,9 @@ class _$_BirthDayChanged implements _BirthDayChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (birthDayChanged != null) {
@@ -1223,8 +1243,8 @@ class _$_InterestsChanged implements _InterestsChanged {
     required TResult Function(XFile file) avatarChanged,
     required TResult Function(XFile file) videoChanged,
     required TResult Function(String price) priceChanged,
-    required TResult Function() step1ButtonPressed,
-    required TResult Function() step2ButtonPressed,
+    required TResult Function() nextStepButtonPressed,
+    required TResult Function() previousStepButtonPressed,
   }) {
     return interestsChanged(value);
   }
@@ -1247,8 +1267,8 @@ class _$_InterestsChanged implements _InterestsChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
   }) {
     return interestsChanged?.call(value);
   }
@@ -1271,8 +1291,8 @@ class _$_InterestsChanged implements _InterestsChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (interestsChanged != null) {
@@ -1299,8 +1319,10 @@ class _$_InterestsChanged implements _InterestsChanged {
     required TResult Function(_AvatarChanged value) avatarChanged,
     required TResult Function(_VideoChanged value) videoChanged,
     required TResult Function(_PriceChanged value) priceChanged,
-    required TResult Function(_Step1ButtonPressed value) step1ButtonPressed,
-    required TResult Function(_Step2ButtonPressed value) step2ButtonPressed,
+    required TResult Function(_NextStepButtonPressed value)
+        nextStepButtonPressed,
+    required TResult Function(_PreviousStepButtonPressed value)
+        previousStepButtonPressed,
   }) {
     return interestsChanged(this);
   }
@@ -1323,8 +1345,9 @@ class _$_InterestsChanged implements _InterestsChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
   }) {
     return interestsChanged?.call(this);
   }
@@ -1347,8 +1370,9 @@ class _$_InterestsChanged implements _InterestsChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (interestsChanged != null) {
@@ -1447,8 +1471,8 @@ class _$_EducationChanged implements _EducationChanged {
     required TResult Function(XFile file) avatarChanged,
     required TResult Function(XFile file) videoChanged,
     required TResult Function(String price) priceChanged,
-    required TResult Function() step1ButtonPressed,
-    required TResult Function() step2ButtonPressed,
+    required TResult Function() nextStepButtonPressed,
+    required TResult Function() previousStepButtonPressed,
   }) {
     return educationChanged(value);
   }
@@ -1471,8 +1495,8 @@ class _$_EducationChanged implements _EducationChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
   }) {
     return educationChanged?.call(value);
   }
@@ -1495,8 +1519,8 @@ class _$_EducationChanged implements _EducationChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (educationChanged != null) {
@@ -1523,8 +1547,10 @@ class _$_EducationChanged implements _EducationChanged {
     required TResult Function(_AvatarChanged value) avatarChanged,
     required TResult Function(_VideoChanged value) videoChanged,
     required TResult Function(_PriceChanged value) priceChanged,
-    required TResult Function(_Step1ButtonPressed value) step1ButtonPressed,
-    required TResult Function(_Step2ButtonPressed value) step2ButtonPressed,
+    required TResult Function(_NextStepButtonPressed value)
+        nextStepButtonPressed,
+    required TResult Function(_PreviousStepButtonPressed value)
+        previousStepButtonPressed,
   }) {
     return educationChanged(this);
   }
@@ -1547,8 +1573,9 @@ class _$_EducationChanged implements _EducationChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
   }) {
     return educationChanged?.call(this);
   }
@@ -1571,8 +1598,9 @@ class _$_EducationChanged implements _EducationChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (educationChanged != null) {
@@ -1671,8 +1699,8 @@ class _$_ExperienceChanged implements _ExperienceChanged {
     required TResult Function(XFile file) avatarChanged,
     required TResult Function(XFile file) videoChanged,
     required TResult Function(String price) priceChanged,
-    required TResult Function() step1ButtonPressed,
-    required TResult Function() step2ButtonPressed,
+    required TResult Function() nextStepButtonPressed,
+    required TResult Function() previousStepButtonPressed,
   }) {
     return experienceChanged(value);
   }
@@ -1695,8 +1723,8 @@ class _$_ExperienceChanged implements _ExperienceChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
   }) {
     return experienceChanged?.call(value);
   }
@@ -1719,8 +1747,8 @@ class _$_ExperienceChanged implements _ExperienceChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (experienceChanged != null) {
@@ -1747,8 +1775,10 @@ class _$_ExperienceChanged implements _ExperienceChanged {
     required TResult Function(_AvatarChanged value) avatarChanged,
     required TResult Function(_VideoChanged value) videoChanged,
     required TResult Function(_PriceChanged value) priceChanged,
-    required TResult Function(_Step1ButtonPressed value) step1ButtonPressed,
-    required TResult Function(_Step2ButtonPressed value) step2ButtonPressed,
+    required TResult Function(_NextStepButtonPressed value)
+        nextStepButtonPressed,
+    required TResult Function(_PreviousStepButtonPressed value)
+        previousStepButtonPressed,
   }) {
     return experienceChanged(this);
   }
@@ -1771,8 +1801,9 @@ class _$_ExperienceChanged implements _ExperienceChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
   }) {
     return experienceChanged?.call(this);
   }
@@ -1795,8 +1826,9 @@ class _$_ExperienceChanged implements _ExperienceChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (experienceChanged != null) {
@@ -1895,8 +1927,8 @@ class _$_ProfessionChanged implements _ProfessionChanged {
     required TResult Function(XFile file) avatarChanged,
     required TResult Function(XFile file) videoChanged,
     required TResult Function(String price) priceChanged,
-    required TResult Function() step1ButtonPressed,
-    required TResult Function() step2ButtonPressed,
+    required TResult Function() nextStepButtonPressed,
+    required TResult Function() previousStepButtonPressed,
   }) {
     return professionChanged(value);
   }
@@ -1919,8 +1951,8 @@ class _$_ProfessionChanged implements _ProfessionChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
   }) {
     return professionChanged?.call(value);
   }
@@ -1943,8 +1975,8 @@ class _$_ProfessionChanged implements _ProfessionChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (professionChanged != null) {
@@ -1971,8 +2003,10 @@ class _$_ProfessionChanged implements _ProfessionChanged {
     required TResult Function(_AvatarChanged value) avatarChanged,
     required TResult Function(_VideoChanged value) videoChanged,
     required TResult Function(_PriceChanged value) priceChanged,
-    required TResult Function(_Step1ButtonPressed value) step1ButtonPressed,
-    required TResult Function(_Step2ButtonPressed value) step2ButtonPressed,
+    required TResult Function(_NextStepButtonPressed value)
+        nextStepButtonPressed,
+    required TResult Function(_PreviousStepButtonPressed value)
+        previousStepButtonPressed,
   }) {
     return professionChanged(this);
   }
@@ -1995,8 +2029,9 @@ class _$_ProfessionChanged implements _ProfessionChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
   }) {
     return professionChanged?.call(this);
   }
@@ -2019,8 +2054,9 @@ class _$_ProfessionChanged implements _ProfessionChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (professionChanged != null) {
@@ -2119,8 +2155,8 @@ class _$_LanguagesChanged implements _LanguagesChanged {
     required TResult Function(XFile file) avatarChanged,
     required TResult Function(XFile file) videoChanged,
     required TResult Function(String price) priceChanged,
-    required TResult Function() step1ButtonPressed,
-    required TResult Function() step2ButtonPressed,
+    required TResult Function() nextStepButtonPressed,
+    required TResult Function() previousStepButtonPressed,
   }) {
     return languagesChanged(languages);
   }
@@ -2143,8 +2179,8 @@ class _$_LanguagesChanged implements _LanguagesChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
   }) {
     return languagesChanged?.call(languages);
   }
@@ -2167,8 +2203,8 @@ class _$_LanguagesChanged implements _LanguagesChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (languagesChanged != null) {
@@ -2195,8 +2231,10 @@ class _$_LanguagesChanged implements _LanguagesChanged {
     required TResult Function(_AvatarChanged value) avatarChanged,
     required TResult Function(_VideoChanged value) videoChanged,
     required TResult Function(_PriceChanged value) priceChanged,
-    required TResult Function(_Step1ButtonPressed value) step1ButtonPressed,
-    required TResult Function(_Step2ButtonPressed value) step2ButtonPressed,
+    required TResult Function(_NextStepButtonPressed value)
+        nextStepButtonPressed,
+    required TResult Function(_PreviousStepButtonPressed value)
+        previousStepButtonPressed,
   }) {
     return languagesChanged(this);
   }
@@ -2219,8 +2257,9 @@ class _$_LanguagesChanged implements _LanguagesChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
   }) {
     return languagesChanged?.call(this);
   }
@@ -2243,8 +2282,9 @@ class _$_LanguagesChanged implements _LanguagesChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (languagesChanged != null) {
@@ -2344,8 +2384,8 @@ class _$_BioChanged implements _BioChanged {
     required TResult Function(XFile file) avatarChanged,
     required TResult Function(XFile file) videoChanged,
     required TResult Function(String price) priceChanged,
-    required TResult Function() step1ButtonPressed,
-    required TResult Function() step2ButtonPressed,
+    required TResult Function() nextStepButtonPressed,
+    required TResult Function() previousStepButtonPressed,
   }) {
     return bioChanged(bio);
   }
@@ -2368,8 +2408,8 @@ class _$_BioChanged implements _BioChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
   }) {
     return bioChanged?.call(bio);
   }
@@ -2392,8 +2432,8 @@ class _$_BioChanged implements _BioChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (bioChanged != null) {
@@ -2420,8 +2460,10 @@ class _$_BioChanged implements _BioChanged {
     required TResult Function(_AvatarChanged value) avatarChanged,
     required TResult Function(_VideoChanged value) videoChanged,
     required TResult Function(_PriceChanged value) priceChanged,
-    required TResult Function(_Step1ButtonPressed value) step1ButtonPressed,
-    required TResult Function(_Step2ButtonPressed value) step2ButtonPressed,
+    required TResult Function(_NextStepButtonPressed value)
+        nextStepButtonPressed,
+    required TResult Function(_PreviousStepButtonPressed value)
+        previousStepButtonPressed,
   }) {
     return bioChanged(this);
   }
@@ -2444,8 +2486,9 @@ class _$_BioChanged implements _BioChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
   }) {
     return bioChanged?.call(this);
   }
@@ -2468,8 +2511,9 @@ class _$_BioChanged implements _BioChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (bioChanged != null) {
@@ -2570,8 +2614,8 @@ class _$_TargetStudentChanged implements _TargetStudentChanged {
     required TResult Function(XFile file) avatarChanged,
     required TResult Function(XFile file) videoChanged,
     required TResult Function(String price) priceChanged,
-    required TResult Function() step1ButtonPressed,
-    required TResult Function() step2ButtonPressed,
+    required TResult Function() nextStepButtonPressed,
+    required TResult Function() previousStepButtonPressed,
   }) {
     return targetStudentChanged(targetStudent);
   }
@@ -2594,8 +2638,8 @@ class _$_TargetStudentChanged implements _TargetStudentChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
   }) {
     return targetStudentChanged?.call(targetStudent);
   }
@@ -2618,8 +2662,8 @@ class _$_TargetStudentChanged implements _TargetStudentChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (targetStudentChanged != null) {
@@ -2646,8 +2690,10 @@ class _$_TargetStudentChanged implements _TargetStudentChanged {
     required TResult Function(_AvatarChanged value) avatarChanged,
     required TResult Function(_VideoChanged value) videoChanged,
     required TResult Function(_PriceChanged value) priceChanged,
-    required TResult Function(_Step1ButtonPressed value) step1ButtonPressed,
-    required TResult Function(_Step2ButtonPressed value) step2ButtonPressed,
+    required TResult Function(_NextStepButtonPressed value)
+        nextStepButtonPressed,
+    required TResult Function(_PreviousStepButtonPressed value)
+        previousStepButtonPressed,
   }) {
     return targetStudentChanged(this);
   }
@@ -2670,8 +2716,9 @@ class _$_TargetStudentChanged implements _TargetStudentChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
   }) {
     return targetStudentChanged?.call(this);
   }
@@ -2694,8 +2741,9 @@ class _$_TargetStudentChanged implements _TargetStudentChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (targetStudentChanged != null) {
@@ -2797,8 +2845,8 @@ class _$_SpecialitiesChanged implements _SpecialitiesChanged {
     required TResult Function(XFile file) avatarChanged,
     required TResult Function(XFile file) videoChanged,
     required TResult Function(String price) priceChanged,
-    required TResult Function() step1ButtonPressed,
-    required TResult Function() step2ButtonPressed,
+    required TResult Function() nextStepButtonPressed,
+    required TResult Function() previousStepButtonPressed,
   }) {
     return specialitiesChanged(speciality);
   }
@@ -2821,8 +2869,8 @@ class _$_SpecialitiesChanged implements _SpecialitiesChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
   }) {
     return specialitiesChanged?.call(speciality);
   }
@@ -2845,8 +2893,8 @@ class _$_SpecialitiesChanged implements _SpecialitiesChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (specialitiesChanged != null) {
@@ -2873,8 +2921,10 @@ class _$_SpecialitiesChanged implements _SpecialitiesChanged {
     required TResult Function(_AvatarChanged value) avatarChanged,
     required TResult Function(_VideoChanged value) videoChanged,
     required TResult Function(_PriceChanged value) priceChanged,
-    required TResult Function(_Step1ButtonPressed value) step1ButtonPressed,
-    required TResult Function(_Step2ButtonPressed value) step2ButtonPressed,
+    required TResult Function(_NextStepButtonPressed value)
+        nextStepButtonPressed,
+    required TResult Function(_PreviousStepButtonPressed value)
+        previousStepButtonPressed,
   }) {
     return specialitiesChanged(this);
   }
@@ -2897,8 +2947,9 @@ class _$_SpecialitiesChanged implements _SpecialitiesChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
   }) {
     return specialitiesChanged?.call(this);
   }
@@ -2921,8 +2972,9 @@ class _$_SpecialitiesChanged implements _SpecialitiesChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (specialitiesChanged != null) {
@@ -3022,8 +3074,8 @@ class _$_AvatarChanged implements _AvatarChanged {
     required TResult Function(XFile file) avatarChanged,
     required TResult Function(XFile file) videoChanged,
     required TResult Function(String price) priceChanged,
-    required TResult Function() step1ButtonPressed,
-    required TResult Function() step2ButtonPressed,
+    required TResult Function() nextStepButtonPressed,
+    required TResult Function() previousStepButtonPressed,
   }) {
     return avatarChanged(file);
   }
@@ -3046,8 +3098,8 @@ class _$_AvatarChanged implements _AvatarChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
   }) {
     return avatarChanged?.call(file);
   }
@@ -3070,8 +3122,8 @@ class _$_AvatarChanged implements _AvatarChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (avatarChanged != null) {
@@ -3098,8 +3150,10 @@ class _$_AvatarChanged implements _AvatarChanged {
     required TResult Function(_AvatarChanged value) avatarChanged,
     required TResult Function(_VideoChanged value) videoChanged,
     required TResult Function(_PriceChanged value) priceChanged,
-    required TResult Function(_Step1ButtonPressed value) step1ButtonPressed,
-    required TResult Function(_Step2ButtonPressed value) step2ButtonPressed,
+    required TResult Function(_NextStepButtonPressed value)
+        nextStepButtonPressed,
+    required TResult Function(_PreviousStepButtonPressed value)
+        previousStepButtonPressed,
   }) {
     return avatarChanged(this);
   }
@@ -3122,8 +3176,9 @@ class _$_AvatarChanged implements _AvatarChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
   }) {
     return avatarChanged?.call(this);
   }
@@ -3146,8 +3201,9 @@ class _$_AvatarChanged implements _AvatarChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (avatarChanged != null) {
@@ -3246,8 +3302,8 @@ class _$_VideoChanged implements _VideoChanged {
     required TResult Function(XFile file) avatarChanged,
     required TResult Function(XFile file) videoChanged,
     required TResult Function(String price) priceChanged,
-    required TResult Function() step1ButtonPressed,
-    required TResult Function() step2ButtonPressed,
+    required TResult Function() nextStepButtonPressed,
+    required TResult Function() previousStepButtonPressed,
   }) {
     return videoChanged(file);
   }
@@ -3270,8 +3326,8 @@ class _$_VideoChanged implements _VideoChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
   }) {
     return videoChanged?.call(file);
   }
@@ -3294,8 +3350,8 @@ class _$_VideoChanged implements _VideoChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (videoChanged != null) {
@@ -3322,8 +3378,10 @@ class _$_VideoChanged implements _VideoChanged {
     required TResult Function(_AvatarChanged value) avatarChanged,
     required TResult Function(_VideoChanged value) videoChanged,
     required TResult Function(_PriceChanged value) priceChanged,
-    required TResult Function(_Step1ButtonPressed value) step1ButtonPressed,
-    required TResult Function(_Step2ButtonPressed value) step2ButtonPressed,
+    required TResult Function(_NextStepButtonPressed value)
+        nextStepButtonPressed,
+    required TResult Function(_PreviousStepButtonPressed value)
+        previousStepButtonPressed,
   }) {
     return videoChanged(this);
   }
@@ -3346,8 +3404,9 @@ class _$_VideoChanged implements _VideoChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
   }) {
     return videoChanged?.call(this);
   }
@@ -3370,8 +3429,9 @@ class _$_VideoChanged implements _VideoChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (videoChanged != null) {
@@ -3470,8 +3530,8 @@ class _$_PriceChanged implements _PriceChanged {
     required TResult Function(XFile file) avatarChanged,
     required TResult Function(XFile file) videoChanged,
     required TResult Function(String price) priceChanged,
-    required TResult Function() step1ButtonPressed,
-    required TResult Function() step2ButtonPressed,
+    required TResult Function() nextStepButtonPressed,
+    required TResult Function() previousStepButtonPressed,
   }) {
     return priceChanged(price);
   }
@@ -3494,8 +3554,8 @@ class _$_PriceChanged implements _PriceChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
   }) {
     return priceChanged?.call(price);
   }
@@ -3518,8 +3578,8 @@ class _$_PriceChanged implements _PriceChanged {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (priceChanged != null) {
@@ -3546,8 +3606,10 @@ class _$_PriceChanged implements _PriceChanged {
     required TResult Function(_AvatarChanged value) avatarChanged,
     required TResult Function(_VideoChanged value) videoChanged,
     required TResult Function(_PriceChanged value) priceChanged,
-    required TResult Function(_Step1ButtonPressed value) step1ButtonPressed,
-    required TResult Function(_Step2ButtonPressed value) step2ButtonPressed,
+    required TResult Function(_NextStepButtonPressed value)
+        nextStepButtonPressed,
+    required TResult Function(_PreviousStepButtonPressed value)
+        previousStepButtonPressed,
   }) {
     return priceChanged(this);
   }
@@ -3570,8 +3632,9 @@ class _$_PriceChanged implements _PriceChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
   }) {
     return priceChanged?.call(this);
   }
@@ -3594,8 +3657,9 @@ class _$_PriceChanged implements _PriceChanged {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
     required TResult orElse(),
   }) {
     if (priceChanged != null) {
@@ -3615,38 +3679,38 @@ abstract class _PriceChanged implements BecomeTutorEvent {
 }
 
 /// @nodoc
-abstract class _$Step1ButtonPressedCopyWith<$Res> {
-  factory _$Step1ButtonPressedCopyWith(
-          _Step1ButtonPressed value, $Res Function(_Step1ButtonPressed) then) =
-      __$Step1ButtonPressedCopyWithImpl<$Res>;
+abstract class _$NextStepButtonPressedCopyWith<$Res> {
+  factory _$NextStepButtonPressedCopyWith(_NextStepButtonPressed value,
+          $Res Function(_NextStepButtonPressed) then) =
+      __$NextStepButtonPressedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$Step1ButtonPressedCopyWithImpl<$Res>
+class __$NextStepButtonPressedCopyWithImpl<$Res>
     extends _$BecomeTutorEventCopyWithImpl<$Res>
-    implements _$Step1ButtonPressedCopyWith<$Res> {
-  __$Step1ButtonPressedCopyWithImpl(
-      _Step1ButtonPressed _value, $Res Function(_Step1ButtonPressed) _then)
-      : super(_value, (v) => _then(v as _Step1ButtonPressed));
+    implements _$NextStepButtonPressedCopyWith<$Res> {
+  __$NextStepButtonPressedCopyWithImpl(_NextStepButtonPressed _value,
+      $Res Function(_NextStepButtonPressed) _then)
+      : super(_value, (v) => _then(v as _NextStepButtonPressed));
 
   @override
-  _Step1ButtonPressed get _value => super._value as _Step1ButtonPressed;
+  _NextStepButtonPressed get _value => super._value as _NextStepButtonPressed;
 }
 
 /// @nodoc
 
-class _$_Step1ButtonPressed implements _Step1ButtonPressed {
-  const _$_Step1ButtonPressed();
+class _$_NextStepButtonPressed implements _NextStepButtonPressed {
+  const _$_NextStepButtonPressed();
 
   @override
   String toString() {
-    return 'BecomeTutorEvent.step1ButtonPressed()';
+    return 'BecomeTutorEvent.nextStepButtonPressed()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Step1ButtonPressed);
+        (other.runtimeType == runtimeType && other is _NextStepButtonPressed);
   }
 
   @override
@@ -3670,10 +3734,10 @@ class _$_Step1ButtonPressed implements _Step1ButtonPressed {
     required TResult Function(XFile file) avatarChanged,
     required TResult Function(XFile file) videoChanged,
     required TResult Function(String price) priceChanged,
-    required TResult Function() step1ButtonPressed,
-    required TResult Function() step2ButtonPressed,
+    required TResult Function() nextStepButtonPressed,
+    required TResult Function() previousStepButtonPressed,
   }) {
-    return step1ButtonPressed();
+    return nextStepButtonPressed();
   }
 
   @override
@@ -3694,10 +3758,10 @@ class _$_Step1ButtonPressed implements _Step1ButtonPressed {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
   }) {
-    return step1ButtonPressed?.call();
+    return nextStepButtonPressed?.call();
   }
 
   @override
@@ -3718,12 +3782,12 @@ class _$_Step1ButtonPressed implements _Step1ButtonPressed {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
-    if (step1ButtonPressed != null) {
-      return step1ButtonPressed();
+    if (nextStepButtonPressed != null) {
+      return nextStepButtonPressed();
     }
     return orElse();
   }
@@ -3746,10 +3810,12 @@ class _$_Step1ButtonPressed implements _Step1ButtonPressed {
     required TResult Function(_AvatarChanged value) avatarChanged,
     required TResult Function(_VideoChanged value) videoChanged,
     required TResult Function(_PriceChanged value) priceChanged,
-    required TResult Function(_Step1ButtonPressed value) step1ButtonPressed,
-    required TResult Function(_Step2ButtonPressed value) step2ButtonPressed,
+    required TResult Function(_NextStepButtonPressed value)
+        nextStepButtonPressed,
+    required TResult Function(_PreviousStepButtonPressed value)
+        previousStepButtonPressed,
   }) {
-    return step1ButtonPressed(this);
+    return nextStepButtonPressed(this);
   }
 
   @override
@@ -3770,10 +3836,11 @@ class _$_Step1ButtonPressed implements _Step1ButtonPressed {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
   }) {
-    return step1ButtonPressed?.call(this);
+    return nextStepButtonPressed?.call(this);
   }
 
   @override
@@ -3794,54 +3861,57 @@ class _$_Step1ButtonPressed implements _Step1ButtonPressed {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
     required TResult orElse(),
   }) {
-    if (step1ButtonPressed != null) {
-      return step1ButtonPressed(this);
+    if (nextStepButtonPressed != null) {
+      return nextStepButtonPressed(this);
     }
     return orElse();
   }
 }
 
-abstract class _Step1ButtonPressed implements BecomeTutorEvent {
-  const factory _Step1ButtonPressed() = _$_Step1ButtonPressed;
+abstract class _NextStepButtonPressed implements BecomeTutorEvent {
+  const factory _NextStepButtonPressed() = _$_NextStepButtonPressed;
 }
 
 /// @nodoc
-abstract class _$Step2ButtonPressedCopyWith<$Res> {
-  factory _$Step2ButtonPressedCopyWith(
-          _Step2ButtonPressed value, $Res Function(_Step2ButtonPressed) then) =
-      __$Step2ButtonPressedCopyWithImpl<$Res>;
+abstract class _$PreviousStepButtonPressedCopyWith<$Res> {
+  factory _$PreviousStepButtonPressedCopyWith(_PreviousStepButtonPressed value,
+          $Res Function(_PreviousStepButtonPressed) then) =
+      __$PreviousStepButtonPressedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$Step2ButtonPressedCopyWithImpl<$Res>
+class __$PreviousStepButtonPressedCopyWithImpl<$Res>
     extends _$BecomeTutorEventCopyWithImpl<$Res>
-    implements _$Step2ButtonPressedCopyWith<$Res> {
-  __$Step2ButtonPressedCopyWithImpl(
-      _Step2ButtonPressed _value, $Res Function(_Step2ButtonPressed) _then)
-      : super(_value, (v) => _then(v as _Step2ButtonPressed));
+    implements _$PreviousStepButtonPressedCopyWith<$Res> {
+  __$PreviousStepButtonPressedCopyWithImpl(_PreviousStepButtonPressed _value,
+      $Res Function(_PreviousStepButtonPressed) _then)
+      : super(_value, (v) => _then(v as _PreviousStepButtonPressed));
 
   @override
-  _Step2ButtonPressed get _value => super._value as _Step2ButtonPressed;
+  _PreviousStepButtonPressed get _value =>
+      super._value as _PreviousStepButtonPressed;
 }
 
 /// @nodoc
 
-class _$_Step2ButtonPressed implements _Step2ButtonPressed {
-  const _$_Step2ButtonPressed();
+class _$_PreviousStepButtonPressed implements _PreviousStepButtonPressed {
+  const _$_PreviousStepButtonPressed();
 
   @override
   String toString() {
-    return 'BecomeTutorEvent.step2ButtonPressed()';
+    return 'BecomeTutorEvent.previousStepButtonPressed()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Step2ButtonPressed);
+        (other.runtimeType == runtimeType &&
+            other is _PreviousStepButtonPressed);
   }
 
   @override
@@ -3865,10 +3935,10 @@ class _$_Step2ButtonPressed implements _Step2ButtonPressed {
     required TResult Function(XFile file) avatarChanged,
     required TResult Function(XFile file) videoChanged,
     required TResult Function(String price) priceChanged,
-    required TResult Function() step1ButtonPressed,
-    required TResult Function() step2ButtonPressed,
+    required TResult Function() nextStepButtonPressed,
+    required TResult Function() previousStepButtonPressed,
   }) {
-    return step2ButtonPressed();
+    return previousStepButtonPressed();
   }
 
   @override
@@ -3889,10 +3959,10 @@ class _$_Step2ButtonPressed implements _Step2ButtonPressed {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
   }) {
-    return step2ButtonPressed?.call();
+    return previousStepButtonPressed?.call();
   }
 
   @override
@@ -3913,12 +3983,12 @@ class _$_Step2ButtonPressed implements _Step2ButtonPressed {
     TResult Function(XFile file)? avatarChanged,
     TResult Function(XFile file)? videoChanged,
     TResult Function(String price)? priceChanged,
-    TResult Function()? step1ButtonPressed,
-    TResult Function()? step2ButtonPressed,
+    TResult Function()? nextStepButtonPressed,
+    TResult Function()? previousStepButtonPressed,
     required TResult orElse(),
   }) {
-    if (step2ButtonPressed != null) {
-      return step2ButtonPressed();
+    if (previousStepButtonPressed != null) {
+      return previousStepButtonPressed();
     }
     return orElse();
   }
@@ -3941,10 +4011,12 @@ class _$_Step2ButtonPressed implements _Step2ButtonPressed {
     required TResult Function(_AvatarChanged value) avatarChanged,
     required TResult Function(_VideoChanged value) videoChanged,
     required TResult Function(_PriceChanged value) priceChanged,
-    required TResult Function(_Step1ButtonPressed value) step1ButtonPressed,
-    required TResult Function(_Step2ButtonPressed value) step2ButtonPressed,
+    required TResult Function(_NextStepButtonPressed value)
+        nextStepButtonPressed,
+    required TResult Function(_PreviousStepButtonPressed value)
+        previousStepButtonPressed,
   }) {
-    return step2ButtonPressed(this);
+    return previousStepButtonPressed(this);
   }
 
   @override
@@ -3965,10 +4037,11 @@ class _$_Step2ButtonPressed implements _Step2ButtonPressed {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
   }) {
-    return step2ButtonPressed?.call(this);
+    return previousStepButtonPressed?.call(this);
   }
 
   @override
@@ -3989,19 +4062,20 @@ class _$_Step2ButtonPressed implements _Step2ButtonPressed {
     TResult Function(_AvatarChanged value)? avatarChanged,
     TResult Function(_VideoChanged value)? videoChanged,
     TResult Function(_PriceChanged value)? priceChanged,
-    TResult Function(_Step1ButtonPressed value)? step1ButtonPressed,
-    TResult Function(_Step2ButtonPressed value)? step2ButtonPressed,
+    TResult Function(_NextStepButtonPressed value)? nextStepButtonPressed,
+    TResult Function(_PreviousStepButtonPressed value)?
+        previousStepButtonPressed,
     required TResult orElse(),
   }) {
-    if (step2ButtonPressed != null) {
-      return step2ButtonPressed(this);
+    if (previousStepButtonPressed != null) {
+      return previousStepButtonPressed(this);
     }
     return orElse();
   }
 }
 
-abstract class _Step2ButtonPressed implements BecomeTutorEvent {
-  const factory _Step2ButtonPressed() = _$_Step2ButtonPressed;
+abstract class _PreviousStepButtonPressed implements BecomeTutorEvent {
+  const factory _PreviousStepButtonPressed() = _$_PreviousStepButtonPressed;
 }
 
 /// @nodoc
@@ -4022,12 +4096,15 @@ class _$BecomeTutorStateTearOff {
       List<Speciality> specialities = const [],
       XFile? avatar,
       XFile? video,
+      bool isInitialising = false,
       bool isLoading = false,
       bool showError = false,
       bool showErrorAtStep1 = false,
       bool showErrorAtStep2 = false,
       Either<Failure, Unit>? registerSucceedOrFailed,
-      List<Speciality> allSpecialities = const []}) {
+      List<Speciality> allSpecialities = const [],
+      int currentStepIndex = 0,
+      Set<int> completedSteps = const {}}) {
     return _BecomeTutorState(
       name: name,
       country: country,
@@ -4042,12 +4119,15 @@ class _$BecomeTutorStateTearOff {
       specialities: specialities,
       avatar: avatar,
       video: video,
+      isInitialising: isInitialising,
       isLoading: isLoading,
       showError: showError,
       showErrorAtStep1: showErrorAtStep1,
       showErrorAtStep2: showErrorAtStep2,
       registerSucceedOrFailed: registerSucceedOrFailed,
       allSpecialities: allSpecialities,
+      currentStepIndex: currentStepIndex,
+      completedSteps: completedSteps,
     );
   }
 }
@@ -4070,6 +4150,7 @@ mixin _$BecomeTutorState {
   List<Speciality> get specialities => throw _privateConstructorUsedError;
   XFile? get avatar => throw _privateConstructorUsedError;
   XFile? get video => throw _privateConstructorUsedError;
+  bool get isInitialising => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get showError => throw _privateConstructorUsedError;
   bool get showErrorAtStep1 => throw _privateConstructorUsedError;
@@ -4077,6 +4158,8 @@ mixin _$BecomeTutorState {
   Either<Failure, Unit>? get registerSucceedOrFailed =>
       throw _privateConstructorUsedError;
   List<Speciality> get allSpecialities => throw _privateConstructorUsedError;
+  int get currentStepIndex => throw _privateConstructorUsedError;
+  Set<int> get completedSteps => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $BecomeTutorStateCopyWith<BecomeTutorState> get copyWith =>
@@ -4102,12 +4185,15 @@ abstract class $BecomeTutorStateCopyWith<$Res> {
       List<Speciality> specialities,
       XFile? avatar,
       XFile? video,
+      bool isInitialising,
       bool isLoading,
       bool showError,
       bool showErrorAtStep1,
       bool showErrorAtStep2,
       Either<Failure, Unit>? registerSucceedOrFailed,
-      List<Speciality> allSpecialities});
+      List<Speciality> allSpecialities,
+      int currentStepIndex,
+      Set<int> completedSteps});
 
   $CountryCopyWith<$Res>? get country;
 }
@@ -4136,12 +4222,15 @@ class _$BecomeTutorStateCopyWithImpl<$Res>
     Object? specialities = freezed,
     Object? avatar = freezed,
     Object? video = freezed,
+    Object? isInitialising = freezed,
     Object? isLoading = freezed,
     Object? showError = freezed,
     Object? showErrorAtStep1 = freezed,
     Object? showErrorAtStep2 = freezed,
     Object? registerSucceedOrFailed = freezed,
     Object? allSpecialities = freezed,
+    Object? currentStepIndex = freezed,
+    Object? completedSteps = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -4196,6 +4285,10 @@ class _$BecomeTutorStateCopyWithImpl<$Res>
           ? _value.video
           : video // ignore: cast_nullable_to_non_nullable
               as XFile?,
+      isInitialising: isInitialising == freezed
+          ? _value.isInitialising
+          : isInitialising // ignore: cast_nullable_to_non_nullable
+              as bool,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -4220,6 +4313,14 @@ class _$BecomeTutorStateCopyWithImpl<$Res>
           ? _value.allSpecialities
           : allSpecialities // ignore: cast_nullable_to_non_nullable
               as List<Speciality>,
+      currentStepIndex: currentStepIndex == freezed
+          ? _value.currentStepIndex
+          : currentStepIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      completedSteps: completedSteps == freezed
+          ? _value.completedSteps
+          : completedSteps // ignore: cast_nullable_to_non_nullable
+              as Set<int>,
     ));
   }
 
@@ -4256,12 +4357,15 @@ abstract class _$BecomeTutorStateCopyWith<$Res>
       List<Speciality> specialities,
       XFile? avatar,
       XFile? video,
+      bool isInitialising,
       bool isLoading,
       bool showError,
       bool showErrorAtStep1,
       bool showErrorAtStep2,
       Either<Failure, Unit>? registerSucceedOrFailed,
-      List<Speciality> allSpecialities});
+      List<Speciality> allSpecialities,
+      int currentStepIndex,
+      Set<int> completedSteps});
 
   @override
   $CountryCopyWith<$Res>? get country;
@@ -4293,12 +4397,15 @@ class __$BecomeTutorStateCopyWithImpl<$Res>
     Object? specialities = freezed,
     Object? avatar = freezed,
     Object? video = freezed,
+    Object? isInitialising = freezed,
     Object? isLoading = freezed,
     Object? showError = freezed,
     Object? showErrorAtStep1 = freezed,
     Object? showErrorAtStep2 = freezed,
     Object? registerSucceedOrFailed = freezed,
     Object? allSpecialities = freezed,
+    Object? currentStepIndex = freezed,
+    Object? completedSteps = freezed,
   }) {
     return _then(_BecomeTutorState(
       name: name == freezed
@@ -4353,6 +4460,10 @@ class __$BecomeTutorStateCopyWithImpl<$Res>
           ? _value.video
           : video // ignore: cast_nullable_to_non_nullable
               as XFile?,
+      isInitialising: isInitialising == freezed
+          ? _value.isInitialising
+          : isInitialising // ignore: cast_nullable_to_non_nullable
+              as bool,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -4377,6 +4488,14 @@ class __$BecomeTutorStateCopyWithImpl<$Res>
           ? _value.allSpecialities
           : allSpecialities // ignore: cast_nullable_to_non_nullable
               as List<Speciality>,
+      currentStepIndex: currentStepIndex == freezed
+          ? _value.currentStepIndex
+          : currentStepIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      completedSteps: completedSteps == freezed
+          ? _value.completedSteps
+          : completedSteps // ignore: cast_nullable_to_non_nullable
+              as Set<int>,
     ));
   }
 }
@@ -4398,12 +4517,15 @@ class _$_BecomeTutorState extends _BecomeTutorState {
       this.specialities = const [],
       this.avatar,
       this.video,
+      this.isInitialising = false,
       this.isLoading = false,
       this.showError = false,
       this.showErrorAtStep1 = false,
       this.showErrorAtStep2 = false,
       this.registerSucceedOrFailed,
-      this.allSpecialities = const []})
+      this.allSpecialities = const [],
+      this.currentStepIndex = 0,
+      this.completedSteps = const {}})
       : super._();
 
   @override
@@ -4437,6 +4559,9 @@ class _$_BecomeTutorState extends _BecomeTutorState {
   final XFile? video;
   @JsonKey()
   @override
+  final bool isInitialising;
+  @JsonKey()
+  @override
   final bool isLoading;
   @JsonKey()
   @override
@@ -4452,10 +4577,16 @@ class _$_BecomeTutorState extends _BecomeTutorState {
   @JsonKey()
   @override
   final List<Speciality> allSpecialities;
+  @JsonKey()
+  @override
+  final int currentStepIndex;
+  @JsonKey()
+  @override
+  final Set<int> completedSteps;
 
   @override
   String toString() {
-    return 'BecomeTutorState(name: $name, country: $country, birthDay: $birthDay, interests: $interests, education: $education, experience: $experience, profession: $profession, languages: $languages, bio: $bio, targetStudent: $targetStudent, specialities: $specialities, avatar: $avatar, video: $video, isLoading: $isLoading, showError: $showError, showErrorAtStep1: $showErrorAtStep1, showErrorAtStep2: $showErrorAtStep2, registerSucceedOrFailed: $registerSucceedOrFailed, allSpecialities: $allSpecialities)';
+    return 'BecomeTutorState(name: $name, country: $country, birthDay: $birthDay, interests: $interests, education: $education, experience: $experience, profession: $profession, languages: $languages, bio: $bio, targetStudent: $targetStudent, specialities: $specialities, avatar: $avatar, video: $video, isInitialising: $isInitialising, isLoading: $isLoading, showError: $showError, showErrorAtStep1: $showErrorAtStep1, showErrorAtStep2: $showErrorAtStep2, registerSucceedOrFailed: $registerSucceedOrFailed, allSpecialities: $allSpecialities, currentStepIndex: $currentStepIndex, completedSteps: $completedSteps)';
   }
 
   @override
@@ -4480,6 +4611,8 @@ class _$_BecomeTutorState extends _BecomeTutorState {
                 .equals(other.specialities, specialities) &&
             const DeepCollectionEquality().equals(other.avatar, avatar) &&
             const DeepCollectionEquality().equals(other.video, video) &&
+            const DeepCollectionEquality()
+                .equals(other.isInitialising, isInitialising) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality().equals(other.showError, showError) &&
             const DeepCollectionEquality()
@@ -4489,7 +4622,11 @@ class _$_BecomeTutorState extends _BecomeTutorState {
             const DeepCollectionEquality().equals(
                 other.registerSucceedOrFailed, registerSucceedOrFailed) &&
             const DeepCollectionEquality()
-                .equals(other.allSpecialities, allSpecialities));
+                .equals(other.allSpecialities, allSpecialities) &&
+            const DeepCollectionEquality()
+                .equals(other.currentStepIndex, currentStepIndex) &&
+            const DeepCollectionEquality()
+                .equals(other.completedSteps, completedSteps));
   }
 
   @override
@@ -4508,12 +4645,15 @@ class _$_BecomeTutorState extends _BecomeTutorState {
         const DeepCollectionEquality().hash(specialities),
         const DeepCollectionEquality().hash(avatar),
         const DeepCollectionEquality().hash(video),
+        const DeepCollectionEquality().hash(isInitialising),
         const DeepCollectionEquality().hash(isLoading),
         const DeepCollectionEquality().hash(showError),
         const DeepCollectionEquality().hash(showErrorAtStep1),
         const DeepCollectionEquality().hash(showErrorAtStep2),
         const DeepCollectionEquality().hash(registerSucceedOrFailed),
-        const DeepCollectionEquality().hash(allSpecialities)
+        const DeepCollectionEquality().hash(allSpecialities),
+        const DeepCollectionEquality().hash(currentStepIndex),
+        const DeepCollectionEquality().hash(completedSteps)
       ]);
 
   @JsonKey(ignore: true)
@@ -4537,12 +4677,15 @@ abstract class _BecomeTutorState extends BecomeTutorState {
       List<Speciality> specialities,
       XFile? avatar,
       XFile? video,
+      bool isInitialising,
       bool isLoading,
       bool showError,
       bool showErrorAtStep1,
       bool showErrorAtStep2,
       Either<Failure, Unit>? registerSucceedOrFailed,
-      List<Speciality> allSpecialities}) = _$_BecomeTutorState;
+      List<Speciality> allSpecialities,
+      int currentStepIndex,
+      Set<int> completedSteps}) = _$_BecomeTutorState;
   const _BecomeTutorState._() : super._();
 
   @override
@@ -4572,6 +4715,8 @@ abstract class _BecomeTutorState extends BecomeTutorState {
   @override
   XFile? get video;
   @override
+  bool get isInitialising;
+  @override
   bool get isLoading;
   @override
   bool get showError;
@@ -4583,6 +4728,10 @@ abstract class _BecomeTutorState extends BecomeTutorState {
   Either<Failure, Unit>? get registerSucceedOrFailed;
   @override
   List<Speciality> get allSpecialities;
+  @override
+  int get currentStepIndex;
+  @override
+  Set<int> get completedSteps;
   @override
   @JsonKey(ignore: true)
   _$BecomeTutorStateCopyWith<_BecomeTutorState> get copyWith =>

@@ -35,7 +35,7 @@ class UserDto with _$UserDto {
     @Default([]) List<SpecialityDto> testPreparations,
     // required bool isPhoneActivated,
     // required int timezone,
-    Object? tutorInfo,
+    Map<String, dynamic>? tutorInfo,
   }) = _UserDto;
 
   factory UserDto.fromJson(Map<String, dynamic> json) =>
