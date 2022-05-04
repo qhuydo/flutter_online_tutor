@@ -14,7 +14,7 @@ class TutorRecommendedCourseList extends StatelessWidget {
     //     Padding(
     //       padding: const EdgeInsets.symmetric(horizontal: itemSpacing),
     //       child: Text(
-    //         AppLocalizations.of(context)!.recommendedCourses,
+    //         context.l10n.recommendedCourses,
     //         style: titleStyle,
     //       ),
     //     ),

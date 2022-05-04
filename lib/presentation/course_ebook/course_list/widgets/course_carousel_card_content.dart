@@ -43,7 +43,7 @@ class CourseCarouselCardContent extends StatelessWidget {
                 //could be moved to a extension method or similar
                 final size = (TextPainter(
                   text: TextSpan(
-                    text: AppLocalizations.of(context)!.loremIpsum,
+                    text: context.l10n.loremIpsum,
                     style: style,
                   ),
                   maxLines: 1,

@@ -53,7 +53,7 @@ class ScheduleCardButtonGroup extends StatelessWidget {
             },
             icon: const Icon(Icons.chat_bubble_outline),
             label: Text(
-              AppLocalizations.of(context)!.chatButtonText,
+              context.l10n.chatButtonText,
             ),
             style: OutlinedButton.styleFrom(
               backgroundColor: Theme.of(context).cardColor,

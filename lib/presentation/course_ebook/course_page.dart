@@ -25,7 +25,7 @@ class CoursePage extends StatelessWidget {
                         children: [
                           const Icon(Icons.videocam),
                           const SizedBox(width: 8),
-                          Text(AppLocalizations.of(context)!.courseTabLabel),
+                          Text(context.l10n.courseTabLabel),
                         ],
                       ),
                     ),
@@ -36,7 +36,7 @@ class CoursePage extends StatelessWidget {
                           children: [
                             const Icon(Icons.book),
                             const SizedBox(width: 8),
-                            Text(AppLocalizations.of(context)!.ebookTabLabel),
+                            Text(context.l10n.ebookTabLabel),
                           ],
                         ),
                       ),

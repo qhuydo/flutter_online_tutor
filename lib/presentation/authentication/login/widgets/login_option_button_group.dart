@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../application/authentication/authentication_bloc.dart';
 import '../../../common/routes/app_routes.gr.dart';
 import '../../../common/widgets/social_icon.dart';
 
@@ -36,16 +38,18 @@ class LoginOptionButtonGroup extends StatelessWidget {
           if (hasGoogleOption)
             SocialIcon(
               icon: const Left('assets/icons/google.svg'),
-              onPressed: isDisabled ? null : () {},
+              onPressed: isDisabled ? null : () {
+                context.read<AuthenticationBloc>().add(
+                  const AuthenticationEvent.loginWithGoogle(),
+                );
+              },
             ),
           if (hasPhoneOption)
             SocialIcon(
               icon: const Left('assets/icons/phone.svg'),
               onPressed: isDisabled
                   ? null
-                  : () {
-                      context.router.replace(const LoginByPhoneRoute());
-                    },
+                  : () => context.router.replace(const LoginByPhoneRoute()),
             ),
           if (hasMailOption)
             SocialIcon(
@@ -55,9 +59,7 @@ class LoginOptionButtonGroup extends StatelessWidget {
               )),
               onPressed: isDisabled
                   ? null
-                  : () {
-                      context.router.replace(const LoginRoute());
-                    },
+                  : () => context.router.replace(const LoginRoute()),
             )
         ],
       ),

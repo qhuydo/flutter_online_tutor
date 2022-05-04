@@ -151,7 +151,7 @@ class AuthenticationServiceImpl implements AuthenticationService {
       final data = {'phone': phoneValue, 'password': passwordValue};
 
       final result = await _apiClient.post(
-        RequestUrl.auth.login,
+        RequestUrl.auth.loginByPhone,
         data: data,
         onResponded: (response) {
           return AuthenticationDto.fromJson(
@@ -349,5 +349,32 @@ class AuthenticationServiceImpl implements AuthenticationService {
       onResponded: (_) => unit,
     );
     return result;
+  }
+
+  @override
+  Future<Either<Failure, Unit>> signInWithGoogle(String token) async {
+    try {
+      final data = {'access_token': token};
+
+      final result = await _apiClient.post(
+        RequestUrl.auth.loginByGoogle,
+        data: data,
+        onResponded: (response) {
+          return AuthenticationDto.fromJson(
+            response.data as Map<String, dynamic>,
+          );
+        },
+      );
+
+      return result.fold(
+        (f) => left(f),
+        (authDto) async {
+          await _saveAuthData(authDto);
+          return right(unit);
+        },
+      );
+    } on FlutterError {
+      return left(const Failure.internalError());
+    }
   }
 }

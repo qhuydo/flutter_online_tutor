@@ -313,4 +313,9 @@ class MockAuthenticationService implements AuthenticationService {
   Future<Either<Failure, Unit>> verifyAccount(Uri uri) async {
     return right(unit);
   }
+
+  @override
+  Future<Either<Failure, Unit>> signInWithGoogle(String token) async {
+    return left(const Failure.noConnection());
+  }
 }

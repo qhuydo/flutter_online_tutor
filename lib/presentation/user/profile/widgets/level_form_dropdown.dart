@@ -32,7 +32,7 @@ class LevelFormDropdown extends StatelessWidget {
         // contentPadding: EdgeInsets.all(18),
         border: const OutlineInputBorder(),
         icon: const Icon(Icons.school_outlined),
-        labelText: AppLocalizations.of(context)!.levelDropdownLabel,
+        labelText: context.l10n.levelDropdownLabel,
       ),
       onChanged: enabled ? onChanged : null,
     );

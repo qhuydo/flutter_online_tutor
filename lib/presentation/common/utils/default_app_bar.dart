@@ -13,7 +13,7 @@ PreferredSizeWidget buildAppBar(
 }) {
   return AppBar(
     title: Text(
-      title ?? AppLocalizations.of(context)!.appTitle,
+      title ?? context.l10n.appTitle,
     ),
     elevation: elevation ?? 0.75,
     shadowColor: Colors.grey[500]?.withOpacity(0.5),

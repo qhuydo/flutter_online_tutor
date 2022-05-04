@@ -10,9 +10,9 @@ extension LanguageX on Language {
       case Language.en:
         return context.l10n.languageEnglishOption;
       case Language.ja:
-        return AppLocalizations.of(context)!.languageJapaneseOption;
+        return context.l10n.languageJapaneseOption;
       case Language.vi:
-        return AppLocalizations.of(context)!.languageVietnameseOption;
+        return context.l10n.languageVietnameseOption;
     }
   }
 

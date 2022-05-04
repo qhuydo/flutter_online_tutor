@@ -29,6 +29,10 @@ class _$AuthenticationEventTearOff {
   _SignedOut signedOut() {
     return const _SignedOut();
   }
+
+  _LoginWithGoogle loginWithGoogle() {
+    return const _LoginWithGoogle();
+  }
 }
 
 /// @nodoc
@@ -41,6 +45,7 @@ mixin _$AuthenticationEvent {
     required TResult Function() initialise,
     required TResult Function() authCheckRequested,
     required TResult Function() signedOut,
+    required TResult Function() loginWithGoogle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +53,7 @@ mixin _$AuthenticationEvent {
     TResult Function()? initialise,
     TResult Function()? authCheckRequested,
     TResult Function()? signedOut,
+    TResult Function()? loginWithGoogle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +61,7 @@ mixin _$AuthenticationEvent {
     TResult Function()? initialise,
     TResult Function()? authCheckRequested,
     TResult Function()? signedOut,
+    TResult Function()? loginWithGoogle,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -63,6 +70,7 @@ mixin _$AuthenticationEvent {
     required TResult Function(_Initialise value) initialise,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
     required TResult Function(_SignedOut value) signedOut,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +78,7 @@ mixin _$AuthenticationEvent {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_SignedOut value)? signedOut,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,6 +86,7 @@ mixin _$AuthenticationEvent {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_SignedOut value)? signedOut,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -143,6 +153,7 @@ class _$_Initialise implements _Initialise {
     required TResult Function() initialise,
     required TResult Function() authCheckRequested,
     required TResult Function() signedOut,
+    required TResult Function() loginWithGoogle,
   }) {
     return initialise();
   }
@@ -153,6 +164,7 @@ class _$_Initialise implements _Initialise {
     TResult Function()? initialise,
     TResult Function()? authCheckRequested,
     TResult Function()? signedOut,
+    TResult Function()? loginWithGoogle,
   }) {
     return initialise?.call();
   }
@@ -163,6 +175,7 @@ class _$_Initialise implements _Initialise {
     TResult Function()? initialise,
     TResult Function()? authCheckRequested,
     TResult Function()? signedOut,
+    TResult Function()? loginWithGoogle,
     required TResult orElse(),
   }) {
     if (initialise != null) {
@@ -177,6 +190,7 @@ class _$_Initialise implements _Initialise {
     required TResult Function(_Initialise value) initialise,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
     required TResult Function(_SignedOut value) signedOut,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
   }) {
     return initialise(this);
   }
@@ -187,6 +201,7 @@ class _$_Initialise implements _Initialise {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_SignedOut value)? signedOut,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
   }) {
     return initialise?.call(this);
   }
@@ -197,6 +212,7 @@ class _$_Initialise implements _Initialise {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_SignedOut value)? signedOut,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     required TResult orElse(),
   }) {
     if (initialise != null) {
@@ -254,6 +270,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     required TResult Function() initialise,
     required TResult Function() authCheckRequested,
     required TResult Function() signedOut,
+    required TResult Function() loginWithGoogle,
   }) {
     return authCheckRequested();
   }
@@ -264,6 +281,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult Function()? initialise,
     TResult Function()? authCheckRequested,
     TResult Function()? signedOut,
+    TResult Function()? loginWithGoogle,
   }) {
     return authCheckRequested?.call();
   }
@@ -274,6 +292,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult Function()? initialise,
     TResult Function()? authCheckRequested,
     TResult Function()? signedOut,
+    TResult Function()? loginWithGoogle,
     required TResult orElse(),
   }) {
     if (authCheckRequested != null) {
@@ -288,6 +307,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     required TResult Function(_Initialise value) initialise,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
     required TResult Function(_SignedOut value) signedOut,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
   }) {
     return authCheckRequested(this);
   }
@@ -298,6 +318,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_SignedOut value)? signedOut,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
   }) {
     return authCheckRequested?.call(this);
   }
@@ -308,6 +329,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_SignedOut value)? signedOut,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     required TResult orElse(),
   }) {
     if (authCheckRequested != null) {
@@ -364,6 +386,7 @@ class _$_SignedOut implements _SignedOut {
     required TResult Function() initialise,
     required TResult Function() authCheckRequested,
     required TResult Function() signedOut,
+    required TResult Function() loginWithGoogle,
   }) {
     return signedOut();
   }
@@ -374,6 +397,7 @@ class _$_SignedOut implements _SignedOut {
     TResult Function()? initialise,
     TResult Function()? authCheckRequested,
     TResult Function()? signedOut,
+    TResult Function()? loginWithGoogle,
   }) {
     return signedOut?.call();
   }
@@ -384,6 +408,7 @@ class _$_SignedOut implements _SignedOut {
     TResult Function()? initialise,
     TResult Function()? authCheckRequested,
     TResult Function()? signedOut,
+    TResult Function()? loginWithGoogle,
     required TResult orElse(),
   }) {
     if (signedOut != null) {
@@ -398,6 +423,7 @@ class _$_SignedOut implements _SignedOut {
     required TResult Function(_Initialise value) initialise,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
     required TResult Function(_SignedOut value) signedOut,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
   }) {
     return signedOut(this);
   }
@@ -408,6 +434,7 @@ class _$_SignedOut implements _SignedOut {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_SignedOut value)? signedOut,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
   }) {
     return signedOut?.call(this);
   }
@@ -418,6 +445,7 @@ class _$_SignedOut implements _SignedOut {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_SignedOut value)? signedOut,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     required TResult orElse(),
   }) {
     if (signedOut != null) {
@@ -429,6 +457,123 @@ class _$_SignedOut implements _SignedOut {
 
 abstract class _SignedOut implements AuthenticationEvent {
   const factory _SignedOut() = _$_SignedOut;
+}
+
+/// @nodoc
+abstract class _$LoginWithGoogleCopyWith<$Res> {
+  factory _$LoginWithGoogleCopyWith(
+          _LoginWithGoogle value, $Res Function(_LoginWithGoogle) then) =
+      __$LoginWithGoogleCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LoginWithGoogleCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res>
+    implements _$LoginWithGoogleCopyWith<$Res> {
+  __$LoginWithGoogleCopyWithImpl(
+      _LoginWithGoogle _value, $Res Function(_LoginWithGoogle) _then)
+      : super(_value, (v) => _then(v as _LoginWithGoogle));
+
+  @override
+  _LoginWithGoogle get _value => super._value as _LoginWithGoogle;
+}
+
+/// @nodoc
+
+class _$_LoginWithGoogle implements _LoginWithGoogle {
+  const _$_LoginWithGoogle();
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.loginWithGoogle()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _LoginWithGoogle);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialise,
+    required TResult Function() authCheckRequested,
+    required TResult Function() signedOut,
+    required TResult Function() loginWithGoogle,
+  }) {
+    return loginWithGoogle();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function()? authCheckRequested,
+    TResult Function()? signedOut,
+    TResult Function()? loginWithGoogle,
+  }) {
+    return loginWithGoogle?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function()? authCheckRequested,
+    TResult Function()? signedOut,
+    TResult Function()? loginWithGoogle,
+    required TResult orElse(),
+  }) {
+    if (loginWithGoogle != null) {
+      return loginWithGoogle();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialise value) initialise,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_SignedOut value) signedOut,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+  }) {
+    return loginWithGoogle(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_SignedOut value)? signedOut,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+  }) {
+    return loginWithGoogle?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_SignedOut value)? signedOut,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    required TResult orElse(),
+  }) {
+    if (loginWithGoogle != null) {
+      return loginWithGoogle(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoginWithGoogle implements AuthenticationEvent {
+  const factory _LoginWithGoogle() = _$_LoginWithGoogle;
 }
 
 /// @nodoc

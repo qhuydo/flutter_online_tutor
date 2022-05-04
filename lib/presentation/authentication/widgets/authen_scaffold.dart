@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/authentication/authentication_bloc.dart';
 import '../../common.dart';
 import '../../common/routes/app_routes.gr.dart';
 import 'authen_scaffold_body.dart';
@@ -27,22 +29,43 @@ class AuthenScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        actions: [
-          IconButton(
-            onPressed: () => context.pushRoute(
-              const SettingsUnauthorizedRoute(),
+    return BlocListener<AuthenticationBloc, AuthenticationState>(
+      listener: (context, state) {
+        state.map(
+          initial: (_) {},
+          authenticated: (state) {
+            context.replaceRoute(const HomeRoute());
+          },
+          unauthenticated: (_) {},
+        );
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(title),
+          actions: [
+            IconButton(
+              onPressed: () => context.pushRoute(
+                const SettingsUnauthorizedRoute(),
+              ),
+              icon: const Icon(Icons.settings_outlined),
             ),
-            icon: const Icon(Icons.settings_outlined),
-          ),
-        ],
-      ),
-      body: LayoutBuilder(
-        builder: (_, constraints) {
-          if (constraints.maxWidth > 900) {
-            return AuthenScaffoldBodyDesktop(
+          ],
+        ),
+        body: LayoutBuilder(
+          builder: (_, constraints) {
+            if (constraints.maxWidth > 900) {
+              return AuthenScaffoldBodyDesktop(
+                title: title,
+                form: form,
+                submitButton: submitButton,
+                otherAuthenticateOptions: otherAuthenticateOptions,
+                otherOptions: otherOptions,
+                shouldShowForgotPasswordButton: shouldShowForgotPasswordButton,
+                isLoading: isLoading,
+              );
+            }
+
+            return AuthenScaffoldBody(
               title: title,
               form: form,
               submitButton: submitButton,
@@ -51,18 +74,8 @@ class AuthenScaffold extends StatelessWidget {
               shouldShowForgotPasswordButton: shouldShowForgotPasswordButton,
               isLoading: isLoading,
             );
-          }
-
-          return AuthenScaffoldBody(
-            title: title,
-            form: form,
-            submitButton: submitButton,
-            otherAuthenticateOptions: otherAuthenticateOptions,
-            otherOptions: otherOptions,
-            shouldShowForgotPasswordButton: shouldShowForgotPasswordButton,
-            isLoading: isLoading,
-          );
-        },
+          },
+        ),
       ),
     );
   }

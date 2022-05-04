@@ -57,4 +57,6 @@ abstract class AuthenticationService {
   void addEvent(AuthenticationServiceEvent event);
 
   Future<Either<Failure, Unit>> verifyAccount(Uri uri);
+
+  Future<Either<Failure, Unit>> signInWithGoogle(String token);
 }
