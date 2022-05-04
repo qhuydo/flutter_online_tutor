@@ -9,12 +9,14 @@ class CountryFormDropdown extends StatelessWidget {
   final bool showLeadingIcon;
   final Country? value;
   final ValueChanged? onChanged;
+  final String? errorText;
 
   const CountryFormDropdown({
     Key? key,
     this.showLeadingIcon = true,
     this.value,
     this.onChanged,
+    this.errorText,
   }) : super(key: key);
 
   @override
@@ -52,7 +54,8 @@ class CountryFormDropdown extends StatelessWidget {
         // contentPadding: EdgeInsets.all(18),
         border: const OutlineInputBorder(),
         icon: showLeadingIcon ? const Icon(Icons.language) : null,
-        labelText: AppLocalizations.of(context)!.countryDropdownLabel,
+        labelText: context.l10n.countryDropdownLabel,
+        errorText: errorText,
       ),
       onChanged: onChanged ?? (_) {},
     );

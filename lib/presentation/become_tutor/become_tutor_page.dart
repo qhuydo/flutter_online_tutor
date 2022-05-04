@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../application/become_tutor/become_tutor_bloc.dart';
 import '../common.dart';
 import '../common/utils/default_app_bar.dart';
+import '../common/utils/dialog_utils.dart';
 import '../common/widgets/loading_widget.dart';
 import 'widgets/widgets.dart';
 
@@ -94,7 +95,21 @@ class BecomeTutorBody extends StatelessWidget {
         return previous.isLoading != current.isLoading ||
             previous.registerSucceedOrFailed != current.registerSucceedOrFailed;
       },
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state.isLoading) {
+          showLoadingDialog(context);
+          return;
+        }
+        state.registerSucceedOrFailed?.fold(
+          (failure) {
+            Navigator.of(context).pop();
+            showErrorDialog(context, failure);
+          },
+          (_) {
+            Navigator.of(context).pop();
+          },
+        );
+      },
       builder: (context, state) {
         final breakpoint = Breakpoint.fromMediaQuery(context);
         if (state.isInitialising) {

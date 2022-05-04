@@ -55,7 +55,7 @@ class BecomeTutorBloc extends Bloc<BecomeTutorEvent, BecomeTutorState> {
   }
 
   Future _initialise(Emitter<BecomeTutorState> emit) async {
-    emit(state.copyWith(isLoading: true, isInitialising: true));
+    emit(state.copyWith(isInitialising: true));
 
     final user = (await _repository.fetchUserInfo()).fold(
       (l) => null,
@@ -65,7 +65,6 @@ class BecomeTutorBloc extends Bloc<BecomeTutorEvent, BecomeTutorState> {
 
     emit(state.copyWith(
       isInitialising: false,
-      isLoading: false,
       name: user?.name ?? Name(''),
       birthDay: user?.birthday,
       country: user?.country,
@@ -74,7 +73,6 @@ class BecomeTutorBloc extends Bloc<BecomeTutorEvent, BecomeTutorState> {
 
     if (user?.tutorFormCompleted == true) {
       emit(state.copyWith(
-        registerSucceedOrFailed: right(unit),
         currentStepIndex: BecomeTutorState.totalSteps - 1,
         completedSteps: {
           for (int i = 0; i < BecomeTutorState.totalSteps; i++) i
@@ -206,7 +204,12 @@ class BecomeTutorBloc extends Bloc<BecomeTutorEvent, BecomeTutorState> {
 
   Future _nextStepButtonPressed(Emitter<BecomeTutorState> emit) async {
     final index = state.currentStepIndex;
-    if (index == 0) {}
+    if (index == 0) {
+      emit(state.copyWith(showErrorAtStep1: true));
+      if (!state.isStep1FormValid) {
+        return;
+      }
+    }
 
     if (index >= 0 && index < BecomeTutorState.totalSteps - 1) {
       emit(state.copyWith(

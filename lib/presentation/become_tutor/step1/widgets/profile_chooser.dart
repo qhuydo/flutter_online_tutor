@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:breakpoint/breakpoint.dart';
@@ -39,6 +40,7 @@ class ProfileChooser extends StatelessWidget {
                     if (state.avatar == null) {
                       return const SizedBox();
                     }
+                    log('rebuilt');
                     return FutureBuilder(
                       future: state.avatar!.readAsBytes(),
                       builder: (_, snapshot) {
@@ -46,9 +48,12 @@ class ProfileChooser extends StatelessWidget {
                           return const SizedBox();
                         }
 
-                        return Image.memory(
-                          snapshot.data as Uint8List,
-                          fit: BoxFit.fitHeight,
+                        return ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: Image.memory(
+                            snapshot.data as Uint8List,
+                            fit: BoxFit.fitHeight,
+                          ),
                         );
                       },
                     );
@@ -85,19 +90,19 @@ class ProfileChooser extends StatelessWidget {
                   ),
                   BlocBuilder<BecomeTutorBloc, BecomeTutorState>(
                     buildWhen: (previous, current) {
-                      return previous.showErrorAtStep1 !=
-                          current.showErrorAtStep1;
+                      return previous.avatar != current.avatar ||
+                          previous.showErrorAtStep1 != current.showErrorAtStep1;
                     },
                     builder: (_, state) {
-                      if (!state.showErrorAtStep1) {
-                        return const SizedBox();
-                      }
-                      // TODO update translation
-                      return Text(
-                        'Please choose image',
-                        style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                              color: Theme.of(context).errorColor,
-                            ),
+                      // final watchState = context.watch<BecomeTutorBloc>().state;
+                      return Visibility(
+                        visible: state.showErrorAtStep1 && state.avatar == null,
+                        child: Text(
+                          'Please choose image',
+                          style: Theme.of(context).textTheme.caption?.copyWith(
+                                color: Theme.of(context).errorColor,
+                              ),
+                        ),
                       );
                     },
                   ),

@@ -2,17 +2,15 @@ import '../../../domain/user/constants/target_student.dart';
 import '../../common.dart';
 import '../../common/l10n/target_student_display_text.dart';
 
-class TargetStudentRadioButtonGroup extends StatefulWidget {
-  const TargetStudentRadioButtonGroup({Key? key}) : super(key: key);
+class TargetStudentRadioButtonGroup extends StatelessWidget {
+  final TargetStudent currentValue;
+  final ValueChanged<TargetStudent?>? onChanged;
 
-  @override
-  State<TargetStudentRadioButtonGroup> createState() =>
-      _TargetStudentRadioButtonGroupState();
-}
-
-class _TargetStudentRadioButtonGroupState
-    extends State<TargetStudentRadioButtonGroup> {
-  TargetStudent _currentValue = TargetStudent.beginner;
+  const TargetStudentRadioButtonGroup({
+    Key? key,
+    required this.currentValue,
+    required this.onChanged,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,16 +19,12 @@ class _TargetStudentRadioButtonGroupState
       children: TargetStudent.values
           .map(
             (e) => RadioListTile<TargetStudent>(
-              onChanged: (value) {
-                setState(() {
-                  if (value != null) {
-                    _currentValue = value;
-                  }
-                });
-              },
-              groupValue: _currentValue,
+              onChanged: onChanged,
+              groupValue: currentValue,
               value: e,
-              title: Text(e.toText(context)),
+              title: Text(
+                e.toText(context),
+              ),
             ),
           )
           .toList(),

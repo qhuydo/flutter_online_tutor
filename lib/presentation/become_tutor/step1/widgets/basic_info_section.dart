@@ -15,82 +15,87 @@ class BasicInfoSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final titleStyle = Theme.of(context).textTheme.titleLarge;
-    return BlocBuilder<BecomeTutorBloc, BecomeTutorState>(
-      builder: (context, state) {
-        return Form(
-          autovalidateMode: state.showErrorAtStep1
-              ? AutovalidateMode.always
-              : AutovalidateMode.disabled,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(context.l10n.basicInfoLabel, style: titleStyle),
-              const Divider(),
-              _defaultSpacingSizedBox,
-              const ProfileChooser(),
-              _defaultSpacingSizedBox,
-              TextFormField(
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  icon: const Icon(Icons.badge_outlined),
-                  labelText: context.l10n.tutoringNameTextBoxLabel,
-                ),
-                onChanged: (value) => context.read<BecomeTutorBloc>().add(
-                      BecomeTutorEvent.nameChanged(value),
+    final theme = Theme.of(context);
+    final titleStyle = theme.textTheme.titleLarge;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(context.l10n.basicInfoLabel, style: titleStyle),
+        const Divider(),
+        _defaultSpacingSizedBox,
+        const ProfileChooser(),
+        _defaultSpacingSizedBox,
+        BlocBuilder<BecomeTutorBloc, BecomeTutorState>(
+          builder: (context, state) {
+            return Form(
+              autovalidateMode: state.showErrorAtStep1
+                  ? AutovalidateMode.always
+                  : AutovalidateMode.disabled,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextFormField(
+                    decoration: InputDecoration(
+                      border: const OutlineInputBorder(),
+                      icon: const Icon(Icons.badge_outlined),
+                      labelText: context.l10n.tutoringNameTextBoxLabel,
                     ),
-                validator: (_) => context
-                    .watch<BecomeTutorBloc>()
-                    .state
-                    .name
-                    .value
-                    .fold((l) => l.toErrorText(context), (r) => null),
-              ),
-              _defaultSpacingSizedBox,
-              CountryFormDropdown(
-                value: state.country,
-                onChanged: (value) {
-                  if (value != null) {
-                    context.read<BecomeTutorBloc>().add(
-                          BecomeTutorEvent.countryChanged(value),
+                    initialValue: state.name.valueOrNull(),
+                    onChanged: (value) => context.read<BecomeTutorBloc>().add(
+                          BecomeTutorEvent.nameChanged(value),
+                        ),
+                    validator: (_) => context
+                        .watch<BecomeTutorBloc>()
+                        .state
+                        .name
+                        .value
+                        .fold((l) => l.toErrorText(context), (r) => null),
+                  ),
+                  _defaultSpacingSizedBox,
+                  CountryFormDropdown(
+                    value: state.country,
+                    onChanged: (value) {
+                      if (value != null) {
+                        context.read<BecomeTutorBloc>().add(
+                              BecomeTutorEvent.countryChanged(value),
+                            );
+                      }
+                    },
+                    errorText: state.showErrorAtStep1 && state.country == null
+                        ? const ValueFailure.valueIsRequired()
+                            .toErrorText(context)
+                        : null,
+                  ),
+                  _defaultSpacingSizedBox,
+                  DateOfBirthFormField(
+                    initialDate: state.birthDay?.valueOrNull(),
+                    enabled: !state.isLoading,
+                    onChanged: (value) {
+                      if (value != null) {
+                        context.read<BecomeTutorBloc>().add(
+                              BecomeTutorEvent.birthDayChanged(value),
+                            );
+                      }
+                    },
+                    validator: (_) {
+                      if (state.birthDay == null) {
+                        return const ValueFailure.valueIsRequired().toErrorText(
+                          context,
                         );
-                  }
-                },
+                      }
+                      return state.birthDay?.value
+                          .fold((l) => l.toErrorText(context), (r) => null);
+                    },
+                  ),
+                ],
               ),
-              if (state.showErrorAtStep1) ...[
-                Text(
-                  const ValueFailure.valueIsRequired().toErrorText(context),
-                  style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                        color: Theme.of(context).errorColor,
-                      ),
-                ),
-              ],
-              _defaultSpacingSizedBox,
-              DateOfBirthFormField(
-                initialDate: state.birthDay?.valueOrNull(),
-                enabled: !state.isLoading,
-                onChanged: (value) {
-                  if (value != null) {
-                    context.read<BecomeTutorBloc>().add(
-                          BecomeTutorEvent.birthDayChanged(value),
-                        );
-                  }
-                },
-                validator: (_) {
-                  if (state.birthDay == null) {
-                    return const ValueFailure.valueIsRequired().toErrorText(
-                      context,
-                    );
-                  }
-                  return state.birthDay?.value
-                      .fold((l) => l.toErrorText(context), (r) => null);
-                },
-              ),
-            ],
-          ),
-        );
-      },
+            );
+          },
+        ),
+      ],
     );
   }
 }
