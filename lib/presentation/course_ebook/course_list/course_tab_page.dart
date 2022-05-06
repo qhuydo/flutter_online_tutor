@@ -133,7 +133,7 @@ class _CourseTabPageState extends State<CourseTabPage> {
                     builder: (context, constraints) => LimitedBox(
                       maxHeight:
                           constraints.maxWidth * courseThumbnailRatioInverse +
-                              (target.isLinux ? 180 : 120),
+                              (target.isLinux ? 180 : 150),
                       child: CourseListCard(course: list[index]),
                     ),
                   ),

@@ -5,6 +5,7 @@ import '../../../application/schedule/history/history_bloc.dart';
 import '../../common.dart';
 import '../../common/utils/constants.dart';
 import '../../common/utils/default_app_bar.dart';
+import '../../common/widgets/empty_page.dart';
 import '../../common/widgets/paginator.dart';
 import '../list/widgets/schedule_list_desktop.dart';
 import 'widgets/history_list_mobile.dart';
@@ -43,7 +44,9 @@ class _HistoryPage extends StatelessWidget {
           }
 
           final history = state.history;
-          if (history == null) return const SizedBox();
+          if (history == null || history.isEmpty) {
+            return EmptyPage(text: context.l10n.emptyResult);
+          }
 
           final paginator = Visibility(
             visible: state.totalPages > 1,

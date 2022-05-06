@@ -21,8 +21,10 @@ class FavouriteTutorsPage extends StatelessWidget {
       ),
       body: BlocProvider(
         create: (_) => getIt<FavouriteTutorsCubit>(),
-        child: const SingleChildScrollView(
-          child: SafeArea(child: FavouriteTutorsBody()),
+        child: const Center(
+          child: SingleChildScrollView(
+            child: SafeArea(child: FavouriteTutorsBody()),
+          ),
         ),
       ),
     );

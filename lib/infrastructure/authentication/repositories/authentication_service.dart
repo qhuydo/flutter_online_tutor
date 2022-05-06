@@ -325,18 +325,33 @@ class AuthenticationServiceImpl implements AuthenticationService {
   Future<Either<Failure, Unit>> verifyAccount(Uri uri) async {
     var token = '';
     if (uri.host.contains(_apiClient.serverUrl.verifyRedirectHost)) {
+      Uri? locationUri;
       // get verify links with token from redirect link
       try {
-        final response = await _apiClient.dio.getUri(uri);
-        final locationUrl = response.redirects.firstOrNull?.location;
-        log('locationUrl: $locationUrl');
-
-        if (locationUrl?.path.contains(RequestUrl.auth.verifyAccountPath) ==
-            true) {
-          token = locationUrl?.queryParameters['token'] ?? '';
+        final response = await _apiClient.dio.getUri(
+          uri,
+          options: Options(followRedirects: false),
+        );
+        // locationUri = response.redirects.firstOrNull?.location;
+        final location = response.headers['Location']?.firstOrNull;
+        if (location == null) {
+          locationUri = response.redirects.firstOrNull?.location;
+        } else {
+          locationUri = Uri.tryParse(location);
         }
+        log('locationUri: $locationUri');
       } on DioError catch (e) {
         log('error $e');
+        // sometime the server sends the redirect link pointing to localhost
+        // locationUri = e.response?.redirects.firstOrNull?.location;
+        final location = e.response?.headers['Location']?.firstOrNull;
+        locationUri = location != null ? Uri.tryParse(location) : null;
+        log('locationUri: $locationUri');
+      }
+
+      if (locationUri?.path.contains(RequestUrl.auth.verifyAccountPath) ==
+          true) {
+        token = locationUri?.queryParameters['token'] ?? '';
       }
     } else if (uri.host.contains(_apiClient.serverUrl.url) &&
         uri.path.contains(RequestUrl.auth.verifyAccountPath)) {

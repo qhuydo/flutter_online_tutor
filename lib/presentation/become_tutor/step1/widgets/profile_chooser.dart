@@ -86,7 +86,7 @@ class ProfileChooser extends StatelessWidget {
                           .add(BecomeTutorEvent.avatarChanged(result));
                     },
                     icon: const Icon(Icons.upload),
-                    label: Text(context.l10n.changeAvatarButtonTooltip),
+                    label: const Text(''),
                   ),
                   BlocBuilder<BecomeTutorBloc, BecomeTutorState>(
                     buildWhen: (previous, current) {

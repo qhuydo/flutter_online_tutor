@@ -7,6 +7,7 @@ import '../../common.dart';
 import '../../common/utils/constants.dart';
 import '../../common/utils/dialog_utils.dart';
 import '../../common/utils/flushbar_utils.dart';
+import '../../common/widgets/empty_page.dart';
 import '../../common/widgets/paginator.dart';
 import 'widgets/schedule_list_desktop.dart';
 import 'widgets/schedule_list_mobile.dart';
@@ -64,7 +65,9 @@ class SchedulePage extends StatelessWidget {
           }
 
           final upcomingClasses = state.upcomingClasses;
-          if (upcomingClasses == null) return const SizedBox();
+          if (upcomingClasses == null || upcomingClasses.isEmpty) {
+            return EmptyPage(text: context.l10n.emptyResult);
+          }
           final breakpoint = Breakpoint.fromMediaQuery(context);
           final paginator = Paginator.inputPageCountFrom1(
             totalPages: state.totalPages,
