@@ -33,7 +33,12 @@ class _StudentRequestCardState extends State<StudentRequestCard> {
         _controller.text = state.appointment.studentRequest;
 
         return Padding(
-          padding: const EdgeInsets.all(smallItemSpacing),
+          padding: const EdgeInsets.only(
+            top: 0,
+            left: smallItemSpacing,
+            right: smallItemSpacing,
+            bottom: smallItemSpacing,
+          ),
           child: Center(
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 800),

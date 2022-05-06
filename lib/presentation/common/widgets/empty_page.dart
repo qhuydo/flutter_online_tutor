@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../utils/constants.dart';
+
 class EmptyPage extends StatelessWidget {
   final String? emoticon;
   final String? text;
@@ -40,7 +42,7 @@ class EmptyPage extends StatelessWidget {
               style: Theme.of(context).textTheme.headline1,
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: smallItemSpacing),
           Text(text ?? '')
         ],
       ),

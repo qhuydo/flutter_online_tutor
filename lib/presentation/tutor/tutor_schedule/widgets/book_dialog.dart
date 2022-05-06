@@ -39,7 +39,7 @@ class BookDialog extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const Twemoji(
-                    emoji: '🆗',
+                    emoji: '✅',
                     height: 60,
                     width: 60,
                   ),

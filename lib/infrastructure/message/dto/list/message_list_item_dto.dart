@@ -26,11 +26,23 @@ class MessageListItemDto with _$MessageListItemDto {
       _$MessageListItemDtoFromJson(json);
 
   MessageListItem toDomain() => MessageListItem(
+        id: id,
         hasRead: isRead,
         content: content,
         createdAt: createdAt,
         partner: partner.toDomain(),
         from: fromInfo.toDomain(),
         to: toInfo.toDomain(),
+      );
+
+  factory MessageListItemDto.fromDomain(MessageListItem item) =>
+      MessageListItemDto(
+        id: item.id,
+        content: item.content,
+        isRead: item.hasRead,
+        createdAt: item.createdAt,
+        fromInfo: UserInfoDto.fromDomain(item.from),
+        toInfo: UserInfoDto.fromDomain(item.to),
+        partner: PartnerDto.fromDomain(item.partner),
       );
 }

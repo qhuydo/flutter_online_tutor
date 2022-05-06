@@ -49,7 +49,13 @@ class ScheduleCardButtonGroup extends StatelessWidget {
             ),
           OutlinedButton.icon(
             onPressed: () {
-              context.router.push(MessageDetailsRoute(tutorId: ''));
+              context.router.push(
+                MessageDetailsRoute(
+                  tutorId: appointment.tutorId,
+                  partnerThumbnail: appointment.tutorAvatar,
+                  partnerName: appointment.tutorName,
+                ),
+              );
             },
             icon: const Icon(Icons.chat_bubble_outline),
             label: Text(

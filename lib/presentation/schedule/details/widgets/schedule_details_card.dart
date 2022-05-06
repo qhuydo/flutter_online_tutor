@@ -84,22 +84,26 @@ class ScheduleDetailsCard extends StatelessWidget {
                       )),
                     ),
                     const SizedBox(height: smallItemSpacing),
-                    ScheduleDetailsCardRow(
-                      iconData: Icons.hourglass_top,
-                      title: 'Time until next lesson',
-                      stringOrWidgetContent: right(CountDownTimer(
-                        endTime: appointment.meetingTime.start,
-                        builder: (_, duration) => Text(
-                          prettyDuration(
-                            duration,
-                            locale: context.durationLocale,
-                            abbreviated: true,
-                          ),
-                          style: textTheme.bodyText1?.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
+                    CountDownTimer(
+                      endTime: appointment.meetingTime.start,
+                      builder: (_, duration) => Visibility(
+                        visible: !duration.isNegative &&
+                            duration.compareTo(Duration.zero) != 0,
+                        child: ScheduleDetailsCardRow(
+                          iconData: Icons.hourglass_top,
+                          title: context.l10n.timeUntilNextLessonLabel,
+                          stringOrWidgetContent: right(Text(
+                            prettyDuration(
+                              duration,
+                              locale: context.durationLocale,
+                              abbreviated: true,
+                            ),
+                            style: textTheme.bodyText1?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )),
                         ),
-                      )),
+                      ),
                     ),
                     CountDownTimer(
                       endTime: appointment.meetingTime.end,

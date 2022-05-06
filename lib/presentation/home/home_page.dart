@@ -8,6 +8,7 @@ import '../../application/authentication/authentication_bloc.dart';
 import '../../application/common/app/app_cubit.dart';
 import '../../application/course_ebook/course_list/course_list_bloc.dart';
 import '../../application/course_ebook/ebook_list/ebook_list_bloc.dart';
+import '../../application/message/list/message_list_bloc.dart';
 import '../../application/schedule/upcoming_class/upcoming_class_bloc.dart';
 import '../../application/tutor/recommended_tutors/recommended_tutors_bloc.dart';
 import '../../application/tutor/search_tutors/search_tutors_bloc.dart';
@@ -64,6 +65,11 @@ class _HomePageState extends State<HomePage> {
           BlocProvider(
             create: (_) => getIt<UpcomingClassBloc>()
               ..add(const UpcomingClassEvent.initialise()),
+          ),
+          BlocProvider(
+            create: (_) =>
+                getIt<MessageListBloc>()..add(const MessageListEvent.initialise()),
+            lazy: false,
           ),
         ],
         child: MultiBlocListener(

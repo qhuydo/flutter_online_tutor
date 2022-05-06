@@ -49,7 +49,7 @@ class VerifyAccountBody extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Twemoji(emoji: '🆗', height: 60, width: 60),
+                const Twemoji(emoji: '✅', height: 60, width: 60),
                 Text(context.l10n.verifyAccountSuccessfully),
               ],
             ),
