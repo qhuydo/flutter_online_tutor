@@ -3,6 +3,7 @@
 ## Demo videos
 * [Milestone-1: Mock-up UI](https://youtu.be/npJajNlE9GA)
 * [Milestone-2: Offline app](https://youtu.be/hupcssQtcow)
+* [Milestone-3: Online app](https://youtu.be/RUMDlULfYBY)
 
 ## Getting Started
 
