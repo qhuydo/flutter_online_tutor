@@ -472,13 +472,17 @@ class _$MessageDetailsStateTearOff {
       required String partnerId,
       bool isLoading = false,
       List<MessageBubble> messageList = const [],
-      String text = ''}) {
+      String text = '',
+      String? partnerThumbnail,
+      String? partnerName}) {
     return _MessageDetailsState(
       userId: userId,
       partnerId: partnerId,
       isLoading: isLoading,
       messageList: messageList,
       text: text,
+      partnerThumbnail: partnerThumbnail,
+      partnerName: partnerName,
     );
   }
 }
@@ -493,6 +497,8 @@ mixin _$MessageDetailsState {
   bool get isLoading => throw _privateConstructorUsedError;
   List<MessageBubble> get messageList => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
+  String? get partnerThumbnail => throw _privateConstructorUsedError;
+  String? get partnerName => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MessageDetailsStateCopyWith<MessageDetailsState> get copyWith =>
@@ -509,7 +515,9 @@ abstract class $MessageDetailsStateCopyWith<$Res> {
       String partnerId,
       bool isLoading,
       List<MessageBubble> messageList,
-      String text});
+      String text,
+      String? partnerThumbnail,
+      String? partnerName});
 }
 
 /// @nodoc
@@ -528,6 +536,8 @@ class _$MessageDetailsStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? messageList = freezed,
     Object? text = freezed,
+    Object? partnerThumbnail = freezed,
+    Object? partnerName = freezed,
   }) {
     return _then(_value.copyWith(
       userId: userId == freezed
@@ -550,6 +560,14 @@ class _$MessageDetailsStateCopyWithImpl<$Res>
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
+      partnerThumbnail: partnerThumbnail == freezed
+          ? _value.partnerThumbnail
+          : partnerThumbnail // ignore: cast_nullable_to_non_nullable
+              as String?,
+      partnerName: partnerName == freezed
+          ? _value.partnerName
+          : partnerName // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -566,7 +584,9 @@ abstract class _$MessageDetailsStateCopyWith<$Res>
       String partnerId,
       bool isLoading,
       List<MessageBubble> messageList,
-      String text});
+      String text,
+      String? partnerThumbnail,
+      String? partnerName});
 }
 
 /// @nodoc
@@ -587,6 +607,8 @@ class __$MessageDetailsStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? messageList = freezed,
     Object? text = freezed,
+    Object? partnerThumbnail = freezed,
+    Object? partnerName = freezed,
   }) {
     return _then(_MessageDetailsState(
       userId: userId == freezed
@@ -609,6 +631,14 @@ class __$MessageDetailsStateCopyWithImpl<$Res>
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
+      partnerThumbnail: partnerThumbnail == freezed
+          ? _value.partnerThumbnail
+          : partnerThumbnail // ignore: cast_nullable_to_non_nullable
+              as String?,
+      partnerName: partnerName == freezed
+          ? _value.partnerName
+          : partnerName // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -621,7 +651,9 @@ class _$_MessageDetailsState extends _MessageDetailsState {
       required this.partnerId,
       this.isLoading = false,
       this.messageList = const [],
-      this.text = ''})
+      this.text = '',
+      this.partnerThumbnail,
+      this.partnerName})
       : super._();
 
   @override
@@ -637,10 +669,14 @@ class _$_MessageDetailsState extends _MessageDetailsState {
   @JsonKey()
   @override
   final String text;
+  @override
+  final String? partnerThumbnail;
+  @override
+  final String? partnerName;
 
   @override
   String toString() {
-    return 'MessageDetailsState(userId: $userId, partnerId: $partnerId, isLoading: $isLoading, messageList: $messageList, text: $text)';
+    return 'MessageDetailsState(userId: $userId, partnerId: $partnerId, isLoading: $isLoading, messageList: $messageList, text: $text, partnerThumbnail: $partnerThumbnail, partnerName: $partnerName)';
   }
 
   @override
@@ -653,7 +689,11 @@ class _$_MessageDetailsState extends _MessageDetailsState {
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
                 .equals(other.messageList, messageList) &&
-            const DeepCollectionEquality().equals(other.text, text));
+            const DeepCollectionEquality().equals(other.text, text) &&
+            const DeepCollectionEquality()
+                .equals(other.partnerThumbnail, partnerThumbnail) &&
+            const DeepCollectionEquality()
+                .equals(other.partnerName, partnerName));
   }
 
   @override
@@ -663,7 +703,9 @@ class _$_MessageDetailsState extends _MessageDetailsState {
       const DeepCollectionEquality().hash(partnerId),
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(messageList),
-      const DeepCollectionEquality().hash(text));
+      const DeepCollectionEquality().hash(text),
+      const DeepCollectionEquality().hash(partnerThumbnail),
+      const DeepCollectionEquality().hash(partnerName));
 
   @JsonKey(ignore: true)
   @override
@@ -678,7 +720,9 @@ abstract class _MessageDetailsState extends MessageDetailsState {
       required String partnerId,
       bool isLoading,
       List<MessageBubble> messageList,
-      String text}) = _$_MessageDetailsState;
+      String text,
+      String? partnerThumbnail,
+      String? partnerName}) = _$_MessageDetailsState;
   const _MessageDetailsState._() : super._();
 
   @override
@@ -691,6 +735,10 @@ abstract class _MessageDetailsState extends MessageDetailsState {
   List<MessageBubble> get messageList;
   @override
   String get text;
+  @override
+  String? get partnerThumbnail;
+  @override
+  String? get partnerName;
   @override
   @JsonKey(ignore: true)
   _$MessageDetailsStateCopyWith<_MessageDetailsState> get copyWith =>

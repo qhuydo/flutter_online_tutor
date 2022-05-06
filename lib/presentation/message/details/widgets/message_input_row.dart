@@ -1,70 +1,81 @@
-import '../../../common.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MessageInputRow extends StatelessWidget {
+import '../../../../application/message/details/message_details_bloc.dart';
+import '../../../common.dart';
+import '../../../common/utils/constants.dart';
+
+class MessageInputRow extends StatefulWidget {
   const MessageInputRow({Key? key}) : super(key: key);
 
   @override
+  State<MessageInputRow> createState() => _MessageInputRowState();
+}
+
+class _MessageInputRowState extends State<MessageInputRow> {
+  final TextEditingController _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Align(
-          alignment: Alignment.bottomLeft,
-          child: Container(
-            padding: const EdgeInsets.only(left: 10, bottom: 10, top: 10),
-            height: 60,
-            width: double.infinity,
-            color: Colors.white,
-            child: Row(
-              children: [
-                GestureDetector(
-                  onTap: () {},
-                  child: Container(
-                    height: 30,
-                    width: 30,
-                    decoration: BoxDecoration(
-                      color: Colors.lightBlue,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: const Icon(
-                      Icons.add,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                  ),
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Container(
+        color: Theme.of(context).backgroundColor,
+        padding: const EdgeInsets.all(smallItemSpacing),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Expanded(
+              child: TextField(
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.all(10),
+                  hintText: context.l10n.writeMessageInputText,
+                  border: InputBorder.none,
                 ),
-                const SizedBox(
-                  width: 15,
-                ),
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText:
-                          context.l10n.writeMessageInputText,
-                      hintStyle: const TextStyle(color: Colors.black54),
-                      border: InputBorder.none,
-                    ),
-                    minLines: 1,
-                    maxLines: 10,
-                  ),
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                FloatingActionButton(
-                  onPressed: () {},
-                  child: const Icon(
-                    Icons.send,
-                    color: Colors.white,
-                    size: 18,
-                  ),
-                  backgroundColor: Colors.blue,
-                  elevation: 0,
-                ),
-              ],
+                minLines: 1,
+                maxLines: 10,
+                textInputAction: TextInputAction.send,
+                controller: _controller,
+                onChanged: (value) {
+                  context.read<MessageDetailsBloc>().add(
+                        MessageDetailsEvent.textChanged(value),
+                      );
+                },
+                onSubmitted: (value) {
+                  _controller.clear();
+                  context.read<MessageDetailsBloc>()
+                    ..add(
+                      MessageDetailsEvent.textChanged(value.trimRight()),
+                    )
+                    ..add(
+                      const MessageDetailsEvent.textSubmitted(),
+                    );
+                },
+              ),
             ),
-          ),
+            const SizedBox(width: smallItemSpacing),
+            FloatingActionButton(
+              onPressed: () {
+                _controller.clear();
+                context.read<MessageDetailsBloc>().add(
+                      const MessageDetailsEvent.textSubmitted(),
+                    );
+              },
+              child: Icon(
+                Icons.send,
+                color: Theme.of(context).colorScheme.onPrimary,
+              ),
+              backgroundColor: Theme.of(context).primaryColor,
+              elevation: 0,
+            ),
+          ],
         ),
-      ],
+      ),
     );
   }
 }

@@ -82,7 +82,11 @@ class TutorDetailsButtonGroup extends StatelessWidget {
                 title: context.l10n.chatButtonText,
                 icon: Icons.message_outlined,
                 onPressed: () {
-                  context.router.push(MessageDetailsRoute(tutorId: tutorId));
+                  context.router.push(MessageDetailsRoute(
+                    tutorId: tutorId,
+                    partnerThumbnail: tutor.avatar,
+                    partnerName: tutor.name,
+                  ));
                 },
               ),
               buildButton(

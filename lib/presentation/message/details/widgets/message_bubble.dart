@@ -1,103 +1,41 @@
 import 'package:flutter/material.dart';
 
+import '../../../../domain/message/models/message_bubble.dart' as domain;
 import '../../../common.dart';
-import '../helpers/message.dart';
+import 'message_bubble_content.dart';
+import 'partner_message_bubble_content.dart';
 
 class MessageBubble extends StatelessWidget {
-  final Message message;
   final Widget child;
+  final String userId;
+  final domain.MessageBubble message;
+  final String? partnerAvatar;
+  final domain.MessageBubble? previousMessage;
 
   const MessageBubble({
     Key? key,
+    required this.userId,
     required this.message,
     required this.child,
+    this.partnerAvatar,
+    this.previousMessage,
   }) : super(key: key);
-
-  Widget buildChatBubbleWithAvatar(
-    BuildContext context, {
-    required Alignment alignment,
-    required Color bubbleColour,
-  }) {
-    return Wrap(
-      // mainAxisSize: MainAxisSize.min,
-      direction: Axis.horizontal,
-      // crossAxisAlignment: WrapCrossAlignment.start,
-      // spacing: smallItemSpacing,
-      children: [
-        // const CircleAvatar(),
-        buildChatBubble(
-          context,
-          alignment: alignment,
-          bubbleColour: bubbleColour,
-        ),
-      ],
-    );
-  }
-
-  Widget buildChatBubbleNoAvatar(
-    BuildContext context, {
-    required Alignment alignment,
-    required Color bubbleColour,
-  }) {
-    return buildChatBubble(
-      context,
-      alignment: alignment,
-      bubbleColour: bubbleColour,
-    );
-  }
-
-  Widget buildChatBubble(
-    BuildContext context, {
-    required Alignment alignment,
-    required Color bubbleColour,
-  }) {
-    final brightness = ThemeData.estimateBrightnessForColor(bubbleColour);
-    final textColour =
-        brightness == Brightness.light ? Colors.black87 : Colors.white;
-    return FractionallySizedBox(
-      alignment: alignment,
-      widthFactor: 3 / 4,
-      child: Align(
-        alignment: alignment,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20.0),
-          child: ClipRRect(
-            borderRadius: const BorderRadius.all(Radius.circular(16)),
-            child: Container(
-              color: bubbleColour,
-              child: DefaultTextStyle.merge(
-                style: TextStyle(
-                  color: textColour,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: child,
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
-    final messageAlignment =
-        message.isMine ? Alignment.topRight : Alignment.topLeft;
+    final isMine = message.isMine(userId);
+    final isMinePreviousMessage = previousMessage?.isMine(userId) == true;
+    final isTheirs = !isMine;
+    final showPartnerAvatar =
+        previousMessage == null || (isMinePreviousMessage && isTheirs);
 
-    final bubbleColour = message.isMine ? Colors.blue : Colors.grey[100]!;
-
-    return message.isMine
-        ? buildChatBubbleNoAvatar(
-            context,
-            alignment: messageAlignment,
-            bubbleColour: bubbleColour,
-          )
-        : buildChatBubbleWithAvatar(
-            context,
-            alignment: messageAlignment,
-            bubbleColour: bubbleColour,
+    return isMine
+        ? MessageBubbleContent(child: child, dateCreated: message.createdAt)
+        : PartnerMessageBubbleContent(
+            partnerAvatar: partnerAvatar,
+            showAvatar: showPartnerAvatar,
+            child: child,
+            dateCreated: message.createdAt,
           );
   }
 }

@@ -112,7 +112,11 @@ class AppRouter extends _i2.RootStackRouter {
               tutorId: pathParams.getString('tutorId')));
       return _i2.MaterialPageX<dynamic>(
           routeData: routeData,
-          child: _i1.MessageDetailsPage(key: args.key, tutorId: args.tutorId));
+          child: _i1.MessageDetailsPage(
+              key: args.key,
+              tutorId: args.tutorId,
+              partnerThumbnail: args.partnerThumbnail,
+              partnerName: args.partnerName));
     },
     HistoryRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
@@ -450,25 +454,41 @@ class TutorReviewRouteArgs {
 /// generated route for
 /// [_i1.MessageDetailsPage]
 class MessageDetailsRoute extends _i2.PageRouteInfo<MessageDetailsRouteArgs> {
-  MessageDetailsRoute({_i3.Key? key, required String tutorId})
+  MessageDetailsRoute(
+      {_i3.Key? key,
+      required String tutorId,
+      String? partnerThumbnail,
+      String? partnerName})
       : super(MessageDetailsRoute.name,
             path: '/tutors/:tutorId/message',
-            args: MessageDetailsRouteArgs(key: key, tutorId: tutorId),
+            args: MessageDetailsRouteArgs(
+                key: key,
+                tutorId: tutorId,
+                partnerThumbnail: partnerThumbnail,
+                partnerName: partnerName),
             rawPathParams: {'tutorId': tutorId});
 
   static const String name = 'MessageDetailsRoute';
 }
 
 class MessageDetailsRouteArgs {
-  const MessageDetailsRouteArgs({this.key, required this.tutorId});
+  const MessageDetailsRouteArgs(
+      {this.key,
+      required this.tutorId,
+      this.partnerThumbnail,
+      this.partnerName});
 
   final _i3.Key? key;
 
   final String tutorId;
 
+  final String? partnerThumbnail;
+
+  final String? partnerName;
+
   @override
   String toString() {
-    return 'MessageDetailsRouteArgs{key: $key, tutorId: $tutorId}';
+    return 'MessageDetailsRouteArgs{key: $key, tutorId: $tutorId, partnerThumbnail: $partnerThumbnail, partnerName: $partnerName}';
   }
 }
 

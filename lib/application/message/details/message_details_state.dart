@@ -10,5 +10,7 @@ class MessageDetailsState with _$MessageDetailsState {
     @Default(false) bool isLoading,
     @Default([]) List<MessageBubble> messageList,
     @Default('') String text,
+    String? partnerThumbnail,
+    String? partnerName,
   }) = _MessageDetailsState;
 }

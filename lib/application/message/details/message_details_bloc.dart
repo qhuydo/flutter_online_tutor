@@ -22,7 +22,13 @@ class MessageDetailsBloc
     this._messageService,
     this._userRepository, {
     required String partnerId,
-  }) : super(MessageDetailsState(partnerId: partnerId)) {
+    String? partnerThumbnail,
+    String? partnerName,
+  }) : super(MessageDetailsState(
+          partnerId: partnerId,
+          partnerThumbnail: partnerThumbnail,
+          partnerName: partnerName,
+        )) {
     on<MessageDetailsEvent>((event, emit) async {
       await event.when(
         initialise: () => _onInitialise(emit),

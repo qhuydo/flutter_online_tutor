@@ -60,7 +60,11 @@ class TutorCardActionButtons extends StatelessWidget {
               ),
               OutlinedButton(
                 onPressed: () {
-                  context.router.push(MessageDetailsRoute(tutorId: tutor.id));
+                  context.router.push(MessageDetailsRoute(
+                    tutorId: tutor.id,
+                    partnerName: tutor.name,
+                    partnerThumbnail: tutor.avatar,
+                  ));
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
