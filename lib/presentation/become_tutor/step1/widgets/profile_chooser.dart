@@ -29,7 +29,7 @@ class ProfileChooser extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  color: Colors.grey[100]!.withOpacity(0.2),
+                  color: Colors.grey[500]!.withOpacity(0.2),
                 ),
                 child: BlocBuilder<BecomeTutorBloc, BecomeTutorState>(
                   buildWhen: (previous, current) {

@@ -49,7 +49,6 @@ class _VideoPreviewState extends State<VideoPreviewDesktop> {
       child: _player != null
           ? Video(
               height: 300,
-              playlistLength: 1,
               player: _player,
             )
           : Container(

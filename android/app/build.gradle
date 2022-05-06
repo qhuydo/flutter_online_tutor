@@ -51,14 +51,6 @@ android {
         checkReleaseBuilds false
     }
 
-    defaultConfig {
-        applicationId "vn.hcmus.flutter_online_tutor"
-        minSdkVersion 23
-        targetSdkVersion flutter.targetSdkVersion
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
-    }
-
     signingConfigs {
         prod {
             keyAlias keystoreProperties['keyAlias']
@@ -87,14 +79,16 @@ android {
         }
     }
 
-    buildTypes {
-        debug {
-            productFlavors.prod.signingConfig signingConfigs.prod
-        }
+    defaultConfig {
+        applicationId "vn.hcmus.flutter_online_tutor"
+        minSdkVersion 23
+        targetSdkVersion flutter.targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        productFlavors.prod.signingConfig signingConfigs.prod
+    }
 
-        profile {
-            productFlavors.prod.signingConfig signingConfigs.prod
-        }
+    buildTypes {
 
         release {
             // Signing with the debug keys for now, so `flutter run --release` works.

@@ -62,7 +62,6 @@ class Video extends StatelessWidget {
     double? width,
     double? height,
     Player? player,
-    required int playlistLength,
   }) : super(key: key);
 
   @override

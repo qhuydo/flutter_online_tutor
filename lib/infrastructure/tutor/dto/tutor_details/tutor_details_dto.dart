@@ -63,7 +63,7 @@ class TutorDetailsDto with _$TutorDetailsDto {
         education: education,
         averageRating: avgRating,
         feedbacks:
-            user.feedbacks.map((e) => e.toDomain()).toList(growable: false),
+            user.feedbacks?.map((e) => e.toDomain()).toList(growable: false) ?? [],
         interests: interests,
         isFavourite: isFavorite,
         isOnline: null,
@@ -84,7 +84,7 @@ class TutorDetailsDto with _$TutorDetailsDto {
 class User with _$User {
   const factory User({
     required String id,
-    required String level,
+    // required String level,
     required String email,
     // String google,
     // dynamic facebook,
@@ -92,7 +92,7 @@ class User with _$User {
     String? avatar,
     required String name,
     required String country,
-    required String phone,
+    // required String phone,
     required String? languages,
     required String? birthday,
     // bool requestPassword,
@@ -105,7 +105,7 @@ class User with _$User {
     // DateTime createdAt,
     // DateTime updatedAt,
     // dynamic deletedAt,
-    required List<FeedbackDto> feedbacks,
+    List<FeedbackDto>? feedbacks,
     required List<CourseDto> courses,
   }) = _User;
 

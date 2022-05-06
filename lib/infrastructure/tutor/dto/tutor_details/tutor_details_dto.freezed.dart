@@ -521,24 +521,20 @@ class _$UserTearOff {
 
   _User call(
       {required String id,
-      required String level,
       required String email,
       String? avatar,
       required String name,
       required String country,
-      required String phone,
       required String? languages,
       required String? birthday,
-      required List<FeedbackDto> feedbacks,
+      List<FeedbackDto>? feedbacks,
       required List<CourseDto> courses}) {
     return _User(
       id: id,
-      level: level,
       email: email,
       avatar: avatar,
       name: name,
       country: country,
-      phone: phone,
       languages: languages,
       birthday: birthday,
       feedbacks: feedbacks,
@@ -556,15 +552,14 @@ const $User = _$UserTearOff();
 
 /// @nodoc
 mixin _$User {
-  String get id => throw _privateConstructorUsedError;
-  String get level => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError; // required String level,
   String get email => throw _privateConstructorUsedError; // String google,
 // dynamic facebook,
 // dynamic apple,
   String? get avatar => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get country => throw _privateConstructorUsedError;
-  String get phone => throw _privateConstructorUsedError;
+  String get country =>
+      throw _privateConstructorUsedError; // required String phone,
   String? get languages => throw _privateConstructorUsedError;
   String? get birthday =>
       throw _privateConstructorUsedError; // bool requestPassword,
@@ -577,7 +572,7 @@ mixin _$User {
 // DateTime createdAt,
 // DateTime updatedAt,
 // dynamic deletedAt,
-  List<FeedbackDto> get feedbacks => throw _privateConstructorUsedError;
+  List<FeedbackDto>? get feedbacks => throw _privateConstructorUsedError;
   List<CourseDto> get courses => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -591,15 +586,13 @@ abstract class $UserCopyWith<$Res> {
       _$UserCopyWithImpl<$Res>;
   $Res call(
       {String id,
-      String level,
       String email,
       String? avatar,
       String name,
       String country,
-      String phone,
       String? languages,
       String? birthday,
-      List<FeedbackDto> feedbacks,
+      List<FeedbackDto>? feedbacks,
       List<CourseDto> courses});
 }
 
@@ -614,12 +607,10 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
-    Object? level = freezed,
     Object? email = freezed,
     Object? avatar = freezed,
     Object? name = freezed,
     Object? country = freezed,
-    Object? phone = freezed,
     Object? languages = freezed,
     Object? birthday = freezed,
     Object? feedbacks = freezed,
@@ -629,10 +620,6 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      level: level == freezed
-          ? _value.level
-          : level // ignore: cast_nullable_to_non_nullable
               as String,
       email: email == freezed
           ? _value.email
@@ -650,10 +637,6 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: phone == freezed
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String,
       languages: languages == freezed
           ? _value.languages
           : languages // ignore: cast_nullable_to_non_nullable
@@ -665,7 +648,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
       feedbacks: feedbacks == freezed
           ? _value.feedbacks
           : feedbacks // ignore: cast_nullable_to_non_nullable
-              as List<FeedbackDto>,
+              as List<FeedbackDto>?,
       courses: courses == freezed
           ? _value.courses
           : courses // ignore: cast_nullable_to_non_nullable
@@ -681,15 +664,13 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   @override
   $Res call(
       {String id,
-      String level,
       String email,
       String? avatar,
       String name,
       String country,
-      String phone,
       String? languages,
       String? birthday,
-      List<FeedbackDto> feedbacks,
+      List<FeedbackDto>? feedbacks,
       List<CourseDto> courses});
 }
 
@@ -705,12 +686,10 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? level = freezed,
     Object? email = freezed,
     Object? avatar = freezed,
     Object? name = freezed,
     Object? country = freezed,
-    Object? phone = freezed,
     Object? languages = freezed,
     Object? birthday = freezed,
     Object? feedbacks = freezed,
@@ -720,10 +699,6 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      level: level == freezed
-          ? _value.level
-          : level // ignore: cast_nullable_to_non_nullable
               as String,
       email: email == freezed
           ? _value.email
@@ -741,10 +716,6 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: phone == freezed
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String,
       languages: languages == freezed
           ? _value.languages
           : languages // ignore: cast_nullable_to_non_nullable
@@ -756,7 +727,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
       feedbacks: feedbacks == freezed
           ? _value.feedbacks
           : feedbacks // ignore: cast_nullable_to_non_nullable
-              as List<FeedbackDto>,
+              as List<FeedbackDto>?,
       courses: courses == freezed
           ? _value.courses
           : courses // ignore: cast_nullable_to_non_nullable
@@ -770,24 +741,20 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 class _$_User implements _User {
   const _$_User(
       {required this.id,
-      required this.level,
       required this.email,
       this.avatar,
       required this.name,
       required this.country,
-      required this.phone,
       required this.languages,
       required this.birthday,
-      required this.feedbacks,
+      this.feedbacks,
       required this.courses});
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
   final String id;
-  @override
-  final String level;
-  @override
+  @override // required String level,
   final String email;
   @override // String google,
 // dynamic facebook,
@@ -797,9 +764,7 @@ class _$_User implements _User {
   final String name;
   @override
   final String country;
-  @override
-  final String phone;
-  @override
+  @override // required String phone,
   final String? languages;
   @override
   final String? birthday;
@@ -813,13 +778,13 @@ class _$_User implements _User {
 // DateTime createdAt,
 // DateTime updatedAt,
 // dynamic deletedAt,
-  final List<FeedbackDto> feedbacks;
+  final List<FeedbackDto>? feedbacks;
   @override
   final List<CourseDto> courses;
 
   @override
   String toString() {
-    return 'User(id: $id, level: $level, email: $email, avatar: $avatar, name: $name, country: $country, phone: $phone, languages: $languages, birthday: $birthday, feedbacks: $feedbacks, courses: $courses)';
+    return 'User(id: $id, email: $email, avatar: $avatar, name: $name, country: $country, languages: $languages, birthday: $birthday, feedbacks: $feedbacks, courses: $courses)';
   }
 
   @override
@@ -828,12 +793,10 @@ class _$_User implements _User {
         (other.runtimeType == runtimeType &&
             other is _User &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.level, level) &&
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality().equals(other.avatar, avatar) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.country, country) &&
-            const DeepCollectionEquality().equals(other.phone, phone) &&
             const DeepCollectionEquality().equals(other.languages, languages) &&
             const DeepCollectionEquality().equals(other.birthday, birthday) &&
             const DeepCollectionEquality().equals(other.feedbacks, feedbacks) &&
@@ -844,12 +807,10 @@ class _$_User implements _User {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(level),
       const DeepCollectionEquality().hash(email),
       const DeepCollectionEquality().hash(avatar),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(country),
-      const DeepCollectionEquality().hash(phone),
       const DeepCollectionEquality().hash(languages),
       const DeepCollectionEquality().hash(birthday),
       const DeepCollectionEquality().hash(feedbacks),
@@ -869,24 +830,20 @@ class _$_User implements _User {
 abstract class _User implements User {
   const factory _User(
       {required String id,
-      required String level,
       required String email,
       String? avatar,
       required String name,
       required String country,
-      required String phone,
       required String? languages,
       required String? birthday,
-      required List<FeedbackDto> feedbacks,
+      List<FeedbackDto>? feedbacks,
       required List<CourseDto> courses}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
   String get id;
-  @override
-  String get level;
-  @override
+  @override // required String level,
   String get email;
   @override // String google,
 // dynamic facebook,
@@ -896,9 +853,7 @@ abstract class _User implements User {
   String get name;
   @override
   String get country;
-  @override
-  String get phone;
-  @override
+  @override // required String phone,
   String? get languages;
   @override
   String? get birthday;
@@ -912,7 +867,7 @@ abstract class _User implements User {
 // DateTime createdAt,
 // DateTime updatedAt,
 // dynamic deletedAt,
-  List<FeedbackDto> get feedbacks;
+  List<FeedbackDto>? get feedbacks;
   @override
   List<CourseDto> get courses;
   @override

@@ -44,16 +44,14 @@ Map<String, dynamic> _$$_TutorDetailsDtoToJson(_$_TutorDetailsDto instance) =>
 
 _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
       id: json['id'] as String,
-      level: json['level'] as String,
       email: json['email'] as String,
       avatar: json['avatar'] as String?,
       name: json['name'] as String,
       country: json['country'] as String,
-      phone: json['phone'] as String,
       languages: json['languages'] as String?,
       birthday: json['birthday'] as String?,
-      feedbacks: (json['feedbacks'] as List<dynamic>)
-          .map((e) => FeedbackDto.fromJson(e as Map<String, dynamic>))
+      feedbacks: (json['feedbacks'] as List<dynamic>?)
+          ?.map((e) => FeedbackDto.fromJson(e as Map<String, dynamic>))
           .toList(),
       courses: (json['courses'] as List<dynamic>)
           .map((e) => CourseDto.fromJson(e as Map<String, dynamic>))
@@ -62,12 +60,10 @@ _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
 
 Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
       'id': instance.id,
-      'level': instance.level,
       'email': instance.email,
       'avatar': instance.avatar,
       'name': instance.name,
       'country': instance.country,
-      'phone': instance.phone,
       'languages': instance.languages,
       'birthday': instance.birthday,
       'feedbacks': instance.feedbacks,

@@ -27,7 +27,7 @@ dependencies:
   # AutoRoute is a declarative routing solution,
   # where everything needed for navigation is automatically generated for you.
   # (c) MIT License. By Milad Akarie.
-  auto_route: ^3.2.4
+  auto_route: ^4.0.0
 
   # Contains code to deal with internationalized/localized messages, date and number formatting
   # and parsing, bi-directional text, and other internationalization issues.
@@ -36,11 +36,11 @@ dependencies:
 
   # Twitter Emojis for Flutter, this package supports svg and png 72x72 emojis
   # (c) MIT License. By Abdelhadi Shaar.
-  twemoji: ^0.4.2
+  twemoji: ^0.4.3
 
   # A package to include fonts from fonts.google.com in your Flutter app.
   # (c) MIT License. By material.io.
-  google_fonts: ^2.3.1
+  google_fonts: ^2.3.2
 
   # A simple yet fully customizable ratingbar for flutter which also include a rating bar indicator,
   # supporting any fraction of rating.
@@ -75,7 +75,7 @@ dependencies:
 
   # A Flutter package to make and use beautiful color scheme based themes.
   # (c) BSD-3-Clause License. By Mike Rydstrom.
-  flex_color_scheme: ^5.0.0-dev.2
+  flex_color_scheme: ^5.0.1
 
   # Simple direct Service Locator that allows to decouple the interface from a concrete implementation and to access the
   # concrete implementation from everywhere in your App.
@@ -101,7 +101,7 @@ dependencies:
 
   # Automatically generate code for converting to and from JSON by annotating Dart classes.
   # (c) BSD 3-Clause License. By the Dart project authors.
-  json_annotation: ^4.4.0
+  json_annotation: ^4.5.0
 
   # Lightweight and blazing fast key-value database written in pure Dart. Strongly encrypted using
   # AES-256.
@@ -147,7 +147,7 @@ dependencies:
 
   # A Flutter plugin for iOS, Android and Web for playing back video on a Widget surface.
   # (c) BSD 3-Clause License. By The Flutter Authors.
-  video_player: ^2.3.0
+  video_player: ^2.4.0
 
   # A video player for Flutter with Cupertino and Material play controls
   # (c) MIT License. By Brian Egan.
@@ -155,7 +155,7 @@ dependencies:
 
   # Flutter media playback, broadcast, recording & chromecast library. Based on libVLC & libVLC++.
   # (c) GNU Lesser General Public License v2.1. By Hitesh Kumar Saini.
-  dart_vlc: ^0.1.9
+  dart_vlc: ^0.2.0
 
   # Plugin that allows Flutter apps to generate and print documents to compatible printers on Android, iOS, macOS,
   # Windows, and Linux, as well as web print.
@@ -179,7 +179,7 @@ dependencies:
 
   # An abstraction to allow working with files across multiple platforms.
   # (c) BSD 3-Clause License. By The Flutter Authors.
-  cross_file: ^0.3.2
+  cross_file: ^0.3.3
 
   # A Flutter ListView where the list items can be grouped into sections.
   # (c) MIT License. By Dimitrios Begnis
@@ -201,16 +201,20 @@ dependencies:
   # (c) BSD-Clause 3 License. By The Flutter Authors.
   google_sign_in: ^5.3.0
 
+  # Dartlang port of socket.io-client for web, flutter, dartvm to use.
+  # (c) MIT License. By Potix corporation
+  socket_io_client: ^2.0.0-beta.4-nullsafety.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^1.0.0
-  build_runner: ^2.1.7
-  auto_route_generator: ^3.2.3
+  build_runner: ^2.1.10
+  auto_route_generator: ^4.0.0
   injectable_generator:
   freezed:
-  json_serializable: ^6.1.5
+  json_serializable: ^6.2.0
   hive_generator: ^1.1.2
 
   # Mock library for Dart inspired by Mockito.
