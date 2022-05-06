@@ -47,7 +47,6 @@ class DashboardCard extends StatelessWidget {
   }
 }
 
-// TODO update translation
 class DashboardCardContent extends StatelessWidget {
   const DashboardCardContent({Key? key}) : super(key: key);
 
@@ -92,7 +91,7 @@ class DashboardCardContent extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    'No upcoming classes',
+                    context.l10n.noUpcomingClassesLabel,
                     style: textTheme.bodyText1
                         ?.copyWith(fontWeight: FontWeight.bold),
                   ),

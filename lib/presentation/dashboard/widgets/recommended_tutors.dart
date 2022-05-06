@@ -80,7 +80,7 @@ class _RecommendedTutors extends StatelessWidget {
           // TODO add error widget
           return SizedBox(
             height: 50,
-            child: Center(child: Text(context.l10n.valueFalureUnknownError)),
+            child: Center(child: Text(context.l10n.valueFailureUnknownError)),
           );
         }
         // TODO add widget for empty list state

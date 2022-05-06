@@ -6,14 +6,11 @@ Future showLoadingDialog(BuildContext context) {
   return showDialog(
     barrierDismissible: false,
     context: context,
-    builder: (context) => const AlertDialog(
-      // TODO update translation
-      title: Text('Loading'),
-      content: SizedBox(
+    builder: (context) => AlertDialog(
+      title: Text(context.l10n.loadingLabel),
+      content: const SizedBox(
         height: 50,
-        child: Center(
-          child: CircularProgressIndicator(),
-        ),
+        child: Center(child: CircularProgressIndicator()),
       ),
     ),
   );
@@ -23,7 +20,7 @@ Future showErrorDialog(BuildContext context, Failure failure) {
   return showDialog(
     context: context,
     builder: (context) => AlertDialog(
-      title: const Text('Error occurred'),
+      title: Text(context.l10n.errorOccurredLabel),
       content: Text(failure.toText(context)),
       actions: [
         TextButton(

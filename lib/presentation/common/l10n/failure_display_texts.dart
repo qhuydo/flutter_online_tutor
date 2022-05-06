@@ -16,7 +16,7 @@ extension FailureX on Failure {
       noConnection: () => l10n.authenticationFailureNoInternet,
       serverError: () => l10n.authenticationFailureServerError,
       apiError: (_, __) => l10n.authenticationFailureServerError,
-      internalError: () => l10n.valueFalureUnknownError,
+      internalError: () => l10n.valueFailureUnknownError,
       notFound: () => l10n.pageNotFound,
       wtf: (_) => '???',
       invalidTokenType: () => l10n.authenticationFailureUnauthorized,
@@ -25,15 +25,14 @@ extension FailureX on Failure {
       permissionDenied: () => l10n.authenticationFailureUnauthorized,
       emailExisted: () => l10n.authenticationFailureEmailTaken,
       emailNotExist: () => l10n.authenticationFailureEmailNotExist,
-      userNotRequestChangePassword: () => l10n.valueFalureUnknownError,
+      userNotRequestChangePassword: () => l10n.valueFailureUnknownError,
       incorrectEmailOrPassword: () =>
           l10n.authenticationFailureWrongEmailOrPassword,
       alreadyUpgradedToTutorAccount: () => '',
-      fileTypeNotSupported: () => 'File not supported',
-      bookingCanceledBefore1Day: () =>
-          'Upcoming schedules can be canceled only before 1 day',
-      bookingExisted: () => 'Booking has already exists',
-      bookingNotExist: () => 'Booking does not exist',
+      fileTypeNotSupported: () => context.l10n.failureFileTypeNotSupported,
+      bookingCanceledBefore1Day: () => l10n.failureBookingCanceledBefore1Day,
+      bookingExisted: () => l10n.failureBookingExisted,
+      bookingNotExist: () => l10n.failureBookingNotExist,
       paymentSystem: () => 'The payment system has problems',
       walletBlocked: () => 'Your wallet is blocked"',
       sellerNotEnough: () => 'Seller amount is not enough',
@@ -45,16 +44,14 @@ extension FailureX on Failure {
           'The schedule is registered with an invalid date',
       invalidRefreshToken: () =>
           'Session has been expired. Please Log in again',
-      avatarFileSizeExceedLimit: () =>
-          'The avatar size exceeds the limit allowed (5MB)',
-      videoFileSizeExceedLimit: () =>
-          'The video size exceeds the limit allowed (50MB)"',
+      avatarFileSizeExceedLimit: () => l10n.failureAvatarSizeExceedLimit,
+      videoFileSizeExceedLimit: () => l10n.failureVideoSizeExceedLimit,
       secretCodeNotFound: () => 'The OTP is invalid',
       secretCodeExpired: () => 'The OTP was expired',
       secretCodeUsed: () => 'The OTP has been used',
       invalidPhoneNumber: () => l10n.phoneNumberFailureInvalidPhoneNumber,
       incorrectPassword: () => l10n.authenticationErrorWrongPassword,
-      phoneActivated: () => 'The phone number has already been activated',
+      phoneActivated: () => l10n.failurePhoneNumberActivated,
       phoneExisted: () => l10n.authenticationFailurePhoneTaken,
       phoneNotRegistered: () => l10n.authenticationFailureWrongPhoneOrPassword,
       invalidPromotionCode: () => 'Invalid promotion code',
@@ -80,8 +77,8 @@ extension AuthenticationFailureX on AuthenticationFailure {
         wrongCurrentPassword: (_) => l10n.authenticationErrorWrongPassword,
         unauthorized: (_) => l10n.authenticationFailureUnauthorized,
         // accountNotActivated: (_) => l10n.authenticationFailureAccountNotActivated,
-        accountNotActivated: (_) => 'Your account has not activated. \n'
-            'Please checkout your email to activate the account',
+        accountNotActivated: (_) =>
+            l10n.authenticationFailureAccountNotActivated,
       ),
       duration: const Duration(
         seconds: 15,
@@ -124,7 +121,7 @@ extension ValueFailureX on ValueFailure {
   String toErrorText(BuildContext context) {
     final l10n = context.l10n;
     return when(
-      () => l10n.valueFalureUnknownError,
+      () => l10n.valueFailureUnknownError,
       valueIsRequired: () => l10n.valueFailureEmptyValue,
       emptyValue: () => l10n.valueFailureEmptyValue,
       invalidValue: () => l10n.valueFailureValueInvalid,

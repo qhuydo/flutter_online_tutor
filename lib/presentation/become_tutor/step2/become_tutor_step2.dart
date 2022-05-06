@@ -63,10 +63,9 @@ class BecomeTutorStep2 extends StatelessWidget {
             },
             builder: (context, state) {
               if (state.showErrorAtStep2 && state.video == null) {
-                // TODO update translation
                 return Center(
                   child: Text(
-                    'Please choose a video',
+                    context.l10n.chooseVideoButtonLabel,
                     style: theme.textTheme.caption?.copyWith(
                       color: theme.errorColor,
                     ),

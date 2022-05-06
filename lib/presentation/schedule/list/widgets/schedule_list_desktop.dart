@@ -118,8 +118,9 @@ class ScheduleListDesktop extends StatelessWidget {
                   ),
                   const SizedBox(height: smallItemSpacing),
                   Text(
-                    // TODO update translation
-                    '${map.values.elementAt(index).length} appointments',
+                    context.l10n.appointmentCountLabel(
+                      map.values.elementAt(index).length,
+                    ),
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
                 ],

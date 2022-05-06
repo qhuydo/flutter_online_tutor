@@ -46,7 +46,9 @@ class ReportDialog extends StatelessWidget {
               ..pop()
               ..pop();
 
-            FlushBarUtils.createInformation(message: 'Reported').show(context);
+            FlushBarUtils.createInformation(
+              message: context.l10n.reported,
+            ).show(context);
           },
         );
       },
@@ -58,8 +60,7 @@ class ReportDialog extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                // TODO update translation
-                'Help us understand what\'s happening',
+                context.l10n.reportDialogContent,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),

@@ -1,9 +1,9 @@
 import 'dart:developer';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/schedule/tutor_schedule/tutor_schedule_bloc.dart';
+import '../../../common.dart';
 import '../../../common/utils/constants.dart';
 import 'schedule_calendar.dart';
 import 'schedule_row.dart';
@@ -57,11 +57,10 @@ class TutorScheduleBody extends StatelessWidget {
 
         if (state.currentSchedule == null ||
             state.currentSchedule?.isEmpty == true) {
-          // TODO update translation
-          return const Center(
+          return Center(
             child: Padding(
-              padding: EdgeInsets.all(itemSpacing),
-              child: Text('No schedules are available for this day'),
+              padding: const EdgeInsets.all(itemSpacing),
+              child: Text(context.l10n.noScheduleAvailable),
             ),
           );
         }

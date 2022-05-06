@@ -3,16 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/schedule/schedule_details/schedule_details_bloc.dart';
 import '../../common.dart';
 
-// TODO update translation
 void showCancelClassConfirmDialog(BuildContext context) {
   showDialog(
     context: context,
     builder: (_) => AlertDialog(
-      title: const Text('Cancel class?'),
+      title: Text(context.l10n.cancelClassDialogContent),
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('No'),
+          child: Text(context.l10n.no),
         ),
         TextButton(
           onPressed: () {
@@ -21,7 +20,7 @@ void showCancelClassConfirmDialog(BuildContext context) {
                 .read<ScheduleDetailsBloc>()
                 .add(const ScheduleDetailsEvent.cancelClass());
           },
-          child: const Text('Yes'),
+          child: Text(context.l10n.yes),
         ),
       ],
     ),

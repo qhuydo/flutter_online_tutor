@@ -48,8 +48,7 @@ class ProfilePageBody extends StatelessWidget {
               duration: const Duration(seconds: 15),
             ).show(context),
             (_) => FlushbarHelper.createSuccess(
-              // TODO update translation
-              message: 'Update profile successfully',
+              message: context.l10n.updateProfileSuccessfully,
             ).show(context),
           ),
         );

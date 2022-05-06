@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-
+import '../../common.dart';
 import 'constants.dart';
 
 Widget getDefaultImageErrorBuilder(context, exception, stackTrace) {
@@ -10,16 +9,12 @@ Widget getDefaultImageErrorBuilder(context, exception, stackTrace) {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // TODO update translation
           FittedBox(
-            child: Text(
-              '❌',
-              style: Theme.of(context).textTheme.headline1,
-            ),
+            child: Text('❌', style: Theme.of(context).textTheme.headline1),
           ),
           FittedBox(
             child: Text(
-              'Failed to load images',
+              context.l10n.failedToLoadImagesLabel,
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ),

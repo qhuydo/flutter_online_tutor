@@ -12,7 +12,6 @@ import '../../tutor/details/widgets/video_preview.dart';
 import 'widgets/schedule_details_card.dart';
 import 'widgets/student_request_card.dart';
 
-// TODO update translation
 class ScheduleDetailsPage extends StatelessWidget {
   final Appointment appointment;
 
@@ -29,7 +28,7 @@ class ScheduleDetailsPage extends StatelessWidget {
         appointment,
       ),
       child: Scaffold(
-        appBar: buildAppBar(context, title: 'Schedule details'),
+        appBar: buildAppBar(context, title: context.l10n.scheduleDetailsLabel),
         body: const SingleChildScrollView(
           child: SafeArea(child: ScheduleDetailsBody()),
         ),
@@ -63,8 +62,9 @@ class ScheduleDetailsBody extends StatelessWidget {
                           .classCancellationMessageDisplayed(),
                     );
 
-                FlushBarUtils.createInformation(message: 'Class canceled')
-                    .show(context);
+                FlushBarUtils.createInformation(
+                  message: context.l10n.classCanceledLabel,
+                ).show(context);
               },
               failed: (failure) async {
                 Navigator.of(context).pop();
@@ -89,7 +89,7 @@ class ScheduleDetailsBody extends StatelessWidget {
                 Navigator.of(context).pop();
 
                 FlushBarUtils.createInformation(
-                  message: 'Student request updated',
+                  message: context.l10n.editedLabel,
                 ).show(context);
               },
               failed: (failure) {

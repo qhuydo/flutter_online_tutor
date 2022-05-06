@@ -68,7 +68,7 @@ class _EbookTabPageState extends State<EbookTabPage> {
           title: Text(
             state.keyword.isNotEmpty
                 ? state.keyword
-                : context.l10n.findTutorHint,
+                : context.l10n.findEbookHint,
           ),
           onSubmitted: (keyword) {
             bloc

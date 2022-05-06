@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:breakpoint/breakpoint.dart';
@@ -40,7 +39,7 @@ class ProfileChooser extends StatelessWidget {
                     if (state.avatar == null) {
                       return const SizedBox();
                     }
-                    log('rebuilt');
+                    // log('rebuilt');
                     return FutureBuilder(
                       future: state.avatar!.readAsBytes(),
                       builder: (_, snapshot) {
@@ -95,11 +94,10 @@ class ProfileChooser extends StatelessWidget {
                     },
                     builder: (_, state) {
                       // final watchState = context.watch<BecomeTutorBloc>().state;
-                      // TODO update translation
                       return Visibility(
                         visible: state.showErrorAtStep1 && state.avatar == null,
                         child: Text(
-                          'Please choose image',
+                          context.l10n.chooseImageButtonLabel,
                           style: Theme.of(context).textTheme.caption?.copyWith(
                                 color: Theme.of(context).errorColor,
                               ),

@@ -70,7 +70,7 @@ class _CourseTabPageState extends State<CourseTabPage> {
           title: Text(
             state.keyword.isNotEmpty
                 ? state.keyword
-                : context.l10n.findTutorHint,
+                : context.l10n.findCourseHint,
           ),
           onSubmitted: (keyword) {
             bloc
@@ -103,7 +103,7 @@ class _CourseTabPageState extends State<CourseTabPage> {
           return SizedBox(
             height: 60,
             child: Center(
-              child: Text(context.l10n.valueFalureUnknownError),
+              child: Text(context.l10n.valueFailureUnknownError),
             ),
           );
         }

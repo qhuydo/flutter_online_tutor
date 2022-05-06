@@ -3,13 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:twemoji/twemoji.dart';
 
-import '../../../../application/schedule/tutor_schedule_details/tutor_schedule_details_cubit.dart';
 import '../../../../application/schedule/tutor_schedule/tutor_schedule_bloc.dart';
+import '../../../../application/schedule/tutor_schedule_details/tutor_schedule_details_cubit.dart';
 import '../../../../domain/schedule/models/schedule.dart';
 import '../../../common.dart';
+import '../../../common/l10n/failure_display_texts.dart';
 import '../../../common/l10n/schedule_display_text.dart';
 import '../../../common/utils/constants.dart';
-import '../../../common/l10n/failure_display_texts.dart';
 
 class BookDialog extends StatelessWidget {
   const BookDialog({
@@ -22,14 +22,11 @@ class BookDialog extends StatelessWidget {
       listenWhen: (previous, current) =>
           previous.scheduleFailureOrSuccess != current.scheduleFailureOrSuccess,
       listener: (context, state) => state.scheduleFailureOrSuccess?.fold(
-        // TODO update translation
         (failure) async {
           await showDialog(
             context: context,
-            builder: (context) => AlertDialog(
-              title: const Text('Error'),
-              content: Text(failure.toText(context)),
-            ),
+            builder: (context) =>
+                AlertDialog(content: Text(failure.toText(context))),
           );
           context.router.pop();
         },
@@ -40,15 +37,13 @@ class BookDialog extends StatelessWidget {
               title: Text(context.l10n.bookDialogTitle),
               content: Column(
                 mainAxisSize: MainAxisSize.min,
-                children: const [
-                  Twemoji(
+                children: [
+                  const Twemoji(
                     emoji: '🆗',
                     height: 60,
                     width: 60,
                   ),
-                  Text(
-                    'Check your mail to see the schedule details',
-                  ),
+                  Text(context.l10n.bookDialogContent),
                 ],
               ),
             ),
@@ -74,9 +69,7 @@ class BookDialog extends StatelessWidget {
                   child: Positioned.fill(
                     child: Container(
                       color: Theme.of(context).backgroundColor.withOpacity(0.6),
-                      child: const Center(
-                        child: CircularProgressIndicator(),
-                      ),
+                      child: const Center(child: CircularProgressIndicator()),
                     ),
                   ),
                 ),
@@ -149,7 +142,9 @@ class BookDialog extends StatelessWidget {
                 minLines: 5,
                 maxLines: 20,
                 onChanged: (value) {
-                  context.read<TutorScheduleDetailsCubit>().onNoteChanged(value);
+                  context
+                      .read<TutorScheduleDetailsCubit>()
+                      .onNoteChanged(value);
                 },
               ),
             ),

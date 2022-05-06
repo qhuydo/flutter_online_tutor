@@ -1,17 +1,16 @@
 import '../../../domain/schedule/models/appointment_status.dart';
 import '../../common.dart';
 
-// TODO update translation
 extension AppointmentStatusX on AppointmentStatus {
 
   String toText(BuildContext context) {
     switch (this) {
       case AppointmentStatus.upcoming:
-        return 'Upcoming';
+        return context.l10n.appointmentUpcomingLabel;
       case AppointmentStatus.ongoing:
-        return 'Ongoing';
+        return context.l10n.appointmentOngoingLabel;
       case AppointmentStatus.ended:
-        return 'Ended';
+        return context.l10n.appointmentEndedLabel;
     }
   }
 }

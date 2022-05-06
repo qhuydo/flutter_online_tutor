@@ -2,13 +2,12 @@ import '../../../domain/course_ebook/models/sort_level_option.dart';
 import '../../common.dart';
 
 extension SortLevelOptionX on SortLevelOption {
-  // TODO update translation
   String toText(BuildContext context) {
     switch (this) {
       case SortLevelOption.ascending:
-        return 'Level ascending';
+        return context.l10n.sortLevelOptionAscending;
       case SortLevelOption.descending:
-        return 'Level descending';
+        return context.l10n.sortLevelOptionDescending;
     }
   }
 }

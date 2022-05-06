@@ -26,7 +26,6 @@ class SchedulePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO display empty widget when the schedule list is empty
     return SafeArea(
       left: false,
       child: BlocConsumer<UpcomingClassBloc, UpcomingClassState>(
@@ -43,10 +42,10 @@ class SchedulePage extends StatelessWidget {
                     const UpcomingClassEvent
                         .classCancellationMessageDisplayed(),
                   );
-              FlushBarUtils.createInformation(message: 'Class canceled')
-                  .show(context);
+              FlushBarUtils.createInformation(
+                message: context.l10n.classCanceledLabel,
+              ).show(context);
             },
-            // TODO update translation
             failed: (failure) async {
               Navigator.of(context).pop();
 
@@ -97,7 +96,6 @@ class SchedulePage extends StatelessWidget {
     );
   }
 
-  // TODO update translation
   void showCancelClassConfirmDialog(
     BuildContext context,
     Appointment appointment,
@@ -105,11 +103,11 @@ class SchedulePage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        title: const Text('Cancel class?'),
+        title: Text(context.l10n.cancelClassDialogContent),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: const Text('No'),
+            child: Text(context.l10n.no),
           ),
           TextButton(
             onPressed: () {
@@ -118,7 +116,7 @@ class SchedulePage extends StatelessWidget {
                   .read<UpcomingClassBloc>()
                   .add(UpcomingClassEvent.cancelClass(appointment));
             },
-            child: const Text('Yes'),
+            child: Text(context.l10n.yes),
           ),
         ],
       ),

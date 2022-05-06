@@ -36,7 +36,7 @@ class RecommendedCoursesState extends State<RecommendedCourses> {
           // TODO add error widget
           return SizedBox(
             height: 60,
-            child: Center(child: Text(context.l10n.valueFalureUnknownError)),
+            child: Center(child: Text(context.l10n.valueFailureUnknownError)),
           );
         }
 

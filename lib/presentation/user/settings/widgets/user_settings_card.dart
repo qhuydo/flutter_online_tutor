@@ -88,7 +88,7 @@ class UserSettingsCard extends StatelessWidget {
     return SettingsCard(
       settingList: _settingList,
       headerIcon: Icons.account_box,
-      title: context.l10n.editProfileLabel,
+      title: context.l10n.profileTitle,
     );
   }
 }

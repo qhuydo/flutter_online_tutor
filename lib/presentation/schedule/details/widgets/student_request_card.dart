@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/schedule/schedule_details/schedule_details_bloc.dart';
@@ -7,7 +6,6 @@ import '../../../common.dart';
 import '../../../common/utils/constants.dart';
 import '../../../common/widgets/outlined_card.dart';
 
-// TODO update translation
 class StudentRequestCard extends StatefulWidget {
   const StudentRequestCard({Key? key}) : super(key: key);
 
@@ -50,7 +48,7 @@ class _StudentRequestCardState extends State<StudentRequestCard> {
                       Row(
                         children: [
                           Text(
-                            'Note',
+                            context.l10n.noteLabel,
                             style: textTheme.titleLarge?.copyWith(
                               fontWeight: FontWeight.bold,
                             ),
@@ -62,7 +60,7 @@ class _StudentRequestCardState extends State<StudentRequestCard> {
                               appointment,
                             ),
                             icon: const Icon(Icons.edit),
-                            label: const Text('Edit note'),
+                            label: Text(context.l10n.editLabel),
                           ),
                         ],
                       ),
@@ -87,7 +85,7 @@ class _StudentRequestCardState extends State<StudentRequestCard> {
       context: context,
       builder: (_) => AlertDialog(
         scrollable: true,
-        title: const Text('Edit note'),
+        title: Text(context.l10n.editLabel),
         content: TextField(
           controller: _controller,
           decoration: const InputDecoration(border: OutlineInputBorder()),

@@ -45,22 +45,15 @@ class _SignUpFormBlocPage extends StatelessWidget {
           (either) => either.fold(
             (AuthenticationFailure failure) => failure.showError(context),
             (succeed) async {
-              // TODO update translation
               await showDialog(
                 context: context,
                 builder: (_) => AlertDialog(
                   title: Text(context.l10n.signUpButtonText),
                   content: Column(
                     mainAxisSize: MainAxisSize.min,
-                    children: const [
-                      Twemoji(
-                        emoji: '🆗',
-                        height: 60,
-                        width: 60,
-                      ),
-                      Text(
-                        'Please checkout your email to activate your account',
-                      ),
+                    children: [
+                      const Twemoji(emoji: '🆗', height: 60, width: 60),
+                      Text(context.l10n.verifyAccountNotice),
                     ],
                   ),
                   actions: [

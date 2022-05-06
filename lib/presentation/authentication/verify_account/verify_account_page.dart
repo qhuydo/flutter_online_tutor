@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:twemoji/twemoji.dart';
 
 import '../../../application/authentication/verify_account/verify_account_cubit.dart';
 import '../../../common.dart';
 import '../../../domain/authentication/interfaces/i_authentication_service.dart';
+import '../../common.dart';
 import '../../common/utils/default_app_bar.dart';
 import '../../common/widgets/failure_widget.dart';
 import '../../common/widgets/loading_widget.dart';
@@ -20,7 +20,7 @@ class VerifyAccountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(context, title: 'Verify account'),
+      appBar: buildAppBar(context, title: context.l10n.verifyAccountTitle),
       body: BlocProvider(
         create: (_) {
           return VerifyAccountCubit(
@@ -49,10 +49,9 @@ class VerifyAccountBody extends StatelessWidget {
           (_) => Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              children: const [
-                Twemoji(emoji: '🆗', height: 60, width: 60),
-                // TODO update translation
-                Text('Verify successfully'),
+              children: [
+                const Twemoji(emoji: '🆗', height: 60, width: 60),
+                Text(context.l10n.updateProfileSuccessfully),
               ],
             ),
           ),

@@ -17,7 +17,6 @@ import '../../utils/appointment_dialogues.dart';
 import 'appointment_status_label.dart';
 import 'schedule_details_card_row.dart';
 
-// TODO update translation
 class ScheduleDetailsCard extends StatelessWidget {
   const ScheduleDetailsCard({Key? key}) : super(key: key);
 
@@ -46,7 +45,7 @@ class ScheduleDetailsCard extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          'Schedule details',
+                          context.l10n.scheduleDetailsLabel,
                           style: textTheme.titleLarge?.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
@@ -76,7 +75,7 @@ class ScheduleDetailsCard extends StatelessWidget {
                     const SizedBox(height: smallItemSpacing),
                     ScheduleDetailsCardRow(
                       iconData: Icons.info_outlined,
-                      title: 'Status',
+                      title: context.l10n.statusLabel,
                       stringOrWidgetContent: right(CountDownTimer(
                         endTime: appointment.meetingTime.end,
                         builder: (_, __) => AppointmentStatusLabel(
@@ -87,7 +86,7 @@ class ScheduleDetailsCard extends StatelessWidget {
                     const SizedBox(height: smallItemSpacing),
                     ScheduleDetailsCardRow(
                       iconData: Icons.hourglass_top,
-                      title: 'Time util next lesson',
+                      title: 'Time until next lesson',
                       stringOrWidgetContent: right(CountDownTimer(
                         endTime: appointment.meetingTime.start,
                         builder: (_, duration) => Text(
@@ -119,7 +118,7 @@ class ScheduleDetailsCard extends StatelessWidget {
                             ),
                             child: ScheduleDetailsCardRow(
                               iconData: Icons.timer_outlined,
-                              title: 'Meeting Time',
+                              title: context.l10n.meetingTimeCountingLabel,
                               stringOrWidgetContent: left(prettyDuration(
                                 duration,
                                 locale: context.durationLocale,
@@ -133,7 +132,7 @@ class ScheduleDetailsCard extends StatelessWidget {
                     const SizedBox(height: smallItemSpacing),
                     ScheduleDetailsCardRow(
                       iconData: Icons.event,
-                      title: 'Date',
+                      title: context.l10n.meetingDate,
                       stringOrWidgetContent: left(
                         dateFormatter.format(appointment.meetingTime.start),
                       ),
@@ -141,7 +140,7 @@ class ScheduleDetailsCard extends StatelessWidget {
                     const SizedBox(height: smallItemSpacing),
                     ScheduleDetailsCardRow(
                       iconData: Icons.schedule,
-                      title: 'Time',
+                      title: context.l10n.meetingTimeLabel,
                       stringOrWidgetContent:
                           left(appointment.meetingTime.getMeetingTime(context)),
                     ),
@@ -175,6 +174,4 @@ class ScheduleDetailsCard extends StatelessWidget {
       );
     });
   }
-
- 
 }

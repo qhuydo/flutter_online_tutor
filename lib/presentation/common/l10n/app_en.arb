@@ -1,6 +1,6 @@
 {
     "@@locale": "en",
-    "@@last_modified": "2022-04-17T19:19:44+00:00",
+    "@@last_modified": "2022-05-06T08:40:12+00:00",
     "appTitle": "Online tutor",
     "@appTitle": {
         "description": "Title of the app - Online tutor"
@@ -162,7 +162,7 @@
     "passwordChangedDialogContent": "Please use the new password next time you login.",
     "passwordChangedDialogTitle": "Password has been changed successfully",
     "okButton": "OK",
-    "valueFalureUnknownError": "An unknown error occurred",
+    "valueFailureUnknownError": "An unknown error occurred",
     "valueFailureEmptyValue": "Empty value is not allowed",
     "valueFailureValueInvalid": "Value is invalid",
     "reportDialogTitle": "Report",
@@ -243,9 +243,57 @@
     "passwordValueWrongNewPassword": "New password and confirm password does not match",
     "favouriteTutorsTitle": "Favourite tutors",
     "pageNotFound": "Page not found",
-    "emptyResult": "No result display",
+    "emptyResult": "No results found",
     "noteLabel": "Note",
     "bookedLabel": "Booked",
     "reservedLabel": "Reserved",
-    "pastScheduleLabel": "Cannot be booked"
+    "pastScheduleLabel": "Cannot be booked",
+    "profileTitle": "Profile",
+    "verifyAccountTitle": "Verify account",
+    "verifyAccountSuccessfully": "Verify account successfully",
+    "verifyAccountNotice": "Please check your email to activate your account",
+    "chooseImageButtonLabel": "Choose an image",
+    "chooseVideoButtonLabel": "Choose a video",
+    "appointmentUpcomingLabel": "Upcoming",
+    "appointmentOngoingLabel": "Ongoing",
+    "appointmentEndedLabel": "Ended",
+    "failureFileTypeNotSupported": "File type is not supported",
+    "failureBookingCanceledBefore1Day": "Upcoming schedules can be canceled only before 2 hours",
+    "failureBookingExisted": "Booking existed",
+    "failureBookingNotExist": "Booking does not exist",
+    "failureAvatarSizeExceedLimit": "The avatar size exceeds the limit allowed (5MB)",
+    "failureVideoSizeExceedLimit": "The video size exceeds the limit allowed (50MB)",
+    "failurePhoneNumberActivated": "The phone number has already been activated",
+    "authenticationFailureAccountNotActivated": "Your account has not activated.\nPlease check your email to activate the account",
+    "sortLevelOptionAscending": "Ascending order by level",
+    "sortLevelOptionDescending": "Descending order by level",
+    "loadingLabel": "Loading",
+    "errorOccurredLabel": "Error occurred",
+    "failedToLoadImagesLabel": "Failed to load image",
+    "noUpcomingClassesLabel": "No upcoming classes",
+    "scheduleDetailsLabel": "Schedule details",
+    "statusLabel": "Status",
+    "timeUntilNextLessonLabel": "Time until next lesson",
+    "meetingTimeCountingLabel": "Meeting time",
+    "meetingDate": "Date",
+    "meetingTimeLabel": "Time",
+    "editLabel": "Edit",
+    "classCanceledLabel": "Class canceled",
+    "editedLabel": "Edited",
+    "appointmentCountLabel": "{count, plural, other {{count} appointments} one {One appointment}}",
+    "@appointmentCountLabel": {
+      "placeholders": {
+        "count": {
+          "type": "int"
+        }
+      }
+    },
+    "cancelClassDialogContent": "Are you sure to cancel this class?",
+    "yes": "Yes",
+    "no": "No",
+    "reported": "Reported",
+    "reportDialogContent": "Help us understand what's happening",
+    "bookDialogContent": "Please check your mail to view the schedule details",
+    "updateProfileSuccessfully": "Update profile successfully",
+    "noScheduleAvailable": "No schedules are available for this day"
 }
