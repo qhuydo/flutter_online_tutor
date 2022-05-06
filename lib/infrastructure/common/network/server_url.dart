@@ -22,9 +22,8 @@ class ServerUrlDev extends ServerUrl {
 
 @Singleton(as: ServerUrl, env: [Environment.prod])
 class ServerUrlProd extends ServerUrl {
-  // TODO update url
   @override
-  String get url => 'https://sandbox.api.lettutor.com';
+  String get url => 'https://api.app.lettutor.com';
 
   @override
   String get jitsiUrl => 'https://meet.lettutor.com';

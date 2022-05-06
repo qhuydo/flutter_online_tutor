@@ -1,1 +1,2 @@
-google-services.json
+src/dev/google-services.json
+src/prod/google-services.json

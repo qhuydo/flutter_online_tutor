@@ -8,16 +8,14 @@ part of 'tutor_list_item_dto.dart';
 
 _$_TutorListItemDto _$$_TutorListItemDtoFromJson(Map<String, dynamic> json) =>
     _$_TutorListItemDto(
-      level: json['level'] as String,
       email: json['email'] as String,
       avatar: json['avatar'] as String,
       name: json['name'] as String,
       country: json['country'] as String,
-      phone: json['phone'] as String,
       language: json['language'] as String?,
       birthday: DateTime.parse(json['birthday'] as String),
-      feedbacks: (json['feedbacks'] as List<dynamic>)
-          .map((e) => FeedbackDto.fromJson(e as Map<String, dynamic>))
+      feedbacks: (json['feedbacks'] as List<dynamic>?)
+          ?.map((e) => FeedbackDto.fromJson(e as Map<String, dynamic>))
           .toList(),
       userId: json['userId'] as String,
       video: json['video'] as String,
@@ -35,12 +33,10 @@ _$_TutorListItemDto _$$_TutorListItemDtoFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_TutorListItemDtoToJson(_$_TutorListItemDto instance) =>
     <String, dynamic>{
-      'level': instance.level,
       'email': instance.email,
       'avatar': instance.avatar,
       'name': instance.name,
       'country': instance.country,
-      'phone': instance.phone,
       'language': instance.language,
       'birthday': instance.birthday.toIso8601String(),
       'feedbacks': instance.feedbacks,

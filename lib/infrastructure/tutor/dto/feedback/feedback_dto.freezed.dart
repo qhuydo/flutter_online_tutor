@@ -369,8 +369,7 @@ FirstInfo _$FirstInfoFromJson(Map<String, dynamic> json) {
 class _$FirstInfoTearOff {
   const _$FirstInfoTearOff();
 
-  _FirstInfo call(
-      {required String email, required String name, required String? avatar}) {
+  _FirstInfo call({String? email, required String name, String? avatar}) {
     return _FirstInfo(
       email: email,
       name: name,
@@ -388,7 +387,7 @@ const $FirstInfo = _$FirstInfoTearOff();
 
 /// @nodoc
 mixin _$FirstInfo {
-  String get email => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
 
@@ -402,7 +401,7 @@ mixin _$FirstInfo {
 abstract class $FirstInfoCopyWith<$Res> {
   factory $FirstInfoCopyWith(FirstInfo value, $Res Function(FirstInfo) then) =
       _$FirstInfoCopyWithImpl<$Res>;
-  $Res call({String email, String name, String? avatar});
+  $Res call({String? email, String name, String? avatar});
 }
 
 /// @nodoc
@@ -423,7 +422,7 @@ class _$FirstInfoCopyWithImpl<$Res> implements $FirstInfoCopyWith<$Res> {
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -442,7 +441,7 @@ abstract class _$FirstInfoCopyWith<$Res> implements $FirstInfoCopyWith<$Res> {
           _FirstInfo value, $Res Function(_FirstInfo) then) =
       __$FirstInfoCopyWithImpl<$Res>;
   @override
-  $Res call({String email, String name, String? avatar});
+  $Res call({String? email, String name, String? avatar});
 }
 
 /// @nodoc
@@ -464,7 +463,7 @@ class __$FirstInfoCopyWithImpl<$Res> extends _$FirstInfoCopyWithImpl<$Res>
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -480,14 +479,13 @@ class __$FirstInfoCopyWithImpl<$Res> extends _$FirstInfoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_FirstInfo implements _FirstInfo {
-  const _$_FirstInfo(
-      {required this.email, required this.name, required this.avatar});
+  const _$_FirstInfo({this.email, required this.name, this.avatar});
 
   factory _$_FirstInfo.fromJson(Map<String, dynamic> json) =>
       _$$_FirstInfoFromJson(json);
 
   @override
-  final String email;
+  final String? email;
   @override
   final String name;
   @override
@@ -528,15 +526,13 @@ class _$_FirstInfo implements _FirstInfo {
 
 abstract class _FirstInfo implements FirstInfo {
   const factory _FirstInfo(
-      {required String email,
-      required String name,
-      required String? avatar}) = _$_FirstInfo;
+      {String? email, required String name, String? avatar}) = _$_FirstInfo;
 
   factory _FirstInfo.fromJson(Map<String, dynamic> json) =
       _$_FirstInfo.fromJson;
 
   @override
-  String get email;
+  String? get email;
   @override
   String get name;
   @override

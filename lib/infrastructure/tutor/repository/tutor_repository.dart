@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
@@ -85,6 +86,7 @@ class TutorRepositoryImpl implements TutorRepository {
       return left(const Failure.serverError());
     } on TypeError catch (e) {
       log(e.toString());
+      log(e.stackTrace?.toString() ?? '');
       return left(const Failure.serverError());
     } on FlutterError {
       return left(const Failure.internalError());
@@ -156,6 +158,7 @@ class TutorRepositoryImpl implements TutorRepository {
       onResponded: (res) async {
         try {
           final Map<String, dynamic> data = res.data;
+          log(jsonEncode(data));
           final list = (data['rows'] as List)
               .map((e) => TutorListItemDto.fromJson(e))
               .toList(growable: false);
@@ -268,42 +271,36 @@ class TutorRepositoryImpl implements TutorRepository {
   @override
   Future<Either<Failure, Tutor>> getTutorById(String tutorId) async {
     try {
-      final tutor = await _dataSource.getTutor(tutorId);
       // TODO review the logic after adding course model
-      if (tutor == null) {
-        try {
-          final response = await _apiClient.get(
-            RequestUrl.tutor.tutor(tutorId),
-            onResponded: (response) {
-              final data = response.data as Map<String, dynamic>;
-              return TutorDetailsDto.fromJson(data);
-            },
-          );
+      final response = await _apiClient.get(
+        RequestUrl.tutor.tutor(tutorId),
+        onResponded: (response) {
+          final data = response.data as Map<String, dynamic>;
+          return TutorDetailsDto.fromJson(data);
+        },
+      );
 
-          if (response.isLeft()) {
-            return response.fold(
-              (l) => left(l),
-              (r) => left(const Failure.internalError()),
-            );
-          }
-          final tutorDetailsDto = response.getOrElse(() => throw TypeError());
-
-          final result = await _dataSource.saveTutorFromTutorDetailsDto(
-            await getSpecialities(),
-            tutorDetailsDto,
-          );
-          if (result == null) {
-            return left(
-              const Failure.wtf('Cannot save tutor details'),
-            );
-          }
-
-          return right(result);
-        } on FlutterError {
-          return left(const Failure.notFound());
-        }
+      if (response.isLeft()) {
+        return response.fold(
+          (l) => left(l),
+          (r) => left(const Failure.internalError()),
+        );
       }
-      return right(tutor);
+      final tutorDetailsDto = response.getOrElse(() => throw TypeError());
+
+      final result = await _dataSource.saveTutorFromTutorDetailsDto(
+        await getSpecialities(),
+        tutorDetailsDto,
+      );
+      if (result == null) {
+        return left(
+          const Failure.wtf('Cannot save tutor details'),
+        );
+      }
+
+      return right(result);
+    } on FlutterError {
+      return left(const Failure.notFound());
     } on NullThrownError {
       return left(const Failure.internalError());
     } on TypeError {

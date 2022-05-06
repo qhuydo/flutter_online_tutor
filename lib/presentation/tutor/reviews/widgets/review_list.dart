@@ -49,7 +49,10 @@ class ReviewList extends StatelessWidget {
                       feedbackList[index].name,
                       style: textTheme.titleLarge,
                     ),
-                    Row(
+                    Wrap(
+                      spacing: smallItemSpacing,
+                      runSpacing: smallItemSpacing,
+                      direction: Axis.horizontal,
                       children: [
                         RatingBarIndicator(
                           rating: feedbackList[index].rating.toDouble(),
@@ -61,13 +64,11 @@ class ReviewList extends StatelessWidget {
                           itemSize: 20,
                           direction: Axis.horizontal,
                         ),
-                        const SizedBox(width: smallItemSpacing),
                         Text(formatDate(
                           context,
                           feedbackList[index].updatedAt,
                         )),
                         if (feedbackList[index].isEdited) ...[
-                          const SizedBox(width: 4),
                           Text(
                             context.l10n.editedTextLabel,
                             style: textTheme.caption!.copyWith(

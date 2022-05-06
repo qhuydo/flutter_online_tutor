@@ -23,15 +23,13 @@ class _$TutorListItemDtoTearOff {
   const _$TutorListItemDtoTearOff();
 
   _TutorListItemDto call(
-      {required String level,
-      required String email,
+      {required String email,
       required String avatar,
       required String name,
       required String country,
-      required String phone,
       required String? language,
       required DateTime birthday,
-      required List<FeedbackDto> feedbacks,
+      required List<FeedbackDto>? feedbacks,
       required String userId,
       required String video,
       required String bio,
@@ -45,12 +43,10 @@ class _$TutorListItemDtoTearOff {
       required int price,
       bool? isOnline}) {
     return _TutorListItemDto(
-      level: level,
       email: email,
       avatar: avatar,
       name: name,
       country: country,
-      phone: phone,
       language: language,
       birthday: birthday,
       feedbacks: feedbacks,
@@ -79,14 +75,14 @@ const $TutorListItemDto = _$TutorListItemDtoTearOff();
 
 /// @nodoc
 mixin _$TutorListItemDto {
-  String get level => throw _privateConstructorUsedError;
+// required String? level,
   String get email => throw _privateConstructorUsedError; // String? google,
 // String? facebook,
 // String? apple,
   String get avatar => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get country => throw _privateConstructorUsedError;
-  String get phone => throw _privateConstructorUsedError;
+  String get country =>
+      throw _privateConstructorUsedError; // required String? phone,
   String? get language => throw _privateConstructorUsedError;
   DateTime get birthday =>
       throw _privateConstructorUsedError; // required bool requestPassword,
@@ -99,7 +95,7 @@ mixin _$TutorListItemDto {
 // required DateTime createdAt,
 // required DateTime updatedAt,
 // DateTime? deletedAt,
-  List<FeedbackDto> get feedbacks =>
+  List<FeedbackDto>? get feedbacks =>
       throw _privateConstructorUsedError; // required String id,
   String get userId => throw _privateConstructorUsedError;
   String get video => throw _privateConstructorUsedError;
@@ -129,15 +125,13 @@ abstract class $TutorListItemDtoCopyWith<$Res> {
           TutorListItemDto value, $Res Function(TutorListItemDto) then) =
       _$TutorListItemDtoCopyWithImpl<$Res>;
   $Res call(
-      {String level,
-      String email,
+      {String email,
       String avatar,
       String name,
       String country,
-      String phone,
       String? language,
       DateTime birthday,
-      List<FeedbackDto> feedbacks,
+      List<FeedbackDto>? feedbacks,
       String userId,
       String video,
       String bio,
@@ -163,12 +157,10 @@ class _$TutorListItemDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? level = freezed,
     Object? email = freezed,
     Object? avatar = freezed,
     Object? name = freezed,
     Object? country = freezed,
-    Object? phone = freezed,
     Object? language = freezed,
     Object? birthday = freezed,
     Object? feedbacks = freezed,
@@ -186,10 +178,6 @@ class _$TutorListItemDtoCopyWithImpl<$Res>
     Object? isOnline = freezed,
   }) {
     return _then(_value.copyWith(
-      level: level == freezed
-          ? _value.level
-          : level // ignore: cast_nullable_to_non_nullable
-              as String,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -206,10 +194,6 @@ class _$TutorListItemDtoCopyWithImpl<$Res>
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: phone == freezed
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String,
       language: language == freezed
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
@@ -221,7 +205,7 @@ class _$TutorListItemDtoCopyWithImpl<$Res>
       feedbacks: feedbacks == freezed
           ? _value.feedbacks
           : feedbacks // ignore: cast_nullable_to_non_nullable
-              as List<FeedbackDto>,
+              as List<FeedbackDto>?,
       userId: userId == freezed
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -282,15 +266,13 @@ abstract class _$TutorListItemDtoCopyWith<$Res>
       __$TutorListItemDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String level,
-      String email,
+      {String email,
       String avatar,
       String name,
       String country,
-      String phone,
       String? language,
       DateTime birthday,
-      List<FeedbackDto> feedbacks,
+      List<FeedbackDto>? feedbacks,
       String userId,
       String video,
       String bio,
@@ -318,12 +300,10 @@ class __$TutorListItemDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? level = freezed,
     Object? email = freezed,
     Object? avatar = freezed,
     Object? name = freezed,
     Object? country = freezed,
-    Object? phone = freezed,
     Object? language = freezed,
     Object? birthday = freezed,
     Object? feedbacks = freezed,
@@ -341,10 +321,6 @@ class __$TutorListItemDtoCopyWithImpl<$Res>
     Object? isOnline = freezed,
   }) {
     return _then(_TutorListItemDto(
-      level: level == freezed
-          ? _value.level
-          : level // ignore: cast_nullable_to_non_nullable
-              as String,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -361,10 +337,6 @@ class __$TutorListItemDtoCopyWithImpl<$Res>
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: phone == freezed
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String,
       language: language == freezed
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
@@ -376,7 +348,7 @@ class __$TutorListItemDtoCopyWithImpl<$Res>
       feedbacks: feedbacks == freezed
           ? _value.feedbacks
           : feedbacks // ignore: cast_nullable_to_non_nullable
-              as List<FeedbackDto>,
+              as List<FeedbackDto>?,
       userId: userId == freezed
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -433,12 +405,10 @@ class __$TutorListItemDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TutorListItemDto extends _TutorListItemDto {
   const _$_TutorListItemDto(
-      {required this.level,
-      required this.email,
+      {required this.email,
       required this.avatar,
       required this.name,
       required this.country,
-      required this.phone,
       required this.language,
       required this.birthday,
       required this.feedbacks,
@@ -459,9 +429,7 @@ class _$_TutorListItemDto extends _TutorListItemDto {
   factory _$_TutorListItemDto.fromJson(Map<String, dynamic> json) =>
       _$$_TutorListItemDtoFromJson(json);
 
-  @override
-  final String level;
-  @override
+  @override // required String? level,
   final String email;
   @override // String? google,
 // String? facebook,
@@ -471,9 +439,7 @@ class _$_TutorListItemDto extends _TutorListItemDto {
   final String name;
   @override
   final String country;
-  @override
-  final String phone;
-  @override
+  @override // required String? phone,
   final String? language;
   @override
   final DateTime birthday;
@@ -487,7 +453,7 @@ class _$_TutorListItemDto extends _TutorListItemDto {
 // required DateTime createdAt,
 // required DateTime updatedAt,
 // DateTime? deletedAt,
-  final List<FeedbackDto> feedbacks;
+  final List<FeedbackDto>? feedbacks;
   @override // required String id,
   final String userId;
   @override
@@ -516,7 +482,7 @@ class _$_TutorListItemDto extends _TutorListItemDto {
 
   @override
   String toString() {
-    return 'TutorListItemDto(level: $level, email: $email, avatar: $avatar, name: $name, country: $country, phone: $phone, language: $language, birthday: $birthday, feedbacks: $feedbacks, userId: $userId, video: $video, bio: $bio, education: $education, experience: $experience, profession: $profession, targetStudent: $targetStudent, interests: $interests, languages: $languages, specialties: $specialties, price: $price, isOnline: $isOnline)';
+    return 'TutorListItemDto(email: $email, avatar: $avatar, name: $name, country: $country, language: $language, birthday: $birthday, feedbacks: $feedbacks, userId: $userId, video: $video, bio: $bio, education: $education, experience: $experience, profession: $profession, targetStudent: $targetStudent, interests: $interests, languages: $languages, specialties: $specialties, price: $price, isOnline: $isOnline)';
   }
 
   @override
@@ -524,12 +490,10 @@ class _$_TutorListItemDto extends _TutorListItemDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TutorListItemDto &&
-            const DeepCollectionEquality().equals(other.level, level) &&
             const DeepCollectionEquality().equals(other.email, email) &&
             const DeepCollectionEquality().equals(other.avatar, avatar) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.country, country) &&
-            const DeepCollectionEquality().equals(other.phone, phone) &&
             const DeepCollectionEquality().equals(other.language, language) &&
             const DeepCollectionEquality().equals(other.birthday, birthday) &&
             const DeepCollectionEquality().equals(other.feedbacks, feedbacks) &&
@@ -554,12 +518,10 @@ class _$_TutorListItemDto extends _TutorListItemDto {
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
-        const DeepCollectionEquality().hash(level),
         const DeepCollectionEquality().hash(email),
         const DeepCollectionEquality().hash(avatar),
         const DeepCollectionEquality().hash(name),
         const DeepCollectionEquality().hash(country),
-        const DeepCollectionEquality().hash(phone),
         const DeepCollectionEquality().hash(language),
         const DeepCollectionEquality().hash(birthday),
         const DeepCollectionEquality().hash(feedbacks),
@@ -590,15 +552,13 @@ class _$_TutorListItemDto extends _TutorListItemDto {
 
 abstract class _TutorListItemDto extends TutorListItemDto {
   const factory _TutorListItemDto(
-      {required String level,
-      required String email,
+      {required String email,
       required String avatar,
       required String name,
       required String country,
-      required String phone,
       required String? language,
       required DateTime birthday,
-      required List<FeedbackDto> feedbacks,
+      required List<FeedbackDto>? feedbacks,
       required String userId,
       required String video,
       required String bio,
@@ -616,9 +576,7 @@ abstract class _TutorListItemDto extends TutorListItemDto {
   factory _TutorListItemDto.fromJson(Map<String, dynamic> json) =
       _$_TutorListItemDto.fromJson;
 
-  @override
-  String get level;
-  @override
+  @override // required String? level,
   String get email;
   @override // String? google,
 // String? facebook,
@@ -628,9 +586,7 @@ abstract class _TutorListItemDto extends TutorListItemDto {
   String get name;
   @override
   String get country;
-  @override
-  String get phone;
-  @override
+  @override // required String? phone,
   String? get language;
   @override
   DateTime get birthday;
@@ -644,7 +600,7 @@ abstract class _TutorListItemDto extends TutorListItemDto {
 // required DateTime createdAt,
 // required DateTime updatedAt,
 // DateTime? deletedAt,
-  List<FeedbackDto> get feedbacks;
+  List<FeedbackDto>? get feedbacks;
   @override // required String id,
   String get userId;
   @override

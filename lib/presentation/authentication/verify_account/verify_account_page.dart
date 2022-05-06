@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:twemoji/twemoji.dart';
 
 import '../../../application/authentication/verify_account/verify_account_cubit.dart';
-import '../../../common.dart';
 import '../../../domain/authentication/interfaces/i_authentication_service.dart';
 import '../../common.dart';
 import '../../common/utils/default_app_bar.dart';
@@ -51,7 +50,7 @@ class VerifyAccountBody extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 const Twemoji(emoji: '🆗', height: 60, width: 60),
-                Text(context.l10n.updateProfileSuccessfully),
+                Text(context.l10n.verifyAccountSuccessfully),
               ],
             ),
           ),

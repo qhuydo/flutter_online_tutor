@@ -28,15 +28,19 @@ class TutorListItemDto with _$TutorListItemDto {
   double get averageRating {
     double sum = 0.0;
 
-    for (final feedback in feedbacks) {
+    if (feedbacks == null) {
+      return sum;
+    }
+
+    for (final feedback in feedbacks!) {
       sum += feedback.rating;
     }
-    final double average = sum != 0 ? sum / feedbacks.length : 0;
+    final double average = sum != 0 ? sum / feedbacks!.length : 0;
     return average;
   }
 
   const factory TutorListItemDto({
-    required String level,
+    // required String? level,
     required String email,
     // String? google,
     // String? facebook,
@@ -44,7 +48,7 @@ class TutorListItemDto with _$TutorListItemDto {
     required String avatar,
     required String name,
     required String country,
-    required String phone,
+    // required String? phone,
     required String? language,
     required DateTime birthday,
     // required bool requestPassword,
@@ -57,7 +61,7 @@ class TutorListItemDto with _$TutorListItemDto {
     // required DateTime createdAt,
     // required DateTime updatedAt,
     // DateTime? deletedAt,
-    required List<FeedbackDto> feedbacks,
+    required List<FeedbackDto>? feedbacks,
     // required String id,
     required String userId,
     required String video,
@@ -90,7 +94,8 @@ class TutorListItemDto with _$TutorListItemDto {
         country: Country.fromIsoCodeOrAntarctica(country),
         education: education,
         averageRating: averageRating,
-        feedbacks: feedbacks.map((e) => e.toDomain()).toList(growable: false),
+        feedbacks:
+            feedbacks?.map((e) => e.toDomain()).toList(growable: false) ?? [],
         interests: interests,
         isFavourite: isFavourite,
         isOnline: isOnline,
