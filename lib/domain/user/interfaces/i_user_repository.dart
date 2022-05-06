@@ -31,6 +31,8 @@ abstract class UserRepository {
 
   Future<Option<User>> getSignedInUser();
 
+  Future<String?> getSignedInUserRaw();
+
   Future<Either<Failure, User>> fetchUserInfo();
 
   Future<Either<Failure, Unit>> registerAsTeacher({

@@ -19,14 +19,18 @@ class _$MessageBubbleTearOff {
   const _$MessageBubbleTearOff();
 
   _MessageBubble call(
-      {required UserInfo from,
+      {required String id,
+      required UserInfo from,
       required UserInfo to,
       required DateTime createdAt,
+      String content = '',
       dynamic hasRead = false}) {
     return _MessageBubble(
+      id: id,
       from: from,
       to: to,
       createdAt: createdAt,
+      content: content,
       hasRead: hasRead,
     );
   }
@@ -37,9 +41,11 @@ const $MessageBubble = _$MessageBubbleTearOff();
 
 /// @nodoc
 mixin _$MessageBubble {
+  String get id => throw _privateConstructorUsedError;
   UserInfo get from => throw _privateConstructorUsedError;
   UserInfo get to => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
+  String get content => throw _privateConstructorUsedError;
   dynamic get hasRead => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -52,7 +58,13 @@ abstract class $MessageBubbleCopyWith<$Res> {
   factory $MessageBubbleCopyWith(
           MessageBubble value, $Res Function(MessageBubble) then) =
       _$MessageBubbleCopyWithImpl<$Res>;
-  $Res call({UserInfo from, UserInfo to, DateTime createdAt, dynamic hasRead});
+  $Res call(
+      {String id,
+      UserInfo from,
+      UserInfo to,
+      DateTime createdAt,
+      String content,
+      dynamic hasRead});
 
   $UserInfoCopyWith<$Res> get from;
   $UserInfoCopyWith<$Res> get to;
@@ -69,12 +81,18 @@ class _$MessageBubbleCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? from = freezed,
     Object? to = freezed,
     Object? createdAt = freezed,
+    Object? content = freezed,
     Object? hasRead = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       from: from == freezed
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
@@ -87,6 +105,10 @@ class _$MessageBubbleCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      content: content == freezed
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
       hasRead: hasRead == freezed
           ? _value.hasRead
           : hasRead // ignore: cast_nullable_to_non_nullable
@@ -116,7 +138,13 @@ abstract class _$MessageBubbleCopyWith<$Res>
           _MessageBubble value, $Res Function(_MessageBubble) then) =
       __$MessageBubbleCopyWithImpl<$Res>;
   @override
-  $Res call({UserInfo from, UserInfo to, DateTime createdAt, dynamic hasRead});
+  $Res call(
+      {String id,
+      UserInfo from,
+      UserInfo to,
+      DateTime createdAt,
+      String content,
+      dynamic hasRead});
 
   @override
   $UserInfoCopyWith<$Res> get from;
@@ -137,12 +165,18 @@ class __$MessageBubbleCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? from = freezed,
     Object? to = freezed,
     Object? createdAt = freezed,
+    Object? content = freezed,
     Object? hasRead = freezed,
   }) {
     return _then(_MessageBubble(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       from: from == freezed
           ? _value.from
           : from // ignore: cast_nullable_to_non_nullable
@@ -155,6 +189,10 @@ class __$MessageBubbleCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      content: content == freezed
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
       hasRead: hasRead == freezed ? _value.hasRead : hasRead,
     ));
   }
@@ -164,12 +202,16 @@ class __$MessageBubbleCopyWithImpl<$Res>
 
 class _$_MessageBubble extends _MessageBubble {
   const _$_MessageBubble(
-      {required this.from,
+      {required this.id,
+      required this.from,
       required this.to,
       required this.createdAt,
+      this.content = '',
       this.hasRead = false})
       : super._();
 
+  @override
+  final String id;
   @override
   final UserInfo from;
   @override
@@ -178,11 +220,14 @@ class _$_MessageBubble extends _MessageBubble {
   final DateTime createdAt;
   @JsonKey()
   @override
+  final String content;
+  @JsonKey()
+  @override
   final dynamic hasRead;
 
   @override
   String toString() {
-    return 'MessageBubble(from: $from, to: $to, createdAt: $createdAt, hasRead: $hasRead)';
+    return 'MessageBubble(id: $id, from: $from, to: $to, createdAt: $createdAt, content: $content, hasRead: $hasRead)';
   }
 
   @override
@@ -190,18 +235,22 @@ class _$_MessageBubble extends _MessageBubble {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _MessageBubble &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.from, from) &&
             const DeepCollectionEquality().equals(other.to, to) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.content, content) &&
             const DeepCollectionEquality().equals(other.hasRead, hasRead));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(from),
       const DeepCollectionEquality().hash(to),
       const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(content),
       const DeepCollectionEquality().hash(hasRead));
 
   @JsonKey(ignore: true)
@@ -212,18 +261,24 @@ class _$_MessageBubble extends _MessageBubble {
 
 abstract class _MessageBubble extends MessageBubble {
   const factory _MessageBubble(
-      {required UserInfo from,
+      {required String id,
+      required UserInfo from,
       required UserInfo to,
       required DateTime createdAt,
+      String content,
       dynamic hasRead}) = _$_MessageBubble;
   const _MessageBubble._() : super._();
 
+  @override
+  String get id;
   @override
   UserInfo get from;
   @override
   UserInfo get to;
   @override
   DateTime get createdAt;
+  @override
+  String get content;
   @override
   dynamic get hasRead;
   @override

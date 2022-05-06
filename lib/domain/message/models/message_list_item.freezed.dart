@@ -19,13 +19,15 @@ class _$MessageListItemTearOff {
   const _$MessageListItemTearOff();
 
   _MessageListItem call(
-      {bool hasRead = false,
+      {required String id,
+      bool hasRead = false,
       String content = '',
       required DateTime createdAt,
       required PartnerInfo partner,
       required UserInfo from,
       required UserInfo to}) {
     return _MessageListItem(
+      id: id,
       hasRead: hasRead,
       content: content,
       createdAt: createdAt,
@@ -41,6 +43,7 @@ const $MessageListItem = _$MessageListItemTearOff();
 
 /// @nodoc
 mixin _$MessageListItem {
+  String get id => throw _privateConstructorUsedError;
   bool get hasRead => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -59,7 +62,8 @@ abstract class $MessageListItemCopyWith<$Res> {
           MessageListItem value, $Res Function(MessageListItem) then) =
       _$MessageListItemCopyWithImpl<$Res>;
   $Res call(
-      {bool hasRead,
+      {String id,
+      bool hasRead,
       String content,
       DateTime createdAt,
       PartnerInfo partner,
@@ -82,6 +86,7 @@ class _$MessageListItemCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? hasRead = freezed,
     Object? content = freezed,
     Object? createdAt = freezed,
@@ -90,6 +95,10 @@ class _$MessageListItemCopyWithImpl<$Res>
     Object? to = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       hasRead: hasRead == freezed
           ? _value.hasRead
           : hasRead // ignore: cast_nullable_to_non_nullable
@@ -147,7 +156,8 @@ abstract class _$MessageListItemCopyWith<$Res>
       __$MessageListItemCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool hasRead,
+      {String id,
+      bool hasRead,
       String content,
       DateTime createdAt,
       PartnerInfo partner,
@@ -175,6 +185,7 @@ class __$MessageListItemCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? hasRead = freezed,
     Object? content = freezed,
     Object? createdAt = freezed,
@@ -183,6 +194,10 @@ class __$MessageListItemCopyWithImpl<$Res>
     Object? to = freezed,
   }) {
     return _then(_MessageListItem(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       hasRead: hasRead == freezed
           ? _value.hasRead
           : hasRead // ignore: cast_nullable_to_non_nullable
@@ -215,7 +230,8 @@ class __$MessageListItemCopyWithImpl<$Res>
 
 class _$_MessageListItem extends _MessageListItem {
   const _$_MessageListItem(
-      {this.hasRead = false,
+      {required this.id,
+      this.hasRead = false,
       this.content = '',
       required this.createdAt,
       required this.partner,
@@ -223,6 +239,8 @@ class _$_MessageListItem extends _MessageListItem {
       required this.to})
       : super._();
 
+  @override
+  final String id;
   @JsonKey()
   @override
   final bool hasRead;
@@ -240,7 +258,7 @@ class _$_MessageListItem extends _MessageListItem {
 
   @override
   String toString() {
-    return 'MessageListItem(hasRead: $hasRead, content: $content, createdAt: $createdAt, partner: $partner, from: $from, to: $to)';
+    return 'MessageListItem(id: $id, hasRead: $hasRead, content: $content, createdAt: $createdAt, partner: $partner, from: $from, to: $to)';
   }
 
   @override
@@ -248,6 +266,7 @@ class _$_MessageListItem extends _MessageListItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _MessageListItem &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.hasRead, hasRead) &&
             const DeepCollectionEquality().equals(other.content, content) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
@@ -259,6 +278,7 @@ class _$_MessageListItem extends _MessageListItem {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(hasRead),
       const DeepCollectionEquality().hash(content),
       const DeepCollectionEquality().hash(createdAt),
@@ -274,7 +294,8 @@ class _$_MessageListItem extends _MessageListItem {
 
 abstract class _MessageListItem extends MessageListItem {
   const factory _MessageListItem(
-      {bool hasRead,
+      {required String id,
+      bool hasRead,
       String content,
       required DateTime createdAt,
       required PartnerInfo partner,
@@ -282,6 +303,8 @@ abstract class _MessageListItem extends MessageListItem {
       required UserInfo to}) = _$_MessageListItem;
   const _MessageListItem._() : super._();
 
+  @override
+  String get id;
   @override
   bool get hasRead;
   @override

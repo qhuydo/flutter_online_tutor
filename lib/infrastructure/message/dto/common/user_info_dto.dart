@@ -19,4 +19,9 @@ class UserInfoDto with _$UserInfoDto {
       _$UserInfoDtoFromJson(json);
 
   UserInfo toDomain() => UserInfo(id: id, name: name);
+
+  factory UserInfoDto.fromDomain(UserInfo userInfo) => UserInfoDto(
+        id: userInfo.id,
+        name: userInfo.name,
+      );
 }

@@ -9,11 +9,11 @@ part of 'wallet_dto.dart';
 _$_WalletDto _$$_WalletDtoFromJson(Map<String, dynamic> json) => _$_WalletDto(
       id: json['id'] as String,
       userId: json['userId'] as String,
-      amount: json['amount'] as String,
-      isBlocked: json['isBlocked'] as bool,
+      amount: json['amount'] as String?,
+      isBlocked: json['isBlocked'] as bool?,
       createdAt: json['createdAt'] as String,
       updatedAt: json['updatedAt'] as String,
-      bonus: json['bonus'] as int,
+      bonus: json['bonus'] as int?,
     );
 
 Map<String, dynamic> _$$_WalletDtoToJson(_$_WalletDto instance) =>

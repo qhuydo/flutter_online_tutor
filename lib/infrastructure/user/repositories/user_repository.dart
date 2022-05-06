@@ -275,6 +275,20 @@ class UserRepositoryImpl extends UserRepository {
       return left(const Failure.internalError());
     }
   }
+
+  @override
+  Future<String?> getSignedInUserRaw() async {
+    final fetchResult = await _apiClient.get(
+      RequestUrl.user.info,
+      onResponded: (response) {
+        return jsonEncode(response.data);
+      },
+    );
+    if (fetchResult.isLeft()) {
+      log(fetchResult.toString());
+    }
+    return fetchResult.fold((l) => null, (r) => r);
+  }
 }
 
 extension TargetStudentX on TargetStudent {

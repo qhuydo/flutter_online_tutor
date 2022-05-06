@@ -9,11 +9,11 @@ class WalletDto with _$WalletDto {
   const factory WalletDto({
     required String id,
     required String userId,
-    required String amount,
-    required bool isBlocked,
+    String? amount,
+    bool? isBlocked,
     required String createdAt,
     required String updatedAt,
-    required int bonus,
+    int? bonus,
   }) = _WalletDto;
 
   factory WalletDto.fromJson(Map<String, dynamic> json) =>

@@ -145,5 +145,11 @@ class MockUserRepository extends UserRepository {
     required XFile avatar,
     required XFile video,
     String price = '500000',
-  }) async => right(unit);
+  }) async =>
+      right(unit);
+
+  @override
+  Future<String?> getSignedInUserRaw() async {
+    return _box.get(_keyUser);
+  }
 }

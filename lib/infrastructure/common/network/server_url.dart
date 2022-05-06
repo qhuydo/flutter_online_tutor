@@ -6,6 +6,8 @@ abstract class ServerUrl {
   String get jitsiUrl;
 
   String get verifyRedirectHost;
+
+  String get socketUrl;
 }
 
 @Singleton(as: ServerUrl, env: [Environment.dev, Environment.test, 'mock'])
@@ -18,6 +20,9 @@ class ServerUrlDev extends ServerUrl {
 
   @override
   String get verifyRedirectHost => 'letstudy.io';
+
+  @override
+  String get socketUrl => 'wss://sandbox.api.lettutor.com';
 }
 
 @Singleton(as: ServerUrl, env: [Environment.prod])
@@ -30,4 +35,7 @@ class ServerUrlProd extends ServerUrl {
 
   @override
   String get verifyRedirectHost => 'letstudy.io';
+
+  @override
+  String get socketUrl => 'wss://api.lettutor.com';
 }

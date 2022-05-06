@@ -25,11 +25,11 @@ class _$WalletDtoTearOff {
   _WalletDto call(
       {required String id,
       required String userId,
-      required String amount,
-      required bool isBlocked,
+      String? amount,
+      bool? isBlocked,
       required String createdAt,
       required String updatedAt,
-      required int bonus}) {
+      int? bonus}) {
     return _WalletDto(
       id: id,
       userId: userId,
@@ -53,11 +53,11 @@ const $WalletDto = _$WalletDtoTearOff();
 mixin _$WalletDto {
   String get id => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
-  String get amount => throw _privateConstructorUsedError;
-  bool get isBlocked => throw _privateConstructorUsedError;
+  String? get amount => throw _privateConstructorUsedError;
+  bool? get isBlocked => throw _privateConstructorUsedError;
   String get createdAt => throw _privateConstructorUsedError;
   String get updatedAt => throw _privateConstructorUsedError;
-  int get bonus => throw _privateConstructorUsedError;
+  int? get bonus => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -72,11 +72,11 @@ abstract class $WalletDtoCopyWith<$Res> {
   $Res call(
       {String id,
       String userId,
-      String amount,
-      bool isBlocked,
+      String? amount,
+      bool? isBlocked,
       String createdAt,
       String updatedAt,
-      int bonus});
+      int? bonus});
 }
 
 /// @nodoc
@@ -109,11 +109,11 @@ class _$WalletDtoCopyWithImpl<$Res> implements $WalletDtoCopyWith<$Res> {
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isBlocked: isBlocked == freezed
           ? _value.isBlocked
           : isBlocked // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -125,7 +125,7 @@ class _$WalletDtoCopyWithImpl<$Res> implements $WalletDtoCopyWith<$Res> {
       bonus: bonus == freezed
           ? _value.bonus
           : bonus // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -139,11 +139,11 @@ abstract class _$WalletDtoCopyWith<$Res> implements $WalletDtoCopyWith<$Res> {
   $Res call(
       {String id,
       String userId,
-      String amount,
-      bool isBlocked,
+      String? amount,
+      bool? isBlocked,
       String createdAt,
       String updatedAt,
-      int bonus});
+      int? bonus});
 }
 
 /// @nodoc
@@ -177,11 +177,11 @@ class __$WalletDtoCopyWithImpl<$Res> extends _$WalletDtoCopyWithImpl<$Res>
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isBlocked: isBlocked == freezed
           ? _value.isBlocked
           : isBlocked // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -193,7 +193,7 @@ class __$WalletDtoCopyWithImpl<$Res> extends _$WalletDtoCopyWithImpl<$Res>
       bonus: bonus == freezed
           ? _value.bonus
           : bonus // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
     ));
   }
 }
@@ -204,11 +204,11 @@ class _$_WalletDto implements _WalletDto {
   const _$_WalletDto(
       {required this.id,
       required this.userId,
-      required this.amount,
-      required this.isBlocked,
+      this.amount,
+      this.isBlocked,
       required this.createdAt,
       required this.updatedAt,
-      required this.bonus});
+      this.bonus});
 
   factory _$_WalletDto.fromJson(Map<String, dynamic> json) =>
       _$$_WalletDtoFromJson(json);
@@ -218,15 +218,15 @@ class _$_WalletDto implements _WalletDto {
   @override
   final String userId;
   @override
-  final String amount;
+  final String? amount;
   @override
-  final bool isBlocked;
+  final bool? isBlocked;
   @override
   final String createdAt;
   @override
   final String updatedAt;
   @override
-  final int bonus;
+  final int? bonus;
 
   @override
   String toString() {
@@ -273,11 +273,11 @@ abstract class _WalletDto implements WalletDto {
   const factory _WalletDto(
       {required String id,
       required String userId,
-      required String amount,
-      required bool isBlocked,
+      String? amount,
+      bool? isBlocked,
       required String createdAt,
       required String updatedAt,
-      required int bonus}) = _$_WalletDto;
+      int? bonus}) = _$_WalletDto;
 
   factory _WalletDto.fromJson(Map<String, dynamic> json) =
       _$_WalletDto.fromJson;
@@ -287,15 +287,15 @@ abstract class _WalletDto implements WalletDto {
   @override
   String get userId;
   @override
-  String get amount;
+  String? get amount;
   @override
-  bool get isBlocked;
+  bool? get isBlocked;
   @override
   String get createdAt;
   @override
   String get updatedAt;
   @override
-  int get bonus;
+  int? get bonus;
   @override
   @JsonKey(ignore: true)
   _$WalletDtoCopyWith<_WalletDto> get copyWith =>

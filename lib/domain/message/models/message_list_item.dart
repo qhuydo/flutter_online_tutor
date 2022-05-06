@@ -11,6 +11,7 @@ class MessageListItem with _$MessageListItem {
   const MessageListItem._();
 
   const factory MessageListItem({
+    required String id,
     @Default(false) bool hasRead,
     @Default('') String content,
     required DateTime createdAt,
@@ -21,4 +22,5 @@ class MessageListItem with _$MessageListItem {
 
   bool get isMine => partner.id != from.id;
   bool get isFromOther => partner.id == from.id;
+  bool get isNewMessage => isFromOther && !hasRead;
 }

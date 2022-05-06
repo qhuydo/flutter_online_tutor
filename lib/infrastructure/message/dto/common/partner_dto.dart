@@ -21,4 +21,11 @@ class PartnerDto with _$PartnerDto {
       _$PartnerDtoFromJson(json);
 
   PartnerInfo toDomain() => PartnerInfo(id: id, name: name, avatar: avatar);
+
+  factory PartnerDto.fromDomain(PartnerInfo partnerInfo) => PartnerDto(
+        id: partnerInfo.id,
+        name: partnerInfo.name,
+        avatar: partnerInfo.avatar,
+        isOnline: partnerInfo.isOnline,
+      );
 }
