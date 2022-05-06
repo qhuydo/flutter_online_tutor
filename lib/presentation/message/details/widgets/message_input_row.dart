@@ -25,7 +25,7 @@ class _MessageInputRowState extends State<MessageInputRow> {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        color: Theme.of(context).backgroundColor,
+        color: Theme.of(context).colorScheme.surface,
         padding: const EdgeInsets.all(smallItemSpacing),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,

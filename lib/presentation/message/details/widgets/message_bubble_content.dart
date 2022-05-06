@@ -37,7 +37,7 @@ class _MessageBubbleContentState extends State<MessageBubbleContent> {
         widget.selectedColour ?? Theme.of(context).primaryColorDark;
 
     final brightness = ThemeData.estimateBrightnessForColor(
-      isSelected ? colour : selectedColour,
+      isSelected ? selectedColour : colour,
     );
     final textColour =
         brightness == Brightness.light ? Colors.black87 : Colors.white;
