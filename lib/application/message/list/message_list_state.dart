@@ -6,6 +6,7 @@ class MessageListState with _$MessageListState {
 
   const factory MessageListState({
     String? userJson,
+    MessageListItem? selectedItem,
     @Default(false) bool isLoading,
     @Default([]) List<MessageListItem> messageList,
   }) = _MessageState;

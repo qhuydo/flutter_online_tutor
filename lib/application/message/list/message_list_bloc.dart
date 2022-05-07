@@ -25,6 +25,7 @@ class MessageListBloc extends Bloc<MessageListEvent, MessageListState> {
       await event.when(
         initialise: () => _onInitialised(emit),
         messageRead: (value) => _onMessageRead(value, emit),
+        itemSelected: (value) => _onItemSelected(value, emit),
       );
     });
   }
@@ -42,6 +43,9 @@ class MessageListBloc extends Bloc<MessageListEvent, MessageListState> {
     await emit.forEach<List<MessageListItem>>(
       _messageService.subscribeMessageList(),
       onData: (data) {
+        if (data.isNotEmpty && state.selectedItem == null) {
+          add(MessageListEvent.itemSelected(data.first));
+        }
         return state.copyWith(isLoading: false, messageList: data);
       },
     );
@@ -54,5 +58,12 @@ class MessageListBloc extends Bloc<MessageListEvent, MessageListState> {
     if (!value.hasRead) {
       _messageService.readMessage(value);
     }
+  }
+
+  Future _onItemSelected(
+    MessageListItem value,
+    Emitter<MessageListState> emit,
+  ) async {
+    emit(state.copyWith(selectedItem: value));
   }
 }
