@@ -31,6 +31,12 @@ class _$MessageDetailsEventTearOff {
   _TextSubmitted textSubmitted() {
     return const _TextSubmitted();
   }
+
+  _PartnerChanged partnerChanged(PartnerInfo? partnerInfo) {
+    return _PartnerChanged(
+      partnerInfo,
+    );
+  }
 }
 
 /// @nodoc
@@ -43,6 +49,7 @@ mixin _$MessageDetailsEvent {
     required TResult Function() initialise,
     required TResult Function(String text) textChanged,
     required TResult Function() textSubmitted,
+    required TResult Function(PartnerInfo? partnerInfo) partnerChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +57,7 @@ mixin _$MessageDetailsEvent {
     TResult Function()? initialise,
     TResult Function(String text)? textChanged,
     TResult Function()? textSubmitted,
+    TResult Function(PartnerInfo? partnerInfo)? partnerChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +65,7 @@ mixin _$MessageDetailsEvent {
     TResult Function()? initialise,
     TResult Function(String text)? textChanged,
     TResult Function()? textSubmitted,
+    TResult Function(PartnerInfo? partnerInfo)? partnerChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -65,6 +74,7 @@ mixin _$MessageDetailsEvent {
     required TResult Function(_Initialise value) initialise,
     required TResult Function(_TextChanged value) textChanged,
     required TResult Function(_TextSubmitted value) textSubmitted,
+    required TResult Function(_PartnerChanged value) partnerChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,6 +82,7 @@ mixin _$MessageDetailsEvent {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_TextChanged value)? textChanged,
     TResult Function(_TextSubmitted value)? textSubmitted,
+    TResult Function(_PartnerChanged value)? partnerChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -79,6 +90,7 @@ mixin _$MessageDetailsEvent {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_TextChanged value)? textChanged,
     TResult Function(_TextSubmitted value)? textSubmitted,
+    TResult Function(_PartnerChanged value)? partnerChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -145,6 +157,7 @@ class _$_Initialise implements _Initialise {
     required TResult Function() initialise,
     required TResult Function(String text) textChanged,
     required TResult Function() textSubmitted,
+    required TResult Function(PartnerInfo? partnerInfo) partnerChanged,
   }) {
     return initialise();
   }
@@ -155,6 +168,7 @@ class _$_Initialise implements _Initialise {
     TResult Function()? initialise,
     TResult Function(String text)? textChanged,
     TResult Function()? textSubmitted,
+    TResult Function(PartnerInfo? partnerInfo)? partnerChanged,
   }) {
     return initialise?.call();
   }
@@ -165,6 +179,7 @@ class _$_Initialise implements _Initialise {
     TResult Function()? initialise,
     TResult Function(String text)? textChanged,
     TResult Function()? textSubmitted,
+    TResult Function(PartnerInfo? partnerInfo)? partnerChanged,
     required TResult orElse(),
   }) {
     if (initialise != null) {
@@ -179,6 +194,7 @@ class _$_Initialise implements _Initialise {
     required TResult Function(_Initialise value) initialise,
     required TResult Function(_TextChanged value) textChanged,
     required TResult Function(_TextSubmitted value) textSubmitted,
+    required TResult Function(_PartnerChanged value) partnerChanged,
   }) {
     return initialise(this);
   }
@@ -189,6 +205,7 @@ class _$_Initialise implements _Initialise {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_TextChanged value)? textChanged,
     TResult Function(_TextSubmitted value)? textSubmitted,
+    TResult Function(_PartnerChanged value)? partnerChanged,
   }) {
     return initialise?.call(this);
   }
@@ -199,6 +216,7 @@ class _$_Initialise implements _Initialise {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_TextChanged value)? textChanged,
     TResult Function(_TextSubmitted value)? textSubmitted,
+    TResult Function(_PartnerChanged value)? partnerChanged,
     required TResult orElse(),
   }) {
     if (initialise != null) {
@@ -280,6 +298,7 @@ class _$_TextChanged implements _TextChanged {
     required TResult Function() initialise,
     required TResult Function(String text) textChanged,
     required TResult Function() textSubmitted,
+    required TResult Function(PartnerInfo? partnerInfo) partnerChanged,
   }) {
     return textChanged(text);
   }
@@ -290,6 +309,7 @@ class _$_TextChanged implements _TextChanged {
     TResult Function()? initialise,
     TResult Function(String text)? textChanged,
     TResult Function()? textSubmitted,
+    TResult Function(PartnerInfo? partnerInfo)? partnerChanged,
   }) {
     return textChanged?.call(text);
   }
@@ -300,6 +320,7 @@ class _$_TextChanged implements _TextChanged {
     TResult Function()? initialise,
     TResult Function(String text)? textChanged,
     TResult Function()? textSubmitted,
+    TResult Function(PartnerInfo? partnerInfo)? partnerChanged,
     required TResult orElse(),
   }) {
     if (textChanged != null) {
@@ -314,6 +335,7 @@ class _$_TextChanged implements _TextChanged {
     required TResult Function(_Initialise value) initialise,
     required TResult Function(_TextChanged value) textChanged,
     required TResult Function(_TextSubmitted value) textSubmitted,
+    required TResult Function(_PartnerChanged value) partnerChanged,
   }) {
     return textChanged(this);
   }
@@ -324,6 +346,7 @@ class _$_TextChanged implements _TextChanged {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_TextChanged value)? textChanged,
     TResult Function(_TextSubmitted value)? textSubmitted,
+    TResult Function(_PartnerChanged value)? partnerChanged,
   }) {
     return textChanged?.call(this);
   }
@@ -334,6 +357,7 @@ class _$_TextChanged implements _TextChanged {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_TextChanged value)? textChanged,
     TResult Function(_TextSubmitted value)? textSubmitted,
+    TResult Function(_PartnerChanged value)? partnerChanged,
     required TResult orElse(),
   }) {
     if (textChanged != null) {
@@ -396,6 +420,7 @@ class _$_TextSubmitted implements _TextSubmitted {
     required TResult Function() initialise,
     required TResult Function(String text) textChanged,
     required TResult Function() textSubmitted,
+    required TResult Function(PartnerInfo? partnerInfo) partnerChanged,
   }) {
     return textSubmitted();
   }
@@ -406,6 +431,7 @@ class _$_TextSubmitted implements _TextSubmitted {
     TResult Function()? initialise,
     TResult Function(String text)? textChanged,
     TResult Function()? textSubmitted,
+    TResult Function(PartnerInfo? partnerInfo)? partnerChanged,
   }) {
     return textSubmitted?.call();
   }
@@ -416,6 +442,7 @@ class _$_TextSubmitted implements _TextSubmitted {
     TResult Function()? initialise,
     TResult Function(String text)? textChanged,
     TResult Function()? textSubmitted,
+    TResult Function(PartnerInfo? partnerInfo)? partnerChanged,
     required TResult orElse(),
   }) {
     if (textSubmitted != null) {
@@ -430,6 +457,7 @@ class _$_TextSubmitted implements _TextSubmitted {
     required TResult Function(_Initialise value) initialise,
     required TResult Function(_TextChanged value) textChanged,
     required TResult Function(_TextSubmitted value) textSubmitted,
+    required TResult Function(_PartnerChanged value) partnerChanged,
   }) {
     return textSubmitted(this);
   }
@@ -440,6 +468,7 @@ class _$_TextSubmitted implements _TextSubmitted {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_TextChanged value)? textChanged,
     TResult Function(_TextSubmitted value)? textSubmitted,
+    TResult Function(_PartnerChanged value)? partnerChanged,
   }) {
     return textSubmitted?.call(this);
   }
@@ -450,6 +479,7 @@ class _$_TextSubmitted implements _TextSubmitted {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_TextChanged value)? textChanged,
     TResult Function(_TextSubmitted value)? textSubmitted,
+    TResult Function(_PartnerChanged value)? partnerChanged,
     required TResult orElse(),
   }) {
     if (textSubmitted != null) {
@@ -464,12 +494,172 @@ abstract class _TextSubmitted implements MessageDetailsEvent {
 }
 
 /// @nodoc
+abstract class _$PartnerChangedCopyWith<$Res> {
+  factory _$PartnerChangedCopyWith(
+          _PartnerChanged value, $Res Function(_PartnerChanged) then) =
+      __$PartnerChangedCopyWithImpl<$Res>;
+  $Res call({PartnerInfo? partnerInfo});
+
+  $PartnerInfoCopyWith<$Res>? get partnerInfo;
+}
+
+/// @nodoc
+class __$PartnerChangedCopyWithImpl<$Res>
+    extends _$MessageDetailsEventCopyWithImpl<$Res>
+    implements _$PartnerChangedCopyWith<$Res> {
+  __$PartnerChangedCopyWithImpl(
+      _PartnerChanged _value, $Res Function(_PartnerChanged) _then)
+      : super(_value, (v) => _then(v as _PartnerChanged));
+
+  @override
+  _PartnerChanged get _value => super._value as _PartnerChanged;
+
+  @override
+  $Res call({
+    Object? partnerInfo = freezed,
+  }) {
+    return _then(_PartnerChanged(
+      partnerInfo == freezed
+          ? _value.partnerInfo
+          : partnerInfo // ignore: cast_nullable_to_non_nullable
+              as PartnerInfo?,
+    ));
+  }
+
+  @override
+  $PartnerInfoCopyWith<$Res>? get partnerInfo {
+    if (_value.partnerInfo == null) {
+      return null;
+    }
+
+    return $PartnerInfoCopyWith<$Res>(_value.partnerInfo!, (value) {
+      return _then(_value.copyWith(partnerInfo: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_PartnerChanged implements _PartnerChanged {
+  const _$_PartnerChanged(this.partnerInfo);
+
+  @override
+  final PartnerInfo? partnerInfo;
+
+  @override
+  String toString() {
+    return 'MessageDetailsEvent.partnerChanged(partnerInfo: $partnerInfo)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _PartnerChanged &&
+            const DeepCollectionEquality()
+                .equals(other.partnerInfo, partnerInfo));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(partnerInfo));
+
+  @JsonKey(ignore: true)
+  @override
+  _$PartnerChangedCopyWith<_PartnerChanged> get copyWith =>
+      __$PartnerChangedCopyWithImpl<_PartnerChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialise,
+    required TResult Function(String text) textChanged,
+    required TResult Function() textSubmitted,
+    required TResult Function(PartnerInfo? partnerInfo) partnerChanged,
+  }) {
+    return partnerChanged(partnerInfo);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function(String text)? textChanged,
+    TResult Function()? textSubmitted,
+    TResult Function(PartnerInfo? partnerInfo)? partnerChanged,
+  }) {
+    return partnerChanged?.call(partnerInfo);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function(String text)? textChanged,
+    TResult Function()? textSubmitted,
+    TResult Function(PartnerInfo? partnerInfo)? partnerChanged,
+    required TResult orElse(),
+  }) {
+    if (partnerChanged != null) {
+      return partnerChanged(partnerInfo);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialise value) initialise,
+    required TResult Function(_TextChanged value) textChanged,
+    required TResult Function(_TextSubmitted value) textSubmitted,
+    required TResult Function(_PartnerChanged value) partnerChanged,
+  }) {
+    return partnerChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_TextChanged value)? textChanged,
+    TResult Function(_TextSubmitted value)? textSubmitted,
+    TResult Function(_PartnerChanged value)? partnerChanged,
+  }) {
+    return partnerChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_TextChanged value)? textChanged,
+    TResult Function(_TextSubmitted value)? textSubmitted,
+    TResult Function(_PartnerChanged value)? partnerChanged,
+    required TResult orElse(),
+  }) {
+    if (partnerChanged != null) {
+      return partnerChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PartnerChanged implements MessageDetailsEvent {
+  const factory _PartnerChanged(PartnerInfo? partnerInfo) = _$_PartnerChanged;
+
+  PartnerInfo? get partnerInfo;
+  @JsonKey(ignore: true)
+  _$PartnerChangedCopyWith<_PartnerChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 class _$MessageDetailsStateTearOff {
   const _$MessageDetailsStateTearOff();
 
   _MessageDetailsState call(
       {String? userId,
-      required String partnerId,
+      String? partnerId,
       bool isLoading = false,
       List<MessageBubble> messageList = const [],
       String text = '',
@@ -493,7 +683,7 @@ const $MessageDetailsState = _$MessageDetailsStateTearOff();
 /// @nodoc
 mixin _$MessageDetailsState {
   String? get userId => throw _privateConstructorUsedError;
-  String get partnerId => throw _privateConstructorUsedError;
+  String? get partnerId => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   List<MessageBubble> get messageList => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
@@ -512,7 +702,7 @@ abstract class $MessageDetailsStateCopyWith<$Res> {
       _$MessageDetailsStateCopyWithImpl<$Res>;
   $Res call(
       {String? userId,
-      String partnerId,
+      String? partnerId,
       bool isLoading,
       List<MessageBubble> messageList,
       String text,
@@ -547,7 +737,7 @@ class _$MessageDetailsStateCopyWithImpl<$Res>
       partnerId: partnerId == freezed
           ? _value.partnerId
           : partnerId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -581,7 +771,7 @@ abstract class _$MessageDetailsStateCopyWith<$Res>
   @override
   $Res call(
       {String? userId,
-      String partnerId,
+      String? partnerId,
       bool isLoading,
       List<MessageBubble> messageList,
       String text,
@@ -618,7 +808,7 @@ class __$MessageDetailsStateCopyWithImpl<$Res>
       partnerId: partnerId == freezed
           ? _value.partnerId
           : partnerId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -648,7 +838,7 @@ class __$MessageDetailsStateCopyWithImpl<$Res>
 class _$_MessageDetailsState extends _MessageDetailsState {
   const _$_MessageDetailsState(
       {this.userId,
-      required this.partnerId,
+      this.partnerId,
       this.isLoading = false,
       this.messageList = const [],
       this.text = '',
@@ -659,7 +849,7 @@ class _$_MessageDetailsState extends _MessageDetailsState {
   @override
   final String? userId;
   @override
-  final String partnerId;
+  final String? partnerId;
   @JsonKey()
   @override
   final bool isLoading;
@@ -717,7 +907,7 @@ class _$_MessageDetailsState extends _MessageDetailsState {
 abstract class _MessageDetailsState extends MessageDetailsState {
   const factory _MessageDetailsState(
       {String? userId,
-      required String partnerId,
+      String? partnerId,
       bool isLoading,
       List<MessageBubble> messageList,
       String text,
@@ -728,7 +918,7 @@ abstract class _MessageDetailsState extends MessageDetailsState {
   @override
   String? get userId;
   @override
-  String get partnerId;
+  String? get partnerId;
   @override
   bool get isLoading;
   @override

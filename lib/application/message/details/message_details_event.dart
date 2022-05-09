@@ -8,4 +8,6 @@ class MessageDetailsEvent with _$MessageDetailsEvent {
 
   const factory MessageDetailsEvent.textSubmitted() = _TextSubmitted;
 
+  const factory MessageDetailsEvent.partnerChanged(PartnerInfo? partnerInfo) =
+      _PartnerChanged;
 }
