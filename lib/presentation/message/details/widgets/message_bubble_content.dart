@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../../common/l10n/message_time_display_text.dart';
+import '../../../common/utils/flushbar_utils.dart';
 
 class MessageBubbleContent extends StatefulWidget {
   final Alignment alignment;
   final EdgeInsetsGeometry contentPadding;
-  final Widget child;
+  final String content;
   final Color? bubbleColour;
   final Color? selectedColour;
   final DateTime dateCreated;
 
   const MessageBubbleContent({
     Key? key,
-    required this.child,
+    required this.content,
     required this.dateCreated,
     this.alignment = Alignment.topRight,
     this.contentPadding = const EdgeInsets.symmetric(
@@ -59,6 +61,12 @@ class _MessageBubbleContentState extends State<MessageBubbleContent> {
                     isSelected = !isSelected;
                   });
                 },
+                onLongPress: () async {
+                  await Clipboard.setData(ClipboardData(text: widget.content));
+
+                  FlushBarUtils.createInformation(message: 'Text copied')
+                      .show(context);
+                },
                 child: AnimatedContainer(
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadius.all(Radius.circular(16)),
@@ -69,7 +77,7 @@ class _MessageBubbleContentState extends State<MessageBubbleContent> {
                     style: TextStyle(color: textColour),
                     child: Padding(
                       padding: const EdgeInsets.all(12),
-                      child: widget.child,
+                      child: Text(widget.content),
                     ),
                   ),
                 ),

@@ -38,7 +38,7 @@ class MessageDetailsBody extends StatelessWidget {
                 return MessageBubble(
                   userId: state.userId!,
                   message: message,
-                  child: Text(message.content),
+                  content: message.content,
                   partnerAvatar: partnerThumbnail,
                   // the list is reversed
                   previousMessage:

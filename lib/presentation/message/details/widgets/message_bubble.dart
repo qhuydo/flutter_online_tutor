@@ -6,7 +6,7 @@ import 'message_bubble_content.dart';
 import 'partner_message_bubble_content.dart';
 
 class MessageBubble extends StatelessWidget {
-  final Widget child;
+  final String content;
   final String userId;
   final domain.MessageBubble message;
   final String? partnerAvatar;
@@ -16,7 +16,7 @@ class MessageBubble extends StatelessWidget {
     Key? key,
     required this.userId,
     required this.message,
-    required this.child,
+    required this.content,
     this.partnerAvatar,
     this.previousMessage,
   }) : super(key: key);
@@ -30,11 +30,11 @@ class MessageBubble extends StatelessWidget {
         previousMessage == null || (isMinePreviousMessage && isTheirs);
 
     return isMine
-        ? MessageBubbleContent(child: child, dateCreated: message.createdAt)
+        ? MessageBubbleContent(content: content, dateCreated: message.createdAt)
         : PartnerMessageBubbleContent(
             partnerAvatar: partnerAvatar,
             showAvatar: showPartnerAvatar,
-            child: child,
+            content: content,
             dateCreated: message.createdAt,
           );
   }

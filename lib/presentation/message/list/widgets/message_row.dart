@@ -34,6 +34,8 @@ class MessageRow extends StatelessWidget {
       ),
       title: Text(
         item.partner.name,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
         style: textTheme.titleMedium?.copyWith(
           fontWeight: item.isNewMessage ? FontWeight.bold : null,
         ),

@@ -7,12 +7,12 @@ class PartnerMessageBubbleContent extends StatelessWidget {
   final Alignment alignment;
   final bool showAvatar;
   final String? partnerAvatar;
-  final Widget child;
+  final String content;
   final DateTime dateCreated;
 
   const PartnerMessageBubbleContent({
     Key? key,
-    required this.child,
+    required this.content,
     required this.dateCreated,
     this.alignment = Alignment.topLeft,
     this.showAvatar = false,
@@ -52,7 +52,7 @@ class PartnerMessageBubbleContent extends StatelessWidget {
             start: 8,
             end: 20,
           ),
-          child: child,
+          content: content,
           dateCreated: dateCreated,
         ),
       ],
