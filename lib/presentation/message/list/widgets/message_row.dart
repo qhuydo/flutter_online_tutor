@@ -1,17 +1,19 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../application/message/list/message_list_bloc.dart';
 import '../../../../domain/message/models/message_list_item.dart';
 import '../../../common.dart';
 import '../../../common/l10n/message_time_display_text.dart';
-import '../../../common/routes/app_routes.gr.dart';
 import '../../../common/utils/constants.dart';
 
 class MessageRow extends StatelessWidget {
   final MessageListItem item;
+  final bool isSelected;
+  final VoidCallback? onTapped;
 
-  const MessageRow({Key? key, required this.item}) : super(key: key);
+  const MessageRow({
+    Key? key,
+    required this.item,
+    this.isSelected = false,
+    this.onTapped,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +23,8 @@ class MessageRow extends StatelessWidget {
         vertical: smallItemSpacing,
         horizontal: smallItemSpacing + 4,
       ),
+      selected: isSelected,
+      selectedTileColor: Theme.of(context).hoverColor,
       leading: CircleAvatar(
         radius: 32,
         backgroundImage: NetworkImage(
@@ -44,17 +48,7 @@ class MessageRow extends StatelessWidget {
         ),
       ),
       trailing: Text(item.createdAt.toMessageTimeDisplayText(context)),
-      onTap: () {
-        context
-          ..read<MessageListBloc>().add(
-            MessageListEvent.messageRead(item),
-          )
-          ..router.push(MessageDetailsRoute(
-            tutorId: item.partner.id,
-            partnerThumbnail: item.partner.avatar,
-            partnerName: item.partner.name,
-          ));
-      },
+      onTap: onTapped,
     );
   }
 }

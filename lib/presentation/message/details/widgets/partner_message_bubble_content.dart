@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../common/utils/constants.dart';
 import 'message_bubble_content.dart';
 
 class PartnerMessageBubbleContent extends StatelessWidget {
@@ -33,14 +34,14 @@ class PartnerMessageBubbleContent extends StatelessWidget {
       crossAxisAlignment: WrapCrossAlignment.start,
       spacing: 0,
       children: [
-        if (showAvatar) ...[
-          const SizedBox(width: 4),
+        const SizedBox(width: itemSpacing),
+        if (showAvatar)
           CircleAvatar(
             backgroundImage: NetworkImage(partnerAvatar ?? ''),
             onBackgroundImageError: (exception, stackTrace) {},
-          ),
-        ] else
-          const SizedBox(width: 44),
+          )
+        else
+          const CircleAvatar(backgroundColor: Colors.transparent),
         MessageBubbleContent(
           alignment: alignment,
           bubbleColour: colour,

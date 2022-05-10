@@ -1,7 +1,11 @@
 import '../../common.dart';
 import 'constants.dart';
 
-Widget getDefaultImageErrorBuilder(context, exception, stackTrace) {
+Widget getDefaultImageErrorBuilder(
+  BuildContext context,
+  exception,
+  stackTrace,
+) {
   return Center(
     child: Padding(
       padding: const EdgeInsets.all(smallItemSpacing),
@@ -24,7 +28,11 @@ Widget getDefaultImageErrorBuilder(context, exception, stackTrace) {
   );
 }
 
-Widget getDefaultImageLoadingBuilder(context, child, loadingProgress) {
+Widget getDefaultImageLoadingBuilder(
+  BuildContext context,
+  Widget child,
+  loadingProgress,
+) {
   if (loadingProgress == null) {
     return child;
   }

@@ -47,51 +47,54 @@ class _MessageBubbleContentState extends State<MessageBubbleContent> {
       widthFactor: 3 / 4,
       child: Padding(
         padding: widget.contentPadding,
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 500),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Align(
-                alignment: widget.alignment,
-                child: InkWell(
-                  borderRadius: const BorderRadius.all(Radius.circular(16)),
-                  onTap: () {
-                    setState(() {
-                      isSelected = !isSelected;
-                    });
-                  },
-                  child: AnimatedContainer(
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(16)),
-                      color: isSelected ? selectedColour : colour,
-                    ),
-                    duration: const Duration(milliseconds: 300),
-                    child: DefaultTextStyle.merge(
-                      style: TextStyle(color: textColour),
-                      child: Padding(
-                        padding: const EdgeInsets.all(12),
-                        child: widget.child,
-                      ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Align(
+              alignment: widget.alignment,
+              child: InkWell(
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
+                onTap: () {
+                  setState(() {
+                    isSelected = !isSelected;
+                  });
+                },
+                child: AnimatedContainer(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(16)),
+                    color: isSelected ? selectedColour : colour,
+                  ),
+                  duration: const Duration(milliseconds: 300),
+                  child: DefaultTextStyle.merge(
+                    style: TextStyle(color: textColour),
+                    child: Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: widget.child,
                     ),
                   ),
                 ),
               ),
-              if (isSelected)
-                Align(
-                  alignment: widget.alignment,
-                  child: Padding(
-                    padding: const EdgeInsets.all(4),
-                    child: Text(
-                      widget.dateCreated.toMessageBubbleTimeDisplayText(context),
-                      style: Theme.of(context).textTheme.caption?.copyWith(
-                            fontStyle: FontStyle.italic,
-                          ),
-                    ),
-                  ),
-                )
-            ],
-          ),
+            ),
+            AnimatedContainer(
+              height: isSelected ? 28 : 0,
+              duration: const Duration(milliseconds: 300),
+              child: isSelected
+                  ? Align(
+                      alignment: widget.alignment,
+                      child: Padding(
+                        padding: const EdgeInsets.all(4),
+                        child: Text(
+                          widget.dateCreated
+                              .toMessageBubbleTimeDisplayText(context),
+                          style: Theme.of(context).textTheme.caption?.copyWith(
+                                fontStyle: FontStyle.italic,
+                              ),
+                        ),
+                      ),
+                    )
+                  : null,
+            ),
+          ],
         ),
       ),
     );
