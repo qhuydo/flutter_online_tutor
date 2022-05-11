@@ -3,12 +3,13 @@ import 'package:flutter/services.dart';
 
 import '../../../common/l10n/message_time_display_text.dart';
 import '../../../common/utils/flushbar_utils.dart';
+import 'bubble_background.dart';
 
 class MessageBubbleContent extends StatefulWidget {
   final Alignment alignment;
   final EdgeInsetsGeometry contentPadding;
   final String content;
-  final Color? bubbleColour;
+  final List<Color>? bubbleColours;
   final Color? selectedColour;
   final DateTime dateCreated;
 
@@ -21,7 +22,7 @@ class MessageBubbleContent extends StatefulWidget {
       vertical: 4,
       horizontal: 20,
     ),
-    this.bubbleColour,
+    this.bubbleColours,
     this.selectedColour,
   }) : super(key: key);
 
@@ -34,12 +35,17 @@ class _MessageBubbleContentState extends State<MessageBubbleContent> {
 
   @override
   Widget build(BuildContext context) {
-    final colour = widget.bubbleColour ?? Theme.of(context).primaryColor;
+    final colourScheme = Theme.of(context).colorScheme;
+    final colours =
+        widget.bubbleColours == null || widget.bubbleColours?.isEmpty == true
+            ? [colourScheme.primary, colourScheme.secondary]
+            : widget.bubbleColours!;
+
     final selectedColour =
         widget.selectedColour ?? Theme.of(context).primaryColorDark;
 
     final brightness = ThemeData.estimateBrightnessForColor(
-      isSelected ? selectedColour : colour,
+      isSelected ? selectedColour : colours.first,
     );
     final textColour =
         brightness == Brightness.light ? Colors.black87 : Colors.white;
@@ -67,17 +73,34 @@ class _MessageBubbleContentState extends State<MessageBubbleContent> {
                   FlushBarUtils.createInformation(message: 'Text copied')
                       .show(context);
                 },
-                child: AnimatedContainer(
-                  decoration: BoxDecoration(
+                child: Tooltip(
+                  message: widget.dateCreated
+                      .toMessageBubbleTimeDisplayText(context),
+                  child: ClipRRect(
                     borderRadius: const BorderRadius.all(Radius.circular(16)),
-                    color: isSelected ? selectedColour : colour,
-                  ),
-                  duration: const Duration(milliseconds: 300),
-                  child: DefaultTextStyle.merge(
-                    style: TextStyle(color: textColour),
-                    child: Padding(
-                      padding: const EdgeInsets.all(12),
-                      child: Text(widget.content),
+                    child: BubbleBackground(
+                      colours: colours,
+                      child: AnimatedContainer(
+                        decoration: BoxDecoration(
+                          color:
+                              isSelected ? selectedColour : Colors.transparent,
+                        ),
+                        duration: const Duration(milliseconds: 300),
+                        child: DefaultTextStyle.merge(
+                          style: TextStyle(color: textColour),
+                          child: Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: SelectableText(
+                              widget.content,
+                              onTap: () {
+                                setState(() {
+                                  isSelected = !isSelected;
+                                });
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),

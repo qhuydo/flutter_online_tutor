@@ -1,6 +1,7 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:twemoji/twemoji.dart';
 
 import '../../../../application/common/app/app_cubit.dart';
 import '../../../../application/common/app/flex_scheme_mapper.dart';
@@ -36,12 +37,9 @@ Widget buildColourSchemeMenu(
           PopupMenuItem<int>(
             value: -1,
             child: ListTile(
-              leading: Icon(
-                Icons.question_mark,
-                color: isLight
-                    ? FlexColor.schemesList[currentIndex].light.primary
-                    : FlexColor.schemesList[currentIndex].dark.primary,
-                size: 36,
+              leading: const Twemoji(
+                emoji: '🍀',
+                height: 36,
               ),
               title: const Text('I\'m feeling lucky'),
               selected: state.colourScheme == ColourScheme.random,
@@ -64,15 +62,18 @@ Widget buildColourSchemeMenu(
               ),
             )
         ],
-        child: Icon(
-          state.colourScheme == ColourScheme.random
-              ? Icons.question_mark
-              : Icons.lens,
-          color: isLight
-              ? FlexColor.schemesList[currentIndex].light.primary
-              : FlexColor.schemesList[currentIndex].dark.primary,
-          size: 40,
-        ),
+        child: state.colourScheme == ColourScheme.random
+            ? const Twemoji(
+                emoji: '🍀',
+                height: 40,
+              )
+            : Icon(
+                Icons.lens,
+                color: isLight
+                    ? FlexColor.schemesList[currentIndex].light.primary
+                    : FlexColor.schemesList[currentIndex].dark.primary,
+                size: 40,
+              ),
       );
     },
   );

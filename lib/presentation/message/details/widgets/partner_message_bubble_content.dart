@@ -23,10 +23,11 @@ class PartnerMessageBubbleContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final brightness = theme.brightness;
-    final colour =
-        brightness == Brightness.light ? Colors.grey[100] : Colors.black12;
     final selectedColour =
-        brightness == Brightness.light ? Colors.grey[300] : Colors.black45;
+        brightness == Brightness.light ? Colors.grey[600] : Colors.black45;
+    final colours = brightness == Brightness.light
+        ? [Colors.grey[100]!, Colors.grey[300]!]
+        : [const Color(0xFF6C7689), const Color(0xFF3A364B)];
 
     return Wrap(
       // mainAxisSize: MainAxisSize.min,
@@ -44,7 +45,7 @@ class PartnerMessageBubbleContent extends StatelessWidget {
           const CircleAvatar(backgroundColor: Colors.transparent),
         MessageBubbleContent(
           alignment: alignment,
-          bubbleColour: colour,
+          bubbleColours: colours,
           selectedColour: selectedColour,
           contentPadding: const EdgeInsetsDirectional.only(
             top: 0,

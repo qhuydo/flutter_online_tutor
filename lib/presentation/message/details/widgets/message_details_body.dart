@@ -29,9 +29,8 @@ class MessageDetailsBody extends StatelessWidget {
         return Stack(
           children: [
             ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              shrinkWrap: true,
               reverse: true,
+              shrinkWrap: true,
               padding: const EdgeInsets.only(top: 16.0, bottom: 80),
               itemBuilder: (context, index) {
                 final message = data[index];
