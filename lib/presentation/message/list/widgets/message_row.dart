@@ -37,7 +37,7 @@ class MessageRow extends StatelessWidget {
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: textTheme.titleMedium?.copyWith(
-          fontWeight: item.isNewMessage ? FontWeight.bold : null,
+          fontWeight: item.isNewMessage ? FontWeight.bold : FontWeight.normal,
         ),
       ),
       subtitle: Text(
@@ -45,7 +45,7 @@ class MessageRow extends StatelessWidget {
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: textTheme.subtitle1?.copyWith(
-          fontWeight: item.isNewMessage ? FontWeight.bold : null,
+          fontWeight: item.isNewMessage ? FontWeight.bold : FontWeight.w300,
           fontStyle: item.isMine ? FontStyle.italic : null,
         ),
       ),

@@ -26,6 +26,7 @@ class MessageListBloc extends Bloc<MessageListEvent, MessageListState> {
         initialise: () => _onInitialised(emit),
         messageRead: (value) => _onMessageRead(value, emit),
         itemSelected: (value) => _onItemSelected(value, emit),
+        refreshed: () => _onRefreshed(emit),
       );
     });
   }
@@ -65,5 +66,12 @@ class MessageListBloc extends Bloc<MessageListEvent, MessageListState> {
     Emitter<MessageListState> emit,
   ) async {
     emit(state.copyWith(selectedItem: value));
+  }
+
+  Future _onRefreshed(Emitter<MessageListState> emit) async {
+    emit(state.copyWith(isLoading: true));
+    await Future.delayed(const Duration(seconds: 1));
+    _messageService.getRecentList();
+
   }
 }

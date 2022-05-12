@@ -149,6 +149,7 @@
     "syllabusReviewVideoSubtitle": "講師とのレッスンを完了すると、レッスンスライドで復習ができるようになります",
     "meetingRoomTitle": "ミーティングルーム",
     "writeMessageInputText": "メッセージを入力",
+    "writeMessageInputTextDesktop": "メッセージを入力 (［Shift］+［Enter］キーを押すと、送信されずに改行することができます)",
     "historyTitle": "レッスンの履歴",
     "openEbookButtonText": "ブラウザで開く",
     "passwordChangedDialogContent": "次回のログインから、新しいパスワードを使用してください。",

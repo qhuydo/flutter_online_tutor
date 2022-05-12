@@ -157,6 +157,7 @@
     "syllabusReviewVideoSubtitle": "You can review the lesson slides once you have completed the lesson",
     "meetingRoomTitle": "Meeting room",
     "writeMessageInputText": "Type your message",
+    "writeMessageInputTextDesktop": "Type your message (Shift + ENTER to go down a line)",
     "historyTitle": "Lesson history",
     "openEbookButtonText": "Open ebook from Browser",
     "passwordChangedDialogContent": "Please use the new password next time you login.",

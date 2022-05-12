@@ -31,7 +31,7 @@ class MessageDetailsBody extends StatelessWidget {
             ListView.builder(
               reverse: true,
               shrinkWrap: true,
-              padding: const EdgeInsets.only(top: 16.0, bottom: 80),
+              padding: const EdgeInsets.only(top: 16.0, bottom: 128),
               itemBuilder: (context, index) {
                 final message = data[index];
                 return MessageBubble(

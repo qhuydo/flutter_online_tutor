@@ -10,11 +10,13 @@ import 'application/common/utils/video_player.dart';
 import 'bootstrap.dart';
 import 'di/dependency_injection.dart';
 import 'infrastructure/common/network/dio_interceptors.dart';
+import 'presentation/common/routes/app_routes.gr.dart';
 
 Future<void> mainCommon(String environment) async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   await configureInjection(environment);
+  getIt.registerSingleton<AppRouter>(AppRouter());
 
   getIt<Dio>()
     ..options = BaseOptions(

@@ -1,5 +1,7 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../application/common/platform/platform_delegate.dart';
 import '../../../../application/message/details/message_details_bloc.dart';
 import '../../../common.dart';
 import '../../../common/utils/constants.dart';
@@ -22,6 +24,7 @@ class _MessageInputRowState extends State<MessageInputRow> {
 
   @override
   Widget build(BuildContext context) {
+    final target = Target();
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
@@ -34,28 +37,39 @@ class _MessageInputRowState extends State<MessageInputRow> {
               child: TextField(
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(10),
-                  hintText: context.l10n.writeMessageInputText,
+                  hintText: target.isDesktop
+                      ? context.l10n.writeMessageInputTextDesktop
+                      : context.l10n.writeMessageInputText,
                   border: InputBorder.none,
                 ),
                 minLines: 1,
                 maxLines: 10,
-                textInputAction: TextInputAction.send,
+                textInputAction:
+                    target.isDesktop ? null : TextInputAction.newline,
                 controller: _controller,
                 onChanged: (value) {
                   context.read<MessageDetailsBloc>().add(
                         MessageDetailsEvent.textChanged(value),
                       );
                 },
-                onSubmitted: (value) {
-                  _controller.clear();
-                  context.read<MessageDetailsBloc>()
-                    ..add(
-                      MessageDetailsEvent.textChanged(value.trimRight()),
-                    )
-                    ..add(
-                      const MessageDetailsEvent.textSubmitted(),
-                    );
-                },
+                focusNode: FocusNode(
+                  onKey: (FocusNode node, RawKeyEvent evt) {
+                    if (!evt.isShiftPressed &&
+                        evt.logicalKey.keyLabel == 'Enter') {
+                      if (evt is RawKeyDownEvent) {
+                        final text = _controller.text.trimRight();
+                        if (text.isEmpty) return KeyEventResult.handled;
+                        _controller.clear();
+                        context.read<MessageDetailsBloc>()
+                          ..add(MessageDetailsEvent.textChanged(text))
+                          ..add(const MessageDetailsEvent.textSubmitted());
+                      }
+                      return KeyEventResult.handled;
+                    } else {
+                      return KeyEventResult.ignored;
+                    }
+                  },
+                ),
               ),
             ),
             const SizedBox(width: smallItemSpacing),

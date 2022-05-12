@@ -15,7 +15,7 @@ class AppState with _$AppState {
   static const _lightIsWhite = true;
   static const _darkIsTrueBlack = false;
   static final _visualDensity = FlexColorScheme.comfortablePlatformDensity;
-  static final _fontFamily = GoogleFonts.sawarabiGothic().fontFamily;
+  // static final _fontFamily = GoogleFonts.notoSans().fontFamily;
   static const _subThemeData = FlexSubThemesData(
     useTextTheme: true,
     defaultRadius: 8,
@@ -33,7 +33,7 @@ class AppState with _$AppState {
     blendTextTheme: true,
     popupMenuOpacity: 0.95,
   );
-  static const _useMaterial3 = true;
+  static const _useMaterial3 = false;
 
   const AppState._();
 
@@ -66,7 +66,7 @@ class AppState with _$AppState {
     swapColors: _swapColours,
     lightIsWhite: _lightIsWhite,
     visualDensity: _visualDensity,
-    fontFamily: _fontFamily,
+    // fontFamily: _fontFamily,
     subThemesData: _subThemeData,
     useMaterial3: _useMaterial3,
   );
@@ -84,7 +84,7 @@ class AppState with _$AppState {
     swapColors: _swapColours,
     darkIsTrueBlack: _darkIsTrueBlack,
     visualDensity: _visualDensity,
-    fontFamily: _fontFamily,
+    // fontFamily: _fontFamily,
     subThemesData: _subThemeData,
     useMaterial3: _useMaterial3,
   );
@@ -102,7 +102,7 @@ class AppState with _$AppState {
     swapColors: _swapColours,
     lightIsWhite: _lightIsWhite,
     visualDensity: _visualDensity,
-    fontFamily: _fontFamily,
+    // fontFamily: _fontFamily,
     subThemesData: _subThemeData,
     useMaterial3: _useMaterial3,
   );

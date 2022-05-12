@@ -79,9 +79,9 @@ import '../infrastructure/user/repositories/mock_user_repository.dart' as _i29;
 import '../infrastructure/user/repositories/user_repository.dart' as _i53;
 
 const String _mock = 'mock';
-const String _prod = 'prod';
 const String _dev = 'dev';
 const String _test = 'test';
+const String _prod = 'prod';
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -119,9 +119,9 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => appInjectableModule
           .secureHiveStorage(get<_i10.FlutterSecureStorage>()),
       preResolve: true);
-  gh.singleton<_i19.ServerUrl>(_i19.ServerUrlProd(), registerFor: {_prod});
   gh.singleton<_i19.ServerUrl>(_i19.ServerUrlDev(),
       registerFor: {_dev, _test, _mock});
+  gh.singleton<_i19.ServerUrl>(_i19.ServerUrlProd(), registerFor: {_prod});
   gh.lazySingleton<_i20.SharedPreferenceStorage>(
       () => _i20.SharedPreferenceStorageImpl());
   await gh.factoryAsync<_i21.SharedPreferences>(() => appInjectableModule.prefs,

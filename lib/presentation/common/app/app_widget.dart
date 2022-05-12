@@ -27,27 +27,14 @@ class OnlySenpaiApp extends StatelessWidget {
   }
 }
 
-class AppView extends StatefulWidget {
+class AppView extends StatelessWidget {
   const AppView({Key? key}) : super(key: key);
-
-  @override
-  State<AppView> createState() => _AppViewState();
-}
-
-class _AppViewState extends State<AppView> {
-  final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
-  late AppRouter _appRouter;
-
-  @override
-  void initState() {
-    super.initState();
-    _appRouter = AppRouter(_navigatorKey);
-  }
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppCubit, AppState>(
       builder: (_, state) {
+        final router = getIt<AppRouter>();
         return MaterialApp.router(
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
@@ -56,10 +43,10 @@ class _AppViewState extends State<AppView> {
           darkTheme: state.dark,
           themeMode: state.themeMode.toThemeMode(),
           debugShowCheckedModeBanner: false,
-          routerDelegate: _appRouter.delegate(
+          routerDelegate: router.delegate(
             initialDeepLink: '/',
           ),
-          routeInformationParser: _appRouter.defaultRouteParser(),
+          routeInformationParser: router.defaultRouteParser(),
         );
       },
     );

@@ -33,6 +33,7 @@ class AdaptiveAutoTabsScaffold extends StatefulWidget {
   final ValueChanged<int>? onNavigationIndexChanged;
   final bool extendBody;
   final bool extendBodyBehindAppBar;
+  final Widget? floatingActionButton;
 
   const AdaptiveAutoTabsScaffold({
     required this.routes,
@@ -51,6 +52,7 @@ class AdaptiveAutoTabsScaffold extends StatefulWidget {
     this.onNavigationIndexChanged,
     this.extendBody = false,
     this.extendBodyBehindAppBar = false,
+    this.floatingActionButton,
     Key? key,
   }) : super(key: key);
 
@@ -107,6 +109,7 @@ class _AdaptiveScaffoldState extends State<AdaptiveAutoTabsScaffold> {
         selectedIndex: tabsRouter.activeIndex,
         onDestinationSelected: (idx) => _onDestinationChanged(idx, tabsRouter),
       ),
+      floatingActionButton: widget.floatingActionButton,
     );
   }
 
@@ -163,6 +166,7 @@ class _AdaptiveScaffoldState extends State<AdaptiveAutoTabsScaffold> {
           ),
         ],
       ),
+      floatingActionButton: widget.floatingActionButton,
     );
   }
 
@@ -201,6 +205,7 @@ class _AdaptiveScaffoldState extends State<AdaptiveAutoTabsScaffold> {
             extendBody: widget.extendBody,
             extendBodyBehindAppBar: widget.extendBodyBehindAppBar,
             body: body,
+            floatingActionButton: widget.floatingActionButton,
           ),
         ),
       ],

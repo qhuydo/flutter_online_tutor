@@ -67,8 +67,8 @@ class _HomePageState extends State<HomePage> {
               ..add(const UpcomingClassEvent.initialise()),
           ),
           BlocProvider(
-            create: (_) =>
-                getIt<MessageListBloc>()..add(const MessageListEvent.initialise()),
+            create: (_) => getIt<MessageListBloc>()
+              ..add(const MessageListEvent.initialise()),
             lazy: false,
           ),
         ],

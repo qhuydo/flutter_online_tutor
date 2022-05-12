@@ -9,4 +9,6 @@ class MessageListEvent with _$MessageListEvent {
 
   const factory MessageListEvent.itemSelected(MessageListItem item) =
       _ItemSelected;
+
+  const factory MessageListEvent.refreshed() = _Refreshed;
 }

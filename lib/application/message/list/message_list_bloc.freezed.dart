@@ -33,6 +33,10 @@ class _$MessageListEventTearOff {
       item,
     );
   }
+
+  _Refreshed refreshed() {
+    return const _Refreshed();
+  }
 }
 
 /// @nodoc
@@ -45,6 +49,7 @@ mixin _$MessageListEvent {
     required TResult Function() initialise,
     required TResult Function(MessageListItem item) messageRead,
     required TResult Function(MessageListItem item) itemSelected,
+    required TResult Function() refreshed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,6 +57,7 @@ mixin _$MessageListEvent {
     TResult Function()? initialise,
     TResult Function(MessageListItem item)? messageRead,
     TResult Function(MessageListItem item)? itemSelected,
+    TResult Function()? refreshed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,6 +65,7 @@ mixin _$MessageListEvent {
     TResult Function()? initialise,
     TResult Function(MessageListItem item)? messageRead,
     TResult Function(MessageListItem item)? itemSelected,
+    TResult Function()? refreshed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,6 +74,7 @@ mixin _$MessageListEvent {
     required TResult Function(_Initialise value) initialise,
     required TResult Function(_MessageRead value) messageRead,
     required TResult Function(_ItemSelected value) itemSelected,
+    required TResult Function(_Refreshed value) refreshed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,6 +82,7 @@ mixin _$MessageListEvent {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_MessageRead value)? messageRead,
     TResult Function(_ItemSelected value)? itemSelected,
+    TResult Function(_Refreshed value)? refreshed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +90,7 @@ mixin _$MessageListEvent {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_MessageRead value)? messageRead,
     TResult Function(_ItemSelected value)? itemSelected,
+    TResult Function(_Refreshed value)? refreshed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,6 +157,7 @@ class _$_Initialise implements _Initialise {
     required TResult Function() initialise,
     required TResult Function(MessageListItem item) messageRead,
     required TResult Function(MessageListItem item) itemSelected,
+    required TResult Function() refreshed,
   }) {
     return initialise();
   }
@@ -157,6 +168,7 @@ class _$_Initialise implements _Initialise {
     TResult Function()? initialise,
     TResult Function(MessageListItem item)? messageRead,
     TResult Function(MessageListItem item)? itemSelected,
+    TResult Function()? refreshed,
   }) {
     return initialise?.call();
   }
@@ -167,6 +179,7 @@ class _$_Initialise implements _Initialise {
     TResult Function()? initialise,
     TResult Function(MessageListItem item)? messageRead,
     TResult Function(MessageListItem item)? itemSelected,
+    TResult Function()? refreshed,
     required TResult orElse(),
   }) {
     if (initialise != null) {
@@ -181,6 +194,7 @@ class _$_Initialise implements _Initialise {
     required TResult Function(_Initialise value) initialise,
     required TResult Function(_MessageRead value) messageRead,
     required TResult Function(_ItemSelected value) itemSelected,
+    required TResult Function(_Refreshed value) refreshed,
   }) {
     return initialise(this);
   }
@@ -191,6 +205,7 @@ class _$_Initialise implements _Initialise {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_MessageRead value)? messageRead,
     TResult Function(_ItemSelected value)? itemSelected,
+    TResult Function(_Refreshed value)? refreshed,
   }) {
     return initialise?.call(this);
   }
@@ -201,6 +216,7 @@ class _$_Initialise implements _Initialise {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_MessageRead value)? messageRead,
     TResult Function(_ItemSelected value)? itemSelected,
+    TResult Function(_Refreshed value)? refreshed,
     required TResult orElse(),
   }) {
     if (initialise != null) {
@@ -291,6 +307,7 @@ class _$_MessageRead implements _MessageRead {
     required TResult Function() initialise,
     required TResult Function(MessageListItem item) messageRead,
     required TResult Function(MessageListItem item) itemSelected,
+    required TResult Function() refreshed,
   }) {
     return messageRead(item);
   }
@@ -301,6 +318,7 @@ class _$_MessageRead implements _MessageRead {
     TResult Function()? initialise,
     TResult Function(MessageListItem item)? messageRead,
     TResult Function(MessageListItem item)? itemSelected,
+    TResult Function()? refreshed,
   }) {
     return messageRead?.call(item);
   }
@@ -311,6 +329,7 @@ class _$_MessageRead implements _MessageRead {
     TResult Function()? initialise,
     TResult Function(MessageListItem item)? messageRead,
     TResult Function(MessageListItem item)? itemSelected,
+    TResult Function()? refreshed,
     required TResult orElse(),
   }) {
     if (messageRead != null) {
@@ -325,6 +344,7 @@ class _$_MessageRead implements _MessageRead {
     required TResult Function(_Initialise value) initialise,
     required TResult Function(_MessageRead value) messageRead,
     required TResult Function(_ItemSelected value) itemSelected,
+    required TResult Function(_Refreshed value) refreshed,
   }) {
     return messageRead(this);
   }
@@ -335,6 +355,7 @@ class _$_MessageRead implements _MessageRead {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_MessageRead value)? messageRead,
     TResult Function(_ItemSelected value)? itemSelected,
+    TResult Function(_Refreshed value)? refreshed,
   }) {
     return messageRead?.call(this);
   }
@@ -345,6 +366,7 @@ class _$_MessageRead implements _MessageRead {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_MessageRead value)? messageRead,
     TResult Function(_ItemSelected value)? itemSelected,
+    TResult Function(_Refreshed value)? refreshed,
     required TResult orElse(),
   }) {
     if (messageRead != null) {
@@ -440,6 +462,7 @@ class _$_ItemSelected implements _ItemSelected {
     required TResult Function() initialise,
     required TResult Function(MessageListItem item) messageRead,
     required TResult Function(MessageListItem item) itemSelected,
+    required TResult Function() refreshed,
   }) {
     return itemSelected(item);
   }
@@ -450,6 +473,7 @@ class _$_ItemSelected implements _ItemSelected {
     TResult Function()? initialise,
     TResult Function(MessageListItem item)? messageRead,
     TResult Function(MessageListItem item)? itemSelected,
+    TResult Function()? refreshed,
   }) {
     return itemSelected?.call(item);
   }
@@ -460,6 +484,7 @@ class _$_ItemSelected implements _ItemSelected {
     TResult Function()? initialise,
     TResult Function(MessageListItem item)? messageRead,
     TResult Function(MessageListItem item)? itemSelected,
+    TResult Function()? refreshed,
     required TResult orElse(),
   }) {
     if (itemSelected != null) {
@@ -474,6 +499,7 @@ class _$_ItemSelected implements _ItemSelected {
     required TResult Function(_Initialise value) initialise,
     required TResult Function(_MessageRead value) messageRead,
     required TResult Function(_ItemSelected value) itemSelected,
+    required TResult Function(_Refreshed value) refreshed,
   }) {
     return itemSelected(this);
   }
@@ -484,6 +510,7 @@ class _$_ItemSelected implements _ItemSelected {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_MessageRead value)? messageRead,
     TResult Function(_ItemSelected value)? itemSelected,
+    TResult Function(_Refreshed value)? refreshed,
   }) {
     return itemSelected?.call(this);
   }
@@ -494,6 +521,7 @@ class _$_ItemSelected implements _ItemSelected {
     TResult Function(_Initialise value)? initialise,
     TResult Function(_MessageRead value)? messageRead,
     TResult Function(_ItemSelected value)? itemSelected,
+    TResult Function(_Refreshed value)? refreshed,
     required TResult orElse(),
   }) {
     if (itemSelected != null) {
@@ -510,6 +538,122 @@ abstract class _ItemSelected implements MessageListEvent {
   @JsonKey(ignore: true)
   _$ItemSelectedCopyWith<_ItemSelected> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$RefreshedCopyWith<$Res> {
+  factory _$RefreshedCopyWith(
+          _Refreshed value, $Res Function(_Refreshed) then) =
+      __$RefreshedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$RefreshedCopyWithImpl<$Res>
+    extends _$MessageListEventCopyWithImpl<$Res>
+    implements _$RefreshedCopyWith<$Res> {
+  __$RefreshedCopyWithImpl(_Refreshed _value, $Res Function(_Refreshed) _then)
+      : super(_value, (v) => _then(v as _Refreshed));
+
+  @override
+  _Refreshed get _value => super._value as _Refreshed;
+}
+
+/// @nodoc
+
+class _$_Refreshed implements _Refreshed {
+  const _$_Refreshed();
+
+  @override
+  String toString() {
+    return 'MessageListEvent.refreshed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Refreshed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialise,
+    required TResult Function(MessageListItem item) messageRead,
+    required TResult Function(MessageListItem item) itemSelected,
+    required TResult Function() refreshed,
+  }) {
+    return refreshed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function(MessageListItem item)? messageRead,
+    TResult Function(MessageListItem item)? itemSelected,
+    TResult Function()? refreshed,
+  }) {
+    return refreshed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function(MessageListItem item)? messageRead,
+    TResult Function(MessageListItem item)? itemSelected,
+    TResult Function()? refreshed,
+    required TResult orElse(),
+  }) {
+    if (refreshed != null) {
+      return refreshed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialise value) initialise,
+    required TResult Function(_MessageRead value) messageRead,
+    required TResult Function(_ItemSelected value) itemSelected,
+    required TResult Function(_Refreshed value) refreshed,
+  }) {
+    return refreshed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_MessageRead value)? messageRead,
+    TResult Function(_ItemSelected value)? itemSelected,
+    TResult Function(_Refreshed value)? refreshed,
+  }) {
+    return refreshed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_MessageRead value)? messageRead,
+    TResult Function(_ItemSelected value)? itemSelected,
+    TResult Function(_Refreshed value)? refreshed,
+    required TResult orElse(),
+  }) {
+    if (refreshed != null) {
+      return refreshed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Refreshed implements MessageListEvent {
+  const factory _Refreshed() = _$_Refreshed;
 }
 
 /// @nodoc

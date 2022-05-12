@@ -59,24 +59,47 @@ class _MessageBodyDesktop extends StatelessWidget {
           children: [
             Flexible(
               flex: isMediumSize ? 4 : 1,
-              child: SingleChildScrollView(
-                child: ListView.builder(
-                  primary: false,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    final item = state.messageList[index];
-                    return MessageRow(
-                      item: item,
-                      isSelected: state.selectedItem?.id == item.id,
-                      onTapped: () {
-                        context.read<MessageListBloc>()
-                          ..add(MessageListEvent.messageRead(item))
-                          ..add(MessageListEvent.itemSelected(item));
-                      },
-                    );
-                  },
-                  itemCount: state.messageList.length,
-                ),
+              child: Stack(
+                children: [
+                  SingleChildScrollView(
+                    child: SafeArea(
+                      child: ListView.builder(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 72),
+                        primary: false,
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          final item = state.messageList[index];
+                          return MessageRow(
+                            item: item,
+                            isSelected: state.selectedItem?.id == item.id,
+                            onTapped: () {
+                              context.read<MessageListBloc>()
+                                ..add(MessageListEvent.messageRead(item))
+                                ..add(MessageListEvent.itemSelected(item));
+                            },
+                          );
+                        },
+                        itemCount: state.messageList.length,
+                      ),
+                    ),
+                  ),
+                  SafeArea(
+                    child: Align(
+                      alignment: Alignment.bottomRight,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: FloatingActionButton(
+                          onPressed: () {
+                            context.read<MessageListBloc>().add(
+                              const MessageListEvent.refreshed()
+                            );
+                          },
+                          child: const Icon(Icons.refresh),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             const VerticalDivider(),

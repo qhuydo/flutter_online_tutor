@@ -17,30 +17,40 @@ class MessageBodyMobile extends StatelessWidget {
           return const SizedBox();
         }
 
-        return SingleChildScrollView(
-          child: SafeArea(
-            left: false,
-            child: ListView.builder(
-              primary: false,
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                final item = state.messageList[index];
-                return MessageRow(
-                  item: item,
-                  onTapped: () {
-                    context.read<MessageListBloc>()
-                      ..add(MessageListEvent.messageRead(item))
-                      ..add(MessageListEvent.itemSelected(item));
+        return SafeArea(
+          left: false,
+          child: RefreshIndicator(
+            onRefresh: () {
+              context
+                  .read<MessageListBloc>()
+                  .add(const MessageListEvent.refreshed());
+              return Future.delayed(const Duration(seconds: 2));
+            },
+            child: SingleChildScrollView(
+              physics: const AlwaysScrollableScrollPhysics(),
+              child: ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                primary: false,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  final item = state.messageList[index];
+                  return MessageRow(
+                    item: item,
+                    onTapped: () {
+                      context.read<MessageListBloc>()
+                        ..add(MessageListEvent.messageRead(item))
+                        ..add(MessageListEvent.itemSelected(item));
 
-                    context.router.push(MessageDetailsRoute(
-                      tutorId: item.partner.id,
-                      partnerThumbnail: item.partner.avatar,
-                      partnerName: item.partner.name,
-                    ));
-                  },
-                );
-              },
-              itemCount: state.messageList.length,
+                      context.router.push(MessageDetailsRoute(
+                        tutorId: item.partner.id,
+                        partnerThumbnail: item.partner.avatar,
+                        partnerName: item.partner.name,
+                      ));
+                    },
+                  );
+                },
+                itemCount: state.messageList.length,
+              ),
             ),
           ),
         );
