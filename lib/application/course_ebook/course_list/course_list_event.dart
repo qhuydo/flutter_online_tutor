@@ -24,4 +24,7 @@ class CourseListEvent with _$CourseListEvent {
   const factory CourseListEvent.searchOptionCleared() = _SearchOptionCleared;
 
   const factory CourseListEvent.submitted() = _Submitted;
+
+  const factory CourseListEvent.recommendedListRefreshed() =
+      _RecommendedListRefreshed;
 }

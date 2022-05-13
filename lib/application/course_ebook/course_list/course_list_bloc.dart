@@ -33,6 +33,7 @@ class CourseListBloc extends Bloc<CourseListEvent, CourseListState> {
         categoriesChanged: (value) => _categoriesChanged(value, emit),
         searchOptionCleared: () => _searchOptionCleared(emit),
         submitted: () => _submitted(emit),
+        recommendedListRefreshed: () => _recommendedListRefreshed(emit),
       );
     });
   }
@@ -124,6 +125,28 @@ class CourseListBloc extends Bloc<CourseListEvent, CourseListState> {
       isInitial: false,
       isLoading: false,
       listOrFailure: result,
+    ));
+  }
+
+  Future _recommendedListRefreshed(Emitter<CourseListState> emit) async {
+    emit(state.copyWith(
+      isLoading: true,
+    ));
+
+    final result = await _repository.getCourses(
+      page: 1,
+      limit: 20,
+    );
+
+    final categories = (await _repository.getCourseCategories()).fold(
+          (l) => <CourseCategory>[],
+          (r) => r,
+    );
+
+    emit(state.copyWith(
+      isLoading: false,
+      recommendedListOrFailure: result.map((r) => r.list),
+      allCategories: categories,
     ));
   }
 }

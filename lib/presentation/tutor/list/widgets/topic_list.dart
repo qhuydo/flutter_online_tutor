@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -29,19 +30,24 @@ class TopicList extends StatelessWidget {
     return Container(
       height: 36,
       padding: const EdgeInsets.symmetric(horizontal: 2),
-      child: ListView.separated(
-        padding: const EdgeInsets.symmetric(horizontal: smallItemSpacing),
-        // primary: false,
-        shrinkWrap: true,
-        physics: const ClampingScrollPhysics(),
-        scrollDirection: Axis.horizontal,
-        separatorBuilder: (BuildContext context, int index) {
-          return const SizedBox(width: 8);
-        },
-        itemBuilder: (BuildContext context, int index) {
-          return TopicChip(label: topics[index].name);
-        },
-        itemCount: topics.length,
+      child: ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(
+          dragDevices: {PointerDeviceKind.touch, PointerDeviceKind.mouse},
+        ),
+        child: ListView.separated(
+          padding: const EdgeInsets.symmetric(horizontal: smallItemSpacing),
+          // primary: false,
+          shrinkWrap: true,
+          physics: const ClampingScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          separatorBuilder: (BuildContext context, int index) {
+            return const SizedBox(width: 8);
+          },
+          itemBuilder: (BuildContext context, int index) {
+            return TopicChip(label: topics[index].name);
+          },
+          itemCount: topics.length,
+        ),
       ),
     );
   }

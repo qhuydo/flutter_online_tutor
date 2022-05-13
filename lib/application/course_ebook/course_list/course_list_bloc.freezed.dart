@@ -65,6 +65,10 @@ class _$CourseListEventTearOff {
   _Submitted submitted() {
     return const _Submitted();
   }
+
+  _RecommendedListRefreshed recommendedListRefreshed() {
+    return const _RecommendedListRefreshed();
+  }
 }
 
 /// @nodoc
@@ -84,6 +88,7 @@ mixin _$CourseListEvent {
         categoriesChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function() recommendedListRefreshed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -97,6 +102,7 @@ mixin _$CourseListEvent {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -110,6 +116,7 @@ mixin _$CourseListEvent {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -124,6 +131,8 @@ mixin _$CourseListEvent {
     required TResult Function(_CategoriesChanged value) categoriesChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_RecommendedListRefreshed value)
+        recommendedListRefreshed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -137,6 +146,7 @@ mixin _$CourseListEvent {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -150,6 +160,7 @@ mixin _$CourseListEvent {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -223,6 +234,7 @@ class _$_Initialise implements _Initialise {
         categoriesChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function() recommendedListRefreshed,
   }) {
     return initialise();
   }
@@ -239,6 +251,7 @@ class _$_Initialise implements _Initialise {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
   }) {
     return initialise?.call();
   }
@@ -255,6 +268,7 @@ class _$_Initialise implements _Initialise {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
     required TResult orElse(),
   }) {
     if (initialise != null) {
@@ -275,6 +289,8 @@ class _$_Initialise implements _Initialise {
     required TResult Function(_CategoriesChanged value) categoriesChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_RecommendedListRefreshed value)
+        recommendedListRefreshed,
   }) {
     return initialise(this);
   }
@@ -291,6 +307,7 @@ class _$_Initialise implements _Initialise {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
   }) {
     return initialise?.call(this);
   }
@@ -307,6 +324,7 @@ class _$_Initialise implements _Initialise {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
     required TResult orElse(),
   }) {
     if (initialise != null) {
@@ -395,6 +413,7 @@ class _$_KeywordChanged implements _KeywordChanged {
         categoriesChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function() recommendedListRefreshed,
   }) {
     return keywordChanged(keyword);
   }
@@ -411,6 +430,7 @@ class _$_KeywordChanged implements _KeywordChanged {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
   }) {
     return keywordChanged?.call(keyword);
   }
@@ -427,6 +447,7 @@ class _$_KeywordChanged implements _KeywordChanged {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
     required TResult orElse(),
   }) {
     if (keywordChanged != null) {
@@ -447,6 +468,8 @@ class _$_KeywordChanged implements _KeywordChanged {
     required TResult Function(_CategoriesChanged value) categoriesChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_RecommendedListRefreshed value)
+        recommendedListRefreshed,
   }) {
     return keywordChanged(this);
   }
@@ -463,6 +486,7 @@ class _$_KeywordChanged implements _KeywordChanged {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
   }) {
     return keywordChanged?.call(this);
   }
@@ -479,6 +503,7 @@ class _$_KeywordChanged implements _KeywordChanged {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
     required TResult orElse(),
   }) {
     if (keywordChanged != null) {
@@ -572,6 +597,7 @@ class _$_PageChanged implements _PageChanged {
         categoriesChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function() recommendedListRefreshed,
   }) {
     return pageChanged(page);
   }
@@ -588,6 +614,7 @@ class _$_PageChanged implements _PageChanged {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
   }) {
     return pageChanged?.call(page);
   }
@@ -604,6 +631,7 @@ class _$_PageChanged implements _PageChanged {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
     required TResult orElse(),
   }) {
     if (pageChanged != null) {
@@ -624,6 +652,8 @@ class _$_PageChanged implements _PageChanged {
     required TResult Function(_CategoriesChanged value) categoriesChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_RecommendedListRefreshed value)
+        recommendedListRefreshed,
   }) {
     return pageChanged(this);
   }
@@ -640,6 +670,7 @@ class _$_PageChanged implements _PageChanged {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
   }) {
     return pageChanged?.call(this);
   }
@@ -656,6 +687,7 @@ class _$_PageChanged implements _PageChanged {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
     required TResult orElse(),
   }) {
     if (pageChanged != null) {
@@ -749,6 +781,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
         categoriesChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function() recommendedListRefreshed,
   }) {
     return pageLimitChanged(pageLimit);
   }
@@ -765,6 +798,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
   }) {
     return pageLimitChanged?.call(pageLimit);
   }
@@ -781,6 +815,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
     required TResult orElse(),
   }) {
     if (pageLimitChanged != null) {
@@ -801,6 +836,8 @@ class _$_PageLimitChanged implements _PageLimitChanged {
     required TResult Function(_CategoriesChanged value) categoriesChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_RecommendedListRefreshed value)
+        recommendedListRefreshed,
   }) {
     return pageLimitChanged(this);
   }
@@ -817,6 +854,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
   }) {
     return pageLimitChanged?.call(this);
   }
@@ -833,6 +871,7 @@ class _$_PageLimitChanged implements _PageLimitChanged {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
     required TResult orElse(),
   }) {
     if (pageLimitChanged != null) {
@@ -927,6 +966,7 @@ class _$_SortOptionChanged implements _SortOptionChanged {
         categoriesChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function() recommendedListRefreshed,
   }) {
     return sortOptionChanged(sortOption);
   }
@@ -943,6 +983,7 @@ class _$_SortOptionChanged implements _SortOptionChanged {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
   }) {
     return sortOptionChanged?.call(sortOption);
   }
@@ -959,6 +1000,7 @@ class _$_SortOptionChanged implements _SortOptionChanged {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
     required TResult orElse(),
   }) {
     if (sortOptionChanged != null) {
@@ -979,6 +1021,8 @@ class _$_SortOptionChanged implements _SortOptionChanged {
     required TResult Function(_CategoriesChanged value) categoriesChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_RecommendedListRefreshed value)
+        recommendedListRefreshed,
   }) {
     return sortOptionChanged(this);
   }
@@ -995,6 +1039,7 @@ class _$_SortOptionChanged implements _SortOptionChanged {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
   }) {
     return sortOptionChanged?.call(this);
   }
@@ -1011,6 +1056,7 @@ class _$_SortOptionChanged implements _SortOptionChanged {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
     required TResult orElse(),
   }) {
     if (sortOptionChanged != null) {
@@ -1105,6 +1151,7 @@ class _$_LevelsChanged implements _LevelsChanged {
         categoriesChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function() recommendedListRefreshed,
   }) {
     return levelsChanged(levels);
   }
@@ -1121,6 +1168,7 @@ class _$_LevelsChanged implements _LevelsChanged {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
   }) {
     return levelsChanged?.call(levels);
   }
@@ -1137,6 +1185,7 @@ class _$_LevelsChanged implements _LevelsChanged {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
     required TResult orElse(),
   }) {
     if (levelsChanged != null) {
@@ -1157,6 +1206,8 @@ class _$_LevelsChanged implements _LevelsChanged {
     required TResult Function(_CategoriesChanged value) categoriesChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_RecommendedListRefreshed value)
+        recommendedListRefreshed,
   }) {
     return levelsChanged(this);
   }
@@ -1173,6 +1224,7 @@ class _$_LevelsChanged implements _LevelsChanged {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
   }) {
     return levelsChanged?.call(this);
   }
@@ -1189,6 +1241,7 @@ class _$_LevelsChanged implements _LevelsChanged {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
     required TResult orElse(),
   }) {
     if (levelsChanged != null) {
@@ -1283,6 +1336,7 @@ class _$_CategoriesChanged implements _CategoriesChanged {
         categoriesChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function() recommendedListRefreshed,
   }) {
     return categoriesChanged(categories);
   }
@@ -1299,6 +1353,7 @@ class _$_CategoriesChanged implements _CategoriesChanged {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
   }) {
     return categoriesChanged?.call(categories);
   }
@@ -1315,6 +1370,7 @@ class _$_CategoriesChanged implements _CategoriesChanged {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
     required TResult orElse(),
   }) {
     if (categoriesChanged != null) {
@@ -1335,6 +1391,8 @@ class _$_CategoriesChanged implements _CategoriesChanged {
     required TResult Function(_CategoriesChanged value) categoriesChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_RecommendedListRefreshed value)
+        recommendedListRefreshed,
   }) {
     return categoriesChanged(this);
   }
@@ -1351,6 +1409,7 @@ class _$_CategoriesChanged implements _CategoriesChanged {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
   }) {
     return categoriesChanged?.call(this);
   }
@@ -1367,6 +1426,7 @@ class _$_CategoriesChanged implements _CategoriesChanged {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
     required TResult orElse(),
   }) {
     if (categoriesChanged != null) {
@@ -1437,6 +1497,7 @@ class _$_SearchOptionCleared implements _SearchOptionCleared {
         categoriesChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function() recommendedListRefreshed,
   }) {
     return searchOptionCleared();
   }
@@ -1453,6 +1514,7 @@ class _$_SearchOptionCleared implements _SearchOptionCleared {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
   }) {
     return searchOptionCleared?.call();
   }
@@ -1469,6 +1531,7 @@ class _$_SearchOptionCleared implements _SearchOptionCleared {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
     required TResult orElse(),
   }) {
     if (searchOptionCleared != null) {
@@ -1489,6 +1552,8 @@ class _$_SearchOptionCleared implements _SearchOptionCleared {
     required TResult Function(_CategoriesChanged value) categoriesChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_RecommendedListRefreshed value)
+        recommendedListRefreshed,
   }) {
     return searchOptionCleared(this);
   }
@@ -1505,6 +1570,7 @@ class _$_SearchOptionCleared implements _SearchOptionCleared {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
   }) {
     return searchOptionCleared?.call(this);
   }
@@ -1521,6 +1587,7 @@ class _$_SearchOptionCleared implements _SearchOptionCleared {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
     required TResult orElse(),
   }) {
     if (searchOptionCleared != null) {
@@ -1583,6 +1650,7 @@ class _$_Submitted implements _Submitted {
         categoriesChanged,
     required TResult Function() searchOptionCleared,
     required TResult Function() submitted,
+    required TResult Function() recommendedListRefreshed,
   }) {
     return submitted();
   }
@@ -1599,6 +1667,7 @@ class _$_Submitted implements _Submitted {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
   }) {
     return submitted?.call();
   }
@@ -1615,6 +1684,7 @@ class _$_Submitted implements _Submitted {
     TResult Function(List<CourseCategory> categories)? categoriesChanged,
     TResult Function()? searchOptionCleared,
     TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
     required TResult orElse(),
   }) {
     if (submitted != null) {
@@ -1635,6 +1705,8 @@ class _$_Submitted implements _Submitted {
     required TResult Function(_CategoriesChanged value) categoriesChanged,
     required TResult Function(_SearchOptionCleared value) searchOptionCleared,
     required TResult Function(_Submitted value) submitted,
+    required TResult Function(_RecommendedListRefreshed value)
+        recommendedListRefreshed,
   }) {
     return submitted(this);
   }
@@ -1651,6 +1723,7 @@ class _$_Submitted implements _Submitted {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
   }) {
     return submitted?.call(this);
   }
@@ -1667,6 +1740,7 @@ class _$_Submitted implements _Submitted {
     TResult Function(_CategoriesChanged value)? categoriesChanged,
     TResult Function(_SearchOptionCleared value)? searchOptionCleared,
     TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
     required TResult orElse(),
   }) {
     if (submitted != null) {
@@ -1678,6 +1752,163 @@ class _$_Submitted implements _Submitted {
 
 abstract class _Submitted implements CourseListEvent {
   const factory _Submitted() = _$_Submitted;
+}
+
+/// @nodoc
+abstract class _$RecommendedListRefreshedCopyWith<$Res> {
+  factory _$RecommendedListRefreshedCopyWith(_RecommendedListRefreshed value,
+          $Res Function(_RecommendedListRefreshed) then) =
+      __$RecommendedListRefreshedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$RecommendedListRefreshedCopyWithImpl<$Res>
+    extends _$CourseListEventCopyWithImpl<$Res>
+    implements _$RecommendedListRefreshedCopyWith<$Res> {
+  __$RecommendedListRefreshedCopyWithImpl(_RecommendedListRefreshed _value,
+      $Res Function(_RecommendedListRefreshed) _then)
+      : super(_value, (v) => _then(v as _RecommendedListRefreshed));
+
+  @override
+  _RecommendedListRefreshed get _value =>
+      super._value as _RecommendedListRefreshed;
+}
+
+/// @nodoc
+
+class _$_RecommendedListRefreshed implements _RecommendedListRefreshed {
+  const _$_RecommendedListRefreshed();
+
+  @override
+  String toString() {
+    return 'CourseListEvent.recommendedListRefreshed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _RecommendedListRefreshed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialise,
+    required TResult Function(String keyword) keywordChanged,
+    required TResult Function(int page) pageChanged,
+    required TResult Function(int pageLimit) pageLimitChanged,
+    required TResult Function(SortLevelOption? sortOption) sortOptionChanged,
+    required TResult Function(List<Level> levels) levelsChanged,
+    required TResult Function(List<CourseCategory> categories)
+        categoriesChanged,
+    required TResult Function() searchOptionCleared,
+    required TResult Function() submitted,
+    required TResult Function() recommendedListRefreshed,
+  }) {
+    return recommendedListRefreshed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function(String keyword)? keywordChanged,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
+    TResult Function(SortLevelOption? sortOption)? sortOptionChanged,
+    TResult Function(List<Level> levels)? levelsChanged,
+    TResult Function(List<CourseCategory> categories)? categoriesChanged,
+    TResult Function()? searchOptionCleared,
+    TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
+  }) {
+    return recommendedListRefreshed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialise,
+    TResult Function(String keyword)? keywordChanged,
+    TResult Function(int page)? pageChanged,
+    TResult Function(int pageLimit)? pageLimitChanged,
+    TResult Function(SortLevelOption? sortOption)? sortOptionChanged,
+    TResult Function(List<Level> levels)? levelsChanged,
+    TResult Function(List<CourseCategory> categories)? categoriesChanged,
+    TResult Function()? searchOptionCleared,
+    TResult Function()? submitted,
+    TResult Function()? recommendedListRefreshed,
+    required TResult orElse(),
+  }) {
+    if (recommendedListRefreshed != null) {
+      return recommendedListRefreshed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialise value) initialise,
+    required TResult Function(_KeywordChanged value) keywordChanged,
+    required TResult Function(_PageChanged value) pageChanged,
+    required TResult Function(_PageLimitChanged value) pageLimitChanged,
+    required TResult Function(_SortOptionChanged value) sortOptionChanged,
+    required TResult Function(_LevelsChanged value) levelsChanged,
+    required TResult Function(_CategoriesChanged value) categoriesChanged,
+    required TResult Function(_SearchOptionCleared value) searchOptionCleared,
+    required TResult Function(_Submitted value) submitted,
+    required TResult Function(_RecommendedListRefreshed value)
+        recommendedListRefreshed,
+  }) {
+    return recommendedListRefreshed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_KeywordChanged value)? keywordChanged,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_SortOptionChanged value)? sortOptionChanged,
+    TResult Function(_LevelsChanged value)? levelsChanged,
+    TResult Function(_CategoriesChanged value)? categoriesChanged,
+    TResult Function(_SearchOptionCleared value)? searchOptionCleared,
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
+  }) {
+    return recommendedListRefreshed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialise value)? initialise,
+    TResult Function(_KeywordChanged value)? keywordChanged,
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PageLimitChanged value)? pageLimitChanged,
+    TResult Function(_SortOptionChanged value)? sortOptionChanged,
+    TResult Function(_LevelsChanged value)? levelsChanged,
+    TResult Function(_CategoriesChanged value)? categoriesChanged,
+    TResult Function(_SearchOptionCleared value)? searchOptionCleared,
+    TResult Function(_Submitted value)? submitted,
+    TResult Function(_RecommendedListRefreshed value)? recommendedListRefreshed,
+    required TResult orElse(),
+  }) {
+    if (recommendedListRefreshed != null) {
+      return recommendedListRefreshed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RecommendedListRefreshed implements CourseListEvent {
+  const factory _RecommendedListRefreshed() = _$_RecommendedListRefreshed;
 }
 
 /// @nodoc

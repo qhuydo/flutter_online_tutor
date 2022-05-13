@@ -21,9 +21,12 @@ class FavouriteTutorsPage extends StatelessWidget {
       ),
       body: BlocProvider(
         create: (_) => getIt<FavouriteTutorsCubit>(),
-        child: const Center(
-          child: SingleChildScrollView(
-            child: SafeArea(child: FavouriteTutorsBody()),
+        child: LayoutBuilder(
+          builder: (_, constraints) => ConstrainedBox(
+            constraints: BoxConstraints(minHeight: constraints.maxHeight),
+            child: const SingleChildScrollView(
+              child: SafeArea(child: FavouriteTutorsBody()),
+            ),
           ),
         ),
       ),
@@ -39,7 +42,10 @@ class FavouriteTutorsBody extends StatelessWidget {
     return BlocBuilder<FavouriteTutorsCubit, FavouriteTutorsState>(
       builder: (_, state) {
         if (state.isLoading) {
-          return const LoadingWidget();
+          return SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: const Center(child: LoadingWidget()),
+          );
         }
 
         final list = state.tutorsOrFailure.fold((l) => <Tutor>[], (r) => r);
@@ -58,7 +64,10 @@ class FavouriteTutorsBody extends StatelessWidget {
                   },
                 ),
               )
-            : EmptyPage(text: context.l10n.emptyResult);
+            : SizedBox(
+                height: MediaQuery.of(context).size.height,
+                child: EmptyPage(text: context.l10n.emptyResult),
+              );
       },
     );
   }

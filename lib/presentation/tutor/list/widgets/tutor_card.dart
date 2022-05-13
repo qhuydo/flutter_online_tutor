@@ -56,8 +56,9 @@ class TutorCard extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: itemSpacing),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: itemSpacing,
+                    ),
                     child: TutorCardActionButtons(
                       onFavouriteButtonPressed: onFavouriteButtonPressed,
                       isLoading: isLoading,
