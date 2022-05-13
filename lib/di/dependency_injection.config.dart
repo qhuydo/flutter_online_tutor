@@ -176,8 +176,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => _i42.LoginBloc(get<_i32.AuthenticationService>()));
   gh.factory<_i43.MessageListBloc>(() => _i43.MessageListBloc(
       get<_i14.MessageService>(), get<_i28.UserRepository>()));
-  gh.lazySingleton<_i14.MessageService>(
-      () => _i44.MessageServiceImpl(get<_i19.ServerUrl>()),
+  gh.singleton<_i14.MessageService>(
+      _i44.MessageServiceImpl(get<_i19.ServerUrl>()),
       registerFor: {_dev, _prod, _test},
       dispose: (i) => i.dispose());
   gh.factory<_i45.ProfileBloc>(() => _i45.ProfileBloc(

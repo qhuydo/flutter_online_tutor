@@ -36,7 +36,7 @@ class MessageListBloc extends Bloc<MessageListEvent, MessageListState> {
 
     final userJson = await _userRepository.getSignedInUserRaw();
     // log(userJson.toString());
-    await _messageService.connect(userJson);
+    _messageService.connect(userJson);
 
     // await Future.delayed(const Duration(seconds: 1));
     _messageService.getRecentList();

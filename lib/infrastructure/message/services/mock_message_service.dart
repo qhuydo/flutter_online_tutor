@@ -18,7 +18,7 @@ class MockMessageService implements MessageService {
       StreamController<List<MessageBubble>>.broadcast();
 
   @override
-  Future connect(String? userJson) async {}
+  void connect(String? userJson) {}
 
   @override
   void disconnect() {}

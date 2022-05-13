@@ -13,35 +13,43 @@ import '../dto/details/messages_dto.dart';
 import '../dto/list/message_list_dto.dart';
 import '../dto/list/message_list_item_dto.dart';
 
-@LazySingleton(
+@Singleton(
   as: MessageService,
   env: [Environment.dev, Environment.prod, Environment.test],
 )
 class MessageServiceImpl implements MessageService {
-  final socket.Socket _socket;
+  late final socket.Socket _socket;
   final _recentListStreamController =
       StreamController<List<MessageListItem>>.broadcast();
 
   final _messageStreamController =
       StreamController<List<MessageBubble>>.broadcast();
 
-  MessageServiceImpl(ServerUrl _url)
-      : _socket = socket.io(
-          _url.socketUrl,
-          socket.OptionBuilder().setTransports(['websocket']).build(),
-        ) {
+  MessageServiceImpl(ServerUrl _url) {
+    final optionBuilder = socket.OptionBuilder()
+      ..setTransports(['websocket'])
+      ..enableForceNew()
+      ..disableAutoConnect();
+
+    _socket = socket.io(
+      _url.socketUrl,
+      optionBuilder.build(),
+    );
+    _socket.connect();
+
     _socket.onConnect((_) {
       log('connect');
     });
 
-    _socket.onConnectError((data) => log(data?.toString() ?? ''));
-    _socket.onError((data) => log(data?.toString() ?? ''));
+    _socket.onConnectError((data) {
+      log(data?.toString() ?? '');
+    });
+    _socket.onError((data) {
+      log(data?.toString() ?? '');
+    });
 
     // When an event received from server, data is added to the stream
     // _socket.onAny((event, data) {
-    //   if (event == 'onlineTutors:returnList') {
-    //     return;
-    //   }
     //   log('event: $event - data: ${data?.toString() ?? ''}');
     // });
 
@@ -56,7 +64,7 @@ class MessageServiceImpl implements MessageService {
   }
 
   @override
-  Future connect(String? userJson) async {
+  void connect(String? userJson) {
     disconnect();
 
     if (userJson == null) {

@@ -9,6 +9,7 @@ import '../../../common.dart';
 import '../../../common/routes/app_routes.gr.dart';
 import '../../../common/utils/constants.dart';
 import '../../../common/widgets/empty_page.dart';
+import 'refresh_schedule_button.dart';
 import 'schedule_card.dart';
 
 class ScheduleListDesktop extends StatelessWidget {
@@ -59,18 +60,24 @@ class ScheduleListDesktop extends StatelessWidget {
 
         final map = snapshot.data as Map<DateTime, List<Appointment>>;
 
-        return SingleChildScrollView(
-          child: Column(
-            children: [
-              Center(
-                child: buildScheduleList(map, context),
+        return Stack(
+          children: [
+            SingleChildScrollView(
+              padding: const EdgeInsets.only(bottom: 60),
+              child: Column(
+                children: [
+                  Center(
+                    child: buildScheduleList(map, context),
+                  ),
+                  if (paginator != null) ...[
+                    paginator!,
+                    const SizedBox(height: smallItemSpacing),
+                  ],
+                ],
               ),
-              if (paginator != null) ...[
-                paginator!,
-                const SizedBox(height: smallItemSpacing),
-              ],
-            ],
-          ),
+            ),
+            const RefreshScheduleButton(),
+          ],
         );
       },
     );

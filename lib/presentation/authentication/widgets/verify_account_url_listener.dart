@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/common/app/app_cubit.dart';
+import '../../../application/common/platform/platform_delegate.dart';
 import '../../common/routes/app_routes.gr.dart';
 
 class VerifyAccountUrlListener extends StatelessWidget {
@@ -22,6 +23,7 @@ class VerifyAccountUrlListener extends StatelessWidget {
             previous.latestUri != current.latestUri;
       },
       listener: (_, state) async {
+        if (Target().isWeb) return;
         if (state.initialUri != null && !state.initialUriIsHandled) {
           await context.pushRoute(VerifyAccountRoute(uri: state.initialUri!));
           context.read<AppCubit>().initialUriHandled();

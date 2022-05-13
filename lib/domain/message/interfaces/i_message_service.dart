@@ -8,7 +8,7 @@ abstract class MessageService {
 
   Stream<List<MessageBubble>> subscribeMessages();
 
-  Future connect(String? userJson);
+  void connect(String? userJson);
 
   void disconnect();
 
