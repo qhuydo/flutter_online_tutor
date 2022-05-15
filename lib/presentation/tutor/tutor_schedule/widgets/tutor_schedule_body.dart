@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/schedule/tutor_schedule/tutor_schedule_bloc.dart';
 import '../../../common.dart';
-import '../../../common/utils/constants.dart';
 import 'schedule_calendar.dart';
 import 'schedule_row.dart';
 

@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../application/common/platform/platform_delegate.dart';
 import '../../../../application/message/details/message_details_bloc.dart';
 import '../../../common.dart';
-import '../../../common/utils/constants.dart';
 
 class MessageInputRow extends StatefulWidget {
   const MessageInputRow({Key? key}) : super(key: key);

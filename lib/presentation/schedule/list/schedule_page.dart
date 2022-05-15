@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/schedule/upcoming_class/upcoming_class_bloc.dart';
 import '../../../domain/schedule/models/appointment.dart';
 import '../../common.dart';
-import '../../common/utils/constants.dart';
 import '../../common/utils/dialog_utils.dart';
 import '../../common/utils/flushbar_utils.dart';
 import '../../common/widgets/empty_page.dart';

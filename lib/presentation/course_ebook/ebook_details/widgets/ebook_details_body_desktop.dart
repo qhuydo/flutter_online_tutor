@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../application/course_ebook/ebook_details/ebook_details_cubit.dart';
 import '../../../../domain/course_ebook/models/ebook.dart';
 import '../../../common.dart';
-import '../../../common/utils/constants.dart';
 import '../../../common/utils/default_app_bar.dart';
 import '../../../common/utils/image_utils.dart';
 import '../../../common/widgets/outlined_card.dart';

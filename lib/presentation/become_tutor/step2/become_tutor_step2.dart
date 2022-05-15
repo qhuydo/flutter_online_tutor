@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/become_tutor/become_tutor_bloc.dart';
 import '../../common.dart';
-import '../../common/utils/constants.dart';
 import '../../common/widgets/info_container.dart';
 
 class BecomeTutorStep2 extends StatelessWidget {

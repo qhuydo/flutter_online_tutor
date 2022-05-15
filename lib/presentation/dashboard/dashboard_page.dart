@@ -1,13 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:breakpoint/breakpoint.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../application/common/platform/platform_delegate.dart';
 import '../../application/schedule/upcoming_class/upcoming_class_bloc.dart';
 import '../common.dart';
 import '../common/routes/app_routes.gr.dart';
-import '../common/utils/constants.dart';
 import '../schedule/list/widgets/schedule_card.dart';
 import 'widgets/refresh_dashboard_button.dart';
 import 'widgets/widgets.dart';

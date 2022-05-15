@@ -3,7 +3,6 @@ import 'package:twemoji/twemoji.dart';
 
 import '../../../../domain/schedule/models/appointment.dart';
 import '../../../common.dart';
-import '../../../common/utils/constants.dart';
 import '../../../common/utils/string_utils.dart';
 
 class ScheduleCardHeader extends StatelessWidget {

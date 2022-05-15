@@ -1,10 +1,8 @@
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../domain/tutor/models/tutor.dart';
 import '../../../common.dart';
-import '../../../common/utils/constants.dart';
 import 'topic_chip.dart';
 
 class TopicList extends StatelessWidget {

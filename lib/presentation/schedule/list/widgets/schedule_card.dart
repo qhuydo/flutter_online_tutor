@@ -3,7 +3,6 @@ import 'package:auto_route/auto_route.dart';
 import '../../../../domain/schedule/models/appointment.dart';
 import '../../../common.dart';
 import '../../../common/routes/app_routes.gr.dart';
-import '../../../common/utils/constants.dart';
 import '../../../common/widgets/outlined_card.dart';
 import 'schedule_card_button_group.dart';
 import 'schedule_card_content.dart';

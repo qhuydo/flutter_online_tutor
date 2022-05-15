@@ -9,7 +9,6 @@ import '../../../../domain/schedule/models/schedule.dart';
 import '../../../common.dart';
 import '../../../common/l10n/failure_display_texts.dart';
 import '../../../common/l10n/schedule_display_text.dart';
-import '../../../common/utils/constants.dart';
 
 class BookDialog extends StatelessWidget {
   const BookDialog({

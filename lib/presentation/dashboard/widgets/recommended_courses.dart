@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/course_ebook/course_list/course_list_bloc.dart';
 import '../../common.dart';
 import '../../common/routes/app_routes.gr.dart';
-import '../../common/utils/constants.dart';
 import '../../common/widgets/loading_widget.dart';
 import '../../course_ebook/course_list/widgets/course_list_card.dart';
 

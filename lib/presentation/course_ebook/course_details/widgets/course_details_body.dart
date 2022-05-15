@@ -6,7 +6,6 @@ import 'syllabus.dart';
 import '../../../../application/course_ebook/course_details/course_details_bloc.dart';
 import '../../../../domain/course_ebook/models/course.dart';
 import '../../../common.dart';
-import '../../../common/utils/constants.dart';
 import '../../../common/utils/default_app_bar.dart';
 import '../../../common/utils/image_utils.dart';
 import '../../../common/widgets/empty_page.dart';

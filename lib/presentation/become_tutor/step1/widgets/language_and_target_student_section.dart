@@ -5,7 +5,6 @@ import '../../../../domain/authentication/failures/value_failure.dart';
 import '../../../../domain/tutor/models/language.dart';
 import '../../../common.dart';
 import '../../../common/l10n/failure_display_texts.dart';
-import '../../../common/utils/constants.dart';
 import '../../../common/widgets/language_multi_select_bottom_field.dart';
 import '../../../common/widgets/specialities_dropdown.dart';
 import '../../widgets/target_student_radio_button_group.dart';

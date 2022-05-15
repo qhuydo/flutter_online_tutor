@@ -1,5 +1,4 @@
 import '../../../common.dart';
-import '../../../common/utils/constants.dart';
 import '../../../tutor/details/widgets/video_preview.dart';
 import '../helpers/helpers.dart';
 

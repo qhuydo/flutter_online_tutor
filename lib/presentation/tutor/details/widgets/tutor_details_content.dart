@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/tutor/tutor_details/tutor_details_bloc.dart';
 import '../../../common.dart';
-import '../../../common/utils/constants.dart';
 import 'language_list.dart';
 import 'speciality_list.dart';
 import 'video_preview.dart';

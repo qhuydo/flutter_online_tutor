@@ -4,7 +4,6 @@ import '../../../application/course_ebook/course_syllabus/course_syllabus_item_c
 import '../../../domain/course_ebook/interfaces/i_course_repository.dart';
 import '../../../domain/course_ebook/models/course_topic.dart';
 import '../../common.dart';
-import '../../common/utils/constants.dart';
 import '../../common/utils/default_app_bar.dart';
 import 'widgets/widgets.dart';
 

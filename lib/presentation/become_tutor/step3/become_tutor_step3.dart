@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:twemoji/twemoji.dart';
 
 import '../../common.dart';
-import '../../common/utils/constants.dart';
 
 class BecomeTutorStep3 extends StatelessWidget {
   const BecomeTutorStep3({Key? key}) : super(key: key);

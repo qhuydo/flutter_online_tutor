@@ -9,7 +9,6 @@ import '../../../../application/tutor/tutor_details/tutor_details_bloc.dart';
 import '../../../../domain/tutor/models/tutor.dart';
 import '../../../common.dart';
 import '../../../common/routes/app_routes.gr.dart';
-import '../../../common/utils/constants.dart';
 import '../../../common/utils/string_utils.dart';
 import 'tutor_details_button_group.dart';
 

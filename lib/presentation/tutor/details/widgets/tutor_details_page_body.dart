@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/tutor/tutor_details/tutor_details_bloc.dart';
 import '../../../common.dart';
-import '../../../common/utils/constants.dart';
 import 'tutor_details_content.dart';
 import 'tutor_details_header.dart';
 import 'tutor_recommended_course_list.dart';

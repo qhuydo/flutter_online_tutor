@@ -9,7 +9,6 @@ import '../../../../domain/schedule/models/appointment_status.dart';
 import '../../../common.dart';
 import '../../../common/l10n/schedule_display_text.dart';
 import '../../../common/routes/app_routes.gr.dart';
-import '../../../common/utils/constants.dart';
 import '../../../common/utils/duration_utils.dart';
 import '../../../common/widgets/count_down_timer.dart';
 import '../../../common/widgets/outlined_card.dart';

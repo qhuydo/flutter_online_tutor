@@ -1,6 +1,5 @@
 import '../../../../domain/course_ebook/models/course.dart';
 import '../../../common.dart';
-import '../../../common/utils/constants.dart';
 import '../../../common/widgets/dots_indicator.dart';
 import 'course_carousel_card.dart';
 

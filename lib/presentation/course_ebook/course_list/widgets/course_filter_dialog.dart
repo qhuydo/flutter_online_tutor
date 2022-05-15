@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/course_ebook/course_list/course_list_bloc.dart';
 import '../../../common.dart';
-import '../../../common/utils/constants.dart';
 import '../../widgets/course_categories_dropdown.dart';
 import '../../widgets/levels_dropdown.dart';
 import '../../widgets/sort_by_level_dropdown.dart';

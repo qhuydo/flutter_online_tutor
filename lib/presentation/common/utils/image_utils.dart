@@ -1,5 +1,4 @@
 import '../../common.dart';
-import 'constants.dart';
 
 Widget getDefaultImageErrorBuilder(
   BuildContext context,

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../application/schedule/tutor_schedule/tutor_schedule_bloc.dart';
 import '../../../../application/tutor/tutor_details/tutor_details_bloc.dart';
 import '../../../common.dart';
-import '../../../common/utils/constants.dart';
 import '../../../common/utils/default_app_bar.dart';
 import '../../tutor_schedule/widgets/tutor_schedule_body.dart';
 import 'tutor_details_content.dart';

@@ -5,7 +5,6 @@ import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import '../../../application/common/platform/platform_delegate.dart';
 import '../../../application/course_ebook/course_list/course_list_bloc.dart';
 import '../../common.dart';
-import '../../common/utils/constants.dart';
 import '../../common/widgets/empty_page.dart';
 import '../../common/widgets/paginator.dart';
 import '../../common/widgets/search_bar.dart';

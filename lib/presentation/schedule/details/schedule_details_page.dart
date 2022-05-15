@@ -4,7 +4,6 @@ import '../../../application/schedule/schedule_details/schedule_details_bloc.dar
 import '../../../domain/schedule/interfaces/i_schedule_repository.dart';
 import '../../../domain/schedule/models/appointment.dart';
 import '../../common.dart';
-import '../../common/utils/constants.dart';
 import '../../common/utils/default_app_bar.dart';
 import '../../common/utils/dialog_utils.dart';
 import '../../common/utils/flushbar_utils.dart';

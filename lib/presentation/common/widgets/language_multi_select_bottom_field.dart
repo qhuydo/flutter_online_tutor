@@ -3,7 +3,6 @@ import 'package:multi_select_flutter/multi_select_flutter.dart';
 import '../../../domain/common/constants/languages.dart';
 import '../../../domain/tutor/models/language.dart';
 import '../../common.dart';
-import '../utils/constants.dart';
 
 class LanguageMultiSelectBottomField extends StatelessWidget {
   final void Function(List<Language?>) onItemsSelected;

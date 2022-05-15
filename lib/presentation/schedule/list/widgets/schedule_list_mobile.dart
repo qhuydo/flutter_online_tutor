@@ -9,7 +9,6 @@ import '../../../../domain/schedule/models/appointment.dart';
 import '../../../../domain/schedule/utils/schedule_utils.dart';
 import '../../../common.dart';
 import '../../../common/routes/app_routes.gr.dart';
-import '../../../common/utils/constants.dart';
 import 'refresh_schedule_button.dart';
 import 'schedule_card_row.dart';
 

@@ -1,7 +1,6 @@
 import '../../../../domain/schedule/models/appointment.dart';
 import '../../../common.dart';
 import '../../../common/l10n/schedule_display_text.dart';
-import '../../../common/utils/constants.dart';
 
 class ScheduleCardContent extends StatelessWidget {
   final Appointment appointment;

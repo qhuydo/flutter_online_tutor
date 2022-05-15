@@ -5,7 +5,6 @@ import '../../../application/authentication/change_password/change_password_bloc
 import '../../common.dart';
 import '../../common/l10n/failure_display_texts.dart';
 import '../../common/routes/app_routes.gr.dart';
-import '../../common/utils/constants.dart';
 import '../../common/utils/default_app_bar.dart';
 import 'widgets/change_password_form.dart';
 

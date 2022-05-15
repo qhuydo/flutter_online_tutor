@@ -1,7 +1,6 @@
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../../common.dart';
-import '../../common/utils/constants.dart';
 import '../../common/utils/default_app_bar.dart';
 import 'widgets/app_settings_card.dart';
 

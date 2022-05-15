@@ -4,7 +4,6 @@ import '../../../../application/authentication/change_password/change_password_b
 import '../../../authentication/widgets/password_input.dart';
 import '../../../common.dart';
 import '../../../common/l10n/failure_display_texts.dart';
-import '../../../common/utils/constants.dart';
 
 class ChangePasswordForm extends StatelessWidget {
   const ChangePasswordForm({

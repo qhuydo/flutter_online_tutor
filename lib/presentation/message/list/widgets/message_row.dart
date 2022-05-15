@@ -1,7 +1,6 @@
 import '../../../../domain/message/models/message_list_item.dart';
 import '../../../common.dart';
 import '../../../common/l10n/message_time_display_text.dart';
-import '../../../common/utils/constants.dart';
 
 class MessageRow extends StatelessWidget {
   final MessageListItem item;

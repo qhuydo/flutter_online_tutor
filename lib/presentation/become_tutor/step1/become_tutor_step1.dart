@@ -1,5 +1,4 @@
 import '../../common.dart';
-import '../../common/utils/constants.dart';
 import 'widgets/basic_info_section.dart';
 import 'widgets/cv_section.dart';
 import 'widgets/language_and_target_student_section.dart';

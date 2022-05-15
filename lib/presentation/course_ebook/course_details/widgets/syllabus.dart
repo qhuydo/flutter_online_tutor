@@ -2,7 +2,6 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../../../../domain/course_ebook/models/course_topic.dart';
 import '../../../common.dart';
-import '../../../common/utils/constants.dart';
 import 'syllabus_list_item.dart';
 
 class Syllabus extends StatelessWidget {

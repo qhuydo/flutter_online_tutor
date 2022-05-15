@@ -4,7 +4,6 @@ import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 import '../../../application/course_ebook/ebook_list/ebook_list_bloc.dart';
 import '../../common.dart';
-import '../../common/utils/constants.dart';
 import '../../common/widgets/paginator.dart';
 import '../../common/widgets/search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';

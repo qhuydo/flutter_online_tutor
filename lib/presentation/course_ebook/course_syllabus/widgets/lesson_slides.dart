@@ -2,7 +2,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../application/course_ebook/course_syllabus/course_syllabus_item_cubit.dart';
 import '../../../common.dart';
-import '../../../common/utils/constants.dart';
 import '../helpers/helpers.dart';
 import 'slide_preview_list.dart';
 

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/tutor/favourite_tutors/favourite_tutors_cubit.dart';
 import '../../../domain/tutor/models/tutor.dart';
 import '../../common.dart';
-import '../../common/utils/constants.dart';
 import '../../common/utils/default_app_bar.dart';
 import '../../common/widgets/empty_page.dart';
 import '../../common/widgets/loading_widget.dart';

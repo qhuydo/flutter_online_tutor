@@ -3,7 +3,6 @@ import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 import '../../../application/tutor/search_tutors/search_tutors_bloc.dart';
 import '../../common.dart';
-import '../../common/utils/constants.dart';
 import '../../common/widgets/empty_page.dart';
 import '../../common/widgets/loading_widget.dart';
 import '../../common/widgets/paginator.dart';

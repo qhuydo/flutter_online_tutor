@@ -4,7 +4,6 @@ import '../../../../application/become_tutor/become_tutor_bloc.dart';
 import '../../../../domain/authentication/failures/value_failure.dart';
 import '../../../common.dart';
 import '../../../common/l10n/failure_display_texts.dart';
-import '../../../common/utils/constants.dart';
 import '../../../user/profile/widgets/country_form_dropdown.dart';
 import '../../../user/profile/widgets/date_of_birth_form_field.dart';
 import 'profile_chooser.dart';

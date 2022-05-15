@@ -7,7 +7,6 @@ import 'package:intl/intl.dart';
 import '../../../../domain/schedule/models/appointment.dart';
 import '../../../common.dart';
 import '../../../common/routes/app_routes.gr.dart';
-import '../../../common/utils/constants.dart';
 import '../../../common/widgets/empty_page.dart';
 import 'refresh_schedule_button.dart';
 import 'schedule_card.dart';

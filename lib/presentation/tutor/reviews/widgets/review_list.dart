@@ -3,7 +3,6 @@ import 'package:intl/intl.dart';
 
 import '../../../../domain/tutor/models/feedback.dart' as feedback;
 import '../../../common.dart';
-import '../../../common/utils/constants.dart';
 
 class ReviewList extends StatelessWidget {
   final List<feedback.Feedback> feedbackList;

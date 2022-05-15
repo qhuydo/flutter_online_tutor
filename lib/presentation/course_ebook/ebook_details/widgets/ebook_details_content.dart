@@ -1,6 +1,5 @@
 import '../../../../domain/course_ebook/models/ebook.dart';
 import '../../../common.dart';
-import '../../../common/utils/constants.dart';
 import '../../../common/l10n/level_display_text.dart';
 import 'open_ebook_button.dart';
 

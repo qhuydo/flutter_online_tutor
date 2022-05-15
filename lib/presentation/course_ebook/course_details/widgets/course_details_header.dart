@@ -1,6 +1,5 @@
 import '../../../../domain/course_ebook/models/course.dart';
 import '../../../common.dart';
-import '../../../common/utils/constants.dart';
 
 class CourseDetailsHeader extends StatelessWidget {
   final Course course;
