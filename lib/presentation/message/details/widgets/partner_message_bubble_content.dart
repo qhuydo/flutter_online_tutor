@@ -29,34 +29,39 @@ class PartnerMessageBubbleContent extends StatelessWidget {
         ? [Colors.grey[100]!, Colors.grey[300]!]
         : [const Color(0xFF6C7689), const Color(0xFF3A364B)];
 
-    return Wrap(
-      // mainAxisSize: MainAxisSize.min,
-      direction: Axis.horizontal,
-      crossAxisAlignment: WrapCrossAlignment.start,
-      spacing: 0,
-      children: [
-        const SizedBox(width: itemSpacing),
-        if (showAvatar)
-          CircleAvatar(
-            backgroundImage: NetworkImage(partnerAvatar ?? ''),
-            onBackgroundImageError: (exception, stackTrace) {},
-          )
-        else
-          const CircleAvatar(backgroundColor: Colors.transparent),
-        MessageBubbleContent(
-          alignment: alignment,
-          bubbleColours: colours,
-          selectedColour: selectedColour,
-          contentPadding: const EdgeInsetsDirectional.only(
-            top: 0,
-            bottom: 4,
-            start: 8,
-            end: 20,
+    return Padding(
+      padding: showAvatar
+          ? const EdgeInsets.only(top: itemSpacing)
+          : EdgeInsets.zero,
+      child: Wrap(
+        // mainAxisSize: MainAxisSize.min,
+        direction: Axis.horizontal,
+        crossAxisAlignment: WrapCrossAlignment.start,
+        spacing: 0,
+        children: [
+          const SizedBox(width: itemSpacing),
+          if (showAvatar)
+            CircleAvatar(
+              backgroundImage: NetworkImage(partnerAvatar ?? ''),
+              onBackgroundImageError: (exception, stackTrace) {},
+            )
+          else
+            const CircleAvatar(backgroundColor: Colors.transparent),
+          MessageBubbleContent(
+            alignment: alignment,
+            bubbleColours: colours,
+            selectedColour: selectedColour,
+            contentPadding: const EdgeInsetsDirectional.only(
+              top: 0,
+              bottom: 4,
+              start: 8,
+              end: 20,
+            ),
+            content: content,
+            dateCreated: dateCreated,
           ),
-          content: content,
-          dateCreated: dateCreated,
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

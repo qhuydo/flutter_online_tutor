@@ -6,13 +6,26 @@ import '../../../common/widgets/loading_widget.dart';
 import 'message_bubble.dart';
 import 'message_input_row.dart';
 
-class MessageDetailsBody extends StatelessWidget {
+class MessageDetailsBody extends StatefulWidget {
   final String? partnerThumbnail;
 
   const MessageDetailsBody({
     Key? key,
     this.partnerThumbnail,
   }) : super(key: key);
+
+  @override
+  State<MessageDetailsBody> createState() => _MessageDetailsBodyState();
+}
+
+class _MessageDetailsBodyState extends State<MessageDetailsBody> {
+  final ScrollController scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,23 +41,28 @@ class MessageDetailsBody extends StatelessWidget {
 
         return Stack(
           children: [
-            ListView.builder(
-              reverse: true,
-              shrinkWrap: true,
-              padding: const EdgeInsets.only(top: 16.0, bottom: 128),
-              itemBuilder: (context, index) {
-                final message = data[index];
-                return MessageBubble(
-                  userId: state.userId!,
-                  message: message,
-                  content: message.content,
-                  partnerAvatar: partnerThumbnail,
-                  // the list is reversed
-                  previousMessage:
-                      index < data.length - 1 ? data[index + 1] : null,
-                );
-              },
-              itemCount: data.length,
+            Scrollbar(
+              controller: scrollController,
+              interactive: true,
+              child: ListView.builder(
+                controller: scrollController,
+                reverse: true,
+                shrinkWrap: true,
+                padding: const EdgeInsets.only(top: 16.0, bottom: 128),
+                itemBuilder: (context, index) {
+                  final message = data[index];
+                  return MessageBubble(
+                    userId: state.userId!,
+                    message: message,
+                    content: message.content,
+                    partnerAvatar: widget.partnerThumbnail,
+                    // the list is reversed
+                    previousMessage:
+                        index < data.length - 1 ? data[index + 1] : null,
+                  );
+                },
+                itemCount: data.length,
+              ),
             ),
             const MessageInputRow(),
           ],

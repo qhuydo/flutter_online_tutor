@@ -25,12 +25,24 @@ class MessageBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     final isMine = message.isMine(userId);
     final isMinePreviousMessage = previousMessage?.isMine(userId) == true;
+    final isTheirsPreviousMessage = !isMinePreviousMessage;
     final isTheirs = !isMine;
     final showPartnerAvatar =
         previousMessage == null || (isMinePreviousMessage && isTheirs);
+    final addExtraPaddingBetweenConversations =
+        previousMessage == null || (isTheirsPreviousMessage && isMine);
 
     return isMine
-        ? MessageBubbleContent(content: content, dateCreated: message.createdAt)
+        ? MessageBubbleContent(
+            content: content,
+            dateCreated: message.createdAt,
+            contentPadding: addExtraPaddingBetweenConversations
+                ? const EdgeInsets.fromLTRB(20, itemSpacing, 20, 4)
+                : const EdgeInsets.symmetric(
+                    vertical: 4,
+                    horizontal: 20,
+                  ),
+          )
         : PartnerMessageBubbleContent(
             partnerAvatar: partnerAvatar,
             showAvatar: showPartnerAvatar,
