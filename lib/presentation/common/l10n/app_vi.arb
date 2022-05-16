@@ -152,6 +152,7 @@
     "writeMessageInputTextDesktop": "Nhập tin nhắn (nhấn Shift + Enter để xuống dòng)",
     "historyTitle": "Lịch sử các buổi học",
     "openEbookButtonText": "Mở từ trình duyệt web",
+    "openMeetingButtonText": "Mở từ trình duyệt web",
     "passwordChangedDialogContent": "Xin hãy nhập mật khẩu mới khi đăng nhập ở lần tiếp theo.",
     "passwordChangedDialogTitle": "Mật khẩu đã được đổi thành công",
     "okButton": "OK",

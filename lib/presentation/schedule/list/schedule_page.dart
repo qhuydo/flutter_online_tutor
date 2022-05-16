@@ -1,6 +1,7 @@
 import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/common/platform/platform_delegate.dart';
 import '../../../application/schedule/upcoming_class/upcoming_class_bloc.dart';
 import '../../../domain/schedule/models/appointment.dart';
 import '../../common.dart';
@@ -8,6 +9,7 @@ import '../../common/utils/dialog_utils.dart';
 import '../../common/utils/flushbar_utils.dart';
 import '../../common/widgets/empty_page.dart';
 import '../../common/widgets/paginator.dart';
+import 'widgets/refresh_schedule_button.dart';
 import 'widgets/schedule_list_desktop.dart';
 import 'widgets/schedule_list_mobile.dart';
 
@@ -64,7 +66,29 @@ class SchedulePage extends StatelessWidget {
 
           final upcomingClasses = state.upcomingClasses;
           if (upcomingClasses == null || upcomingClasses.isEmpty) {
-            return EmptyPage(text: context.l10n.emptyResult);
+            return Stack(
+              children: [
+                LayoutBuilder(
+                  builder: (_, constraints) => RefreshIndicator(
+                    onRefresh: () async {
+                      context
+                          .read<UpcomingClassBloc>()
+                          .add(const UpcomingClassEvent.reload());
+                    },
+                    child: SingleChildScrollView(
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          minHeight: constraints.maxHeight,
+                        ),
+                        child: EmptyPage(text: context.l10n.emptyResult),
+                      ),
+                    ),
+                  ),
+                ),
+                if (Target().isDesktop) const RefreshScheduleButton(),
+              ],
+            );
           }
           final breakpoint = Breakpoint.fromMediaQuery(context);
           final paginator = Paginator.inputPageCountFrom1(

@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 import '../../../../domain/message/models/message_bubble.dart' as domain;
 import '../../../common.dart';
 import 'message_bubble_content.dart';

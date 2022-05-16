@@ -21,6 +21,7 @@ class Appointment with _$Appointment {
     required String tutorName,
     required Country tutorCountry,
     required MeetingRoom meetingRoom,
+    required String meetingLink,
     String? recordUrl,
     String? tutorAvatar,
   }) = _Appointment;

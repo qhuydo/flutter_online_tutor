@@ -65,7 +65,7 @@ Widget buildColourSchemeMenu(
         child: state.colourScheme == ColourScheme.random
             ? const Twemoji(
                 emoji: '🍀',
-                height: 40,
+                height: 36,
               )
             : Icon(
                 Icons.lens,

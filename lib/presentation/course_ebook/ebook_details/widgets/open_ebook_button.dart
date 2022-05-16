@@ -23,9 +23,7 @@ class OpenEbookButton extends StatelessWidget {
           ).show(context);
         }
       },
-      icon: const Icon(
-        Icons.open_in_new,
-      ),
+      icon: const Icon(Icons.open_in_new),
       label: Text(context.l10n.openEbookButtonText),
     );
   }

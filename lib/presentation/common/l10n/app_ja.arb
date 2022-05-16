@@ -152,6 +152,7 @@
     "writeMessageInputTextDesktop": "メッセージを入力 (［Shift］+［Enter］キーを押すと、送信されずに改行することができます)",
     "historyTitle": "レッスンの履歴",
     "openEbookButtonText": "ブラウザで開く",
+    "openMeetingButtonText": "ブラウザで開く",
     "passwordChangedDialogContent": "次回のログインから、新しいパスワードを使用してください。",
     "passwordChangedDialogTitle": "パスワードが正常に変更されました。",
     "okButton": "OK",

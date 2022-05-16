@@ -28,6 +28,7 @@ class _$AppointmentTearOff {
       required String tutorName,
       required Country tutorCountry,
       required MeetingRoom meetingRoom,
+      required String meetingLink,
       String? recordUrl,
       String? tutorAvatar}) {
     return _Appointment(
@@ -40,6 +41,7 @@ class _$AppointmentTearOff {
       tutorName: tutorName,
       tutorCountry: tutorCountry,
       meetingRoom: meetingRoom,
+      meetingLink: meetingLink,
       recordUrl: recordUrl,
       tutorAvatar: tutorAvatar,
     );
@@ -60,6 +62,7 @@ mixin _$Appointment {
   String get tutorName => throw _privateConstructorUsedError;
   Country get tutorCountry => throw _privateConstructorUsedError;
   MeetingRoom get meetingRoom => throw _privateConstructorUsedError;
+  String get meetingLink => throw _privateConstructorUsedError;
   String? get recordUrl => throw _privateConstructorUsedError;
   String? get tutorAvatar => throw _privateConstructorUsedError;
 
@@ -83,6 +86,7 @@ abstract class $AppointmentCopyWith<$Res> {
       String tutorName,
       Country tutorCountry,
       MeetingRoom meetingRoom,
+      String meetingLink,
       String? recordUrl,
       String? tutorAvatar});
 
@@ -109,6 +113,7 @@ class _$AppointmentCopyWithImpl<$Res> implements $AppointmentCopyWith<$Res> {
     Object? tutorName = freezed,
     Object? tutorCountry = freezed,
     Object? meetingRoom = freezed,
+    Object? meetingLink = freezed,
     Object? recordUrl = freezed,
     Object? tutorAvatar = freezed,
   }) {
@@ -149,6 +154,10 @@ class _$AppointmentCopyWithImpl<$Res> implements $AppointmentCopyWith<$Res> {
           ? _value.meetingRoom
           : meetingRoom // ignore: cast_nullable_to_non_nullable
               as MeetingRoom,
+      meetingLink: meetingLink == freezed
+          ? _value.meetingLink
+          : meetingLink // ignore: cast_nullable_to_non_nullable
+              as String,
       recordUrl: recordUrl == freezed
           ? _value.recordUrl
           : recordUrl // ignore: cast_nullable_to_non_nullable
@@ -192,6 +201,7 @@ abstract class _$AppointmentCopyWith<$Res>
       String tutorName,
       Country tutorCountry,
       MeetingRoom meetingRoom,
+      String meetingLink,
       String? recordUrl,
       String? tutorAvatar});
 
@@ -222,6 +232,7 @@ class __$AppointmentCopyWithImpl<$Res> extends _$AppointmentCopyWithImpl<$Res>
     Object? tutorName = freezed,
     Object? tutorCountry = freezed,
     Object? meetingRoom = freezed,
+    Object? meetingLink = freezed,
     Object? recordUrl = freezed,
     Object? tutorAvatar = freezed,
   }) {
@@ -262,6 +273,10 @@ class __$AppointmentCopyWithImpl<$Res> extends _$AppointmentCopyWithImpl<$Res>
           ? _value.meetingRoom
           : meetingRoom // ignore: cast_nullable_to_non_nullable
               as MeetingRoom,
+      meetingLink: meetingLink == freezed
+          ? _value.meetingLink
+          : meetingLink // ignore: cast_nullable_to_non_nullable
+              as String,
       recordUrl: recordUrl == freezed
           ? _value.recordUrl
           : recordUrl // ignore: cast_nullable_to_non_nullable
@@ -287,6 +302,7 @@ class _$_Appointment extends _Appointment {
       required this.tutorName,
       required this.tutorCountry,
       required this.meetingRoom,
+      required this.meetingLink,
       this.recordUrl,
       this.tutorAvatar})
       : super._();
@@ -310,13 +326,15 @@ class _$_Appointment extends _Appointment {
   @override
   final MeetingRoom meetingRoom;
   @override
+  final String meetingLink;
+  @override
   final String? recordUrl;
   @override
   final String? tutorAvatar;
 
   @override
   String toString() {
-    return 'Appointment(id: $id, scheduleId: $scheduleId, bookId: $bookId, tutorId: $tutorId, meetingTime: $meetingTime, studentRequest: $studentRequest, tutorName: $tutorName, tutorCountry: $tutorCountry, meetingRoom: $meetingRoom, recordUrl: $recordUrl, tutorAvatar: $tutorAvatar)';
+    return 'Appointment(id: $id, scheduleId: $scheduleId, bookId: $bookId, tutorId: $tutorId, meetingTime: $meetingTime, studentRequest: $studentRequest, tutorName: $tutorName, tutorCountry: $tutorCountry, meetingRoom: $meetingRoom, meetingLink: $meetingLink, recordUrl: $recordUrl, tutorAvatar: $tutorAvatar)';
   }
 
   @override
@@ -338,6 +356,8 @@ class _$_Appointment extends _Appointment {
                 .equals(other.tutorCountry, tutorCountry) &&
             const DeepCollectionEquality()
                 .equals(other.meetingRoom, meetingRoom) &&
+            const DeepCollectionEquality()
+                .equals(other.meetingLink, meetingLink) &&
             const DeepCollectionEquality().equals(other.recordUrl, recordUrl) &&
             const DeepCollectionEquality()
                 .equals(other.tutorAvatar, tutorAvatar));
@@ -355,6 +375,7 @@ class _$_Appointment extends _Appointment {
       const DeepCollectionEquality().hash(tutorName),
       const DeepCollectionEquality().hash(tutorCountry),
       const DeepCollectionEquality().hash(meetingRoom),
+      const DeepCollectionEquality().hash(meetingLink),
       const DeepCollectionEquality().hash(recordUrl),
       const DeepCollectionEquality().hash(tutorAvatar));
 
@@ -375,6 +396,7 @@ abstract class _Appointment extends Appointment {
       required String tutorName,
       required Country tutorCountry,
       required MeetingRoom meetingRoom,
+      required String meetingLink,
       String? recordUrl,
       String? tutorAvatar}) = _$_Appointment;
   const _Appointment._() : super._();
@@ -397,6 +419,8 @@ abstract class _Appointment extends Appointment {
   Country get tutorCountry;
   @override
   MeetingRoom get meetingRoom;
+  @override
+  String get meetingLink;
   @override
   String? get recordUrl;
   @override

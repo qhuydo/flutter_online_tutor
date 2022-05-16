@@ -160,6 +160,7 @@
     "writeMessageInputTextDesktop": "Type your message (Shift + ENTER to go down a line)",
     "historyTitle": "Lesson history",
     "openEbookButtonText": "Open ebook from Browser",
+    "openMeetingButtonText": "Join from Browser",
     "passwordChangedDialogContent": "Please use the new password next time you login.",
     "passwordChangedDialogTitle": "Password has been changed successfully",
     "okButton": "OK",

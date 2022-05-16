@@ -23,20 +23,21 @@ class MessageBodyMobile extends StatelessWidget {
           left: false,
           child: LayoutBuilder(
             builder: (_, constraints) => RefreshIndicator(
-              onRefresh: () {
+              onRefresh: () async {
                 context
                     .read<MessageListBloc>()
                     .add(const MessageListEvent.refreshed());
-                return Future.delayed(const Duration(seconds: 2));
               },
-              child: ConstrainedBox(
-                constraints: BoxConstraints(minHeight: constraints.maxHeight),
-                child: Stack(
-                  children: [
-                    SingleChildScrollView(
+              child: Stack(
+                children: [
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: constraints.maxHeight,
+                    ),
+                    child: SingleChildScrollView(
                       physics: const AlwaysScrollableScrollPhysics(),
                       child: ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                         primary: false,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
@@ -59,9 +60,9 @@ class MessageBodyMobile extends StatelessWidget {
                         itemCount: state.messageList.length,
                       ),
                     ),
-                    if (Target().isDesktop) const RefreshMessageButton(),
-                  ],
-                ),
+                  ),
+                  if (Target().isDesktop) const RefreshMessageButton(),
+                ],
               ),
             ),
           ),

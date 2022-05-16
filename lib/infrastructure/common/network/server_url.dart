@@ -3,6 +3,8 @@ import 'package:injectable/injectable.dart';
 abstract class ServerUrl {
   String get url;
 
+  String get webUrl;
+
   String get jitsiUrl;
 
   String get verifyRedirectHost;
@@ -14,6 +16,9 @@ abstract class ServerUrl {
 class ServerUrlDev extends ServerUrl {
   @override
   String get url => 'https://sandbox.api.lettutor.com';
+
+  @override
+  String get webUrl => 'https://sandbox.app.lettutor.com';
 
   @override
   String get jitsiUrl => 'https://meet.lettutor.com';
@@ -29,6 +34,9 @@ class ServerUrlDev extends ServerUrl {
 class ServerUrlProd extends ServerUrl {
   @override
   String get url => 'https://api.app.lettutor.com';
+
+  @override
+  String get webUrl => 'https://app.lettutor.com';
 
   @override
   String get jitsiUrl => 'https://meet.lettutor.com';

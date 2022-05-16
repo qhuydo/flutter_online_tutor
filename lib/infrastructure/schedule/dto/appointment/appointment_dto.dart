@@ -91,6 +91,7 @@ extension AppointmentRowDtoX on AppointmentRowDto {
       tutorName: scheduleDetailInfo.scheduleInfo.tutorInfo.name,
       meetingRoom: meetingRoomDomain,
       recordUrl: recordUrl,
+      meetingLink: studentMeetingLink,
     );
   }
 }
