@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=220519
+Type=Application
+
+Name=Online tutor
+Comment=Online tutor app
+Categories=Education;Languages;
+
+Icon=flutter_online_tutor.svg
+Exec=flutter_online_tutor
+Terminal=false
+StartupWMClass=flutter_online_tutor

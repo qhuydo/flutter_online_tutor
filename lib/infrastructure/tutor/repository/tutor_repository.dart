@@ -293,9 +293,7 @@ class TutorRepositoryImpl implements TutorRepository {
         tutorDetailsDto,
       );
       if (result == null) {
-        return left(
-          const Failure.wtf('Cannot save tutor details'),
-        );
+        return left(const Failure.wtf('Cannot save tutor details'));
       }
 
       return right(result);
@@ -303,7 +301,7 @@ class TutorRepositoryImpl implements TutorRepository {
       return left(const Failure.notFound());
     } on NullThrownError {
       return left(const Failure.internalError());
-    } on TypeError catch (e){
+    } on TypeError catch (e) {
       log(e.stackTrace?.toString() ?? '');
       return left(const Failure.serverError());
     }

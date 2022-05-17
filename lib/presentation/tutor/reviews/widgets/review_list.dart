@@ -28,9 +28,7 @@ class ReviewList extends StatelessWidget {
       itemBuilder: (context, index) {
         final textTheme = Theme.of(context).textTheme;
         return Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: itemSpacing,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: itemSpacing),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
