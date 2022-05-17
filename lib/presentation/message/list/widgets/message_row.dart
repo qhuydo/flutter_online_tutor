@@ -17,39 +17,41 @@ class MessageRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    return ListTile(
-      contentPadding: const EdgeInsets.symmetric(
-        vertical: smallItemSpacing,
-        horizontal: smallItemSpacing + 4,
-      ),
-      selected: isSelected,
-      selectedTileColor: Theme.of(context).hoverColor,
-      leading: CircleAvatar(
-        radius: 32,
-        backgroundImage: NetworkImage(
-          item.partner.avatar != null ? item.partner.avatar! : '',
+    return Material(
+      child: ListTile(
+        contentPadding: const EdgeInsets.symmetric(
+          vertical: smallItemSpacing,
+          horizontal: smallItemSpacing + 4,
         ),
-        onBackgroundImageError: (exception, stackTrace) {},
-      ),
-      title: Text(
-        item.partner.name,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        style: textTheme.titleMedium?.copyWith(
-          fontWeight: item.isNewMessage ? FontWeight.bold : FontWeight.normal,
+        selected: isSelected,
+        selectedTileColor: Theme.of(context).hoverColor,
+        leading: CircleAvatar(
+          radius: 32,
+          backgroundImage: NetworkImage(
+            item.partner.avatar != null ? item.partner.avatar! : '',
+          ),
+          onBackgroundImageError: (exception, stackTrace) {},
         ),
-      ),
-      subtitle: Text(
-        item.content,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        style: textTheme.subtitle1?.copyWith(
-          fontWeight: item.isNewMessage ? FontWeight.bold : FontWeight.w300,
-          fontStyle: item.isMine ? FontStyle.italic : null,
+        title: Text(
+          item.partner.name,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: textTheme.titleMedium?.copyWith(
+            fontWeight: item.isNewMessage ? FontWeight.bold : FontWeight.normal,
+          ),
         ),
+        subtitle: Text(
+          item.content,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: textTheme.subtitle1?.copyWith(
+            fontWeight: item.isNewMessage ? FontWeight.bold : FontWeight.w300,
+            fontStyle: item.isMine ? FontStyle.italic : null,
+          ),
+        ),
+        trailing: Text(item.createdAt.toMessageTimeDisplayText(context)),
+        onTap: onTapped,
       ),
-      trailing: Text(item.createdAt.toMessageTimeDisplayText(context)),
-      onTap: onTapped,
     );
   }
 }
