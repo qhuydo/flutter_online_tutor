@@ -1,4 +1,6 @@
 import '../../../common.dart';
+import '../../../common/app/app_icon.dart';
+import '../../../common/app/app_info.dart';
 import '../../helpers/setting_card_item.dart';
 import 'settings_card.dart';
 
@@ -11,7 +13,14 @@ class InfoCard extends StatelessWidget {
       SettingCardItem(
         iconData: Icons.info_outlined,
         title: context.l10n.aboutTheAppLabel,
-        onTap: () {},
+        onTap: () {
+          showAboutDialog(
+            context: context,
+            applicationIcon: const AppIcon(size: 70),
+            applicationName: AppInfo.appName(context),
+            applicationVersion: AppInfo.appVersion,
+          );
+        },
         trailingWidget: const Icon(
           Icons.navigate_next,
         ),
@@ -22,23 +31,9 @@ class InfoCard extends StatelessWidget {
         onTap: () {
           showLicensePage(
             context: context,
-            applicationIcon: Container(
-              width: 160,
-              height: 160,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.grey[700]!.withOpacity(0.6),
-                  width: 1.25,
-                ),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.asset(
-                  'assets/icons/icon.png',
-                ),
-              ),
-            ),
+            applicationIcon: const AppIcon(size: 120),
+            applicationName: AppInfo.appName(context),
+            applicationVersion: AppInfo.appVersion,
           );
         },
         trailingWidget: const Icon(
