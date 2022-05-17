@@ -297,5 +297,6 @@
     "reportDialogContent": "Help us understand what's happening",
     "bookDialogContent": "Please check your mail to view the schedule details",
     "updateProfileSuccessfully": "Update profile successfully",
-    "noScheduleAvailable": "No schedules are available for this day"
+    "noScheduleAvailable": "No schedules are available for this day",
+    "noMessageFound": "No messages"
 }

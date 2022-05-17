@@ -205,8 +205,8 @@ Future<_i1.GetIt> $initGetIt(_i1.GetIt get,
       () => _i53.UserRepositoryImpl(
           get<_i5.Box<String>>(instanceName: 'secret'), get<_i30.ApiClient>()),
       registerFor: {_dev, _prod, _test});
-  gh.factory<_i54.AuthenticationBloc>(
-      () => _i54.AuthenticationBloc(get<_i32.AuthenticationService>()));
+  gh.factory<_i54.AuthenticationBloc>(() => _i54.AuthenticationBloc(
+      get<_i32.AuthenticationService>(), get<_i28.UserRepository>()));
   gh.singleton<_i32.AuthenticationService>(
       _i55.AuthenticationServiceImpl(
           get<_i5.Box<String>>(instanceName: 'secret'), get<_i30.ApiClient>()),

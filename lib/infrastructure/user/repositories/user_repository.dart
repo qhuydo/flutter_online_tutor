@@ -108,7 +108,7 @@ class UserRepositoryImpl extends UserRepository {
         'country': countryValue,
         'phone': phoneNumberValue,
         'birthday': birthDayValue,
-        'level': levelValue,
+        if (levelValue.isNotEmpty) 'level': levelValue,
         'learnTopics': learnTopicValue,
         'testPreparations': testPreparationValue
       };

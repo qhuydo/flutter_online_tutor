@@ -1,8 +1,8 @@
 # Maintainer: qhuydo <46428103+qhuydo@users.noreply.github.com>
 pkgname=flutter_online_tutor-bin
 _pkgname=${pkgname%-bin}
-pkgver=20220517
-pkgrel=2
+pkgver=0.1.1
+pkgrel=3
 epoch=
 # TODO add description
 pkgdesc="Online Tutor"
@@ -27,8 +27,8 @@ source=("$_pkgname-$pkgver.tar.gz"
 noextract=()
 md5sums=()
 validpgpkeys=()
-sha256sums=('6015670d4c2752c7ab0496c8bd9c94b08e2335e23e1e1b3824b92b71dd96c323'
-            '25d86516c2d99a854be881dee428126609332e572842f636c7baf65584b76c02'
+sha256sums=('adfd9b0c0707c69a7bc4f6b7807c0f5c2f31230d19df7ecbf96434daf7b32ad7'
+            '93b0c8a33eab023626854bf8e844d3081f755e1ac861d19611b83c92edeac54c'
             '879e17e5c9042afb5205f6f55a335baecf2d8295b10ada2107e59fb38d828831')
 
 package() {

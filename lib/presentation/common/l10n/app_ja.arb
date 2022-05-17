@@ -241,5 +241,7 @@
     "reported": "レポートしました",
     "bookDialogContent": "予定詳細には、メールをチェクしてください。",
     "updateProfileSuccessfully": "プロファイルが更新しました。",
-    "noScheduleAvailable": "この日にスケージュールはありません。"
+    "noScheduleAvailable": "この日にスケージュールはありません。",
+    "noMessageFound": "メッセがありません。"
+
 }

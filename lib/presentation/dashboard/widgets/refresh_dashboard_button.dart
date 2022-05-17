@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/authentication/authentication_bloc.dart';
 import '../../../application/common/app/app_cubit.dart';
 import '../../../application/course_ebook/course_list/course_list_bloc.dart';
 import '../../../application/message/list/message_list_bloc.dart';
@@ -14,6 +15,8 @@ class RefreshDashboardButton extends StatelessWidget {
 
   static void onRefreshed(BuildContext context) {
     context
+      ..read<AuthenticationBloc>()
+          .add(const AuthenticationEvent.authCheckRequested())
       ..read<RecommendedTutorsBloc>().add(
         const RecommendedTutorsEvent.initialise(),
       )

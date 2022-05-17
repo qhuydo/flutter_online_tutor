@@ -45,5 +45,5 @@ class ServerUrlProd extends ServerUrl {
   String get verifyRedirectHost => 'letstudy.io';
 
   @override
-  String get socketUrl => 'wss://api.lettutor.com';
+  String get socketUrl => 'wss://api.app.lettutor.com';
 }

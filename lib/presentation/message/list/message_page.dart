@@ -1,9 +1,9 @@
 import 'package:breakpoint/breakpoint.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/common/platform/platform_delegate.dart';
 import '../../../application/message/list/message_list_bloc.dart';
+import '../../common.dart';
 import '../../common/widgets/empty_page.dart';
 import '../../common/widgets/loading_widget.dart';
 import 'widgets/message_body_desktop.dart';
@@ -37,7 +37,7 @@ class MessagePage extends StatelessWidget {
                       constraints: BoxConstraints(
                         minHeight: constraints.maxHeight,
                       ),
-                      child: const EmptyPage(),
+                      child: EmptyPage(text: context.l10n.noMessageFound),
                     ),
                   ),
                 ),

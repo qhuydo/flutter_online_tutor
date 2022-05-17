@@ -242,5 +242,6 @@
     "reportDialogContent": "Bạn đang gặp phải vấn đề gì?",
     "bookDialogContent": "Xin vui lòng kiểm tra email để xem thông tin chi tiết lịch hẹn",
     "updateProfileSuccessfully": "Đã cập nhật hồ sơ",
-    "noScheduleAvailable": "Không có lịch hẹn cho ngày này"
+    "noScheduleAvailable": "Không có lịch hẹn cho ngày này",
+    "noMessageFound": "Không có tin nhắn"
 }
