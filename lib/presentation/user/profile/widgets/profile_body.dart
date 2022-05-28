@@ -10,10 +10,7 @@ class ProfileBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: ConstrainedBox(
-        constraints: BoxConstraints.loose(
-          // TODO re-organise size constraints
-          const Size(800, double.infinity),
-        ),
+        constraints: BoxConstraints.loose(const Size(800, double.infinity)),
         child: Column(
           children: const [
             ProfileAvatar(avatarRadius: 60),

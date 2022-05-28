@@ -4,8 +4,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/course_ebook/course_list/course_list_bloc.dart';
+import '../../../domain/common/failures/failure.dart';
 import '../../common.dart';
 import '../../common/routes/app_routes.gr.dart';
+import '../../common/widgets/failure_widget.dart';
 import '../../common/widgets/loading_widget.dart';
 import '../../course_ebook/course_list/widgets/course_list_card.dart';
 
@@ -30,14 +32,6 @@ class RecommendedCoursesState extends State<RecommendedCourses> {
     return BlocBuilder<CourseListBloc, CourseListState>(
       builder: (context, state) {
         final list = state.recommendedCourseList;
-
-        if (list == null) {
-          // TODO add error widget
-          return SizedBox(
-            height: 60,
-            child: Center(child: Text(context.l10n.valueFailureUnknownError)),
-          );
-        }
 
         return Column(
           mainAxisSize: MainAxisSize.min,
@@ -85,48 +79,56 @@ class RecommendedCoursesState extends State<RecommendedCourses> {
                 ),
               ),
             ),
-            Scrollbar(
-              controller: scrollController,
-              showTrackOnHover: true,
-              interactive: true,
-              child: ScrollConfiguration(
-                behavior: ScrollConfiguration.of(context).copyWith(
-                  dragDevices: {
-                    PointerDeviceKind.touch,
-                    PointerDeviceKind.mouse
-                  },
-                ),
-                child: LimitedBox(
-                  maxHeight: 400 + itemSpacing * 2,
-                  child: state.isLoading
-                      ? const LoadingWidget()
-                      : ListView.builder(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: itemSpacing,
-                          ),
-                          controller: scrollController,
-                          primary: false,
-                          scrollDirection: Axis.horizontal,
-                          shrinkWrap: true,
-                          itemCount: list.length,
-                          itemBuilder: (context, index) {
-                            return LimitedBox(
-                              maxWidth: 300 + itemSpacing + smallItemSpacing,
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                  top: smallItemSpacing,
-                                  bottom: itemSpacing,
+            list == null
+                ? FailureWidget(
+                    failure: state.recommendedListOrFailure.fold(
+                      (l) => l,
+                      (r) => const Failure.internalError(),
+                    ),
+                  )
+                : Scrollbar(
+                    controller: scrollController,
+                    showTrackOnHover: true,
+                    interactive: true,
+                    child: ScrollConfiguration(
+                      behavior: ScrollConfiguration.of(context).copyWith(
+                        dragDevices: {
+                          PointerDeviceKind.touch,
+                          PointerDeviceKind.mouse
+                        },
+                      ),
+                      child: LimitedBox(
+                        maxHeight: 400 + itemSpacing * 2,
+                        child: state.isLoading
+                            ? const LoadingWidget()
+                            : ListView.builder(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: itemSpacing,
                                 ),
-                                child: CourseListCard(
-                                  course: list[index],
-                                ),
+                                controller: scrollController,
+                                primary: false,
+                                scrollDirection: Axis.horizontal,
+                                shrinkWrap: true,
+                                itemCount: list.length,
+                                itemBuilder: (context, index) {
+                                  return LimitedBox(
+                                    maxWidth:
+                                        300 + itemSpacing + smallItemSpacing,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                        top: smallItemSpacing,
+                                        bottom: itemSpacing,
+                                      ),
+                                      child: CourseListCard(
+                                        course: list[index],
+                                      ),
+                                    ),
+                                  );
+                                },
                               ),
-                            );
-                          },
-                        ),
-                ),
-              ),
-            ),
+                      ),
+                    ),
+                  ),
           ],
         );
       },

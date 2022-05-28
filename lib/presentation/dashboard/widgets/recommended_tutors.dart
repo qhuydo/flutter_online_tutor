@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../../../application/tutor/recommended_tutors/recommended_tutors_bloc.dart';
+import '../../../domain/common/failures/failure.dart';
 import '../../common.dart';
 import '../../common/routes/app_routes.gr.dart';
+import '../../common/widgets/failure_widget.dart';
 import '../../tutor/list/widgets/tutor_card.dart';
 
 class RecommendedTutors extends StatelessWidget {
@@ -76,13 +78,14 @@ class _RecommendedTutors extends StatelessWidget {
 
         final tutors = state.tutorsOrFailure.fold((l) => null, (r) => r);
         if (tutors == null) {
-          // TODO add error widget
-          return SizedBox(
-            height: 50,
-            child: Center(child: Text(context.l10n.valueFailureUnknownError)),
+          return FailureWidget(
+            failure: state.tutorsOrFailure.fold(
+              (l) => l,
+              (r) => const Failure.internalError(),
+            ),
           );
         }
-        // TODO add widget for empty list state
+        if (tutors.isEmpty) return const SizedBox();
 
         return AlignedGridView.extent(
           padding: const EdgeInsets.symmetric(vertical: smallItemSpacing),

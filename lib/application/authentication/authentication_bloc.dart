@@ -8,7 +8,6 @@ import 'package:injectable/injectable.dart';
 
 import '../../domain/authentication/events/authentication_service_event.dart';
 import '../../domain/authentication/interfaces/i_authentication_service.dart';
-import '../../domain/user/interfaces/i_user_repository.dart';
 import '../../domain/user/models/user.dart';
 
 part 'authentication_bloc.freezed.dart';
@@ -21,12 +20,9 @@ part 'authentication_state.dart';
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
   final AuthenticationService _authService;
-  final UserRepository _userRepository;
 
-  AuthenticationBloc(
-    this._authService,
-    this._userRepository,
-  ) : super(const AuthenticationState.initial()) {
+  AuthenticationBloc(this._authService)
+      : super(const AuthenticationState.initial()) {
     on<AuthenticationEvent>((event, emit) async {
       await event.when(
         initialise: () => _onInitialise(emit),
@@ -40,17 +36,9 @@ class AuthenticationBloc
   Future _onAuthCheckRequested(Emitter<AuthenticationState> emit) async {
     final userOption = await _authService.getSignedInUser();
     // await Future.delayed(const Duration(seconds: 1));
-    await userOption.fold(
-      () async => emit(const AuthenticationState.unauthenticated()),
-      (user) async {
-        emit(AuthenticationState.authenticated(user));
-        final updatedInfo =
-            (await _userRepository.fetchUserInfo()).fold((l) => null, (r) => r);
-        if (updatedInfo != null) {
-          log(updatedInfo.toString());
-          emit(AuthenticationState.authenticated(updatedInfo));
-        }
-      },
+    userOption.fold(
+      () => emit(const AuthenticationState.unauthenticated()),
+      (user) => emit(AuthenticationState.authenticated(user)),
     );
   }
 

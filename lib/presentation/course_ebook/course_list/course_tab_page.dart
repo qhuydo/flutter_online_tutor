@@ -4,8 +4,10 @@ import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 import '../../../application/common/platform/platform_delegate.dart';
 import '../../../application/course_ebook/course_list/course_list_bloc.dart';
+import '../../../domain/common/failures/failure.dart';
 import '../../common.dart';
 import '../../common/widgets/empty_page.dart';
+import '../../common/widgets/failure_widget.dart';
 import '../../common/widgets/paginator.dart';
 import '../../common/widgets/search_bar.dart';
 import '../../common/widgets/search_item_row_placeholder.dart';
@@ -98,11 +100,10 @@ class _CourseTabPageState extends State<CourseTabPage> {
         }
 
         if (list == null) {
-          // TODO change to error widget
-          return SizedBox(
-            height: 60,
-            child: Center(
-              child: Text(context.l10n.valueFailureUnknownError),
+          return FailureWidget(
+            failure: state.listOrFailure.fold(
+              (l) => l,
+              (r) => const Failure.internalError(),
             ),
           );
         }

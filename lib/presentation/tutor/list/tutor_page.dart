@@ -2,8 +2,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 import '../../../application/tutor/search_tutors/search_tutors_bloc.dart';
+import '../../../domain/common/failures/failure.dart';
 import '../../common.dart';
 import '../../common/widgets/empty_page.dart';
+import '../../common/widgets/failure_widget.dart';
 import '../../common/widgets/loading_widget.dart';
 import '../../common/widgets/paginator.dart';
 import '../../common/widgets/search_bar.dart';
@@ -83,10 +85,11 @@ class TutorPageState extends State<TutorPage> {
 
   Widget buildBody(SearchTutorsState state, BuildContext context) {
     if (state.resultList == null) {
-      // TODO add error widget
-      return SizedBox(
-        height: 60,
-        child: Center(child: Text(context.l10n.valueFailureUnknownError)),
+      return FailureWidget(
+        failure: state.result.fold(
+          (l) => l,
+          (r) => const Failure.internalError(),
+        ),
       );
     }
 
@@ -138,9 +141,8 @@ class TutorPageState extends State<TutorPage> {
                             totalPages: state.paginationList!.totalPages,
                             initialPage: state.currentPage - 1,
                             onPageChanged: (value) {
-                              context
-                                  .read<SearchTutorsBloc>()
-                                  .add(SearchTutorsEvent.pageChanged(value + 1));
+                              context.read<SearchTutorsBloc>().add(
+                                  SearchTutorsEvent.pageChanged(value + 1));
                             },
                           )
                         ],

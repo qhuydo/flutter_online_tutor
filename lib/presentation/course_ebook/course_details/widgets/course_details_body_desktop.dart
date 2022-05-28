@@ -6,26 +6,13 @@ import '../../../common.dart';
 import '../../../common/utils/default_app_bar.dart';
 import '../../../common/utils/image_utils.dart';
 import '../../../common/widgets/empty_page.dart';
+import '../../../common/widgets/loading_widget.dart';
 import '../../../common/widgets/outlined_card.dart';
 import 'course_details_content.dart';
 import 'syllabus.dart';
 
 class CourseDetailsBodyDesktop extends StatelessWidget {
   const CourseDetailsBodyDesktop({Key? key}) : super(key: key);
-
-  // TODO refactor into a widget
-  Widget _buildNotFoundWidget(BuildContext context) {
-    return EmptyPage(text: context.l10n.pageNotFound);
-  }
-
-  Widget _buildLoadingWidget(BuildContext context) {
-    return const Center(
-      child: Padding(
-        padding: EdgeInsets.all(itemSpacing),
-        child: LinearProgressIndicator(),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +21,10 @@ class CourseDetailsBodyDesktop extends StatelessWidget {
       appBar: buildAppBar(context, title: context.l10n.courseTitle),
       body: BlocBuilder<CourseDetailsBloc, CourseDetailsState>(
         builder: (context, state) {
-          if (state.isLoading) return _buildLoadingWidget(context);
+          if (state.isLoading) return const LoadingWidget();
 
           final course = state.course;
-          if (course == null) return _buildNotFoundWidget(context);
+          if (course == null) return EmptyPage(text: context.l10n.pageNotFound);
 
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,

@@ -37,7 +37,6 @@ class CourseDetailsBody extends StatelessWidget {
     );
   }
 
-  // TODO refactor into a widget
   Widget _buildNotFoundWidget(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(
