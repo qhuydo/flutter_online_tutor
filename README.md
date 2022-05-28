@@ -2,6 +2,8 @@
 
 ![](assets/screenshots/desktop/dashboard_page.png)
 
+_Phiếu chấm điểm đã xóa khỏi lịch sử git sau khi chấm xong, có thể xem phiếu chấm điểm từ link [google drive](https://docs.google.com/document/d/1dA-k9UY66TJA2jpp8xcSEyzcXMXAP7l3/edit?usp=sharing&ouid=107436951487584668476&rtpof=true&sd=true) (chỉ public trong khoảng thời gian ngắn)._
+
 ## Video báo cáo
 
 * [Milestone-1: Mock-up UI](https://youtu.be/npJajNlE9GA)
