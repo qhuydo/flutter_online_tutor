@@ -31,6 +31,7 @@ class LocalTutorDataSource implements TutorDataSource {
   @disposeMethod
   Future dispose() async {
     _box.close();
+    _boxFavouriteTutorIds.close();
   }
 
   @override
